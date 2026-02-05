@@ -1,0 +1,430 @@
+Thread,Tweet,Text,Status,Tag
+Thread 1,Tweet 1,Warum Parallelisierung im Content-System dein groesster Hebel ist.,Draft,thread
+Thread 1,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 1,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 1,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 1,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 1,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 1,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 1,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 1,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 2,Tweet 1,Mein System in kurz: Rollen-Setup in der Content Factory.,Draft,thread
+Thread 2,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 2,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 2,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 2,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 2,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 2,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 2,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 2,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 3,Tweet 1,So baust du Hook-First Prozess ohne Chaos.,Draft,thread
+Thread 3,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 3,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 3,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 3,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 3,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 3,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 3,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 3,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 4,Tweet 1,"Wortlimits als Quality Gate klingt simpel, ist aber ein Gamechanger.",Draft,thread
+Thread 4,Tweet 2,"Wenn du Output willst, brauchst du Batching.",Draft,thread
+Thread 4,Tweet 3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.,Draft,thread
+Thread 4,Tweet 4,Die Rollen bleiben strikt getrennt.,Draft,thread
+Thread 4,Tweet 5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",Draft,thread
+Thread 4,Tweet 6,"Qualitaet kommt vom Review, nicht vom Zufall.",Draft,thread
+Thread 4,Tweet 7,So baust du eine Bibliothek fuer 90 Tage.,Draft,thread
+Thread 4,Tweet 8,CTA: Schreib AGENTS fuer das System.,Draft,thread
+Thread 5,Tweet 1,Mein System in kurz: Kosten senken mit kleinen Modellen.,Draft,thread
+Thread 5,Tweet 2,Viele Threads scheitern am ersten Tweet.,Draft,thread
+Thread 5,Tweet 3,Hook-First zwingt dich zu Klarheit.,Draft,thread
+Thread 5,Tweet 4,"Sammle 30 Hooks, teste 10, behalte 3.",Draft,thread
+Thread 5,Tweet 5,Baue erst dann den Rest des Threads.,Draft,thread
+Thread 5,Tweet 6,So entsteht Flow ohne Druck.,Draft,thread
+Thread 5,Tweet 7,Nutze Refiner fuer Kuerzung und Schaerfe.,Draft,thread
+Thread 5,Tweet 8,Erst dann kommt ein sauberer CTA.,Draft,thread
+Thread 5,Tweet 9,CTA: Schreib AGENTS fuer das Prompt-Pack.,Draft,thread
+Thread 6,Tweet 1,Der schnellste Weg zu mehr Output: Workflow von Idee zu Output in 4 Schritten.,Draft,thread
+Thread 6,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 6,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 6,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 6,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 6,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 6,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 6,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 7,Tweet 1,Der schnellste Weg zu mehr Output: Orchestrator als Pflichtrolle.,Draft,thread
+Thread 7,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 7,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 7,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 7,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 7,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 7,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 7,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 7,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 8,Tweet 1,Mein System in kurz: Hook-Tests mit 30 Varianten.,Draft,thread
+Thread 8,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 8,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 8,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 8,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 8,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 8,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 8,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 8,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 9,Tweet 1,Mein System in kurz: Threads ohne Brainload.,Draft,thread
+Thread 9,Tweet 2,Viele Threads scheitern am ersten Tweet.,Draft,thread
+Thread 9,Tweet 3,Hook-First zwingt dich zu Klarheit.,Draft,thread
+Thread 9,Tweet 4,"Sammle 30 Hooks, teste 10, behalte 3.",Draft,thread
+Thread 9,Tweet 5,Baue erst dann den Rest des Threads.,Draft,thread
+Thread 9,Tweet 6,So entsteht Flow ohne Druck.,Draft,thread
+Thread 9,Tweet 7,Nutze Refiner fuer Kuerzung und Schaerfe.,Draft,thread
+Thread 9,Tweet 8,Erst dann kommt ein sauberer CTA.,Draft,thread
+Thread 9,Tweet 9,CTA: Schreib AGENTS fuer das Prompt-Pack.,Draft,thread
+Thread 10,Tweet 1,Mein System in kurz: Premium-Prompts als Produkt.,Draft,thread
+Thread 10,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 10,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 10,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 10,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 10,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 10,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 10,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 11,Tweet 1,Der schnellste Weg zu mehr Output: Content-Batching fuer Creator.,Draft,thread
+Thread 11,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 11,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 11,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 11,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 11,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 11,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 11,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 12,Tweet 1,Mein System in kurz: Task-Matrix mit 25 Slots.,Draft,thread
+Thread 12,Tweet 2,"Wenn du Output willst, brauchst du Batching.",Draft,thread
+Thread 12,Tweet 3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.,Draft,thread
+Thread 12,Tweet 4,Die Rollen bleiben strikt getrennt.,Draft,thread
+Thread 12,Tweet 5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",Draft,thread
+Thread 12,Tweet 6,"Qualitaet kommt vom Review, nicht vom Zufall.",Draft,thread
+Thread 12,Tweet 7,So baust du eine Bibliothek fuer 90 Tage.,Draft,thread
+Thread 12,Tweet 8,CTA: Schreib AGENTS fuer das System.,Draft,thread
+Thread 13,Tweet 1,"Top-10 Prompt-Fehler klingt simpel, ist aber ein Gamechanger.",Draft,thread
+Thread 13,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 13,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 13,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 13,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 13,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 13,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 13,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 13,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 14,Tweet 1,Mein System in kurz: Content-Bibliothek aufbauen.,Draft,thread
+Thread 14,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 14,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 14,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 14,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 14,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 14,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 14,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 15,Tweet 1,So baust du CTA-Strategie fuer Conversion ohne Chaos.,Draft,thread
+Thread 15,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 15,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 15,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 15,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 15,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 15,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 15,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 15,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 16,Tweet 1,"Vielfalt statt Perfektion klingt simpel, ist aber ein Gamechanger.",Draft,thread
+Thread 16,Tweet 2,Viele Threads scheitern am ersten Tweet.,Draft,thread
+Thread 16,Tweet 3,Hook-First zwingt dich zu Klarheit.,Draft,thread
+Thread 16,Tweet 4,"Sammle 30 Hooks, teste 10, behalte 3.",Draft,thread
+Thread 16,Tweet 5,Baue erst dann den Rest des Threads.,Draft,thread
+Thread 16,Tweet 6,So entsteht Flow ohne Druck.,Draft,thread
+Thread 16,Tweet 7,Nutze Refiner fuer Kuerzung und Schaerfe.,Draft,thread
+Thread 16,Tweet 8,Erst dann kommt ein sauberer CTA.,Draft,thread
+Thread 16,Tweet 9,CTA: Schreib AGENTS fuer das Prompt-Pack.,Draft,thread
+Thread 17,Tweet 1,"Qualitaetssicherung in der Pipeline klingt simpel, ist aber ein Gamechanger.",Draft,thread
+Thread 17,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 17,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 17,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 17,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 17,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 17,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 17,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 18,Tweet 1,Der schnellste Weg zu mehr Output: Output-Funnels statt Einmal-Posts.,Draft,thread
+Thread 18,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 18,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 18,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 18,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 18,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 18,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 18,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 18,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 19,Tweet 1,"Thread-Repurposing klingt simpel, ist aber ein Gamechanger.",Draft,thread
+Thread 19,Tweet 2,Viele Threads scheitern am ersten Tweet.,Draft,thread
+Thread 19,Tweet 3,Hook-First zwingt dich zu Klarheit.,Draft,thread
+Thread 19,Tweet 4,"Sammle 30 Hooks, teste 10, behalte 3.",Draft,thread
+Thread 19,Tweet 5,Baue erst dann den Rest des Threads.,Draft,thread
+Thread 19,Tweet 6,So entsteht Flow ohne Druck.,Draft,thread
+Thread 19,Tweet 7,Nutze Refiner fuer Kuerzung und Schaerfe.,Draft,thread
+Thread 19,Tweet 8,Erst dann kommt ein sauberer CTA.,Draft,thread
+Thread 19,Tweet 9,CTA: Schreib AGENTS fuer das Prompt-Pack.,Draft,thread
+Thread 20,Tweet 1,Warum Agenten fuer Research dein groesster Hebel ist.,Draft,thread
+Thread 20,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 20,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 20,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 20,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 20,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 20,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 20,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 20,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 21,Tweet 1,So baust du 2-Euro Content-Stack ohne Chaos.,Draft,thread
+Thread 21,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 21,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 21,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 21,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 21,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 21,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 21,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 22,Tweet 1,Der schnellste Weg zu mehr Output: 3 Ebenen von Content.,Draft,thread
+Thread 22,Tweet 2,"Wenn du Output willst, brauchst du Batching.",Draft,thread
+Thread 22,Tweet 3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.,Draft,thread
+Thread 22,Tweet 4,Die Rollen bleiben strikt getrennt.,Draft,thread
+Thread 22,Tweet 5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",Draft,thread
+Thread 22,Tweet 6,"Qualitaet kommt vom Review, nicht vom Zufall.",Draft,thread
+Thread 22,Tweet 7,So baust du eine Bibliothek fuer 90 Tage.,Draft,thread
+Thread 22,Tweet 8,CTA: Schreib AGENTS fuer das System.,Draft,thread
+Thread 23,Tweet 1,Der schnellste Weg zu mehr Output: Von Chaos zu System in 7 Tagen.,Draft,thread
+Thread 23,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 23,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 23,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 23,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 23,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 23,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 23,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 23,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 24,Tweet 1,Der schnellste Weg zu mehr Output: Hooks ohne generischen Ton.,Draft,thread
+Thread 24,Tweet 2,"Wenn du Output willst, brauchst du Batching.",Draft,thread
+Thread 24,Tweet 3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.,Draft,thread
+Thread 24,Tweet 4,Die Rollen bleiben strikt getrennt.,Draft,thread
+Thread 24,Tweet 5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",Draft,thread
+Thread 24,Tweet 6,"Qualitaet kommt vom Review, nicht vom Zufall.",Draft,thread
+Thread 24,Tweet 7,So baust du eine Bibliothek fuer 90 Tage.,Draft,thread
+Thread 24,Tweet 8,CTA: Schreib AGENTS fuer das System.,Draft,thread
+Thread 25,Tweet 1,"So baust du Schneller testen, schneller lernen ohne Chaos.",Draft,thread
+Thread 25,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 25,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 25,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 25,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 25,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 25,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 25,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 25,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 26,Tweet 1,Warum Workflow-Reihenfolge dein groesster Hebel ist.,Draft,thread
+Thread 26,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 26,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 26,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 26,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 26,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 26,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 26,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 27,Tweet 1,Mein System in kurz: Agenten-Design fuer Klarheit.,Draft,thread
+Thread 27,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 27,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 27,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 27,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 27,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 27,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 27,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 27,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 28,Tweet 1,"Monetarisierung mit Prompt-Produkten klingt simpel, ist aber ein Gamechanger.",Draft,thread
+Thread 28,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 28,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 28,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 28,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 28,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 28,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 28,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 28,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 29,Tweet 1,Der schnellste Weg zu mehr Output: Output planbar machen.,Draft,thread
+Thread 29,Tweet 2,Viele Threads scheitern am ersten Tweet.,Draft,thread
+Thread 29,Tweet 3,Hook-First zwingt dich zu Klarheit.,Draft,thread
+Thread 29,Tweet 4,"Sammle 30 Hooks, teste 10, behalte 3.",Draft,thread
+Thread 29,Tweet 5,Baue erst dann den Rest des Threads.,Draft,thread
+Thread 29,Tweet 6,So entsteht Flow ohne Druck.,Draft,thread
+Thread 29,Tweet 7,Nutze Refiner fuer Kuerzung und Schaerfe.,Draft,thread
+Thread 29,Tweet 8,Erst dann kommt ein sauberer CTA.,Draft,thread
+Thread 29,Tweet 9,CTA: Schreib AGENTS fuer das Prompt-Pack.,Draft,thread
+Thread 30,Tweet 1,Mein System in kurz: QA vor Kreativitaet.,Draft,thread
+Thread 30,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 30,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 30,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 30,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 30,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 30,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 30,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 31,Tweet 1,Mein System in kurz: Beste Content-Routine fuer Solos.,Draft,thread
+Thread 31,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 31,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 31,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 31,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 31,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 31,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 31,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 32,Tweet 1,Der schnellste Weg zu mehr Output: Was du von Agenturen klauen kannst.,Draft,thread
+Thread 32,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 32,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 32,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 32,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 32,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 32,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 32,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 33,Tweet 1,"Hook-Datenbank als Wachstumsmotor klingt simpel, ist aber ein Gamechanger.",Draft,thread
+Thread 33,Tweet 2,Viele Threads scheitern am ersten Tweet.,Draft,thread
+Thread 33,Tweet 3,Hook-First zwingt dich zu Klarheit.,Draft,thread
+Thread 33,Tweet 4,"Sammle 30 Hooks, teste 10, behalte 3.",Draft,thread
+Thread 33,Tweet 5,Baue erst dann den Rest des Threads.,Draft,thread
+Thread 33,Tweet 6,So entsteht Flow ohne Druck.,Draft,thread
+Thread 33,Tweet 7,Nutze Refiner fuer Kuerzung und Schaerfe.,Draft,thread
+Thread 33,Tweet 8,Erst dann kommt ein sauberer CTA.,Draft,thread
+Thread 33,Tweet 9,CTA: Schreib AGENTS fuer das Prompt-Pack.,Draft,thread
+Thread 34,Tweet 1,Mein System in kurz: Content als Produkt.,Draft,thread
+Thread 34,Tweet 2,"Wenn du Output willst, brauchst du Batching.",Draft,thread
+Thread 34,Tweet 3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.,Draft,thread
+Thread 34,Tweet 4,Die Rollen bleiben strikt getrennt.,Draft,thread
+Thread 34,Tweet 5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",Draft,thread
+Thread 34,Tweet 6,"Qualitaet kommt vom Review, nicht vom Zufall.",Draft,thread
+Thread 34,Tweet 7,So baust du eine Bibliothek fuer 90 Tage.,Draft,thread
+Thread 34,Tweet 8,CTA: Schreib AGENTS fuer das System.,Draft,thread
+Thread 35,Tweet 1,Mein System in kurz: Content messbar machen.,Draft,thread
+Thread 35,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 35,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 35,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 35,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 35,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 35,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 35,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 36,Tweet 1,So baust du 1 Agent = 1 Aufgabe ohne Chaos.,Draft,thread
+Thread 36,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 36,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 36,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 36,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 36,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 36,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 36,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 36,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 37,Tweet 1,Warum Zielgruppe in Prompts dein groesster Hebel ist.,Draft,thread
+Thread 37,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 37,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 37,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 37,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 37,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 37,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 37,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 38,Tweet 1,Warum 80-20 Regeln fuer Content dein groesster Hebel ist.,Draft,thread
+Thread 38,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 38,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 38,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 38,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 38,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 38,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 38,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 39,Tweet 1,Warum Prompts versionieren dein groesster Hebel ist.,Draft,thread
+Thread 39,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 39,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 39,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 39,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 39,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 39,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 39,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 39,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 40,Tweet 1,Warum Schreibblockaden entfernen dein groesster Hebel ist.,Draft,thread
+Thread 40,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 40,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 40,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 40,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 40,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 40,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 40,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 40,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 41,Tweet 1,Mein System in kurz: 4 Checks vor dem Posten.,Draft,thread
+Thread 41,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 41,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 41,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 41,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 41,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 41,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 41,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 41,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 42,Tweet 1,Der schnellste Weg zu mehr Output: Content in Umsatz verwandeln.,Draft,thread
+Thread 42,Tweet 2,"Wenn du Output willst, brauchst du Batching.",Draft,thread
+Thread 42,Tweet 3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.,Draft,thread
+Thread 42,Tweet 4,Die Rollen bleiben strikt getrennt.,Draft,thread
+Thread 42,Tweet 5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",Draft,thread
+Thread 42,Tweet 6,"Qualitaet kommt vom Review, nicht vom Zufall.",Draft,thread
+Thread 42,Tweet 7,So baust du eine Bibliothek fuer 90 Tage.,Draft,thread
+Thread 42,Tweet 8,CTA: Schreib AGENTS fuer das System.,Draft,thread
+Thread 43,Tweet 1,Mein System in kurz: 5 beste CTA-Formate.,Draft,thread
+Thread 43,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 43,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 43,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 43,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 43,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 43,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 43,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 43,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 44,Tweet 1,Warum Creator-Stack bauen dein groesster Hebel ist.,Draft,thread
+Thread 44,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 44,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 44,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 44,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 44,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 44,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 44,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 44,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 45,Tweet 1,Der schnellste Weg zu mehr Output: Output ohne Burnout.,Draft,thread
+Thread 45,Tweet 2,Symptom: Zu wenig Output trotz viel Arbeit.,Draft,thread
+Thread 45,Tweet 3,Ursache: Rollen sind nicht getrennt.,Draft,thread
+Thread 45,Tweet 4,Loesung: 1 Agent = 1 Aufgabe.,Draft,thread
+Thread 45,Tweet 5,Baue eine Task-Matrix mit 25 Slots.,Draft,thread
+Thread 45,Tweet 6,Setze Wortlimits fuer jede Rolle.,Draft,thread
+Thread 45,Tweet 7,Fuehre einen QA-Check nach jedem Schritt ein.,Draft,thread
+Thread 45,Tweet 8,Miss Hooks nach Klicks oder Replies.,Draft,thread
+Thread 45,Tweet 9,CTA: Willst du die Matrix? Schreib AGENTS.,Draft,thread
+Thread 46,Tweet 1,"Vom Hook zum Angebot klingt simpel, ist aber ein Gamechanger.",Draft,thread
+Thread 46,Tweet 2,Viele Threads scheitern am ersten Tweet.,Draft,thread
+Thread 46,Tweet 3,Hook-First zwingt dich zu Klarheit.,Draft,thread
+Thread 46,Tweet 4,"Sammle 30 Hooks, teste 10, behalte 3.",Draft,thread
+Thread 46,Tweet 5,Baue erst dann den Rest des Threads.,Draft,thread
+Thread 46,Tweet 6,So entsteht Flow ohne Druck.,Draft,thread
+Thread 46,Tweet 7,Nutze Refiner fuer Kuerzung und Schaerfe.,Draft,thread
+Thread 46,Tweet 8,Erst dann kommt ein sauberer CTA.,Draft,thread
+Thread 46,Tweet 9,CTA: Schreib AGENTS fuer das Prompt-Pack.,Draft,thread
+Thread 47,Tweet 1,So baust du Formate als groesste Abkuerzung ohne Chaos.,Draft,thread
+Thread 47,Tweet 2,Ein System spart dir mehr Zeit als Motivation.,Draft,thread
+Thread 47,Tweet 3,"Der Engpass ist nicht Ideen, sondern Struktur.",Draft,thread
+Thread 47,Tweet 4,Baue zuerst eine Hook-Datenbank.,Draft,thread
+Thread 47,Tweet 5,"Dann kommen Drafts, dann Kuerzung, dann CTA.",Draft,thread
+Thread 47,Tweet 6,Miss die Performance nach Replies und Klicks.,Draft,thread
+Thread 47,Tweet 7,Nach 2 Wochen siehst du klare Gewinner.,Draft,thread
+Thread 47,Tweet 8,CTA: Schreib AGENTS fuer die Struktur.,Draft,thread
+Thread 48,Tweet 1,Mein System in kurz: 10 Thread-Strukturen.,Draft,thread
+Thread 48,Tweet 2,"Wenn du Output willst, brauchst du Batching.",Draft,thread
+Thread 48,Tweet 3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.,Draft,thread
+Thread 48,Tweet 4,Die Rollen bleiben strikt getrennt.,Draft,thread
+Thread 48,Tweet 5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",Draft,thread
+Thread 48,Tweet 6,"Qualitaet kommt vom Review, nicht vom Zufall.",Draft,thread
+Thread 48,Tweet 7,So baust du eine Bibliothek fuer 90 Tage.,Draft,thread
+Thread 48,Tweet 8,CTA: Schreib AGENTS fuer das System.,Draft,thread
+Thread 49,Tweet 1,Mein System in kurz: Prompt-Library verkaufen.,Draft,thread
+Thread 49,Tweet 2,Problem: Viele Creator arbeiten linear und werden langsam.,Draft,thread
+Thread 49,Tweet 3,Insight: Parallelisierung schlaegt Perfektion.,Draft,thread
+Thread 49,Tweet 4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.,Draft,thread
+Thread 49,Tweet 5,Schritt 1: Sammle 30 Hooks in 1 Session.,Draft,thread
+Thread 49,Tweet 6,Schritt 2: Schreibe Drafts im Batch.,Draft,thread
+Thread 49,Tweet 7,Schritt 3: Kuerze hart und pruefe Nutzen.,Draft,thread
+Thread 49,Tweet 8,Schritt 4: Baue CTAs ein und teste Varianten.,Draft,thread
+Thread 49,Tweet 9,"CTA: Wenn du den Workflow willst, schreib AGENTS.",Draft,thread
+Thread 50,Tweet 1,So baust du Gute Prompts erkennen ohne Chaos.,Draft,thread
+Thread 50,Tweet 2,Viele Threads scheitern am ersten Tweet.,Draft,thread
+Thread 50,Tweet 3,Hook-First zwingt dich zu Klarheit.,Draft,thread
+Thread 50,Tweet 4,"Sammle 30 Hooks, teste 10, behalte 3.",Draft,thread
+Thread 50,Tweet 5,Baue erst dann den Rest des Threads.,Draft,thread
+Thread 50,Tweet 6,So entsteht Flow ohne Druck.,Draft,thread
+Thread 50,Tweet 7,Nutze Refiner fuer Kuerzung und Schaerfe.,Draft,thread
+Thread 50,Tweet 8,Erst dann kommt ein sauberer CTA.,Draft,thread
+Thread 50,Tweet 9,CTA: Schreib AGENTS fuer das Prompt-Pack.,Draft,thread

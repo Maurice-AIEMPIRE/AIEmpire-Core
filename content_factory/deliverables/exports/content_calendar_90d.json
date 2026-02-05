@@ -1,0 +1,2613 @@
+[
+  {
+    "date": "2026-02-06",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 1,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch harte Wortlimits: 400 Premium-Prompts. Batching: 30 Hooks, dann 30 Drafts. Verlange fuer Ergebnis, nicht fuer Zeit. Schreib AGENTS fuer das Prompt-Pack. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-02-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 1,
+    "text": "Erstelle 9 Tweet-Varianten fuer Solo-Creator. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 24 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 2,
+    "text": "Du bist ein Content-Strategist. Liefere 7 Thread-Outlines im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-02-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 3,
+    "text": "Erstelle 7 CTA-Ideen fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-02-07",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 2,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Quality Gates nach jedem Schritt: 50 Threads pro Monat. Rhythmus: 1 Batch pro Woche. Mastermind-Denken multipliziert Ergebnisse. 30 Hooks in 60 Minuten sind realistisch."
+  },
+  {
+    "date": "2026-02-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 4,
+    "text": "Baue 5 Tweet-Varianten fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-02-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 5,
+    "text": "Baue 12 Lead-Magnet-Ideen fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-02-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 6,
+    "text": "Erstelle eine Liste von 5 DM-Templates fuer Coaches. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-02-08",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 3,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern eine Ideenmaschine vor der Schreibmaschine. Damit lieferst du eine konstante Pipeline ohne Burnout. Wecke den Wunsch im anderen. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-02-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 7,
+    "text": "Erstelle 10 Offer-Statements fuer Coaches und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Prompt Pack."
+  },
+  {
+    "date": "2026-02-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 8,
+    "text": "Baue 9 Tweet-Varianten fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-02-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 9,
+    "text": "Baue 12 Offer-Statements fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-02-09",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 4,
+    "text": "Wenn du 300 Tweets pro Woche willst, brauchst du eine Task-Matrix mit festen Slots. Setup: Flow: Thema -> Hook -> Draft -> CTA. Das liefert wiederholbare Ergebnisse statt Zufall. Sprich ueber die Interessen deines Gegenuebers."
+  },
+  {
+    "date": "2026-02-09",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 1,
+    "text": "Parallelisierung im Content-System klingt simpel, ist aber ein Gamechanger. / Viele Threads scheitern am ersten Tweet. / Hook-First zwingt dich zu Klarheit. / Sammle 30 Hooks, teste 10, behalte 3. / Erst dann baust du den Rest des Threads. / Prinzip: Zeige ehrliche Wertschaetzung. / These: Mastermind-Denken multipliziert Ergebnisse. / CTA: DM mit AGENTS und ich sende dir die Matrix."
+  },
+  {
+    "date": "2026-02-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 10,
+    "text": "Erstelle 10 Offer-Statements fuer Coaches. Nutze Beispiel + Analyse und halte jede Ausgabe unter 16 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 11,
+    "text": "Baue 12 Hooks fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-02-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 12,
+    "text": "Baue 10 Content-Titel fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-02-10",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 5,
+    "text": "12 Agenten parallel liefern 30 getestete Hooks pro Woche. Der Hebel: harte Wortlimits. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: schnelleres Testing von Hooks. Hoere aufrichtig zu. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-02-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 13,
+    "text": "Erstelle 12 Use-Cases fuer Solo-Creator und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: AI-Agenten Workflow."
+  },
+  {
+    "date": "2026-02-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 14,
+    "text": "Du bist ein Content-Strategist. Liefere 10 Hooks im Stil Pro/Contra. Zielgruppe: Berater. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-02-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 15,
+    "text": "Analysiere Mastermind-Plan und generiere 9 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-11",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 6,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Output-Funnels statt Einmal-Posts: 30 getestete Hooks pro Woche. Flow: Hook -> Draft -> Refine -> Publish. Ein klares Ziel vor Augen schafft Zugkraft. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "date": "2026-02-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 16,
+    "text": "Erstelle 7 Pricing-Optionen fuer Coaches und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Prompt Pack."
+  },
+  {
+    "date": "2026-02-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 17,
+    "text": "Erstelle 7 Tweet-Varianten fuer Solo-Creator. Nutze Framework und halte jede Ausgabe unter 18 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 18,
+    "text": "Erstelle 7 Use-Cases fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-02-12",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 7,
+    "text": "12 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: Hook-First statt Content-First. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: wiederholbare Ergebnisse statt Zufall. Handlung vor Ausrede."
+  },
+  {
+    "date": "2026-02-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 19,
+    "text": "Erstelle 7 Tweet-Varianten fuer Coaches. Nutze Checkliste und halte jede Ausgabe unter 16 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 20,
+    "text": "Analysiere Thread System und generiere 9 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 21,
+    "text": "Baue 12 Tweet-Varianten fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-02-13",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 8,
+    "text": "20 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: Hook-First statt Content-First. Rhythmus: 1 Batch pro Woche. Ergebnis: saubere Struktur ohne Ueberforderung. Keine Ausreden, nur Handlung. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-02-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 22,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 12 Use-Cases. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 23,
+    "text": "Erstelle 10 Thread-Outlines fuer SaaS Founder. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 24,
+    "text": "Analysiere Content Factory und generiere 10 High-Ticket-Argumente. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-14",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 9,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Proof-Checks nach jedem Schritt. Mit 12 Agenten baust du 400 Premium-Prompts. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Preisleiter: Einstieg, Kernangebot, Premium-Upgrade."
+  },
+  {
+    "date": "2026-02-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 25,
+    "text": "Du bist ein Content-Strategist. Liefere 7 Lead-Magnet-Ideen im Stil Kurz und direkt. Zielgruppe: Solo-Creator. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-02-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 26,
+    "text": "Analysiere AI-Agenten Workflow und generiere 9 Use-Cases. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 27,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 5 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-15",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 10,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Quality Gates nach jedem Schritt: eine konstante Pipeline ohne Burnout. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Der Wunsch nach Erfolg braucht ein definites Ziel."
+  },
+  {
+    "date": "2026-02-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 28,
+    "text": "Erstelle 12 Use-Cases fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 24 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 29,
+    "text": "Baue 7 Content-Titel fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow."
+  },
+  {
+    "date": "2026-02-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 30,
+    "text": "Erstelle 9 Content-Titel fuer Berater. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 18 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-16",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 11,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Hook-First statt Content-First: skalierbare Content-Produktion. Flow: Thema -> Hook -> Draft -> CTA. Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket -> Retainer."
+  },
+  {
+    "date": "2026-02-16",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 2,
+    "text": "Mein System in kurz: Rollen-Setup in der Content Factory. / Viele Threads scheitern am ersten Tweet. / Hook-First zwingt dich zu Klarheit. / Sammle 30 Hooks, teste 10, behalte 3. / Erst dann baust du den Rest des Threads. / Prinzip: Sprich ueber die Interessen deines Gegenuebers. / These: Beharrlichkeit schlaegt Talent. / CTA: Schreib AGENTS fuer das Prompt-Pack."
+  },
+  {
+    "date": "2026-02-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 31,
+    "text": "Baue 5 Content-Titel fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel."
+  },
+  {
+    "date": "2026-02-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 32,
+    "text": "Erstelle eine Liste von 10 Content-Ideen fuer SaaS Founder. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-02-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 33,
+    "text": "Erstelle 9 DM-Templates fuer SaaS Founder. Nutze Pro/Contra und halte jede Ausgabe unter 16 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-17",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 12,
+    "text": "Die Formel: Output-Funnels statt Einmal-Posts + Flow: Hook -> Draft -> Refine -> Publish = 400 Premium-Prompts. Ergebnis: wiederholbare Ergebnisse statt Zufall. Ein klares Ziel vor Augen schafft Zugkraft. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-02-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 34,
+    "text": "Erstelle 12 CTA-Ideen fuer Solo-Creator. Nutze Checkliste und halte jede Ausgabe unter 16 Woertern. Kontext: Mastermind-Plan. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 35,
+    "text": "Erstelle eine Liste von 7 Tweet-Varianten fuer SaaS Founder. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-02-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 36,
+    "text": "Analysiere Content Factory und generiere 9 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-18",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 13,
+    "text": "12 Agenten parallel liefern eine klare Content-Routine. Der Hebel: harte Wortlimits. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: saubere Struktur ohne Ueberforderung. Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket -> Retainer."
+  },
+  {
+    "date": "2026-02-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 37,
+    "text": "Baue 7 Offer-Statements fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-02-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 38,
+    "text": "Analysiere Hook-Datenbank und generiere 7 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 39,
+    "text": "Erstelle 7 Objection-Replies fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Thread System."
+  },
+  {
+    "date": "2026-02-19",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 14,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Output: 30 getestete Hooks pro Woche mit 16 Agenten. Mastermind-Denken multipliziert Ergebnisse. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "date": "2026-02-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 40,
+    "text": "Erstelle 5 Offer-Statements fuer SaaS Founder und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-02-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 41,
+    "text": "Baue 9 DM-Templates fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System."
+  },
+  {
+    "date": "2026-02-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 42,
+    "text": "Analysiere Tweet Engine und generiere 12 High-Ticket-Argumente. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-20",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 15,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Batching: 30 Hooks, dann 30 Drafts. Output: eine konstante Pipeline ohne Burnout mit 16 Agenten. Der Wunsch nach Erfolg braucht ein definites Ziel. Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "date": "2026-02-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 43,
+    "text": "Baue 10 Thread-Outlines fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-02-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 44,
+    "text": "Erstelle 10 CTA-Ideen fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Prompt Pack."
+  },
+  {
+    "date": "2026-02-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 45,
+    "text": "Baue 7 Content-Ideen fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System."
+  },
+  {
+    "date": "2026-02-21",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 16,
+    "text": "Kosten runter, Output hoch: Output-Funnels statt Einmal-Posts. Ergebnis: eine Content-Bibliothek fuer 90 Tage. Stabile Reichweite durch Konstanz. Keine Ausreden, nur Handlung. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "date": "2026-02-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 46,
+    "text": "Erstelle 9 High-Ticket-Argumente fuer Solo-Creator. Nutze Framework und halte jede Ausgabe unter 16 Woertern. Kontext: Mastermind-Plan. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 47,
+    "text": "Erstelle 5 Thread-Outlines fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-02-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 48,
+    "text": "Erstelle 5 Thread-Outlines fuer Berater. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 16 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-22",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 17,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Hook-First statt Content-First: eine klare Content-Routine. Rhythmus: 1 Batch pro Woche. Ein klares Ziel vor Augen schafft Zugkraft. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-02-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 49,
+    "text": "Analysiere Tweet Engine und generiere 10 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 50,
+    "text": "Analysiere Hook-Datenbank und generiere 9 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 51,
+    "text": "Erstelle eine Liste von 7 CTA-Ideen fuer Berater. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-02-23",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 18,
+    "text": "Der groesste Fehler: einen Agenten alles machen zu lassen. Fix: Stichproben-Review einbauen. So entstehen 400 Premium-Prompts mit 16 Agenten. Verlange fuer Ergebnis, nicht fuer Zeit. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "date": "2026-02-23",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 3,
+    "text": "Warum Hook-First Prozess dein groesster Hebel ist. / Wenn du Output willst, brauchst du Batching. / 30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen. / Die Rollen bleiben strikt getrennt. / Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff. / Haltung: Keine Ausreden, nur Handlung. / Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket. / CTA: Schreib AGENTS fuer das Prompt-Pack."
+  },
+  {
+    "date": "2026-02-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 52,
+    "text": "Erstelle 12 Tweet-Varianten fuer Coaches. Nutze Checkliste und halte jede Ausgabe unter 16 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 53,
+    "text": "Du bist ein Content-Strategist. Liefere 7 Content-Ideen im Stil Schritt-fuer-Schritt. Zielgruppe: Agenturen. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-02-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 54,
+    "text": "Analysiere Thread System und generiere 10 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-24",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 19,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Rhythmus: 1 Batch pro Woche. Output: 300 Tweets pro Woche mit 16 Agenten. Triff eine klare Entscheidung und bleib dran. 30 Hooks in 60 Minuten sind realistisch. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "date": "2026-02-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 55,
+    "text": "Erstelle 9 Lead-Magnet-Ideen fuer Solo-Creator und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: AI-Agenten Workflow."
+  },
+  {
+    "date": "2026-02-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 56,
+    "text": "Baue 10 Use-Cases fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack."
+  },
+  {
+    "date": "2026-02-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 57,
+    "text": "Erstelle 7 CTA-Ideen fuer Coaches. Nutze Pro/Contra und halte jede Ausgabe unter 16 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-25",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 20,
+    "text": "Die Formel: eine Ideenmaschine vor der Schreibmaschine + Flow: Hook -> Draft -> Refine -> Publish = eine klare Content-Routine. Ergebnis: klare Prozesse statt Chaos. Monetarisierung heisst: klares Offer, klares Versprechen."
+  },
+  {
+    "date": "2026-02-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 58,
+    "text": "Erstelle 10 Offer-Statements fuer SaaS Founder. Nutze Pro/Contra und halte jede Ausgabe unter 24 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-02-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 59,
+    "text": "Du bist ein Content-Strategist. Liefere 5 Use-Cases im Stil Checkliste. Zielgruppe: Solo-Creator. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-02-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 60,
+    "text": "Analysiere Mastermind-Plan und generiere 10 Pricing-Optionen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-26",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 21,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, eine klare Content-Routine, wiederholbare Ergebnisse statt Zufall. Weg: Flow: Hook -> Draft -> Refine -> Publish. Du bist verantwortlich. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-02-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 61,
+    "text": "Baue 5 Objection-Replies fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-02-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 62,
+    "text": "Erstelle 12 High-Ticket-Argumente fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-02-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 63,
+    "text": "Erstelle 5 Hooks fuer Agenturen und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-02-27",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 22,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern eine Ideenmaschine vor der Schreibmaschine. Damit lieferst du 400 Premium-Prompts. Mastermind-Denken multipliziert Ergebnisse. Du brauchst Klarheit, nicht mehr Disziplin. Schreib AGENTS fuer das Prompt-Pack."
+  },
+  {
+    "date": "2026-02-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 64,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Lead-Magnet-Ideen im Stil Framework. Zielgruppe: Agenturen. Thema: Mastermind-Plan. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-02-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 65,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 5 High-Ticket-Argumente. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-02-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 66,
+    "text": "Baue 5 Content-Titel fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-02-28",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 23,
+    "text": "Der groesste Fehler: einen Agenten alles machen zu lassen. Fix: Output-Formate fixieren. So entstehen 400 Premium-Prompts mit 12 Agenten. Triff eine klare Entscheidung und bleib dran. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-02-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 67,
+    "text": "Erstelle 12 DM-Templates fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-02-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 68,
+    "text": "Erstelle 12 Hooks fuer Agenturen und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-02-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 69,
+    "text": "Du bist ein Content-Strategist. Liefere 9 DM-Templates im Stil Schritt-fuer-Schritt. Zielgruppe: Agenturen. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-01",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 24,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, eine klare Content-Routine, mehr Output bei weniger Kopfschmerz. Weg: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Handlung vor Ausrede. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-03-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 70,
+    "text": "Erstelle eine Liste von 7 CTA-Ideen fuer Solo-Creator. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 71,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Use-Cases im Stil Beispiel + Analyse. Zielgruppe: Agenturen. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 72,
+    "text": "Du bist ein Content-Strategist. Liefere 5 Lead-Magnet-Ideen im Stil Schritt-fuer-Schritt. Zielgruppe: SaaS Founder. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-02",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 25,
+    "text": "Kosten runter, Output hoch: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Ergebnis: 30 getestete Hooks pro Woche. Schnelleres Testing von Hooks. Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket -> Retainer."
+  },
+  {
+    "date": "2026-03-02",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 4,
+    "text": "Der schnellste Weg zu mehr Output: Wortlimits als Quality Gate. / Prinzip: Sprich ueber die Interessen deines Gegenuebers. / These: Beharrlichkeit schlaegt Talent. / Haltung: Du bist verantwortlich. / Framework: Orchestrator -> Ideation -> Writer -> Refiner. / Schritt 1: Sammle 30 Hooks in 1 Session. / Schritt 2: Schreibe Drafts im Batch. / Schritt 3: Kuerze hart und pruefe Nutzen. / CTA: Willst du den Workflow? Schreib AGENTS."
+  },
+  {
+    "date": "2026-03-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 73,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 5 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 74,
+    "text": "Erstelle 12 High-Ticket-Argumente fuer Solo-Creator. Nutze Beispiel + Analyse und halte jede Ausgabe unter 24 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 75,
+    "text": "Analysiere Mastermind-Plan und generiere 12 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-03",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 26,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Hook-First statt Content-First: 30 getestete Hooks pro Woche. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Mastermind-Denken multipliziert Ergebnisse. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "date": "2026-03-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 76,
+    "text": "Du bist ein Content-Strategist. Liefere 5 Hooks im Stil Framework. Zielgruppe: Berater. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 77,
+    "text": "Erstelle eine Liste von 12 Objection-Replies fuer Solo-Creator. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 78,
+    "text": "Du bist ein Content-Strategist. Liefere 5 Objection-Replies im Stil Beispiel + Analyse. Zielgruppe: Agenturen. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-04",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 27,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern Batching mit festen Slots. Damit lieferst du 400 Premium-Prompts. Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket -> Retainer. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "date": "2026-03-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 79,
+    "text": "Erstelle 5 Pricing-Optionen fuer SaaS Founder und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Thread System."
+  },
+  {
+    "date": "2026-03-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 80,
+    "text": "Baue 9 Offer-Statements fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-03-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 81,
+    "text": "Du bist ein Content-Strategist. Liefere 9 High-Ticket-Argumente im Stil Schritt-fuer-Schritt. Zielgruppe: B2B Marketer. Thema: Mastermind-Plan. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-05",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 28,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Batching mit festen Slots: 30 getestete Hooks pro Woche. Batching: 30 Hooks, dann 30 Drafts. Du entscheidest. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-03-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 82,
+    "text": "Erstelle 5 CTA-Ideen fuer Agenturen und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-03-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 83,
+    "text": "Erstelle eine Liste von 9 Pricing-Optionen fuer Solo-Creator. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 84,
+    "text": "Erstelle eine Liste von 5 Tweet-Varianten fuer Coaches. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-06",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 29,
+    "text": "Der groesste Fehler: keine QA-Stufe einzuplanen. Fix: Wortlimits hart setzen. So entstehen eine klare Content-Routine mit 20 Agenten. Mastermind-Denken multipliziert Ergebnisse. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-03-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 85,
+    "text": "Erstelle eine Liste von 7 CTA-Ideen fuer SaaS Founder. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 86,
+    "text": "Analysiere Content Factory und generiere 10 Pricing-Optionen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 87,
+    "text": "Erstelle 12 Objection-Replies fuer Berater. Nutze Beispiel + Analyse und halte jede Ausgabe unter 20 Woertern. Kontext: Mastermind-Plan. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-07",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 30,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: eine konstante Pipeline ohne Burnout mit 16 Agenten. Monetarisierung heisst: klares Offer, klares Versprechen. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-03-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 88,
+    "text": "Baue 5 Hooks fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-03-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 89,
+    "text": "Erstelle 7 Thread-Outlines fuer Solo-Creator. Nutze Beispiel + Analyse und halte jede Ausgabe unter 20 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 90,
+    "text": "Du bist ein Content-Strategist. Liefere 12 DM-Templates im Stil Kurz und direkt. Zielgruppe: Berater. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-08",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 31,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: Wortlimits hart setzen. So entstehen eine klare Content-Routine mit 25 Agenten. Du entscheidest. Qualitaet kommt vom Review, nicht vom Zufall. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "date": "2026-03-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 91,
+    "text": "Erstelle 10 Tweet-Varianten fuer Solo-Creator und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-03-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 92,
+    "text": "Erstelle 12 Content-Ideen fuer Solo-Creator. Nutze Template und halte jede Ausgabe unter 16 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 93,
+    "text": "Analysiere Tweet Engine und generiere 5 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-09",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 32,
+    "text": "Kosten runter, Output hoch: Output-Funnels statt Einmal-Posts. Ergebnis: eine Content-Bibliothek fuer 90 Tage. Saubere Struktur ohne Ueberforderung. Preisleiter: Einstieg, Kernangebot, Premium-Upgrade. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "date": "2026-03-09",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 5,
+    "text": "So baust du Kosten senken mit kleinen Modellen ohne Chaos. / Wenn du Output willst, brauchst du Batching. / 30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen. / Die Rollen bleiben strikt getrennt. / Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff. / Haltung: Keine Ausreden, nur Handlung. / Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket. / CTA: Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "date": "2026-03-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 94,
+    "text": "Erstelle eine Liste von 5 Lead-Magnet-Ideen fuer B2B Marketer. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 95,
+    "text": "Erstelle eine Liste von 9 Offer-Statements fuer Solo-Creator. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 96,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 5 Use-Cases. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-10",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 33,
+    "text": "16 Agenten parallel liefern 400 Premium-Prompts. Der Hebel: Hook-First statt Content-First. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: saubere Struktur ohne Ueberforderung. Klare Haltung, klare Richtung. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "date": "2026-03-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 97,
+    "text": "Baue 12 Tweet-Varianten fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-03-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 98,
+    "text": "Baue 9 Hooks fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-03-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 99,
+    "text": "Erstelle eine Liste von 9 CTA-Ideen fuer B2B Marketer. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-11",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 34,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern Proof-Checks nach jedem Schritt. Damit lieferst du 30 getestete Hooks pro Woche. Zeige ehrliche Wertschaetzung. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-03-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 100,
+    "text": "Erstelle 7 Pricing-Optionen fuer Agenturen und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-03-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 101,
+    "text": "Du bist ein Content-Strategist. Liefere 7 CTA-Ideen im Stil Schritt-fuer-Schritt. Zielgruppe: Berater. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 102,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Thread-Outlines im Stil Pro/Contra. Zielgruppe: SaaS Founder. Thema: Mastermind-Plan. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-12",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 35,
+    "text": "Kosten runter, Output hoch: harte Wortlimits. Ergebnis: eine klare Content-Routine. Stabile Reichweite durch Konstanz. Der Wunsch nach Erfolg braucht ein definites Ziel. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-03-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 103,
+    "text": "Analysiere Prompt Pack und generiere 10 Use-Cases. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 104,
+    "text": "Baue 5 Objection-Replies fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-03-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 105,
+    "text": "Erstelle eine Liste von 9 Thread-Outlines fuer Agenturen. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-13",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 36,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, eine klare Content-Routine, stabile Reichweite durch Konstanz. Weg: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket -> Retainer."
+  },
+  {
+    "date": "2026-03-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 106,
+    "text": "Baue 5 Objection-Replies fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-03-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 107,
+    "text": "Erstelle 7 Objection-Replies fuer SaaS Founder und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-03-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 108,
+    "text": "Erstelle 9 CTA-Ideen fuer B2B Marketer. Nutze Template und halte jede Ausgabe unter 16 Woertern. Kontext: Mastermind-Plan. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-14",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 37,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Damit lieferst du eine Content-Bibliothek fuer 90 Tage. Ein klares Ziel vor Augen schafft Zugkraft. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "date": "2026-03-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 109,
+    "text": "Erstelle eine Liste von 12 Hooks fuer SaaS Founder. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 110,
+    "text": "Erstelle 9 High-Ticket-Argumente fuer SaaS Founder und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Thread System."
+  },
+  {
+    "date": "2026-03-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 111,
+    "text": "Baue 9 CTA-Ideen fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow."
+  },
+  {
+    "date": "2026-03-15",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 38,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Proof-Checks nach jedem Schritt. Mit 25 Agenten baust du eine konstante Pipeline ohne Burnout. Flow: Hook -> Draft -> Refine -> Publish. Stelle Fragen statt zu predigen."
+  },
+  {
+    "date": "2026-03-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 112,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Objection-Replies im Stil Framework. Zielgruppe: Berater. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 113,
+    "text": "Analysiere Content Factory und generiere 5 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 114,
+    "text": "Erstelle 5 Pricing-Optionen fuer Coaches. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-16",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 39,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, eine klare Content-Routine, messbar bessere Conversion. Weg: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Wecke den Wunsch im anderen. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-03-16",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 6,
+    "text": "Workflow von Idee zu Output in 4 Schritten klingt simpel, ist aber ein Gamechanger. / Viele Threads scheitern am ersten Tweet. / Hook-First zwingt dich zu Klarheit. / Sammle 30 Hooks, teste 10, behalte 3. / Erst dann baust du den Rest des Threads. / Prinzip: Zeige ehrliche Wertschaetzung. / These: Der Wunsch nach Erfolg braucht ein definites Ziel. / CTA: Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "date": "2026-03-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 115,
+    "text": "Erstelle 12 Tweet-Varianten fuer Agenturen. Nutze Beispiel + Analyse und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 116,
+    "text": "Erstelle 7 Thread-Outlines fuer B2B Marketer. Nutze Kurz und direkt und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 117,
+    "text": "Analysiere Thread System und generiere 10 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-17",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 40,
+    "text": "Wenn du skalierbare Content-Produktion willst, brauchst du eine Ideenmaschine vor der Schreibmaschine. Setup: Flow: Thema -> Hook -> Draft -> CTA. Das liefert mehr Output bei weniger Kopfschmerz. Du bist verantwortlich. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-03-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 118,
+    "text": "Du bist ein Content-Strategist. Liefere 7 Content-Ideen im Stil Kurz und direkt. Zielgruppe: B2B Marketer. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 119,
+    "text": "Baue 12 Hooks fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack."
+  },
+  {
+    "date": "2026-03-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 120,
+    "text": "Erstelle 5 Content-Ideen fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-03-18",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 41,
+    "text": "25 Agenten parallel liefern 30 getestete Hooks pro Woche. Der Hebel: Parallelisierung. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: wiederholbare Ergebnisse statt Zufall. Sprich ueber die Interessen deines Gegenuebers."
+  },
+  {
+    "date": "2026-03-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 121,
+    "text": "Baue 10 Tweet-Varianten fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-03-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 122,
+    "text": "Baue 10 Lead-Magnet-Ideen fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-03-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 123,
+    "text": "Du bist ein Content-Strategist. Liefere 9 Content-Ideen im Stil Schritt-fuer-Schritt. Zielgruppe: SaaS Founder. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-19",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 42,
+    "text": "Wenn du 300 Tweets pro Woche willst, brauchst du Proof-Checks nach jedem Schritt. Setup: Regel: jede Aufgabe in 120 Woerter kapseln. Das liefert klare Prozesse statt Chaos. Klare Haltung, klare Richtung. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "date": "2026-03-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 124,
+    "text": "Erstelle 10 Offer-Statements fuer Solo-Creator. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 125,
+    "text": "Erstelle 9 Pricing-Optionen fuer Agenturen und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-03-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 126,
+    "text": "Analysiere Thread System und generiere 7 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-20",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 43,
+    "text": "Die Formel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff + Flow: Orchestrator -> Ideation -> Writer -> Refiner = eine Content-Bibliothek fuer 90 Tage. Ergebnis: messbar bessere Conversion. Zeige ehrliche Wertschaetzung."
+  },
+  {
+    "date": "2026-03-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 127,
+    "text": "Erstelle 12 Content-Ideen fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Thread System."
+  },
+  {
+    "date": "2026-03-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 128,
+    "text": "Baue 7 Content-Titel fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel."
+  },
+  {
+    "date": "2026-03-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 129,
+    "text": "Erstelle 9 Offer-Statements fuer SaaS Founder und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-03-21",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 44,
+    "text": "Wenn du eine klare Content-Routine willst, brauchst du Proof-Checks nach jedem Schritt. Setup: Rhythmus: 1 Batch pro Woche. Das liefert mehr Output bei weniger Kopfschmerz. Keine Ausreden, nur Handlung. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-03-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 130,
+    "text": "Erstelle eine Liste von 12 Offer-Statements fuer Coaches. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 131,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Thread-Outlines im Stil Beispiel + Analyse. Zielgruppe: Agenturen. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 132,
+    "text": "Du bist ein Content-Strategist. Liefere 5 High-Ticket-Argumente im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-22",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 45,
+    "text": "Die Formel: Batching mit festen Slots + Flow: Thema -> Hook -> Draft -> CTA = 400 Premium-Prompts. Ergebnis: stabile Reichweite durch Konstanz. Mastermind-Denken multipliziert Ergebnisse. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-03-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 133,
+    "text": "Erstelle 10 Objection-Replies fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-03-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 134,
+    "text": "Erstelle 10 High-Ticket-Argumente fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Monetarisierungs-Funnel."
+  },
+  {
+    "date": "2026-03-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 135,
+    "text": "Du bist ein Content-Strategist. Liefere 9 DM-Templates im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-23",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 46,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Systemdesign statt Talent. Mit 25 Agenten baust du 50 Threads pro Monat. Batching: 30 Hooks, dann 30 Drafts. Stelle Fragen statt zu predigen. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "date": "2026-03-23",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 7,
+    "text": "So baust du Orchestrator als Pflichtrolle ohne Chaos. / Prinzip: Hoere aufrichtig zu. / These: Beharrlichkeit schlaegt Talent. / Haltung: Du entscheidest. / Framework: Orchestrator -> Ideation -> Writer -> Refiner. / Schritt 1: Sammle 30 Hooks in 1 Session. / Schritt 2: Schreibe Drafts im Batch. / Schritt 3: Kuerze hart und pruefe Nutzen. / CTA: Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "date": "2026-03-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 136,
+    "text": "Erstelle eine Liste von 9 CTA-Ideen fuer Coaches. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 137,
+    "text": "Baue 12 High-Ticket-Argumente fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-03-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 138,
+    "text": "Erstelle eine Liste von 12 Content-Titel fuer B2B Marketer. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-24",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 47,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern eine Ideenmaschine vor der Schreibmaschine. Damit lieferst du eine konstante Pipeline ohne Burnout. Du entscheidest. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-03-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 139,
+    "text": "Analysiere Creator Stack und generiere 10 Pricing-Optionen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 140,
+    "text": "Du bist ein Content-Strategist. Liefere 5 Use-Cases im Stil Framework. Zielgruppe: Agenturen. Thema: Mastermind-Plan. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 141,
+    "text": "Erstelle 5 Use-Cases fuer Solo-Creator und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-03-25",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 48,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Quality Gates nach jedem Schritt. Mit 12 Agenten baust du 50 Threads pro Monat. Rhythmus: 1 Batch pro Woche. Monetarisierung heisst: klares Offer, klares Versprechen. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-03-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 142,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 5 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-03-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 143,
+    "text": "Erstelle 10 Tweet-Varianten fuer SaaS Founder und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Thread System."
+  },
+  {
+    "date": "2026-03-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 144,
+    "text": "Du bist ein Content-Strategist. Liefere 5 Offer-Statements im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-26",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 49,
+    "text": "16 Agenten parallel liefern 30 getestete Hooks pro Woche. Der Hebel: Hook-First statt Content-First. Rhythmus: 1 Batch pro Woche. Ergebnis: wiederholbare Ergebnisse statt Zufall. Mastermind-Denken multipliziert Ergebnisse."
+  },
+  {
+    "date": "2026-03-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 145,
+    "text": "Erstelle eine Liste von 12 CTA-Ideen fuer SaaS Founder. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 146,
+    "text": "Erstelle 9 Content-Ideen fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Thread System."
+  },
+  {
+    "date": "2026-03-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 147,
+    "text": "Erstelle 10 Hooks fuer Solo-Creator. Nutze Beispiel + Analyse und halte jede Ausgabe unter 16 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-27",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 50,
+    "text": "Der groesste Fehler: nur auf Kreativitaet statt System zu setzen. Fix: Output-Formate fixieren. So entstehen eine konstante Pipeline ohne Burnout mit 20 Agenten. Monetarisierung heisst: klares Offer, klares Versprechen. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-03-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 148,
+    "text": "Du bist ein Content-Strategist. Liefere 7 Objection-Replies im Stil Kurz und direkt. Zielgruppe: Agenturen. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 149,
+    "text": "Baue 12 High-Ticket-Argumente fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System."
+  },
+  {
+    "date": "2026-03-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 150,
+    "text": "Erstelle eine Liste von 9 Thread-Outlines fuer B2B Marketer. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-28",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 51,
+    "text": "Kosten runter, Output hoch: harte Wortlimits. Ergebnis: 300 Tweets pro Woche. Klare Prozesse statt Chaos. Triff eine klare Entscheidung und bleib dran. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-03-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 151,
+    "text": "Erstelle 12 Lead-Magnet-Ideen fuer Solo-Creator. Nutze Framework und halte jede Ausgabe unter 24 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 152,
+    "text": "Erstelle 7 Use-Cases fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Monetarisierungs-Funnel."
+  },
+  {
+    "date": "2026-03-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 153,
+    "text": "Erstelle eine Liste von 7 Objection-Replies fuer SaaS Founder. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-03-29",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 52,
+    "text": "Der groesste Fehler: zu breite Prompts ohne Output-Format. Fix: Stichproben-Review einbauen. So entstehen eine klare Content-Routine mit 16 Agenten. Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket -> Retainer."
+  },
+  {
+    "date": "2026-03-29",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 154,
+    "text": "Baue 5 Offer-Statements fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-03-29",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 155,
+    "text": "Erstelle 12 Use-Cases fuer Coaches. Nutze Template und halte jede Ausgabe unter 16 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-29",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 156,
+    "text": "Erstelle 10 Tweet-Varianten fuer SaaS Founder. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-30",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 53,
+    "text": "Wenn du 50 Threads pro Monat willst, brauchst du klare Rollen statt All-in-One. Setup: Flow: Thema -> Hook -> Draft -> CTA. Das liefert mehr Output bei weniger Kopfschmerz. Keine Ausreden, nur Handlung. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-03-30",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 8,
+    "text": "Hook-Tests mit 30 Varianten klingt simpel, ist aber ein Gamechanger. / Viele Threads scheitern am ersten Tweet. / Hook-First zwingt dich zu Klarheit. / Sammle 30 Hooks, teste 10, behalte 3. / Erst dann baust du den Rest des Threads. / Prinzip: Stelle Fragen statt zu predigen. / These: Der Wunsch nach Erfolg braucht ein definites Ziel. / CTA: Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "date": "2026-03-30",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 157,
+    "text": "Erstelle 10 DM-Templates fuer Solo-Creator und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-03-30",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 158,
+    "text": "Erstelle 12 Offer-Statements fuer Solo-Creator. Nutze Template und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-03-30",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 159,
+    "text": "Baue 7 Hooks fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack."
+  },
+  {
+    "date": "2026-03-31",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 54,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Quality Gates nach jedem Schritt: eine konstante Pipeline ohne Burnout. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Hoere aufrichtig zu. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "date": "2026-03-31",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 160,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Tweet-Varianten im Stil Pro/Contra. Zielgruppe: Coaches. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-03-31",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 161,
+    "text": "Erstelle 10 Lead-Magnet-Ideen fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-03-31",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 162,
+    "text": "Erstelle eine Liste von 9 Thread-Outlines fuer Berater. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-01",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 55,
+    "text": "Der groesste Fehler: zu breite Prompts ohne Output-Format. Fix: Hooks zuerst sammeln. So entstehen 50 Threads pro Monat mit 12 Agenten. Stelle Fragen statt zu predigen. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-04-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 163,
+    "text": "Analysiere Content Factory und generiere 5 Thread-Outlines. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 164,
+    "text": "Analysiere Creator Stack und generiere 9 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 165,
+    "text": "Erstelle 5 Content-Titel fuer Agenturen. Nutze Kurz und direkt und halte jede Ausgabe unter 24 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-02",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 56,
+    "text": "Die Formel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff + Batching: 30 Hooks, dann 30 Drafts = eine klare Content-Routine. Ergebnis: messbar bessere Conversion. Der Wunsch nach Erfolg braucht ein definites Ziel."
+  },
+  {
+    "date": "2026-04-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 166,
+    "text": "Erstelle 5 Objection-Replies fuer Agenturen. Nutze Template und halte jede Ausgabe unter 16 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 167,
+    "text": "Erstelle 10 Objection-Replies fuer Agenturen. Nutze Pro/Contra und halte jede Ausgabe unter 20 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 168,
+    "text": "Erstelle 12 Pricing-Optionen fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-04-03",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 57,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Thema -> Hook -> Draft -> CTA. Output: skalierbare Content-Produktion mit 16 Agenten. Beharrlichkeit schlaegt Talent. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "date": "2026-04-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 169,
+    "text": "Erstelle 7 DM-Templates fuer Agenturen. Nutze Framework und halte jede Ausgabe unter 20 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 170,
+    "text": "Erstelle 7 Offer-Statements fuer Solo-Creator und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-04-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 171,
+    "text": "Analysiere Mastermind-Plan und generiere 7 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-04",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 58,
+    "text": "16 Agenten parallel liefern 300 Tweets pro Woche. Der Hebel: Output-Funnels statt Einmal-Posts. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: saubere Struktur ohne Ueberforderung. Keine Ausreden, nur Handlung. 30 Hooks in 60 Minuten sind realistisch."
+  },
+  {
+    "date": "2026-04-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 172,
+    "text": "Erstelle eine Liste von 5 CTA-Ideen fuer Solo-Creator. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 173,
+    "text": "Erstelle 7 Hooks fuer Agenturen und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: AI-Agenten Workflow."
+  },
+  {
+    "date": "2026-04-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 174,
+    "text": "Erstelle 7 Objection-Replies fuer B2B Marketer. Nutze Checkliste und halte jede Ausgabe unter 16 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-05",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 59,
+    "text": "Kosten runter, Output hoch: eine Ideenmaschine vor der Schreibmaschine. Ergebnis: 400 Premium-Prompts. Mehr Output bei weniger Kopfschmerz. Mastermind-Denken multipliziert Ergebnisse. 30 Hooks in 60 Minuten sind realistisch."
+  },
+  {
+    "date": "2026-04-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 175,
+    "text": "Erstelle 7 Use-Cases fuer Solo-Creator. Nutze Pro/Contra und halte jede Ausgabe unter 18 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 176,
+    "text": "Erstelle eine Liste von 12 Hooks fuer SaaS Founder. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 177,
+    "text": "Erstelle eine Liste von 7 Content-Ideen fuer Agenturen. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-06",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 60,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: eine Rolle pro Agent definieren. So entstehen 300 Tweets pro Woche mit 25 Agenten. Mastermind-Denken multipliziert Ergebnisse. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-04-06",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 9,
+    "text": "Mein System in kurz: Threads ohne Brainload. / Prinzip: Zeige ehrliche Wertschaetzung. / These: Triff eine klare Entscheidung und bleib dran. / Haltung: Keine Ausreden, nur Handlung. / Framework: Orchestrator -> Ideation -> Writer -> Refiner. / Schritt 1: Sammle 30 Hooks in 1 Session. / Schritt 2: Schreibe Drafts im Batch. / Schritt 3: Kuerze hart und pruefe Nutzen. / CTA: Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "date": "2026-04-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 178,
+    "text": "Erstelle 7 CTA-Ideen fuer Solo-Creator. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 179,
+    "text": "Baue 9 Tweet-Varianten fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-04-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 180,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 5 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-07",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 61,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern Output-Funnels statt Einmal-Posts. Damit lieferst du eine klare Content-Routine. Preisleiter: Einstieg, Kernangebot, Premium-Upgrade. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "date": "2026-04-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 181,
+    "text": "Erstelle 10 Thread-Outlines fuer Solo-Creator und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-04-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 182,
+    "text": "Baue 7 High-Ticket-Argumente fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System."
+  },
+  {
+    "date": "2026-04-07",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 183,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Use-Cases im Stil Framework. Zielgruppe: SaaS Founder. Thema: Mastermind-Plan. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-08",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 62,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, eine klare Content-Routine, messbar bessere Conversion. Weg: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Keine Ausreden, nur Handlung. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "date": "2026-04-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 184,
+    "text": "Erstelle eine Liste von 10 Objection-Replies fuer B2B Marketer. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 185,
+    "text": "Du bist ein Content-Strategist. Liefere 7 DM-Templates im Stil Template. Zielgruppe: Berater. Thema: Mastermind-Plan. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-08",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 186,
+    "text": "Analysiere Prompt Pack und generiere 10 High-Ticket-Argumente. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-09",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 63,
+    "text": "Die Formel: Output-Funnels statt Einmal-Posts + Regel: jede Aufgabe in 120 Woerter kapseln = skalierbare Content-Produktion. Ergebnis: schnelleres Testing von Hooks. Mastermind-Denken multipliziert Ergebnisse. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "date": "2026-04-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 187,
+    "text": "Erstelle 10 Content-Titel fuer Solo-Creator. Nutze Template und halte jede Ausgabe unter 16 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 188,
+    "text": "Baue 5 Objection-Replies fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack."
+  },
+  {
+    "date": "2026-04-09",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 189,
+    "text": "Analysiere Thread System und generiere 5 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-10",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 64,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: Hooks zuerst sammeln. So entstehen 300 Tweets pro Woche mit 16 Agenten. Keine Ausreden, nur Handlung. Einmal gebaut, laeuft der Prozess jeden Monat. Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "date": "2026-04-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 190,
+    "text": "Erstelle eine Liste von 7 Tweet-Varianten fuer Berater. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 191,
+    "text": "Analysiere Thread System und generiere 10 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-10",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 192,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Hooks im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-11",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 65,
+    "text": "20 Agenten parallel liefern 300 Tweets pro Woche. Der Hebel: klare Rollen statt All-in-One. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: messbar bessere Conversion. Du entscheidest. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "date": "2026-04-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 193,
+    "text": "Baue 10 Offer-Statements fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-04-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 194,
+    "text": "Erstelle 5 Tweet-Varianten fuer Coaches. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-11",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 195,
+    "text": "Erstelle 7 High-Ticket-Argumente fuer SaaS Founder und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-04-12",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 66,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Proof-Checks nach jedem Schritt. Mit 25 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Flow: Hook -> Draft -> Refine -> Publish. Zeige ehrliche Wertschaetzung. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-04-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 196,
+    "text": "Erstelle 5 Tweet-Varianten fuer Solo-Creator. Nutze Framework und halte jede Ausgabe unter 16 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 197,
+    "text": "Du bist ein Content-Strategist. Liefere 5 CTA-Ideen im Stil Framework. Zielgruppe: Coaches. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-12",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 198,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Tweet-Varianten im Stil Kurz und direkt. Zielgruppe: Berater. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-13",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 67,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: Stichproben-Review einbauen. So entstehen eine konstante Pipeline ohne Burnout mit 25 Agenten. Klare Haltung, klare Richtung. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-04-13",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 10,
+    "text": "Warum Premium-Prompts als Produkt dein groesster Hebel ist. / Viele Threads scheitern am ersten Tweet. / Hook-First zwingt dich zu Klarheit. / Sammle 30 Hooks, teste 10, behalte 3. / Erst dann baust du den Rest des Threads. / Prinzip: Wecke den Wunsch im anderen. / These: Der Wunsch nach Erfolg braucht ein definites Ziel. / CTA: Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "date": "2026-04-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 199,
+    "text": "Erstelle 10 Tweet-Varianten fuer Agenturen und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Thread System."
+  },
+  {
+    "date": "2026-04-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 200,
+    "text": "Erstelle eine Liste von 5 CTA-Ideen fuer B2B Marketer. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-13",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 201,
+    "text": "Erstelle 5 Tweet-Varianten fuer B2B Marketer. Nutze Checkliste und halte jede Ausgabe unter 24 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-14",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 68,
+    "text": "Die Formel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff + Regel: jede Aufgabe in 120 Woerter kapseln = 400 Premium-Prompts. Ergebnis: schnelleres Testing von Hooks. Verlange fuer Ergebnis, nicht fuer Zeit. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-04-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 202,
+    "text": "Analysiere Hook-Datenbank und generiere 12 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 203,
+    "text": "Du bist ein Content-Strategist. Liefere 7 Use-Cases im Stil Framework. Zielgruppe: Solo-Creator. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-14",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 204,
+    "text": "Baue 12 Content-Ideen fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-04-15",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 69,
+    "text": "Die Formel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff + Flow: Hook -> Draft -> Refine -> Publish = eine klare Content-Routine. Ergebnis: stabile Reichweite durch Konstanz. Verlange fuer Ergebnis, nicht fuer Zeit."
+  },
+  {
+    "date": "2026-04-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 205,
+    "text": "Erstelle 10 Objection-Replies fuer SaaS Founder. Nutze Checkliste und halte jede Ausgabe unter 20 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 206,
+    "text": "Baue 10 Offer-Statements fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-04-15",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 207,
+    "text": "Analysiere Tweet Engine und generiere 10 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-16",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 70,
+    "text": "Der groesste Fehler: keine QA-Stufe einzuplanen. Fix: Output-Formate fixieren. So entstehen 30 getestete Hooks pro Woche mit 20 Agenten. Du entscheidest. Wenn du 10 Hooks testest, findest du 2 Gewinner. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-04-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 208,
+    "text": "Erstelle 7 Pricing-Optionen fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-04-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 209,
+    "text": "Analysiere Tweet Engine und generiere 12 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-16",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 210,
+    "text": "Baue 12 Offer-Statements fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-04-17",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 71,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, eine klare Content-Routine, saubere Struktur ohne Ueberforderung. Weg: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Hoere aufrichtig zu. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-04-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 211,
+    "text": "Baue 5 Content-Titel fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel."
+  },
+  {
+    "date": "2026-04-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 212,
+    "text": "Erstelle 7 Pricing-Optionen fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Monetarisierungs-Funnel."
+  },
+  {
+    "date": "2026-04-17",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 213,
+    "text": "Baue 12 Use-Cases fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-04-18",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 72,
+    "text": "Kosten runter, Output hoch: eine Task-Matrix mit festen Slots. Ergebnis: 30 getestete Hooks pro Woche. Messbar bessere Conversion. Stelle Fragen statt zu predigen. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-04-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 214,
+    "text": "Baue 7 Thread-Outlines fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System."
+  },
+  {
+    "date": "2026-04-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 215,
+    "text": "Erstelle 5 Tweet-Varianten fuer Agenturen. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 24 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-18",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 216,
+    "text": "Du bist ein Content-Strategist. Liefere 5 Hooks im Stil Beispiel + Analyse. Zielgruppe: Agenturen. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-19",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 73,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Output: skalierbare Content-Produktion mit 20 Agenten. Beharrlichkeit schlaegt Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-04-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 217,
+    "text": "Du bist ein Content-Strategist. Liefere 9 Offer-Statements im Stil Kurz und direkt. Zielgruppe: B2B Marketer. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 218,
+    "text": "Erstelle 10 Content-Titel fuer Agenturen und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-04-19",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 219,
+    "text": "Du bist ein Content-Strategist. Liefere 7 Offer-Statements im Stil Schritt-fuer-Schritt. Zielgruppe: Solo-Creator. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-20",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 74,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: 50 Threads pro Monat mit 12 Agenten. Monetarisierung heisst: klares Offer, klares Versprechen. Ein System macht Content planbar."
+  },
+  {
+    "date": "2026-04-20",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 11,
+    "text": "Warum Content-Batching fuer Creator dein groesster Hebel ist. / Symptom: Zu wenig Output trotz viel Arbeit. / Ursache: Rollen sind nicht getrennt. / Loesung: 1 Agent = 1 Aufgabe. / Prinzip: Hoere aufrichtig zu. / These: Der Wunsch nach Erfolg braucht ein definites Ziel. / Haltung: Handlung vor Ausrede. / CTA: Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "date": "2026-04-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 220,
+    "text": "Erstelle eine Liste von 9 High-Ticket-Argumente fuer Coaches. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 221,
+    "text": "Erstelle 7 High-Ticket-Argumente fuer SaaS Founder und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-04-20",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 222,
+    "text": "Baue 12 Objection-Replies fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System."
+  },
+  {
+    "date": "2026-04-21",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 75,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Systemdesign statt Talent: 30 getestete Hooks pro Woche. Regel: jede Aufgabe in 120 Woerter kapseln. Verlange fuer Ergebnis, nicht fuer Zeit. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-04-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 223,
+    "text": "Erstelle 10 Objection-Replies fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Thread System."
+  },
+  {
+    "date": "2026-04-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 224,
+    "text": "Erstelle eine Liste von 10 Hooks fuer Solo-Creator. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-21",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 225,
+    "text": "Baue 9 CTA-Ideen fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack."
+  },
+  {
+    "date": "2026-04-22",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 76,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Quality Gates nach jedem Schritt. Mit 25 Agenten baust du 300 Tweets pro Woche. Regel: jede Aufgabe in 120 Woerter kapseln. Der Wunsch nach Erfolg braucht ein definites Ziel."
+  },
+  {
+    "date": "2026-04-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 226,
+    "text": "Baue 5 High-Ticket-Argumente fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel."
+  },
+  {
+    "date": "2026-04-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 227,
+    "text": "Analysiere Tweet Engine und generiere 9 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-22",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 228,
+    "text": "Erstelle 10 Offer-Statements fuer Solo-Creator. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 16 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-23",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 77,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Damit lieferst du eine konstante Pipeline ohne Burnout. Zeige ehrliche Wertschaetzung. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "date": "2026-04-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 229,
+    "text": "Analysiere Hook-Datenbank und generiere 7 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 230,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Lead-Magnet-Ideen im Stil Kurz und direkt. Zielgruppe: B2B Marketer. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-23",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 231,
+    "text": "Baue 7 Thread-Outlines fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-04-24",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 78,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern klare Rollen statt All-in-One. Damit lieferst du skalierbare Content-Produktion. Mastermind-Denken multipliziert Ergebnisse. Ein System macht Content planbar. Willst du den Workflow? Schreib AGENTS."
+  },
+  {
+    "date": "2026-04-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 232,
+    "text": "Du bist ein Content-Strategist. Liefere 12 Content-Titel im Stil Pro/Contra. Zielgruppe: Coaches. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 233,
+    "text": "Analysiere Content Factory und generiere 12 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-24",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 234,
+    "text": "Analysiere Creator Stack und generiere 7 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-25",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 79,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch klare Rollen statt All-in-One. Mit 12 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Flow: Thema -> Hook -> Draft -> CTA. Zeige ehrliche Wertschaetzung. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-04-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 235,
+    "text": "Analysiere Mastermind-Plan und generiere 10 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 236,
+    "text": "Erstelle 12 DM-Templates fuer SaaS Founder. Nutze Kurz und direkt und halte jede Ausgabe unter 18 Woertern. Kontext: Mastermind-Plan. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-25",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 237,
+    "text": "Analysiere Mastermind-Plan und generiere 5 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-26",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 80,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: 30 getestete Hooks pro Woche mit 20 Agenten. Du bist verantwortlich. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "date": "2026-04-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 238,
+    "text": "Erstelle 5 Pricing-Optionen fuer Solo-Creator und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-04-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 239,
+    "text": "Analysiere Tweet Engine und generiere 12 High-Ticket-Argumente. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-26",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 240,
+    "text": "Du bist ein Content-Strategist. Liefere 9 Objection-Replies im Stil Checkliste. Zielgruppe: Berater. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-27",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 81,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Output: eine Content-Bibliothek fuer 90 Tage mit 16 Agenten. Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket -> Retainer."
+  },
+  {
+    "date": "2026-04-27",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 12,
+    "text": "So baust du Task-Matrix mit 25 Slots ohne Chaos. / Prinzip: Hoere aufrichtig zu. / These: Mastermind-Denken multipliziert Ergebnisse. / Haltung: Klare Haltung, klare Richtung. / Framework: Orchestrator -> Ideation -> Writer -> Refiner. / Schritt 1: Sammle 30 Hooks in 1 Session. / Schritt 2: Schreibe Drafts im Batch. / Schritt 3: Kuerze hart und pruefe Nutzen. / CTA: Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "date": "2026-04-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 241,
+    "text": "Analysiere Content Factory und generiere 12 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 242,
+    "text": "Baue 9 CTA-Ideen fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-04-27",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 243,
+    "text": "Erstelle eine Liste von 12 CTA-Ideen fuer Berater. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-04-28",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 82,
+    "text": "25 Agenten parallel liefern 30 getestete Hooks pro Woche. Der Hebel: Hook-First statt Content-First. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: stabile Reichweite durch Konstanz. Hoere aufrichtig zu. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "date": "2026-04-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 244,
+    "text": "Baue 12 Content-Ideen fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-04-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 245,
+    "text": "Du bist ein Content-Strategist. Liefere 9 High-Ticket-Argumente im Stil Kurz und direkt. Zielgruppe: Solo-Creator. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-28",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 246,
+    "text": "Erstelle 10 Hooks fuer Coaches und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Tweet Engine."
+  },
+  {
+    "date": "2026-04-29",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 83,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch eine Task-Matrix mit festen Slots: 30 getestete Hooks pro Woche. Rhythmus: 1 Batch pro Woche. Sprich ueber die Interessen deines Gegenuebers. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "date": "2026-04-29",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 247,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 10 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-29",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 248,
+    "text": "Erstelle 12 CTA-Ideen fuer Solo-Creator. Nutze Framework und halte jede Ausgabe unter 16 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-04-29",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 249,
+    "text": "Analysiere Monetarisierungs-Funnel und generiere 10 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-30",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 84,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Hook -> Draft -> Refine -> Publish. Output: 400 Premium-Prompts mit 20 Agenten. Hoere aufrichtig zu. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-04-30",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 250,
+    "text": "Analysiere Creator Stack und generiere 7 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-04-30",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 251,
+    "text": "Du bist ein Content-Strategist. Liefere 7 High-Ticket-Argumente im Stil Pro/Contra. Zielgruppe: SaaS Founder. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-04-30",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 252,
+    "text": "Erstelle 7 Content-Ideen fuer B2B Marketer. Nutze Kurz und direkt und halte jede Ausgabe unter 20 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-05-01",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 85,
+    "text": "Die Formel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff + Batching: 30 Hooks, dann 30 Drafts = skalierbare Content-Produktion. Ergebnis: saubere Struktur ohne Ueberforderung. Hoere aufrichtig zu. Willst du den Workflow? Schreib AGENTS."
+  },
+  {
+    "date": "2026-05-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 253,
+    "text": "Erstelle 9 Content-Titel fuer Berater und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Mastermind-Plan."
+  },
+  {
+    "date": "2026-05-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 254,
+    "text": "Erstelle 7 Pricing-Optionen fuer Berater. Nutze Pro/Contra und halte jede Ausgabe unter 20 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-05-01",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 255,
+    "text": "Analysiere Prompt Pack und generiere 7 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-05-02",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 86,
+    "text": "Der groesste Fehler: einen Agenten alles machen zu lassen. Fix: Wortlimits hart setzen. So entstehen 50 Threads pro Monat mit 12 Agenten. Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket -> Retainer. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "date": "2026-05-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 256,
+    "text": "Baue 10 Hooks fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-05-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 257,
+    "text": "Erstelle eine Liste von 5 Use-Cases fuer Coaches. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-05-02",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 258,
+    "text": "Erstelle eine Liste von 12 Use-Cases fuer Berater. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-05-03",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 87,
+    "text": "16 Agenten parallel liefern 400 Premium-Prompts. Der Hebel: Proof-Checks nach jedem Schritt. Rhythmus: 1 Batch pro Woche. Ergebnis: mehr Output bei weniger Kopfschmerz. Zeige ehrliche Wertschaetzung. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "date": "2026-05-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 259,
+    "text": "Du bist ein Content-Strategist. Liefere 10 Content-Titel im Stil Schritt-fuer-Schritt. Zielgruppe: B2B Marketer. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-05-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 260,
+    "text": "Baue 9 Tweet-Varianten fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack."
+  },
+  {
+    "date": "2026-05-03",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 261,
+    "text": "Erstelle 7 Objection-Replies fuer Coaches und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-05-04",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 88,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Rhythmus: 1 Batch pro Woche. Output: 300 Tweets pro Woche mit 25 Agenten. Du entscheidest. 30 Hooks in 60 Minuten sind realistisch. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "date": "2026-05-04",
+    "platform": "X/Twitter",
+    "type": "thread",
+    "id": 13,
+    "text": "Warum Top-10 Prompt-Fehler dein groesster Hebel ist. / Viele Threads scheitern am ersten Tweet. / Hook-First zwingt dich zu Klarheit. / Sammle 30 Hooks, teste 10, behalte 3. / Erst dann baust du den Rest des Threads. / Prinzip: Stelle Fragen statt zu predigen. / These: Ein klares Ziel vor Augen schafft Zugkraft. / CTA: Willst du den Workflow? Schreib AGENTS."
+  },
+  {
+    "date": "2026-05-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 262,
+    "text": "Baue 10 Tweet-Varianten fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System."
+  },
+  {
+    "date": "2026-05-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 263,
+    "text": "Erstelle 12 Pricing-Optionen fuer Coaches und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Monetarisierungs-Funnel."
+  },
+  {
+    "date": "2026-05-04",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 264,
+    "text": "Erstelle 10 DM-Templates fuer Coaches. Nutze Checkliste und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus."
+  },
+  {
+    "date": "2026-05-05",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 89,
+    "text": "Die Formel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff + Rhythmus: 1 Batch pro Woche = 30 getestete Hooks pro Woche. Ergebnis: schnelleres Testing von Hooks. Triff eine klare Entscheidung und bleib dran. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "date": "2026-05-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 265,
+    "text": "Analysiere Thread System und generiere 7 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item."
+  },
+  {
+    "date": "2026-05-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 266,
+    "text": "Erstelle eine Liste von 12 DM-Templates fuer SaaS Founder. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an."
+  },
+  {
+    "date": "2026-05-05",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 267,
+    "text": "Du bist ein Content-Strategist. Liefere 10 Pricing-Optionen im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten."
+  },
+  {
+    "date": "2026-05-06",
+    "platform": "X/Twitter",
+    "type": "tweet",
+    "id": 90,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch klare Rollen statt All-in-One. Mit 12 Agenten baust du 300 Tweets pro Woche. Flow: Thema -> Hook -> Draft -> CTA. Monetarisierung heisst: klares Offer, klares Versprechen."
+  },
+  {
+    "date": "2026-05-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 268,
+    "text": "Baue 7 Hooks fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank."
+  },
+  {
+    "date": "2026-05-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 269,
+    "text": "Erstelle 9 Thread-Outlines fuer B2B Marketer und integriere ein Prinzip aus 'Wie man Freunde gewinnt'. Stil: respektvoll, motivierend, klar. Kontext: Content Factory."
+  },
+  {
+    "date": "2026-05-06",
+    "platform": "X/Twitter",
+    "type": "prompt",
+    "id": 270,
+    "text": "Baue 9 DM-Templates fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack."
+  }
+]

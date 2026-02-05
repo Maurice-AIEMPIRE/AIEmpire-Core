@@ -1,0 +1,31 @@
+Name,Type,Text,Status,Tag
+DM 1,Cold,"Hi {NAME}, ich sehe, dass du deinen Content skalieren willst. Sprich ueber die Interessen deines Gegenuebers. Ich habe ein System, das einen klaren Content-Prozess liefert. Soll ich dir die Struktur schicken?",Draft,dm
+DM 2,Cold,"Hi {NAME}, kurzer Punkt: Viele Creator scheitern an fehlendem Prozess. Mastermind-Denken multipliziert Ergebnisse. Ich habe ein Workflow-System, das planbaren Content-Output macht. Interesse?",Draft,dm
+DM 3,Cold,"Hi {NAME}, ich habe einen 25-Agenten-Workflow gebaut, der skalierbare Content-Produktion liefert. Handlung vor Ausrede. Wenn du willst, sende ich dir die Matrix.",Draft,dm
+DM 4,Warm,"Danke fuer dein Interesse, {NAME}. Triff eine klare Entscheidung und bleib dran. Kurz: Wir bauen einen klaren Workflow, dann kommt Output. Soll ich dir die Matrix senden?",Draft,dm
+DM 5,Warm,"{NAME}, freut mich. Hoere aufrichtig zu. Wir starten klein: Hooks, Drafts, QA. Nach 7 Tagen steht die erste Pipeline. Soll ich dir die Schritte schicken?",Draft,dm
+DM 6,Warm,"{NAME}, danke dir. Du bist verantwortlich. Wenn du Output willst, brauchst du Struktur. Willst du das Setup sehen?",Draft,dm
+DM 7,AGENTS,"{NAME}, hier ist der naechste Schritt: Ich sende dir die Agenten-Matrix + Prompt-Pack. Soll ich dir das PDF schicken?",Draft,dm
+DM 8,AGENTS,"{NAME}, verstanden. Du bekommst die Struktur + Workflow. Willst du zusaetzlich den 90-Tage-Plan?",Draft,dm
+DM 9,AGENTS,"{NAME}, ich sende dir die Matrix und den Kalender. Soll ich auch die Preissignale dazulegen?",Draft,dm
+DM 10,Followup-1,"Hi {NAME}, kurzes Follow-up: willst du die Struktur sehen oder soll ich dich spaeter wieder anpingen?",Draft,dm
+DM 11,Followup-1,"{NAME}, wollte nur sicherstellen, dass du die Matrix gesehen hast. Soll ich sie dir hier schicken?",Draft,dm
+DM 12,Followup-1,"{NAME}, ich kann dir eine 10-Min-Version schicken, wenn du nur einen schnellen Ueberblick willst.",Draft,dm
+DM 13,Followup-2,"{NAME}, ich hoere oft: 'Spaeter'. Handlung vor Ausrede. Wenn du willst, blocken wir 30 Minuten und bauen den Plan.",Draft,dm
+DM 14,Followup-2,"{NAME}, letzter Ping: Willst du die Struktur oder soll ich es fuer jetzt schliessen?",Draft,dm
+DM 15,Followup-2,"{NAME}, wenn du Output willst, ist jetzt der beste Zeitpunkt. Soll ich dir die Matrix senden?",Draft,dm
+DM 16,Objection-Preis,"{NAME}, fairer Punkt. Du bezahlst fuer Ergebnis, nicht fuer Stunden. Wenn in 14 Tagen kein klarer Prozess steht, arbeiten wir nach.",Draft,dm
+DM 17,Objection-Preis,"{NAME}, verstehe ich. Der Preis ist niedriger als die Kosten des Stillstands. Soll ich dir den Scope schicken?",Draft,dm
+DM 18,Objection-Preis,"{NAME}, ich kann den Einstieg kleiner machen: Start mit Prompt-Pack + Workflow, dann Upgrade. Passt das?",Draft,dm
+DM 19,Objection-Zeit,"{NAME}, verstehe ich. Wir brauchen 2 fokussierte Sessions. Danach laeuft die Pipeline. Soll ich dir den Ablauf schicken?",Draft,dm
+DM 20,Objection-Zeit,"{NAME}, Zeit ist knapp. Genau deshalb bauen wir ein System. 1 Batch pro Woche, fertig. Willst du den Plan?",Draft,dm
+DM 21,Objection-Zeit,"{NAME}, kein Problem. Lass uns 30 Minuten blocken und die Minimal-Version bauen.",Draft,dm
+DM 22,Objection-Skepsis,"{NAME}, berechtigt. Wir starten mit einem kleinen Sprint und messen Output. Wenn es nicht passt, stoppen wir.",Draft,dm
+DM 23,Objection-Skepsis,"{NAME}, lass uns Proof statt Theorie liefern: 7 Tage Sprint, klare Deliverables. Ok?",Draft,dm
+DM 24,Objection-Skepsis,"{NAME}, ich zeige dir zuerst die Matrix. Du entscheidest danach. Deal?",Draft,dm
+DM 25,Close,"{NAME}, wenn du willst, sende ich dir den Starttermin und die naechsten Schritte. Soll ich das vorbereiten?",Draft,dm
+DM 26,Close,"{NAME}, wir haben alles geklaert. Soll ich dir den Vertrag + Zahlungslink schicken?",Draft,dm
+DM 27,Close,"{NAME}, ich kann dir den Onboarding-Slot sichern. Willst du das?",Draft,dm
+DM 28,Call,"{NAME}, lass uns 30 Minuten sprechen. Welche zwei Zeiten passen dir morgen?",Draft,dm
+DM 29,Call,"{NAME}, wollen wir das in einem kurzen Call klaeren? Ich habe heute 16:00 oder morgen 10:00 frei.",Draft,dm
+DM 30,Call,"{NAME}, wenn du willst, sende ich dir einen Kalenderlink. Besser heute oder morgen?",Draft,dm

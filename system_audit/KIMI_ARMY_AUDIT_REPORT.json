@@ -1,0 +1,1794 @@
+{
+  "timestamp": "2026-02-05 00:27:20",
+  "running_processes": "maurice          90934   2.8  0.8 427149712 133968   ??  S    11:26PM  20:28.55 /usr/libexec/icloudmailagent\nmaurice          76609   0.8  1.4 412984688 242064   ??  S    10:21PM   2:08.12 /Applications/Telegram.app/Contents/MacOS/Telegram\nmaurice           1009   0.3  0.5 412484320  80816   ??  S    Tue04PM  16:19.17 /Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/MacOS/logioptionsplus_agent --launchd\nmaurice            566   0.3  0.1 426938384   9120   ??  S    Tue04PM   1:06.73 /usr/sbin/cfprefsd agent\nmaurice          13924   0.0  0.0 426932688   7824   ??  S    12:11AM   0:00.03 /System/Library/PrivateFrameworks/CommunicationsFilter.framework/CMFSyncAgent\nmaurice          13377   0.0  0.0 426929024   2576   ??  S    12:07AM   0:00.02 /usr/libexec/spindump_agent\nmaurice          12797   0.0  0.2 427508768  36896   ??  S    12:01AM   0:01.07 /System/Library/Frameworks/QuickLookThumbnailing.framework/Support/com.apple.quicklook.ThumbnailsAgent\nmaurice          12780   0.0  0.0 426967664   8048   ??  S    12:00AM   0:00.13 /System/Library/CoreServices/ScopedBookmarkAgent\nmaurice          12674   0.0  0.3 411678304  43536   ??  S    11:59PM   0:00.27 /System/Library/CoreServices/CoreServicesUIAgent.app/Contents/MacOS/CoreServicesUIAgent\nmaurice          12657   0.0  0.1 426975840   8400   ??  S    11:58PM   0:00.09 /System/Cryptexes/App/usr/libexec/SafariNotificationAgent\nmaurice          12487   0.0  0.1 426974384  11088   ??  S    11:57PM   0:00.18 /usr/libexec/findmylocateagent\nmaurice          12471   0.0  0.1 426966464   9888   ??  S    11:57PM   0:00.11 /System/Library/PrivateFrameworks/iCloudNotification.framework/iCloudNotificationAgent\nmaurice          12470   0.0  0.1 426977744  14608   ??  S    11:57PM   0:00.32 /System/Library/PrivateFrameworks/UsageTracking.framework/Versions/A/UsageTrackingAgent\nmaurice          12308   0.0  0.2 427061376  25552   ??  S    11:56PM   0:00.37 /System/Library/CoreServices/iconservicesagent\nmaurice          12295   0.0  0.0 426933120   5040   ??  S    11:56PM   0:00.12 /usr/libexec/gamecontrolleragentd\nmaurice          12270   0.0  0.2 427126224  36688   ??  S    11:56PM   0:00.22 /System/Library/CoreServices/CoreLocationAgent.app/Contents/MacOS/CoreLocationAgent\nmaurice          12258   0.0  0.0 426934144   3648   ??  S    11:56PM   0:00.06 /System/Library/Frameworks/ManagedSettings.framework/Versions/A/ManagedSettingsAgent\nmaurice          12256   0.0  0.1 426984864  13584   ??  S    11:56PM   0:00.22 /System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Support/BackgroundTaskManagementAgent.app/Contents/MacOS/BackgroundTaskManagementAgent\nmaurice          12255   0.0  0.0 411044672   1568   ??  S    11:56PM   0:00.03 /System/Library/Frameworks/MediaExtension.framework/Versions/A/Helpers/MENotificationAgent\n_locationd       12207   0.0  0.0 426969120   6160   ??  S    11:56PM   0:00.17 /usr/libexec/trustd --agent\nmaurice          12218   0.0  0.0 426962448   6672   ??  S    11:56PM   0:00.03 /System/Library/PrivateFrameworks/NewDeviceOutreach.framework/ndoagent\n_locationd       12195   0.0  0.0 426933072   1792   ??  S    11:55PM   0:00.07 /usr/sbin/cfprefsd agent\nmaurice          12192   0.0  0.1 426975888  12640   ??  S    11:55PM   0:00.14 /usr/libexec/neagent\nroot             12172   0.0  0.0 410772752   3312   ??  Ss   11:55PM   0:00.02 /usr/libexec/online-auth-agent\nmaurice           9449   0.0  0.1 426976384  11568   ??  S    11:52PM   0:00.46 /System/Library/PrivateFrameworks/ScreenTimeCore.framework/Versions/A/ScreenTimeAgent\n_locationd        8784   0.0  0.0 426965696   2736   ??  S    11:51PM   0:00.07 /usr/libexec/containermanagerd --runmode=agent --user-container-mode=current --bundle-container-mode=proxy --system-container-mode=none\nmaurice          71423   0.0  0.1 1865274016  20784   ??  S     9:47PM   0:00.86 /Applications/Claude.app/Contents/Frameworks/Claude Helper (Plugin).app/Contents/MacOS/Claude Helper (Plugin) --type=utility --utility-sub-type=node.mojom.NodeService --lang=de-DE --service-sandbox-type=none --user-data-dir=/Users/maurice/Library/Application Support/Claude --secure-schemes=sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=sentry-ipc --shared-files --field-trial-handle=1718379636,r,4756068026262973266,14358853028990798713,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,PdfUseShowSaveFilePicker,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=LocalNetworkAccessChecks,MacWebContentsOcclusion,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708993808206286\nmaurice          61020   0.0  0.1 1867046080  13008   ??  S     4:36PM   0:05.22 /private/var/folders/f8/0v3s0f8n1ll1273sws_tjbg80000gn/T/AppTranslocation/D9CA4062-187C-44E2-9ED3-483116984128/d/Visual Studio Code.app/Contents/Frameworks/Code Helper.app/Contents/MacOS/Code Helper --type=utility --utility-sub-type=node.mojom.NodeService --lang=de --service-sandbox-type=none --user-data-dir=/Users/maurice/Library/Application Support/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files --field-trial-handle=1718379636,r,16134179550208776896,16943553296070082562,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,MacWebContentsOcclusion,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190709008800875870\nmaurice          60562   0.0  0.2 1867087504  30320   ??  S     4:25PM   0:07.45 /private/var/folders/f8/0v3s0f8n1ll1273sws_tjbg80000gn/T/AppTranslocation/D9CA4062-187C-44E2-9ED3-483116984128/d/Visual Studio Code.app/Contents/Frameworks/Code Helper.app/Contents/MacOS/Code Helper --type=utility --utility-sub-type=node.mojom.NodeService --lang=de --service-sandbox-type=none --user-data-dir=/Users/maurice/Library/Application Support/Code --standard-schemes=vscode-webview,vscode-file --enable-sandbox --secure-schemes=vscode-webview,vscode-file --cors-schemes=vscode-webview,vscode-file --fetch-schemes=vscode-webview,vscode-file --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files --field-trial-handle=1718379636,r,16134179550208776896,16943553296070082562,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,ScreenCaptureKitPickerScreen,ScreenCaptureKitStreamPickerSonoma --disable-features=CalculateNativeWinOcclusion,LocalNetworkAccessChecks,MacWebContentsOcclusion,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TimeoutHangingVideoCaptureStarts,TraceSiteInstanceGetProcessCreation --variations-seed-version --trace-process-track-uuid=3190708990997080739\nmaurice          60315   0.0  0.0 426978960   5392   ??  S     4:21PM   0:00.20 /System/Library/PrivateFrameworks/AMPDevices.framework/Versions/A/Support/AMPDeviceDiscoveryAgent --launchd\n_neuralengine    45426   0.0  0.0 426933024   1808   ??  S     4:42AM   0:01.74 /usr/sbin/distnoted agent\nmaurice          45407   0.0  0.0 426966368   6400   ??  S     4:42AM   0:00.14 /System/Library/PrivateFrameworks/IMDPersistence.framework/IMAutomaticHistoryDeletionAgent.app/Contents/MacOS/IMAutomaticHistoryDeletionAgent\nmaurice          14065   0.0  0.0 426933072   1552   ??  S    Tue05PM   0:00.05 /usr/libexec/USBAgent\nmaurice           5552   0.0  0.1 411604848  14256   ??  S    Tue04PM   2:00.43 /Users/maurice/Desktop/AgentMonitor.app/Contents/MacOS/AgentMonitor\nmaurice           5327   0.0  0.1 411606896  14656   ??  S    Tue04PM   1:47.83 /Users/maurice/Documents/New project/agent-dashboard/build/AgentMonitor.app/Contents/MacOS/AgentMonitor\nmaurice           1775   0.0  0.0 411686512    784   ??  S    Tue04PM   0:04.53 /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=24) --multiprocessing-fork\nmaurice           1774   0.0  0.0 412670384    784   ??  S    Tue04PM   0:20.85 /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=22) --multiprocessing-fork\nmaurice           1773   0.0  0.0 412565072    768   ??  S    Tue04PM   0:16.77 /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=20) --multiprocessing-fork\nmaurice           1772   0.0  0.0 412264656    784   ??  S    Tue04PM   0:31.65 /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=9, pipe_handle=18) --multiprocessing-fork\nmaurice           1771   0.0  0.0 411031200    768   ??  S    Tue04PM   0:00.03 /opt/homebrew/Cellar/python@3.14/3.14.2_1/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python -c from multiprocessing.resource_tracker import main;main(8)\nmaurice           1698   0.0  0.0 426982416   6240   ??  S    Tue04PM   0:06.99 /System/Cryptexes/App/usr/libexec/PasswordBreachAgent\n_rmd              1447   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:02.88 /usr/sbin/distnoted agent\nroot              1082   0.0  0.0 410670256   2576   ??  S    Tue04PM   0:00.10 /Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logi_crashpad_handler --no-rate-limit --database=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_updater --metrics-dir=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_updater --url=https://sentry.io:443/api/2269986/minidump/?sentry_client=sentry.native/0.7.6&sentry_key=c3ac8f3d68324c5da5db8754e93a86cd --attachment=/tmp/com.logi.xlog.temp/logioptionsplus_524_purple_screen_log.zip --attachment=/tmp/com.logi.xlog.temp/logioptionsplus_524_high_cpu_log.zip --attachment=/tmp/com.logi.xlog.temp/logioptionsplus_524_log.zip --attachment=/Library/Application Support/Logi/LogiOptionsPlus/installation.json --attachment=/Library/Application Support/Logi/LogiOptionsPlus/next.json --attachment=/Library/Application Support/Logi/LogiOptionsPlus/current.json --attachment=/Users/maurice/Library/Application Support/LogiOptionsPlus/settings.db --attachment=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_updater/cbce45ce-dde3-447a-9367-0b93c85317da.run/__sentry-event --attachment=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_updater/cbce45ce-dde3-447a-9367-0b93c85317da.run/__sentry-breadcrumb1 --attachment=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_updater/cbce45ce-dde3-447a-9367-0b93c85317da.run/__sentry-breadcrumb2 --handshake-fd=10\nmaurice           1061   0.0  0.0 410670256   2560   ??  S    Tue04PM   0:00.10 /Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/MacOS/logi_crashpad_handler --no-rate-limit --database=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_agent --metrics-dir=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_agent --url=https://sentry.io:443/api/1781314/minidump/?sentry_client=sentry.native/0.7.6&sentry_key=1f180ff7ee13484888aca6ea23e4919f --attachment=/var/folders/f8/0v3s0f8n1ll1273sws_tjbg80000gn/T/com.logi.xlog.temp/logioptionsplus_1009_purple_screen_log.zip --attachment=/var/folders/f8/0v3s0f8n1ll1273sws_tjbg80000gn/T/com.logi.xlog.temp/logioptionsplus_1009_high_cpu_log.zip --attachment=/var/folders/f8/0v3s0f8n1ll1273sws_tjbg80000gn/T/com.logi.xlog.temp/logioptionsplus_1009_log.zip --attachment=/Library/Application Support/Logi/LogiOptionsPlus/installation.json --attachment=/Library/Application Support/Logi/LogiOptionsPlus/next.json --attachment=/Library/Application Support/Logi/LogiOptionsPlus/current.json --attachment=/Users/maurice/Library/Application Support/LogiOptionsPlus/settings.db --attachment=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_agent/da4ed7a1-9da5-4050-7513-615cf3ed8257.run/__sentry-event --attachment=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_agent/da4ed7a1-9da5-4050-7513-615cf3ed8257.run/__sentry-breadcrumb1 --attachment=/Users/maurice/Library/Application Support/LogiOptionsPlus/sentry_db_logioptionsplus_agent/da4ed7a1-9da5-4050-7513-615cf3ed8257.run/__sentry-breadcrumb2 --handshake-fd=36\nmaurice           1011   0.0  0.1 426968272   8896   ??  S    Tue04PM   0:02.21 /System/Library/CoreServices/diagnostics_agent\n_nsurlsessiond    1049   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:02.92 /usr/sbin/distnoted agent\nmaurice           1010   0.0  0.1 411390048  11472   ??  S    Tue04PM   0:01.21 /System/Library/CoreServices/AirPlayUIAgent.app/Contents/MacOS/AirPlayUIAgent --launchd\nmaurice           1012   0.0  0.1 411471008  15952   ??  S    Tue04PM   0:06.05 /System/Library/CoreServices/TextInputMenuAgent.app/Contents/MacOS/TextInputMenuAgent\nmaurice           1003   0.0  0.0 410712528   4736   ??  S    Tue04PM   0:00.11 /System/Library/Frameworks/InputMethodKit.framework/Resources/imklaunchagent\nmaurice            949   0.0  0.1 427011248  19936   ??  S    Tue04PM   0:09.20 /System/Library/PrivateFrameworks/AMPLibrary.framework/Versions/A/Support/AMPLibraryAgent --launchd\nroot               943   0.0  0.0 426966848   3920   ??  Ss   Tue04PM   0:05.78 /System/Library/PrivateFrameworks/AmbientDisplay.framework/Versions/A/XPCServices/com.apple.AmbientDisplayAgent.xpc/Contents/MacOS/com.apple.AmbientDisplayAgent\n_applepay          913   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:02.95 /usr/sbin/distnoted agent\nmaurice            893   0.0  0.1 427133952  14864   ??  S    Tue04PM   0:06.12 /System/Cryptexes/App/System/Library/CoreServices/SafariSupport.bundle/Contents/MacOS/SafariBookmarksSyncAgent\n_gamecontrollerd   809   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:03.00 /usr/sbin/distnoted agent\nmaurice            684   0.0  0.1 426987408  20688   ??  S    Tue04PM   0:47.53 /System/Library/PrivateFrameworks/CoreDuetContext.framework/Resources/ContextStoreAgent\nmaurice            762   0.0  0.0 426928416   2960   ??  S    Tue04PM   0:00.64 /System/Library/PrivateFrameworks/MediaRemote.framework/Support/mediaremoteagent\nmaurice            723   0.0  0.1 426998912  20176   ??  S    Tue04PM   0:28.55 /usr/libexec/searchpartyuseragent\nmaurice            701   0.0  0.1 427127712  15952   ??  S    Tue04PM   0:11.59 /System/Library/CoreServices/WiFiAgent.app/Contents/MacOS/WiFiAgent\nmaurice            698   0.0  0.1 426967696   9744   ??  S    Tue04PM   0:12.21 /System/Library/PrivateFrameworks/UserActivity.framework/Agents/useractivityd\nmaurice            689   0.0  0.1 426985744  12592   ??  S    Tue04PM   0:04.70 /System/Library/PrivateFrameworks/IMCore.framework/imagent.app/Contents/MacOS/imagent\nmaurice            682   0.0  0.0 426967008   6480   ??  S    Tue04PM   0:16.60 /System/Library/CoreServices/lockoutagent\nmaurice            659   0.0  0.1 411420080  15040   ??  S    Tue04PM   0:02.04 /System/Library/CoreServices/WallpaperAgent.app/Contents/MacOS/WallpaperAgent\nmaurice            614   0.0  0.0 426966160   6272   ??  S    Tue04PM   0:01.63 /usr/sbin/BTLEServerAgent\nmaurice            602   0.0  0.0 426965696   6960   ??  S    Tue04PM   0:03.86 /usr/libexec/containermanagerd --runmode=agent --user-container-mode=current --bundle-container-mode=proxy --system-container-mode=none\nmaurice            598   0.0  0.1 426974192  13056   ??  S    Tue04PM   1:57.11 /usr/libexec/trustd --agent\nmaurice            595   0.0  0.1 427003552  12432   ??  S    Tue04PM   0:16.12 /System/Library/CoreServices/talagentd\n_appleevents       588   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:02.99 /usr/sbin/distnoted agent\nmaurice            589   0.0  0.1 426967824  14208   ??  S    Tue04PM   1:07.23 /System/Library/PrivateFrameworks/BiomeStreams.framework/Support/BiomeAgent\nmaurice            581   0.0  0.1 427037712  16640   ??  S    Tue04PM   0:17.36 /usr/libexec/ContinuityCaptureAgent server\nmaurice            580   0.0  0.1 426978160  16464   ??  S    Tue04PM   0:07.60 /usr/libexec/knowledge-agent\nmaurice            572   0.0  0.1 426969296  11904   ??  S    Tue04PM   0:11.45 /usr/libexec/UserEventAgent (Aqua)\n_softwareupdate    569   0.0  0.0 426933024   2224   ??  S    Tue04PM   0:03.32 /usr/sbin/distnoted agent\nmaurice            565   0.0  0.0 426933024   5248   ??  S    Tue04PM   0:41.89 /usr/sbin/distnoted agent\n_accessoryupdater   560   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:03.03 /usr/sbin/distnoted agent\n_spotlight         552   0.0  0.0 426933024   1872   ??  S    Tue04PM   0:03.08 /usr/sbin/distnoted agent\nroot               524   0.0  0.0 412089872   7792   ??  Ss   Tue04PM   0:07.00 /Library/Application Support/Logitech.localized/LogiOptionsPlus/logioptionsplus_agent.app/Contents/Frameworks/logioptionsplus_updater.app/Contents/MacOS/logioptionsplus_updater\n_appinstalld       509   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:03.19 /usr/sbin/distnoted agent\n_locationd         486   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:03.31 /usr/sbin/distnoted agent\n_windowserver      429   0.0  0.0 426933024   1840   ??  S    Tue04PM   0:03.55 /usr/sbin/distnoted agent\nroot               413   0.0  0.0 426933024   1984   ??  S    Tue04PM   0:03.91 /usr/sbin/distnoted agent",
+  "pm2": "pm2 nicht gefunden",
+  "docker": "docker nicht installiert",
+  "launch": {
+    "user_launchagents": "total 32\ndrwx------@  6 maurice  staff   192 Feb  4 16:47 .\ndrwx------@ 90 maurice  staff  2880 Feb  4 23:26 ..\n-rw-r--r--@  1 maurice  staff  1628 Feb  4 22:24 ai.openclaw.gateway.plist\n-rw-r--r--@  1 maurice  staff   874 Feb  4 00:04 com.google.GoogleUpdater.wake.plist\n-rw-r--r--@  1 maurice  staff   181 Feb  4 00:04 com.google.keystone.agent.plist\n-rw-r--r--@  1 maurice  staff   181 Feb  4 00:04 com.google.keystone.xpcservice.plist",
+    "system_launchdaemons": "total 8\ndrwxr-xr-x   3 root  wheel    96 Feb  2 22:46 .\ndrwxr-xr-x  65 root  wheel  2080 Feb  2 23:53 ..\n-rw-r--r--@  1 root  wheel  1086 Feb  2 22:46 com.logi.optionsplus.updater.plist",
+    "launchctl_list": "-\t0\tcom.apple.SafariHistoryServiceAgent\n762\t0\tcom.apple.mediaremoteagent\n-\t0\tcom.apple.familycontrols.useragent\n-\t0\tcom.apple.AssetCache.agent\n12295\t0\tcom.apple.GameController.gamecontrolleragentd\n-\t0\tcom.apple.UserPictureSyncAgent\n12308\t-9\tcom.apple.iconservices.iconservicesagent\n893\t0\tcom.apple.SafariBookmarksSyncAgent\n-\t0\tcom.apple.cmio.LaunchCMIOUserExtensionsAgent\n12218\t-9\tcom.apple.ndoagent\n659\t0\tcom.apple.wallpaper.agent\n-\t0\tcom.apple.ManagedClientAgent.agent\n-\t0\tcom.apple.screensharing.agent\n14282\t-9\tcom.apple.installerauthagent\n12258\t-9\tcom.apple.ManagedSettingsAgent\n-\t0\tcom.apple.sysdiagnose_agent\n1012\t0\tcom.apple.TextInputMenuAgent\n-\t0\tcom.apple.accessibility.LiveTranscriptionAgent\n598\t0\tcom.apple.trustd.agent\n-\t0\tcom.apple.MailServiceAgent\n566\t0\tcom.apple.cfprefsd.xpc.agent\n-\t0\tcom.apple.cvmsCompAgent3600_arm64_1\n-\t0\tcom.apple.unmountassistant.useragent\n12797\t-9\tcom.apple.quicklook.ThumbnailsAgent\n1698\t0\tcom.apple.Safari.PasswordBreachAgent\n-\t0\tcom.apple.csuseragent\n575\t0\tcom.apple.WindowManager.agent\n684\t0\tcom.apple.ContextStoreAgent\n-\t0\tcom.apple.accessibility.AXVisualSupportAgent\n-\t0\tcom.apple.warmd_agent\n9449\t-9\tcom.apple.ScreenTimeAgent\n-\t-9\tcom.apple.noticeboard.agent\n14471\t0\tcom.apple.UserNotificationCenterAgent\n13924\t-9\tcom.apple.cmfsyncagent\n76609\t0\tapplication.ru.keepcoder.Telegram.1367055.1367061\n1011\t0\tcom.apple.diagnostics_agent\n-\t0\tcom.apple.LocalAuthentication.UIAgent\n-\t-9\tcom.apple.apfsuseragent\n949\t0\tcom.apple.AMPLibraryAgent\n-\t0\tcom.openssh.ssh-agent\n-\t-9\tcom.apple.contacts.donation-agent\n-\t0\tcom.apple.ServicesUIAgent\n-\t0\tcom.apple.alf.useragent\n-\t0\tcom.apple.SiriTTSTrainingAgent\n5552\t0\tapplication.com.maurice.agentmonitor.1061244.1061249\n-\t-9\tcom.apple.StatusKitAgent\n12674\t-9\tcom.apple.coreservices.uiagent\n723\t0\tcom.apple.icloud.searchpartyuseragent\n-\t-9\tcom.apple.AccessibilityVisualsAgent\n-\t0\tcom.apple.GamePolicyAgent\n-\t0\tcom.apple.PIPAgent\n581\t0\tcom.apple.cmio.ContinuityCaptureAgent\n-\t0\tcom.apple.mbfloagent\n-\t-9\tcom.apple.printtool.agent\n14065\t0\tcom.apple.USBAgent\n-\t0\tcom.apple.ssinvitationagent\n-\t0\tcom.apple.printuitool.agent\n-\t0\tcom.apple.NVMeAgent\n1016\t0\tcom.apple.CryptoTokenKit.ahp.agent\n12657\t-9\tcom.apple.SafariNotificationAgent\n-\t0\tcom.apple.screencaptureui.agent\n-\t0\tcom.apple.cvmsCompAgent3600_x86_64_1\n-\t0\tcom.apple.mbbackgrounduseragent\n-\t0\tcom.apple.cvmsCompAgent_x86_64\n-\t0\tcom.apple.fskit.fskit_agent\n-\t0\tcom.apple.symptomsd-diag.agent\n60315\t0\tcom.apple.AMPDeviceDiscoveryAgent\n-\t-9\tcom.apple.colorsync.useragent\n-\t-9\tcom.apple.analyticsagent\n637\t0\tcom.apple.Dock.agent\n-\t-9\tcom.apple.AppSSOAgent\n-\t0\tcom.apple.mbuseragent\n572\t0\tcom.apple.UserEventAgent-Aqua\n-\t-9\tcom.apple.XProtect.agent.scan\n-\t-9\tcom.apple.storekitagent\n12270\t-9\tcom.apple.CoreLocationAgent\n-\t0\tcom.apple.security.agent\n12256\t-9\tcom.apple.backgroundtaskmanagement.agent\n-\t0\tcom.apple.cfnetwork.AuthBrokerAgent\n-\t0\tcom.apple.SpacesTouchBarAgent.app\n-\t-9\tcom.apple.MobileAccessoryUpdater.fudHelperAgent\n614\t0\tcom.apple.BTServer.le.agent\n-\t-9\tcom.apple.imdpersistence.IMDPersistenceAgent\n-\t0\tcom.apple.TrustEvaluationAgent\n-\t0\tcom.apple.IOUIAgent\n12192\t0\tcom.apple.neagent.878568F8-CCE5-4157-8315-22F20DC8FB0A\n-\t0\tcom.apple.KeyboardAccessAgent\n589\t0\tcom.apple.BiomeAgent\n682\t0\tcom.apple.lockoutagent\n-\t0\tcom.apple.calendar.CalendarAgentBookmarkMigrationService\n640\t0\tcom.apple.notificationcenterui.agent\n1003\t0\tcom.apple.imklaunchagent\n-\t-9\tcom.apple.imcore.imtransferagent\n1006\t0\tcom.logitech.LogiRightSight.Agent\n-\t0\tcom.apple.RapportUIAgent\n-\t0\tcom.apple.FontRegistryUIAgent\n-\t-9\tcom.apple.RemoteManagementAgent\n-\t-9\tcom.apple.AMPArtworkAgent\n689\t0\tcom.apple.imagent\n-\t0\tcom.apple.cloudsettingssyncagent\n45407\t0\tcom.apple.imautomatichistorydeletionagent\n641\t0\tcom.apple.SystemUIServer.agent\n595\t0\tcom.apple.talagent\n-\t0\tcom.apple.RemoteDesktop.agent\n12471\t-9\tcom.apple.iCloudNotificationAgent\n-\t-9\tcom.apple.FamilyControlsAgent\n-\t-9\tcom.apple.BKAgentService\n-\t0\tcom.apple.cvmsCompAgent_x86_64_1\n12487\t-9\tcom.apple.findmy.findmylocateagent\n-\t0\tcom.apple.DiskArbitrationAgent\n-\t0\tcom.apple.assessmentagent\n12780\t-9\tcom.apple.scopedbookmarksagent.xpc\n12470\t-9\tcom.apple.UsageTrackingAgent\n580\t0\tcom.apple.knowledge-agent\n90934\t-9\tcom.apple.icloudmailagent\n701\t0\tcom.apple.wifi.WiFiAgent\n-\t0\tcom.apple.screensharing.MessagesAgent\n-\t0\tcom.apple.mdmclient.agent\n-\t0\tcom.apple.cvmsCompAgent3425AMD_x86_64\n623\t0\tcom.apple.CoreAuthentication.agent"
+  },
+  "cron": "",
+  "scan_summary": {
+    "roots": [
+      "/Users/maurice/Projects",
+      "/Users/maurice/Code",
+      "/Users/maurice/Documents",
+      "/Users/maurice/Desktop",
+      "/Users/maurice/Downloads",
+      "/Users/maurice"
+    ],
+    "files_considered": 26694,
+    "findings_count": 11157
+  },
+  "findings": [
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/commands/doctor.warns-per-agent-sandbox-docker-browser-prune.test.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/commands/doctor.warns-per-agent-sandbox-docker-browser-prune.test.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docker-setup.sh",
+      "hits": [
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/install/docker.md",
+      "hits": [
+        "agent",
+        "discord",
+        "docker",
+        "node\\s",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/zh-CN/install/docker.md",
+      "hits": [
+        "agent",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/extensions/telegram/package.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/scripts/e2e/onboard-docker.sh",
+      "hits": [
+        "agent",
+        "bot[_-]?token",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docker-setup.sh",
+      "hits": [
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/install/docker.md",
+      "hits": [
+        "agent",
+        "discord",
+        "docker",
+        "node\\s",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/zh-CN/install/docker.md",
+      "hits": [
+        "agent",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/extensions/telegram/package.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/scripts/e2e/onboard-docker.sh",
+      "hits": [
+        "agent",
+        "bot[_-]?token",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.claude/todos/1aef87d9-92e1-4bf2-aec1-a02177c8af15-agent-1aef87d9-92e1-4bf2-aec1-a02177c8af15.json",
+      "hits": [
+        "kimi",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/agents/main/sessions/sessions.json",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/sandboxes/agent-main-0d71ad7a/BOOTSTRAP.md",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/subagents/runs.json",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/AGENT_BRIDGE.md",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/docs/openclaw_onboarding/AGENTS.md",
+      "hits": [
+        "agent",
+        "bot[_-]?token",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/.agent/workflows/update_clawdbot.md",
+      "hits": [
+        "agent",
+        "node\\s",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/AGENTS.md",
+      "hits": [
+        "agent",
+        "bot[_-]?token",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/concepts/agent.md",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/concepts/multi-agent.md",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "docker",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/tools/agent-send.md",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/tools/subagents.md",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/zh-CN/concepts/agent.md",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/zh-CN/concepts/multi-agent.md",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "docker",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/zh-CN/tools/agent-send.md",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/docs/zh-CN/tools/subagents.md",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/bash-tools.test.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/openclaw-gateway-tool.test.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/openclaw-tools.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-runner.get-dm-history-limit-from-session-key.falls-back-provider-default-per-dm-not.test.ts",
+      "hits": [
+        "agent",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-runner.get-dm-history-limit-from-session-key.returns-undefined-sessionkey-is-undefined.test.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-runner.resolvesessionagentids.test.ts",
+      "hits": [
+        "agent",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-runner/compact.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-runner/run/attempt.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-runner/run/params.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-runner/run/payloads.test.ts",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-runner/types.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-subscribe.tools.test.ts",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-subscribe.ts",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-utils.test.ts",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-embedded-utils.ts",
+      "hits": [
+        "discord",
+        "openai",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-tools-agent-config.test.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/pi-tools.create-openclaw-coding-tools.adds-claude-style-aliases-schemas-without-dropping.test.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/sandbox-agent-config.agent-specific-sandbox-config.should-use-agent-specific-workspaceroot.test.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/system-prompt.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/system-prompt.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/tools/message-tool.test.ts",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/tools/message-tool.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/tools/sessions-send-helpers.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/tools/telegram-actions.test.ts",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "bot[_-]?token",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/tools/telegram-actions.ts",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "bot[_-]?token",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/agents/tools/tts-tool.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/auto-reply/reply/agent-runner-utils.test.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/auto-reply/reply/agent-runner.authprofileid-fallback.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/commands/agent.delivery.test.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/commands/agent.test.ts",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "anthropic",
+        "bot[_-]?token",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/commands/agent/types.ts",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/commands/agents.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/config/config.multi-agent-agentdir-validation.test.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/config/types.agent-defaults.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/cron/isolated-agent.delivers-response-has-heartbeat-ok-but-includes.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/cron/isolated-agent.skips-delivery-without-whatsapp-recipient-besteffortdeliver-true.test.ts",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "anthropic",
+        "bot[_-]?token",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/cron/isolated-agent.uses-last-non-empty-agent-text-as.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/gateway/server-methods/agent-timestamp.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/gateway/server-methods/agent.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/src/gateway/server.agent.gateway-server-agent-a.e2e.test.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/.agent/workflows/update_clawdbot.md",
+      "hits": [
+        "agent",
+        "node\\s",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/AGENTS.md",
+      "hits": [
+        "agent",
+        "bot[_-]?token",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/concepts/agent.md",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/concepts/multi-agent.md",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "docker",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/tools/agent-send.md",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/tools/subagents.md",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/zh-CN/concepts/agent.md",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/zh-CN/concepts/multi-agent.md",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "docker",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/zh-CN/tools/agent-send.md",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/docs/zh-CN/tools/subagents.md",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/bash-tools.test.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/openclaw-gateway-tool.test.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/openclaw-tools.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-runner.get-dm-history-limit-from-session-key.falls-back-provider-default-per-dm-not.test.ts",
+      "hits": [
+        "agent",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-runner.get-dm-history-limit-from-session-key.returns-undefined-sessionkey-is-undefined.test.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-runner.resolvesessionagentids.test.ts",
+      "hits": [
+        "agent",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-runner/compact.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-runner/run/attempt.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-runner/run/params.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-runner/run/payloads.test.ts",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-runner/types.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-subscribe.tools.test.ts",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-subscribe.ts",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-utils.test.ts",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-embedded-utils.ts",
+      "hits": [
+        "discord",
+        "openai",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-tools-agent-config.test.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/pi-tools.create-openclaw-coding-tools.adds-claude-style-aliases-schemas-without-dropping.test.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/sandbox-agent-config.agent-specific-sandbox-config.should-use-agent-specific-workspaceroot.test.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/system-prompt.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/system-prompt.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "docker",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/tools/message-tool.test.ts",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/tools/message-tool.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/tools/sessions-send-helpers.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/tools/telegram-actions.test.ts",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "bot[_-]?token",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/tools/telegram-actions.ts",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "bot[_-]?token",
+        "openclaw",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/agents/tools/tts-tool.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/auto-reply/reply/agent-runner-utils.test.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/auto-reply/reply/agent-runner.authprofileid-fallback.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/commands/agent.delivery.test.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/commands/agent.test.ts",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "anthropic",
+        "bot[_-]?token",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/commands/agent/types.ts",
+      "hits": [
+        "agent",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/commands/agents.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/config/config.multi-agent-agentdir-validation.test.ts",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/config/types.agent-defaults.ts",
+      "hits": [
+        "agent",
+        "docker",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/cron/isolated-agent.delivers-response-has-heartbeat-ok-but-includes.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/cron/isolated-agent.skips-delivery-without-whatsapp-recipient-besteffortdeliver-true.test.ts",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "anthropic",
+        "bot[_-]?token",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/cron/isolated-agent.uses-last-non-empty-agent-text-as.test.ts",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/gateway/server-methods/agent-timestamp.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/gateway/server-methods/agent.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "t\\.me",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw_docs/openclaw/src/gateway/server.agent.gateway-server-agent-a.e2e.test.ts",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/Rechtsstreit_IB_Pfeifer/docs/agent_context/INTEGRATIONS.md",
+      "hits": [
+        "discord",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.claude/debug/3ab334b7-5d5b-4550-8d04-80d5f39923ee.txt",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.claude/projects/-Users-maurice/10a0ffb0-1ae7-4966-b2d4-2fc0bb2b2a90/tool-results/toolu_018kkd5Z8iecasUAd8DipiVL.txt",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.claude/projects/-Users-maurice/10a0ffb0-1ae7-4966-b2d4-2fc0bb2b2a90/tool-results/toolu_01EXUJZHgFHWTLnGzSpUwshH.txt",
+      "hits": [
+        "agent",
+        "anthropic",
+        "bot[_-]?token",
+        "discord",
+        "docker",
+        "kimi",
+        "moltbook",
+        "node\\s",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.claude/projects/-Users-maurice/10a0ffb0-1ae7-4966-b2d4-2fc0bb2b2a90/tool-results/toolu_01W5xic3pd2GcYCG4QGu7DR4.txt",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "docker",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.claude/projects/-Users-maurice/3ab334b7-5d5b-4550-8d04-80d5f39923ee/tool-results/toolu_01QBMnjeBPR1Es7vb4VV5Jzc.txt",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.claude/settings.local.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.codex/.codex-global-state.json",
+      "hits": [
+        "TELEGRAM(_BOT)?_TOKEN",
+        "agent",
+        "anthropic",
+        "bot[_-]?token",
+        "discord",
+        "docker",
+        "fastapi",
+        "flask",
+        "gunicorn",
+        "kimi",
+        "moltbook",
+        "node\\s",
+        "openai",
+        "openclaw",
+        "pm2",
+        "telegram",
+        "uvicorn"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/openclaw.json",
+      "hits": [
+        "agent",
+        "bot[_-]?token",
+        "kimi",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/scripts/runbook-mass-system.sh",
+      "hits": [
+        "agent",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace-community/BOOTSTRAP.md",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace-community/INTEGRATIONS.md",
+      "hits": [
+        "discord",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace-ops/BOOTSTRAP.md",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace-ops/INTEGRATIONS.md",
+      "hits": [
+        "discord",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace-research/BOOTSTRAP.md",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace-research/INTEGRATIONS.md",
+      "hits": [
+        "discord",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/02_WORKING_COPY/Rechtsstreit_IB_Pfeifer/99_ARCHIVE/20260204_102841/docs/moltbook/PINNED_POST.md",
+      "hits": [
+        "moltbook",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/02_WORKING_COPY/Rechtsstreit_IB_Pfeifer/99_ARCHIVE/20260204_102841/docs/moltbook/SETUP.md",
+      "hits": [
+        "moltbook",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/02_WORKING_COPY/Rechtsstreit_IB_Pfeifer/99_ARCHIVE/20260204_103025/BOOTSTRAP.md",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/02_WORKING_COPY/Rechtsstreit_IB_Pfeifer/99_ARCHIVE/20260204_103025/mission_control/queue/2026-02-04_moltbook_day1_launch.md",
+      "hits": [
+        "moltbook",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/00_SYSTEM/MISSION_CONTROL.md",
+      "hits": [
+        "agent",
+        "anthropic",
+        "kimi",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/BOOTSTRAP.md",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/knowledge/00_SCHNELL_REFERENZ.md",
+      "hits": [
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/knowledge/01_SETUP_GUIDE.md",
+      "hits": [
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/knowledge/02_ERSTE_AUFGABEN.md",
+      "hits": [
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/knowledge/04_GOLD_NUGGETS_SESSION.md",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/knowledge/CHECKLISTE_DRUCKEN.md",
+      "hits": [
+        "discord",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/knowledge/LINKS.md",
+      "hits": [
+        "discord",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/MASTER_BLUEPRINT.md",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/ai-empire/RECHTSSTREIT_MISSION.md",
+      "hits": [
+        "agent",
+        "kimi",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/.openclaw/workspace/INTEGRATIONS.md",
+      "hits": [
+        "discord",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/.github/labeler.yml",
+      "hits": [
+        "agent",
+        "discord",
+        "docker",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/1992.json",
+      "hits": [
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/2693.json",
+      "hits": [
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/2722.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/3515.json",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/3771.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/3871.json",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/4147.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/5692.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/6020.json",
+      "hits": [
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/6073.json",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/6098.json",
+      "hits": [
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/6259.json",
+      "hits": [
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/7614.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/8100.json",
+      "hits": [
+        "agent",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/8177.json",
+      "hits": [
+        "anthropic",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/discussions/index.json",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "docker",
+        "kimi",
+        "moltbook",
+        "node\\s",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/7942.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/7946.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/7969.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/7970.json",
+      "hits": [
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/7972.json",
+      "hits": [
+        "discord",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/7979.json",
+      "hits": [
+        "bot[_-]?token",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/7989.json",
+      "hits": [
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/7999.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8000.json",
+      "hits": [
+        "agent",
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8012.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8015.json",
+      "hits": [
+        "agent",
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8026.json",
+      "hits": [
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8029.json",
+      "hits": [
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8033.json",
+      "hits": [
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8046.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8063.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8071.json",
+      "hits": [
+        "agent",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8091.json",
+      "hits": [
+        "anthropic",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8096.json",
+      "hits": [
+        "agent",
+        "discord",
+        "kimi",
+        "node\\s",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8108.json",
+      "hits": [
+        "anthropic",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8110.json",
+      "hits": [
+        "agent",
+        "docker",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8122.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8133.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8140.json",
+      "hits": [
+        "agent",
+        "bot[_-]?token",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8151.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8160.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8183.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/8190.json",
+      "hits": [
+        "agent",
+        "anthropic",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/comments/1059.json",
+      "hits": [
+        "discord",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/comments/1129.json",
+      "hits": [
+        "bot[_-]?token",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/comments/1141.json",
+      "hits": [
+        "agent",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/comments/1156.json",
+      "hits": [
+        "agent",
+        "anthropic",
+        "discord",
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/comments/1157.json",
+      "hits": [
+        "openclaw",
+        "telegram"
+      ]
+    },
+    {
+      "file": "/Users/maurice/AI_WORKSPACE/openclaw/_github_export/issues/comments/1158.json",
+      "hits": [
+        "openai",
+        "openclaw",
+        "telegram"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO_DIR="/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project"
+ENV_FILE="$REPO_DIR/ai-vault/empire.env"
+
+# Shared secrets live in OpenClaw's env.
+if [ -f "$HOME/.openclaw/.env" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  source "$HOME/.openclaw/.env"
+  set +a
+fi
+
+cd "$REPO_DIR"
+
+if [ -f "$ENV_FILE" ]; then
+  set -a
+  # shellcheck disable=SC1090
+  source "$ENV_FILE"
+  set +a
+fi
+
+/usr/bin/env python3 -m automation.ingest --source notes --since-days 7 --limit 200 --execute

@@ -1,0 +1,410 @@
+thread_id,tweet_id,text
+1,1,"Parallelisierung im Content-System klingt simpel, ist aber ein Gamechanger."
+1,2,Viele Threads scheitern am ersten Tweet.
+1,3,Hook-First zwingt dich zu Klarheit.
+1,4,"Sammle 30 Hooks, teste 10, behalte 3."
+1,5,Erst dann baust du den Rest des Threads.
+1,6,Prinzip: Zeige ehrliche Wertschaetzung.
+1,7,These: Mastermind-Denken multipliziert Ergebnisse.
+1,8,CTA: DM mit AGENTS und ich sende dir die Matrix.
+2,1,Mein System in kurz: Rollen-Setup in der Content Factory.
+2,2,Viele Threads scheitern am ersten Tweet.
+2,3,Hook-First zwingt dich zu Klarheit.
+2,4,"Sammle 30 Hooks, teste 10, behalte 3."
+2,5,Erst dann baust du den Rest des Threads.
+2,6,Prinzip: Sprich ueber die Interessen deines Gegenuebers.
+2,7,These: Beharrlichkeit schlaegt Talent.
+2,8,CTA: Schreib AGENTS fuer das Prompt-Pack.
+3,1,Warum Hook-First Prozess dein groesster Hebel ist.
+3,2,"Wenn du Output willst, brauchst du Batching."
+3,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+3,4,Die Rollen bleiben strikt getrennt.
+3,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+3,6,"Haltung: Keine Ausreden, nur Handlung."
+3,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+3,8,CTA: Schreib AGENTS fuer das Prompt-Pack.
+4,1,Der schnellste Weg zu mehr Output: Wortlimits als Quality Gate.
+4,2,Prinzip: Sprich ueber die Interessen deines Gegenuebers.
+4,3,These: Beharrlichkeit schlaegt Talent.
+4,4,Haltung: Du bist verantwortlich.
+4,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+4,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+4,7,Schritt 2: Schreibe Drafts im Batch.
+4,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+4,9,CTA: Willst du den Workflow? Schreib AGENTS.
+5,1,So baust du Kosten senken mit kleinen Modellen ohne Chaos.
+5,2,"Wenn du Output willst, brauchst du Batching."
+5,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+5,4,Die Rollen bleiben strikt getrennt.
+5,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+5,6,"Haltung: Keine Ausreden, nur Handlung."
+5,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+5,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+6,1,"Workflow von Idee zu Output in 4 Schritten klingt simpel, ist aber ein Gamechanger."
+6,2,Viele Threads scheitern am ersten Tweet.
+6,3,Hook-First zwingt dich zu Klarheit.
+6,4,"Sammle 30 Hooks, teste 10, behalte 3."
+6,5,Erst dann baust du den Rest des Threads.
+6,6,Prinzip: Zeige ehrliche Wertschaetzung.
+6,7,These: Der Wunsch nach Erfolg braucht ein definites Ziel.
+6,8,CTA: Kommentiere AGENTS fuer die Struktur.
+7,1,So baust du Orchestrator als Pflichtrolle ohne Chaos.
+7,2,Prinzip: Hoere aufrichtig zu.
+7,3,These: Beharrlichkeit schlaegt Talent.
+7,4,Haltung: Du entscheidest.
+7,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+7,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+7,7,Schritt 2: Schreibe Drafts im Batch.
+7,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+7,9,CTA: Wenn du das System willst: antworte mit AGENTS.
+8,1,"Hook-Tests mit 30 Varianten klingt simpel, ist aber ein Gamechanger."
+8,2,Viele Threads scheitern am ersten Tweet.
+8,3,Hook-First zwingt dich zu Klarheit.
+8,4,"Sammle 30 Hooks, teste 10, behalte 3."
+8,5,Erst dann baust du den Rest des Threads.
+8,6,Prinzip: Stelle Fragen statt zu predigen.
+8,7,These: Der Wunsch nach Erfolg braucht ein definites Ziel.
+8,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+9,1,Mein System in kurz: Threads ohne Brainload.
+9,2,Prinzip: Zeige ehrliche Wertschaetzung.
+9,3,These: Triff eine klare Entscheidung und bleib dran.
+9,4,"Haltung: Keine Ausreden, nur Handlung."
+9,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+9,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+9,7,Schritt 2: Schreibe Drafts im Batch.
+9,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+9,9,CTA: Kommentiere AGENTS fuer die Struktur.
+10,1,Warum Premium-Prompts als Produkt dein groesster Hebel ist.
+10,2,Viele Threads scheitern am ersten Tweet.
+10,3,Hook-First zwingt dich zu Klarheit.
+10,4,"Sammle 30 Hooks, teste 10, behalte 3."
+10,5,Erst dann baust du den Rest des Threads.
+10,6,Prinzip: Wecke den Wunsch im anderen.
+10,7,These: Der Wunsch nach Erfolg braucht ein definites Ziel.
+10,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+11,1,Warum Content-Batching fuer Creator dein groesster Hebel ist.
+11,2,Symptom: Zu wenig Output trotz viel Arbeit.
+11,3,Ursache: Rollen sind nicht getrennt.
+11,4,Loesung: 1 Agent = 1 Aufgabe.
+11,5,Prinzip: Hoere aufrichtig zu.
+11,6,These: Der Wunsch nach Erfolg braucht ein definites Ziel.
+11,7,Haltung: Handlung vor Ausrede.
+11,8,CTA: Kommentiere AGENTS fuer die Struktur.
+12,1,So baust du Task-Matrix mit 25 Slots ohne Chaos.
+12,2,Prinzip: Hoere aufrichtig zu.
+12,3,These: Mastermind-Denken multipliziert Ergebnisse.
+12,4,"Haltung: Klare Haltung, klare Richtung."
+12,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+12,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+12,7,Schritt 2: Schreibe Drafts im Batch.
+12,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+12,9,CTA: Wenn du das System willst: antworte mit AGENTS.
+13,1,Warum Top-10 Prompt-Fehler dein groesster Hebel ist.
+13,2,Viele Threads scheitern am ersten Tweet.
+13,3,Hook-First zwingt dich zu Klarheit.
+13,4,"Sammle 30 Hooks, teste 10, behalte 3."
+13,5,Erst dann baust du den Rest des Threads.
+13,6,Prinzip: Stelle Fragen statt zu predigen.
+13,7,These: Ein klares Ziel vor Augen schafft Zugkraft.
+13,8,CTA: Willst du den Workflow? Schreib AGENTS.
+14,1,So baust du Content-Bibliothek aufbauen ohne Chaos.
+14,2,Viele Threads scheitern am ersten Tweet.
+14,3,Hook-First zwingt dich zu Klarheit.
+14,4,"Sammle 30 Hooks, teste 10, behalte 3."
+14,5,Erst dann baust du den Rest des Threads.
+14,6,Prinzip: Wecke den Wunsch im anderen.
+14,7,These: Mastermind-Denken multipliziert Ergebnisse.
+14,8,CTA: Kommentiere AGENTS fuer die Struktur.
+15,1,Warum CTA-Strategie fuer Conversion dein groesster Hebel ist.
+15,2,"Wenn du Output willst, brauchst du Batching."
+15,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+15,4,Die Rollen bleiben strikt getrennt.
+15,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+15,6,Haltung: Du entscheidest.
+15,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+15,8,CTA: Schreib AGENTS fuer das Prompt-Pack.
+16,1,"Vielfalt statt Perfektion klingt simpel, ist aber ein Gamechanger."
+16,2,Ein System spart dir mehr Zeit als Motivation.
+16,3,"Der Engpass ist nicht Ideen, sondern Struktur."
+16,4,Baue zuerst eine Hook-Datenbank.
+16,5,"Dann kommen Drafts, dann Kuerzung, dann CTA."
+16,6,Prinzip: Stelle Fragen statt zu predigen.
+16,7,These: Mastermind-Denken multipliziert Ergebnisse.
+16,8,CTA: Schreib AGENTS fuer das Prompt-Pack.
+17,1,"Qualitaetssicherung in der Pipeline klingt simpel, ist aber ein Gamechanger."
+17,2,Prinzip: Sprich ueber die Interessen deines Gegenuebers.
+17,3,These: Triff eine klare Entscheidung und bleib dran.
+17,4,Haltung: Du entscheidest.
+17,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+17,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+17,7,Schritt 2: Schreibe Drafts im Batch.
+17,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+17,9,CTA: Wenn du das System willst: antworte mit AGENTS.
+18,1,"Output-Funnels statt Einmal-Posts klingt simpel, ist aber ein Gamechanger."
+18,2,Symptom: Zu wenig Output trotz viel Arbeit.
+18,3,Ursache: Rollen sind nicht getrennt.
+18,4,Loesung: 1 Agent = 1 Aufgabe.
+18,5,Prinzip: Wecke den Wunsch im anderen.
+18,6,These: Beharrlichkeit schlaegt Talent.
+18,7,Haltung: Du bist verantwortlich.
+18,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+19,1,So baust du Thread-Repurposing ohne Chaos.
+19,2,"Wenn du Output willst, brauchst du Batching."
+19,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+19,4,Die Rollen bleiben strikt getrennt.
+19,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+19,6,Haltung: Du bist verantwortlich.
+19,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+19,8,CTA: Kommentiere AGENTS fuer die Struktur.
+20,1,So baust du Agenten fuer Research ohne Chaos.
+20,2,Viele Threads scheitern am ersten Tweet.
+20,3,Hook-First zwingt dich zu Klarheit.
+20,4,"Sammle 30 Hooks, teste 10, behalte 3."
+20,5,Erst dann baust du den Rest des Threads.
+20,6,Prinzip: Sprich ueber die Interessen deines Gegenuebers.
+20,7,These: Mastermind-Denken multipliziert Ergebnisse.
+20,8,CTA: Willst du den Workflow? Schreib AGENTS.
+21,1,Mein System in kurz: 2-Euro Content-Stack.
+21,2,"Wenn du Output willst, brauchst du Batching."
+21,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+21,4,Die Rollen bleiben strikt getrennt.
+21,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+21,6,Haltung: Du bist verantwortlich.
+21,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+21,8,CTA: DM mit AGENTS und ich sende dir die Matrix.
+22,1,Der schnellste Weg zu mehr Output: 3 Ebenen von Content.
+22,2,"Wenn du Output willst, brauchst du Batching."
+22,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+22,4,Die Rollen bleiben strikt getrennt.
+22,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+22,6,"Haltung: Klare Haltung, klare Richtung."
+22,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+22,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+23,1,So baust du Von Chaos zu System in 7 Tagen ohne Chaos.
+23,2,"Wenn du Output willst, brauchst du Batching."
+23,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+23,4,Die Rollen bleiben strikt getrennt.
+23,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+23,6,"Haltung: Keine Ausreden, nur Handlung."
+23,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+23,8,CTA: Willst du den Workflow? Schreib AGENTS.
+24,1,Der schnellste Weg zu mehr Output: Hooks ohne generischen Ton.
+24,2,Ein System spart dir mehr Zeit als Motivation.
+24,3,"Der Engpass ist nicht Ideen, sondern Struktur."
+24,4,Baue zuerst eine Hook-Datenbank.
+24,5,"Dann kommen Drafts, dann Kuerzung, dann CTA."
+24,6,Prinzip: Hoere aufrichtig zu.
+24,7,These: Beharrlichkeit schlaegt Talent.
+24,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+25,1,"So baust du Schneller testen, schneller lernen ohne Chaos."
+25,2,Symptom: Zu wenig Output trotz viel Arbeit.
+25,3,Ursache: Rollen sind nicht getrennt.
+25,4,Loesung: 1 Agent = 1 Aufgabe.
+25,5,Prinzip: Hoere aufrichtig zu.
+25,6,These: Triff eine klare Entscheidung und bleib dran.
+25,7,"Haltung: Klare Haltung, klare Richtung."
+25,8,CTA: Schreib AGENTS fuer das Prompt-Pack.
+26,1,So baust du Workflow-Reihenfolge ohne Chaos.
+26,2,Viele Threads scheitern am ersten Tweet.
+26,3,Hook-First zwingt dich zu Klarheit.
+26,4,"Sammle 30 Hooks, teste 10, behalte 3."
+26,5,Erst dann baust du den Rest des Threads.
+26,6,Prinzip: Sprich ueber die Interessen deines Gegenuebers.
+26,7,These: Mastermind-Denken multipliziert Ergebnisse.
+26,8,CTA: Schreib AGENTS fuer das Prompt-Pack.
+27,1,So baust du Agenten-Design fuer Klarheit ohne Chaos.
+27,2,"Wenn du Output willst, brauchst du Batching."
+27,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+27,4,Die Rollen bleiben strikt getrennt.
+27,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+27,6,"Haltung: Klare Haltung, klare Richtung."
+27,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+27,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+28,1,Der schnellste Weg zu mehr Output: Monetarisierung mit Prompt-Produkten.
+28,2,Prinzip: Wecke den Wunsch im anderen.
+28,3,These: Triff eine klare Entscheidung und bleib dran.
+28,4,Haltung: Handlung vor Ausrede.
+28,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+28,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+28,7,Schritt 2: Schreibe Drafts im Batch.
+28,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+28,9,CTA: Kommentiere AGENTS fuer die Struktur.
+29,1,Der schnellste Weg zu mehr Output: Output planbar machen.
+29,2,"Wenn du Output willst, brauchst du Batching."
+29,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+29,4,Die Rollen bleiben strikt getrennt.
+29,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+29,6,Haltung: Du bist verantwortlich.
+29,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+29,8,CTA: DM mit AGENTS und ich sende dir die Matrix.
+30,1,So baust du QA vor Kreativitaet ohne Chaos.
+30,2,Prinzip: Zeige ehrliche Wertschaetzung.
+30,3,These: Triff eine klare Entscheidung und bleib dran.
+30,4,Haltung: Du entscheidest.
+30,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+30,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+30,7,Schritt 2: Schreibe Drafts im Batch.
+30,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+30,9,CTA: DM mit AGENTS und ich sende dir die Matrix.
+31,1,Mein System in kurz: Beste Content-Routine fuer Solos.
+31,2,Ein System spart dir mehr Zeit als Motivation.
+31,3,"Der Engpass ist nicht Ideen, sondern Struktur."
+31,4,Baue zuerst eine Hook-Datenbank.
+31,5,"Dann kommen Drafts, dann Kuerzung, dann CTA."
+31,6,Prinzip: Stelle Fragen statt zu predigen.
+31,7,These: Triff eine klare Entscheidung und bleib dran.
+31,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+32,1,Der schnellste Weg zu mehr Output: Was du von Agenturen klauen kannst.
+32,2,Viele Threads scheitern am ersten Tweet.
+32,3,Hook-First zwingt dich zu Klarheit.
+32,4,"Sammle 30 Hooks, teste 10, behalte 3."
+32,5,Erst dann baust du den Rest des Threads.
+32,6,Prinzip: Stelle Fragen statt zu predigen.
+32,7,These: Triff eine klare Entscheidung und bleib dran.
+32,8,CTA: Kommentiere AGENTS fuer die Struktur.
+33,1,"Hook-Datenbank als Wachstumsmotor klingt simpel, ist aber ein Gamechanger."
+33,2,Ein System spart dir mehr Zeit als Motivation.
+33,3,"Der Engpass ist nicht Ideen, sondern Struktur."
+33,4,Baue zuerst eine Hook-Datenbank.
+33,5,"Dann kommen Drafts, dann Kuerzung, dann CTA."
+33,6,Prinzip: Zeige ehrliche Wertschaetzung.
+33,7,These: Ein klares Ziel vor Augen schafft Zugkraft.
+33,8,CTA: Willst du den Workflow? Schreib AGENTS.
+34,1,"Content als Produkt klingt simpel, ist aber ein Gamechanger."
+34,2,Prinzip: Wecke den Wunsch im anderen.
+34,3,These: Ein klares Ziel vor Augen schafft Zugkraft.
+34,4,Haltung: Du bist verantwortlich.
+34,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+34,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+34,7,Schritt 2: Schreibe Drafts im Batch.
+34,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+34,9,CTA: Wenn du das System willst: antworte mit AGENTS.
+35,1,So baust du Content messbar machen ohne Chaos.
+35,2,Viele Threads scheitern am ersten Tweet.
+35,3,Hook-First zwingt dich zu Klarheit.
+35,4,"Sammle 30 Hooks, teste 10, behalte 3."
+35,5,Erst dann baust du den Rest des Threads.
+35,6,Prinzip: Stelle Fragen statt zu predigen.
+35,7,These: Der Wunsch nach Erfolg braucht ein definites Ziel.
+35,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+36,1,"1 Agent = 1 Aufgabe klingt simpel, ist aber ein Gamechanger."
+36,2,Viele Threads scheitern am ersten Tweet.
+36,3,Hook-First zwingt dich zu Klarheit.
+36,4,"Sammle 30 Hooks, teste 10, behalte 3."
+36,5,Erst dann baust du den Rest des Threads.
+36,6,Prinzip: Wecke den Wunsch im anderen.
+36,7,These: Triff eine klare Entscheidung und bleib dran.
+36,8,CTA: DM mit AGENTS und ich sende dir die Matrix.
+37,1,Der schnellste Weg zu mehr Output: Zielgruppe in Prompts.
+37,2,"Wenn du Output willst, brauchst du Batching."
+37,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+37,4,Die Rollen bleiben strikt getrennt.
+37,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+37,6,Haltung: Handlung vor Ausrede.
+37,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+37,8,CTA: Willst du den Workflow? Schreib AGENTS.
+38,1,So baust du 80-20 Regeln fuer Content ohne Chaos.
+38,2,"Wenn du Output willst, brauchst du Batching."
+38,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+38,4,Die Rollen bleiben strikt getrennt.
+38,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+38,6,Haltung: Du bist verantwortlich.
+38,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+38,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+39,1,Der schnellste Weg zu mehr Output: Prompts versionieren.
+39,2,"Wenn du Output willst, brauchst du Batching."
+39,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+39,4,Die Rollen bleiben strikt getrennt.
+39,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+39,6,Haltung: Du bist verantwortlich.
+39,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+39,8,CTA: Kommentiere AGENTS fuer die Struktur.
+40,1,So baust du Schreibblockaden entfernen ohne Chaos.
+40,2,Prinzip: Sprich ueber die Interessen deines Gegenuebers.
+40,3,These: Triff eine klare Entscheidung und bleib dran.
+40,4,"Haltung: Klare Haltung, klare Richtung."
+40,5,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+40,6,Schritt 1: Sammle 30 Hooks in 1 Session.
+40,7,Schritt 2: Schreibe Drafts im Batch.
+40,8,Schritt 3: Kuerze hart und pruefe Nutzen.
+40,9,CTA: DM mit AGENTS und ich sende dir die Matrix.
+41,1,So baust du 4 Checks vor dem Posten ohne Chaos.
+41,2,Ein System spart dir mehr Zeit als Motivation.
+41,3,"Der Engpass ist nicht Ideen, sondern Struktur."
+41,4,Baue zuerst eine Hook-Datenbank.
+41,5,"Dann kommen Drafts, dann Kuerzung, dann CTA."
+41,6,Prinzip: Sprich ueber die Interessen deines Gegenuebers.
+41,7,These: Der Wunsch nach Erfolg braucht ein definites Ziel.
+41,8,CTA: Kommentiere AGENTS fuer die Struktur.
+42,1,Mein System in kurz: Content in Umsatz verwandeln.
+42,2,Viele Threads scheitern am ersten Tweet.
+42,3,Hook-First zwingt dich zu Klarheit.
+42,4,"Sammle 30 Hooks, teste 10, behalte 3."
+42,5,Erst dann baust du den Rest des Threads.
+42,6,Prinzip: Wecke den Wunsch im anderen.
+42,7,These: Triff eine klare Entscheidung und bleib dran.
+42,8,CTA: Willst du den Workflow? Schreib AGENTS.
+43,1,"5 beste CTA-Formate klingt simpel, ist aber ein Gamechanger."
+43,2,"Wenn du Output willst, brauchst du Batching."
+43,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+43,4,Die Rollen bleiben strikt getrennt.
+43,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+43,6,Haltung: Du entscheidest.
+43,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+43,8,CTA: DM mit AGENTS und ich sende dir die Matrix.
+44,1,"Creator-Stack bauen klingt simpel, ist aber ein Gamechanger."
+44,2,Ein System spart dir mehr Zeit als Motivation.
+44,3,"Der Engpass ist nicht Ideen, sondern Struktur."
+44,4,Baue zuerst eine Hook-Datenbank.
+44,5,"Dann kommen Drafts, dann Kuerzung, dann CTA."
+44,6,Prinzip: Wecke den Wunsch im anderen.
+44,7,These: Beharrlichkeit schlaegt Talent.
+44,8,CTA: Willst du den Workflow? Schreib AGENTS.
+45,1,So baust du Output ohne Burnout ohne Chaos.
+45,2,Ein System spart dir mehr Zeit als Motivation.
+45,3,"Der Engpass ist nicht Ideen, sondern Struktur."
+45,4,Baue zuerst eine Hook-Datenbank.
+45,5,"Dann kommen Drafts, dann Kuerzung, dann CTA."
+45,6,Prinzip: Stelle Fragen statt zu predigen.
+45,7,These: Triff eine klare Entscheidung und bleib dran.
+45,8,CTA: Wenn du das System willst: antworte mit AGENTS.
+46,1,Der schnellste Weg zu mehr Output: Vom Hook zum Angebot.
+46,2,"Wenn du Output willst, brauchst du Batching."
+46,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+46,4,Die Rollen bleiben strikt getrennt.
+46,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+46,6,"Haltung: Keine Ausreden, nur Handlung."
+46,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+46,8,CTA: DM mit AGENTS und ich sende dir die Matrix.
+47,1,Warum Formate als groesste Abkuerzung dein groesster Hebel ist.
+47,2,"Wenn du Output willst, brauchst du Batching."
+47,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+47,4,Die Rollen bleiben strikt getrennt.
+47,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+47,6,Haltung: Handlung vor Ausrede.
+47,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+47,8,CTA: Kommentiere AGENTS fuer die Struktur.
+48,1,Warum 10 Thread-Strukturen dein groesster Hebel ist.
+48,2,Viele Threads scheitern am ersten Tweet.
+48,3,Hook-First zwingt dich zu Klarheit.
+48,4,"Sammle 30 Hooks, teste 10, behalte 3."
+48,5,Erst dann baust du den Rest des Threads.
+48,6,Prinzip: Sprich ueber die Interessen deines Gegenuebers.
+48,7,These: Der Wunsch nach Erfolg braucht ein definites Ziel.
+48,8,CTA: DM mit AGENTS und ich sende dir die Matrix.
+49,1,Der schnellste Weg zu mehr Output: Prompt-Library verkaufen.
+49,2,"Wenn du Output willst, brauchst du Batching."
+49,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+49,4,Die Rollen bleiben strikt getrennt.
+49,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+49,6,"Haltung: Klare Haltung, klare Richtung."
+49,7,Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.
+49,8,CTA: Schreib AGENTS fuer das Prompt-Pack.
+50,1,"Gute Prompts erkennen klingt simpel, ist aber ein Gamechanger."
+50,2,Symptom: Zu wenig Output trotz viel Arbeit.
+50,3,Ursache: Rollen sind nicht getrennt.
+50,4,Loesung: 1 Agent = 1 Aufgabe.
+50,5,Prinzip: Hoere aufrichtig zu.
+50,6,These: Triff eine klare Entscheidung und bleib dran.
+50,7,"Haltung: Klare Haltung, klare Richtung."
+50,8,CTA: Willst du den Workflow? Schreib AGENTS.

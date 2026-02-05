@@ -1,0 +1,2802 @@
+[
+  {
+    "id": 1,
+    "title": "Hook Generator: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Tweet Engine und generiere 12 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 2,
+    "title": "Thread Outline: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 DM-Templates im Stil Pro/Contra. Zielgruppe: Solo-Creator. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 3,
+    "title": "Tweet Variations: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Hooks im Stil Schritt-fuer-Schritt. Zielgruppe: SaaS Founder. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 4,
+    "title": "CTA Builder: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 5 Content-Ideen fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 5,
+    "title": "Content Audit: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Tweet Engine und generiere 9 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 6,
+    "title": "Positionierung: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 5 Content-Ideen fuer Coaches. Nutze Framework und halte jede Ausgabe unter 20 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 7,
+    "title": "Offer Design: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Tweet-Varianten im Stil Kurz und direkt. Zielgruppe: Coaches. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 8,
+    "title": "Pricing: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle eine Liste von 10 Offer-Statements fuer Coaches. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 9,
+    "title": "Lead Magnet: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 9 Tweet-Varianten fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 18 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 10,
+    "title": "Content Kalender: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Content Factory und generiere 5 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 11,
+    "title": "Repurposing: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 10 CTA-Ideen fuer Coaches. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 16 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 12,
+    "title": "Story Framework: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 12 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 13,
+    "title": "Objection Handling: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 9 Pricing-Optionen fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 14,
+    "title": "Use-Case Mapping: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 12 Lead-Magnet-Ideen fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 15,
+    "title": "Audience Research: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 12 Lead-Magnet-Ideen fuer SaaS Founder. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 16,
+    "title": "Angle Finder: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 9 Content-Titel fuer B2B Marketer. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 24 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 17,
+    "title": "Benefit Stacking: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 DM-Templates im Stil Framework. Zielgruppe: Solo-Creator. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 18,
+    "title": "Case Study: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 9 Content-Ideen fuer SaaS Founder. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 19,
+    "title": "SaaS Content: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 12 CTA-Ideen fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 20,
+    "title": "Creator Newsletter: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 12 Thread-Outlines fuer Solo-Creator. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 21,
+    "title": "Sales Page: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Content Factory und generiere 10 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 22,
+    "title": "DM Scripts: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Lead-Magnet-Ideen im Stil Pro/Contra. Zielgruppe: Solo-Creator. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 23,
+    "title": "Kurzvideo Skript: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 12 CTA-Ideen fuer B2B Marketer. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 18 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 24,
+    "title": "FAQ Engine: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 12 Pricing-Optionen fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 25,
+    "title": "Landing Page: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 7 DM-Templates fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 26,
+    "title": "Hook Generator: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 12 Use-Cases fuer Berater. Nutze Pro/Contra und halte jede Ausgabe unter 24 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 27,
+    "title": "Thread Outline: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 5 DM-Templates fuer Berater. Nutze Framework und halte jede Ausgabe unter 20 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 28,
+    "title": "Tweet Variations: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 7 Thread-Outlines fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 29,
+    "title": "CTA Builder: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Tweet-Varianten im Stil Checkliste. Zielgruppe: B2B Marketer. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 30,
+    "title": "Content Audit: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 7 Use-Cases fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 16 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 31,
+    "title": "Positionierung: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 9 Thread-Outlines fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 32,
+    "title": "Offer Design: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle eine Liste von 9 Tweet-Varianten fuer Coaches. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 33,
+    "title": "Pricing: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 12 Pricing-Optionen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 34,
+    "title": "Lead Magnet: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 9 DM-Templates fuer Agenturen. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 35,
+    "title": "Content Kalender: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Tweet-Varianten im Stil Checkliste. Zielgruppe: Berater. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 36,
+    "title": "Repurposing: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 5 DM-Templates fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 37,
+    "title": "Story Framework: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 5 Hooks fuer Berater. Nutze Template und halte jede Ausgabe unter 16 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 38,
+    "title": "Objection Handling: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 5 Thread-Outlines fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 39,
+    "title": "Use-Case Mapping: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle eine Liste von 12 Use-Cases fuer Berater. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 40,
+    "title": "Audience Research: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 12 Use-Cases fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 41,
+    "title": "Angle Finder: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 12 Hooks fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 16 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 42,
+    "title": "Benefit Stacking: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 12 DM-Templates fuer Solo-Creator. Nutze Template und halte jede Ausgabe unter 24 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 43,
+    "title": "Case Study: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 10 Objection-Replies fuer SaaS Founder. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 44,
+    "title": "SaaS Content: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 10 Thread-Outlines fuer Berater. Nutze Pro/Contra und halte jede Ausgabe unter 20 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 45,
+    "title": "Creator Newsletter: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Content Factory und generiere 10 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 46,
+    "title": "Sales Page: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 Content-Ideen im Stil Kurz und direkt. Zielgruppe: Agenturen. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 47,
+    "title": "DM Scripts: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Prompt Pack und generiere 10 Use-Cases. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 48,
+    "title": "Kurzvideo Skript: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Use-Cases im Stil Pro/Contra. Zielgruppe: Berater. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 49,
+    "title": "FAQ Engine: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 10 Lead-Magnet-Ideen fuer Agenturen. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 50,
+    "title": "Landing Page: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 7 DM-Templates fuer B2B Marketer. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 51,
+    "title": "Hook Generator: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Tweet Engine und generiere 9 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 52,
+    "title": "Thread Outline: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 7 Lead-Magnet-Ideen fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 53,
+    "title": "Tweet Variations: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 7 DM-Templates fuer Solo-Creator. Nutze Template und halte jede Ausgabe unter 18 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 54,
+    "title": "CTA Builder: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 9 CTA-Ideen fuer Agenturen. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 16 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 55,
+    "title": "Content Audit: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 10 CTA-Ideen fuer Solo-Creator. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 56,
+    "title": "Positionierung: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 Tweet-Varianten im Stil Checkliste. Zielgruppe: Solo-Creator. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 57,
+    "title": "Offer Design: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 5 Use-Cases fuer Solo-Creator. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 58,
+    "title": "Pricing: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Creator Stack und generiere 7 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 59,
+    "title": "Lead Magnet: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle eine Liste von 12 Use-Cases fuer Coaches. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 60,
+    "title": "Content Kalender: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 5 Offer-Statements fuer SaaS Founder. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 61,
+    "title": "Repurposing: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Offer-Statements im Stil Schritt-fuer-Schritt. Zielgruppe: SaaS Founder. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 62,
+    "title": "Story Framework: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 5 Content-Ideen fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 63,
+    "title": "Objection Handling: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 10 Content-Titel fuer Berater. Nutze Checkliste und halte jede Ausgabe unter 18 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 64,
+    "title": "Use-Case Mapping: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Lead-Magnet-Ideen im Stil Checkliste. Zielgruppe: Agenturen. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 65,
+    "title": "Audience Research: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Hook-Datenbank und generiere 7 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 66,
+    "title": "Angle Finder: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Thread-Outlines im Stil Checkliste. Zielgruppe: Solo-Creator. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 67,
+    "title": "Benefit Stacking: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Prompt Pack und generiere 5 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 68,
+    "title": "Case Study: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 5 Tweet-Varianten fuer Berater. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 20 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 69,
+    "title": "SaaS Content: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 7 Lead-Magnet-Ideen fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 70,
+    "title": "Creator Newsletter: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 9 CTA-Ideen fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 71,
+    "title": "Sales Page: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 10 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 72,
+    "title": "DM Scripts: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle eine Liste von 12 Content-Titel fuer Berater. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 73,
+    "title": "Kurzvideo Skript: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 7 Objection-Replies fuer Berater. Nutze Kurz und direkt und halte jede Ausgabe unter 24 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 74,
+    "title": "FAQ Engine: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 Thread-Outlines im Stil Framework. Zielgruppe: Berater. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 75,
+    "title": "Landing Page: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Creator Stack und generiere 7 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 76,
+    "title": "Hook Generator: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Tweet Engine und generiere 5 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 77,
+    "title": "Thread Outline: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Pricing-Optionen im Stil Framework. Zielgruppe: Coaches. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 78,
+    "title": "Tweet Variations: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 9 Thread-Outlines fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 79,
+    "title": "CTA Builder: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 12 Content-Ideen fuer Agenturen. Nutze Beispiel + Analyse und halte jede Ausgabe unter 16 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 80,
+    "title": "Content Audit: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 7 CTA-Ideen fuer Solo-Creator. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 20 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 81,
+    "title": "Positionierung: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 7 DM-Templates fuer B2B Marketer. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 82,
+    "title": "Offer Design: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 7 DM-Templates fuer SaaS Founder. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 83,
+    "title": "Pricing: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 12 Content-Titel fuer SaaS Founder. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 84,
+    "title": "Lead Magnet: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 5 Content-Titel fuer SaaS Founder. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 85,
+    "title": "Content Kalender: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Prompt Pack und generiere 10 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 86,
+    "title": "Repurposing: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 5 Content-Ideen fuer B2B Marketer. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 20 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 87,
+    "title": "Story Framework: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 10 Use-Cases. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 88,
+    "title": "Objection Handling: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 5 Content-Titel fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 89,
+    "title": "Use-Case Mapping: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 12 Hooks fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 90,
+    "title": "Audience Research: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 10 Content-Titel fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 91,
+    "title": "Angle Finder: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 12 Use-Cases fuer Solo-Creator. Nutze Pro/Contra und halte jede Ausgabe unter 16 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 92,
+    "title": "Benefit Stacking: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Lead-Magnet-Ideen im Stil Kurz und direkt. Zielgruppe: Berater. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 93,
+    "title": "Case Study: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 9 Content-Ideen fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 94,
+    "title": "SaaS Content: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 10 Offer-Statements fuer B2B Marketer. Nutze Framework und halte jede Ausgabe unter 24 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 95,
+    "title": "Creator Newsletter: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 12 CTA-Ideen fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 96,
+    "title": "Sales Page: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Tweet-Varianten im Stil Checkliste. Zielgruppe: Agenturen. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 97,
+    "title": "DM Scripts: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 9 Content-Titel fuer Solo-Creator. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 98,
+    "title": "Kurzvideo Skript: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Pricing-Optionen im Stil Kurz und direkt. Zielgruppe: Berater. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 99,
+    "title": "FAQ Engine: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 5 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 100,
+    "title": "Landing Page: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 10 Thread-Outlines fuer SaaS Founder. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 101,
+    "title": "Hook Generator: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Content Factory und generiere 10 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 102,
+    "title": "Thread Outline: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Lead-Magnet-Ideen im Stil Kurz und direkt. Zielgruppe: Solo-Creator. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 103,
+    "title": "Tweet Variations: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 9 Use-Cases. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 104,
+    "title": "CTA Builder: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 5 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 105,
+    "title": "Content Audit: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 12 Use-Cases fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 24 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 106,
+    "title": "Positionierung: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 7 Content-Titel fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 107,
+    "title": "Offer Design: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 9 Content-Titel fuer Berater. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 18 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 108,
+    "title": "Pricing: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 5 Content-Titel fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 109,
+    "title": "Lead Magnet: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 10 Content-Ideen fuer SaaS Founder. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 110,
+    "title": "Content Kalender: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 9 DM-Templates fuer SaaS Founder. Nutze Pro/Contra und halte jede Ausgabe unter 16 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 111,
+    "title": "Repurposing: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 12 Lead-Magnet-Ideen fuer B2B Marketer. Nutze Checkliste und halte jede Ausgabe unter 16 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 112,
+    "title": "Story Framework: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 7 Tweet-Varianten fuer SaaS Founder. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 113,
+    "title": "Objection Handling: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Content Factory und generiere 9 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 114,
+    "title": "Use-Case Mapping: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 7 DM-Templates fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 115,
+    "title": "Audience Research: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Hook-Datenbank und generiere 7 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 116,
+    "title": "Angle Finder: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 7 Objection-Replies fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 117,
+    "title": "Benefit Stacking: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 5 Offer-Statements fuer SaaS Founder. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 118,
+    "title": "Case Study: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 9 DM-Templates fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 119,
+    "title": "SaaS Content: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 5 Use-Cases fuer B2B Marketer. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 120,
+    "title": "Creator Newsletter: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Pricing-Optionen im Stil Framework. Zielgruppe: Solo-Creator. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 121,
+    "title": "Sales Page: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 DM-Templates im Stil Beispiel + Analyse. Zielgruppe: Agenturen. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 122,
+    "title": "DM Scripts: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Prompt Pack und generiere 12 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 123,
+    "title": "Kurzvideo Skript: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 7 Use-Cases fuer B2B Marketer. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 124,
+    "title": "FAQ Engine: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 12 Lead-Magnet-Ideen fuer SaaS Founder. Nutze Beispiel + Analyse und halte jede Ausgabe unter 18 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 125,
+    "title": "Landing Page: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 10 Thread-Outlines fuer Berater. Nutze Kurz und direkt und halte jede Ausgabe unter 20 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 126,
+    "title": "Hook Generator: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle eine Liste von 9 CTA-Ideen fuer Berater. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 127,
+    "title": "Thread Outline: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Pricing-Optionen im Stil Template. Zielgruppe: SaaS Founder. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 128,
+    "title": "Tweet Variations: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 CTA-Ideen im Stil Beispiel + Analyse. Zielgruppe: B2B Marketer. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 129,
+    "title": "CTA Builder: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 9 Offer-Statements fuer Solo-Creator. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 130,
+    "title": "Content Audit: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 CTA-Ideen im Stil Pro/Contra. Zielgruppe: B2B Marketer. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 131,
+    "title": "Positionierung: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 12 Lead-Magnet-Ideen fuer Solo-Creator. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 132,
+    "title": "Offer Design: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 7 Use-Cases fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 133,
+    "title": "Pricing: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 7 Thread-Outlines fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 134,
+    "title": "Lead Magnet: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 10 Thread-Outlines fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 135,
+    "title": "Content Kalender: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 5 Pricing-Optionen fuer Agenturen. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 136,
+    "title": "Repurposing: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 9 Thread-Outlines fuer Coaches. Nutze Framework und halte jede Ausgabe unter 18 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 137,
+    "title": "Story Framework: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Content Factory und generiere 10 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 138,
+    "title": "Objection Handling: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 5 Objection-Replies fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 139,
+    "title": "Use-Case Mapping: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle eine Liste von 9 Content-Titel fuer Berater. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 140,
+    "title": "Audience Research: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 12 Lead-Magnet-Ideen fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 141,
+    "title": "Angle Finder: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 9 Use-Cases fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 20 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 142,
+    "title": "Benefit Stacking: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 5 Use-Cases fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 143,
+    "title": "Case Study: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle eine Liste von 10 Offer-Statements fuer Berater. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 144,
+    "title": "SaaS Content: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 10 DM-Templates fuer Berater. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 145,
+    "title": "Creator Newsletter: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Tweet-Varianten im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 146,
+    "title": "Sales Page: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 9 Pricing-Optionen fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 147,
+    "title": "DM Scripts: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 5 Offer-Statements fuer B2B Marketer. Nutze Kurz und direkt und halte jede Ausgabe unter 20 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 148,
+    "title": "Kurzvideo Skript: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 5 Offer-Statements fuer Berater. Nutze Pro/Contra und halte jede Ausgabe unter 24 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 149,
+    "title": "FAQ Engine: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 10 Use-Cases fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 150,
+    "title": "Landing Page: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 7 Pricing-Optionen fuer SaaS Founder. Nutze Pro/Contra und halte jede Ausgabe unter 16 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 151,
+    "title": "Hook Generator: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 5 Hooks fuer Berater. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 152,
+    "title": "Thread Outline: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 10 Pricing-Optionen fuer Agenturen. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 153,
+    "title": "Tweet Variations: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Prompt Pack und generiere 10 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 154,
+    "title": "CTA Builder: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 12 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 155,
+    "title": "Content Audit: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 7 Use-Cases fuer SaaS Founder. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 156,
+    "title": "Positionierung: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 7 Pricing-Optionen fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 157,
+    "title": "Offer Design: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 10 Lead-Magnet-Ideen fuer Agenturen. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 158,
+    "title": "Pricing: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 12 Pricing-Optionen fuer SaaS Founder. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 18 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 159,
+    "title": "Lead Magnet: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Content-Ideen im Stil Checkliste. Zielgruppe: Berater. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 160,
+    "title": "Content Kalender: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 7 CTA-Ideen fuer Agenturen. Nutze Framework und halte jede Ausgabe unter 16 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 161,
+    "title": "Repurposing: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 12 Objection-Replies fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 162,
+    "title": "Story Framework: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 5 Content-Ideen fuer Solo-Creator. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 163,
+    "title": "Objection Handling: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 7 Thread-Outlines fuer Solo-Creator. Nutze Checkliste und halte jede Ausgabe unter 20 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 164,
+    "title": "Use-Case Mapping: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 DM-Templates im Stil Kurz und direkt. Zielgruppe: Berater. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 165,
+    "title": "Audience Research: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Tweet-Varianten im Stil Schritt-fuer-Schritt. Zielgruppe: Solo-Creator. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 166,
+    "title": "Angle Finder: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 12 Content-Ideen fuer Solo-Creator. Nutze Framework und halte jede Ausgabe unter 16 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 167,
+    "title": "Benefit Stacking: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Tweet Engine und generiere 5 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 168,
+    "title": "Case Study: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 5 Lead-Magnet-Ideen fuer B2B Marketer. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 169,
+    "title": "SaaS Content: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 9 Offer-Statements fuer Solo-Creator. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 170,
+    "title": "Creator Newsletter: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 5 Use-Cases. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 171,
+    "title": "Sales Page: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 12 Tweet-Varianten fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 172,
+    "title": "DM Scripts: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 9 Hooks fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 173,
+    "title": "Kurzvideo Skript: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 9 CTA-Ideen fuer B2B Marketer. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 174,
+    "title": "FAQ Engine: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 7 Pricing-Optionen fuer Agenturen. Nutze Template und halte jede Ausgabe unter 16 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 175,
+    "title": "Landing Page: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 CTA-Ideen im Stil Beispiel + Analyse. Zielgruppe: Berater. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 176,
+    "title": "Hook Generator: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 10 Content-Titel fuer Solo-Creator. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 177,
+    "title": "Thread Outline: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 7 Content-Ideen fuer B2B Marketer. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 178,
+    "title": "Tweet Variations: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 12 Use-Cases fuer Solo-Creator. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 179,
+    "title": "CTA Builder: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 10 Content-Ideen fuer Agenturen. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 24 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 180,
+    "title": "Content Audit: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Use-Cases im Stil Framework. Zielgruppe: Berater. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 181,
+    "title": "Positionierung: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Lead-Magnet-Ideen im Stil Framework. Zielgruppe: Coaches. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 182,
+    "title": "Offer Design: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Content Factory und generiere 9 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 183,
+    "title": "Pricing: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Creator Stack und generiere 10 Pricing-Optionen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 184,
+    "title": "Lead Magnet: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Prompt Pack und generiere 5 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 185,
+    "title": "Content Kalender: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 DM-Templates im Stil Template. Zielgruppe: Agenturen. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 186,
+    "title": "Repurposing: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Content Factory und generiere 5 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 187,
+    "title": "Story Framework: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 5 Pricing-Optionen fuer Coaches. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 188,
+    "title": "Objection Handling: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 12 Tweet-Varianten fuer Agenturen. Nutze Beispiel + Analyse und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 189,
+    "title": "Use-Case Mapping: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 7 Thread-Outlines fuer B2B Marketer. Nutze Kurz und direkt und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 190,
+    "title": "Audience Research: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Thread System und generiere 10 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 191,
+    "title": "Angle Finder: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Content-Ideen im Stil Kurz und direkt. Zielgruppe: B2B Marketer. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 192,
+    "title": "Benefit Stacking: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 12 Hooks fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 193,
+    "title": "Case Study: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 Content-Ideen im Stil Template. Zielgruppe: B2B Marketer. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 194,
+    "title": "SaaS Content: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 10 Tweet-Varianten fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 195,
+    "title": "Creator Newsletter: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 10 Lead-Magnet-Ideen fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 196,
+    "title": "Sales Page: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Content-Ideen im Stil Schritt-fuer-Schritt. Zielgruppe: SaaS Founder. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 197,
+    "title": "DM Scripts: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 10 Offer-Statements fuer Solo-Creator. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 198,
+    "title": "Kurzvideo Skript: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 9 Pricing-Optionen fuer Agenturen. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 199,
+    "title": "FAQ Engine: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Analysiere Thread System und generiere 7 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 200,
+    "title": "Landing Page: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle eine Liste von 12 Content-Ideen fuer Berater. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 201,
+    "title": "Hook Generator: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 7 Content-Titel fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 202,
+    "title": "Thread Outline: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Analysiere Hook-Datenbank und generiere 9 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 203,
+    "title": "Tweet Variations: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle eine Liste von 10 Thread-Outlines fuer Coaches. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 204,
+    "title": "CTA Builder: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Use-Cases im Stil Framework. Zielgruppe: Berater. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 205,
+    "title": "Content Audit: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 10 Tweet-Varianten fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 206,
+    "title": "Positionierung: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 5 Use-Cases fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 207,
+    "title": "Offer Design: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Creator Stack und generiere 9 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 208,
+    "title": "Pricing: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 12 Pricing-Optionen fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 209,
+    "title": "Lead Magnet: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 5 Tweet-Varianten fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 210,
+    "title": "Content Kalender: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 12 Tweet-Varianten fuer B2B Marketer. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 211,
+    "title": "Repurposing: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Creator Stack und generiere 10 Pricing-Optionen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 212,
+    "title": "Story Framework: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Thread-Outlines im Stil Framework. Zielgruppe: Coaches. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 213,
+    "title": "Objection Handling: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 5 Content-Titel fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 214,
+    "title": "Use-Case Mapping: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Tweet Engine und generiere 12 Thread-Outlines. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 215,
+    "title": "Audience Research: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Tweet-Varianten im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 216,
+    "title": "Angle Finder: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 7 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 217,
+    "title": "Benefit Stacking: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Hook-Datenbank und generiere 9 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 218,
+    "title": "Case Study: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 10 Hooks fuer Solo-Creator. Nutze Checkliste und halte jede Ausgabe unter 16 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 219,
+    "title": "SaaS Content: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Objection-Replies im Stil Kurz und direkt. Zielgruppe: Agenturen. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 220,
+    "title": "Creator Newsletter: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 9 Use-Cases fuer Coaches. Nutze Kurz und direkt und halte jede Ausgabe unter 20 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 221,
+    "title": "Sales Page: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Offer-Statements im Stil Pro/Contra. Zielgruppe: Berater. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 222,
+    "title": "DM Scripts: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 9 Content-Titel fuer Solo-Creator. Nutze Kurz und direkt und halte jede Ausgabe unter 18 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 223,
+    "title": "Kurzvideo Skript: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 10 Tweet-Varianten fuer Agenturen. Nutze Checkliste und halte jede Ausgabe unter 24 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 224,
+    "title": "FAQ Engine: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 12 Objection-Replies fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 225,
+    "title": "Landing Page: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 12 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 226,
+    "title": "Hook Generator: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 9 DM-Templates fuer Solo-Creator. Nutze Checkliste und halte jede Ausgabe unter 24 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 227,
+    "title": "Thread Outline: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 12 Offer-Statements fuer Solo-Creator. Nutze Checkliste und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 228,
+    "title": "Tweet Variations: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 7 Hooks fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 229,
+    "title": "CTA Builder: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Tweet-Varianten im Stil Pro/Contra. Zielgruppe: Coaches. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 230,
+    "title": "Content Audit: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 7 Objection-Replies fuer Berater. Nutze Template und halte jede Ausgabe unter 18 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 231,
+    "title": "Positionierung: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 5 Thread-Outlines fuer Agenturen. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 16 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 232,
+    "title": "Offer Design: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 10 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 233,
+    "title": "Pricing: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 9 Hooks fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 234,
+    "title": "Lead Magnet: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 12 Content-Titel fuer Agenturen. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 235,
+    "title": "Content Kalender: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 7 Pricing-Optionen fuer Solo-Creator. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 236,
+    "title": "Repurposing: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 9 Tweet-Varianten fuer Solo-Creator. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 237,
+    "title": "Story Framework: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 10 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 238,
+    "title": "Objection Handling: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Thread-Outlines im Stil Schritt-fuer-Schritt. Zielgruppe: Agenturen. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 239,
+    "title": "Use-Case Mapping: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 9 Objection-Replies fuer Coaches. Nutze Pro/Contra und halte jede Ausgabe unter 18 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 240,
+    "title": "Audience Research: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 CTA-Ideen im Stil Framework. Zielgruppe: Berater. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 241,
+    "title": "Angle Finder: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 7 Thread-Outlines fuer B2B Marketer. Nutze Checkliste und halte jede Ausgabe unter 24 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 242,
+    "title": "Benefit Stacking: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 7 Thread-Outlines fuer Solo-Creator. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 243,
+    "title": "Case Study: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Prompt Pack und generiere 7 Thread-Outlines. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 244,
+    "title": "SaaS Content: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 10 Use-Cases fuer Agenturen. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 245,
+    "title": "Creator Newsletter: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 5 Content-Ideen fuer Agenturen. Nutze Pro/Contra und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 246,
+    "title": "Sales Page: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 CTA-Ideen im Stil Pro/Contra. Zielgruppe: Solo-Creator. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 247,
+    "title": "DM Scripts: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Prompt Pack und generiere 12 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 248,
+    "title": "Kurzvideo Skript: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 5 Use-Cases fuer SaaS Founder. Nutze Kurz und direkt und halte jede Ausgabe unter 24 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 249,
+    "title": "FAQ Engine: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 5 DM-Templates fuer Solo-Creator. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 250,
+    "title": "Landing Page: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 9 Content-Titel fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 251,
+    "title": "Hook Generator: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 9 Objection-Replies fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 252,
+    "title": "Thread Outline: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 7 Tweet-Varianten fuer Agenturen. Verwende Beispiel + Analyse. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 253,
+    "title": "Tweet Variations: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 12 CTA-Ideen fuer SaaS Founder. Nutze Framework und halte jede Ausgabe unter 18 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 254,
+    "title": "CTA Builder: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 5 Thread-Outlines fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 255,
+    "title": "Content Audit: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Content Factory und generiere 12 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 256,
+    "title": "Positionierung: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 9 Objection-Replies fuer Solo-Creator. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 257,
+    "title": "Offer Design: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 7 Use-Cases fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 24 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 258,
+    "title": "Pricing: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 9 Tweet-Varianten fuer Agenturen. Nutze Template und halte jede Ausgabe unter 16 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 259,
+    "title": "Lead Magnet: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 DM-Templates im Stil Kurz und direkt. Zielgruppe: B2B Marketer. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 260,
+    "title": "Content Kalender: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 7 Content-Titel fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 261,
+    "title": "Repurposing: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Tweet Engine und generiere 12 Thread-Outlines. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 262,
+    "title": "Story Framework: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 7 Hooks fuer SaaS Founder. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 16 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 263,
+    "title": "Objection Handling: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 CTA-Ideen im Stil Template. Zielgruppe: Coaches. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 264,
+    "title": "Use-Case Mapping: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Tweet-Varianten im Stil Kurz und direkt. Zielgruppe: Berater. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 265,
+    "title": "Audience Research: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Thread System und generiere 10 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 266,
+    "title": "Angle Finder: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 5 Lead-Magnet-Ideen fuer B2B Marketer. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 267,
+    "title": "Benefit Stacking: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 5 Tweet-Varianten fuer B2B Marketer. Nutze Checkliste und halte jede Ausgabe unter 24 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 268,
+    "title": "Case Study: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Hook-Datenbank und generiere 12 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 269,
+    "title": "SaaS Content: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Use-Cases im Stil Framework. Zielgruppe: Solo-Creator. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 270,
+    "title": "Creator Newsletter: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 12 Content-Ideen fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 271,
+    "title": "Sales Page: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 10 Objection-Replies fuer SaaS Founder. Nutze Checkliste und halte jede Ausgabe unter 20 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 272,
+    "title": "DM Scripts: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 10 Offer-Statements fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 273,
+    "title": "Kurzvideo Skript: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Tweet Engine und generiere 10 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 274,
+    "title": "FAQ Engine: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Tweet Engine und generiere 7 Pricing-Optionen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 275,
+    "title": "Landing Page: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 9 Content-Ideen fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 276,
+    "title": "Hook Generator: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 5 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 277,
+    "title": "Thread Outline: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Content Factory und generiere 9 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 278,
+    "title": "Tweet Variations: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 10 Pricing-Optionen fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 279,
+    "title": "CTA Builder: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 DM-Templates im Stil Beispiel + Analyse. Zielgruppe: Coaches. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 280,
+    "title": "Content Audit: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Use-Cases im Stil Kurz und direkt. Zielgruppe: Agenturen. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 281,
+    "title": "Positionierung: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle eine Liste von 5 Pricing-Optionen fuer Berater. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 282,
+    "title": "Offer Design: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 7 Tweet-Varianten fuer Agenturen. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 283,
+    "title": "Pricing: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 10 CTA-Ideen fuer Solo-Creator. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 284,
+    "title": "Lead Magnet: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 9 Thread-Outlines fuer Berater. Nutze Checkliste und halte jede Ausgabe unter 18 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 285,
+    "title": "Content Kalender: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 12 Hooks fuer B2B Marketer. Nutze Pro/Contra und halte jede Ausgabe unter 20 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 286,
+    "title": "Repurposing: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Analysiere Content Factory und generiere 12 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 287,
+    "title": "Story Framework: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Creator Stack und generiere 12 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 288,
+    "title": "Objection Handling: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 9 Pricing-Optionen fuer Agenturen. Nutze Beispiel + Analyse und halte jede Ausgabe unter 16 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 289,
+    "title": "Use-Case Mapping: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 Pricing-Optionen im Stil Kurz und direkt. Zielgruppe: Agenturen. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 290,
+    "title": "Audience Research: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 7 Content-Titel fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 291,
+    "title": "Angle Finder: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Content-Titel im Stil Kurz und direkt. Zielgruppe: SaaS Founder. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 292,
+    "title": "Benefit Stacking: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 9 Hooks fuer SaaS Founder. Nutze Template und halte jede Ausgabe unter 18 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 293,
+    "title": "Case Study: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Hooks im Stil Checkliste. Zielgruppe: Solo-Creator. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 294,
+    "title": "SaaS Content: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 CTA-Ideen im Stil Framework. Zielgruppe: SaaS Founder. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 295,
+    "title": "Creator Newsletter: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 5 Pricing-Optionen fuer Agenturen. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 296,
+    "title": "Sales Page: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Content-Titel im Stil Pro/Contra. Zielgruppe: B2B Marketer. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 297,
+    "title": "DM Scripts: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Content Factory und generiere 12 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 298,
+    "title": "Kurzvideo Skript: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Creator Stack und generiere 7 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 299,
+    "title": "FAQ Engine: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 9 Tweet-Varianten fuer Agenturen. Nutze Checkliste und halte jede Ausgabe unter 20 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 300,
+    "title": "Landing Page: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 7 Use-Cases fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 301,
+    "title": "Hook Generator: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Prompt Pack und generiere 9 Thread-Outlines. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 302,
+    "title": "Thread Outline: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 7 Lead-Magnet-Ideen fuer Solo-Creator. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 303,
+    "title": "Tweet Variations: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Analysiere Content Factory und generiere 9 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 304,
+    "title": "CTA Builder: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 5 Lead-Magnet-Ideen fuer B2B Marketer. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 16 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 305,
+    "title": "Content Audit: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 Thread-Outlines im Stil Beispiel + Analyse. Zielgruppe: SaaS Founder. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 306,
+    "title": "Positionierung: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle eine Liste von 10 Pricing-Optionen fuer Coaches. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 307,
+    "title": "Offer Design: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 12 Content-Ideen fuer Coaches. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 308,
+    "title": "Pricing: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Content Factory und generiere 10 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 309,
+    "title": "Lead Magnet: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 7 Objection-Replies fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 310,
+    "title": "Content Kalender: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 9 Content-Titel fuer Agenturen. Nutze Template und halte jede Ausgabe unter 20 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 311,
+    "title": "Repurposing: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Erstelle 12 DM-Templates fuer Berater. Nutze Kurz und direkt und halte jede Ausgabe unter 16 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 312,
+    "title": "Story Framework: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 10 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 313,
+    "title": "Objection Handling: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Analysiere Creator Stack und generiere 7 Hooks. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 314,
+    "title": "Use-Case Mapping: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 9 CTA-Ideen fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 315,
+    "title": "Audience Research: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 7 Content-Ideen fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 20 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 316,
+    "title": "Angle Finder: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 12 DM-Templates fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Monetarisierungs-Funnel.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 317,
+    "title": "Benefit Stacking: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Hook-Datenbank und generiere 5 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 318,
+    "title": "Case Study: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 7 Content-Ideen fuer B2B Marketer. Nutze Kurz und direkt und halte jede Ausgabe unter 24 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 319,
+    "title": "SaaS Content: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Baue 12 Tweet-Varianten fuer Coaches. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 320,
+    "title": "Creator Newsletter: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 12 Hooks fuer B2B Marketer. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 321,
+    "title": "Sales Page: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Content-Titel im Stil Schritt-fuer-Schritt. Zielgruppe: B2B Marketer. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 322,
+    "title": "DM Scripts: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 9 Tweet-Varianten fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Creator Stack.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 323,
+    "title": "Kurzvideo Skript: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Content Factory und generiere 7 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 324,
+    "title": "FAQ Engine: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Prompt Pack und generiere 10 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 325,
+    "title": "Landing Page: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 10 Hooks fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 326,
+    "title": "Hook Generator: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Thread System und generiere 12 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 327,
+    "title": "Thread Outline: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Tweet Engine und generiere 12 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 328,
+    "title": "Tweet Variations: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 9 Thread-Outlines fuer Agenturen. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 329,
+    "title": "CTA Builder: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Offer-Statements im Stil Framework. Zielgruppe: B2B Marketer. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 330,
+    "title": "Content Audit: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 5 Content-Titel fuer Agenturen. Nutze Template und halte jede Ausgabe unter 18 Woertern. Kontext: Hook-Datenbank. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 331,
+    "title": "Positionierung: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 10 DM-Templates fuer SaaS Founder. Nutze Checkliste und halte jede Ausgabe unter 20 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 332,
+    "title": "Offer Design: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 12 DM-Templates fuer Solo-Creator. Verwende Checkliste. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 333,
+    "title": "Pricing: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Content-Titel im Stil Schritt-fuer-Schritt. Zielgruppe: Coaches. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 334,
+    "title": "Lead Magnet: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 12 CTA-Ideen fuer SaaS Founder. Nutze Pro/Contra und halte jede Ausgabe unter 24 Woertern. Kontext: Monetarisierungs-Funnel. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 335,
+    "title": "Content Kalender: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle eine Liste von 12 Thread-Outlines fuer Agenturen. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 336,
+    "title": "Repurposing: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Content-Titel im Stil Checkliste. Zielgruppe: B2B Marketer. Thema: Creator Stack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 337,
+    "title": "Story Framework: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 10 Tweet-Varianten fuer Agenturen. Nutze Framework und halte jede Ausgabe unter 18 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 338,
+    "title": "Objection Handling: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle eine Liste von 5 Thread-Outlines fuer Coaches. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 339,
+    "title": "Use-Case Mapping: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 9 Tweet-Varianten fuer Solo-Creator. Nutze Framework und halte jede Ausgabe unter 20 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 340,
+    "title": "Audience Research: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 10 Content-Ideen fuer Agenturen. Nutze Schritt-fuer-Schritt und halte jede Ausgabe unter 18 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 341,
+    "title": "Angle Finder: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Offer-Statements im Stil Template. Zielgruppe: Berater. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 342,
+    "title": "Benefit Stacking: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Tweet Engine und generiere 12 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 343,
+    "title": "Case Study: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Lead-Magnet-Ideen im Stil Framework. Zielgruppe: SaaS Founder. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 344,
+    "title": "SaaS Content: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Pricing-Optionen im Stil Kurz und direkt. Zielgruppe: B2B Marketer. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 345,
+    "title": "Creator Newsletter: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 9 Tweet-Varianten. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 346,
+    "title": "Sales Page: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 12 DM-Templates fuer B2B Marketer. Verwende Pro/Contra. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 347,
+    "title": "DM Scripts: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Hooks im Stil Beispiel + Analyse. Zielgruppe: Coaches. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 348,
+    "title": "Kurzvideo Skript: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Content-Titel im Stil Template. Zielgruppe: Berater. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 349,
+    "title": "FAQ Engine: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 12 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 350,
+    "title": "Landing Page: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere Prompt Pack und generiere 12 Pricing-Optionen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 351,
+    "title": "Hook Generator: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 5 Content-Ideen fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 24 Woertern. Kontext: Thread System. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 352,
+    "title": "Thread Outline: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle 9 Lead-Magnet-Ideen fuer B2B Marketer. Nutze Beispiel + Analyse und halte jede Ausgabe unter 24 Woertern. Kontext: Creator Stack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 353,
+    "title": "Tweet Variations: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 12 Offer-Statements fuer Coaches. Nutze Pro/Contra und halte jede Ausgabe unter 20 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 354,
+    "title": "CTA Builder: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Tweet Engine und generiere 7 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 355,
+    "title": "Content Audit: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 5 Objection-Replies fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 356,
+    "title": "Positionierung: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 12 Content-Titel fuer Agenturen. Nutze Pro/Contra und halte jede Ausgabe unter 16 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 357,
+    "title": "Offer Design: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 7 Thread-Outlines fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 358,
+    "title": "Pricing: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Erstelle 9 Thread-Outlines fuer Agenturen. Nutze Beispiel + Analyse und halte jede Ausgabe unter 18 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 359,
+    "title": "Lead Magnet: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Use-Cases im Stil Schritt-fuer-Schritt. Zielgruppe: Berater. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 360,
+    "title": "Content Kalender: Hooks",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 5 Hooks fuer SaaS Founder. Nutze Pro/Contra und halte jede Ausgabe unter 24 Woertern. Kontext: Content Factory. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 361,
+    "title": "Repurposing: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Thread System und generiere 5 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 362,
+    "title": "Story Framework: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 5 CTA-Ideen fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 363,
+    "title": "Objection Handling: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 DM-Templates im Stil Pro/Contra. Zielgruppe: Berater. Thema: Content Factory. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 364,
+    "title": "Use-Case Mapping: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 7 Use-Cases fuer Solo-Creator. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 365,
+    "title": "Audience Research: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle eine Liste von 5 Objection-Replies fuer Solo-Creator. Verwende Kurz und direkt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 366,
+    "title": "Angle Finder: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Erstelle 9 Content-Ideen fuer Solo-Creator. Nutze Kurz und direkt und halte jede Ausgabe unter 20 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 367,
+    "title": "Benefit Stacking: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Creator Stack und generiere 9 Thread-Outlines. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 368,
+    "title": "Case Study: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Hook-Datenbank und generiere 5 Lead-Magnet-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 369,
+    "title": "SaaS Content: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 12 Content-Titel. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 370,
+    "title": "Creator Newsletter: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 10 Tweet-Varianten fuer SaaS Founder. Nutze Kurz und direkt und halte jede Ausgabe unter 18 Woertern. Kontext: Tweet Engine. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 371,
+    "title": "Sales Page: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 9 Content-Ideen fuer SaaS Founder. Nutze Kurz und direkt und halte jede Ausgabe unter 24 Woertern. Kontext: Prompt Pack. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 372,
+    "title": "DM Scripts: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 10 Tweet-Varianten im Stil Pro/Contra. Zielgruppe: SaaS Founder. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 373,
+    "title": "Kurzvideo Skript: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Analysiere Tweet Engine und generiere 12 CTA-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 374,
+    "title": "FAQ Engine: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 9 Use-Cases fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 375,
+    "title": "Landing Page: Pricing-Optionen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 12 Pricing-Optionen fuer B2B Marketer. Verwende Framework. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 376,
+    "title": "Hook Generator: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Baue 10 Objection-Replies fuer Berater. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Hook-Datenbank.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 377,
+    "title": "Thread Outline: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle 7 Content-Ideen fuer SaaS Founder. Nutze Pro/Contra und halte jede Ausgabe unter 18 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 378,
+    "title": "Tweet Variations: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Thread-Outlines im Stil Checkliste. Zielgruppe: Agenturen. Thema: AI-Agenten Workflow. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 379,
+    "title": "CTA Builder: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 DM-Templates im Stil Template. Zielgruppe: B2B Marketer. Thema: Hook-Datenbank. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 380,
+    "title": "Content Audit: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Baue 12 DM-Templates fuer Solo-Creator. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 381,
+    "title": "Positionierung: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 Tweet-Varianten im Stil Checkliste. Zielgruppe: Agenturen. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 382,
+    "title": "Offer Design: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 9 Objection-Replies fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Prompt Pack.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 383,
+    "title": "Pricing: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 5 Tweet-Varianten im Stil Template. Zielgruppe: B2B Marketer. Thema: Tweet Engine. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 384,
+    "title": "Lead Magnet: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 7 CTA-Ideen im Stil Pro/Contra. Zielgruppe: SaaS Founder. Thema: Monetarisierungs-Funnel. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 385,
+    "title": "Content Kalender: Tweet-Varianten",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 12 Tweet-Varianten fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 386,
+    "title": "Repurposing: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 12 Objection-Replies im Stil Kurz und direkt. Zielgruppe: Solo-Creator. Thema: Prompt Pack. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 387,
+    "title": "Story Framework: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Tweet Engine und generiere 7 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 388,
+    "title": "Objection Handling: Content-Titel",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Baue 5 Content-Titel fuer B2B Marketer. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Thread System.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 389,
+    "title": "Use-Case Mapping: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Analysiere Thread System und generiere 10 DM-Templates. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Nutzen: 'Mehr Output bei weniger Aufwand.'"
+  },
+  {
+    "id": 390,
+    "title": "Audience Research: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer Solo-Creator.",
+    "prompt": "Analysiere Monetarisierungs-Funnel und generiere 12 Offer-Statements. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 391,
+    "title": "Angle Finder: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 10 Objection-Replies. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 392,
+    "title": "Benefit Stacking: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Analysiere AI-Agenten Workflow und generiere 12 Thread-Outlines. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 393,
+    "title": "Case Study: Use-Cases",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Baue 5 Use-Cases fuer SaaS Founder. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Content Factory.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 394,
+    "title": "SaaS Content: Offer-Statements",
+    "goal": "Schnelle, strukturierte Outputs fuer B2B Marketer.",
+    "prompt": "Erstelle eine Liste von 9 Offer-Statements fuer B2B Marketer. Verwende Template. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 395,
+    "title": "Creator Newsletter: Objection-Replies",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 5 Objection-Replies fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: AI-Agenten Workflow.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  },
+  {
+    "id": 396,
+    "title": "Sales Page: Lead-Magnet-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Erstelle 5 Lead-Magnet-Ideen fuer Coaches. Nutze Beispiel + Analyse und halte jede Ausgabe unter 16 Woertern. Kontext: AI-Agenten Workflow. Gib die Ausgabe nummeriert aus.",
+    "example": "Beispiel: Offer: 'Content Factory in a Box'"
+  },
+  {
+    "id": 397,
+    "title": "DM Scripts: Thread-Outlines",
+    "goal": "Schnelle, strukturierte Outputs fuer Berater.",
+    "prompt": "Du bist ein Content-Strategist. Liefere 9 Thread-Outlines im Stil Framework. Zielgruppe: Berater. Thema: Thread System. Jede Ausgabe muss einen klaren Nutzen enthalten.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 398,
+    "title": "Kurzvideo Skript: DM-Templates",
+    "goal": "Schnelle, strukturierte Outputs fuer SaaS Founder.",
+    "prompt": "Erstelle eine Liste von 9 DM-Templates fuer SaaS Founder. Verwende Schritt-fuer-Schritt. Fokus: Nutzen, Klarheit, Spezifitaet. Gib Formatvorgaben pro Item an.",
+    "example": "Beispiel: CTA: 'Schreib AGENTS fuer die Struktur.'"
+  },
+  {
+    "id": 399,
+    "title": "FAQ Engine: CTA-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Agenturen.",
+    "prompt": "Baue 12 CTA-Ideen fuer Agenturen. Arbeite mit klaren Schritten, CTA und Beispiel. Kontext: Tweet Engine.",
+    "example": "Beispiel: DM: 'Willst du die Matrix? Schreib AGENTS.'"
+  },
+  {
+    "id": 400,
+    "title": "Landing Page: Content-Ideen",
+    "goal": "Schnelle, strukturierte Outputs fuer Coaches.",
+    "prompt": "Analysiere Thread System und generiere 9 Content-Ideen. Nutze eine klare Struktur und schreibe auf Deutsch. Liefere zusaetzlich 3 Varianten je Item.",
+    "example": "Beispiel: Hook: '25 Agenten liefern 300 Tweets in 1 Woche.'"
+  }
+]

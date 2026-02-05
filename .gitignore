@@ -1,0 +1,11 @@
+.DS_Store
+
+# Secrets
+ai-vault/empire.env
+**/*.env
+
+# Logs / run artifacts
+automation/runs/
+ai-vault/*.log
+ai-vault/reports/
+

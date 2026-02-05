@@ -1,0 +1,439 @@
+thread_id,tweet_id,text
+1,1,Warum Parallelisierung im Content-System dein groesster Hebel ist.
+1,2,"Wenn du Output willst, brauchst du Batching."
+1,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+1,4,Die Rollen bleiben strikt getrennt.
+1,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+1,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+1,7,So baust du eine Bibliothek fuer 90 Tage.
+1,8,CTA: Schreib AGENTS fuer das System.
+2,1,So baust du Rollen-Setup in der Content Factory ohne Chaos.
+2,2,"Wenn du Output willst, brauchst du Batching."
+2,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+2,4,Die Rollen bleiben strikt getrennt.
+2,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+2,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+2,7,So baust du eine Bibliothek fuer 90 Tage.
+2,8,CTA: Schreib AGENTS fuer das System.
+3,1,Mein System in kurz: Hook-First Prozess.
+3,2,Symptom: Zu wenig Output trotz viel Arbeit.
+3,3,Ursache: Rollen sind nicht getrennt.
+3,4,Loesung: 1 Agent = 1 Aufgabe.
+3,5,Baue eine Task-Matrix mit 25 Slots.
+3,6,Setze Wortlimits fuer jede Rolle.
+3,7,Fuehre einen QA-Check nach jedem Schritt ein.
+3,8,Miss Hooks nach Klicks oder Replies.
+3,9,CTA: Willst du die Matrix? Schreib AGENTS.
+4,1,Mein System in kurz: Wortlimits als Quality Gate.
+4,2,Problem: Viele Creator arbeiten linear und werden langsam.
+4,3,Insight: Parallelisierung schlaegt Perfektion.
+4,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+4,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+4,6,Schritt 2: Schreibe Drafts im Batch.
+4,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+4,8,Schritt 4: Baue CTAs ein und teste Varianten.
+4,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+5,1,Der schnellste Weg zu mehr Output: Kosten senken mit kleinen Modellen.
+5,2,"Wenn du Output willst, brauchst du Batching."
+5,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+5,4,Die Rollen bleiben strikt getrennt.
+5,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+5,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+5,7,So baust du eine Bibliothek fuer 90 Tage.
+5,8,CTA: Schreib AGENTS fuer das System.
+6,1,Mein System in kurz: Workflow von Idee zu Output in 4 Schritten.
+6,2,Symptom: Zu wenig Output trotz viel Arbeit.
+6,3,Ursache: Rollen sind nicht getrennt.
+6,4,Loesung: 1 Agent = 1 Aufgabe.
+6,5,Baue eine Task-Matrix mit 25 Slots.
+6,6,Setze Wortlimits fuer jede Rolle.
+6,7,Fuehre einen QA-Check nach jedem Schritt ein.
+6,8,Miss Hooks nach Klicks oder Replies.
+6,9,CTA: Willst du die Matrix? Schreib AGENTS.
+7,1,Mein System in kurz: Orchestrator als Pflichtrolle.
+7,2,Problem: Viele Creator arbeiten linear und werden langsam.
+7,3,Insight: Parallelisierung schlaegt Perfektion.
+7,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+7,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+7,6,Schritt 2: Schreibe Drafts im Batch.
+7,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+7,8,Schritt 4: Baue CTAs ein und teste Varianten.
+7,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+8,1,"Hook-Tests mit 30 Varianten klingt simpel, ist aber ein Gamechanger."
+8,2,Problem: Viele Creator arbeiten linear und werden langsam.
+8,3,Insight: Parallelisierung schlaegt Perfektion.
+8,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+8,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+8,6,Schritt 2: Schreibe Drafts im Batch.
+8,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+8,8,Schritt 4: Baue CTAs ein und teste Varianten.
+8,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+9,1,Mein System in kurz: Threads ohne Brainload.
+9,2,Symptom: Zu wenig Output trotz viel Arbeit.
+9,3,Ursache: Rollen sind nicht getrennt.
+9,4,Loesung: 1 Agent = 1 Aufgabe.
+9,5,Baue eine Task-Matrix mit 25 Slots.
+9,6,Setze Wortlimits fuer jede Rolle.
+9,7,Fuehre einen QA-Check nach jedem Schritt ein.
+9,8,Miss Hooks nach Klicks oder Replies.
+9,9,CTA: Willst du die Matrix? Schreib AGENTS.
+10,1,Der schnellste Weg zu mehr Output: Premium-Prompts als Produkt.
+10,2,"Wenn du Output willst, brauchst du Batching."
+10,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+10,4,Die Rollen bleiben strikt getrennt.
+10,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+10,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+10,7,So baust du eine Bibliothek fuer 90 Tage.
+10,8,CTA: Schreib AGENTS fuer das System.
+11,1,Der schnellste Weg zu mehr Output: Content-Batching fuer Creator.
+11,2,"Wenn du Output willst, brauchst du Batching."
+11,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+11,4,Die Rollen bleiben strikt getrennt.
+11,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+11,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+11,7,So baust du eine Bibliothek fuer 90 Tage.
+11,8,CTA: Schreib AGENTS fuer das System.
+12,1,Warum Task-Matrix mit 25 Slots dein groesster Hebel ist.
+12,2,Problem: Viele Creator arbeiten linear und werden langsam.
+12,3,Insight: Parallelisierung schlaegt Perfektion.
+12,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+12,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+12,6,Schritt 2: Schreibe Drafts im Batch.
+12,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+12,8,Schritt 4: Baue CTAs ein und teste Varianten.
+12,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+13,1,Warum Top-10 Prompt-Fehler dein groesster Hebel ist.
+13,2,Problem: Viele Creator arbeiten linear und werden langsam.
+13,3,Insight: Parallelisierung schlaegt Perfektion.
+13,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+13,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+13,6,Schritt 2: Schreibe Drafts im Batch.
+13,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+13,8,Schritt 4: Baue CTAs ein und teste Varianten.
+13,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+14,1,Warum Content-Bibliothek aufbauen dein groesster Hebel ist.
+14,2,Viele Threads scheitern am ersten Tweet.
+14,3,Hook-First zwingt dich zu Klarheit.
+14,4,"Sammle 30 Hooks, teste 10, behalte 3."
+14,5,Baue erst dann den Rest des Threads.
+14,6,So entsteht Flow ohne Druck.
+14,7,Nutze Refiner fuer Kuerzung und Schaerfe.
+14,8,Erst dann kommt ein sauberer CTA.
+14,9,CTA: Schreib AGENTS fuer das Prompt-Pack.
+15,1,Der schnellste Weg zu mehr Output: CTA-Strategie fuer Conversion.
+15,2,Problem: Viele Creator arbeiten linear und werden langsam.
+15,3,Insight: Parallelisierung schlaegt Perfektion.
+15,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+15,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+15,6,Schritt 2: Schreibe Drafts im Batch.
+15,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+15,8,Schritt 4: Baue CTAs ein und teste Varianten.
+15,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+16,1,Der schnellste Weg zu mehr Output: Vielfalt statt Perfektion.
+16,2,Symptom: Zu wenig Output trotz viel Arbeit.
+16,3,Ursache: Rollen sind nicht getrennt.
+16,4,Loesung: 1 Agent = 1 Aufgabe.
+16,5,Baue eine Task-Matrix mit 25 Slots.
+16,6,Setze Wortlimits fuer jede Rolle.
+16,7,Fuehre einen QA-Check nach jedem Schritt ein.
+16,8,Miss Hooks nach Klicks oder Replies.
+16,9,CTA: Willst du die Matrix? Schreib AGENTS.
+17,1,So baust du Qualitaetssicherung in der Pipeline ohne Chaos.
+17,2,"Wenn du Output willst, brauchst du Batching."
+17,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+17,4,Die Rollen bleiben strikt getrennt.
+17,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+17,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+17,7,So baust du eine Bibliothek fuer 90 Tage.
+17,8,CTA: Schreib AGENTS fuer das System.
+18,1,"Output-Funnels statt Einmal-Posts klingt simpel, ist aber ein Gamechanger."
+18,2,Symptom: Zu wenig Output trotz viel Arbeit.
+18,3,Ursache: Rollen sind nicht getrennt.
+18,4,Loesung: 1 Agent = 1 Aufgabe.
+18,5,Baue eine Task-Matrix mit 25 Slots.
+18,6,Setze Wortlimits fuer jede Rolle.
+18,7,Fuehre einen QA-Check nach jedem Schritt ein.
+18,8,Miss Hooks nach Klicks oder Replies.
+18,9,CTA: Willst du die Matrix? Schreib AGENTS.
+19,1,"Thread-Repurposing klingt simpel, ist aber ein Gamechanger."
+19,2,Symptom: Zu wenig Output trotz viel Arbeit.
+19,3,Ursache: Rollen sind nicht getrennt.
+19,4,Loesung: 1 Agent = 1 Aufgabe.
+19,5,Baue eine Task-Matrix mit 25 Slots.
+19,6,Setze Wortlimits fuer jede Rolle.
+19,7,Fuehre einen QA-Check nach jedem Schritt ein.
+19,8,Miss Hooks nach Klicks oder Replies.
+19,9,CTA: Willst du die Matrix? Schreib AGENTS.
+20,1,"Agenten fuer Research klingt simpel, ist aber ein Gamechanger."
+20,2,Viele Threads scheitern am ersten Tweet.
+20,3,Hook-First zwingt dich zu Klarheit.
+20,4,"Sammle 30 Hooks, teste 10, behalte 3."
+20,5,Baue erst dann den Rest des Threads.
+20,6,So entsteht Flow ohne Druck.
+20,7,Nutze Refiner fuer Kuerzung und Schaerfe.
+20,8,Erst dann kommt ein sauberer CTA.
+20,9,CTA: Schreib AGENTS fuer das Prompt-Pack.
+21,1,So baust du 2-Euro Content-Stack ohne Chaos.
+21,2,Problem: Viele Creator arbeiten linear und werden langsam.
+21,3,Insight: Parallelisierung schlaegt Perfektion.
+21,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+21,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+21,6,Schritt 2: Schreibe Drafts im Batch.
+21,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+21,8,Schritt 4: Baue CTAs ein und teste Varianten.
+21,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+22,1,Mein System in kurz: 3 Ebenen von Content.
+22,2,Symptom: Zu wenig Output trotz viel Arbeit.
+22,3,Ursache: Rollen sind nicht getrennt.
+22,4,Loesung: 1 Agent = 1 Aufgabe.
+22,5,Baue eine Task-Matrix mit 25 Slots.
+22,6,Setze Wortlimits fuer jede Rolle.
+22,7,Fuehre einen QA-Check nach jedem Schritt ein.
+22,8,Miss Hooks nach Klicks oder Replies.
+22,9,CTA: Willst du die Matrix? Schreib AGENTS.
+23,1,Der schnellste Weg zu mehr Output: Von Chaos zu System in 7 Tagen.
+23,2,Symptom: Zu wenig Output trotz viel Arbeit.
+23,3,Ursache: Rollen sind nicht getrennt.
+23,4,Loesung: 1 Agent = 1 Aufgabe.
+23,5,Baue eine Task-Matrix mit 25 Slots.
+23,6,Setze Wortlimits fuer jede Rolle.
+23,7,Fuehre einen QA-Check nach jedem Schritt ein.
+23,8,Miss Hooks nach Klicks oder Replies.
+23,9,CTA: Willst du die Matrix? Schreib AGENTS.
+24,1,"Hooks ohne generischen Ton klingt simpel, ist aber ein Gamechanger."
+24,2,Problem: Viele Creator arbeiten linear und werden langsam.
+24,3,Insight: Parallelisierung schlaegt Perfektion.
+24,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+24,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+24,6,Schritt 2: Schreibe Drafts im Batch.
+24,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+24,8,Schritt 4: Baue CTAs ein und teste Varianten.
+24,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+25,1,"So baust du Schneller testen, schneller lernen ohne Chaos."
+25,2,Symptom: Zu wenig Output trotz viel Arbeit.
+25,3,Ursache: Rollen sind nicht getrennt.
+25,4,Loesung: 1 Agent = 1 Aufgabe.
+25,5,Baue eine Task-Matrix mit 25 Slots.
+25,6,Setze Wortlimits fuer jede Rolle.
+25,7,Fuehre einen QA-Check nach jedem Schritt ein.
+25,8,Miss Hooks nach Klicks oder Replies.
+25,9,CTA: Willst du die Matrix? Schreib AGENTS.
+26,1,Der schnellste Weg zu mehr Output: Workflow-Reihenfolge.
+26,2,Symptom: Zu wenig Output trotz viel Arbeit.
+26,3,Ursache: Rollen sind nicht getrennt.
+26,4,Loesung: 1 Agent = 1 Aufgabe.
+26,5,Baue eine Task-Matrix mit 25 Slots.
+26,6,Setze Wortlimits fuer jede Rolle.
+26,7,Fuehre einen QA-Check nach jedem Schritt ein.
+26,8,Miss Hooks nach Klicks oder Replies.
+26,9,CTA: Willst du die Matrix? Schreib AGENTS.
+27,1,Mein System in kurz: Agenten-Design fuer Klarheit.
+27,2,Viele Threads scheitern am ersten Tweet.
+27,3,Hook-First zwingt dich zu Klarheit.
+27,4,"Sammle 30 Hooks, teste 10, behalte 3."
+27,5,Baue erst dann den Rest des Threads.
+27,6,So entsteht Flow ohne Druck.
+27,7,Nutze Refiner fuer Kuerzung und Schaerfe.
+27,8,Erst dann kommt ein sauberer CTA.
+27,9,CTA: Schreib AGENTS fuer das Prompt-Pack.
+28,1,Mein System in kurz: Monetarisierung mit Prompt-Produkten.
+28,2,Symptom: Zu wenig Output trotz viel Arbeit.
+28,3,Ursache: Rollen sind nicht getrennt.
+28,4,Loesung: 1 Agent = 1 Aufgabe.
+28,5,Baue eine Task-Matrix mit 25 Slots.
+28,6,Setze Wortlimits fuer jede Rolle.
+28,7,Fuehre einen QA-Check nach jedem Schritt ein.
+28,8,Miss Hooks nach Klicks oder Replies.
+28,9,CTA: Willst du die Matrix? Schreib AGENTS.
+29,1,Mein System in kurz: Output planbar machen.
+29,2,"Wenn du Output willst, brauchst du Batching."
+29,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+29,4,Die Rollen bleiben strikt getrennt.
+29,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+29,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+29,7,So baust du eine Bibliothek fuer 90 Tage.
+29,8,CTA: Schreib AGENTS fuer das System.
+30,1,Mein System in kurz: QA vor Kreativitaet.
+30,2,Symptom: Zu wenig Output trotz viel Arbeit.
+30,3,Ursache: Rollen sind nicht getrennt.
+30,4,Loesung: 1 Agent = 1 Aufgabe.
+30,5,Baue eine Task-Matrix mit 25 Slots.
+30,6,Setze Wortlimits fuer jede Rolle.
+30,7,Fuehre einen QA-Check nach jedem Schritt ein.
+30,8,Miss Hooks nach Klicks oder Replies.
+30,9,CTA: Willst du die Matrix? Schreib AGENTS.
+31,1,Warum Beste Content-Routine fuer Solos dein groesster Hebel ist.
+31,2,Symptom: Zu wenig Output trotz viel Arbeit.
+31,3,Ursache: Rollen sind nicht getrennt.
+31,4,Loesung: 1 Agent = 1 Aufgabe.
+31,5,Baue eine Task-Matrix mit 25 Slots.
+31,6,Setze Wortlimits fuer jede Rolle.
+31,7,Fuehre einen QA-Check nach jedem Schritt ein.
+31,8,Miss Hooks nach Klicks oder Replies.
+31,9,CTA: Willst du die Matrix? Schreib AGENTS.
+32,1,So baust du Was du von Agenturen klauen kannst ohne Chaos.
+32,2,Symptom: Zu wenig Output trotz viel Arbeit.
+32,3,Ursache: Rollen sind nicht getrennt.
+32,4,Loesung: 1 Agent = 1 Aufgabe.
+32,5,Baue eine Task-Matrix mit 25 Slots.
+32,6,Setze Wortlimits fuer jede Rolle.
+32,7,Fuehre einen QA-Check nach jedem Schritt ein.
+32,8,Miss Hooks nach Klicks oder Replies.
+32,9,CTA: Willst du die Matrix? Schreib AGENTS.
+33,1,Warum Hook-Datenbank als Wachstumsmotor dein groesster Hebel ist.
+33,2,"Wenn du Output willst, brauchst du Batching."
+33,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+33,4,Die Rollen bleiben strikt getrennt.
+33,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+33,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+33,7,So baust du eine Bibliothek fuer 90 Tage.
+33,8,CTA: Schreib AGENTS fuer das System.
+34,1,So baust du Content als Produkt ohne Chaos.
+34,2,Problem: Viele Creator arbeiten linear und werden langsam.
+34,3,Insight: Parallelisierung schlaegt Perfektion.
+34,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+34,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+34,6,Schritt 2: Schreibe Drafts im Batch.
+34,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+34,8,Schritt 4: Baue CTAs ein und teste Varianten.
+34,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+35,1,Warum Content messbar machen dein groesster Hebel ist.
+35,2,"Wenn du Output willst, brauchst du Batching."
+35,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+35,4,Die Rollen bleiben strikt getrennt.
+35,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+35,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+35,7,So baust du eine Bibliothek fuer 90 Tage.
+35,8,CTA: Schreib AGENTS fuer das System.
+36,1,"1 Agent = 1 Aufgabe klingt simpel, ist aber ein Gamechanger."
+36,2,Symptom: Zu wenig Output trotz viel Arbeit.
+36,3,Ursache: Rollen sind nicht getrennt.
+36,4,Loesung: 1 Agent = 1 Aufgabe.
+36,5,Baue eine Task-Matrix mit 25 Slots.
+36,6,Setze Wortlimits fuer jede Rolle.
+36,7,Fuehre einen QA-Check nach jedem Schritt ein.
+36,8,Miss Hooks nach Klicks oder Replies.
+36,9,CTA: Willst du die Matrix? Schreib AGENTS.
+37,1,So baust du Zielgruppe in Prompts ohne Chaos.
+37,2,Problem: Viele Creator arbeiten linear und werden langsam.
+37,3,Insight: Parallelisierung schlaegt Perfektion.
+37,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+37,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+37,6,Schritt 2: Schreibe Drafts im Batch.
+37,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+37,8,Schritt 4: Baue CTAs ein und teste Varianten.
+37,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+38,1,Mein System in kurz: 80-20 Regeln fuer Content.
+38,2,Viele Threads scheitern am ersten Tweet.
+38,3,Hook-First zwingt dich zu Klarheit.
+38,4,"Sammle 30 Hooks, teste 10, behalte 3."
+38,5,Baue erst dann den Rest des Threads.
+38,6,So entsteht Flow ohne Druck.
+38,7,Nutze Refiner fuer Kuerzung und Schaerfe.
+38,8,Erst dann kommt ein sauberer CTA.
+38,9,CTA: Schreib AGENTS fuer das Prompt-Pack.
+39,1,So baust du Prompts versionieren ohne Chaos.
+39,2,"Wenn du Output willst, brauchst du Batching."
+39,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+39,4,Die Rollen bleiben strikt getrennt.
+39,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+39,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+39,7,So baust du eine Bibliothek fuer 90 Tage.
+39,8,CTA: Schreib AGENTS fuer das System.
+40,1,So baust du Schreibblockaden entfernen ohne Chaos.
+40,2,Viele Threads scheitern am ersten Tweet.
+40,3,Hook-First zwingt dich zu Klarheit.
+40,4,"Sammle 30 Hooks, teste 10, behalte 3."
+40,5,Baue erst dann den Rest des Threads.
+40,6,So entsteht Flow ohne Druck.
+40,7,Nutze Refiner fuer Kuerzung und Schaerfe.
+40,8,Erst dann kommt ein sauberer CTA.
+40,9,CTA: Schreib AGENTS fuer das Prompt-Pack.
+41,1,"4 Checks vor dem Posten klingt simpel, ist aber ein Gamechanger."
+41,2,"Wenn du Output willst, brauchst du Batching."
+41,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+41,4,Die Rollen bleiben strikt getrennt.
+41,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+41,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+41,7,So baust du eine Bibliothek fuer 90 Tage.
+41,8,CTA: Schreib AGENTS fuer das System.
+42,1,"Content in Umsatz verwandeln klingt simpel, ist aber ein Gamechanger."
+42,2,"Wenn du Output willst, brauchst du Batching."
+42,3,30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.
+42,4,Die Rollen bleiben strikt getrennt.
+42,5,"Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff."
+42,6,"Qualitaet kommt vom Review, nicht vom Zufall."
+42,7,So baust du eine Bibliothek fuer 90 Tage.
+42,8,CTA: Schreib AGENTS fuer das System.
+43,1,Der schnellste Weg zu mehr Output: 5 beste CTA-Formate.
+43,2,Symptom: Zu wenig Output trotz viel Arbeit.
+43,3,Ursache: Rollen sind nicht getrennt.
+43,4,Loesung: 1 Agent = 1 Aufgabe.
+43,5,Baue eine Task-Matrix mit 25 Slots.
+43,6,Setze Wortlimits fuer jede Rolle.
+43,7,Fuehre einen QA-Check nach jedem Schritt ein.
+43,8,Miss Hooks nach Klicks oder Replies.
+43,9,CTA: Willst du die Matrix? Schreib AGENTS.
+44,1,"Creator-Stack bauen klingt simpel, ist aber ein Gamechanger."
+44,2,Viele Threads scheitern am ersten Tweet.
+44,3,Hook-First zwingt dich zu Klarheit.
+44,4,"Sammle 30 Hooks, teste 10, behalte 3."
+44,5,Baue erst dann den Rest des Threads.
+44,6,So entsteht Flow ohne Druck.
+44,7,Nutze Refiner fuer Kuerzung und Schaerfe.
+44,8,Erst dann kommt ein sauberer CTA.
+44,9,CTA: Schreib AGENTS fuer das Prompt-Pack.
+45,1,So baust du Output ohne Burnout ohne Chaos.
+45,2,Problem: Viele Creator arbeiten linear und werden langsam.
+45,3,Insight: Parallelisierung schlaegt Perfektion.
+45,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+45,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+45,6,Schritt 2: Schreibe Drafts im Batch.
+45,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+45,8,Schritt 4: Baue CTAs ein und teste Varianten.
+45,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+46,1,Mein System in kurz: Vom Hook zum Angebot.
+46,2,Viele Threads scheitern am ersten Tweet.
+46,3,Hook-First zwingt dich zu Klarheit.
+46,4,"Sammle 30 Hooks, teste 10, behalte 3."
+46,5,Baue erst dann den Rest des Threads.
+46,6,So entsteht Flow ohne Druck.
+46,7,Nutze Refiner fuer Kuerzung und Schaerfe.
+46,8,Erst dann kommt ein sauberer CTA.
+46,9,CTA: Schreib AGENTS fuer das Prompt-Pack.
+47,1,Der schnellste Weg zu mehr Output: Formate als groesste Abkuerzung.
+47,2,Problem: Viele Creator arbeiten linear und werden langsam.
+47,3,Insight: Parallelisierung schlaegt Perfektion.
+47,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+47,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+47,6,Schritt 2: Schreibe Drafts im Batch.
+47,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+47,8,Schritt 4: Baue CTAs ein und teste Varianten.
+47,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+48,1,Der schnellste Weg zu mehr Output: 10 Thread-Strukturen.
+48,2,Problem: Viele Creator arbeiten linear und werden langsam.
+48,3,Insight: Parallelisierung schlaegt Perfektion.
+48,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+48,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+48,6,Schritt 2: Schreibe Drafts im Batch.
+48,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+48,8,Schritt 4: Baue CTAs ein und teste Varianten.
+48,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+49,1,"Prompt-Library verkaufen klingt simpel, ist aber ein Gamechanger."
+49,2,Problem: Viele Creator arbeiten linear und werden langsam.
+49,3,Insight: Parallelisierung schlaegt Perfektion.
+49,4,Framework: Orchestrator -> Ideation -> Writer -> Refiner.
+49,5,Schritt 1: Sammle 30 Hooks in 1 Session.
+49,6,Schritt 2: Schreibe Drafts im Batch.
+49,7,Schritt 3: Kuerze hart und pruefe Nutzen.
+49,8,Schritt 4: Baue CTAs ein und teste Varianten.
+49,9,"CTA: Wenn du den Workflow willst, schreib AGENTS."
+50,1,Mein System in kurz: Gute Prompts erkennen.
+50,2,Symptom: Zu wenig Output trotz viel Arbeit.
+50,3,Ursache: Rollen sind nicht getrennt.
+50,4,Loesung: 1 Agent = 1 Aufgabe.
+50,5,Baue eine Task-Matrix mit 25 Slots.
+50,6,Setze Wortlimits fuer jede Rolle.
+50,7,Fuehre einen QA-Check nach jedem Schritt ein.
+50,8,Miss Hooks nach Klicks oder Replies.
+50,9,CTA: Willst du die Matrix? Schreib AGENTS.

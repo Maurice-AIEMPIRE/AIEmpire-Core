@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ai-empire.snapshot</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/maurice/.openclaw/ai-vault/save-context.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>900</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/maurice/.openclaw/ai-vault/snapshot.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/maurice/.openclaw/ai-vault/snapshot.err.log</string>
+</dict>
+</plist>

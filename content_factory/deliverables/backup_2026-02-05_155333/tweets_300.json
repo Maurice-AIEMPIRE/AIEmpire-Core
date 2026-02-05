@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch harte Wortlimits: 400 Premium-Prompts. Batching: 30 Hooks, dann 30 Drafts. Einmal gebaut, laeuft der Prozess jeden Monat. Willst du den Workflow? Schreib AGENTS. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 2,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Quality Gates nach jedem Schritt: 50 Threads pro Monat. Rhythmus: 1 Batch pro Woche. 30 Hooks in 60 Minuten sind realistisch. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 3,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Hook-First statt Content-First. Mit 20 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "id": 4,
+    "text": "Kosten runter, Output hoch: eine Ideenmaschine vor der Schreibmaschine. Ergebnis: eine klare Content-Routine. Schnelleres Testing von Hooks. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 5,
+    "text": "Der groesste Fehler: keine QA-Stufe einzuplanen. Fix: Hooks zuerst sammeln. So entstehen 300 Tweets pro Woche mit 12 Agenten. 30 Hooks in 60 Minuten sind realistisch. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 6,
+    "text": "Der Shortcut fuer Creator: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: stabile Reichweite durch Konstanz. Einmal gebaut, laeuft der Prozess jeden Monat. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 7,
+    "text": "25 Agenten parallel liefern eine klare Content-Routine. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: wiederholbare Ergebnisse statt Zufall. 30 Hooks in 60 Minuten sind realistisch."
+  },
+  {
+    "id": 8,
+    "text": "Wenn du skalierbare Content-Produktion willst, brauchst du Parallelisierung. Setup: Batching: 30 Hooks, dann 30 Drafts. Das liefert schnelleres Testing von Hooks. Qualitaet kommt vom Review, nicht vom Zufall. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 9,
+    "text": "Der Shortcut fuer Creator: harte Wortlimits. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: wiederholbare Ergebnisse statt Zufall. Wenn du 10 Hooks testest, findest du 2 Gewinner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 10,
+    "text": "Die Formel: Output-Funnels statt Einmal-Posts + Flow: Hook -> Draft -> Refine -> Publish = 400 Premium-Prompts. Ergebnis: wiederholbare Ergebnisse statt Zufall. Qualitaet kommt vom Review, nicht vom Zufall. Ein System macht Content planbar."
+  },
+  {
+    "id": 11,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: Wortlimits hart setzen. So entstehen eine klare Content-Routine mit 25 Agenten. Ein Batch pro Woche reicht fuer 7 Tage Output. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 12,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Output: 30 getestete Hooks pro Woche mit 16 Agenten. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 13,
+    "text": "Die Formel: Proof-Checks nach jedem Schritt + Flow: Thema -> Hook -> Draft -> CTA = skalierbare Content-Produktion. Ergebnis: stabile Reichweite durch Konstanz. Wenn du 10 Hooks testest, findest du 2 Gewinner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 14,
+    "text": "So wird Content planbar: Output-Funnels statt Einmal-Posts. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: eine Content-Bibliothek fuer 90 Tage. Ein Batch pro Woche reicht fuer 7 Tage Output. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 15,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Systemdesign statt Talent. Mit 16 Agenten baust du eine klare Content-Routine. Batching: 30 Hooks, dann 30 Drafts. Willst du den Workflow? Schreib AGENTS. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 16,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, 30 getestete Hooks pro Woche, mehr Output bei weniger Kopfschmerz. Weg: Regel: jede Aufgabe in 120 Woerter kapseln. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ein System macht Content planbar."
+  },
+  {
+    "id": 17,
+    "text": "Die Formel: Quality Gates nach jedem Schritt + Rhythmus: 1 Batch pro Woche = 400 Premium-Prompts. Ergebnis: saubere Struktur ohne Ueberforderung. Qualitaet kommt vom Review, nicht vom Zufall. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 18,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern eine Ideenmaschine vor der Schreibmaschine. Damit lieferst du 400 Premium-Prompts. Wenn du 10 Hooks testest, findest du 2 Gewinner. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 19,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Hook-First statt Content-First: 30 getestete Hooks pro Woche. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ein Batch pro Woche reicht fuer 7 Tage Output. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 20,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Batching mit festen Slots: 400 Premium-Prompts. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 21,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, 30 getestete Hooks pro Woche, saubere Struktur ohne Ueberforderung. Weg: Flow: Thema -> Hook -> Draft -> CTA. Wenn du 10 Hooks testest, findest du 2 Gewinner. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 22,
+    "text": "So wird Content planbar: Quality Gates nach jedem Schritt. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: 400 Premium-Prompts. 30 Hooks in 60 Minuten sind realistisch. Ohne Struktur bleibt Output Zufall. Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "id": 23,
+    "text": "16 Agenten parallel liefern 400 Premium-Prompts. Der Hebel: Hook-First statt Content-First. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: saubere Struktur ohne Ueberforderung. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 24,
+    "text": "Der groesste Fehler: einen Agenten alles machen zu lassen. Fix: Stichproben-Review einbauen. So entstehen eine konstante Pipeline ohne Burnout mit 25 Agenten. Einmal gebaut, laeuft der Prozess jeden Monat. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 25,
+    "text": "12 Agenten parallel liefern 400 Premium-Prompts. Der Hebel: Systemdesign statt Talent. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: wiederholbare Ergebnisse statt Zufall. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 26,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, eine Content-Bibliothek fuer 90 Tage, mehr Output bei weniger Kopfschmerz. Weg: Rhythmus: 1 Batch pro Woche. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 27,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern eine Task-Matrix mit festen Slots. Damit lieferst du eine Content-Bibliothek fuer 90 Tage. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 28,
+    "text": "25 Agenten parallel liefern 30 getestete Hooks pro Woche. Der Hebel: Parallelisierung. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: wiederholbare Ergebnisse statt Zufall. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 29,
+    "text": "Die Formel: eine Task-Matrix mit festen Slots + Regel: jede Aufgabe in 120 Woerter kapseln = 50 Threads pro Monat. Ergebnis: mehr Output bei weniger Kopfschmerz. Wenn du 10 Hooks testest, findest du 2 Gewinner. DM mit AGENTS und ich sende dir die Matrix."
+  },
+  {
+    "id": 30,
+    "text": "Kosten runter, Output hoch: harte Wortlimits. Ergebnis: 50 Threads pro Monat. Schnelleres Testing von Hooks. 30 Hooks in 60 Minuten sind realistisch. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 31,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: eine klare Content-Routine mit 12 Agenten. Wenn du 10 Hooks testest, findest du 2 Gewinner. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 32,
+    "text": "Die Formel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff + Flow: Hook -> Draft -> Refine -> Publish = skalierbare Content-Produktion. Ergebnis: stabile Reichweite durch Konstanz. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 33,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Quality Gates nach jedem Schritt: 30 getestete Hooks pro Woche. Rhythmus: 1 Batch pro Woche. Ein Batch pro Woche reicht fuer 7 Tage Output. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 34,
+    "text": "25 Agenten parallel liefern 30 getestete Hooks pro Woche. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: klare Prozesse statt Chaos. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "id": 35,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Batching mit festen Slots. Mit 16 Agenten baust du eine klare Content-Routine. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 36,
+    "text": "Der groesste Fehler: zu breite Prompts ohne Output-Format. Fix: Stichproben-Review einbauen. So entstehen eine klare Content-Routine mit 16 Agenten. Du brauchst Klarheit, nicht mehr Disziplin. DM mit AGENTS und ich sende dir die Matrix."
+  },
+  {
+    "id": 37,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch klare Rollen statt All-in-One. Mit 25 Agenten baust du 30 getestete Hooks pro Woche. Flow: Hook -> Draft -> Refine -> Publish. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 38,
+    "text": "Der Shortcut fuer Creator: Proof-Checks nach jedem Schritt. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: wiederholbare Ergebnisse statt Zufall. Qualitaet kommt vom Review, nicht vom Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 39,
+    "text": "Die Formel: Output-Funnels statt Einmal-Posts + Flow: Orchestrator -> Ideation -> Writer -> Refiner = eine Content-Bibliothek fuer 90 Tage. Ergebnis: schnelleres Testing von Hooks. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 40,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Systemdesign statt Talent. Mit 20 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Rhythmus: 1 Batch pro Woche. Einmal gebaut, laeuft der Prozess jeden Monat. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 41,
+    "text": "Die Formel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff + Batching: 30 Hooks, dann 30 Drafts = eine klare Content-Routine. Ergebnis: messbar bessere Conversion. Einmal gebaut, laeuft der Prozess jeden Monat. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 42,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, eine konstante Pipeline ohne Burnout, schnelleres Testing von Hooks. Weg: Rhythmus: 1 Batch pro Woche. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 43,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, eine konstante Pipeline ohne Burnout, klare Prozesse statt Chaos. Weg: Flow: Thema -> Hook -> Draft -> CTA. 30 Hooks in 60 Minuten sind realistisch. Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "id": 44,
+    "text": "Kosten runter, Output hoch: eine Ideenmaschine vor der Schreibmaschine. Ergebnis: 400 Premium-Prompts. Mehr Output bei weniger Kopfschmerz. Ein Batch pro Woche reicht fuer 7 Tage Output. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 45,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: eine Rolle pro Agent definieren. So entstehen 300 Tweets pro Woche mit 25 Agenten. Qualitaet kommt vom Review, nicht vom Zufall. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 46,
+    "text": "Wenn du eine konstante Pipeline ohne Burnout willst, brauchst du Systemdesign statt Talent. Setup: Flow: Hook -> Draft -> Refine -> Publish. Das liefert schnelleres Testing von Hooks. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 47,
+    "text": "Die Formel: Hook-First statt Content-First + Regel: jede Aufgabe in 120 Woerter kapseln = eine konstante Pipeline ohne Burnout. Ergebnis: saubere Struktur ohne Ueberforderung. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 48,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Quality Gates nach jedem Schritt. Mit 16 Agenten baust du 400 Premium-Prompts. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 49,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du Output-Funnels statt Einmal-Posts. Setup: Flow: Thema -> Hook -> Draft -> CTA. Das liefert klare Prozesse statt Chaos. Einmal gebaut, laeuft der Prozess jeden Monat. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 50,
+    "text": "Der groesste Fehler: zu breite Prompts ohne Output-Format. Fix: Output-Formate fixieren. So entstehen 300 Tweets pro Woche mit 12 Agenten. Einmal gebaut, laeuft der Prozess jeden Monat. Willst du den Workflow? Schreib AGENTS."
+  },
+  {
+    "id": 51,
+    "text": "Wenn du 30 getestete Hooks pro Woche willst, brauchst du kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Setup: Batching: 30 Hooks, dann 30 Drafts. Das liefert messbar bessere Conversion. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 52,
+    "text": "20 Agenten parallel liefern eine Content-Bibliothek fuer 90 Tage. Der Hebel: Proof-Checks nach jedem Schritt. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: saubere Struktur ohne Ueberforderung. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "id": 53,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Batching: 30 Hooks, dann 30 Drafts. Output: eine konstante Pipeline ohne Burnout mit 25 Agenten. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 54,
+    "text": "20 Agenten parallel liefern 50 Threads pro Monat. Der Hebel: Batching mit festen Slots. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: klare Prozesse statt Chaos. Wenn du 10 Hooks testest, findest du 2 Gewinner. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 55,
+    "text": "Kosten runter, Output hoch: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Ergebnis: 300 Tweets pro Woche. Stabile Reichweite durch Konstanz. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 56,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Quality Gates nach jedem Schritt. Mit 25 Agenten baust du 300 Tweets pro Woche. Regel: jede Aufgabe in 120 Woerter kapseln. 30 Hooks in 60 Minuten sind realistisch. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 57,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, eine Content-Bibliothek fuer 90 Tage, klare Prozesse statt Chaos. Weg: Flow: Hook -> Draft -> Refine -> Publish. DM mit AGENTS und ich sende dir die Matrix. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 58,
+    "text": "25 Agenten parallel liefern 30 getestete Hooks pro Woche. Der Hebel: klare Rollen statt All-in-One. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: messbar bessere Conversion. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "id": 59,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch klare Rollen statt All-in-One. Mit 12 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Flow: Thema -> Hook -> Draft -> CTA. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "id": 60,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, skalierbare Content-Produktion, saubere Struktur ohne Ueberforderung. Weg: Flow: Hook -> Draft -> Refine -> Publish. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 61,
+    "text": "Die Formel: Proof-Checks nach jedem Schritt + Regel: jede Aufgabe in 120 Woerter kapseln = 300 Tweets pro Woche. Ergebnis: klare Prozesse statt Chaos. Ein Batch pro Woche reicht fuer 7 Tage Output. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 62,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, eine Content-Bibliothek fuer 90 Tage, wiederholbare Ergebnisse statt Zufall. Weg: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 63,
+    "text": "Die Formel: Systemdesign statt Talent + Batching: 30 Hooks, dann 30 Drafts = 400 Premium-Prompts. Ergebnis: klare Prozesse statt Chaos. Qualitaet kommt vom Review, nicht vom Zufall. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 64,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern Quality Gates nach jedem Schritt. Damit lieferst du eine konstante Pipeline ohne Burnout. Wenn du das System willst: antworte mit AGENTS. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 65,
+    "text": "So wird Content planbar: eine Ideenmaschine vor der Schreibmaschine. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: 300 Tweets pro Woche. Ein Batch pro Woche reicht fuer 7 Tage Output. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 66,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Parallelisierung. Mit 16 Agenten baust du eine konstante Pipeline ohne Burnout. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 67,
+    "text": "Der groesste Fehler: keine QA-Stufe einzuplanen. Fix: Output-Formate fixieren. So entstehen 50 Threads pro Monat mit 20 Agenten. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 68,
+    "text": "Der groesste Fehler: nur auf Kreativitaet statt System zu setzen. Fix: eine Rolle pro Agent definieren. So entstehen eine Content-Bibliothek fuer 90 Tage mit 25 Agenten. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 69,
+    "text": "Kosten runter, Output hoch: eine Ideenmaschine vor der Schreibmaschine. Ergebnis: eine klare Content-Routine. Stabile Reichweite durch Konstanz. Wenn du 10 Hooks testest, findest du 2 Gewinner. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 70,
+    "text": "Wenn du eine klare Content-Routine willst, brauchst du Proof-Checks nach jedem Schritt. Setup: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Das liefert messbar bessere Conversion. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 71,
+    "text": "Die Formel: Hook-First statt Content-First + Flow: Orchestrator -> Ideation -> Writer -> Refiner = 300 Tweets pro Woche. Ergebnis: schnelleres Testing von Hooks. Kommentiere AGENTS fuer die Struktur. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 72,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Rhythmus: 1 Batch pro Woche. Output: eine Content-Bibliothek fuer 90 Tage mit 16 Agenten. Wenn du 10 Hooks testest, findest du 2 Gewinner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 73,
+    "text": "Wenn du 50 Threads pro Monat willst, brauchst du kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Setup: Rhythmus: 1 Batch pro Woche. Das liefert stabile Reichweite durch Konstanz. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 74,
+    "text": "Die Formel: Hook-First statt Content-First + Flow: Orchestrator -> Ideation -> Writer -> Refiner = 30 getestete Hooks pro Woche. Ergebnis: mehr Output bei weniger Kopfschmerz. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 75,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Quality Gates nach jedem Schritt: eine Content-Bibliothek fuer 90 Tage. Flow: Thema -> Hook -> Draft -> CTA. Ein System macht Content planbar. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 76,
+    "text": "Der groesste Fehler: einen Agenten alles machen zu lassen. Fix: Hooks zuerst sammeln. So entstehen 400 Premium-Prompts mit 25 Agenten. Ein Batch pro Woche reicht fuer 7 Tage Output. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 77,
+    "text": "Die Formel: harte Wortlimits + Flow: Hook -> Draft -> Refine -> Publish = eine klare Content-Routine. Ergebnis: mehr Output bei weniger Kopfschmerz. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 78,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, skalierbare Content-Produktion, mehr Output bei weniger Kopfschmerz. Weg: Regel: jede Aufgabe in 120 Woerter kapseln. Qualitaet kommt vom Review, nicht vom Zufall. DM mit AGENTS und ich sende dir die Matrix."
+  },
+  {
+    "id": 79,
+    "text": "Kosten runter, Output hoch: eine Ideenmaschine vor der Schreibmaschine. Ergebnis: eine konstante Pipeline ohne Burnout. Schnelleres Testing von Hooks. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 80,
+    "text": "Kosten runter, Output hoch: Batching mit festen Slots. Ergebnis: skalierbare Content-Produktion. Klare Prozesse statt Chaos. Einmal gebaut, laeuft der Prozess jeden Monat. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 81,
+    "text": "Die Formel: Parallelisierung + Flow: Hook -> Draft -> Refine -> Publish = 300 Tweets pro Woche. Ergebnis: saubere Struktur ohne Ueberforderung. Wenn du 10 Hooks testest, findest du 2 Gewinner. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 82,
+    "text": "Parallelisierung ist der Cheatcode: 16 Agenten, 50 Threads pro Monat, messbar bessere Conversion. Weg: Flow: Hook -> Draft -> Refine -> Publish. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 83,
+    "text": "Der Shortcut fuer Creator: Proof-Checks nach jedem Schritt. Rhythmus: 1 Batch pro Woche. Ergebnis: klare Prozesse statt Chaos. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ein System macht Content planbar. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 84,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, eine Content-Bibliothek fuer 90 Tage, klare Prozesse statt Chaos. Weg: Rhythmus: 1 Batch pro Woche. Ein System macht Content planbar. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 85,
+    "text": "20 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Rhythmus: 1 Batch pro Woche. Ergebnis: wiederholbare Ergebnisse statt Zufall. 30 Hooks in 60 Minuten sind realistisch."
+  },
+  {
+    "id": 86,
+    "text": "20 Agenten parallel liefern 50 Threads pro Monat. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: saubere Struktur ohne Ueberforderung. Ein System macht Content planbar."
+  },
+  {
+    "id": 87,
+    "text": "Der groesste Fehler: keine QA-Stufe einzuplanen. Fix: Stichproben-Review einbauen. So entstehen eine Content-Bibliothek fuer 90 Tage mit 16 Agenten. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 88,
+    "text": "Die Formel: Systemdesign statt Talent + Rhythmus: 1 Batch pro Woche = 30 getestete Hooks pro Woche. Ergebnis: klare Prozesse statt Chaos. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 89,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch eine Task-Matrix mit festen Slots: 50 Threads pro Monat. Batching: 30 Hooks, dann 30 Drafts. 30 Hooks in 60 Minuten sind realistisch. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 90,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Hook -> Draft -> Refine -> Publish. Output: 400 Premium-Prompts mit 16 Agenten. Qualitaet kommt vom Review, nicht vom Zufall. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 91,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Hook-First statt Content-First. Mit 16 Agenten baust du eine konstante Pipeline ohne Burnout. Regel: jede Aufgabe in 120 Woerter kapseln. Ein System macht Content planbar."
+  },
+  {
+    "id": 92,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern Systemdesign statt Talent. Damit lieferst du skalierbare Content-Produktion. Qualitaet kommt vom Review, nicht vom Zufall. Wenn du das System willst: antworte mit AGENTS. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 93,
+    "text": "So wird Content planbar: Quality Gates nach jedem Schritt. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: eine konstante Pipeline ohne Burnout. Einmal gebaut, laeuft der Prozess jeden Monat. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 94,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, 30 getestete Hooks pro Woche, wiederholbare Ergebnisse statt Zufall. Weg: Rhythmus: 1 Batch pro Woche. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 95,
+    "text": "Der Shortcut fuer Creator: harte Wortlimits. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: stabile Reichweite durch Konstanz. Ein Batch pro Woche reicht fuer 7 Tage Output. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 96,
+    "text": "Der Shortcut fuer Creator: klare Rollen statt All-in-One. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: stabile Reichweite durch Konstanz. Qualitaet kommt vom Review, nicht vom Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 97,
+    "text": "Kosten runter, Output hoch: Proof-Checks nach jedem Schritt. Ergebnis: eine konstante Pipeline ohne Burnout. Schnelleres Testing von Hooks. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 98,
+    "text": "Wenn du eine konstante Pipeline ohne Burnout willst, brauchst du Output-Funnels statt Einmal-Posts. Setup: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Das liefert klare Prozesse statt Chaos. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 99,
+    "text": "Parallelisierung ist der Cheatcode: 16 Agenten, eine Content-Bibliothek fuer 90 Tage, wiederholbare Ergebnisse statt Zufall. Weg: Flow: Thema -> Hook -> Draft -> CTA. Kommentiere AGENTS fuer die Struktur. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 100,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Batching mit festen Slots: eine konstante Pipeline ohne Burnout. Flow: Hook -> Draft -> Refine -> Publish. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 101,
+    "text": "12 Agenten parallel liefern eine klare Content-Routine. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Rhythmus: 1 Batch pro Woche. Ergebnis: messbar bessere Conversion. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 102,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Batching mit festen Slots: eine konstante Pipeline ohne Burnout. Batching: 30 Hooks, dann 30 Drafts. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 103,
+    "text": "Die Formel: Output-Funnels statt Einmal-Posts + Flow: Thema -> Hook -> Draft -> CTA = 50 Threads pro Monat. Ergebnis: mehr Output bei weniger Kopfschmerz. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 104,
+    "text": "So wird Content planbar: harte Wortlimits. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: eine Content-Bibliothek fuer 90 Tage. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 105,
+    "text": "Wenn du 50 Threads pro Monat willst, brauchst du harte Wortlimits. Setup: Rhythmus: 1 Batch pro Woche. Das liefert schnelleres Testing von Hooks. Einmal gebaut, laeuft der Prozess jeden Monat. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 106,
+    "text": "Der groesste Fehler: einen Agenten alles machen zu lassen. Fix: Output-Formate fixieren. So entstehen skalierbare Content-Produktion mit 25 Agenten. Einmal gebaut, laeuft der Prozess jeden Monat. Ein System macht Content planbar."
+  },
+  {
+    "id": 107,
+    "text": "So wird Content planbar: klare Rollen statt All-in-One. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: 400 Premium-Prompts. Wenn du 10 Hooks testest, findest du 2 Gewinner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 108,
+    "text": "Wenn du eine Content-Bibliothek fuer 90 Tage willst, brauchst du eine Task-Matrix mit festen Slots. Setup: Rhythmus: 1 Batch pro Woche. Das liefert klare Prozesse statt Chaos. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "id": 109,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, eine konstante Pipeline ohne Burnout, messbar bessere Conversion. Weg: Regel: jede Aufgabe in 120 Woerter kapseln. Ein Batch pro Woche reicht fuer 7 Tage Output. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 110,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Hook -> Draft -> Refine -> Publish. Output: eine Content-Bibliothek fuer 90 Tage mit 12 Agenten. Qualitaet kommt vom Review, nicht vom Zufall. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 111,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Proof-Checks nach jedem Schritt. Mit 25 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Regel: jede Aufgabe in 120 Woerter kapseln. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 112,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Output-Funnels statt Einmal-Posts. Mit 16 Agenten baust du eine konstante Pipeline ohne Burnout. Rhythmus: 1 Batch pro Woche. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "id": 113,
+    "text": "12 Agenten parallel liefern eine Content-Bibliothek fuer 90 Tage. Der Hebel: eine Ideenmaschine vor der Schreibmaschine. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: wiederholbare Ergebnisse statt Zufall. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "id": 114,
+    "text": "Der Shortcut fuer Creator: eine Task-Matrix mit festen Slots. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: klare Prozesse statt Chaos. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 115,
+    "text": "Die Formel: harte Wortlimits + Flow: Orchestrator -> Ideation -> Writer -> Refiner = skalierbare Content-Produktion. Ergebnis: schnelleres Testing von Hooks. Qualitaet kommt vom Review, nicht vom Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 116,
+    "text": "20 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: eine Ideenmaschine vor der Schreibmaschine. Rhythmus: 1 Batch pro Woche. Ergebnis: saubere Struktur ohne Ueberforderung. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 117,
+    "text": "Wenn du 50 Threads pro Monat willst, brauchst du Output-Funnels statt Einmal-Posts. Setup: Batching: 30 Hooks, dann 30 Drafts. Das liefert schnelleres Testing von Hooks. Ein Batch pro Woche reicht fuer 7 Tage Output. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 118,
+    "text": "Der Shortcut fuer Creator: Proof-Checks nach jedem Schritt. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: klare Prozesse statt Chaos. Ein Batch pro Woche reicht fuer 7 Tage Output. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 119,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Output: 30 getestete Hooks pro Woche mit 20 Agenten. Ein Batch pro Woche reicht fuer 7 Tage Output. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 120,
+    "text": "12 Agenten parallel liefern 400 Premium-Prompts. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: schnelleres Testing von Hooks. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 121,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du harte Wortlimits. Setup: Batching: 30 Hooks, dann 30 Drafts. Das liefert schnelleres Testing von Hooks. Ein Batch pro Woche reicht fuer 7 Tage Output. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 122,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern eine Ideenmaschine vor der Schreibmaschine. Damit lieferst du eine klare Content-Routine. Wenn du 10 Hooks testest, findest du 2 Gewinner. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 123,
+    "text": "16 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: Systemdesign statt Talent. Rhythmus: 1 Batch pro Woche. Ergebnis: mehr Output bei weniger Kopfschmerz. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "id": 124,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch klare Rollen statt All-in-One: 30 getestete Hooks pro Woche. Flow: Thema -> Hook -> Draft -> CTA. Einmal gebaut, laeuft der Prozess jeden Monat. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 125,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Mit 16 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Regel: jede Aufgabe in 120 Woerter kapseln. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 126,
+    "text": "16 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: klare Rollen statt All-in-One. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: mehr Output bei weniger Kopfschmerz. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "id": 127,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Batching: 30 Hooks, dann 30 Drafts. Output: eine Content-Bibliothek fuer 90 Tage mit 12 Agenten. Ohne Struktur bleibt Output Zufall. Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "id": 128,
+    "text": "20 Agenten parallel liefern eine Content-Bibliothek fuer 90 Tage. Der Hebel: eine Task-Matrix mit festen Slots. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: klare Prozesse statt Chaos. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 129,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Systemdesign statt Talent: 30 getestete Hooks pro Woche. Flow: Hook -> Draft -> Refine -> Publish. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 130,
+    "text": "Wenn du skalierbare Content-Produktion willst, brauchst du kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Setup: Flow: Thema -> Hook -> Draft -> CTA. Das liefert mehr Output bei weniger Kopfschmerz. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 131,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch kleine Modelle fuer Masse und Mid-Modelle fuer Schliff: eine konstante Pipeline ohne Burnout. Regel: jede Aufgabe in 120 Woerter kapseln. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 132,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Batching mit festen Slots: eine Content-Bibliothek fuer 90 Tage. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Wenn du 10 Hooks testest, findest du 2 Gewinner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 133,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Batching mit festen Slots. Mit 20 Agenten baust du 300 Tweets pro Woche. Rhythmus: 1 Batch pro Woche. Ohne Struktur bleibt Output Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 134,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch eine Task-Matrix mit festen Slots: 300 Tweets pro Woche. Batching: 30 Hooks, dann 30 Drafts. Wenn du 10 Hooks testest, findest du 2 Gewinner. Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "id": 135,
+    "text": "So wird Content planbar: Parallelisierung. Rhythmus: 1 Batch pro Woche. Ergebnis: skalierbare Content-Produktion. Einmal gebaut, laeuft der Prozess jeden Monat. Ohne Struktur bleibt Output Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 136,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch eine Ideenmaschine vor der Schreibmaschine: 50 Threads pro Monat. Regel: jede Aufgabe in 120 Woerter kapseln. 30 Hooks in 60 Minuten sind realistisch. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 137,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Rhythmus: 1 Batch pro Woche. Output: eine klare Content-Routine mit 12 Agenten. Ein Batch pro Woche reicht fuer 7 Tage Output. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 138,
+    "text": "Wenn du 30 getestete Hooks pro Woche willst, brauchst du klare Rollen statt All-in-One. Setup: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Das liefert schnelleres Testing von Hooks. Ein System macht Content planbar."
+  },
+  {
+    "id": 139,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Thema -> Hook -> Draft -> CTA. Output: 50 Threads pro Monat mit 25 Agenten. 30 Hooks in 60 Minuten sind realistisch. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 140,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Batching: 30 Hooks, dann 30 Drafts. Output: 400 Premium-Prompts mit 12 Agenten. Qualitaet kommt vom Review, nicht vom Zufall. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 141,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, eine konstante Pipeline ohne Burnout, schnelleres Testing von Hooks. Weg: Rhythmus: 1 Batch pro Woche. Qualitaet kommt vom Review, nicht vom Zufall. Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "id": 142,
+    "text": "16 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: Systemdesign statt Talent. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: saubere Struktur ohne Ueberforderung. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "id": 143,
+    "text": "12 Agenten parallel liefern eine Content-Bibliothek fuer 90 Tage. Der Hebel: Proof-Checks nach jedem Schritt. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: saubere Struktur ohne Ueberforderung. Ein System macht Content planbar."
+  },
+  {
+    "id": 144,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Systemdesign statt Talent. Mit 20 Agenten baust du eine klare Content-Routine. Regel: jede Aufgabe in 120 Woerter kapseln. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "id": 145,
+    "text": "16 Agenten parallel liefern 300 Tweets pro Woche. Der Hebel: Parallelisierung. Rhythmus: 1 Batch pro Woche. Ergebnis: messbar bessere Conversion. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 146,
+    "text": "Wenn du skalierbare Content-Produktion willst, brauchst du harte Wortlimits. Setup: Regel: jede Aufgabe in 120 Woerter kapseln. Das liefert wiederholbare Ergebnisse statt Zufall. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "id": 147,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: Wortlimits hart setzen. So entstehen skalierbare Content-Produktion mit 25 Agenten. Ein Batch pro Woche reicht fuer 7 Tage Output. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 148,
+    "text": "Kosten runter, Output hoch: klare Rollen statt All-in-One. Ergebnis: 400 Premium-Prompts. Mehr Output bei weniger Kopfschmerz. Du brauchst Klarheit, nicht mehr Disziplin. DM mit AGENTS und ich sende dir die Matrix. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 149,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Batching: 30 Hooks, dann 30 Drafts. Output: eine konstante Pipeline ohne Burnout mit 12 Agenten. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 150,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Parallelisierung. Mit 25 Agenten baust du 400 Premium-Prompts. Flow: Hook -> Draft -> Refine -> Publish. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 151,
+    "text": "Wenn du eine konstante Pipeline ohne Burnout willst, brauchst du Parallelisierung. Setup: Rhythmus: 1 Batch pro Woche. Das liefert schnelleres Testing von Hooks. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 152,
+    "text": "Die Formel: Batching mit festen Slots + Rhythmus: 1 Batch pro Woche = 30 getestete Hooks pro Woche. Ergebnis: schnelleres Testing von Hooks. 30 Hooks in 60 Minuten sind realistisch. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 153,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Proof-Checks nach jedem Schritt. Mit 20 Agenten baust du 300 Tweets pro Woche. Flow: Thema -> Hook -> Draft -> CTA. Ein Batch pro Woche reicht fuer 7 Tage Output. Ein System macht Content planbar."
+  },
+  {
+    "id": 154,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Parallelisierung. Mit 20 Agenten baust du eine konstante Pipeline ohne Burnout. Flow: Thema -> Hook -> Draft -> CTA. Ein Batch pro Woche reicht fuer 7 Tage Output. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 155,
+    "text": "Wenn du eine konstante Pipeline ohne Burnout willst, brauchst du Proof-Checks nach jedem Schritt. Setup: Rhythmus: 1 Batch pro Woche. Das liefert klare Prozesse statt Chaos. Du brauchst Klarheit, nicht mehr Disziplin. Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "id": 156,
+    "text": "Die Formel: Quality Gates nach jedem Schritt + Flow: Thema -> Hook -> Draft -> CTA = eine klare Content-Routine. Ergebnis: stabile Reichweite durch Konstanz. Ein System macht Content planbar. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 157,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch kleine Modelle fuer Masse und Mid-Modelle fuer Schliff: eine klare Content-Routine. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 158,
+    "text": "20 Agenten parallel liefern 300 Tweets pro Woche. Der Hebel: eine Task-Matrix mit festen Slots. Rhythmus: 1 Batch pro Woche. Ergebnis: messbar bessere Conversion. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 159,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du Hook-First statt Content-First. Setup: Flow: Hook -> Draft -> Refine -> Publish. Das liefert klare Prozesse statt Chaos. Einmal gebaut, laeuft der Prozess jeden Monat. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 160,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Output-Funnels statt Einmal-Posts. Mit 12 Agenten baust du skalierbare Content-Produktion. Batching: 30 Hooks, dann 30 Drafts. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere."
+  },
+  {
+    "id": 161,
+    "text": "16 Agenten parallel liefern eine Content-Bibliothek fuer 90 Tage. Der Hebel: Parallelisierung. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: wiederholbare Ergebnisse statt Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 162,
+    "text": "So wird Content planbar: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: eine Content-Bibliothek fuer 90 Tage. Kommentiere AGENTS fuer die Struktur. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 163,
+    "text": "12 Agenten parallel liefern 50 Threads pro Monat. Der Hebel: Proof-Checks nach jedem Schritt. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: schnelleres Testing von Hooks. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 164,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du Parallelisierung. Setup: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Das liefert mehr Output bei weniger Kopfschmerz. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 165,
+    "text": "Wenn du 300 Tweets pro Woche willst, brauchst du Parallelisierung. Setup: Flow: Thema -> Hook -> Draft -> CTA. Das liefert wiederholbare Ergebnisse statt Zufall. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 166,
+    "text": "So wird Content planbar: klare Rollen statt All-in-One. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: eine konstante Pipeline ohne Burnout. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ein System macht Content planbar."
+  },
+  {
+    "id": 167,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Batching mit festen Slots. Mit 16 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Regel: jede Aufgabe in 120 Woerter kapseln. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 168,
+    "text": "Der Shortcut fuer Creator: eine Ideenmaschine vor der Schreibmaschine. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: wiederholbare Ergebnisse statt Zufall. Wenn du 10 Hooks testest, findest du 2 Gewinner. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 169,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, 50 Threads pro Monat, saubere Struktur ohne Ueberforderung. Weg: Rhythmus: 1 Batch pro Woche. Ein Batch pro Woche reicht fuer 7 Tage Output. Schreib AGENTS fuer das Prompt-Pack."
+  },
+  {
+    "id": 170,
+    "text": "So wird Content planbar: eine Ideenmaschine vor der Schreibmaschine. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: eine klare Content-Routine. Qualitaet kommt vom Review, nicht vom Zufall. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 171,
+    "text": "25 Agenten parallel liefern skalierbare Content-Produktion. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: klare Prozesse statt Chaos. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 172,
+    "text": "Der groesste Fehler: zu breite Prompts ohne Output-Format. Fix: Wortlimits hart setzen. So entstehen 50 Threads pro Monat mit 20 Agenten. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 173,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Proof-Checks nach jedem Schritt. Mit 16 Agenten baust du 400 Premium-Prompts. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "id": 174,
+    "text": "So wird Content planbar: eine Ideenmaschine vor der Schreibmaschine. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: skalierbare Content-Produktion. 30 Hooks in 60 Minuten sind realistisch. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 175,
+    "text": "20 Agenten parallel liefern 50 Threads pro Monat. Der Hebel: Systemdesign statt Talent. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: mehr Output bei weniger Kopfschmerz. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 176,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Mit 25 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Flow: Orchestrator -> Ideation -> Writer -> Refiner."
+  },
+  {
+    "id": 177,
+    "text": "Kosten runter, Output hoch: klare Rollen statt All-in-One. Ergebnis: eine Content-Bibliothek fuer 90 Tage. Mehr Output bei weniger Kopfschmerz. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 178,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch kleine Modelle fuer Masse und Mid-Modelle fuer Schliff: 400 Premium-Prompts. Flow: Thema -> Hook -> Draft -> CTA. 30 Hooks in 60 Minuten sind realistisch. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 179,
+    "text": "Kosten runter, Output hoch: eine Ideenmaschine vor der Schreibmaschine. Ergebnis: skalierbare Content-Produktion. Saubere Struktur ohne Ueberforderung. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 180,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Parallelisierung. Mit 20 Agenten baust du eine konstante Pipeline ohne Burnout. Flow: Hook -> Draft -> Refine -> Publish. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 181,
+    "text": "16 Agenten parallel liefern 400 Premium-Prompts. Der Hebel: eine Ideenmaschine vor der Schreibmaschine. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: stabile Reichweite durch Konstanz. 30 Hooks in 60 Minuten sind realistisch."
+  },
+  {
+    "id": 182,
+    "text": "Die Formel: Parallelisierung + Flow: Orchestrator -> Ideation -> Writer -> Refiner = 400 Premium-Prompts. Ergebnis: stabile Reichweite durch Konstanz. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 183,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Output: 400 Premium-Prompts mit 20 Agenten. Ein System macht Content planbar. Wenn du das System willst: antworte mit AGENTS."
+  },
+  {
+    "id": 184,
+    "text": "Wenn du eine konstante Pipeline ohne Burnout willst, brauchst du Parallelisierung. Setup: Regel: jede Aufgabe in 120 Woerter kapseln. Das liefert saubere Struktur ohne Ueberforderung. 30 Hooks in 60 Minuten sind realistisch."
+  },
+  {
+    "id": 185,
+    "text": "Der Shortcut fuer Creator: Systemdesign statt Talent. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: stabile Reichweite durch Konstanz. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 186,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: Stichproben-Review einbauen. So entstehen eine konstante Pipeline ohne Burnout mit 20 Agenten. 30 Hooks in 60 Minuten sind realistisch. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 187,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du Systemdesign statt Talent. Setup: Flow: Hook -> Draft -> Refine -> Publish. Das liefert klare Prozesse statt Chaos. Einmal gebaut, laeuft der Prozess jeden Monat. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 188,
+    "text": "Die Formel: Hook-First statt Content-First + Flow: Orchestrator -> Ideation -> Writer -> Refiner = 400 Premium-Prompts. Ergebnis: saubere Struktur ohne Ueberforderung. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 189,
+    "text": "25 Agenten parallel liefern skalierbare Content-Produktion. Der Hebel: Output-Funnels statt Einmal-Posts. Rhythmus: 1 Batch pro Woche. Ergebnis: saubere Struktur ohne Ueberforderung. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 190,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Parallelisierung: 30 getestete Hooks pro Woche. Flow: Hook -> Draft -> Refine -> Publish. Qualitaet kommt vom Review, nicht vom Zufall. Ein System macht Content planbar."
+  },
+  {
+    "id": 191,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch klare Rollen statt All-in-One. Mit 25 Agenten baust du 50 Threads pro Monat. Rhythmus: 1 Batch pro Woche. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 192,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Rhythmus: 1 Batch pro Woche. Output: 50 Threads pro Monat mit 12 Agenten. Einmal gebaut, laeuft der Prozess jeden Monat. Ein System macht Content planbar. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 193,
+    "text": "So wird Content planbar: Quality Gates nach jedem Schritt. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: 30 getestete Hooks pro Woche. Qualitaet kommt vom Review, nicht vom Zufall. Ein System macht Content planbar."
+  },
+  {
+    "id": 194,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Setup: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Das liefert wiederholbare Ergebnisse statt Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 195,
+    "text": "Der Shortcut fuer Creator: Systemdesign statt Talent. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: schnelleres Testing von Hooks. 30 Hooks in 60 Minuten sind realistisch. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 196,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Hook-First statt Content-First: 300 Tweets pro Woche. Flow: Thema -> Hook -> Draft -> CTA. 30 Hooks in 60 Minuten sind realistisch. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 197,
+    "text": "Der groesste Fehler: zu breite Prompts ohne Output-Format. Fix: eine Rolle pro Agent definieren. So entstehen 400 Premium-Prompts mit 20 Agenten. Du brauchst Klarheit, nicht mehr Disziplin. Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "id": 198,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch harte Wortlimits: skalierbare Content-Produktion. Regel: jede Aufgabe in 120 Woerter kapseln. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 199,
+    "text": "Der Shortcut fuer Creator: Quality Gates nach jedem Schritt. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: messbar bessere Conversion. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 200,
+    "text": "Wenn du 30 getestete Hooks pro Woche willst, brauchst du kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Setup: Flow: Hook -> Draft -> Refine -> Publish. Das liefert messbar bessere Conversion. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "id": 201,
+    "text": "20 Agenten parallel liefern eine klare Content-Routine. Der Hebel: Systemdesign statt Talent. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: klare Prozesse statt Chaos. 30 Hooks in 60 Minuten sind realistisch. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 202,
+    "text": "25 Agenten parallel liefern 400 Premium-Prompts. Der Hebel: Output-Funnels statt Einmal-Posts. Rhythmus: 1 Batch pro Woche. Ergebnis: mehr Output bei weniger Kopfschmerz. Einmal gebaut, laeuft der Prozess jeden Monat. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 203,
+    "text": "Kosten runter, Output hoch: eine Task-Matrix mit festen Slots. Ergebnis: eine konstante Pipeline ohne Burnout. Wiederholbare Ergebnisse statt Zufall. Qualitaet kommt vom Review, nicht vom Zufall. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 204,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: eine Content-Bibliothek fuer 90 Tage mit 20 Agenten. Kommentiere AGENTS fuer die Struktur. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 205,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du Quality Gates nach jedem Schritt. Setup: Flow: Hook -> Draft -> Refine -> Publish. Das liefert messbar bessere Conversion. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 206,
+    "text": "Der Shortcut fuer Creator: eine Ideenmaschine vor der Schreibmaschine. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: schnelleres Testing von Hooks. Ein System macht Content planbar. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 207,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, eine konstante Pipeline ohne Burnout, wiederholbare Ergebnisse statt Zufall. Weg: Rhythmus: 1 Batch pro Woche. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 208,
+    "text": "Wenn du 50 Threads pro Monat willst, brauchst du Parallelisierung. Setup: Rhythmus: 1 Batch pro Woche. Das liefert saubere Struktur ohne Ueberforderung. 30 Hooks in 60 Minuten sind realistisch. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 209,
+    "text": "Die Formel: Hook-First statt Content-First + Flow: Thema -> Hook -> Draft -> CTA = skalierbare Content-Produktion. Ergebnis: mehr Output bei weniger Kopfschmerz. Wenn du 10 Hooks testest, findest du 2 Gewinner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 210,
+    "text": "Der Shortcut fuer Creator: eine Task-Matrix mit festen Slots. Rhythmus: 1 Batch pro Woche. Ergebnis: stabile Reichweite durch Konstanz. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 211,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Proof-Checks nach jedem Schritt: skalierbare Content-Produktion. Rhythmus: 1 Batch pro Woche. Ohne Struktur bleibt Output Zufall. DM mit AGENTS und ich sende dir die Matrix."
+  },
+  {
+    "id": 212,
+    "text": "Der groesste Fehler: einen Agenten alles machen zu lassen. Fix: Wortlimits hart setzen. So entstehen 300 Tweets pro Woche mit 25 Agenten. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 213,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern eine Ideenmaschine vor der Schreibmaschine. Damit lieferst du eine Content-Bibliothek fuer 90 Tage. Qualitaet kommt vom Review, nicht vom Zufall. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 214,
+    "text": "Der groesste Fehler: nur auf Kreativitaet statt System zu setzen. Fix: eine Rolle pro Agent definieren. So entstehen eine konstante Pipeline ohne Burnout mit 20 Agenten. Ein Batch pro Woche reicht fuer 7 Tage Output. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 215,
+    "text": "Der Shortcut fuer Creator: Batching mit festen Slots. Flow: Thema -> Hook -> Draft -> CTA. Ergebnis: saubere Struktur ohne Ueberforderung. Qualitaet kommt vom Review, nicht vom Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 216,
+    "text": "Der groesste Fehler: zu breite Prompts ohne Output-Format. Fix: eine Rolle pro Agent definieren. So entstehen 300 Tweets pro Woche mit 16 Agenten. Qualitaet kommt vom Review, nicht vom Zufall. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 217,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch kleine Modelle fuer Masse und Mid-Modelle fuer Schliff: eine Content-Bibliothek fuer 90 Tage. Batching: 30 Hooks, dann 30 Drafts. 30 Hooks in 60 Minuten sind realistisch."
+  },
+  {
+    "id": 218,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern Quality Gates nach jedem Schritt. Damit lieferst du 50 Threads pro Monat. 30 Hooks in 60 Minuten sind realistisch. Kommentiere AGENTS fuer die Struktur. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 219,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch harte Wortlimits. Mit 20 Agenten baust du eine Content-Bibliothek fuer 90 Tage. Flow: Thema -> Hook -> Draft -> CTA. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 220,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, eine Content-Bibliothek fuer 90 Tage, mehr Output bei weniger Kopfschmerz. Weg: Flow: Hook -> Draft -> Refine -> Publish. 30 Hooks in 60 Minuten sind realistisch. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 221,
+    "text": "Der Shortcut fuer Creator: Batching mit festen Slots. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: saubere Struktur ohne Ueberforderung. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 222,
+    "text": "Der Shortcut fuer Creator: eine Task-Matrix mit festen Slots. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: schnelleres Testing von Hooks. Qualitaet kommt vom Review, nicht vom Zufall. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 223,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du Proof-Checks nach jedem Schritt. Setup: Batching: 30 Hooks, dann 30 Drafts. Das liefert schnelleres Testing von Hooks. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 224,
+    "text": "Die Formel: harte Wortlimits + Batching: 30 Hooks, dann 30 Drafts = 30 getestete Hooks pro Woche. Ergebnis: wiederholbare Ergebnisse statt Zufall. Wenn du 10 Hooks testest, findest du 2 Gewinner. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 225,
+    "text": "Wenn du 50 Threads pro Monat willst, brauchst du Hook-First statt Content-First. Setup: Flow: Thema -> Hook -> Draft -> CTA. Das liefert schnelleres Testing von Hooks. Wenn du 10 Hooks testest, findest du 2 Gewinner. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 226,
+    "text": "So wird Content planbar: Quality Gates nach jedem Schritt. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: eine klare Content-Routine. Qualitaet kommt vom Review, nicht vom Zufall. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 227,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: skalierbare Content-Produktion mit 16 Agenten. Wenn du 10 Hooks testest, findest du 2 Gewinner. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 228,
+    "text": "Die Formel: Output-Funnels statt Einmal-Posts + Flow: Orchestrator -> Ideation -> Writer -> Refiner = eine klare Content-Routine. Ergebnis: mehr Output bei weniger Kopfschmerz. Ein System macht Content planbar. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 229,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Quality Gates nach jedem Schritt: 400 Premium-Prompts. Flow: Thema -> Hook -> Draft -> CTA. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 230,
+    "text": "Wenn du eine konstante Pipeline ohne Burnout willst, brauchst du eine Task-Matrix mit festen Slots. Setup: Rhythmus: 1 Batch pro Woche. Das liefert mehr Output bei weniger Kopfschmerz. Qualitaet kommt vom Review, nicht vom Zufall."
+  },
+  {
+    "id": 231,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch harte Wortlimits. Mit 12 Agenten baust du 300 Tweets pro Woche. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Qualitaet kommt vom Review, nicht vom Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 232,
+    "text": "Kosten runter, Output hoch: Hook-First statt Content-First. Ergebnis: 400 Premium-Prompts. Stabile Reichweite durch Konstanz. Der Unterschied ist Prozess, nicht Talent. Kommentiere AGENTS fuer die Struktur. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 233,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, 50 Threads pro Monat, mehr Output bei weniger Kopfschmerz. Weg: Rhythmus: 1 Batch pro Woche. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 234,
+    "text": "Die Formel: Systemdesign statt Talent + Flow: Thema -> Hook -> Draft -> CTA = eine konstante Pipeline ohne Burnout. Ergebnis: saubere Struktur ohne Ueberforderung. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 235,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, eine konstante Pipeline ohne Burnout, klare Prozesse statt Chaos. Weg: Rhythmus: 1 Batch pro Woche. Qualitaet kommt vom Review, nicht vom Zufall. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 236,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, 400 Premium-Prompts, klare Prozesse statt Chaos. Weg: Rhythmus: 1 Batch pro Woche. Qualitaet kommt vom Review, nicht vom Zufall. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 237,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch klare Rollen statt All-in-One: eine klare Content-Routine. Flow: Thema -> Hook -> Draft -> CTA. Einmal gebaut, laeuft der Prozess jeden Monat. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 238,
+    "text": "Der Shortcut fuer Creator: harte Wortlimits. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: wiederholbare Ergebnisse statt Zufall. 30 Hooks in 60 Minuten sind realistisch. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 239,
+    "text": "12 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: eine Ideenmaschine vor der Schreibmaschine. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: stabile Reichweite durch Konstanz. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 240,
+    "text": "Der Shortcut fuer Creator: Parallelisierung. Rhythmus: 1 Batch pro Woche. Ergebnis: saubere Struktur ohne Ueberforderung. Qualitaet kommt vom Review, nicht vom Zufall. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 241,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch eine Ideenmaschine vor der Schreibmaschine: 50 Threads pro Monat. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 242,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch Proof-Checks nach jedem Schritt. Mit 16 Agenten baust du eine klare Content-Routine. Regel: jede Aufgabe in 120 Woerter kapseln. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "id": 243,
+    "text": "12 Agenten parallel liefern 300 Tweets pro Woche. Der Hebel: Proof-Checks nach jedem Schritt. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: wiederholbare Ergebnisse statt Zufall. 30 Hooks in 60 Minuten sind realistisch. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 244,
+    "text": "Wenn du eine klare Content-Routine willst, brauchst du eine Task-Matrix mit festen Slots. Setup: Batching: 30 Hooks, dann 30 Drafts. Das liefert saubere Struktur ohne Ueberforderung. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 245,
+    "text": "Die Formel: klare Rollen statt All-in-One + Flow: Hook -> Draft -> Refine -> Publish = 30 getestete Hooks pro Woche. Ergebnis: saubere Struktur ohne Ueberforderung. 30 Hooks in 60 Minuten sind realistisch. Ein System macht Content planbar."
+  },
+  {
+    "id": 246,
+    "text": "Der groesste Fehler: zu breite Prompts ohne Output-Format. Fix: Hooks zuerst sammeln. So entstehen eine Content-Bibliothek fuer 90 Tage mit 16 Agenten. Qualitaet kommt vom Review, nicht vom Zufall. Willst du den Workflow? Schreib AGENTS."
+  },
+  {
+    "id": 247,
+    "text": "Kosten runter, Output hoch: eine Ideenmaschine vor der Schreibmaschine. Ergebnis: eine konstante Pipeline ohne Burnout. Mehr Output bei weniger Kopfschmerz. Wenn du 10 Hooks testest, findest du 2 Gewinner. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 248,
+    "text": "Parallelisierung ist der Cheatcode: 16 Agenten, skalierbare Content-Produktion, klare Prozesse statt Chaos. Weg: Flow: Thema -> Hook -> Draft -> CTA. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 249,
+    "text": "Der groesste Fehler: die Hook-Phase zu ueberspringen. Fix: Stichproben-Review einbauen. So entstehen eine Content-Bibliothek fuer 90 Tage mit 20 Agenten. Einmal gebaut, laeuft der Prozess jeden Monat. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 250,
+    "text": "So wird Content planbar: harte Wortlimits. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: eine klare Content-Routine. Wenn du 10 Hooks testest, findest du 2 Gewinner. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 251,
+    "text": "Parallelisierung ist der Cheatcode: 16 Agenten, 400 Premium-Prompts, stabile Reichweite durch Konstanz. Weg: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 252,
+    "text": "Wenn du eine Content-Bibliothek fuer 90 Tage willst, brauchst du Hook-First statt Content-First. Setup: Batching: 30 Hooks, dann 30 Drafts. Das liefert messbar bessere Conversion. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 253,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: eine Content-Bibliothek fuer 90 Tage mit 12 Agenten. 30 Hooks in 60 Minuten sind realistisch. Schreib AGENTS fuer das Prompt-Pack."
+  },
+  {
+    "id": 254,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch klare Rollen statt All-in-One. Mit 12 Agenten baust du skalierbare Content-Produktion. Flow: Hook -> Draft -> Refine -> Publish. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 255,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, 400 Premium-Prompts, messbar bessere Conversion. Weg: Batching: 30 Hooks, dann 30 Drafts. Einmal gebaut, laeuft der Prozess jeden Monat. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 256,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, 300 Tweets pro Woche, stabile Reichweite durch Konstanz. Weg: Regel: jede Aufgabe in 120 Woerter kapseln. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 257,
+    "text": "Der Shortcut fuer Creator: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: wiederholbare Ergebnisse statt Zufall. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 258,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch Hook-First statt Content-First: 30 getestete Hooks pro Woche. Flow: Thema -> Hook -> Draft -> CTA. Einmal gebaut, laeuft der Prozess jeden Monat. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 259,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern Proof-Checks nach jedem Schritt. Damit lieferst du eine klare Content-Routine. Einmal gebaut, laeuft der Prozess jeden Monat. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 260,
+    "text": "Du brauchst keine 10x Kreativitaet, sondern eine Ideenmaschine vor der Schreibmaschine. Damit lieferst du eine klare Content-Routine. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall. Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "id": 261,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Mit 25 Agenten baust du skalierbare Content-Produktion. Flow: Hook -> Draft -> Refine -> Publish. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 262,
+    "text": "Wenn du eine klare Content-Routine willst, brauchst du Batching mit festen Slots. Setup: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Das liefert messbar bessere Conversion. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 263,
+    "text": "12 Agenten parallel liefern 50 Threads pro Monat. Der Hebel: Quality Gates nach jedem Schritt. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: schnelleres Testing von Hooks. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "id": 264,
+    "text": "Content skaliert nicht mit mehr Zeit, sondern durch eine Ideenmaschine vor der Schreibmaschine. Mit 20 Agenten baust du 30 getestete Hooks pro Woche. Flow: Thema -> Hook -> Draft -> CTA. Ein System macht Content planbar."
+  },
+  {
+    "id": 265,
+    "text": "Der Shortcut fuer Creator: eine Ideenmaschine vor der Schreibmaschine. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: mehr Output bei weniger Kopfschmerz. 30 Hooks in 60 Minuten sind realistisch. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 266,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du Hook-First statt Content-First. Setup: Flow: Thema -> Hook -> Draft -> CTA. Das liefert klare Prozesse statt Chaos. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 267,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: 400 Premium-Prompts mit 25 Agenten. Wenn du 10 Hooks testest, findest du 2 Gewinner. Kommentiere AGENTS fuer die Struktur."
+  },
+  {
+    "id": 268,
+    "text": "Kosten runter, Output hoch: Quality Gates nach jedem Schritt. Ergebnis: skalierbare Content-Produktion. Stabile Reichweite durch Konstanz. Einmal gebaut, laeuft der Prozess jeden Monat. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 269,
+    "text": "Die Formel: eine Task-Matrix mit festen Slots + Flow: Orchestrator -> Ideation -> Writer -> Refiner = eine konstante Pipeline ohne Burnout. Ergebnis: saubere Struktur ohne Ueberforderung. Ein System macht Content planbar."
+  },
+  {
+    "id": 270,
+    "text": "25 Agenten parallel liefern skalierbare Content-Produktion. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: mehr Output bei weniger Kopfschmerz. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 271,
+    "text": "Der Shortcut fuer Creator: Quality Gates nach jedem Schritt. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: messbar bessere Conversion. 30 Hooks in 60 Minuten sind realistisch. Du brauchst Klarheit, nicht mehr Disziplin."
+  },
+  {
+    "id": 272,
+    "text": "Der Shortcut fuer Creator: klare Rollen statt All-in-One. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: stabile Reichweite durch Konstanz. Qualitaet kommt vom Review, nicht vom Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 273,
+    "text": "25 Agenten parallel liefern 400 Premium-Prompts. Der Hebel: Batching mit festen Slots. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: klare Prozesse statt Chaos. Du brauchst Klarheit, nicht mehr Disziplin. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 274,
+    "text": "Der groesste Fehler: nur auf Kreativitaet statt System zu setzen. Fix: Hooks zuerst sammeln. So entstehen 50 Threads pro Monat mit 16 Agenten. Ein Batch pro Woche reicht fuer 7 Tage Output. Schreib AGENTS fuer das Prompt-Pack."
+  },
+  {
+    "id": 275,
+    "text": "25 Agenten parallel liefern 30 getestete Hooks pro Woche. Der Hebel: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Rhythmus: 1 Batch pro Woche. Ergebnis: messbar bessere Conversion. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "id": 276,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Regel: jede Aufgabe in 120 Woerter kapseln. Output: skalierbare Content-Produktion mit 12 Agenten. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ein System macht Content planbar."
+  },
+  {
+    "id": 277,
+    "text": "So wird Content planbar: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: skalierbare Content-Produktion. Du brauchst Klarheit, nicht mehr Disziplin. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 278,
+    "text": "Wenn du 300 Tweets pro Woche willst, brauchst du Hook-First statt Content-First. Setup: Flow: Hook -> Draft -> Refine -> Publish. Das liefert mehr Output bei weniger Kopfschmerz. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "id": 279,
+    "text": "Parallelisierung ist der Cheatcode: 20 Agenten, 30 getestete Hooks pro Woche, wiederholbare Ergebnisse statt Zufall. Weg: Flow: Orchestrator -> Ideation -> Writer -> Refiner. 30 Hooks in 60 Minuten sind realistisch. Ein System macht Content planbar."
+  },
+  {
+    "id": 280,
+    "text": "So wird Content planbar: Output-Funnels statt Einmal-Posts. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: eine Content-Bibliothek fuer 90 Tage. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 281,
+    "text": "Kosten runter, Output hoch: Parallelisierung. Ergebnis: eine Content-Bibliothek fuer 90 Tage. Mehr Output bei weniger Kopfschmerz. Du brauchst Klarheit, nicht mehr Disziplin. Schreib AGENTS fuer das Prompt-Pack. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 282,
+    "text": "Nicht mehr brainstormen, sondern produzieren: Rhythmus: 1 Batch pro Woche. Output: eine konstante Pipeline ohne Burnout mit 16 Agenten. Ein Batch pro Woche reicht fuer 7 Tage Output. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 283,
+    "text": "Parallelisierung ist der Cheatcode: 12 Agenten, 300 Tweets pro Woche, saubere Struktur ohne Ueberforderung. Weg: Regel: jede Aufgabe in 120 Woerter kapseln. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 284,
+    "text": "Der Shortcut fuer Creator: eine Task-Matrix mit festen Slots. Flow: Hook -> Draft -> Refine -> Publish. Ergebnis: mehr Output bei weniger Kopfschmerz. Ohne Struktur bleibt Output Zufall. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 285,
+    "text": "Parallelisierung ist der Cheatcode: 16 Agenten, eine konstante Pipeline ohne Burnout, schnelleres Testing von Hooks. Weg: Flow: Hook -> Draft -> Refine -> Publish. Ein System macht Content planbar. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 286,
+    "text": "Ohne System bleibt es Zufall. Planbar wird es durch kleine Modelle fuer Masse und Mid-Modelle fuer Schliff: eine klare Content-Routine. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 287,
+    "text": "16 Agenten parallel liefern eine konstante Pipeline ohne Burnout. Der Hebel: eine Ideenmaschine vor der Schreibmaschine. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: klare Prozesse statt Chaos. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 288,
+    "text": "So wird Content planbar: Quality Gates nach jedem Schritt. Batching: 30 Hooks, dann 30 Drafts. Ergebnis: skalierbare Content-Produktion. Wenn du 10 Hooks testest, findest du 2 Gewinner. Der Unterschied ist Prozess, nicht Talent."
+  },
+  {
+    "id": 289,
+    "text": "Wenn du skalierbare Content-Produktion willst, brauchst du eine Task-Matrix mit festen Slots. Setup: Regel: jede Aufgabe in 120 Woerter kapseln. Das liefert wiederholbare Ergebnisse statt Zufall. Einmal gebaut, laeuft der Prozess jeden Monat."
+  },
+  {
+    "id": 290,
+    "text": "Wenn du 300 Tweets pro Woche willst, brauchst du Batching mit festen Slots. Setup: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Das liefert schnelleres Testing von Hooks. Ohne Struktur bleibt Output Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 291,
+    "text": "So wird Content planbar: Batching mit festen Slots. Rhythmus: 1 Batch pro Woche. Ergebnis: 300 Tweets pro Woche. Wenn du 10 Hooks testest, findest du 2 Gewinner. Ohne Struktur bleibt Output Zufall. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 292,
+    "text": "So wird Content planbar: kleine Modelle fuer Masse und Mid-Modelle fuer Schliff. Rhythmus: 1 Batch pro Woche. Ergebnis: 400 Premium-Prompts. Ein Batch pro Woche reicht fuer 7 Tage Output. Ein System macht Content planbar."
+  },
+  {
+    "id": 293,
+    "text": "Parallelisierung ist der Cheatcode: 25 Agenten, eine klare Content-Routine, mehr Output bei weniger Kopfschmerz. Weg: Regel: jede Aufgabe in 120 Woerter kapseln. Einmal gebaut, laeuft der Prozess jeden Monat. Kopiere den Flow und teste eine Woche."
+  },
+  {
+    "id": 294,
+    "text": "So wird Content planbar: Output-Funnels statt Einmal-Posts. Flow: Orchestrator -> Ideation -> Writer -> Refiner. Ergebnis: skalierbare Content-Produktion. 30 Hooks in 60 Minuten sind realistisch. Ohne Struktur bleibt Output Zufall."
+  },
+  {
+    "id": 295,
+    "text": "25 Agenten parallel liefern 300 Tweets pro Woche. Der Hebel: eine Task-Matrix mit festen Slots. Regel: jede Aufgabe in 120 Woerter kapseln. Ergebnis: wiederholbare Ergebnisse statt Zufall. Wenn du 10 Hooks testest, findest du 2 Gewinner."
+  },
+  {
+    "id": 296,
+    "text": "Die Formel: Systemdesign statt Talent + Regel: jede Aufgabe in 120 Woerter kapseln = 400 Premium-Prompts. Ergebnis: saubere Struktur ohne Ueberforderung. Der Unterschied ist Prozess, nicht Talent. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 297,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du klare Rollen statt All-in-One. Setup: Rhythmus: 1 Batch pro Woche. Das liefert messbar bessere Conversion. Ein Batch pro Woche reicht fuer 7 Tage Output. Ein System macht Content planbar."
+  },
+  {
+    "id": 298,
+    "text": "Wenn du 400 Premium-Prompts willst, brauchst du eine Ideenmaschine vor der Schreibmaschine. Setup: Flow: Hook -> Draft -> Refine -> Publish. Das liefert mehr Output bei weniger Kopfschmerz. Fang mit 10 Agenten an und skaliere dann."
+  },
+  {
+    "id": 299,
+    "text": "Wenn du 50 Threads pro Monat willst, brauchst du eine Ideenmaschine vor der Schreibmaschine. Setup: Flow: Orchestrator -> Ideation -> Writer -> Refiner. Das liefert klare Prozesse statt Chaos. Ein Batch pro Woche reicht fuer 7 Tage Output."
+  },
+  {
+    "id": 300,
+    "text": "Wenn du 300 Tweets pro Woche willst, brauchst du Output-Funnels statt Einmal-Posts. Setup: Rhythmus: 1 Batch pro Woche. Das liefert schnelleres Testing von Hooks. Der Unterschied ist Prozess, nicht Talent. Kopiere den Flow und teste eine Woche."
+  }
+]

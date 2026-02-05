@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "type": "Cold",
+    "description": "Erstkontakt",
+    "text": "Hi {NAME}, ich sehe, dass du deinen Content skalieren willst. Sprich ueber die Interessen deines Gegenuebers. Ich habe ein System, das einen klaren Content-Prozess liefert. Soll ich dir die Struktur schicken?"
+  },
+  {
+    "id": 2,
+    "type": "Cold",
+    "description": "Erstkontakt",
+    "text": "Hi {NAME}, kurzer Punkt: Viele Creator scheitern an fehlendem Prozess. Mastermind-Denken multipliziert Ergebnisse. Ich habe ein Workflow-System, das planbaren Content-Output macht. Interesse?"
+  },
+  {
+    "id": 3,
+    "type": "Cold",
+    "description": "Erstkontakt",
+    "text": "Hi {NAME}, ich habe einen 25-Agenten-Workflow gebaut, der skalierbare Content-Produktion liefert. Handlung vor Ausrede. Wenn du willst, sende ich dir die Matrix."
+  },
+  {
+    "id": 4,
+    "type": "Warm",
+    "description": "Antwort auf Interesse",
+    "text": "Danke fuer dein Interesse, {NAME}. Triff eine klare Entscheidung und bleib dran. Kurz: Wir bauen einen klaren Workflow, dann kommt Output. Soll ich dir die Matrix senden?"
+  },
+  {
+    "id": 5,
+    "type": "Warm",
+    "description": "Antwort auf Interesse",
+    "text": "{NAME}, freut mich. Hoere aufrichtig zu. Wir starten klein: Hooks, Drafts, QA. Nach 7 Tagen steht die erste Pipeline. Soll ich dir die Schritte schicken?"
+  },
+  {
+    "id": 6,
+    "type": "Warm",
+    "description": "Antwort auf Interesse",
+    "text": "{NAME}, danke dir. Du bist verantwortlich. Wenn du Output willst, brauchst du Struktur. Willst du das Setup sehen?"
+  },
+  {
+    "id": 7,
+    "type": "AGENTS",
+    "description": "Antwort auf AGENTS",
+    "text": "{NAME}, hier ist der naechste Schritt: Ich sende dir die Agenten-Matrix + Prompt-Pack. Soll ich dir das PDF schicken?"
+  },
+  {
+    "id": 8,
+    "type": "AGENTS",
+    "description": "Antwort auf AGENTS",
+    "text": "{NAME}, verstanden. Du bekommst die Struktur + Workflow. Willst du zusaetzlich den 90-Tage-Plan?"
+  },
+  {
+    "id": 9,
+    "type": "AGENTS",
+    "description": "Antwort auf AGENTS",
+    "text": "{NAME}, ich sende dir die Matrix und den Kalender. Soll ich auch die Preissignale dazulegen?"
+  },
+  {
+    "id": 10,
+    "type": "Followup-1",
+    "description": "Follow-up nach 48h",
+    "text": "Hi {NAME}, kurzes Follow-up: willst du die Struktur sehen oder soll ich dich spaeter wieder anpingen?"
+  },
+  {
+    "id": 11,
+    "type": "Followup-1",
+    "description": "Follow-up nach 48h",
+    "text": "{NAME}, wollte nur sicherstellen, dass du die Matrix gesehen hast. Soll ich sie dir hier schicken?"
+  },
+  {
+    "id": 12,
+    "type": "Followup-1",
+    "description": "Follow-up nach 48h",
+    "text": "{NAME}, ich kann dir eine 10-Min-Version schicken, wenn du nur einen schnellen Ueberblick willst."
+  },
+  {
+    "id": 13,
+    "type": "Followup-2",
+    "description": "Follow-up nach 7 Tagen",
+    "text": "{NAME}, ich hoere oft: 'Spaeter'. Handlung vor Ausrede. Wenn du willst, blocken wir 30 Minuten und bauen den Plan."
+  },
+  {
+    "id": 14,
+    "type": "Followup-2",
+    "description": "Follow-up nach 7 Tagen",
+    "text": "{NAME}, letzter Ping: Willst du die Struktur oder soll ich es fuer jetzt schliessen?"
+  },
+  {
+    "id": 15,
+    "type": "Followup-2",
+    "description": "Follow-up nach 7 Tagen",
+    "text": "{NAME}, wenn du Output willst, ist jetzt der beste Zeitpunkt. Soll ich dir die Matrix senden?"
+  },
+  {
+    "id": 16,
+    "type": "Objection-Preis",
+    "description": "Einwand Preis",
+    "text": "{NAME}, fairer Punkt. Du bezahlst fuer Ergebnis, nicht fuer Stunden. Wenn in 14 Tagen kein klarer Prozess steht, arbeiten wir nach."
+  },
+  {
+    "id": 17,
+    "type": "Objection-Preis",
+    "description": "Einwand Preis",
+    "text": "{NAME}, verstehe ich. Der Preis ist niedriger als die Kosten des Stillstands. Soll ich dir den Scope schicken?"
+  },
+  {
+    "id": 18,
+    "type": "Objection-Preis",
+    "description": "Einwand Preis",
+    "text": "{NAME}, ich kann den Einstieg kleiner machen: Start mit Prompt-Pack + Workflow, dann Upgrade. Passt das?"
+  },
+  {
+    "id": 19,
+    "type": "Objection-Zeit",
+    "description": "Einwand Zeit",
+    "text": "{NAME}, verstehe ich. Wir brauchen 2 fokussierte Sessions. Danach laeuft die Pipeline. Soll ich dir den Ablauf schicken?"
+  },
+  {
+    "id": 20,
+    "type": "Objection-Zeit",
+    "description": "Einwand Zeit",
+    "text": "{NAME}, Zeit ist knapp. Genau deshalb bauen wir ein System. 1 Batch pro Woche, fertig. Willst du den Plan?"
+  },
+  {
+    "id": 21,
+    "type": "Objection-Zeit",
+    "description": "Einwand Zeit",
+    "text": "{NAME}, kein Problem. Lass uns 30 Minuten blocken und die Minimal-Version bauen."
+  },
+  {
+    "id": 22,
+    "type": "Objection-Skepsis",
+    "description": "Einwand Skepsis",
+    "text": "{NAME}, berechtigt. Wir starten mit einem kleinen Sprint und messen Output. Wenn es nicht passt, stoppen wir."
+  },
+  {
+    "id": 23,
+    "type": "Objection-Skepsis",
+    "description": "Einwand Skepsis",
+    "text": "{NAME}, lass uns Proof statt Theorie liefern: 7 Tage Sprint, klare Deliverables. Ok?"
+  },
+  {
+    "id": 24,
+    "type": "Objection-Skepsis",
+    "description": "Einwand Skepsis",
+    "text": "{NAME}, ich zeige dir zuerst die Matrix. Du entscheidest danach. Deal?"
+  },
+  {
+    "id": 25,
+    "type": "Close",
+    "description": "Abschluss",
+    "text": "{NAME}, wenn du willst, sende ich dir den Starttermin und die naechsten Schritte. Soll ich das vorbereiten?"
+  },
+  {
+    "id": 26,
+    "type": "Close",
+    "description": "Abschluss",
+    "text": "{NAME}, wir haben alles geklaert. Soll ich dir den Vertrag + Zahlungslink schicken?"
+  },
+  {
+    "id": 27,
+    "type": "Close",
+    "description": "Abschluss",
+    "text": "{NAME}, ich kann dir den Onboarding-Slot sichern. Willst du das?"
+  },
+  {
+    "id": 28,
+    "type": "Call",
+    "description": "Call Terminierung",
+    "text": "{NAME}, lass uns 30 Minuten sprechen. Welche zwei Zeiten passen dir morgen?"
+  },
+  {
+    "id": 29,
+    "type": "Call",
+    "description": "Call Terminierung",
+    "text": "{NAME}, wollen wir das in einem kurzen Call klaeren? Ich habe heute 16:00 oder morgen 10:00 frei."
+  },
+  {
+    "id": 30,
+    "type": "Call",
+    "description": "Call Terminierung",
+    "text": "{NAME}, wenn du willst, sende ich dir einen Kalenderlink. Besser heute oder morgen?"
+  }
+]

@@ -1,0 +1,661 @@
+[
+  {
+    "thread_id": 1,
+    "tweets": [
+      "Parallelisierung im Content-System klingt simpel, ist aber ein Gamechanger.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Zeige ehrliche Wertschaetzung.",
+      "These: Mastermind-Denken multipliziert Ergebnisse.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 2,
+    "tweets": [
+      "Mein System in kurz: Rollen-Setup in der Content Factory.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Sprich ueber die Interessen deines Gegenuebers.",
+      "These: Beharrlichkeit schlaegt Talent.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 3,
+    "tweets": [
+      "Warum Hook-First Prozess dein groesster Hebel ist.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Keine Ausreden, nur Handlung.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 4,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Wortlimits als Quality Gate.",
+      "Prinzip: Sprich ueber die Interessen deines Gegenuebers.",
+      "These: Beharrlichkeit schlaegt Talent.",
+      "Haltung: Du bist verantwortlich.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 5,
+    "tweets": [
+      "So baust du Kosten senken mit kleinen Modellen ohne Chaos.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Keine Ausreden, nur Handlung.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 6,
+    "tweets": [
+      "Workflow von Idee zu Output in 4 Schritten klingt simpel, ist aber ein Gamechanger.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Zeige ehrliche Wertschaetzung.",
+      "These: Der Wunsch nach Erfolg braucht ein definites Ziel.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 7,
+    "tweets": [
+      "So baust du Orchestrator als Pflichtrolle ohne Chaos.",
+      "Prinzip: Hoere aufrichtig zu.",
+      "These: Beharrlichkeit schlaegt Talent.",
+      "Haltung: Du entscheidest.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 8,
+    "tweets": [
+      "Hook-Tests mit 30 Varianten klingt simpel, ist aber ein Gamechanger.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Stelle Fragen statt zu predigen.",
+      "These: Der Wunsch nach Erfolg braucht ein definites Ziel.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 9,
+    "tweets": [
+      "Mein System in kurz: Threads ohne Brainload.",
+      "Prinzip: Zeige ehrliche Wertschaetzung.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "Haltung: Keine Ausreden, nur Handlung.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 10,
+    "tweets": [
+      "Warum Premium-Prompts als Produkt dein groesster Hebel ist.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Wecke den Wunsch im anderen.",
+      "These: Der Wunsch nach Erfolg braucht ein definites Ziel.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 11,
+    "tweets": [
+      "Warum Content-Batching fuer Creator dein groesster Hebel ist.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Prinzip: Hoere aufrichtig zu.",
+      "These: Der Wunsch nach Erfolg braucht ein definites Ziel.",
+      "Haltung: Handlung vor Ausrede.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 12,
+    "tweets": [
+      "So baust du Task-Matrix mit 25 Slots ohne Chaos.",
+      "Prinzip: Hoere aufrichtig zu.",
+      "These: Mastermind-Denken multipliziert Ergebnisse.",
+      "Haltung: Klare Haltung, klare Richtung.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 13,
+    "tweets": [
+      "Warum Top-10 Prompt-Fehler dein groesster Hebel ist.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Stelle Fragen statt zu predigen.",
+      "These: Ein klares Ziel vor Augen schafft Zugkraft.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 14,
+    "tweets": [
+      "So baust du Content-Bibliothek aufbauen ohne Chaos.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Wecke den Wunsch im anderen.",
+      "These: Mastermind-Denken multipliziert Ergebnisse.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 15,
+    "tweets": [
+      "Warum CTA-Strategie fuer Conversion dein groesster Hebel ist.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Du entscheidest.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 16,
+    "tweets": [
+      "Vielfalt statt Perfektion klingt simpel, ist aber ein Gamechanger.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Prinzip: Stelle Fragen statt zu predigen.",
+      "These: Mastermind-Denken multipliziert Ergebnisse.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 17,
+    "tweets": [
+      "Qualitaetssicherung in der Pipeline klingt simpel, ist aber ein Gamechanger.",
+      "Prinzip: Sprich ueber die Interessen deines Gegenuebers.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "Haltung: Du entscheidest.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 18,
+    "tweets": [
+      "Output-Funnels statt Einmal-Posts klingt simpel, ist aber ein Gamechanger.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Prinzip: Wecke den Wunsch im anderen.",
+      "These: Beharrlichkeit schlaegt Talent.",
+      "Haltung: Du bist verantwortlich.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 19,
+    "tweets": [
+      "So baust du Thread-Repurposing ohne Chaos.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Du bist verantwortlich.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 20,
+    "tweets": [
+      "So baust du Agenten fuer Research ohne Chaos.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Sprich ueber die Interessen deines Gegenuebers.",
+      "These: Mastermind-Denken multipliziert Ergebnisse.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 21,
+    "tweets": [
+      "Mein System in kurz: 2-Euro Content-Stack.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Du bist verantwortlich.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 22,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: 3 Ebenen von Content.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Klare Haltung, klare Richtung.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 23,
+    "tweets": [
+      "So baust du Von Chaos zu System in 7 Tagen ohne Chaos.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Keine Ausreden, nur Handlung.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 24,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Hooks ohne generischen Ton.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Prinzip: Hoere aufrichtig zu.",
+      "These: Beharrlichkeit schlaegt Talent.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 25,
+    "tweets": [
+      "So baust du Schneller testen, schneller lernen ohne Chaos.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Prinzip: Hoere aufrichtig zu.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "Haltung: Klare Haltung, klare Richtung.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 26,
+    "tweets": [
+      "So baust du Workflow-Reihenfolge ohne Chaos.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Sprich ueber die Interessen deines Gegenuebers.",
+      "These: Mastermind-Denken multipliziert Ergebnisse.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 27,
+    "tweets": [
+      "So baust du Agenten-Design fuer Klarheit ohne Chaos.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Klare Haltung, klare Richtung.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 28,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Monetarisierung mit Prompt-Produkten.",
+      "Prinzip: Wecke den Wunsch im anderen.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "Haltung: Handlung vor Ausrede.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 29,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Output planbar machen.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Du bist verantwortlich.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 30,
+    "tweets": [
+      "So baust du QA vor Kreativitaet ohne Chaos.",
+      "Prinzip: Zeige ehrliche Wertschaetzung.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "Haltung: Du entscheidest.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 31,
+    "tweets": [
+      "Mein System in kurz: Beste Content-Routine fuer Solos.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Prinzip: Stelle Fragen statt zu predigen.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 32,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Was du von Agenturen klauen kannst.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Stelle Fragen statt zu predigen.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 33,
+    "tweets": [
+      "Hook-Datenbank als Wachstumsmotor klingt simpel, ist aber ein Gamechanger.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Prinzip: Zeige ehrliche Wertschaetzung.",
+      "These: Ein klares Ziel vor Augen schafft Zugkraft.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 34,
+    "tweets": [
+      "Content als Produkt klingt simpel, ist aber ein Gamechanger.",
+      "Prinzip: Wecke den Wunsch im anderen.",
+      "These: Ein klares Ziel vor Augen schafft Zugkraft.",
+      "Haltung: Du bist verantwortlich.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 35,
+    "tweets": [
+      "So baust du Content messbar machen ohne Chaos.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Stelle Fragen statt zu predigen.",
+      "These: Der Wunsch nach Erfolg braucht ein definites Ziel.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 36,
+    "tweets": [
+      "1 Agent = 1 Aufgabe klingt simpel, ist aber ein Gamechanger.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Wecke den Wunsch im anderen.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 37,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Zielgruppe in Prompts.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Handlung vor Ausrede.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 38,
+    "tweets": [
+      "So baust du 80-20 Regeln fuer Content ohne Chaos.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Du bist verantwortlich.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 39,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Prompts versionieren.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Du bist verantwortlich.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 40,
+    "tweets": [
+      "So baust du Schreibblockaden entfernen ohne Chaos.",
+      "Prinzip: Sprich ueber die Interessen deines Gegenuebers.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "Haltung: Klare Haltung, klare Richtung.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 41,
+    "tweets": [
+      "So baust du 4 Checks vor dem Posten ohne Chaos.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Prinzip: Sprich ueber die Interessen deines Gegenuebers.",
+      "These: Der Wunsch nach Erfolg braucht ein definites Ziel.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 42,
+    "tweets": [
+      "Mein System in kurz: Content in Umsatz verwandeln.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Wecke den Wunsch im anderen.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 43,
+    "tweets": [
+      "5 beste CTA-Formate klingt simpel, ist aber ein Gamechanger.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Du entscheidest.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 44,
+    "tweets": [
+      "Creator-Stack bauen klingt simpel, ist aber ein Gamechanger.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Prinzip: Wecke den Wunsch im anderen.",
+      "These: Beharrlichkeit schlaegt Talent.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 45,
+    "tweets": [
+      "So baust du Output ohne Burnout ohne Chaos.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Prinzip: Stelle Fragen statt zu predigen.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "CTA: Wenn du das System willst: antworte mit AGENTS."
+    ]
+  },
+  {
+    "thread_id": 46,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Vom Hook zum Angebot.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Keine Ausreden, nur Handlung.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 47,
+    "tweets": [
+      "Warum Formate als groesste Abkuerzung dein groesster Hebel ist.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Handlung vor Ausrede.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Kommentiere AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 48,
+    "tweets": [
+      "Warum 10 Thread-Strukturen dein groesster Hebel ist.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Erst dann baust du den Rest des Threads.",
+      "Prinzip: Sprich ueber die Interessen deines Gegenuebers.",
+      "These: Der Wunsch nach Erfolg braucht ein definites Ziel.",
+      "CTA: DM mit AGENTS und ich sende dir die Matrix."
+    ]
+  },
+  {
+    "thread_id": 49,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Prompt-Library verkaufen.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Haltung: Klare Haltung, klare Richtung.",
+      "Funnel: Lead Magnet -> Tripwire -> Core Offer -> High Ticket.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 50,
+    "tweets": [
+      "Gute Prompts erkennen klingt simpel, ist aber ein Gamechanger.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Prinzip: Hoere aufrichtig zu.",
+      "These: Triff eine klare Entscheidung und bleib dran.",
+      "Haltung: Klare Haltung, klare Richtung.",
+      "CTA: Willst du den Workflow? Schreib AGENTS."
+    ]
+  }
+]

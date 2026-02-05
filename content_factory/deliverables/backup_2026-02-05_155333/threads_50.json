@@ -1,0 +1,681 @@
+[
+  {
+    "thread_id": 1,
+    "tweets": [
+      "Warum Parallelisierung im Content-System dein groesster Hebel ist.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 2,
+    "tweets": [
+      "Mein System in kurz: Rollen-Setup in der Content Factory.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 3,
+    "tweets": [
+      "So baust du Hook-First Prozess ohne Chaos.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 4,
+    "tweets": [
+      "Wortlimits als Quality Gate klingt simpel, ist aber ein Gamechanger.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Qualitaet kommt vom Review, nicht vom Zufall.",
+      "So baust du eine Bibliothek fuer 90 Tage.",
+      "CTA: Schreib AGENTS fuer das System."
+    ]
+  },
+  {
+    "thread_id": 5,
+    "tweets": [
+      "Mein System in kurz: Kosten senken mit kleinen Modellen.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Baue erst dann den Rest des Threads.",
+      "So entsteht Flow ohne Druck.",
+      "Nutze Refiner fuer Kuerzung und Schaerfe.",
+      "Erst dann kommt ein sauberer CTA.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 6,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Workflow von Idee zu Output in 4 Schritten.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 7,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Orchestrator als Pflichtrolle.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 8,
+    "tweets": [
+      "Mein System in kurz: Hook-Tests mit 30 Varianten.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 9,
+    "tweets": [
+      "Mein System in kurz: Threads ohne Brainload.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Baue erst dann den Rest des Threads.",
+      "So entsteht Flow ohne Druck.",
+      "Nutze Refiner fuer Kuerzung und Schaerfe.",
+      "Erst dann kommt ein sauberer CTA.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 10,
+    "tweets": [
+      "Mein System in kurz: Premium-Prompts als Produkt.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 11,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Content-Batching fuer Creator.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 12,
+    "tweets": [
+      "Mein System in kurz: Task-Matrix mit 25 Slots.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Qualitaet kommt vom Review, nicht vom Zufall.",
+      "So baust du eine Bibliothek fuer 90 Tage.",
+      "CTA: Schreib AGENTS fuer das System."
+    ]
+  },
+  {
+    "thread_id": 13,
+    "tweets": [
+      "Top-10 Prompt-Fehler klingt simpel, ist aber ein Gamechanger.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 14,
+    "tweets": [
+      "Mein System in kurz: Content-Bibliothek aufbauen.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 15,
+    "tweets": [
+      "So baust du CTA-Strategie fuer Conversion ohne Chaos.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 16,
+    "tweets": [
+      "Vielfalt statt Perfektion klingt simpel, ist aber ein Gamechanger.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Baue erst dann den Rest des Threads.",
+      "So entsteht Flow ohne Druck.",
+      "Nutze Refiner fuer Kuerzung und Schaerfe.",
+      "Erst dann kommt ein sauberer CTA.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 17,
+    "tweets": [
+      "Qualitaetssicherung in der Pipeline klingt simpel, ist aber ein Gamechanger.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 18,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Output-Funnels statt Einmal-Posts.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 19,
+    "tweets": [
+      "Thread-Repurposing klingt simpel, ist aber ein Gamechanger.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Baue erst dann den Rest des Threads.",
+      "So entsteht Flow ohne Druck.",
+      "Nutze Refiner fuer Kuerzung und Schaerfe.",
+      "Erst dann kommt ein sauberer CTA.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 20,
+    "tweets": [
+      "Warum Agenten fuer Research dein groesster Hebel ist.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 21,
+    "tweets": [
+      "So baust du 2-Euro Content-Stack ohne Chaos.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 22,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: 3 Ebenen von Content.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Qualitaet kommt vom Review, nicht vom Zufall.",
+      "So baust du eine Bibliothek fuer 90 Tage.",
+      "CTA: Schreib AGENTS fuer das System."
+    ]
+  },
+  {
+    "thread_id": 23,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Von Chaos zu System in 7 Tagen.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 24,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Hooks ohne generischen Ton.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Qualitaet kommt vom Review, nicht vom Zufall.",
+      "So baust du eine Bibliothek fuer 90 Tage.",
+      "CTA: Schreib AGENTS fuer das System."
+    ]
+  },
+  {
+    "thread_id": 25,
+    "tweets": [
+      "So baust du Schneller testen, schneller lernen ohne Chaos.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 26,
+    "tweets": [
+      "Warum Workflow-Reihenfolge dein groesster Hebel ist.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 27,
+    "tweets": [
+      "Mein System in kurz: Agenten-Design fuer Klarheit.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 28,
+    "tweets": [
+      "Monetarisierung mit Prompt-Produkten klingt simpel, ist aber ein Gamechanger.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 29,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Output planbar machen.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Baue erst dann den Rest des Threads.",
+      "So entsteht Flow ohne Druck.",
+      "Nutze Refiner fuer Kuerzung und Schaerfe.",
+      "Erst dann kommt ein sauberer CTA.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 30,
+    "tweets": [
+      "Mein System in kurz: QA vor Kreativitaet.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 31,
+    "tweets": [
+      "Mein System in kurz: Beste Content-Routine fuer Solos.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 32,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Was du von Agenturen klauen kannst.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 33,
+    "tweets": [
+      "Hook-Datenbank als Wachstumsmotor klingt simpel, ist aber ein Gamechanger.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Baue erst dann den Rest des Threads.",
+      "So entsteht Flow ohne Druck.",
+      "Nutze Refiner fuer Kuerzung und Schaerfe.",
+      "Erst dann kommt ein sauberer CTA.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 34,
+    "tweets": [
+      "Mein System in kurz: Content als Produkt.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Qualitaet kommt vom Review, nicht vom Zufall.",
+      "So baust du eine Bibliothek fuer 90 Tage.",
+      "CTA: Schreib AGENTS fuer das System."
+    ]
+  },
+  {
+    "thread_id": 35,
+    "tweets": [
+      "Mein System in kurz: Content messbar machen.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 36,
+    "tweets": [
+      "So baust du 1 Agent = 1 Aufgabe ohne Chaos.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 37,
+    "tweets": [
+      "Warum Zielgruppe in Prompts dein groesster Hebel ist.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 38,
+    "tweets": [
+      "Warum 80-20 Regeln fuer Content dein groesster Hebel ist.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 39,
+    "tweets": [
+      "Warum Prompts versionieren dein groesster Hebel ist.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 40,
+    "tweets": [
+      "Warum Schreibblockaden entfernen dein groesster Hebel ist.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 41,
+    "tweets": [
+      "Mein System in kurz: 4 Checks vor dem Posten.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 42,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Content in Umsatz verwandeln.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Qualitaet kommt vom Review, nicht vom Zufall.",
+      "So baust du eine Bibliothek fuer 90 Tage.",
+      "CTA: Schreib AGENTS fuer das System."
+    ]
+  },
+  {
+    "thread_id": 43,
+    "tweets": [
+      "Mein System in kurz: 5 beste CTA-Formate.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 44,
+    "tweets": [
+      "Warum Creator-Stack bauen dein groesster Hebel ist.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 45,
+    "tweets": [
+      "Der schnellste Weg zu mehr Output: Output ohne Burnout.",
+      "Symptom: Zu wenig Output trotz viel Arbeit.",
+      "Ursache: Rollen sind nicht getrennt.",
+      "Loesung: 1 Agent = 1 Aufgabe.",
+      "Baue eine Task-Matrix mit 25 Slots.",
+      "Setze Wortlimits fuer jede Rolle.",
+      "Fuehre einen QA-Check nach jedem Schritt ein.",
+      "Miss Hooks nach Klicks oder Replies.",
+      "CTA: Willst du die Matrix? Schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 46,
+    "tweets": [
+      "Vom Hook zum Angebot klingt simpel, ist aber ein Gamechanger.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Baue erst dann den Rest des Threads.",
+      "So entsteht Flow ohne Druck.",
+      "Nutze Refiner fuer Kuerzung und Schaerfe.",
+      "Erst dann kommt ein sauberer CTA.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  },
+  {
+    "thread_id": 47,
+    "tweets": [
+      "So baust du Formate als groesste Abkuerzung ohne Chaos.",
+      "Ein System spart dir mehr Zeit als Motivation.",
+      "Der Engpass ist nicht Ideen, sondern Struktur.",
+      "Baue zuerst eine Hook-Datenbank.",
+      "Dann kommen Drafts, dann Kuerzung, dann CTA.",
+      "Miss die Performance nach Replies und Klicks.",
+      "Nach 2 Wochen siehst du klare Gewinner.",
+      "CTA: Schreib AGENTS fuer die Struktur."
+    ]
+  },
+  {
+    "thread_id": 48,
+    "tweets": [
+      "Mein System in kurz: 10 Thread-Strukturen.",
+      "Wenn du Output willst, brauchst du Batching.",
+      "30 Hooks -> 30 Drafts -> 30 gekuerzte Versionen.",
+      "Die Rollen bleiben strikt getrennt.",
+      "Kleine Modelle fuer Masse, Mid-Modelle fuer Schliff.",
+      "Qualitaet kommt vom Review, nicht vom Zufall.",
+      "So baust du eine Bibliothek fuer 90 Tage.",
+      "CTA: Schreib AGENTS fuer das System."
+    ]
+  },
+  {
+    "thread_id": 49,
+    "tweets": [
+      "Mein System in kurz: Prompt-Library verkaufen.",
+      "Problem: Viele Creator arbeiten linear und werden langsam.",
+      "Insight: Parallelisierung schlaegt Perfektion.",
+      "Framework: Orchestrator -> Ideation -> Writer -> Refiner.",
+      "Schritt 1: Sammle 30 Hooks in 1 Session.",
+      "Schritt 2: Schreibe Drafts im Batch.",
+      "Schritt 3: Kuerze hart und pruefe Nutzen.",
+      "Schritt 4: Baue CTAs ein und teste Varianten.",
+      "CTA: Wenn du den Workflow willst, schreib AGENTS."
+    ]
+  },
+  {
+    "thread_id": 50,
+    "tweets": [
+      "So baust du Gute Prompts erkennen ohne Chaos.",
+      "Viele Threads scheitern am ersten Tweet.",
+      "Hook-First zwingt dich zu Klarheit.",
+      "Sammle 30 Hooks, teste 10, behalte 3.",
+      "Baue erst dann den Rest des Threads.",
+      "So entsteht Flow ohne Druck.",
+      "Nutze Refiner fuer Kuerzung und Schaerfe.",
+      "Erst dann kommt ein sauberer CTA.",
+      "CTA: Schreib AGENTS fuer das Prompt-Pack."
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "niche": "AI agents for content creation",
+  "style": "Deutsch. Direkt. Kurze Saetze. -> Pfeile fuer Struktur. Konkrete Zahlen. 0-2 Emojis max (🚀🔥💰⚡🎯) nur am Ende. Keine Floskeln.",
+  "targets": {
+    "threads": 50,
+    "tweets": 300,
+    "premium_prompts": 400
+  },
+  "outputs": [
+    "threads_50.md",
+    "tweets_300.md",
+    "premium_prompts_400.md",
+    "monetization_strategy.md"
+  ],
+  "intake_dir": "claude_intake"
+}
