@@ -1,0 +1,33 @@
+# ═══════════════════════════════════════════════════════════════
+# Dockerfile für Health Monitor
+# ═══════════════════════════════════════════════════════════════
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# System Dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python Dependencies
+RUN pip install --no-cache-dir \
+    fastapi==0.109.0 \
+    uvicorn[standard]==0.27.0 \
+    psycopg2-binary==2.9.9 \
+    psutil==5.9.8 \
+    aiohttp==3.9.3
+
+# Application Files
+COPY health_monitor.py /app/
+
+# Logs Directory
+RUN mkdir -p /app/logs
+
+# Health Check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:9090/health || exit 1
+
+# Run
+CMD ["python", "health_monitor.py"]

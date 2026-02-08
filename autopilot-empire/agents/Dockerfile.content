@@ -1,0 +1,26 @@
+# ═══════════════════════════════════════════════════════════════
+# Dockerfile für Content Service
+# ═══════════════════════════════════════════════════════════════
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# System Dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Python Dependencies
+RUN pip install --no-cache-dir \
+    aiohttp==3.9.3 \
+    psycopg2-binary==2.9.9
+
+# Application Files
+COPY content_squad.py /app/
+
+# Logs Directory
+RUN mkdir -p /app/logs
+
+# Run
+CMD ["python", "content_squad.py"]

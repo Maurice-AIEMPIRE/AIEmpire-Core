@@ -18,3 +18,8 @@ output/
 node_modules/
 *.log
 .DS_Store
+
+# Autopilot Empire - Data Directories
+autopilot-empire/data/
+autopilot-empire/.env
+autopilot-empire/IPHONE-SETUP.txt
