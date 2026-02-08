@@ -321,7 +321,24 @@ tasks = [
 
 ## 🔒 Security
 
-### Change Database Password
+### Set a Strong Database Password
+
+**Before first deployment**, set a custom password:
+
+```bash
+# Method 1: Environment variable (recommended)
+export POSTGRES_PASSWORD="your_secure_password_here"
+bash setup.sh
+
+# Method 2: Using .env file
+cp .env.example .env
+# Edit .env and set POSTGRES_PASSWORD
+docker-compose up -d
+```
+
+The system will warn you if using the default password.
+
+### Change Database Password (Existing Installation)
 
 Edit `docker-compose.yml`:
 
