@@ -1,0 +1,20 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 2 hours
+id: T-030
+metadata:
+  auto_generated: true
+  category: content
+  created_at: '2026-02-08T03:15:26.184176'
+model: kimi
+objective: Create engaging X/Twitter content that drives engagement and generates
+  leads for AI Empire services.
+priority: high
+prompts:
+- Generate 20 X/Twitter posts about AI automation. Mix educational, controversial,
+  and behind-the-scenes content. Include hooks and CTAs. Format as numbered list.
+title: Generate 20 X/Twitter posts about AI automation
+type: content

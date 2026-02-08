@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 3 hours
+id: T-015
+metadata:
+  auto_generated: true
+  category: business
+  created_at: '2026-02-08T03:15:26.172328'
+model: kimi
+objective: Design and execute outreach campaign to qualified leads.
+priority: medium
+prompts:
+- 'Plan cold outreach campaign: 100 leads via X DMs and email. Include: lead criteria,
+  message templates, follow-up sequence, tracking system, success metrics.'
+title: Plan cold outreach campaign for 100 leads
+type: business

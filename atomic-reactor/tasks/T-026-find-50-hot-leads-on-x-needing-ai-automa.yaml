@@ -1,0 +1,20 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 2 hours
+id: T-026
+metadata:
+  auto_generated: true
+  category: research
+  created_at: '2026-02-08T03:15:26.181029'
+model: kimi
+objective: Identify potential clients actively looking for AI automation help.
+priority: high
+prompts:
+- 'Search X/Twitter for people tweeting about: ''need automation'', ''manual process
+  killing me'', ''looking for AI consultant''. Find 50 leads with username, tweet,
+  lead score 1-10.'
+title: Find 50 hot leads on X needing AI automation
+type: research

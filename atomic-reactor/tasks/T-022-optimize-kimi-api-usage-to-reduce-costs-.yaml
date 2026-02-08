@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 3 hours
+id: T-022
+metadata:
+  auto_generated: true
+  category: code
+  created_at: '2026-02-08T03:15:26.177889'
+model: kimi
+objective: Implement caching, batching, and smarter prompts to cut API costs.
+priority: high
+prompts:
+- 'Analyze current Kimi API usage. Implement: response caching, request batching,
+  prompt optimization, fallback to Ollama for simple tasks. Measure savings.'
+title: Optimize Kimi API usage to reduce costs by 50%
+type: code

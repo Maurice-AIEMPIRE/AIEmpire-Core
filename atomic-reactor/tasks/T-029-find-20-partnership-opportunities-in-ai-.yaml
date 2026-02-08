@@ -1,0 +1,20 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 2 hours
+id: T-029
+metadata:
+  auto_generated: true
+  category: research
+  created_at: '2026-02-08T03:15:26.183387'
+model: kimi
+objective: Identify potential partners, affiliates, or collaboration opportunities.
+priority: medium
+prompts:
+- 'Find 20 potential partners in AI/automation space: YouTubers, newsletter owners,
+  course creators, tool builders. Include: audience size, contact info, partnership
+  angle.'
+title: Find 20 partnership opportunities in AI space
+type: research

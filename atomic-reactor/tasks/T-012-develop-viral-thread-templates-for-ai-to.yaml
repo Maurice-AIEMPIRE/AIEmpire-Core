@@ -1,0 +1,20 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 2 hours
+id: T-012
+metadata:
+  auto_generated: true
+  category: content
+  created_at: '2026-02-08T03:15:26.169961'
+model: kimi
+objective: Create reusable thread templates that can be customized for different AI
+  topics.
+priority: high
+prompts:
+- 'Create 10 viral X/Twitter thread templates for AI automation topics. Each template
+  should have: Hook, 5-7 tweet structure, CTA. Make them fill-in-the-blank style.'
+title: Develop viral thread templates for AI topics
+type: content

@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 3 hours
+id: T-018
+metadata:
+  auto_generated: true
+  category: business
+  created_at: '2026-02-08T03:15:26.174680'
+model: kimi
+objective: Create competitive Fiverr offerings for services revenue.
+priority: high
+prompts:
+- 'Create 3 Fiverr gigs: 1) AI Automation Setup (€50/150/500) 2) SEO Content Writing
+  (€30/80/200) 3) AI Consultation (€100/300/1000). Full descriptions, FAQ, requirements.'
+title: Design 3 Fiverr service packages
+type: business
