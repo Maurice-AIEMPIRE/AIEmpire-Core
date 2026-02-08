@@ -36,7 +36,7 @@ brew services list     # Service Status
 
 ## 📚 Wichtigste Docs
 
-1. **[CLAUDE_MEGA_PROMPT.md](./CLAUDE_MEGA_PROMPT.md)** - Vollständiger Kontext (25KB)
+1. **[CLAUDE_MEGA_PROMPT.md](./CLAUDE_MEGA_PROMPT.md)** - Vollständiger Kontext
 2. **[COPILOT_BRIEFING.md](./COPILOT_BRIEFING.md)** - Sofort-Tasks
 3. **[GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)** - Wie alles funktioniert
 
