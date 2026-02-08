@@ -14,6 +14,8 @@ Das ultimative AI Agent Swarm System - **500.000 Kimi Agents** orchestriert von 
 - ✅ **Intelligent Task Routing** basierend auf Claude Insights
 - ✅ **Budget Management** mit Auto-Stop
 - ✅ **ROI Tracking** in Echtzeit
+- ✅ **Max Agent Capacity Validation** - Automatische Validierung vor dem Start
+- ✅ **Capacity Reporting** - Zeigt geschätzte Zeit und Kosten an
 
 ---
 
@@ -459,10 +461,17 @@ for content_file in content_dir.glob("*.json"):
 
 ### Understanding the System
 
-1. Read `swarm_100k.py` first (simpler version)
-2. Review task type definitions in `swarm_500k.py`
-3. Examine sample outputs in `output_500k/`
-4. Study Claude insights in `claude_insights/`
+1. **Start here:** Read [`MAX_AGENT_SPAWNING.md`](./MAX_AGENT_SPAWNING.md) for complete spawning guide
+2. Read `swarm_100k.py` first (simpler version)
+3. Review task type definitions in `swarm_500k.py`
+4. Examine sample outputs in `output_500k/`
+5. Study Claude insights in `claude_insights/`
+
+### Configuration
+
+- Review [`config.yaml`](./config.yaml) for all tunable parameters
+- Adjust `MAX_CONCURRENT` based on your rate limiting tolerance
+- Set `BUDGET_USD` to control costs
 
 ### Optimization
 
