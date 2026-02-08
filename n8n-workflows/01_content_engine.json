@@ -1,0 +1,192 @@
+{
+  "name": "01 Content Engine - Daily Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8,
+              "triggerAtMinute": 0
+            },
+            {
+              "triggerAtHour": 12,
+              "triggerAtMinute": 0
+            },
+            {
+              "triggerAtHour": 18,
+              "triggerAtMinute": 0
+            },
+            {
+              "triggerAtHour": 22,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "a1b2c3d4-1111-4aaa-b111-000000000001",
+      "name": "Schedule 4x Daily",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "topic-select",
+              "name": "topic",
+              "value": "={{ [\"AI automation saves 10+ hours/week for entrepreneurs\", \"How solopreneurs use AI agents to scale without hiring\", \"The hidden ROI of workflow automation for small businesses\", \"Why 90% of entrepreneurs waste time on tasks AI can handle\", \"Build your AI empire: automate, delegate, dominate\", \"From burnout to breakthrough: AI automation for founders\", \"Stop trading time for money - let AI agents work 24/7\", \"The entrepreneur's secret weapon: local AI models\", \"How I automated my entire business with open-source AI\", \"AI + automation = the ultimate unfair advantage\", \"Your competitors are using AI agents. Are you?\", \"The future of work: AI handles the grind, you handle the vision\"].randomItem() }}",
+              "type": "string"
+            },
+            {
+              "id": "timestamp",
+              "name": "timestamp",
+              "value": "={{ $now.format('yyyy-MM-dd HH:mm') }}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "a1b2c3d4-1111-4aaa-b111-000000000002",
+      "name": "Select Topic",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:11434/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ \"model\": \"qwen2.5-coder:7b\", \"prompt\": \"You are a viral social media expert. Write a compelling X/Twitter post (max 280 chars) about: \" + $json.topic + \". Requirements: 1) Hook in first line 2) Include actionable insight 3) End with engagement trigger (question or CTA) 4) Use 1-2 relevant hashtags like #AIAutomation #Entrepreneur. Be bold, controversial, specific. No fluff. Output ONLY the tweet text, nothing else.\", \"stream\": false }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "a1b2c3d4-1111-4aaa-b111-000000000003",
+      "name": "Generate Post via Ollama",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "post-text",
+              "name": "post_text",
+              "value": "={{ $json.response }}",
+              "type": "string"
+            },
+            {
+              "id": "generated-at",
+              "name": "generated_at",
+              "value": "={{ $('Select Topic').item.json.timestamp }}",
+              "type": "string"
+            },
+            {
+              "id": "topic-used",
+              "name": "topic",
+              "value": "={{ $('Select Topic').item.json.topic }}",
+              "type": "string"
+            },
+            {
+              "id": "char-count",
+              "name": "char_count",
+              "value": "={{ $json.response ? $json.response.length : 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "status",
+              "name": "status",
+              "value": "ready_to_post",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "a1b2c3d4-1111-4aaa-b111-000000000004",
+      "name": "Format Output",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const post = $input.first().json;\n\nconst line = JSON.stringify({\n  post_text: post.post_text,\n  topic: post.topic,\n  generated_at: post.generated_at,\n  char_count: post.char_count,\n  status: post.status\n}) + '\\n';\n\nconst fs = require('fs');\nconst path = '/Users/maurice/.openclaw/workspace/ai-empire/04_OUTPUT/CONTENT_BLITZ/generated_posts.jsonl';\n\ntry {\n  fs.mkdirSync('/Users/maurice/.openclaw/workspace/ai-empire/04_OUTPUT/CONTENT_BLITZ/', { recursive: true });\n  fs.appendFileSync(path, line);\n} catch(e) {\n  return [{ json: { error: e.message, post: post } }];\n}\n\nreturn [{ json: { success: true, saved_to: path, post: post } }];"
+      },
+      "id": "a1b2c3d4-1111-4aaa-b111-000000000005",
+      "name": "Save to File",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1120, 300]
+    }
+  ],
+  "connections": {
+    "Schedule 4x Daily": {
+      "main": [
+        [
+          {
+            "node": "Select Topic",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select Topic": {
+      "main": [
+        [
+          {
+            "node": "Generate Post via Ollama",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Post via Ollama": {
+      "main": [
+        [
+          {
+            "node": "Format Output",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Output": {
+      "main": [
+        [
+          {
+            "node": "Save to File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Berlin"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "content",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    },
+    {
+      "name": "ai-empire",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    }
+  ]
+}

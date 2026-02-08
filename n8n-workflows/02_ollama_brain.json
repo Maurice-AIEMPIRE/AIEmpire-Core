@@ -1,0 +1,198 @@
+{
+  "name": "02 Ollama Brain - Central AI Node",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ollama-brain",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b2c3d4e5-2222-4bbb-b222-000000000001",
+      "name": "Webhook POST /ollama-brain",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "webhookId": "ollama-brain-webhook"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "prompt-val",
+              "name": "prompt",
+              "value": "={{ $json.body.prompt || 'Hello, who are you?' }}",
+              "type": "string"
+            },
+            {
+              "id": "model-val",
+              "name": "model",
+              "value": "={{ $json.body.model || 'qwen2.5-coder:7b' }}",
+              "type": "string"
+            },
+            {
+              "id": "system-val",
+              "name": "system",
+              "value": "={{ $json.body.system || 'You are a helpful AI assistant working for Maurice\\'s AI Empire. Be concise, actionable, and direct.' }}",
+              "type": "string"
+            },
+            {
+              "id": "temperature-val",
+              "name": "temperature",
+              "value": "={{ $json.body.temperature || 0.7 }}",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "id": "b2c3d4e5-2222-4bbb-b222-000000000002",
+      "name": "Parse Input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:11434/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ \"model\": $json.model, \"prompt\": $json.prompt, \"system\": $json.system, \"stream\": false, \"options\": { \"temperature\": $json.temperature } }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "b2c3d4e5-2222-4bbb-b222-000000000003",
+      "name": "Ollama Generate",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "response-text",
+              "name": "response",
+              "value": "={{ $json.response }}",
+              "type": "string"
+            },
+            {
+              "id": "model-used",
+              "name": "model",
+              "value": "={{ $json.model }}",
+              "type": "string"
+            },
+            {
+              "id": "eval-duration",
+              "name": "eval_duration_ms",
+              "value": "={{ Math.round(($json.eval_duration || 0) / 1000000) }}",
+              "type": "number"
+            },
+            {
+              "id": "total-duration",
+              "name": "total_duration_ms",
+              "value": "={{ Math.round(($json.total_duration || 0) / 1000000) }}",
+              "type": "number"
+            },
+            {
+              "id": "tokens-eval",
+              "name": "tokens_generated",
+              "value": "={{ $json.eval_count || 0 }}",
+              "type": "number"
+            },
+            {
+              "id": "done-flag",
+              "name": "done",
+              "value": "={{ $json.done }}",
+              "type": "boolean"
+            }
+          ]
+        }
+      },
+      "id": "b2c3d4e5-2222-4bbb-b222-000000000004",
+      "name": "Format Response",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ \"success\": true, \"response\": $json.response, \"model\": $json.model, \"tokens_generated\": $json.tokens_generated, \"total_duration_ms\": $json.total_duration_ms, \"eval_duration_ms\": $json.eval_duration_ms }) }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "b2c3d4e5-2222-4bbb-b222-000000000005",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1120, 300]
+    }
+  ],
+  "connections": {
+    "Webhook POST /ollama-brain": {
+      "main": [
+        [
+          {
+            "node": "Parse Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Input": {
+      "main": [
+        [
+          {
+            "node": "Ollama Generate",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Generate": {
+      "main": [
+        [
+          {
+            "node": "Format Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Response": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "ai-brain",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    },
+    {
+      "name": "ai-empire",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    }
+  ]
+}
