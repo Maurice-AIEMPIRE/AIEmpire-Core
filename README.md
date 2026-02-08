@@ -2,6 +2,19 @@
 
 > 100 Mio € in 1-3 Jahren - Alles automatisiert mit AI
 
+## 📖 Für AI Assistants (Claude, Copilot, ChatGPT)
+
+**🎯 MEGA-PROMPT:** [CLAUDE_MEGA_PROMPT.md](./CLAUDE_MEGA_PROMPT.md) - **LIES DAS ZUERST!**
+
+Vollständiger System-Kontext mit allem was du brauchst:
+- Maurice's Vision & Ziele
+- Komplette Tech-Stack Übersicht
+- Alle Commands & Workflows
+- Monetization Strategien
+- Setup & Troubleshooting
+
+---
+
 ## 📊 Overview
 
 | Component | Status | Purpose |
@@ -158,6 +171,24 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 - ✅ Claude Health Check alle 30 Min
 - ✅ Revenue Report täglich 9 AM
 - ✅ X Content täglich 7 AM
+
+---
+
+## 📚 Documentation
+
+**Für AI Assistants:**
+- 🎯 **[CLAUDE_MEGA_PROMPT.md](./CLAUDE_MEGA_PROMPT.md)** - Vollständiger System-Kontext
+- 📖 [COPILOT_BRIEFING.md](./COPILOT_BRIEFING.md) - Quick Start für Copilot
+- 🔄 [HANDOFF_PROTOCOL.md](./HANDOFF_PROTOCOL.md) - Claude ↔ Copilot Handoff
+
+**Für Entwickler:**
+- 📋 [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md) - Control System Doku
+- ⚙️ [SETUP_GUIDE.md](./SETUP_GUIDE.md) - Installation & Setup
+- ✅ [IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md) - Was wurde gebaut
+
+**Für Business:**
+- 💰 [gold-nuggets/MONETIZATION_REPORT_2026-02-08.md](./gold-nuggets/MONETIZATION_REPORT_2026-02-08.md)
+- 🎯 [gold-nuggets/GOLD_OPENCLAW_MASTERPLAN_2026-02-08.md](./gold-nuggets/GOLD_OPENCLAW_MASTERPLAN_2026-02-08.md)
 
 ---
 
