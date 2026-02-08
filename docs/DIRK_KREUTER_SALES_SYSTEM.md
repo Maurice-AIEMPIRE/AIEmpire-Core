@@ -1,5 +1,8 @@
 # DIRK KREUTER SALES SYSTEM - Fuer Maurice's AI Empire
 # Inspiriert von Dirk Kreuters Vertriebsoffensive: Systematischer Hochleistungsvertrieb
+#
+# HINWEIS: Dies ist eine eigenstaendige Adaption allgemeiner Vertriebsprinzipien,
+# inspiriert von Dirk Kreuters oeffentlichen Lehren. Kein offizielles Material.
 
 ---
 
