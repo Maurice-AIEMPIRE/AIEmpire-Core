@@ -2,13 +2,22 @@
 
 > 100 Mio € in 1-3 Jahren - Alles automatisiert mit AI
 
-## 📚 Struktur-Dokumentation
+## 📚 Struktur-Dokumentation für Mac
 
-**NEU:** Vollständige Strukturübersicht für deinen Mac!
+**NEU:** Vollständige Strukturübersicht & Setup-Guide für deinen Mac!
 
-- 📖 **[COMPLETE_STRUCTURE.md](./COMPLETE_STRUCTURE.md)** - Komplette Dokumentation (16KB)
-- ⚡ **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** - Schnellzugriff & Commands
-- 🎨 **[STRUCTURE_VISUAL.txt](./STRUCTURE_VISUAL.txt)** - Visuelle Diagramme
+| Dokument | Zweck | Größe |
+|----------|-------|-------|
+| 📑 **[DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md)** | **Start hier!** Alle Docs auf einen Blick | 7KB |
+| 🍎 **[MAC_SETUP_GUIDE.md](./MAC_SETUP_GUIDE.md)** | Schritt-für-Schritt Installation für Mac | 8KB |
+| 📖 **[COMPLETE_STRUCTURE.md](./COMPLETE_STRUCTURE.md)** | Komplette Projekt-Struktur & Details | 17KB |
+| ⚡ **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** | Schnellzugriff auf Commands | 3KB |
+| 🎨 **[STRUCTURE_VISUAL.txt](./STRUCTURE_VISUAL.txt)** | Visuelle ASCII Diagramme | 12KB |
+
+**Quick Links:**
+- 🚀 Neu auf Mac? → [MAC_SETUP_GUIDE.md](./MAC_SETUP_GUIDE.md)
+- 🔍 Alles verstehen? → [COMPLETE_STRUCTURE.md](./COMPLETE_STRUCTURE.md)
+- ⚡ Daily Commands? → [QUICK_REFERENCE.md](./QUICK_REFERENCE.md)
 
 ---
 
