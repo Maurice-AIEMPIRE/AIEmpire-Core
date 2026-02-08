@@ -36,12 +36,16 @@ class AutonomousAgent:
     async def execute(self, task: Dict[str, Any]) -> Dict[str, Any]:
         self.state = AgentState.EXECUTING
         try:
+            # Ensure count is always positive to avoid division by zero
+            count = max(task.get("count", 1), 1)
+            goal = task.get("goal", 0)
+            
             result = {
                 "status": "success",
                 "agent_id": self.agent_id,
                 "task_type": task.get("type"),
                 "quality": 0.85,
-                "revenue_generated": task.get("goal", 0) / task.get("count", 1)
+                "revenue_generated": goal / count
             }
             self.tasks_completed += 1
             self.state = AgentState.IDLE

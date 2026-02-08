@@ -9,7 +9,7 @@ CREATE TABLE agents (
 CREATE TABLE revenue_events (
     id SERIAL PRIMARY KEY,
     source VARCHAR(50),
-    amount_eur FLOAT,
+    amount_eur NUMERIC(10, 2),
     recorded_at TIMESTAMP DEFAULT NOW()
 );
 

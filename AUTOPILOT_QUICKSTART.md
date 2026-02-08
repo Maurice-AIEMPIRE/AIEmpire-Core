@@ -7,7 +7,7 @@ Want to run a fully autonomous AI agent system 24/7? Use the Autopilot Empire se
 ### Installation
 
 ```bash
-cd ~/autopilot-empire && mkdir -p ~/autopilot-empire && cd ~/autopilot-empire && curl -o setup.sh https://raw.githubusercontent.com/mauricepfeifer-ctrl/AIEmpire-Core/main/autopilot/setup.sh && bash setup.sh
+mkdir -p ~/autopilot-empire && cd ~/autopilot-empire && curl -o setup.sh https://raw.githubusercontent.com/mauricepfeifer-ctrl/AIEmpire-Core/main/autopilot/setup.sh && bash setup.sh
 ```
 
 **OR** if you've cloned this repository:

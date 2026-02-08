@@ -4,6 +4,16 @@ set -e
 echo "🚀 AUTOPILOT EMPIRE - SETUP STARTEN"
 echo "=================================="
 
+# Set default password if not provided
+export POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-autopilot}
+
+# Warn about default password
+if [ "$POSTGRES_PASSWORD" = "autopilot" ]; then
+    echo "⚠️  WARNING: Using default database password."
+    echo "   For production, set POSTGRES_PASSWORD environment variable."
+    echo ""
+fi
+
 # 1. Alle Verzeichnisse erstellen
 mkdir -p agents monitoring config data/{logs,postgres,redis,models,cache}
 
@@ -34,7 +44,7 @@ services:
       - postgres-master
     environment:
       - OLLAMA_HOST=http://ollama-master:11434
-      - DATABASE_URL=postgresql://autopilot:autopilot@postgres-master:5432/autopilot
+      - DATABASE_URL=postgresql://autopilot:${POSTGRES_PASSWORD:-autopilot}@postgres-master:5432/autopilot
     volumes:
       - ./data/logs:/app/logs
     restart: always
@@ -46,7 +56,7 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_USER=autopilot
-      - POSTGRES_PASSWORD=autopilot
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-autopilot}
       - POSTGRES_DB=autopilot
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
@@ -104,12 +114,16 @@ class AutonomousAgent:
     async def execute(self, task: Dict[str, Any]) -> Dict[str, Any]:
         self.state = AgentState.EXECUTING
         try:
+            # Ensure count is always positive to avoid division by zero
+            count = max(task.get("count", 1), 1)
+            goal = task.get("goal", 0)
+            
             result = {
                 "status": "success",
                 "agent_id": self.agent_id,
                 "task_type": task.get("type"),
                 "quality": 0.85,
-                "revenue_generated": task.get("goal", 0) / task.get("count", 1)
+                "revenue_generated": goal / count
             }
             self.tasks_completed += 1
             self.state = AgentState.IDLE
@@ -210,7 +224,7 @@ CREATE TABLE agents (
 CREATE TABLE revenue_events (
     id SERIAL PRIMARY KEY,
     source VARCHAR(50),
-    amount_eur FLOAT,
+    amount_eur NUMERIC(10, 2),
     recorded_at TIMESTAMP DEFAULT NOW()
 );
 
@@ -235,13 +249,37 @@ docker-compose up -d
 # 7. Models laden (parallel)
 echo "📥 Lade beste Open Source Modelle..."
 echo "Das dauert 15-20 Min. Aber NUR einmal."
+echo ""
 
-docker exec autopilot-ollama ollama pull mixtral-8x7b &
-docker exec autopilot-ollama ollama pull llama3.3-70b &
-docker exec autopilot-ollama ollama pull qwen-72b &
-docker exec autopilot-ollama ollama pull deepseek-coder-33b &
+# Track PIDs for error checking
+declare -a pids
+declare -a models=("mixtral-8x7b" "llama3.3-70b" "qwen-72b" "deepseek-coder-33b")
 
-wait
+for model in "${models[@]}"; do
+    docker exec autopilot-ollama ollama pull "$model" &
+    pids+=($!)
+done
+
+# Wait for all downloads and check for errors
+failed=0
+for i in "${!pids[@]}"; do
+    if ! wait "${pids[$i]}"; then
+        echo "⚠️  WARNING: Failed to download ${models[$i]}"
+        failed=$((failed + 1))
+    fi
+done
+
+if [ $failed -gt 0 ]; then
+    echo ""
+    echo "⚠️  $failed model(s) failed to download."
+    echo "   You can retry later with:"
+    echo "   docker exec autopilot-ollama ollama pull <model-name>"
+    echo ""
+else
+    echo ""
+    echo "✅ All models downloaded successfully!"
+    echo ""
+fi
 
 echo ""
 echo "🎉 AUTOPILOT EMPIRE IST LIVE!"

@@ -23,7 +23,7 @@ services:
       - postgres-master
     environment:
       - OLLAMA_HOST=http://ollama-master:11434
-      - DATABASE_URL=postgresql://autopilot:autopilot@postgres-master:5432/autopilot
+      - DATABASE_URL=postgresql://autopilot:${POSTGRES_PASSWORD:-autopilot}@postgres-master:5432/autopilot
     volumes:
       - ./data/logs:/app/logs
     restart: always
@@ -35,7 +35,7 @@ services:
       - "5432:5432"
     environment:
       - POSTGRES_USER=autopilot
-      - POSTGRES_PASSWORD=autopilot
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-autopilot}
       - POSTGRES_DB=autopilot
     volumes:
       - ./data/postgres:/var/lib/postgresql/data
