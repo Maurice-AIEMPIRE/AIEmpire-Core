@@ -63,37 +63,39 @@ python3 x_auto_poster.py
 
 ```
 ai-empire/
-├── .github/workflows/         # 🤖 GitHub Actions Automation
-│   ├── auto-content-generation.yml   # Alle 4h
-│   ├── claude-health-check.yml       # Alle 30min
-│   ├── issue-command-bot.yml         # Issue Commands
-│   ├── revenue-tracking.yml          # Täglich 9 AM
-│   └── x-auto-poster.yml            # Täglich 7 AM
-├── GITHUB_CONTROL_SYSTEM.md   # 📖 Vollständige Doku
-├── claude_failover_system.py  # 🔄 Claude → GitHub Failover
-├── github_control_interface.py # 💬 Command Processor
-├── x_auto_poster.py           # 📱 X Auto Posting
-├── gold-nuggets/              # 💰 Extrahierte Insights
-│   └── GITHUB_GOLD_NUGGETS.md
-├── x-lead-machine/            # 🐦 X/Twitter Automation
-│   ├── x_automation.py        # Lead Machine
-│   └── viral_reply_generator.py
-├── crm/                       # 📋 Lead Management
-│   └── server.js              # Express + SQLite
-├── kimi-swarm/                # 🤖 100k Agent Swarm
-│   ├── swarm_100k.py
-│   └── github_scanner_100k.py
-├── atomic-reactor/            # ⚛️ Task Orchestration
-│   ├── swarm_500k.py      # 🔥 NEW: 500K + Claude orchestration
-│   ├── github_scanner_100k.py
-│   ├── README_500K_SWARM.md
-│   └── CLAUDE_ORCHESTRATOR_CONFIG.md
-├── atomic-reactor/        # ⚛️ Task Orchestration
+├── .github/                           # 🏗️ GitHub Konfiguration
+│   ├── ISSUE_TEMPLATE/                # Issue Templates (Atomic Task, Bug, Feature, Revenue)
+│   ├── PULL_REQUEST_TEMPLATE.md       # PR Template
+│   ├── LABELS.md                      # Label-System Dokumentation
+│   └── workflows/                     # 🤖 GitHub Actions Automation
+│       ├── ci.yml                     # CI Pipeline (Lint/Build/Security)
+│       ├── release.yml                # Release Workflow (Tag → Changelog → Release)
+│       ├── auto-content-generation.yml
+│       ├── claude-health-check.yml
+│       ├── issue-command-bot.yml
+│       ├── revenue-tracking.yml
+│       └── x-auto-poster.yml
+├── agents/                            # 🤖 Agent-Definitionen, Prompts, Policies
+├── infra/                             # 🏗️ Docker, Compose, Deployment
+├── playbooks/                         # 📋 Sales, Onboarding, Outreach
+├── templates/                         # 📦 Kundenpakete, E-Mail-Sequenzen
+├── docs/                              # 📖 Dokumentation & Runbooks
+│   ├── RUNBOOKS.md                    # Wenn X kaputt → dann Y
+│   ├── SECURITY_PLAYBOOK.md           # Secret Handling & Security
+│   ├── SYSTEM_ARCHITECTURE.md
+│   └── ...
+├── atomic-reactor/                    # ⚛️ Task Orchestration + Docker
 │   ├── docker-compose.yaml
 │   └── tasks/
-└── systems/                   # 🔧 Infrastructure
-    ├── docker-compose.yaml
-    └── LEAD_AGENT_PROMPT.md
+├── crm/                               # 📋 Lead Management
+├── kimi-swarm/                        # 🤖 100k Agent Swarm
+├── x-lead-machine/                    # 🐦 X/Twitter Automation
+├── gold-nuggets/                      # 💰 Extrahierte Insights
+├── systems/                           # 🔧 Infrastructure
+├── .env.example                       # 🔒 Environment Template (keine Secrets!)
+├── claude_failover_system.py          # 🔄 Claude → GitHub Failover
+├── github_control_interface.py        # 💬 Command Processor
+└── x_auto_poster.py                   # 📱 X Auto Posting
 ```
 
 ---
@@ -158,6 +160,24 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 - ✅ Claude Health Check alle 30 Min
 - ✅ Revenue Report täglich 9 AM
 - ✅ X Content täglich 7 AM
+
+---
+
+## 🔄 Workflow: Claude x GitHub
+
+1. **Issue erstellen** (oder vom Agenten erstellen lassen)
+2. **Claude bekommt:** Repo-Kontext + Issue Text + Constraints
+3. **Claude arbeitet** in Branch → PR
+4. **GitHub Actions prüfen** (CI Pipeline: Lint/Build/Security)
+5. **Merge → Release → Deploy**
+
+### Beitragen
+
+- Issues nutzen die Templates in `.github/ISSUE_TEMPLATE/`
+- PRs folgen dem Template in `.github/PULL_REQUEST_TEMPLATE.md`
+- Labels und Routing: siehe `.github/LABELS.md`
+- Security-Regeln: siehe `docs/SECURITY_PLAYBOOK.md`
+- Runbooks: siehe `docs/RUNBOOKS.md`
 
 ---
 
