@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 4 hours
+id: T-037
+metadata:
+  auto_generated: true
+  category: optimization
+  created_at: '2026-02-08T03:19:09.507282'
+model: kimi
+objective: Automatically score, route, and nurture leads without manual intervention.
+priority: high
+prompts:
+- 'Design lead pipeline: capture (X/form) → score (BANT via AI) → route (high=sales,
+  low=nurture) → auto-follow-up → CRM update. Build with Python + GitHub Actions.'
+title: Implement automated lead qualification pipeline
+type: optimization

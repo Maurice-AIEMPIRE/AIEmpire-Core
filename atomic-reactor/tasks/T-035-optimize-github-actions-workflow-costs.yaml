@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 2 hours
+id: T-035
+metadata:
+  auto_generated: true
+  category: optimization
+  created_at: '2026-02-08T03:19:09.505656'
+model: kimi
+objective: Reduce GitHub Actions minutes usage while maintaining functionality.
+priority: medium
+prompts:
+- 'Audit .github/workflows/ for optimization: consolidate workflows, reduce run frequency,
+  use caching, implement conditional execution. Calculate savings.'
+title: Optimize GitHub Actions workflow costs
+type: optimization

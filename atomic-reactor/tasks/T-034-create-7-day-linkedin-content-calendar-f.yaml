@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 3 hours
+id: T-034
+metadata:
+  auto_generated: true
+  category: content
+  created_at: '2026-02-08T03:19:09.504865'
+model: kimi
+objective: Develop a week of LinkedIn content targeting fire alarm system professionals.
+priority: high
+prompts:
+- Create a 7-day LinkedIn content calendar for BMA/fire alarm automation. Each post
+  should target facility managers, fire safety engineers. Include DIN 14675 references.
+title: Create 7-day LinkedIn content calendar for BMA automation
+type: content

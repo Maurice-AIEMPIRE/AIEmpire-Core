@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 4 hours
+id: T-032
+metadata:
+  auto_generated: true
+  category: research
+  created_at: '2026-02-08T03:19:09.503131'
+model: kimi
+objective: Size the German fire alarm automation market and identify key players.
+priority: medium
+prompts:
+- 'Research BMA (Brandmeldeanlage) automation market in Germany. Find: market size,
+  key players, pain points, regulations (DIN 14675), pricing, opportunities.'
+title: Research BMA automation market in Germany
+type: research

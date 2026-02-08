@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 3 hours
+id: T-052
+metadata:
+  auto_generated: true
+  category: code
+  created_at: '2026-02-08T03:19:09.519227'
+model: kimi
+objective: Automatically score leads based on BANT criteria using AI.
+priority: high
+prompts:
+- 'Build Python script: analyze lead data (company, role, tweet/message) and score
+  1-10 using Kimi API. Save to SQLite. Include batch processing.'
+title: Create automated lead scoring script
+type: code

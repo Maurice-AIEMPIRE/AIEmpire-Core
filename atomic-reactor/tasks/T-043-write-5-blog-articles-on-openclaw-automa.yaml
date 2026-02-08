@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 4 hours
+id: T-043
+metadata:
+  auto_generated: true
+  category: content
+  created_at: '2026-02-08T03:19:09.512075'
+model: kimi
+objective: Create SEO-optimized blog content about OpenClaw for organic traffic.
+priority: medium
+prompts:
+- 'Write 5 blog article outlines (500-1000 words each) about OpenClaw: 1) What is
+  OpenClaw 2) Setup guide 3) vs other tools 4) Use cases 5) Monetization'
+title: Write 5 blog articles on OpenClaw automation
+type: content

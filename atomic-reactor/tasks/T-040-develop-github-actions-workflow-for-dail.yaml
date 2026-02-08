@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 2 hours
+id: T-040
+metadata:
+  auto_generated: true
+  category: code
+  created_at: '2026-02-08T03:19:09.509707'
+model: kimi
+objective: Automate daily business reports via GitHub Actions.
+priority: medium
+prompts:
+- 'Create GitHub Actions workflow: runs daily at 9 AM, generates report (tasks completed,
+  revenue, leads), posts as issue. Use Kimi API for summary.'
+title: Develop GitHub Actions workflow for daily reports
+type: code

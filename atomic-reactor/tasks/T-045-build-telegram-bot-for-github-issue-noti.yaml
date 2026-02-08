@@ -1,0 +1,19 @@
+acceptance:
+- Task completed within estimated time
+- Output meets quality standards
+- Results documented and saved
+- Next steps identified
+estimated_time: 4 hours
+id: T-045
+metadata:
+  auto_generated: true
+  category: code
+  created_at: '2026-02-08T03:19:09.513739'
+model: kimi
+objective: Get real-time notifications for GitHub issues and PRs on Telegram.
+priority: high
+prompts:
+- 'Create Python script: Telegram bot that sends notifications for new GitHub issues/PRs/comments.
+  Use webhooks. Include setup instructions.'
+title: Build Telegram bot for GitHub issue notifications
+type: code

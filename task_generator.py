@@ -6,8 +6,6 @@ Uses open source tools and AI APIs to create work for 12+ hours
 Maurice's AI Empire - 2026
 """
 
-import asyncio
-import aiohttp
 import yaml
 import os
 from pathlib import Path
@@ -241,7 +239,8 @@ class TaskGenerator:
         """Get the next task number based on existing tasks."""
         existing_tasks = list(TASKS_DIR.glob("T-*.yaml"))
         if not existing_tasks:
-            return 6  # Start after the 5 existing tasks
+            # No existing tasks, start from 1 (or 6 if there are 5 pre-existing tasks)
+            return 6
         
         numbers = []
         for task in existing_tasks:
@@ -324,6 +323,12 @@ async def main():
     print("=" * 70)
     print()
     
+    # Check for API key (optional, for future AI-powered generation)
+    if not MOONSHOT_API_KEY:
+        print("⚠️  MOONSHOT_API_KEY not set - AI-powered generation disabled")
+        print("   Using predefined task templates instead")
+        print()
+    
     generator = TaskGenerator()
     
     # Generate 25 tasks (approximately 12-15 hours of work)
@@ -383,6 +388,6 @@ async def main():
     print(f"🔥 High priority tasks: {len(high_priority)}/{len(tasks)}")
     print()
 
-
 if __name__ == "__main__":
+    import asyncio
     asyncio.run(main())
