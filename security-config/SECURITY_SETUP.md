@@ -265,7 +265,8 @@ mkdir -p $BACKUP_DIR
 redis-cli BGSAVE
 
 # Wait for save to complete
-while [ $(redis-cli LASTSAVE) -eq $(redis-cli LASTSAVE) ]; do
+LAST_SAVE=$(redis-cli LASTSAVE)
+while [ $(redis-cli LASTSAVE) -eq $LAST_SAVE ]; do
   sleep 1
 done
 

@@ -32,6 +32,8 @@ class TwitterScraper:
     
     def scrape_user_tweets(self, username, max_results=10):
         user = self.api.get_user(username=username)
+        if not user or not user.data:
+            return []
         tweets = self.api.get_users_tweets(
             user.data.id,
             max_results=max_results,

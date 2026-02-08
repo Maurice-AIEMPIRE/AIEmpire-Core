@@ -185,6 +185,18 @@ See `prompts/` directory for:
 
 ```python
 def calculate_learning_score(agent):
+    """
+    Calculate agent learning score based on multiple factors.
+    
+    Weights explained:
+    - books_read (10pts): Foundation knowledge
+    - lessons_completed (5pts): Applied learning
+    - principles_applied (20pts): Practical application (high value)
+    - improvements_documented (15pts): Sharing knowledge
+    - war_room_posts (5pts): Communication
+    - insights_shared (10pts): Contributing to collective intelligence
+    - performance_improvement (100pts): Results matter most
+    """
     score = 0
     score += agent.books_read * 10
     score += agent.lessons_completed * 5
