@@ -2,6 +2,9 @@
 
 > 100 Mio € in 1-3 Jahren - Alles automatisiert mit AI
 
+[![CI Pipeline](https://github.com/mauricepfeifer-ctrl/AIEmpire-Core/actions/workflows/ci.yml/badge.svg)](https://github.com/mauricepfeifer-ctrl/AIEmpire-Core/actions)
+[![Release](https://img.shields.io/github/v/release/mauricepfeifer-ctrl/AIEmpire-Core)](https://github.com/mauricepfeifer-ctrl/AIEmpire-Core/releases)
+
 ## 📊 Overview
 
 | Component | Status | Purpose |
@@ -12,23 +15,47 @@
 | Atomic Reactor | ✅ | Task Orchestration + Docker |
 | Gold Nuggets | ✅ | Wertvolle Insights extrahiert |
 
+**🆕 New: GitHub Workflow Optimization**
+- ✅ Atomic Task Templates
+- ✅ CI/CD Pipeline
+- ✅ Automated Security Scanning
+- ✅ Release Management
+
 ---
 
 ## 🚀 Quick Start
 
+### Prerequisites
+- Node.js 20+
+- Python 3.11+
+- Docker & Docker Compose
+- Git
+
+### Setup
+
 ```bash
-# 1. CRM starten
-cd crm && npm install && node server.js
+# 1. Clone & Setup Environment
+git clone https://github.com/mauricepfeifer-ctrl/AIEmpire-Core.git
+cd AIEmpire-Core
+cp .env.example .env
+# Edit .env with your API keys
+
+# 2. Start Infrastructure
+cd infra
+docker compose -f docker-compose.systems.yaml up -d
+
+# 3. Start CRM
+cd ../crm && npm install && node server.js
 # → http://localhost:3500
 
-# 2. Kimi Swarm aktivieren
-cd kimi-swarm
+# 4. Kimi Swarm aktivieren
+cd ../kimi-swarm
 python3 -m venv venv && source venv/bin/activate
 pip install aiohttp
 python3 github_scanner_100k.py
 
-# 3. X Content generieren
-cd x-lead-machine
+# 5. X Content generieren
+cd ../x-lead-machine
 python3 post_generator.py
 ```
 
@@ -37,25 +64,32 @@ python3 post_generator.py
 ## 📁 Structure
 
 ```
-ai-empire/
-├── gold-nuggets/          # 💰 Extrahierte Insights
-│   └── GITHUB_GOLD_NUGGETS.md
+AIEmpire-Core/
+├── .github/               # 🔧 GitHub Workflows & Templates
+│   ├── ISSUE_TEMPLATE/   # Atomic Task, Bug, Feature, Revenue
+│   ├── workflows/        # CI/CD Pipelines
+│   └── labels.yml        # Label configuration
+├── apps/                  # 🖥️ Standalone Applications
+├── services/              # ⚙️ Backend Services & APIs
+├── agents/                # 🤖 AI Agent Configurations
+├── infra/                 # 🏗️ Infrastructure (Docker, etc.)
+├── docs/                  # 📚 Documentation
+│   └── runbooks/         # Operational guides
+├── playbooks/             # 📖 Business Playbooks
+│   └── sales/            # Sales strategies
+├── templates/             # 📝 Reusable Templates
+├── crm/                   # 📋 CRM System
 ├── x-lead-machine/        # 🐦 X/Twitter Automation
-│   ├── READY_TO_POST.md   # 7 fertige Posts
-│   ├── post_generator.py  # Kimi Content Generator
-│   └── viral_reply_generator.py
-├── crm/                   # 📋 Lead Management
-│   └── server.js          # Express + SQLite
 ├── kimi-swarm/            # 🤖 100k Agent Swarm
-│   ├── swarm_100k.py
-│   └── github_scanner_100k.py
 ├── atomic-reactor/        # ⚛️ Task Orchestration
-│   ├── docker-compose.yaml
-│   └── tasks/
-└── systems/               # 🔧 Infrastructure
-    ├── docker-compose.yaml
-    └── LEAD_AGENT_PROMPT.md
+├── gold-nuggets/          # 💰 Insights & Discoveries
+└── systems/               # 🔧 Legacy Infrastructure
 ```
+
+**📖 Detailed Documentation:**
+- [STRUCTURE.md](STRUCTURE.md) - Complete directory overview
+- [CONTRIBUTING.md](CONTRIBUTING.md) - How to contribute
+- [SECURITY.md](SECURITY.md) - Security practices
 
 ---
 
@@ -101,14 +135,50 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 
 ---
 
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md).
+
+### Workflow
+1. Create an Issue using our templates
+2. Fork and create a branch
+3. Make your changes
+4. Submit a Pull Request
+5. Automated CI/CD checks
+6. Review and merge
+
+### Issue Templates
+- 🎯 **Atomic Task** - Small, focused tasks
+- 🐛 **Bug Report** - Report issues
+- ✨ **Feature Request** - Suggest features
+- 💰 **Revenue Opportunity** - Revenue ideas
+
+---
+
+## 🔒 Security
+
+Security is critical. Please read our [Security Policy](SECURITY.md).
+
+- Never commit secrets
+- Use `.env` for credentials
+- Report vulnerabilities responsibly
+- Automated security scanning in CI
+
+---
+
 ## 👤 Author
 
-**Maurice** - Elektrotechnikmeister mit 16 Jahren BMA-Expertise
-- Building the AI Empire
-- Automating everything
+**Maurice Pfeifer** - Elektrotechnikmeister mit 16 Jahren BMA-Expertise
+- GitHub: [@mauricepfeifer-ctrl](https://github.com/mauricepfeifer-ctrl)
+- Building the AI Empire towards 100M€
+- Automating everything with AI
 
 ---
 
 ## 📜 License
 
 Proprietary - Maurice's AI Empire
+
+---
+
+**Status**: 🟢 Active Development | **Version**: 2026.02 | **Last Updated**: 2026-02-08
