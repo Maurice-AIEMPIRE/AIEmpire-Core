@@ -1,0 +1,102 @@
+name: "Weekly Review + Planning"
+
+on:
+  schedule:
+    # Sonntag 08:00 UTC (10:00 DE) - Wochenreview
+    - cron: '0 8 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  weekly-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Generate Weekly Review"
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const date = new Date().toISOString().split('T')[0];
+            const oneWeekAgo = new Date();
+            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+            // Get all issues from this week
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'all',
+              since: oneWeekAgo.toISOString()
+            });
+
+            const created = issues.data.filter(i => new Date(i.created_at) >= oneWeekAgo);
+            const closed = issues.data.filter(i => i.state === 'closed' && new Date(i.closed_at) >= oneWeekAgo);
+            const openNow = issues.data.filter(i => i.state === 'open');
+
+            // Get commits this week
+            const commits = await github.rest.repos.listCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              since: oneWeekAgo.toISOString()
+            });
+
+            // Count by label
+            const labelCounts = {};
+            created.forEach(issue => {
+              issue.labels.forEach(l => {
+                labelCounts[l.name] = (labelCounts[l.name] || 0) + 1;
+              });
+            });
+
+            let reviewContent = `# WEEKLY REVIEW - ${date}\n\n`;
+            reviewContent += `## Summary\n\n`;
+            reviewContent += `| Metric | Value |\n|--------|-------|\n`;
+            reviewContent += `| Issues Created | ${created.length} |\n`;
+            reviewContent += `| Issues Closed | ${closed.length} |\n`;
+            reviewContent += `| Issues Open | ${openNow.length} |\n`;
+            reviewContent += `| Commits | ${commits.data.length} |\n`;
+            reviewContent += `| Completion Rate | ${created.length > 0 ? Math.round(closed.length / created.length * 100) : 0}% |\n\n`;
+
+            reviewContent += `## Issues by Label\n\n`;
+            Object.entries(labelCounts).sort((a, b) => b[1] - a[1]).forEach(([label, count]) => {
+              reviewContent += `- **${label}**: ${count}\n`;
+            });
+
+            reviewContent += `\n## Open Issues (Need Attention)\n\n`;
+            openNow.slice(0, 20).forEach(issue => {
+              reviewContent += `- [ ] #${issue.number} ${issue.title}\n`;
+            });
+
+            reviewContent += `\n## This Week's Commits\n\n`;
+            commits.data.slice(0, 20).forEach(c => {
+              reviewContent += `- ${c.commit.message.split('\n')[0]}\n`;
+            });
+
+            reviewContent += `\n---\n\n## Next Week Priorities\n\n`;
+            reviewContent += `1. Close all open revenue-labeled issues\n`;
+            reviewContent += `2. Generate and post daily content\n`;
+            reviewContent += `3. Complete product documents\n`;
+            reviewContent += `4. Research and extract new Gold Nuggets\n`;
+            reviewContent += `5. Review and optimize existing products\n\n`;
+            reviewContent += `---\n*Auto-generated Weekly Review*\n`;
+
+            // Save review
+            await github.rest.repos.createOrUpdateFileContents({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: `docs/reviews/weekly-${date}.md`,
+              message: `[AUTO] Weekly Review ${date}`,
+              content: Buffer.from(reviewContent).toString('base64')
+            });
+
+            // Create planning issue for next week
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `[PLANNING] Week of ${date} - Sprint Planning`,
+              body: `## Weekly Sprint Planning\n\n### Last Week Results:\n- Created: ${created.length} issues\n- Closed: ${closed.length} issues\n- Completion Rate: ${created.length > 0 ? Math.round(closed.length / created.length * 100) : 0}%\n\n### This Week Goals:\n1. **Revenue**: Mindestens 1 Product fertig + verkaufsbereit\n2. **Content**: 35 Posts generiert (5/Tag)\n3. **Skills**: 1 OpenClaw Skill weiterentwickelt\n4. **Research**: 3 Deep-Dive Reports\n5. **Leads**: 10 potenzielle Kunden identifiziert\n\n### Blockers:\n- Check and list any blockers from last week\n\n### Notes:\nFull review: \`docs/reviews/weekly-${date}.md\``,
+              labels: ['planning', 'auto-generated', 'weekly']
+            });

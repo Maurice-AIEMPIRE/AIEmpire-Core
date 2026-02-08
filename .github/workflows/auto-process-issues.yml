@@ -1,0 +1,84 @@
+name: "Auto-Process Issues with Copilot"
+
+on:
+  issues:
+    types: [opened, labeled]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  # ============================================
+  # Copilot verarbeitet automatisch neue Issues
+  # ============================================
+  process-with-copilot:
+    if: contains(github.event.issue.labels.*.name, 'auto-generated')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Add Processing Comment"
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `## Processing Started\n\nThis issue is being automatically processed.\n\n**Status:** In Progress\n**Started:** ${new Date().toISOString()}\n\n---\n\n### Context Files:\n- [COPILOT_BRIEFING.md](../blob/main/COPILOT_BRIEFING.md)\n- [CHATGPT_TASKS.md](../blob/main/docs/CHATGPT_TASKS.md)\n- [Gold Nuggets](../tree/main/gold-nuggets/)\n\n### Instructions:\nGitHub Copilot / ChatGPT should:\n1. Read the issue description\n2. Read relevant context files\n3. Generate the requested output\n4. Create a PR with the results\n5. Close this issue when done`
+            });
+
+      - name: "Label as in-progress"
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: ['in-progress']
+            });
+
+  # ============================================
+  # Auto-close stale issues after 7 days
+  # ============================================
+  cleanup-stale:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Close stale auto-generated issues"
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'auto-generated',
+              since: '2020-01-01T00:00:00Z'
+            });
+
+            for (const issue of issues.data) {
+              const created = new Date(issue.created_at);
+              if (created < sevenDaysAgo) {
+                await github.rest.issues.update({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  state: 'closed',
+                  state_reason: 'not_planned'
+                });
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issue.number,
+                  body: '## Auto-Closed\n\nThis issue was auto-closed after 7 days without completion.\nIf still needed, reopen manually.'
+                });
+              }
+            }
