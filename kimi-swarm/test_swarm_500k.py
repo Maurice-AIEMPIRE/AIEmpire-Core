@@ -5,7 +5,11 @@ Test script for 500K Swarm - validates structure without API calls
 
 import sys
 import json
+import os
 from pathlib import Path
+
+# Set dummy API key for testing (won't actually be used)
+os.environ["MOONSHOT_API_KEY"] = "test-key-for-validation"
 
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent))

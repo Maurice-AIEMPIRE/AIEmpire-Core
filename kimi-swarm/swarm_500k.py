@@ -16,9 +16,12 @@ from pathlib import Path
 from typing import List, Dict, Optional
 import random
 
-# API Keys
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")  # For Claude orchestration
+# API Keys - MUST be set as environment variables
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
+if not MOONSHOT_API_KEY:
+    raise ValueError("MOONSHOT_API_KEY environment variable must be set")
+    
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")  # Optional: Falls back to rule-based orchestration
 
 # Configuration
 MAX_CONCURRENT = 500  # 10x increase for 500K scale
@@ -261,10 +264,15 @@ Return JSON:
                             analysis = json.loads(content)
                             self.insights.append(analysis)
                             return analysis
-                        except:
-                            return {"status": "parsed_error", "raw": content}
+                        except json.JSONDecodeError as e:
+                            # Claude returned non-JSON response - save but continue
+                            return {"status": "parse_error", "raw": content, "error": str(e)}
+        except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+            # Network or timeout error - log and fallback to rule-based
+            print(f"  ⚠️  Claude API error: {type(e).__name__}: {str(e)[:100]}")
         except Exception as e:
-            pass
+            # Unexpected error - log for debugging
+            print(f"  ⚠️  Unexpected error in Claude orchestration: {type(e).__name__}: {str(e)[:100]}")
         
         # Fallback
         return {
@@ -328,12 +336,14 @@ class KimiSwarm500K:
                 "timestamp": datetime.now().isoformat(),
                 "data": parsed
             }
-        except:
+        except (json.JSONDecodeError, IndexError, KeyError) as e:
+            # JSON parsing failed - save raw content for manual review
             data = {
                 "task_id": task_id,
                 "type": task_type["type"],
                 "timestamp": datetime.now().isoformat(),
-                "raw": content
+                "raw": content,
+                "parse_error": str(e)
             }
 
         with open(filename, "w") as f:
