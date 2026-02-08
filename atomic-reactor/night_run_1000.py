@@ -38,6 +38,7 @@ KIMI_BUDGET_USD = 15.0      # Budget for Kimi Moonshot
 CLAUDE_BUDGET_USD = 10.0    # Budget for Claude agents
 BATCH_DELAY = 0.05          # Delay between batches (seconds)
 CLAUDE_REVIEW_INTERVAL = 200  # Claude meta-review every N tasks
+BUDGET_THRESHOLD = 0.95       # Stop at 95% of budget
 
 # ═══════════════════════════════════════════
 # Output Directories
@@ -463,10 +464,14 @@ class NightRunner:
 
         try:
             # Run Kimi and Claude tasks concurrently
-            kimi_coro = self._run_kimi_batch(kimi_tasks) if kimi_tasks else asyncio.sleep(0)
-            claude_coro = self._run_claude_batch(claude_tasks) if claude_tasks else asyncio.sleep(0)
+            coros = []
+            if kimi_tasks:
+                coros.append(self._run_kimi_batch(kimi_tasks))
+            if claude_tasks:
+                coros.append(self._run_claude_batch(claude_tasks))
 
-            await asyncio.gather(kimi_coro, claude_coro)
+            if coros:
+                await asyncio.gather(*coros)
 
         finally:
             if kimi_tasks:
@@ -487,7 +492,7 @@ class NightRunner:
 
         for i in range(0, len(tasks), batch_size):
             # Budget check
-            if self.kimi.stats["cost_usd"] >= KIMI_BUDGET_USD * 0.95:
+            if self.kimi.stats["cost_usd"] >= KIMI_BUDGET_USD * BUDGET_THRESHOLD:
                 print("💰 Kimi budget limit reached!")
                 break
 
@@ -520,7 +525,7 @@ class NightRunner:
 
         for i in range(0, len(tasks), batch_size):
             # Budget check
-            if self.claude.stats["cost_usd"] >= CLAUDE_BUDGET_USD * 0.95:
+            if self.claude.stats["cost_usd"] >= CLAUDE_BUDGET_USD * BUDGET_THRESHOLD:
                 print("💰 Claude budget limit reached!")
                 break
 
