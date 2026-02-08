@@ -1,1 +1,16 @@
 ._*
+node_modules/
+*.db
+*.db-journal
+__pycache__/
+*.pyc
+.env
+*.log
+venv/
+.venv/
+dist/
+build/
+reports/
+*.sqlite
+.DS_Store
+secrets/
