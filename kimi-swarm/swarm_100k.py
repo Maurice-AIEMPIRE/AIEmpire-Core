@@ -320,11 +320,20 @@ async def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="KIMI 100K Swarm")
-    parser.add_argument("-n", "--tasks", type=int, default=1000, help="Number of tasks")
+    parser.add_argument("-n", "--tasks", type=int, default=1000, help="Number of tasks (default: 1000, max: 100000)")
     parser.add_argument("--test", action="store_true", help="Test mode (10 tasks)")
+    parser.add_argument("--max", action="store_true", help="Max mode - spawn all 100K agents (WARNING: expensive!)")
     args = parser.parse_args()
 
-    num_tasks = 10 if args.test else args.tasks
+    if args.test:
+        num_tasks = 10
+    elif args.max:
+        num_tasks = TOTAL_AGENTS
+        print(f"⚠️  WARNING: Running MAX 100K agents (~${BUDGET_USD} cost)")
+        print(f"⚠️  Press Ctrl+C within 5 seconds to cancel...")
+        await asyncio.sleep(5)
+    else:
+        num_tasks = min(args.tasks, TOTAL_AGENTS)
 
     swarm = KimiSwarm()
     await swarm.run_swarm(total_tasks=num_tasks)
