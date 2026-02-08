@@ -20,7 +20,7 @@ from typing import List, Dict, Optional
 from pathlib import Path
 
 # API Keys
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-hMWtpmLkLxNsqTyVEiKimq5ypRDBjhJGNqngxqe6HvGP3o9Y")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 
 # Julian Goldie's 2026 AI SEO Strategies
 JULIAN_GOLDIE_STRATEGIES = {
@@ -459,7 +459,7 @@ Make it actionable and specific to the niche.
     async def _call_ai(self, prompt: str, temperature: float = 0.7, model: str = "moonshot-v1-8k") -> str:
         """Call Moonshot/Kimi AI API."""
         
-        if not MOONSHOT_API_KEY or MOONSHOT_API_KEY == "":
+        if not MOONSHOT_API_KEY:
             return f"[SIMULATED OUTPUT FOR PROMPT]\n\nPrompt was: {prompt[:200]}...\n\n[Actual API call would generate content here]"
         
         async with aiohttp.ClientSession() as session:
