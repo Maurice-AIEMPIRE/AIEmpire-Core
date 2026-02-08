@@ -18,3 +18,5 @@ output/
 node_modules/
 *.log
 .DS_Store
+mission_control_*.json
+

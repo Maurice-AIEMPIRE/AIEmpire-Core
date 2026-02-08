@@ -27,6 +27,7 @@ class GitHubControlInterface:
             "@bot revenue-report": self.cmd_revenue_report,
             "@bot post-x": self.cmd_post_x,
             "@bot create-gig": self.cmd_create_gig,
+            "@bot mission-control": self.cmd_mission_control,
             "@bot help": self.cmd_help,
         }
     
@@ -272,6 +273,37 @@ Background: 16 years technical expertise + AI automation specialist
 - Goals & objectives
 """
     
+    async def cmd_mission_control(self, issue_num: int):
+        """Run Mission Control scan and return dashboard."""
+        try:
+            import subprocess
+            result = subprocess.run(
+                ["python3", "mission_control_scanner.py"],
+                capture_output=True,
+                text=True,
+                timeout=30
+            )
+            
+            if result.returncode == 0:
+                # Extract the output and format for GitHub
+                output = result.stdout
+                
+                # Add header
+                response = f"# 🚀 MISSION CONTROL SCAN\n\n"
+                response += f"**Scan Time:** {datetime.now().isoformat()}\n\n"
+                response += "```\n"
+                response += output
+                response += "\n```\n\n"
+                response += "---\n\n"
+                response += "**💡 Tip:** Run `@bot mission-control` anytime to get the latest overview of all active tasks!\n"
+                
+                return response
+            else:
+                return f"❌ Mission Control scan failed:\n```\n{result.stderr}\n```"
+                
+        except Exception as e:
+            return f"❌ Error running Mission Control: {e}"
+    
     async def cmd_help(self, issue_num: int):
         """Show help."""
         return """# 🤖 GitHub Control Interface - Help
@@ -280,6 +312,7 @@ Background: 16 years technical expertise + AI automation specialist
         
 ### System Commands
 - `@bot status` - Show current system status
+- `@bot mission-control` - 🚀 **NEW!** Full Mission Control scan of all tasks
 - `@bot help` - Show this help message
         
 ### Content & Marketing
@@ -296,6 +329,26 @@ Background: 16 years technical expertise + AI automation specialist
 2. Include a command (e.g., `@bot status`)
 3. The bot will respond with the result
         
+## 🚀 Mission Control
+The new `@bot mission-control` command scans ALL systems:
+- OpenClaw jobs & config
+- Git/GitHub issues & PRs  
+- Docker compose stacks
+- n8n workflows
+- Agent queues
+- Brain system sessions
+- Atomic reactor tasks
+- Backlogs and logs
+
+Returns:
+- Total open tasks
+- Top 10 blockers
+- Top 10 high-impact levers
+- Time-critical tasks
+- Cost risks
+- Compact task table by category
+- Next 90 minutes action list
+
 ## Automation
 - Content is generated every 4 hours
 - Revenue reports daily at 9 AM UTC

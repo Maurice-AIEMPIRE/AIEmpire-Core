@@ -6,6 +6,7 @@
 
 | Component | Status | Purpose |
 |-----------|--------|---------|
+| **Mission Control** | 🔥 **NEW** | Task-Scan über ALLE Systeme + Priorisierung |
 | **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
 | **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
@@ -20,7 +21,34 @@
 
 ## 🚀 Quick Start
 
-### GitHub Control System (NEU!)
+### 🔥 Mission Control (NEU!)
+
+**Scanne ALLE Tasks über alle Systeme:**
+
+```bash
+# Command Line
+python3 mission_control_scanner.py
+
+# Oder via GitHub Control
+@bot mission-control
+```
+
+**Features:**
+- ✅ Scannt OpenClaw, Git, Docker, n8n, Agents, Brain-System, Logs, Backlogs
+- ✅ Total offene Tasks
+- ✅ Top 10 Blocker + Ursache
+- ✅ Top 10 High-Impact Levers
+- ✅ Zeitkritische Tasks
+- ✅ Kostenrisiken (Token/Compute/Docker)
+- ✅ 5 Kategorien: BUILD/FIX/AUTOMATE/CONTENT/STRATEGY
+- ✅ "Next 90 Minutes" Action List (max 7 Punkte)
+- ✅ JSON Export für Knowledge Graph
+
+**Dokumentation:** [MISSION_CONTROL.md](./MISSION_CONTROL.md)
+
+---
+
+### GitHub Control System
 
 **Alles über GitHub Issues steuerbar:**
 
@@ -146,6 +174,7 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 
 ```
 @bot status              # System Status
+@bot mission-control     # 🔥 FULL Task Scan über ALLE Systeme
 @bot generate-content    # X/Twitter Posts generieren
 @bot revenue-report      # Revenue Overview
 @bot create-gig          # Fiverr Gig Descriptions
