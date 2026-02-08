@@ -1,0 +1,67 @@
+[USER]
+Hallo! Wie kann ich mein AI Empire System skalieren?
+[/USER]
+
+[ASSISTANT]
+Hallo Maurice! Hier sind konkrete Schritte zur Skalierung:
+
+1. **Kimi Swarm aktivieren**: Nutze 100.000 parallele Agents
+2. **OpenClaw Skills erweitern**: Erstelle Custom Skills
+3. **Automatisierung ausbauen**: Mehr Cron Jobs
+4. **Revenue Streams diversifizieren**: Gumroad + Fiverr + Consulting
+
+Wo möchtest du starten?
+[/ASSISTANT]
+
+[USER]
+Perfekt! Ich möchte mit den OpenClaw Skills beginnen.
+[/USER]
+
+[ASSISTANT]
+Ausgezeichnete Wahl! Für OpenClaw Skills brauchst du:
+
+## Struktur
+```yaml
+name: your-skill-name
+version: 1.0.0
+description: Was macht der Skill?
+commands:
+  - /command1 - Beschreibung
+  - /command2 - Beschreibung
+```
+
+## Beispiel: BMA Expert Skill
+- DIN 14675 Compliance Checks
+- Automatische Protokoll-Generierung
+- Wartungsplanung
+
+Soll ich ein konkretes Beispiel erstellen?
+[/ASSISTANT]
+
+[USER]
+Ja bitte! Erstelle den BMA Expert Skill.
+[/USER]
+
+[ASSISTANT]
+Hier ist der BMA Expert Skill:
+
+```yaml
+name: bma-expert
+version: 1.0.0
+description: Brandmeldeanlagen Expert - DIN 14675 compliant
+
+commands:
+  - /bma-check [anlage] - Erstellt Prüfprotokoll
+  - /bma-wartung [anlage] - Generiert Wartungsplan
+  - /bma-doku [projekt] - Projektdokumentation
+  - /bma-din [norm] - Erklärt DIN-Normen
+
+features:
+  - Automatische DIN-Konformität
+  - PDF-Export
+  - Email-Benachrichtigungen
+  - Integration mit CRM
+```
+
+Speichere das in `/openclaw-skills/bma-expert/skill.yaml`
+[/ASSISTANT]

@@ -1,0 +1,159 @@
+{
+  "title": "Maurice AI Empire Discussion",
+  "create_time": 1707390000.0,
+  "update_time": 1707393600.0,
+  "mapping": {
+    "node_1": {
+      "id": "node_1",
+      "message": {
+        "id": "msg_1",
+        "author": {
+          "role": "user",
+          "name": null,
+          "metadata": {}
+        },
+        "create_time": 1707390000.0,
+        "content": {
+          "content_type": "text",
+          "parts": [
+            "Hallo! Ich möchte mein AI Empire System dokumentieren. Wir haben:\n\n- OpenClaw v2026.2.2-3\n- Ollama für lokale AI\n- Claude für Strategie\n- 9 automatisierte Cron Jobs\n\nKannst du mir helfen, eine saubere Struktur zu erstellen?"
+          ]
+        },
+        "status": "finished_successfully",
+        "end_turn": true,
+        "weight": 1.0,
+        "metadata": {},
+        "recipient": "all"
+      },
+      "parent": null,
+      "children": ["node_2"]
+    },
+    "node_2": {
+      "id": "node_2",
+      "message": {
+        "id": "msg_2",
+        "author": {
+          "role": "assistant",
+          "name": null,
+          "metadata": {}
+        },
+        "create_time": 1707390120.0,
+        "content": {
+          "content_type": "text",
+          "parts": [
+            "Hallo Maurice! Das klingt nach einem beeindruckenden Setup. Lass uns eine klare Dokumentations-Struktur erstellen:\n\n## 1. System-Übersicht\n- Komponenten-Diagramm\n- Tech Stack\n- Dependencies\n\n## 2. Setup-Guides\n- OpenClaw Installation\n- Ollama Konfiguration\n- Claude Integration\n\n## 3. Automation\n- Cron Job Dokumentation\n- Monitoring & Alerts\n\n## 4. Best Practices\n- Security Guidelines\n- Performance Tuning\n\nWo möchtest du beginnen?"
+          ]
+        },
+        "status": "finished_successfully",
+        "end_turn": true,
+        "weight": 1.0,
+        "metadata": {},
+        "recipient": "all"
+      },
+      "parent": "node_1",
+      "children": ["node_3"]
+    },
+    "node_3": {
+      "id": "node_3",
+      "message": {
+        "id": "msg_3",
+        "author": {
+          "role": "user",
+          "name": null,
+          "metadata": {}
+        },
+        "create_time": 1707391200.0,
+        "content": {
+          "content_type": "text",
+          "parts": [
+            "Perfekt! Ich brauche auch ein Tool, um unsere Chat-Konversationen zu exportieren. Wichtig ist:\n\n- TXT Format für einfaches Lesen\n- Markdown für GitHub/Notion\n- Word-kompatibel für Präsentationen\n- ChatGPT JSON Parser\n\nKannst du das erstellen?"
+          ]
+        },
+        "status": "finished_successfully",
+        "end_turn": true,
+        "weight": 1.0,
+        "metadata": {},
+        "recipient": "all"
+      },
+      "parent": "node_2",
+      "children": ["node_4"]
+    },
+    "node_4": {
+      "id": "node_4",
+      "message": {
+        "id": "msg_4",
+        "author": {
+          "role": "assistant",
+          "name": null,
+          "metadata": {}
+        },
+        "create_time": 1707391320.0,
+        "content": {
+          "content_type": "text",
+          "parts": [
+            "Absolut! Ich erstelle dir ein umfassendes Chat Export Tool:\n\n## Features\n\n### 1. Multi-Format Export\n- **TXT**: Plain text für einfaches Lesen\n- **Markdown**: Strukturiert mit Headers und Sections\n- **Word-Ready**: Optimiert für pandoc-Konvertierung\n\n### 2. ChatGPT Parser\n- Liest offizielle ChatGPT JSON Exports\n- Extrahiert Timestamps automatisch\n- Erhält Formatierung\n\n### 3. Verwendung\n```bash\n# Beispiel generieren\npython3 chat_export_tool.py --example\n\n# ChatGPT Export konvertieren\npython3 chat_export_tool.py conversations.json\n\n# Mit Custom Titel\npython3 chat_export_tool.py input.json -t \"Maurice AI Empire\"\n```\n\n### 4. Output\n- Alle Exports in `exports/` Verzeichnis\n- Automatisches Timestamping\n- Saubere Formatierung\n\nDas Tool wird auch einfache Text-Formate unterstützen, falls du manuelle Exports hast."
+          ]
+        },
+        "status": "finished_successfully",
+        "end_turn": true,
+        "weight": 1.0,
+        "metadata": {},
+        "recipient": "all"
+      },
+      "parent": "node_3",
+      "children": ["node_5"]
+    },
+    "node_5": {
+      "id": "node_5",
+      "message": {
+        "id": "msg_5",
+        "author": {
+          "role": "user",
+          "name": null,
+          "metadata": {}
+        },
+        "create_time": 1707392400.0,
+        "content": {
+          "content_type": "text",
+          "parts": [
+            "Genial! Das ist genau was ich brauche. Kannst du auch eine vollständige Dokumentation erstellen?\n\n- Quick Reference\n- Ausführliche Anleitung\n- Use Cases\n- Troubleshooting"
+          ]
+        },
+        "status": "finished_successfully",
+        "end_turn": true,
+        "weight": 1.0,
+        "metadata": {},
+        "recipient": "all"
+      },
+      "parent": "node_4",
+      "children": ["node_6"]
+    },
+    "node_6": {
+      "id": "node_6",
+      "message": {
+        "id": "msg_6",
+        "author": {
+          "role": "assistant",
+          "name": null,
+          "metadata": {}
+        },
+        "create_time": 1707393600.0,
+        "content": {
+          "content_type": "text",
+          "parts": [
+            "Natürlich! Ich erstelle eine komplette Dokumentations-Suite:\n\n## 1. Quick Reference (CHAT_EXPORT_QUICKREF.md)\n- One-line Commands\n- Format-Übersicht\n- Common Use Cases\n\n## 2. Vollständige Anleitung (docs/CHAT_EXPORT_GUIDE.md)\n- Installation & Setup\n- Alle Optionen erklärt\n- Export-Formate im Detail\n- Input-Formate\n- Best Practices\n- Troubleshooting\n\n## 3. Integration\n- README.md Update mit Chat Export Tool\n- .gitignore für Export-Files\n- exports/README.md für Output-Verzeichnis\n\n## 4. Beispiele\n- Automatisch generierte Beispiel-Exports\n- Sample ChatGPT JSON\n- Use Case Szenarien\n\nDas Tool ist production-ready und kann sofort verwendet werden!"
+          ]
+        },
+        "status": "finished_successfully",
+        "end_turn": true,
+        "weight": 1.0,
+        "metadata": {},
+        "recipient": "all"
+      },
+      "parent": "node_5",
+      "children": []
+    }
+  },
+  "moderation_results": [],
+  "current_node": "node_6"
+}
