@@ -27,6 +27,7 @@ class GitHubControlInterface:
             "@bot revenue-report": self.cmd_revenue_report,
             "@bot post-x": self.cmd_post_x,
             "@bot create-gig": self.cmd_create_gig,
+            "@bot mission-control": self.cmd_mission_control,
             "@bot help": self.cmd_help,
         }
     
@@ -272,6 +273,28 @@ Background: 16 years technical expertise + AI automation specialist
 - Goals & objectives
 """
     
+    async def cmd_mission_control(self, issue_num: int):
+        """Run mission control system scan"""
+        try:
+            from mission_control import MissionControl
+            
+            mc = MissionControl()
+            
+            # Scan all sources
+            await mc.scan_all_sources()
+            
+            # Generate dashboard
+            dashboard = mc.generate_dashboard()
+            
+            # Export to JSON
+            json_path = mc.export_to_json()
+            
+            result = dashboard + f"\n\n---\n\n*Full data exported to: {json_path}*"
+            return result
+            
+        except Exception as e:
+            return f"❌ Error running mission control: {e}"
+    
     async def cmd_help(self, issue_num: int):
         """Show help."""
         return """# 🤖 GitHub Control Interface - Help
@@ -280,6 +303,7 @@ Background: 16 years technical expertise + AI automation specialist
         
 ### System Commands
 - `@bot status` - Show current system status
+- `@bot mission-control` - Scan all tasks and generate mission control dashboard
 - `@bot help` - Show this help message
         
 ### Content & Marketing
