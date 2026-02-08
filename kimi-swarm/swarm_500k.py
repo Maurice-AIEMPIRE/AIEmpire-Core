@@ -30,6 +30,9 @@ BUDGET_USD = 75.0  # 5x budget for 5x agents
 BATCH_DELAY = 0.1  # Faster batches with better concurrency
 CLAUDE_ORCHESTRATION_INTERVAL = 1000  # Claude reviews every 1000 tasks
 
+# Validation and estimation constants
+ESTIMATED_SECONDS_PER_TASK = 0.5  # Average time per task for capacity estimation
+
 # Output directories
 OUTPUT_DIR = Path(__file__).parent / "output_500k"
 LEADS_DIR = OUTPUT_DIR / "leads"
@@ -298,6 +301,7 @@ class KimiSwarm500K:
             "claude_orchestrations": 0
         }
         self.running = True
+        self.max_concurrent = MAX_CONCURRENT  # Store for validation
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT)
         self.session = None
         self.task_counter = 0
@@ -338,8 +342,8 @@ class KimiSwarm500K:
         else:
             print(f"  ✅ API key configured")
         
-        # Check semaphore capacity
-        if self.semaphore._value != MAX_CONCURRENT:
+        # Check semaphore capacity matches configuration
+        if self.max_concurrent != MAX_CONCURRENT:
             print(f"  ❌ Semaphore capacity mismatch")
             validation_passed = False
         else:
@@ -353,7 +357,7 @@ class KimiSwarm500K:
         print(f"  ✅ All output directories exist")
         
         # Capacity report
-        estimated_time = (TOTAL_AGENTS / MAX_CONCURRENT) * 0.5  # Rough estimate at 0.5s per task
+        estimated_time = (TOTAL_AGENTS / MAX_CONCURRENT) * ESTIMATED_SECONDS_PER_TASK
         print(f"\nCapacity Report:")
         print(f"  • Max Agents: {TOTAL_AGENTS:,}")
         print(f"  • Concurrent Workers: {MAX_CONCURRENT}")

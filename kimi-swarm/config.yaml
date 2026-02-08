@@ -1,4 +1,12 @@
 # Kimi Swarm Configuration
+# 
+# NOTE: This file serves as DOCUMENTATION for all configurable parameters.
+# To actually change values, you must edit them in the respective Python files:
+# - swarm_100k.py: For 100K swarm configuration
+# - swarm_500k.py: For 500K swarm configuration
+#
+# Future enhancement: Implement automatic config loading from this file.
+#
 # Adjust these values to configure max agent spawning capacity
 
 # 100K Swarm Configuration
