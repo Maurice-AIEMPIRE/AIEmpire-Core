@@ -8,6 +8,7 @@
 |-----------|--------|---------|
 | **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
 | **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
+| **Chat Export Tool** | 🔥 **NEW** | **Export Chats zu TXT/MD/Word** |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
 | X Auto Poster | ✅ | Tägliche Content Generation + Scheduling |
 | CRM V2 | ✅ | BANT-basiertes Lead Management |
@@ -35,6 +36,22 @@
 3. Bot antwortet automatisch!
 
 **Dokumentation:** [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)
+
+### Chat Export Tool (NEU!)
+
+**Konvertiere ChatGPT/Claude Exports zu sauberen Formaten:**
+
+```bash
+# Beispiel generieren
+python3 chat_export_tool.py --example
+
+# ChatGPT Export konvertieren
+python3 chat_export_tool.py conversations.json -t "Maurice AI Empire Session"
+
+# Alle Formate: TXT, Markdown, Word-ready
+```
+
+**Dokumentation:** [CHAT_EXPORT_QUICKREF.md](./CHAT_EXPORT_QUICKREF.md) | [Vollständige Guide](./docs/CHAT_EXPORT_GUIDE.md)
 
 ### Lokale Services
 
@@ -70,6 +87,8 @@ ai-empire/
 │   ├── revenue-tracking.yml          # Täglich 9 AM
 │   └── x-auto-poster.yml            # Täglich 7 AM
 ├── GITHUB_CONTROL_SYSTEM.md   # 📖 Vollständige Doku
+├── chat_export_tool.py        # 💬 Chat Export zu TXT/MD/Word
+├── CHAT_EXPORT_QUICKREF.md    # 📝 Quick Reference
 ├── claude_failover_system.py  # 🔄 Claude → GitHub Failover
 ├── github_control_interface.py # 💬 Command Processor
 ├── x_auto_poster.py           # 📱 X Auto Posting
@@ -80,6 +99,11 @@ ai-empire/
 │   └── viral_reply_generator.py
 ├── crm/                       # 📋 Lead Management
 │   └── server.js              # Express + SQLite
+├── docs/                      # 📚 Dokumentation
+│   ├── CHAT_EXPORT_GUIDE.md  # Chat Export vollständige Anleitung
+│   └── ...
+├── exports/                   # 💾 Chat Export Output
+│   └── README.md              # Export Guide
 ├── kimi-swarm/                # 🤖 100k Agent Swarm
 │   ├── swarm_100k.py
 │   └── github_scanner_100k.py

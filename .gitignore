@@ -18,3 +18,8 @@ output/
 node_modules/
 *.log
 .DS_Store
+
+# Chat exports (keep directory structure, ignore actual export files)
+exports/*.txt
+exports/*.md
+!exports/README.md
