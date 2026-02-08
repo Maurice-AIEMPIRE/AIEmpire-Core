@@ -1,0 +1,59 @@
+# OPENCLAW PRODUCTION STACK
+# Maurice's AI Empire - Haiku/Sonnet/Opus Routing
+# Erstellt: 2026-02-08
+
+version: '3.8'
+
+services:
+  # ═══════════════════════════════════════════
+  # 1. OLLAMA - Lokale LLMs (KOSTENLOS)
+  # ═══════════════════════════════════════════
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # 2. CHROMA - Vector Database
+  # ═══════════════════════════════════════════
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # 3. REDIS - Queue & Cache
+  # ═══════════════════════════════════════════
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  ollama_models:
+  chroma_data:
+  redis_data:
+
+networks:
+  default:
+    name: openclaw-network

@@ -1,0 +1,269 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
+      "agentId": "research",
+      "name": "Daily trends scan (TikTok/YouTube/X)",
+      "description": "Scan trends and extract product content angles for TikTok, YouTube, X.",
+      "enabled": true,
+      "createdAtMs": 1770301384454,
+      "updatedAtMs": 1770447600177,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Scan today’s trends on TikTok, YouTube, and X relevant to our product niche. Output: 10 trend bullets, 10 hooks, 5 product angles, and 3 content series ideas. Keep it concise and actionable."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:trends] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770534000000,
+        "lastRunAtMs": 1770447600179,
+        "lastStatus": "ok",
+        "lastDurationMs": 1407
+      }
+    },
+    {
+      "id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
+      "agentId": "content",
+      "name": "Daily short-form scripts",
+      "description": "Draft short-form scripts for TikTok/YouTube/X from trend inputs.",
+      "enabled": true,
+      "createdAtMs": 1770301399604,
+      "updatedAtMs": 1770451200017,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Create 3 short-form scripts (<=45s) and 5 tweet/X post drafts based on yesterday’s trend scan. Include: hook, body beats, CTA. Format as a ready-to-post checklist."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:scripts] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770537600000,
+        "lastRunAtMs": 1770451200017,
+        "lastStatus": "ok",
+        "lastDurationMs": 1142
+      }
+    },
+    {
+      "id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
+      "agentId": "product",
+      "name": "Daily offer packaging",
+      "description": "Refine product offer, CTA, and landing copy snippets.",
+      "enabled": true,
+      "createdAtMs": 1770301401253,
+      "updatedAtMs": 1770455201535,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Refine product offer for today’s content. Output: 1 primary CTA, 2 alternate CTAs, 3 headline variants, 3 subhead variants, and 5 bullets focusing on value + proof."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:offer] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770541200000,
+        "lastRunAtMs": 1770455201535,
+        "lastStatus": "ok",
+        "lastDurationMs": 2100
+      }
+    },
+    {
+      "id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
+      "agentId": "finance",
+      "name": "Weekly revenue pipeline review",
+      "description": "Weekly revenue checklist and next actions.",
+      "enabled": true,
+      "createdAtMs": 1770301402829,
+      "updatedAtMs": 1770301402829,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 11 * * 1"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Weekly revenue review. Summarize: content output, engagement, funnel status, sales blockers, and top 5 actions for next week. Use concise bullets."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:weekly] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770631200000
+      }
+    },
+    {
+      "id": "d29640ec-a644-492d-a54c-0ff97c360984",
+      "agentId": "content",
+      "name": "Daily content calendar (TikTok/YouTube/X)",
+      "description": "Plan daily posting slots, topics, and CTAs for TikTok, YouTube, and X.",
+      "enabled": true,
+      "createdAtMs": 1770301906646,
+      "updatedAtMs": 1770462000018,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Build today’s content calendar for TikTok, YouTube, and X. Output: 3 posting slots with topic, hook, CTA, and target audience. Keep it concise."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:calendar] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770548400000,
+        "lastRunAtMs": 1770462000019,
+        "lastStatus": "ok",
+        "lastDurationMs": 1402
+      }
+    },
+    {
+      "id": "976b5f3a-9e7d-404e-ba4d-d66540ee635b",
+      "agentId": "content",
+      "name": "Daily YouTube long-form outline",
+      "description": "Create a long-form YouTube outline based on top trend/offer.",
+      "enabled": true,
+      "createdAtMs": 1770301908162,
+      "updatedAtMs": 1770469200023,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 14 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Draft a 6–10 minute YouTube video outline based on the top trend/offer. Include: title options, hook, 5–7 beats, CTA, and thumbnail text ideas."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:yt] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770555600000,
+        "lastRunAtMs": 1770469200024,
+        "lastStatus": "ok",
+        "lastDurationMs": 1443
+      }
+    },
+    {
+      "id": "d2eece4d-693b-4747-a970-4fc74b40e403",
+      "agentId": "community",
+      "name": "Daily engagement playbook",
+      "description": "Generate engagement replies and community prompts for TikTok/YouTube/X.",
+      "enabled": true,
+      "createdAtMs": 1770301909991,
+      "updatedAtMs": 1770480000039,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 17 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Create an engagement playbook for today: 10 reply templates, 5 community prompts, and 5 DMs ideas tailored to TikTok, YouTube, and X."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:engage] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770566400000,
+        "lastRunAtMs": 1770480000039,
+        "lastStatus": "ok",
+        "lastDurationMs": 1636
+      }
+    },
+    {
+      "id": "a114b9e7-92d0-4709-bc71-6e2d0280bd3b",
+      "agentId": "ops",
+      "name": "Weekly batch production plan",
+      "description": "Plan weekly batch filming/writing for TikTok/YouTube/X.",
+      "enabled": true,
+      "createdAtMs": 1770301911538,
+      "updatedAtMs": 1770301911538,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 15 * * 1"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Weekly batch production plan: list 10 short-form video ideas, 3 long-form ideas, filming order, and a 2-hour production schedule."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:batch] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770645600000
+      }
+    },
+    {
+      "id": "db3808e0-aa51-4699-b5ad-2f640282421f",
+      "agentId": "analytics",
+      "name": "Daily KPI snapshot",
+      "description": "Create a daily KPI checklist to track views, CTR, and conversions.",
+      "enabled": true,
+      "createdAtMs": 1770301913015,
+      "updatedAtMs": 1770487200037,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 19 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Daily KPI snapshot template for TikTok/YouTube/X: metrics to log, target ranges, and a 5-bullet daily optimization plan."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:kpi] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770573600000,
+        "lastRunAtMs": 1770487200037,
+        "lastStatus": "ok",
+        "lastDurationMs": 1483
+      }
+    }
+  ]
+}
