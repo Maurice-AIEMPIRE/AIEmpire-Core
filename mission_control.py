@@ -65,7 +65,7 @@ class MissionControl:
         self.repo_path = Path(repo_path)
         self.tasks: List[Task] = []
         self.github_token = os.getenv("GITHUB_TOKEN", "")
-        self.repo_name = os.getenv("GITHUB_REPO", "mauricepfeifer-ctrl/AIEmpire-Core")
+        self.repository = os.getenv("GITHUB_REPO", "mauricepfeifer-ctrl/AIEmpire-Core")
         
     async def scan_all_sources(self):
         """Scan all task sources"""
@@ -267,7 +267,8 @@ class MissionControl:
                             content = f.read()
                             if "ERROR" in content or "CRITICAL" in content:
                                 error_count += 1
-                    except:
+                    except Exception:
+                        # Silently skip files we can't read
                         pass
         
         if error_count > 0:
