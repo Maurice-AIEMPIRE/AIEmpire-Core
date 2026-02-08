@@ -1,1 +1,10 @@
 ._*
+venv
+test_venv
+__pycache__
+*.pyc
+output_500k/
+output/
+node_modules/
+*.log
+.DS_Store
