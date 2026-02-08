@@ -1,15 +1,26 @@
 # ═══════════════════════════════════════════════════════════════
-# Python Dependencies für Orchestrator
+# Autopilot Empire - Complete Python Dependencies
+# Maurice's AI Business System
 # ═══════════════════════════════════════════════════════════════
 
-# Core
-aiohttp>=3.13.3
-asyncio>=3.4.3
-pyyaml>=6.0.1
+# Web Framework
+fastapi==0.109.1
+uvicorn[standard]==0.27.0
+
+# HTTP Client
+aiohttp==3.13.3
 
 # Database
-psycopg2-binary>=2.9.0
-redis>=5.0.0
+psycopg2-binary==2.9.9
+redis==5.0.1
 
-# Utils
-python-dotenv>=1.0.0
+# Data & Config
+pydantic==2.5.0
+pyyaml==6.0.1
+python-dotenv==1.0.0
+
+# System Monitoring
+psutil==5.9.8
+
+# Testing (optional)
+requests==2.31.0

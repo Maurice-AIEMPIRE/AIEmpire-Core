@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 
 # Python Dependencies
 RUN pip install --no-cache-dir \
-    aiohttp==3.9.3 \
+    aiohttp==3.13.3 \
     psycopg2-binary==2.9.9
 
 # Application Files

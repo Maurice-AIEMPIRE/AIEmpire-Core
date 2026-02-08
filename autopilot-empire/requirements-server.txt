@@ -1,15 +1,19 @@
 # ═══════════════════════════════════════════════════════════════
-# Python Dependencies für Orchestrator
+# Python Dependencies für Agent Server (FastAPI Dashboard)
 # ═══════════════════════════════════════════════════════════════
 
-# Core
-aiohttp>=3.13.3
-asyncio>=3.4.3
-pyyaml>=6.0.1
+# Web Framework
+fastapi==0.109.1
+uvicorn[standard]==0.27.0
 
 # Database
-psycopg2-binary>=2.9.0
-redis>=5.0.0
+psycopg2-binary==2.9.9
 
-# Utils
-python-dotenv>=1.0.0
+# HTTP Client
+aiohttp==3.13.3
+
+# Data Models
+pydantic==2.5.0
+
+# Environment
+python-dotenv==1.0.0
