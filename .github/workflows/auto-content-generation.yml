@@ -1,0 +1,96 @@
+name: Auto Content Generation
+
+on:
+  schedule:
+    # Run every 4 hours
+    - cron: '0 */4 * * *'
+  workflow_dispatch:
+    inputs:
+      content_type:
+        description: 'Type of content to generate'
+        required: false
+        default: 'mixed'
+        type: choice
+        options:
+          - mixed
+          - x-posts
+          - blog
+          - newsletter
+
+jobs:
+  generate-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install aiohttp pyyaml
+          
+      - name: Generate X/Twitter Content
+        env:
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
+        run: |
+          cd x-lead-machine
+          python3 -c "
+          import asyncio
+          import sys
+          sys.path.insert(0, '.')
+          from x_automation import XLeadMachine
+          
+          async def main():
+              machine = XLeadMachine()
+              topics = [
+                  'AI Automation saves time',
+                  'Building AI Empire',
+                  'Revenue with AI',
+                  'Productivity hacks',
+                  'AI tools review'
+              ]
+              
+              print('# Generated Content for X/Twitter')
+              print('=' * 60)
+              for i, topic in enumerate(topics, 1):
+                  content = await machine.generate_content(topic, style='value')
+                  print(f'\n## Post {i}')
+                  print(content)
+                  print('\n' + '-' * 60)
+          
+          asyncio.run(main())
+          "
+          
+      - name: Create Issue with Content
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const timestamp = new Date().toISOString();
+            const issue = await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `🎨 Generated Content - ${timestamp}`,
+              body: `# New Content Ready
+              
+              Content has been generated and is ready for review and posting.
+              
+              **Generated:** ${timestamp}
+              **Type:** X/Twitter Posts
+              **Status:** ✅ Ready
+              
+              Check the workflow logs for the full content.
+              
+              ## Next Steps
+              1. Review the content
+              2. Post to X/Twitter
+              3. Track engagement
+              4. Close this issue
+              `,
+              labels: ['content', 'automation', 'x-twitter']
+            });
+            console.log(`Created issue #${issue.data.number}`);

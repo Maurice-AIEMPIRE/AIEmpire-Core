@@ -1,1 +1,12 @@
 ._*
+.failover_status.json
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+node_modules/
+.env
+.DS_Store
