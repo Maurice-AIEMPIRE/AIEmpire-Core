@@ -9,6 +9,7 @@
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
 | CRM V2 | ✅ | BANT-basiertes Lead Management |
 | Kimi Swarm | ✅ | 100.000 Agents für Bulk-Tasks |
+| **Kimi 500K Swarm** | 🔥 **NEW** | **500.000 Agents + Claude Orchestration** |
 | Atomic Reactor | ✅ | Task Orchestration + Docker |
 | Gold Nuggets | ✅ | Wertvolle Insights extrahiert |
 
@@ -21,11 +22,15 @@
 cd crm && npm install && node server.js
 # → http://localhost:3500
 
-# 2. Kimi Swarm aktivieren
+# 2. Kimi Swarm aktivieren (100K agents)
 cd kimi-swarm
 python3 -m venv venv && source venv/bin/activate
 pip install aiohttp
 python3 github_scanner_100k.py
+
+# 2b. 🔥 NEW: 500K Swarm mit Claude Orchestration
+python3 swarm_500k.py --test  # Test: 100 tasks
+python3 swarm_500k.py -n 10000  # Production: 10K tasks
 
 # 3. X Content generieren
 cd x-lead-machine
@@ -48,7 +53,10 @@ ai-empire/
 │   └── server.js          # Express + SQLite
 ├── kimi-swarm/            # 🤖 100k Agent Swarm
 │   ├── swarm_100k.py
-│   └── github_scanner_100k.py
+│   ├── swarm_500k.py      # 🔥 NEW: 500K + Claude orchestration
+│   ├── github_scanner_100k.py
+│   ├── README_500K_SWARM.md
+│   └── CLAUDE_ORCHESTRATOR_CONFIG.md
 ├── atomic-reactor/        # ⚛️ Task Orchestration
 │   ├── docker-compose.yaml
 │   └── tasks/
