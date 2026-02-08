@@ -6,13 +6,15 @@
 
 | Component | Status | Purpose |
 |-----------|--------|---------|
+| **[Knowledge Base](./KNOWLEDGE_BASE.md)** | 🔥 **NEW** | **Zentrales Wissensverzeichnis — alles an einem Ort** |
+| **[Monetization Strategy](./MONETIZATION_STRATEGY.md)** | 🔥 **NEW** | **Alles zu Geld machen — konkrete Aktionspläne** |
 | **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
 | **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
 | X Auto Poster | ✅ | Tägliche Content Generation + Scheduling |
 | CRM V2 | ✅ | BANT-basiertes Lead Management |
 | Kimi Swarm | ✅ | 100.000 Agents für Bulk-Tasks |
-| **Kimi 500K Swarm** | 🔥 **NEW** | **500.000 Agents + Claude Orchestration** |
+| **Kimi 500K Swarm** | 🔥 | **500.000 Agents + Claude Orchestration** |
 | Atomic Reactor | ✅ | Task Orchestration + Docker |
 | Gold Nuggets | ✅ | Wertvolle Insights extrahiert |
 
@@ -69,6 +71,8 @@ ai-empire/
 │   ├── issue-command-bot.yml         # Issue Commands
 │   ├── revenue-tracking.yml          # Täglich 9 AM
 │   └── x-auto-poster.yml            # Täglich 7 AM
+├── KNOWLEDGE_BASE.md          # 🧠 Zentrales Wissensverzeichnis (NEU!)
+├── MONETIZATION_STRATEGY.md   # 💰 Monetarisierungs-Strategie (NEU!)
 ├── GITHUB_CONTROL_SYSTEM.md   # 📖 Vollständige Doku
 ├── claude_failover_system.py  # 🔄 Claude → GitHub Failover
 ├── github_control_interface.py # 💬 Command Processor
