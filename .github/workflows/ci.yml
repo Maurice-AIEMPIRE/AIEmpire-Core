@@ -6,6 +6,9 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   lint:
     name: Lint
@@ -22,13 +25,15 @@ jobs:
         run: pip install flake8
 
       - name: Lint Python files
-        run: flake8 --max-line-length=120 --count --show-source --statistics *.py || true
+        run: flake8 --max-line-length=120 --count --show-source --statistics *.py
+        continue-on-error: true
 
       - name: Check YAML syntax
         run: |
           pip install yamllint
-          yamllint -d relaxed .github/workflows/ || true
-          yamllint -d relaxed atomic-reactor/tasks/ || true
+          yamllint -d relaxed .github/workflows/
+          yamllint -d relaxed atomic-reactor/tasks/
+        continue-on-error: true
 
   security:
     name: Security Check
@@ -69,7 +74,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          pip install -r requirements.txt
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Python syntax check
         run: python -m py_compile claude_failover_system.py && python -m py_compile github_control_interface.py && python -m py_compile x_auto_poster.py
@@ -87,5 +92,6 @@ jobs:
         run: |
           for f in $(find . -name "docker-compose.yaml" -o -name "docker-compose.yml"); do
             echo "Validating $f..."
-            docker compose -f "$f" config > /dev/null 2>&1 || echo "::warning::Invalid compose file: $f"
+            echo "Validating $f..."
+            docker compose -f "$f" config > /dev/null 2>&1 || { echo "::error::Invalid compose file: $f"; exit 1; }
           done

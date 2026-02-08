@@ -16,9 +16,11 @@ docker image prune -a -f
 # 3. Build-Cache leeren
 docker builder prune -f
 
-# 4. Volumes prüfen (vorsichtig!)
+# 4. Volumes prüfen (ACHTUNG: Löscht Daten!)
+# Erst prüfen welche Volumes existieren:
 docker volume ls
-docker volume prune -f
+# Nur leere/ungenutzte Volumes entfernen:
+docker volume prune
 ```
 
 ## API Error 400 → Router Fix
