@@ -6,6 +6,7 @@
 
 | Component | Status | Purpose |
 |-----------|--------|---------|
+| **Autopilot Empire** | 🔥 **NEW** | **24/7 Autonomous AI Agent System** |
 | **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
 | **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
@@ -19,6 +20,25 @@
 ---
 
 ## 🚀 Quick Start
+
+### 🔥 Autopilot Empire (NEWEST!)
+
+**One-Line Setup for 24/7 Autonomous AI Agents:**
+
+```bash
+cd autopilot && bash setup.sh
+```
+
+**What you get:**
+- 7 Autonomous AI Agents (Content, Sales, Code, Optimizer, Monitor, Healer, Scout)
+- Local LLM with Ollama (Mixtral, Llama, Qwen, DeepSeek)
+- PostgreSQL + Redis infrastructure
+- Automatic revenue tracking
+- Self-healing capabilities
+
+**Full Guide:** [AUTOPILOT_QUICKSTART.md](./AUTOPILOT_QUICKSTART.md)
+
+---
 
 ### GitHub Control System (NEU!)
 

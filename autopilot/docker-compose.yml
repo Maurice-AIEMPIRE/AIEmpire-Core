@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  ollama-master:
+    image: ollama/ollama:latest
+    container_name: autopilot-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./data/models:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+    command: serve
+    restart: always
+
+  orchestrator:
+    build: .
+    container_name: autopilot-orchestrator
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama-master
+      - postgres-master
+    environment:
+      - OLLAMA_HOST=http://ollama-master:11434
+      - DATABASE_URL=postgresql://autopilot:autopilot@postgres-master:5432/autopilot
+    volumes:
+      - ./data/logs:/app/logs
+    restart: always
+
+  postgres-master:
+    image: postgres:16-alpine
+    container_name: autopilot-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=autopilot
+      - POSTGRES_PASSWORD=autopilot
+      - POSTGRES_DB=autopilot
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./init-autopilot.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: autopilot-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+    command: redis-server --appendonly yes
+    restart: always
