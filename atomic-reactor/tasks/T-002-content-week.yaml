@@ -1,0 +1,28 @@
+id: T-002
+title: "Generate X Content for Week"
+type: content
+priority: high
+model: kimi
+
+objective: |
+  Generate 7 viral X/Twitter posts for Maurice's AI Empire.
+  Topics: AI Automation, Claude Code, Building in Public
+
+acceptance:
+  - 7 posts, one per day
+  - Each post under 280 chars
+  - Includes hook + CTA
+  - Saved to content calendar
+
+prompts:
+  - |
+    Generate 7 X/Twitter posts about AI automation:
+    Day 1: Result post (show numbers)
+    Day 2: Tutorial post
+    Day 3: Controversial opinion
+    Day 4: Behind the scenes
+    Day 5: Story
+    Day 6: Question for engagement
+    Day 7: Thread hook
+
+    Format each as: {day, topic, post_text, cta}

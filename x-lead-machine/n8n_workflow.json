@@ -1,0 +1,130 @@
+{
+  "name": "X Lead Machine - Maurice AI Empire",
+  "nodes": [
+    {
+      "name": "Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [250, 300],
+      "parameters": {
+        "rule": {
+          "interval": [{"field": "hours", "hoursInterval": 1}]
+        }
+      }
+    },
+    {
+      "name": "Search X Keywords",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [450, 300],
+      "parameters": {
+        "url": "https://api.twitter.com/2/tweets/search/recent",
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer {{$credentials.twitterApi.accessToken}}"
+        },
+        "qs": {
+          "query": "\"need AI\" OR \"looking for automation\" OR \"who can help\" -is:retweet lang:en",
+          "max_results": 100,
+          "tweet.fields": "author_id,created_at,public_metrics"
+        }
+      }
+    },
+    {
+      "name": "Filter Hot Leads",
+      "type": "n8n-nodes-base.filter",
+      "position": [650, 300],
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$json.public_metrics.like_count}}",
+              "operation": "largerEqual",
+              "value2": 5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Kimi Lead Scoring",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [850, 300],
+      "parameters": {
+        "url": "https://api.moonshot.ai/v1/chat/completions",
+        "method": "POST",
+        "headers": {
+          "Authorization": "Bearer {{$credentials.moonshotApi.apiKey}}",
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "model": "moonshot-v1-8k",
+          "messages": [
+            {
+              "role": "user",
+              "content": "Score this tweet 1-10 for AI automation lead potential. Reply JSON only: {\"score\": X, \"reason\": \"...\"}\n\nTweet: {{$json.text}}"
+            }
+          ],
+          "temperature": 0.3
+        }
+      }
+    },
+    {
+      "name": "Parse Score",
+      "type": "n8n-nodes-base.code",
+      "position": [1050, 300],
+      "parameters": {
+        "jsCode": "const response = JSON.parse($input.first().json.choices[0].message.content);\nreturn [{json: {...$input.first().json, lead_score: response.score, reason: response.reason}}];"
+      }
+    },
+    {
+      "name": "Filter Score > 6",
+      "type": "n8n-nodes-base.filter",
+      "position": [1250, 300],
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{$json.lead_score}}",
+              "operation": "larger",
+              "value2": 6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add to CRM",
+      "type": "n8n-nodes-base.httpRequest",
+      "position": [1450, 300],
+      "parameters": {
+        "url": "http://localhost:3500/api/leads",
+        "method": "POST",
+        "headers": {"Content-Type": "application/json"},
+        "body": {
+          "name": "={{$json.author_id}}",
+          "source": "X/Twitter",
+          "signal": "={{$json.text}}",
+          "bant_score": "={{$json.lead_score}}",
+          "notes": "={{$json.reason}}"
+        }
+      }
+    },
+    {
+      "name": "Telegram Notify",
+      "type": "n8n-nodes-base.telegram",
+      "position": [1650, 300],
+      "parameters": {
+        "chatId": "{{$credentials.telegram.chatId}}",
+        "text": "🔥 HOT LEAD auf X!\n\nScore: {{$json.lead_score}}/10\nTweet: {{$json.text}}\n\n→ Reply jetzt!"
+      }
+    }
+  ],
+  "connections": {
+    "Schedule": {"main": [[{"node": "Search X Keywords", "type": "main", "index": 0}]]},
+    "Search X Keywords": {"main": [[{"node": "Filter Hot Leads", "type": "main", "index": 0}]]},
+    "Filter Hot Leads": {"main": [[{"node": "Kimi Lead Scoring", "type": "main", "index": 0}]]},
+    "Kimi Lead Scoring": {"main": [[{"node": "Parse Score", "type": "main", "index": 0}]]},
+    "Parse Score": {"main": [[{"node": "Filter Score > 6", "type": "main", "index": 0}]]},
+    "Filter Score > 6": {"main": [[{"node": "Add to CRM", "type": "main", "index": 0}]]},
+    "Add to CRM": {"main": [[{"node": "Telegram Notify", "type": "main", "index": 0}]]}
+  }
+}
