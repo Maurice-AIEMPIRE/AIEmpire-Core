@@ -1,0 +1,106 @@
+name: 🎯 Atomic Task
+description: Create a small, measurable, atomic task for Claude to execute
+title: "[TASK] "
+labels: ["task", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Atomic Task Template
+        Create a small, focused task that can be completed independently.
+        
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Task priority level
+      options:
+        - P0 (Critical - Blocking)
+        - P1 (High - Important)
+        - P2 (Medium - Nice to have)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Task category for routing
+      options:
+        - code
+        - docs
+        - research
+        - ops
+        - security
+        - growth
+        - revenue
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should be achieved?
+      placeholder: "Example: Implement user authentication for the CRM system"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: How do we know this task is complete?
+      placeholder: |
+        - [ ] User can log in with email/password
+        - [ ] Session is maintained across page refreshes
+        - [ ] Password is securely hashed
+        - [ ] Tests are passing
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints
+      description: Any limitations or requirements?
+      placeholder: |
+        - Must use existing SQLite database
+        - Max 200 lines of code changes
+        - No new dependencies
+    validations:
+      required: false
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests & Verification
+      description: How should this be tested?
+      placeholder: |
+        - Run: npm test
+        - Verify: Login flow works in browser
+        - Check: No security vulnerabilities
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any additional information or links
+      placeholder: "Related to user feedback, see discussion #123"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: definition-of-done
+    attributes:
+      label: Definition of Done
+      description: Check all that apply when task is complete
+      options:
+        - label: Tests are passing
+        - label: Documentation is updated
+        - label: Changelog entry added
+        - label: Security check passed
+        - label: Code review completed

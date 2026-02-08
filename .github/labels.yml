@@ -1,0 +1,120 @@
+# GitHub Labels Configuration
+# Apply with: gh label create --file .github/labels.yml
+
+# Category Labels
+- name: "code"
+  color: "0366d6"
+  description: "Code changes and implementation"
+
+- name: "docs"
+  color: "0075ca"
+  description: "Documentation improvements"
+
+- name: "research"
+  color: "7057ff"
+  description: "Research and exploration tasks"
+
+- name: "ops"
+  color: "d4c5f9"
+  description: "Operations and infrastructure"
+
+- name: "security"
+  color: "d93f0b"
+  description: "Security-related issues"
+
+- name: "growth"
+  color: "0e8a16"
+  description: "Growth and marketing initiatives"
+
+- name: "revenue"
+  color: "fbca04"
+  description: "Revenue-generating opportunities"
+
+# Priority Labels
+- name: "P0"
+  color: "b60205"
+  description: "Critical - Blocking"
+
+- name: "P1"
+  color: "d93f0b"
+  description: "High - Important"
+
+- name: "P2"
+  color: "fef2c0"
+  description: "Medium - Nice to have"
+
+# Type Labels
+- name: "bug"
+  color: "d73a4a"
+  description: "Something isn't working"
+
+- name: "enhancement"
+  color: "a2eeef"
+  description: "New feature or request"
+
+- name: "task"
+  color: "1d76db"
+  description: "Atomic task for execution"
+
+# Status Labels
+- name: "needs-triage"
+  color: "ffffff"
+  description: "Needs initial review and prioritization"
+
+- name: "in-progress"
+  color: "0e8a16"
+  description: "Currently being worked on"
+
+- name: "blocked"
+  color: "d93f0b"
+  description: "Blocked by external dependency"
+
+- name: "ready-for-review"
+  color: "0075ca"
+  description: "Ready for code review"
+
+- name: "approved"
+  color: "0e8a16"
+  description: "Approved and ready to merge"
+
+# Special Labels
+- name: "good-first-issue"
+  color: "7057ff"
+  description: "Good for newcomers"
+
+- name: "help-wanted"
+  color: "008672"
+  description: "Extra attention is needed"
+
+- name: "wontfix"
+  color: "ffffff"
+  description: "This will not be worked on"
+
+- name: "duplicate"
+  color: "cfd3d7"
+  description: "This issue or pull request already exists"
+
+- name: "question"
+  color: "d876e3"
+  description: "Further information is requested"
+
+# Model/Agent Routing (for automation)
+- name: "claude-opus"
+  color: "7057ff"
+  description: "Route to Claude Opus (premium quality)"
+
+- name: "claude-sonnet"
+  color: "0075ca"
+  description: "Route to Claude Sonnet (balanced)"
+
+- name: "claude-haiku"
+  color: "bfdadc"
+  description: "Route to Claude Haiku (fast)"
+
+- name: "kimi"
+  color: "fbca04"
+  description: "Route to Kimi (cost-effective)"
+
+- name: "ollama"
+  color: "d4c5f9"
+  description: "Route to Ollama (local/free)"

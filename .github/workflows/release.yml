@@ -1,0 +1,109 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Get version from tag
+        id: get_version
+        run: |
+          if [[ $GITHUB_REF == refs/tags/* ]]; then
+            VERSION=${GITHUB_REF#refs/tags/v}
+          else
+            VERSION=$(date +%Y.%m.%d)
+          fi
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Release version: $VERSION"
+
+      - name: Generate Changelog
+        id: changelog
+        run: |
+          # Get commits since last tag
+          LAST_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+          
+          if [ -z "$LAST_TAG" ]; then
+            echo "First release - getting all commits"
+            COMMITS=$(git log --pretty=format:"- %s (%h)" --reverse)
+          else
+            echo "Getting commits since $LAST_TAG"
+            COMMITS=$(git log ${LAST_TAG}..HEAD --pretty=format:"- %s (%h)")
+          fi
+          
+          # Create changelog file
+          cat > CHANGELOG.md << EOF
+          # Release v${{ steps.get_version.outputs.VERSION }}
+          
+          ## Changes
+          
+          $COMMITS
+          
+          ## Contributors
+          
+          $(git log ${LAST_TAG}..HEAD --format='%aN' | sort -u | sed 's/^/- /')
+          EOF
+          
+          cat CHANGELOG.md
+
+      - name: Update VERSION file
+        run: |
+          echo "${{ steps.get_version.outputs.VERSION }}" > VERSION
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add VERSION
+          git diff --staged --quiet || git commit -m "chore: bump version to ${{ steps.get_version.outputs.VERSION }}"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v${{ steps.get_version.outputs.VERSION }}
+          name: Release v${{ steps.get_version.outputs.VERSION }}
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker images (if applicable)
+        run: |
+          if [ -f "Dockerfile" ]; then
+            echo "Building Docker image..."
+            docker build -t aiempire-core:${{ steps.get_version.outputs.VERSION }} .
+            docker tag aiempire-core:${{ steps.get_version.outputs.VERSION }} aiempire-core:latest
+            echo "Docker image built successfully"
+          else
+            echo "No Dockerfile found, skipping Docker build"
+          fi
+        continue-on-error: true
+
+      - name: Publish to npm (if applicable)
+        working-directory: ./crm
+        run: |
+          if [ -f "package.json" ]; then
+            echo "Updating package.json version..."
+            npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version --allow-same-version
+            echo "Package version updated"
+          fi
+        continue-on-error: true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

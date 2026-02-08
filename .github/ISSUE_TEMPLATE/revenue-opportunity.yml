@@ -1,0 +1,131 @@
+name: 💰 Revenue Opportunity
+description: Track revenue-generating opportunities and initiatives
+title: "[REVENUE] "
+labels: ["revenue", "growth", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Revenue Opportunity
+        Track ideas and initiatives that directly generate revenue.
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Opportunity urgency
+      options:
+        - P0 (Hot lead - Act now)
+        - P1 (High - This week)
+        - P2 (Medium - This month)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: Opportunity Type
+      description: What kind of revenue opportunity?
+      options:
+        - Product (Gumroad, digital product)
+        - Service (Freelance, consulting)
+        - Automation (SaaS, recurring)
+        - Content (Sponsored, affiliate)
+        - Template (Boilerplate, starter kit)
+    validations:
+      required: true
+
+  - type: textarea
+    id: opportunity
+    attributes:
+      label: Opportunity Description
+      description: What is the revenue opportunity?
+      placeholder: "Example: Create 'AI Automation Blueprint' product for Gumroad"
+    validations:
+      required: true
+
+  - type: textarea
+    id: revenue-potential
+    attributes:
+      label: Revenue Potential
+      description: Expected revenue and timeline
+      placeholder: |
+        - Initial revenue: €50-100
+        - Monthly recurring: €500-1000
+        - Time to first sale: 1 week
+        - Break-even: 5 sales
+    validations:
+      required: true
+
+  - type: textarea
+    id: target-audience
+    attributes:
+      label: Target Audience
+      description: Who will buy this?
+      placeholder: |
+        - Developers learning AI
+        - Small business owners
+        - Freelancers
+    validations:
+      required: true
+
+  - type: textarea
+    id: action-plan
+    attributes:
+      label: Action Plan
+      description: What needs to be done?
+      placeholder: |
+        - [ ] Create product/service
+        - [ ] Set up payment processing
+        - [ ] Create landing page
+        - [ ] Launch marketing campaign
+        - [ ] First sale within 7 days
+    validations:
+      required: true
+
+  - type: textarea
+    id: resources
+    attributes:
+      label: Resources Needed
+      description: What do you need to execute this?
+      placeholder: |
+        - Time: 4-8 hours
+        - Tools: Gumroad account, Canva
+        - Cost: €0 (bootstrap)
+    validations:
+      required: false
+
+  - type: textarea
+    id: competition
+    attributes:
+      label: Competition Analysis
+      description: What's already out there?
+      placeholder: "Similar products, pricing, what makes yours different"
+    validations:
+      required: false
+
+  - type: textarea
+    id: marketing
+    attributes:
+      label: Marketing Strategy
+      description: How will you promote this?
+      placeholder: |
+        - X/Twitter posts
+        - Reddit communities
+        - Email list
+        - Affiliates
+    validations:
+      required: false
+
+  - type: textarea
+    id: metrics
+    attributes:
+      label: Success Metrics
+      description: How will you measure success?
+      placeholder: |
+        - Week 1: First sale
+        - Month 1: 10 sales, €500 revenue
+        - Month 3: 50 sales, €2500 revenue
+    validations:
+      required: true
