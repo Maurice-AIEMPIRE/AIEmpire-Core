@@ -61,7 +61,7 @@ services:
     restart: unless-stopped
 
   # ═══════════════════════════════════════════
-  # CLAUDE WORKER (20 agents)
+  # CLAUDE WORKER (100 agents)
   # ═══════════════════════════════════════════
   worker-claude:
     build: ./workers/claude
@@ -69,7 +69,7 @@ services:
     environment:
       - REDIS_URL=redis://queue:6379
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - MAX_AGENTS=20
+      - MAX_AGENTS=100
     volumes:
       - ./workspace:/workspace
       - ./reports:/reports
