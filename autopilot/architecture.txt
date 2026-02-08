@@ -1,0 +1,70 @@
+┌─────────────────────────────────────────────────────────────────┐
+│                    AUTOPILOT EMPIRE SYSTEM                      │
+│                  Autonomous AI Agent Platform                   │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│               ORCHESTRATOR (Port 8000)                          │
+│                                                                 │
+│  ┌───────────────┐  ┌───────────────┐  ┌──────────────┐      │
+│  │  Content      │  │  Sales        │  │  Code        │      │
+│  │  Master       │  │  Master       │  │  Master      │      │
+│  │               │  │               │  │              │      │
+│  │ • TikTok      │  │ • Fiverr Gigs │  │ • Scripts    │      │
+│  │ • YouTube     │  │ • Bidding     │  │ • Tools      │      │
+│  │ • Twitter     │  │ • Outreach    │  │ • Automation │      │
+│  └───────────────┘  └───────────────┘  └──────────────┘      │
+│                                                                 │
+│  ┌───────────────┐  ┌───────────────┐  ┌──────────────┐      │
+│  │  Optimizer    │  │  Monitor      │  │  Healer      │      │
+│  │  Master       │  │  Master       │  │  Master      │      │
+│  │               │  │               │  │              │      │
+│  │ • Performance │  │ • Metrics     │  │ • Auto-Fix   │      │
+│  │ • Costs       │  │ • Health      │  │ • Recovery   │      │
+│  │ • Quality     │  │ • Alerts      │  │ • Diagnosis  │      │
+│  └───────────────┘  └───────────────┘  └──────────────┘      │
+│                                                                 │
+│  ┌───────────────┐                                             │
+│  │  Scout        │         Cycle: Every 15 minutes             │
+│  │  Master       │         Tasks: 23 per cycle                 │
+│  │               │         Revenue: €70-100/day                │
+│  │ • Discovery   │                                             │
+│  │ • Trends      │                                             │
+│  │ • Markets     │                                             │
+│  └───────────────┘                                             │
+└─────────────────────────────────────────────────────────────────┘
+                    ↓ ↑              ↓ ↑              ↓ ↑
+       ┌────────────┴─┴──────────────┴─┴──────────────┴─┴────────┐
+       │                                                           │
+┌──────▼──────┐         ┌──────▼──────┐         ┌────▼─────┐     │
+│   Ollama    │         │ PostgreSQL  │         │  Redis   │     │
+│   LLM       │         │  Database   │         │  Cache   │     │
+│             │         │             │         │          │     │
+│ Port 11434  │         │  Port 5432  │         │Port 6379 │     │
+│             │         │             │         │          │     │
+│ • Mixtral   │         │ • agents    │         │• Queue   │     │
+│ • Llama     │         │ • revenue   │         │• State   │     │
+│ • Qwen      │         │ • tasks     │         │• Cache   │     │
+│ • DeepSeek  │         │             │         │          │     │
+└─────────────┘         └─────────────┘         └──────────┘     │
+                                                                  │
+                       DATA PERSISTENCE LAYER                     │
+                       • Zero API costs                           │
+                       • Local inference                          │
+                       • Complete autonomy                        │
+                       • 24/7 operation                           │
+                                                                  │
+└──────────────────────────────────────────────────────────────────┘
+
+DEPLOYMENT:
+  $ cd autopilot && bash setup.sh
+  
+FEATURES:
+  ✅ 7 Autonomous Agents
+  ✅ 4 LLM Models (Local)
+  ✅ 3-tier Data Storage
+  ✅ Self-Healing
+  ✅ Revenue Tracking
+  ✅ Zero Manual Work
+  ✅ 24/7 Operation
+  ✅ One-Line Setup
