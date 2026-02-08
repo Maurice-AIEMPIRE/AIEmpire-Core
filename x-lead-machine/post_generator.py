@@ -68,7 +68,7 @@ Like wenn du wissen willst wie."
 
 Generiere jetzt den Post:"""
 
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
         async with session.post(
             "https://api.moonshot.ai/v1/chat/completions",
             headers={
@@ -121,7 +121,7 @@ FORMAT:
 
 Schreibe den Thread:"""
 
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
         async with session.post(
             "https://api.moonshot.ai/v1/chat/completions",
             headers={

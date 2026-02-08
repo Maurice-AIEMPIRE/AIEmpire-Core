@@ -146,7 +146,7 @@ class KimiSwarm:
                 content = content.split("```")[1].split("```")[0]
             parsed = json.loads(content.strip())
             data = {"task_id": task_id, "type": task_type["type"], "timestamp": datetime.now().isoformat(), "data": parsed}
-        except:
+        except (json.JSONDecodeError, IndexError, KeyError):
             data = {"task_id": task_id, "type": task_type["type"], "timestamp": datetime.now().isoformat(), "raw": content}
 
         with open(filename, "w") as f:

@@ -60,7 +60,7 @@ Like wenn du wissen willst wie."
 
 POST:"""
 
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
         async with session.post(
             "https://api.moonshot.ai/v1/chat/completions",
             headers={
@@ -101,7 +101,7 @@ REGELN:
 
 THREAD:"""
 
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
         async with session.post(
             "https://api.moonshot.ai/v1/chat/completions",
             headers={

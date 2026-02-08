@@ -81,7 +81,7 @@ Antworte als JSON:
 {{"score": X, "urgency": X, "authority": X, "action": "...", "reply": "..."}}
 """
 
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
             try:
                 async with session.post(
                     "https://api.moonshot.ai/v1/chat/completions",
@@ -100,10 +100,10 @@ Antworte als JSON:
                         content = data["choices"][0]["message"]["content"]
                         try:
                             return json.loads(content)
-                        except:
+                        except (json.JSONDecodeError, KeyError):
                             return {"score": 0, "action": "ignore"}
-            except:
-                pass
+            except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+                print(f"⚠️  Tweet analysis error: {e}")
         return {"score": 0, "action": "ignore"}
 
     async def generate_content(self, topic: str, style: str = "value") -> str:
@@ -142,7 +142,7 @@ Like für Reminder."
 
 Schreibe jetzt den Post:"""
 
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
             try:
                 async with session.post(
                     "https://api.moonshot.ai/v1/chat/completions",
@@ -159,8 +159,8 @@ Schreibe jetzt den Post:"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data["choices"][0]["message"]["content"]
-            except:
-                pass
+            except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+                print(f"⚠️  Content generation error: {e}")
         return ""
 
     async def generate_reply(self, original_tweet: str, context: str = "") -> str:
@@ -183,7 +183,7 @@ Regeln:
 
 Schreibe die Reply:"""
 
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
             try:
                 async with session.post(
                     "https://api.moonshot.ai/v1/chat/completions",
@@ -200,8 +200,8 @@ Schreibe die Reply:"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data["choices"][0]["message"]["content"]
-            except:
-                pass
+            except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+                print(f"⚠️  Reply generation error: {e}")
         return ""
 
     async def generate_dm_sequence(self, lead_info: dict) -> list:
@@ -223,7 +223,7 @@ DM 3: Nach 4 Tagen (letzter Versuch, CTA)
 Antworte als JSON Array mit 3 DMs:
 [{{"day": 0, "message": "..."}}, ...]"""
 
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(timeout=aiohttp.ClientTimeout(total=30)) as session:
             try:
                 async with session.post(
                     "https://api.moonshot.ai/v1/chat/completions",
@@ -242,10 +242,10 @@ Antworte als JSON Array mit 3 DMs:
                         content = data["choices"][0]["message"]["content"]
                         try:
                             return json.loads(content)
-                        except:
+                        except (json.JSONDecodeError, KeyError):
                             return []
-            except:
-                pass
+            except (aiohttp.ClientError, asyncio.TimeoutError) as e:
+                print(f"⚠️  DM sequence generation error: {e}")
         return []
 
     def get_stats(self) -> dict:
