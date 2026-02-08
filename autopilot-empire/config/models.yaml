@@ -1,0 +1,186 @@
+# ═══════════════════════════════════════════════════════════════
+# Autopilot Empire - Model Configuration
+# Definiert alle verfügbaren AI-Modelle und ihre Eigenschaften
+# ═══════════════════════════════════════════════════════════════
+
+models:
+  # ═════════════════════════════════════════════════════════════
+  # TIER 1: OLLAMA LOCAL MODELS (KOSTENLOS)
+  # ═════════════════════════════════════════════════════════════
+  
+  mixtral-8x7b:
+    provider: ollama
+    cost_per_1k_tokens: 0.0
+    context_length: 32768
+    strengths:
+      - strategic_decisions
+      - complex_reasoning
+      - multi_task_orchestration
+    use_cases:
+      - master_decision_making
+      - opportunity_analysis
+      - agent_spawning
+    priority: 1
+    
+  llama3.3:
+    provider: ollama
+    cost_per_1k_tokens: 0.0
+    context_length: 128000
+    strengths:
+      - general_purpose
+      - task_execution
+      - content_generation
+    use_cases:
+      - sales_automation
+      - client_communication
+      - task_routing
+    priority: 1
+    
+  qwen2.5:
+    provider: ollama
+    cost_per_1k_tokens: 0.0
+    context_length: 32768
+    strengths:
+      - multilingual
+      - creative_writing
+      - viral_content
+    use_cases:
+      - tiktok_scripts
+      - twitter_threads
+      - youtube_shorts
+    priority: 1
+    
+  deepseek-coder:
+    provider: ollama
+    cost_per_1k_tokens: 0.0
+    context_length: 16384
+    strengths:
+      - code_generation
+      - debugging
+      - api_integration
+    use_cases:
+      - fiverr_coding_gigs
+      - automation_scripts
+      - technical_solutions
+    priority: 1
+    
+  openhermes:
+    provider: ollama
+    cost_per_1k_tokens: 0.0
+    context_length: 8192
+    strengths:
+      - instruction_following
+      - fast_execution
+      - error_handling
+    use_cases:
+      - self_healing
+      - incident_response
+      - quick_fixes
+    priority: 1
+    
+  neural-chat:
+    provider: ollama
+    cost_per_1k_tokens: 0.0
+    context_length: 8192
+    strengths:
+      - fast_response
+      - conversational
+      - monitoring
+    use_cases:
+      - health_checks
+      - status_updates
+      - agent_communication
+    priority: 1
+
+  # ═════════════════════════════════════════════════════════════
+  # TIER 2: EXTERNAL APIS (OPTIONAL - WENN KEYS VORHANDEN)
+  # ═════════════════════════════════════════════════════════════
+  
+  claude-haiku:
+    provider: anthropic
+    cost_per_1k_tokens: 0.00025
+    context_length: 200000
+    strengths:
+      - fast_execution
+      - high_quality
+      - long_context
+    use_cases:
+      - premium_content
+      - complex_analysis
+      - high_value_tasks
+    priority: 2
+    requires_api_key: ANTHROPIC_API_KEY
+    
+  gpt-4o-mini:
+    provider: openai
+    cost_per_1k_tokens: 0.00015
+    context_length: 128000
+    strengths:
+      - versatile
+      - vision_capable
+      - reliable
+    use_cases:
+      - premium_services
+      - complex_queries
+      - special_requests
+    priority: 2
+    requires_api_key: OPENAI_API_KEY
+
+# ═══════════════════════════════════════════════════════════════
+# MODEL SELECTION STRATEGY
+# ═══════════════════════════════════════════════════════════════
+selection_strategy:
+  default: cost_optimized
+  
+  strategies:
+    cost_optimized:
+      description: "Bevorzuge kostenlose Modelle (Ollama)"
+      order:
+        - priority: 1
+          filters: {cost_per_1k_tokens: 0.0}
+        - priority: 2
+          filters: {cost_per_1k_tokens: "<0.001"}
+          
+    quality_optimized:
+      description: "Bevorzuge beste Qualität (Premium APIs)"
+      order:
+        - priority: 1
+          filters: {provider: "anthropic"}
+        - priority: 2
+          filters: {provider: "openai"}
+        - priority: 3
+          filters: {provider: "ollama"}
+          
+    balanced:
+      description: "Mix aus Kosten und Qualität"
+      rules:
+        - if_revenue_generated: ">10"
+          then_use: "quality_optimized"
+        - else_use: "cost_optimized"
+
+# ═══════════════════════════════════════════════════════════════
+# FALLBACK CONFIGURATION
+# ═══════════════════════════════════════════════════════════════
+fallback:
+  enabled: true
+  on_model_failure:
+    retry_count: 3
+    retry_delay: 5
+    fallback_model: llama3.3
+  on_ollama_down:
+    use_external_apis: false
+    wait_and_retry: true
+    max_wait_time: 300
+
+# ═══════════════════════════════════════════════════════════════
+# AUTO-DOWNLOAD MODELS (beim ersten Start)
+# ═══════════════════════════════════════════════════════════════
+auto_download:
+  enabled: true
+  models_to_download:
+    - mixtral-8x7b
+    - llama3.3
+    - qwen2.5
+    - deepseek-coder
+    - openhermes
+    - neural-chat

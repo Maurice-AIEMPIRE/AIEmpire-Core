@@ -1,0 +1,144 @@
+# ═══════════════════════════════════════════════════════════════
+# Autopilot Empire - Agent Configuration
+# Definiert alle Master-Agenten und ihre Fähigkeiten
+# ═══════════════════════════════════════════════════════════════
+
+agents:
+  # ═════════════════════════════════════════════════════════════
+  # 1. CONTENT MASTER - TikTok, YouTube, Twitter Content
+  # ═════════════════════════════════════════════════════════════
+  - id: content-master-001
+    role: Content Master
+    model: qwen2.5
+    capabilities:
+      - tiktok_script_generation
+      - youtube_shorts_creation
+      - twitter_thread_writing
+      - viral_hook_optimization
+      - multilingual_content
+    targets:
+      daily_posts: 15
+      viral_score_min: 7
+      revenue_target: 30.0
+    spawn_threshold: 0.7
+    
+  # ═════════════════════════════════════════════════════════════
+  # 2. SALES MASTER - Fiverr Automation & Bidding
+  # ═════════════════════════════════════════════════════════════
+  - id: sales-master-001
+    role: Sales Master
+    model: llama3.3
+    capabilities:
+      - fiverr_gig_creation
+      - automated_bidding
+      - client_communication
+      - proposal_writing
+      - pricing_optimization
+    targets:
+      daily_gigs: 5
+      daily_bids: 10
+      revenue_target: 70.0
+    spawn_threshold: 0.7
+    
+  # ═════════════════════════════════════════════════════════════
+  # 3. CODE MASTER - Automation & Service Delivery
+  # ═════════════════════════════════════════════════════════════
+  - id: code-master-001
+    role: Code Master
+    model: deepseek-coder
+    capabilities:
+      - code_generation
+      - api_integration
+      - automation_scripting
+      - bug_fixing
+      - documentation
+    targets:
+      daily_tasks: 20
+      code_quality_min: 0.85
+    spawn_threshold: 0.8
+    
+  # ═════════════════════════════════════════════════════════════
+  # 4. OPTIMIZER - Continuous Improvement
+  # ═════════════════════════════════════════════════════════════
+  - id: optimizer-001
+    role: Optimizer
+    model: mixtral-8x7b
+    capabilities:
+      - performance_analysis
+      - strategy_optimization
+      - agent_spawning_decisions
+      - resource_allocation
+      - roi_calculation
+    check_interval: 3600
+    optimization_threshold: 0.1
+    
+  # ═════════════════════════════════════════════════════════════
+  # 5. MONITOR - Health & Security Tracking
+  # ═════════════════════════════════════════════════════════════
+  - id: monitor-001
+    role: Monitor
+    model: neural-chat
+    capabilities:
+      - system_health_check
+      - agent_status_tracking
+      - resource_monitoring
+      - anomaly_detection
+      - alert_generation
+    check_interval: 900
+    alert_threshold: 0.5
+    
+  # ═════════════════════════════════════════════════════════════
+  # 6. HEALER - Error Recovery & Self-Healing
+  # ═════════════════════════════════════════════════════════════
+  - id: healer-001
+    role: Healer
+    model: openhermes
+    capabilities:
+      - error_diagnosis
+      - automatic_recovery
+      - agent_restart
+      - data_restoration
+      - incident_logging
+    recovery_timeout: 300
+    max_retries: 3
+    
+  # ═════════════════════════════════════════════════════════════
+  # 7. SCOUT - Opportunity Detection
+  # ═════════════════════════════════════════════════════════════
+  - id: scout-001
+    role: Scout
+    model: mixtral-8x7b
+    capabilities:
+      - market_analysis
+      - trend_detection
+      - opportunity_discovery
+      - competitor_monitoring
+      - new_platform_scouting
+    scan_interval: 7200
+    confidence_threshold: 0.75
+
+# ═══════════════════════════════════════════════════════════════
+# SPAWNING RULES - Wann neue Agenten erstellt werden
+# ═══════════════════════════════════════════════════════════════
+spawning_rules:
+  enabled: true
+  max_total_agents: 100
+  spawn_on_revenue_miss: true
+  spawn_on_overload: true
+  spawn_on_quality_drop: true
+  
+  thresholds:
+    revenue_miss_percent: 0.7  # Bei <70% des Targets spawnen
+    task_queue_length: 50      # Bei >50 Tasks in Queue spawnen
+    quality_score_min: 0.6     # Bei <60% Quality spawnen
+    agent_utilization: 0.9     # Bei >90% Auslastung spawnen
+
+# ═══════════════════════════════════════════════════════════════
+# COLLECTIVE LEARNING - Wissens-Sharing zwischen Agenten
+# ═══════════════════════════════════════════════════════════════
+collective_learning:
+  enabled: true
+  share_interval: 900
+  min_quality_to_share: 0.75
+  max_strategies_per_task: 10
+  learning_rate: 0.1

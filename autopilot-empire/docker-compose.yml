@@ -1,0 +1,176 @@
+# AUTOPILOT EMPIRE - Maurice's Complete AI Business System
+# Docker Stack für 24/7 automatisiertes Revenue-Generation
+# Erstellt: 2026-02-08
+
+version: '3.8'
+
+services:
+  # ═══════════════════════════════════════════════════════════════
+  # OLLAMA - Lokale AI-Modelle (KOSTENLOS)
+  # ═══════════════════════════════════════════════════════════════
+  ollama-master:
+    image: ollama/ollama:latest
+    container_name: autopilot-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./data/models:/root/.ollama
+      - ./data/cache:/cache
+    environment:
+      - OLLAMA_HOST=0.0.0.0:11434
+      - OLLAMA_GPU_MEMORY=24GB
+    command: serve
+    restart: always
+    networks:
+      - autopilot-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ═══════════════════════════════════════════════════════════════
+  # ORCHESTRATOR - Master Brain (Autonomer Swarm Manager)
+  # ═══════════════════════════════════════════════════════════════
+  orchestrator:
+    build:
+      context: .
+      dockerfile: Dockerfile.orchestrator
+    container_name: autopilot-orchestrator
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama-master
+      - postgres-master
+      - redis-cache
+    environment:
+      - OLLAMA_HOST=http://ollama-master:11434
+      - DATABASE_URL=postgresql://autopilot:autopilot@postgres-master:5432/autopilot
+      - REDIS_URL=redis://redis-cache:6379
+      - EXECUTION_MODE=aggressive
+      - REVENUE_TARGET=100.0
+      - AUTO_SPAWN_AGENTS=true
+    volumes:
+      - ./agents:/app/agents
+      - ./config:/app/config
+      - ./data/logs:/app/logs
+      - ./data/cache:/app/cache
+    restart: always
+    networks:
+      - autopilot-network
+
+  # ═══════════════════════════════════════════════════════════════
+  # CONTENT SERVICE - Content Generation Squad
+  # ═══════════════════════════════════════════════════════════════
+  content-service:
+    build:
+      context: ./agents
+      dockerfile: Dockerfile.content
+    container_name: autopilot-content
+    depends_on:
+      - ollama-master
+      - postgres-master
+    environment:
+      - OLLAMA_HOST=http://ollama-master:11434
+      - DATABASE_URL=postgresql://autopilot:autopilot@postgres-master:5432/autopilot
+    volumes:
+      - ./agents/content_squad.py:/app/content_squad.py
+      - ./data/logs:/app/logs
+    restart: always
+    networks:
+      - autopilot-network
+
+  # ═══════════════════════════════════════════════════════════════
+  # POSTGRESQL - Long-term Memory & Analytics
+  # ═══════════════════════════════════════════════════════════════
+  postgres-master:
+    image: postgres:16-alpine
+    container_name: autopilot-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=autopilot
+      - POSTGRES_PASSWORD=autopilot
+      - POSTGRES_DB=autopilot
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./init-autopilot.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+    networks:
+      - autopilot-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U autopilot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ═══════════════════════════════════════════════════════════════
+  # REDIS - Fast Caching & Task Queue
+  # ═══════════════════════════════════════════════════════════════
+  redis-cache:
+    image: redis:7-alpine
+    container_name: autopilot-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+    command: redis-server --appendonly yes
+    restart: always
+    networks:
+      - autopilot-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ═══════════════════════════════════════════════════════════════
+  # MONITORING - 24/7 Health & Performance Tracking
+  # ═══════════════════════════════════════════════════════════════
+  monitor:
+    build:
+      context: ./monitoring
+      dockerfile: Dockerfile.monitor
+    container_name: autopilot-monitor
+    ports:
+      - "9090:9090"
+    depends_on:
+      - postgres-master
+      - orchestrator
+    environment:
+      - DATABASE_URL=postgresql://autopilot:autopilot@postgres-master:5432/autopilot
+      - ORCHESTRATOR_URL=http://orchestrator:8000
+    volumes:
+      - ./monitoring:/app
+      - ./data/logs:/app/logs
+    restart: always
+    networks:
+      - autopilot-network
+
+  # ═══════════════════════════════════════════════════════════════
+  # API GATEWAY - Reverse Proxy & Load Balancer
+  # ═══════════════════════════════════════════════════════════════
+  api-gateway:
+    image: caddy:latest
+    container_name: autopilot-gateway
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./data/caddy:/data
+    depends_on:
+      - orchestrator
+      - monitor
+    restart: always
+    networks:
+      - autopilot-network
+
+networks:
+  autopilot-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  ollama_models:

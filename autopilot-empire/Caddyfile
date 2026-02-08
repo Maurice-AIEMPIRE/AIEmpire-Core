@@ -1,0 +1,48 @@
+# ═══════════════════════════════════════════════════════════════
+# Autopilot Empire - Caddyfile
+# Reverse Proxy Configuration für API Gateway
+# ═══════════════════════════════════════════════════════════════
+
+# HTTP auf Port 80
+:80 {
+    # Orchestrator API
+    reverse_proxy /api/* orchestrator:8000
+    
+    # Health Check
+    reverse_proxy /health orchestrator:8000
+    
+    # Monitoring Dashboard
+    reverse_proxy /monitor/* monitor:9090
+    
+    # Default: Orchestrator Dashboard
+    reverse_proxy /* orchestrator:8000
+    
+    # Logging
+    log {
+        output file /data/access.log
+        format console
+    }
+    
+    # Headers
+    header {
+        # Security Headers
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "SAMEORIGIN"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        
+        # CORS (wenn benötigt)
+        Access-Control-Allow-Origin "*"
+        Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        Access-Control-Allow-Headers "Content-Type, Authorization"
+    }
+}
+
+# HTTPS auf Port 443 (für Produktion mit Zertifikat)
+# Uncomment für Production mit echter Domain:
+# your-domain.com {
+#     reverse_proxy /api/* orchestrator:8000
+#     reverse_proxy /monitor/* monitor:9090
+#     reverse_proxy /* orchestrator:8000
+#     
+#     tls your-email@domain.com
+# }
