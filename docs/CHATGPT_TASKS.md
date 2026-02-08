@@ -1,43 +1,196 @@
-# TASKS fuer ChatGPT Mini 5 - Sofort ausfuehren!
-# Stand: 2026-02-08
+# TASKS fuer GitHub Copilot / ChatGPT Mini 5
+# Stand: 2026-02-08 (UPDATE v2)
+# KEINE RUECKFRAGEN - EINFACH MACHEN!
+
+---
 
 ## KONTEXT
-Maurice hat ein AI Empire System mit OpenClaw (installiert!), Ollama, Kimi,
-Atomic Reactor und 9 automatisierten Cron-Jobs. Ziel: 100M EUR in 1-3 Jahren.
+Maurice hat ein AI Empire System mit OpenClaw (v2026.2.2-3 installiert!), Ollama,
+Kimi K2.5 ($7.72 Budget), Atomic Reactor und 9 automatisierten Cron-Jobs.
+Ziel: 100M EUR in 1-3 Jahren. Revenue aktuell: EUR 0.
 
-## SOFORT-TASKS
+Claude kuemmert sich um: Strategie, Architektur, System-Design, grosse Entscheidungen.
+GitHub/ChatGPT kuemmert sich um: Alles operative, Content, Code, Products.
 
-### 1. OpenClaw Skills entwickeln
-- Lies GOLD_OPENCLAW_MASTERPLAN_2026-02-08.md
-- BMA Expert Skill Code schreiben (Fire Alarm Systems)
-- SEO Content Engine Skill bauen
-- Marketing Mode Skill anpassen
+---
 
-### 2. Atomic Reactor Tasks ausfuehren
-- T-001: Lead Research auf X/Twitter
-- T-002: Content Week planen
-- T-003: Competitor Analysis
-- T-004: Product Ideas generieren
-- T-005: BMA AI Service Konzept
+## BLOCK A: CONTENT PRODUKTION (Prioritaet 1)
 
-### 3. GitHub Repo erweitern
-- README.md updaten mit OpenClaw Integration
-- CI/CD Pipeline (GitHub Actions)
-- Automatische Gold Nugget Extraction
-- Issue Templates fuer Tasks
+### A1. Gumroad Products erstellen (EUR 2.500+ potential)
+Erstelle KOMPLETTE verkaufsfertige PDF-Produkte:
 
-### 4. Revenue Streams aktivieren
-Aus MONETIZATION_REPORT lesen und umsetzen:
-- Docker Guide auf Gumroad (EUR 99)
-- OpenClaw Skill Packs (USD 20-100)
-- SEO Content Service (USD 100-300/Artikel)
-- BMA AI Consulting (EUR 2-5K/Projekt)
+**Produkt 1: "OpenClaw Quick Start Guide" (EUR 49)**
+- Was ist OpenClaw (1 Seite)
+- Installation auf Mac/Linux/Windows (3 Seiten)
+- Telegram Bot verbinden (2 Seiten)
+- Erste 5 Skills installieren (3 Seiten)
+- 5 Automations die sofort Geld verdienen (5 Seiten)
+- Troubleshooting FAQ (2 Seiten)
+- FORMAT: Markdown → kann als PDF verkauft werden
 
-### 5. OpenClaw Konfiguration
-- Telegram Channel verbinden
-- Ollama Provider hinzufuegen (Port 11434)
-- Gateway Auth Token setzen
-- WhatsApp Bridge (Baileys Protocol)
+**Produkt 2: "AI Automation Blueprint" (EUR 79)**
+- Ollama lokal einrichten (kostenlose AI)
+- OpenClaw + Ollama verbinden
+- 9 Cron Jobs die dein Business automatisieren
+- Content Pipeline: Automatisch Posts/Artikel/Videos
+- Lead Generation mit AI
+- ROI Kalkulator
+- FORMAT: Markdown → PDF
+
+**Produkt 3: "BMA + AI Integration Guide" (EUR 149)**
+- Lies GOLD_OPENCLAW_MASTERPLAN fuer BMA Kontext
+- Brandmeldeanlagen-Dokumentation mit AI
+- Pruefprotokolle automatisch erstellen
+- DIN 14675 Checklisten mit AI
+- Wartungsplanung automatisieren
+- Deutscher Markt: EUR 2+ Mrd/Jahr
+- FORMAT: Markdown → PDF
+
+**Produkt 4: "Docker Troubleshooting Guide" (EUR 99)**
+- Top 50 Docker Fehler + Loesungen
+- Docker Compose fuer AI Stacks
+- Ollama in Docker optimieren
+- Performance Tuning
+- Security Best Practices
+- FORMAT: Markdown → PDF
+
+OUTPUT: Speichere alle in `/docs/gumroad-products/` als einzelne .md Dateien
+
+---
+
+### A2. Fiverr Gig-Texte erstellen (3 Gigs)
+Erstelle KOMPLETTE Fiverr Gig Descriptions:
+
+**Gig 1: "I will set up AI automation for your business"**
+- Titel, Description, FAQ, 3 Packages (Basic/Standard/Premium)
+- Basic: EUR 50 (1 Automation)
+- Standard: EUR 200 (3 Automations + Ollama)
+- Premium: EUR 500 (Full Stack + Training)
+
+**Gig 2: "I will write SEO-optimized content with AI"**
+- Basic: EUR 30 (1 Artikel, 1000 Woerter)
+- Standard: EUR 100 (5 Artikel)
+- Premium: EUR 300 (20 Artikel + Keyword Research)
+
+**Gig 3: "I will create fire alarm system documentation with AI"**
+- Basic: EUR 100 (1 Pruefprotokoll)
+- Standard: EUR 300 (5 Dokumente)
+- Premium: EUR 1000 (Komplette Dokumentation)
+
+OUTPUT: Speichere in `/docs/fiverr-gigs/` als einzelne .md Dateien
+
+---
+
+### A3. X/Twitter Content Pipeline (50 Posts)
+Lies `/x-lead-machine/READY_TO_POST.md` fuer bestehende 7 Posts.
+Erstelle 50 NEUE Posts in diesen Kategorien:
+
+**Kategorie 1: AI Automation Tips (15 Posts)**
+- Hooks die Aufmerksamkeit grabben
+- Actionable Tips
+- CTA: Link zu Gumroad Product
+
+**Kategorie 2: BMA + AI (10 Posts, Deutsch)**
+- Brandmeldeanlagen-Expertise zeigen
+- AI Integration Moeglichkeiten
+- CTA: DM fuer Consulting
+
+**Kategorie 3: OpenClaw/Ollama Tutorials (15 Posts)**
+- How-to Threads
+- Tool Comparisons
+- CTA: Link zu Quick Start Guide
+
+**Kategorie 4: Viral Reply Templates (10 Posts)**
+- Replies auf Tech-Influencer Posts
+- Value-first Approach
+- Subtle Self-Promotion
+
+OUTPUT: Speichere in `/x-lead-machine/CONTENT_CALENDAR.md`
+Format: Post-Text + Kategorie + CTA + Beste Postzeit
+
+---
+
+## BLOCK B: CODE & SKILLS (Prioritaet 2)
+
+### B1. OpenClaw BMA Expert Skill
+Erstelle einen OpenClaw Skill fuer Brandmeldeanlagen:
+```yaml
+name: bma-expert
+version: 1.0.0
+description: Fire Alarm System Expert - DIN 14675 compliant
+commands:
+  - /bma-check [anlage] - Pruefprotokoll erstellen
+  - /bma-wartung [anlage] - Wartungsplan generieren
+  - /bma-doku [projekt] - Projektdokumentation
+  - /bma-din [norm] - DIN-Norm erklaeren
+```
+OUTPUT: Speichere in `/openclaw-skills/bma-expert/`
+
+### B2. SEO Content Engine Skill
+```yaml
+name: seo-content-engine
+version: 1.0.0
+description: Automated SEO content generation
+commands:
+  - /seo-article [keyword] - SEO Artikel schreiben
+  - /seo-keywords [niche] - Keyword Research
+  - /seo-audit [url] - SEO Audit
+```
+OUTPUT: Speichere in `/openclaw-skills/seo-engine/`
+
+### B3. GitHub Actions CI/CD
+Erstelle `.github/workflows/`:
+- `auto-nugget.yml` - Automatisch Gold Nuggets aus neuen Commits extrahieren
+- `daily-status.yml` - Taeglicher System-Status Report
+- `content-pipeline.yml` - Automatisch Content generieren bei Push
+
+---
+
+## BLOCK C: SYSTEM-VERBESSERUNGEN (Prioritaet 3)
+
+### C1. README.md komplett neu schreiben
+- Professional README mit Badges
+- Quick Start Guide
+- Architecture Overview (Link zu SYSTEM_ARCHITECTURE.md)
+- Revenue Dashboard
+- Contributing Guide
+
+### C2. Issue Templates erstellen
+- `.github/ISSUE_TEMPLATE/task.md`
+- `.github/ISSUE_TEMPLATE/bug.md`
+- `.github/ISSUE_TEMPLATE/feature.md`
+- `.github/ISSUE_TEMPLATE/gold-nugget.md`
+
+### C3. Project Board Setup
+Erstelle GitHub Project Board Beschreibung:
+- Backlog → In Progress → Review → Done
+- Labels: revenue, content, code, bma, automation
+
+---
+
+## BLOCK D: RESEARCH & ANALYSE (Prioritaet 4)
+
+### D1. Competitor Analysis
+Recherchiere und dokumentiere:
+- Top 10 AI Automation Tools (Preis, Features, Schwaechen)
+- Top 5 BMA Software Loesungen in Deutschland
+- Top 10 Fiverr AI Service Anbieter
+OUTPUT: `/docs/research/COMPETITOR_ANALYSIS.md`
+
+### D2. Keyword Research
+- 50 Keywords fuer "AI Automation" (EN)
+- 50 Keywords fuer "Brandmeldeanlagen" (DE)
+- 50 Keywords fuer "OpenClaw" / "AI Agent" (EN)
+- Suchvolumen, Difficulty, CPC schaetzen
+OUTPUT: `/docs/research/KEYWORD_RESEARCH.md`
+
+### D3. Pricing Research
+- Was kosten aehnliche Gumroad Products?
+- Was sind Fiverr Durchschnittspreise fuer AI Services?
+- Was kostet BMA Consulting in Deutschland?
+OUTPUT: `/docs/research/PRICING_ANALYSIS.md`
+
+---
 
 ## ALLE GOLD NUGGETS (zum Verarbeiten)
 1. GOLD_OPENCLAW_MASTERPLAN_2026-02-08.md - OpenClaw Komplett-Analyse
@@ -47,10 +200,31 @@ Aus MONETIZATION_REPORT lesen und umsetzen:
 5. GOLD_VISION_SCAN_2026-02-08.md - Vision Capabilities
 6. MONETIZATION_REPORT_2026-02-08.md - Revenue Roadmap
 7. GITHUB_GOLD_NUGGETS.md - GitHub Repo Analyse
+8. GOLD_KIMI_AGENT_SWARM_2026-02-08.md - PARL Agent Swarm (NEU!)
+9. GOLD_REDPLANET_MEMORY_AGENT_2026-02-08.md - Memory Layer (NEU!)
 
-## PRIORITAET
-1. OpenClaw updaten + Telegram verbinden (10 min)
-2. BMA Skill bauen + auf ClawHub publishen (2h)
-3. SEO Content Engine aktivieren (1h)
-4. Erste 3 Gumroad Products live (2h)
-5. Revenue Week 1 Target: EUR 2-3K
+---
+
+## REIHENFOLGE DER ABARBEITUNG
+```
+1. A1 → Gumroad Products (SOFORT, bringt Geld!)
+2. A2 → Fiverr Gigs (SOFORT, bringt Geld!)
+3. A3 → Twitter Posts (Content → Leads → Sales)
+4. B1 → BMA Skill (Unique Selling Point)
+5. B2 → SEO Skill (Skaliert Content)
+6. C1 → README (Professional Appearance)
+7. B3 → CI/CD (Automation)
+8. D1-D3 → Research (informiert naechste Schritte)
+9. C2-C3 → Templates (Organisation)
+```
+
+---
+
+## WICHTIG
+- Alle Texte SOFORT nutzbar (kein Entwurf, sondern FERTIG)
+- Deutsch fuer BMA/DE-Markt, Englisch fuer alles andere
+- Bei Produkten: Immer Preis, CTA, Urgency einbauen
+- Revenue-First: Jede Zeile muss zum Verkauf beitragen
+- KEINE Rueckfragen an Maurice - einfach beste Entscheidung treffen
+
+*Generiert von Claude Code | 2026-02-08*
