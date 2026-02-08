@@ -10,7 +10,7 @@ import json
 import os
 from datetime import datetime
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-hMWtpmLkLxNsqTyVEiKimq5ypRDBjhJGNqngxqe6HvGP3o9Y")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 
 # Aktuelle Trends Februar 2026
 TRENDS = [

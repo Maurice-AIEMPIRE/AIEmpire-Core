@@ -10,7 +10,7 @@ import json
 import os
 from datetime import datetime, timedelta
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 
 WEEK_PLAN = [
     {"day": "Montag", "topic": "AI Agents automatisieren mein Business", "style": "result"},

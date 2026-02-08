@@ -8,7 +8,7 @@ import asyncio
 import aiohttp
 import os
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 
 # Virale Posts zum Replyen (von X gerade)
 VIRAL_POSTS = [
