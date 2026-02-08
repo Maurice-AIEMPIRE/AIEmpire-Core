@@ -1,0 +1,309 @@
+{
+  "name": "04 GitHub Monitor - AIEmpire-Core",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 30
+            }
+          ]
+        }
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000001",
+      "name": "Every 30 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/mauricepfeifer-ctrl/AIEmpire-Core",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "n8n-ai-empire-monitor"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000002",
+      "name": "Get Repo Info",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 200]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/mauricepfeifer-ctrl/AIEmpire-Core/issues?state=open&sort=created&direction=desc&per_page=5",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "n8n-ai-empire-monitor"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000003",
+      "name": "Get Open Issues",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 400]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://api.github.com/repos/mauricepfeifer-ctrl/AIEmpire-Core/pulls?state=open&sort=created&direction=desc&per_page=5",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/vnd.github.v3+json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "n8n-ai-empire-monitor"
+            }
+          ]
+        },
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000004",
+      "name": "Get Open PRs",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [460, 600]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000005",
+      "name": "Merge All Data",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000010",
+      "name": "Merge Repo+Issues",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [700, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\n\n// Extract data from merged inputs\nlet repoData = null;\nlet issues = [];\nlet prs = [];\n\nfor (const item of items) {\n  const d = item.json;\n  if (d.stargazers_count !== undefined && d.full_name) {\n    repoData = d;\n  } else if (Array.isArray(d)) {\n    // Check if issues or PRs\n    for (const entry of d) {\n      if (entry.pull_request) {\n        prs.push(entry);\n      } else if (entry.title) {\n        issues.push(entry);\n      }\n    }\n  }\n}\n\nconst now = new Date().toISOString();\n\nconst report = {\n  checked_at: now,\n  repo: repoData ? repoData.full_name : 'mauricepfeifer-ctrl/AIEmpire-Core',\n  stars: repoData ? repoData.stargazers_count : 0,\n  forks: repoData ? repoData.forks_count : 0,\n  watchers: repoData ? repoData.subscribers_count : 0,\n  open_issues_count: repoData ? repoData.open_issues_count : 0,\n  recent_issues: issues.slice(0, 5).map(i => ({\n    number: i.number,\n    title: i.title,\n    created_at: i.created_at,\n    user: i.user ? i.user.login : 'unknown'\n  })),\n  recent_prs: prs.slice(0, 5).map(p => ({\n    number: p.number,\n    title: p.title,\n    created_at: p.created_at,\n    user: p.user ? p.user.login : 'unknown'\n  })),\n  has_new_activity: issues.length > 0 || prs.length > 0\n};\n\nreturn [{ json: report }];"
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000006",
+      "name": "Build Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [940, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "has-activity",
+              "leftValue": "={{ $json.has_new_activity }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000007",
+      "name": "Has New Activity?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1160, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "const report = $input.first().json;\n\nconst line = JSON.stringify(report) + '\\n';\n\nconst fs = require('fs');\nconst dir = '/Users/maurice/.openclaw/workspace/ai-empire/04_OUTPUT/';\nconst path = dir + 'github_activity.jsonl';\n\ntry {\n  fs.mkdirSync(dir, { recursive: true });\n  fs.appendFileSync(path, line);\n} catch(e) {\n  return [{ json: { error: e.message } }];\n}\n\nreturn [{ json: { notification: 'New GitHub activity detected!', stars: report.stars, issues: report.recent_issues.length, prs: report.recent_prs.length, saved_to: path } }];"
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000008",
+      "name": "Log & Notify Activity",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1380, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const report = $input.first().json;\nreturn [{ json: { status: 'no_new_activity', stars: report.stars, checked_at: report.checked_at } }];"
+      },
+      "id": "d4e5f6a7-4444-4ddd-b444-000000000009",
+      "name": "No Activity - Skip",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1380, 500]
+    }
+  ],
+  "connections": {
+    "Every 30 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Get Repo Info",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Open Issues",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Get Open PRs",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Repo Info": {
+      "main": [
+        [
+          {
+            "node": "Merge Repo+Issues",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Open Issues": {
+      "main": [
+        [
+          {
+            "node": "Merge Repo+Issues",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Repo+Issues": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Open PRs": {
+      "main": [
+        [
+          {
+            "node": "Merge All Data",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge All Data": {
+      "main": [
+        [
+          {
+            "node": "Build Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Report": {
+      "main": [
+        [
+          {
+            "node": "Has New Activity?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Has New Activity?": {
+      "main": [
+        [
+          {
+            "node": "Log & Notify Activity",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Activity - Skip",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Berlin"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "github",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    },
+    {
+      "name": "ai-empire",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    }
+  ]
+}
