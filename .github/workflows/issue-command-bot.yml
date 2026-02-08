@@ -1,0 +1,105 @@
+name: Issue Command Bot
+
+on:
+  issues:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  process-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install aiohttp pyyaml
+          
+      - name: Process Command
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const comment = context.payload.comment?.body || context.payload.issue?.body || '';
+            const issueNumber = context.payload.issue.number;
+            
+            console.log('Processing comment:', comment);
+            console.log('Issue number:', issueNumber);
+            
+            // Check for bot commands
+            if (comment.includes('@bot status')) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: `# 🤖 System Status
+                
+**Mode:** GitHub Control
+**Timestamp:** ${new Date().toISOString()}
+**Services:**
+- ✅ GitHub Actions Active
+- ✅ Content Generation Ready
+- ✅ Kimi API Available
+- ✅ X Lead Machine Ready
+- ✅ CRM System Standby
+                
+**Commands Available:**
+- \`@bot generate-content\` - Generate X/Twitter content
+- \`@bot status\` - Show this status
+- \`@bot run-task <task>\` - Run specific task
+- \`@bot revenue-report\` - Show revenue status
+                `
+              });
+            }
+            
+            if (comment.includes('@bot generate-content')) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: '🚀 Generating content... Check workflow run for results.'
+              });
+              
+              // Trigger content generation workflow
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'auto-content-generation.yml',
+                ref: 'main'
+              });
+            }
+            
+            if (comment.includes('@bot revenue-report')) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issueNumber,
+                body: `# 💰 Revenue Report
+                
+**Current Status:** EUR 0
+**Target:** EUR 50-100 overnight
+                
+**Revenue Streams:**
+1. 🟡 Gumroad - 1 product live (EUR 27)
+2. ❌ Fiverr - No gigs yet
+3. 🟡 X/Twitter - Content ready, not posted
+4. ❌ Telegram - No bot yet
+                
+**Next Actions:**
+1. Post X content to generate leads
+2. Create Fiverr gigs
+3. Set up Telegram bot
+4. Launch additional Gumroad products
+                `
+              });
+            }

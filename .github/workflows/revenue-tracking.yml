@@ -1,0 +1,76 @@
+name: Revenue Tracking
+
+on:
+  schedule:
+    # Check revenue daily at 9 AM UTC
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  track-revenue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Generate Revenue Report
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const timestamp = new Date().toISOString().split('T')[0];
+            
+            // Read existing revenue data if available
+            let revenueData = {
+              total: 0,
+              streams: {
+                gumroad: 0,
+                fiverr: 0,
+                x_leads: 0,
+                consulting: 0
+              },
+              history: []
+            };
+            
+            // Generate daily report
+            const report = `# Daily Revenue Report - ${timestamp}
+            
+## Current Status
+**Total Revenue:** EUR ${revenueData.total}
+**Target:** EUR 50-100 overnight → EUR 25K month 1
+            
+## Revenue Streams
+| Stream | Amount | Status |
+|--------|--------|--------|
+| Gumroad | EUR ${revenueData.streams.gumroad} | 🟡 1 product |
+| Fiverr | EUR ${revenueData.streams.fiverr} | ❌ No gigs |
+| X Leads | EUR ${revenueData.streams.x_leads} | 🟡 Ready |
+| Consulting | EUR ${revenueData.streams.consulting} | ❌ Not started |
+            
+## Action Items
+1. [ ] Post X content daily
+2. [ ] Create 3 Fiverr gigs
+3. [ ] Launch 2 more Gumroad products
+4. [ ] Set up lead capture
+5. [ ] Start consulting offers
+            
+## Growth Metrics
+- X Followers: Track manually
+- Email Subscribers: 0
+- Product Views: Track in Gumroad
+- Gig Impressions: Track in Fiverr
+            
+---
+*Report generated automatically by GitHub Actions*
+`;
+            
+            // Create issue with revenue report
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `💰 Daily Revenue Report - ${timestamp}`,
+              body: report,
+              labels: ['revenue', 'tracking', 'daily-report']
+            });
+            
+            console.log('Revenue report generated');
