@@ -1,0 +1,77 @@
+name: X Auto Poster Daily
+
+on:
+  schedule:
+    # Run daily at 7 AM UTC to prepare content for the day
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate-and-schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          pip install aiohttp
+          
+      - name: Generate Daily Content
+        env:
+          MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
+        run: |
+          python3 x_auto_poster.py
+          
+      - name: Upload Posting Guide
+        uses: actions/upload-artifact@v4
+        with:
+          name: x-posting-guide
+          path: X_POSTING_GUIDE.md
+          
+      - name: Create Issue with Guide
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const timestamp = new Date().toISOString().split('T')[0];
+            
+            let guide = '';
+            try {
+              guide = fs.readFileSync('X_POSTING_GUIDE.md', 'utf8');
+            } catch (e) {
+              guide = 'Error reading guide file';
+            }
+            
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `📱 X/Twitter Content Ready - ${timestamp}`,
+              body: `${guide}
+              
+---
+              
+## How to Post
+1. Copy each post at the scheduled time
+2. Go to X/Twitter
+3. Paste and post
+4. Engage with comments immediately
+5. Track engagement metrics
+              
+## Automation Next Steps
+To enable automatic posting:
+1. Get Twitter API credentials
+2. Add to GitHub Secrets:
+   - TWITTER_API_KEY
+   - TWITTER_API_SECRET
+   - TWITTER_ACCESS_TOKEN
+   - TWITTER_ACCESS_SECRET
+3. System will auto-post at scheduled times
+              `,
+              labels: ['x-twitter', 'content', 'daily']
+            });
