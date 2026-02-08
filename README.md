@@ -2,6 +2,16 @@
 
 > 100 Mio € in 1-3 Jahren - Alles automatisiert mit AI
 
+## 📚 Struktur-Dokumentation
+
+**NEU:** Vollständige Strukturübersicht für deinen Mac!
+
+- 📖 **[COMPLETE_STRUCTURE.md](./COMPLETE_STRUCTURE.md)** - Komplette Dokumentation (16KB)
+- ⚡ **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** - Schnellzugriff & Commands
+- 🎨 **[STRUCTURE_VISUAL.txt](./STRUCTURE_VISUAL.txt)** - Visuelle Diagramme
+
+---
+
 ## 📊 Overview
 
 | Component | Status | Purpose |
