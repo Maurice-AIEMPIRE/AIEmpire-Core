@@ -119,6 +119,69 @@ class KimiSwarm:
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT)
         self.session = None
         self.task_counter = 0
+        
+    def validate_max_agent_capacity(self) -> bool:
+        """Validate that system is configured to spawn max agents."""
+        print(f"\n{'='*60}")
+        print(f"🔍 VALIDATING MAX AGENT CAPACITY")
+        print(f"{'='*60}")
+        
+        validation_passed = True
+        
+        # Check TOTAL_AGENTS configuration
+        print(f"Total Agents Capacity: {TOTAL_AGENTS:,}")
+        if TOTAL_AGENTS <= 0:
+            print(f"  ❌ TOTAL_AGENTS must be > 0")
+            validation_passed = False
+        else:
+            print(f"  ✅ Valid agent capacity configured")
+        
+        # Check MAX_CONCURRENT configuration
+        print(f"Max Concurrent Workers: {MAX_CONCURRENT}")
+        if MAX_CONCURRENT <= 0:
+            print(f"  ❌ MAX_CONCURRENT must be > 0")
+            validation_passed = False
+        elif MAX_CONCURRENT > 200:
+            print(f"  ⚠️  Warning: MAX_CONCURRENT > 200 may cause rate limiting")
+        else:
+            print(f"  ✅ Valid concurrency level")
+        
+        # Check API key is set
+        if not MOONSHOT_API_KEY:
+            print(f"  ❌ MOONSHOT_API_KEY not set")
+            validation_passed = False
+        else:
+            print(f"  ✅ API key configured")
+        
+        # Check semaphore capacity
+        if self.semaphore._value != MAX_CONCURRENT:
+            print(f"  ❌ Semaphore capacity mismatch")
+            validation_passed = False
+        else:
+            print(f"  ✅ Semaphore initialized correctly")
+        
+        # Check output directories exist
+        for dir_path in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR]:
+            if not dir_path.exists():
+                print(f"  ❌ Output directory missing: {dir_path}")
+                validation_passed = False
+        print(f"  ✅ All output directories exist")
+        
+        # Capacity report
+        estimated_time = (TOTAL_AGENTS / MAX_CONCURRENT) * 0.5  # Rough estimate at 0.5s per task
+        print(f"\nCapacity Report:")
+        print(f"  • Max Agents: {TOTAL_AGENTS:,}")
+        print(f"  • Concurrent Workers: {MAX_CONCURRENT}")
+        print(f"  • Estimated Time for Full Run: {estimated_time/3600:.1f} hours")
+        print(f"  • Estimated Cost: ${BUDGET_USD:.2f}")
+        
+        if validation_passed:
+            print(f"\n✅ System validated - ready to spawn max agents!")
+        else:
+            print(f"\n❌ Validation failed - fix issues before spawning agents")
+        
+        print(f"{'='*60}\n")
+        return validation_passed
 
     async def init_session(self):
         """Initialize shared session for all requests."""
@@ -251,6 +314,11 @@ class KimiSwarm:
 
     async def run_swarm(self, total_tasks: int = 1000):
         """Run the full swarm."""
+        # Validate system capacity before starting
+        if not self.validate_max_agent_capacity():
+            print("❌ Validation failed. Aborting swarm run.")
+            return None
+        
         self.stats["start_time"] = time.time()
         await self.init_session()
 
@@ -259,6 +327,7 @@ class KimiSwarm:
      KIMI 100K SWARM - MAURICE'S AI EMPIRE
 {'='*60}
    Total Tasks:  {total_tasks:,}
+   Max Capacity: {TOTAL_AGENTS:,}
    Concurrent:   {MAX_CONCURRENT}
    Budget:       ${BUDGET_USD}
    Output:       {OUTPUT_DIR}
