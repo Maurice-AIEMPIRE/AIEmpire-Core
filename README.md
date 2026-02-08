@@ -14,6 +14,7 @@
 | Kimi Swarm | ✅ | 100.000 Agents für Bulk-Tasks |
 | **Kimi 500K Swarm** | 🔥 **NEW** | **500.000 Agents + Claude Orchestration** |
 | Atomic Reactor | ✅ | Task Orchestration + Docker |
+| **Nginx Gateway** | ✅ | **Reverse Proxy for all services (port 8080)** |
 | Gold Nuggets | ✅ | Wertvolle Insights extrahiert |
 
 ---
@@ -39,6 +40,10 @@
 ### Lokale Services
 
 ```bash
+# 0. Gateway starten (Nginx Reverse Proxy)
+cd atomic-reactor && docker compose up -d gateway
+# → http://localhost:8080
+
 # 1. CRM starten
 cd crm && npm install && node server.js
 # → http://localhost:3500
@@ -90,6 +95,10 @@ ai-empire/
 │   └── CLAUDE_ORCHESTRATOR_CONFIG.md
 ├── atomic-reactor/        # ⚛️ Task Orchestration
 │   ├── docker-compose.yaml
+│   ├── nginx/             # 🌐 Reverse Proxy Gateway
+│   │   ├── Dockerfile
+│   │   ├── nginx.conf
+│   │   └── html/index.html
 │   └── tasks/
 └── systems/                   # 🔧 Infrastructure
     ├── docker-compose.yaml

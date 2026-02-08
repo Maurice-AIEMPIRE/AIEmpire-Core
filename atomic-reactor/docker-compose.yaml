@@ -126,6 +126,20 @@ services:
     restart: unless-stopped
 
   # ═══════════════════════════════════════════
+  # NGINX GATEWAY: Reverse Proxy (Port 8080)
+  # ═══════════════════════════════════════════
+  gateway:
+    build: ./nginx
+    container_name: ai-empire-gateway
+    ports:
+      - "8080:80"
+    depends_on:
+      - reactor-core
+      - crm
+      - ollama
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
   # CRM: AI Empire Dashboard
   # ═══════════════════════════════════════════
   crm:
