@@ -9,6 +9,8 @@ import aiohttp
 import os
 
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+if not MOONSHOT_API_KEY:
+    print("⚠️  MOONSHOT_API_KEY not set - API calls will not work")
 
 # Virale Posts zum Replyen (von X gerade)
 VIRAL_POSTS = [

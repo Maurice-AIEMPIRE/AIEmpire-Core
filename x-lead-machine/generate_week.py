@@ -11,6 +11,8 @@ import os
 from datetime import datetime, timedelta
 
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+if not MOONSHOT_API_KEY:
+    print("⚠️  MOONSHOT_API_KEY not set - API calls will not work")
 
 WEEK_PLAN = [
     {"day": "Montag", "topic": "AI Agents automatisieren mein Business", "style": "result"},
