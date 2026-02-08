@@ -6,6 +6,7 @@
 
 | Component | Status | Purpose |
 |-----------|--------|---------|
+| **Mission Control System** | ✅ | Task scanning & prioritization across all systems |
 | **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
 | **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
@@ -20,7 +21,30 @@
 
 ## 🚀 Quick Start
 
-### GitHub Control System (NEU!)
+### Mission Control System (NEU!)
+
+**Komplette Task-Übersicht auf einen Blick:**
+
+```bash
+# Mission Control starten
+python3 mission_control.py
+
+# Output:
+# - MISSION_CONTROL.md (Dashboard)
+# - mission_control_data.json (Knowledge Graph)
+```
+
+**Features:**
+- ✅ Scannt ALLE Systeme (GitHub, Docker, Logs, Brain, Tasks)
+- ✅ Top 10 Blocker + Ursachen
+- ✅ Top 10 Hebel (höchster Impact)
+- ✅ Kategorisiert in BUILD/FIX/AUTOMATE/CONTENT/STRATEGY
+- ✅ "Next 90 Minutes" Action List
+- ✅ JSON Export für Knowledge Graph
+
+**Dokumentation:** [MISSION_CONTROL_README.md](./MISSION_CONTROL_README.md)
+
+### GitHub Control System
 
 **Alles über GitHub Issues steuerbar:**
 
@@ -28,6 +52,7 @@
 2. Kommentiere mit Commands:
    ```
    @bot status
+   @bot mission-control
    @bot generate-content
    @bot revenue-report
    @bot create-gig
@@ -146,6 +171,7 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 
 ```
 @bot status              # System Status
+@bot mission-control     # Complete Task Overview (NEU!)
 @bot generate-content    # X/Twitter Posts generieren
 @bot revenue-report      # Revenue Overview
 @bot create-gig          # Fiverr Gig Descriptions
@@ -154,6 +180,7 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 ```
 
 **Automatische Workflows:**
+- ✅ Mission Control täglich 9 AM
 - ✅ Content alle 4 Stunden
 - ✅ Claude Health Check alle 30 Min
 - ✅ Revenue Report täglich 9 AM
