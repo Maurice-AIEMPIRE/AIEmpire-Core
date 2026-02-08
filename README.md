@@ -33,9 +33,13 @@
 5. ✅ **DONE! Remote Access weltweit aktiv!**
 
 **Vollständige Dokumentation:**
+- 📚 **[MOBILE_DOCUMENTATION_INDEX.md](./MOBILE_DOCUMENTATION_INDEX.md)** - Zentrale Übersicht (Start hier!)
 - 📱 **[MOBILE_ACCESS_GUIDE.md](./MOBILE_ACCESS_GUIDE.md)** - Komplette Anleitung
 - ⚡ **[MOBILE_QUICK_REFERENCE.md](./MOBILE_QUICK_REFERENCE.md)** - Schnell-Referenz
 - 🔔 **[MOBILE_NOTIFICATIONS_SETUP.md](./MOBILE_NOTIFICATIONS_SETUP.md)** - Push-Notifications
+- ✅ **[MOBILE_SETUP_CHECKLIST.md](./MOBILE_SETUP_CHECKLIST.md)** - Setup Checkliste
+- ❓ **[MOBILE_FAQ.md](./MOBILE_FAQ.md)** - Häufige Fragen
+- 🚀 **[MOBILE_QUICK_START.md](./MOBILE_QUICK_START.md)** - One-Page Guide
 
 **Features:**
 - ✅ Chat-basierte Steuerung (wie Desktop)
