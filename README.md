@@ -6,7 +6,10 @@
 
 | Component | Status | Purpose |
 |-----------|--------|---------|
+| **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
+| **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
+| X Auto Poster | ✅ | Tägliche Content Generation + Scheduling |
 | CRM V2 | ✅ | BANT-basiertes Lead Management |
 | Kimi Swarm | ✅ | 100.000 Agents für Bulk-Tasks |
 | Atomic Reactor | ✅ | Task Orchestration + Docker |
@@ -15,6 +18,24 @@
 ---
 
 ## 🚀 Quick Start
+
+### GitHub Control System (NEU!)
+
+**Alles über GitHub Issues steuerbar:**
+
+1. Erstelle ein Issue
+2. Kommentiere mit Commands:
+   ```
+   @bot status
+   @bot generate-content
+   @bot revenue-report
+   @bot create-gig
+   ```
+3. Bot antwortet automatisch!
+
+**Dokumentation:** [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)
+
+### Lokale Services
 
 ```bash
 # 1. CRM starten
@@ -28,8 +49,7 @@ pip install aiohttp
 python3 github_scanner_100k.py
 
 # 3. X Content generieren
-cd x-lead-machine
-python3 post_generator.py
+python3 x_auto_poster.py
 ```
 
 ---
@@ -38,21 +58,30 @@ python3 post_generator.py
 
 ```
 ai-empire/
-├── gold-nuggets/          # 💰 Extrahierte Insights
+├── .github/workflows/         # 🤖 GitHub Actions Automation
+│   ├── auto-content-generation.yml   # Alle 4h
+│   ├── claude-health-check.yml       # Alle 30min
+│   ├── issue-command-bot.yml         # Issue Commands
+│   ├── revenue-tracking.yml          # Täglich 9 AM
+│   └── x-auto-poster.yml            # Täglich 7 AM
+├── GITHUB_CONTROL_SYSTEM.md   # 📖 Vollständige Doku
+├── claude_failover_system.py  # 🔄 Claude → GitHub Failover
+├── github_control_interface.py # 💬 Command Processor
+├── x_auto_poster.py           # 📱 X Auto Posting
+├── gold-nuggets/              # 💰 Extrahierte Insights
 │   └── GITHUB_GOLD_NUGGETS.md
-├── x-lead-machine/        # 🐦 X/Twitter Automation
-│   ├── READY_TO_POST.md   # 7 fertige Posts
-│   ├── post_generator.py  # Kimi Content Generator
+├── x-lead-machine/            # 🐦 X/Twitter Automation
+│   ├── x_automation.py        # Lead Machine
 │   └── viral_reply_generator.py
-├── crm/                   # 📋 Lead Management
-│   └── server.js          # Express + SQLite
-├── kimi-swarm/            # 🤖 100k Agent Swarm
+├── crm/                       # 📋 Lead Management
+│   └── server.js              # Express + SQLite
+├── kimi-swarm/                # 🤖 100k Agent Swarm
 │   ├── swarm_100k.py
 │   └── github_scanner_100k.py
-├── atomic-reactor/        # ⚛️ Task Orchestration
+├── atomic-reactor/            # ⚛️ Task Orchestration
 │   ├── docker-compose.yaml
 │   └── tasks/
-└── systems/               # 🔧 Infrastructure
+└── systems/                   # 🔧 Infrastructure
     ├── docker-compose.yaml
     └── LEAD_AGENT_PROMPT.md
 ```
@@ -101,11 +130,33 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 
 ---
 
+## 🤖 GitHub Control Commands
+
+**In jedem Issue oder Comment:**
+
+```
+@bot status              # System Status
+@bot generate-content    # X/Twitter Posts generieren
+@bot revenue-report      # Revenue Overview
+@bot create-gig          # Fiverr Gig Descriptions
+@bot post-x             # X Posting Guide
+@bot help               # Alle Commands
+```
+
+**Automatische Workflows:**
+- ✅ Content alle 4 Stunden
+- ✅ Claude Health Check alle 30 Min
+- ✅ Revenue Report täglich 9 AM
+- ✅ X Content täglich 7 AM
+
+---
+
 ## 👤 Author
 
 **Maurice** - Elektrotechnikmeister mit 16 Jahren BMA-Expertise
 - Building the AI Empire
 - Automating everything
+- GitHub: @mauricepfeifer-ctrl
 
 ---
 
