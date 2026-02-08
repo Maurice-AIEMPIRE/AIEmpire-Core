@@ -23,6 +23,7 @@ class GitHubControlInterface:
         self.commands = {
             "@bot status": self.cmd_status,
             "@bot generate-content": self.cmd_generate_content,
+            "@bot generate-tasks": self.cmd_generate_tasks,
             "@bot run-task": self.cmd_run_task,
             "@bot revenue-report": self.cmd_revenue_report,
             "@bot post-x": self.cmd_post_x,
@@ -96,6 +97,46 @@ class GitHubControlInterface:
             
         except Exception as e:
             return f"❌ Error generating content: {e}"
+    
+    async def cmd_generate_tasks(self, issue_num: int):
+        """Generate new tasks automatically."""
+        return """# 🤖 Task Generation
+        
+## Automatic Task Generation
+New tasks are automatically generated every 6 hours to keep the team busy.
+
+## Manual Task Generation
+To generate tasks manually:
+1. Go to Actions → Auto Task Generation
+2. Click "Run workflow"
+3. Specify number of tasks (default: 25)
+4. Wait for PR with new tasks
+
+## Current Task Status
+Check atomic-reactor/tasks/ directory for all available tasks.
+
+To execute tasks:
+```bash
+python3 atomic-reactor/run_tasks.py
+```
+
+Reports will be saved to atomic-reactor/reports/
+
+## Task Categories
+- **Content**: Social media posts, blog articles, newsletters
+- **Research**: Market analysis, competitor research, lead generation
+- **Code**: Scripts, automation, integrations
+- **Business**: Products, services, pricing, campaigns  
+- **Optimization**: System improvements, cost reduction
+
+## Task Generator
+Run locally:
+```bash
+python3 task_generator.py
+```
+
+This will create 25 diverse tasks (~75 hours of work) across all categories.
+"""
     
     async def cmd_run_task(self, issue_num: int, task_name: str = ""):
         """Run a specific task."""
@@ -284,6 +325,7 @@ Background: 16 years technical expertise + AI automation specialist
         
 ### Content & Marketing
 - `@bot generate-content` - Generate X/Twitter content
+- `@bot generate-tasks` - Generate new work tasks automatically
 - `@bot post-x` - Get X posting guide
 - `@bot create-gig` - Generate Fiverr gig descriptions
         
@@ -298,12 +340,14 @@ Background: 16 years technical expertise + AI automation specialist
         
 ## Automation
 - Content is generated every 4 hours
+- Tasks are generated every 6 hours
 - Revenue reports daily at 9 AM UTC
 - Claude health checks every 30 minutes
         
 ## Manual Workflows
 Go to Actions tab to manually trigger:
 - Content Generation
+- Task Generation
 - Revenue Tracking
 - Any other workflow
 """

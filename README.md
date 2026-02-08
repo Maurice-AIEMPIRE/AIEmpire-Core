@@ -65,6 +65,7 @@ python3 x_auto_poster.py
 ai-empire/
 ├── .github/workflows/         # 🤖 GitHub Actions Automation
 │   ├── auto-content-generation.yml   # Alle 4h
+│   ├── auto-task-generation.yml      # Alle 6h (NEU!)
 │   ├── claude-health-check.yml       # Alle 30min
 │   ├── issue-command-bot.yml         # Issue Commands
 │   ├── revenue-tracking.yml          # Täglich 9 AM
@@ -72,9 +73,12 @@ ai-empire/
 ├── GITHUB_CONTROL_SYSTEM.md   # 📖 Vollständige Doku
 ├── claude_failover_system.py  # 🔄 Claude → GitHub Failover
 ├── github_control_interface.py # 💬 Command Processor
+├── task_generator.py          # 🤖 Automatic Task Generator (NEU!)
 ├── x_auto_poster.py           # 📱 X Auto Posting
 ├── gold-nuggets/              # 💰 Extrahierte Insights
 │   └── GITHUB_GOLD_NUGGETS.md
+├── docs/                      # 📚 Documentation
+│   └── TASK_GENERATION_SYSTEM.md  # Task Generator Docs (NEU!)
 ├── x-lead-machine/            # 🐦 X/Twitter Automation
 │   ├── x_automation.py        # Lead Machine
 │   └── viral_reply_generator.py
@@ -86,11 +90,10 @@ ai-empire/
 ├── atomic-reactor/            # ⚛️ Task Orchestration
 │   ├── swarm_500k.py      # 🔥 NEW: 500K + Claude orchestration
 │   ├── github_scanner_100k.py
+│   ├── run_tasks.py       # Task Runner
+│   ├── tasks/             # 25+ Auto-generated Tasks (NEU!)
 │   ├── README_500K_SWARM.md
 │   └── CLAUDE_ORCHESTRATOR_CONFIG.md
-├── atomic-reactor/        # ⚛️ Task Orchestration
-│   ├── docker-compose.yaml
-│   └── tasks/
 └── systems/                   # 🔧 Infrastructure
     ├── docker-compose.yaml
     └── LEAD_AGENT_PROMPT.md
@@ -147,6 +150,7 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 ```
 @bot status              # System Status
 @bot generate-content    # X/Twitter Posts generieren
+@bot generate-tasks      # Automatisch neue Tasks generieren
 @bot revenue-report      # Revenue Overview
 @bot create-gig          # Fiverr Gig Descriptions
 @bot post-x             # X Posting Guide
@@ -155,6 +159,7 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 
 **Automatische Workflows:**
 - ✅ Content alle 4 Stunden
+- ✅ Tasks alle 6 Stunden (NEU!)
 - ✅ Claude Health Check alle 30 Min
 - ✅ Revenue Report täglich 9 AM
 - ✅ X Content täglich 7 AM
