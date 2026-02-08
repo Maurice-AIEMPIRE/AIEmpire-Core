@@ -23,7 +23,7 @@ BUDGET_USD = 15.0
 BATCH_DELAY = 0.5  # Delay between batches in seconds
 
 # Output directories
-OUTPUT_DIR = Path("/Users/maurice/.openclaw/workspace/kimi-swarm/output")
+OUTPUT_DIR = Path(__file__).parent / "output"
 LEADS_DIR = OUTPUT_DIR / "leads"
 CONTENT_DIR = OUTPUT_DIR / "content"
 COMPETITORS_DIR = OUTPUT_DIR / "competitors"

@@ -130,7 +130,7 @@ services:
   # ═══════════════════════════════════════════
   crm:
     build:
-      context: /Users/maurice/.openclaw/workspace/ai-empire-crm
+      context: ../crm
       dockerfile: Dockerfile
     container_name: ai-empire-crm
     ports:
