@@ -1,0 +1,96 @@
+# Kimi Swarm Configuration
+# 
+# NOTE: This file serves as DOCUMENTATION for all configurable parameters.
+# To actually change values, you must edit them in the respective Python files:
+# - swarm_100k.py: For 100K swarm configuration
+# - swarm_500k.py: For 500K swarm configuration
+#
+# Future enhancement: Implement automatic config loading from this file.
+#
+# Adjust these values to configure max agent spawning capacity
+
+# 100K Swarm Configuration
+swarm_100k:
+  total_agents: 100000      # Maximum agent capacity
+  max_concurrent: 50        # Concurrent workers (increase for faster processing, but watch rate limits)
+  budget_usd: 15.0         # Budget limit in USD
+  batch_delay: 0.5         # Delay between batches in seconds
+  
+  # Rate limiting recommendations
+  # - max_concurrent: 50  → Safe, minimal rate limiting
+  # - max_concurrent: 100 → Moderate, some rate limiting possible
+  # - max_concurrent: 200 → Aggressive, expect rate limiting
+
+# 500K Swarm Configuration  
+swarm_500k:
+  total_agents: 500000      # Maximum agent capacity (5x of 100K)
+  max_concurrent: 500       # Concurrent workers (10x of 100K)
+  budget_usd: 75.0         # Budget limit in USD (5x of 100K)
+  batch_delay: 0.1         # Faster batches with better concurrency
+  claude_orchestration_interval: 1000  # Claude review every N tasks
+  
+  # Rate limiting recommendations
+  # - max_concurrent: 200  → Conservative, minimal rate limiting
+  # - max_concurrent: 500  → Balanced (default), some rate limiting
+  # - max_concurrent: 1000 → Aggressive, expect rate limiting
+
+# Task Priorities (for 500K swarm)
+task_priorities:
+  high_value_lead_research:
+    priority: high
+    revenue_potential: 5000
+    
+  viral_content_idea:
+    priority: high
+    revenue_potential: 1000
+    
+  competitor_intel:
+    priority: medium
+    revenue_potential: 2000
+    
+  gold_nugget_extraction:
+    priority: high
+    revenue_potential: 10000
+    
+  revenue_optimization:
+    priority: critical
+    revenue_potential: 15000
+    
+  strategic_partnership:
+    priority: high
+    revenue_potential: 20000
+
+# Output Configuration
+output:
+  base_dir: output_500k     # Base output directory
+  create_subdirs: true      # Auto-create subdirectories
+  
+  # Subdirectories for different task types
+  subdirs:
+    - leads
+    - content
+    - competitors
+    - gold_nuggets
+    - revenue_operations
+    - claude_insights
+
+# API Configuration (set via environment variables)
+# Required:
+#   - MOONSHOT_API_KEY: Kimi/Moonshot API key
+# Optional:
+#   - ANTHROPIC_API_KEY: Claude API key for orchestration (fallback to rule-based if not set)
+
+# Performance Tuning
+performance:
+  retry_attempts: 3         # Number of retries per failed task
+  timeout_seconds: 60       # Request timeout
+  
+  # Exponential backoff for rate limiting
+  backoff_base: 2           # Base for exponential backoff (2^attempt)
+  backoff_jitter: 1.0       # Random jitter to add (0-1 seconds)
+
+# Monitoring
+monitoring:
+  stats_interval: 10        # Print stats every N batches
+  save_intermediate_stats: true  # Save stats during run
+  progress_updates: true    # Enable progress updates
