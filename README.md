@@ -26,6 +26,7 @@
 | Component | Status | Purpose |
 |-----------|--------|---------|
 | **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
+| **Chat Upload & Multi-Model** | 🔥 **NEW** | **Chat-Upload + Alle Modelle (Claude, Kimi, Ollama)** |
 | **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
 | X Auto Poster | ✅ | Tägliche Content Generation + Scheduling |
@@ -53,7 +54,20 @@
    ```
 3. Bot antwortet automatisch!
 
-**Dokumentation:** [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)
+**🔥 NEW: Chat Upload & Multi-Model Support!**
+```
+@bot upload-chat text
+User: Hello
+Assistant: Hi there!
+
+@bot ask Was ist AI Automation?
+@bot models
+@bot switch-model ollama-qwen
+```
+
+**Dokumentation:** 
+- [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)
+- [CHAT_UPLOAD_GUIDE.md](./docs/CHAT_UPLOAD_GUIDE.md) 🔥 **NEW**
 
 ### Lokale Services
 
@@ -164,12 +178,24 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 **In jedem Issue oder Comment:**
 
 ```
+# System Status
 @bot status              # System Status
-@bot generate-content    # X/Twitter Posts generieren
-@bot revenue-report      # Revenue Overview
-@bot create-gig          # Fiverr Gig Descriptions
-@bot post-x             # X Posting Guide
 @bot help               # Alle Commands
+
+# Chat & AI (NEW!)
+@bot upload-chat text   # Chat hochladen
+@bot ask [question]     # Frage stellen
+@bot models             # Verfügbare Modelle
+@bot switch-model kimi  # Modell wechseln
+@bot export-chat        # Chat exportieren
+
+# Content & Marketing
+@bot generate-content   # X/Twitter Posts generieren
+@bot post-x            # X Posting Guide
+@bot create-gig        # Fiverr Gig Descriptions
+
+# Business
+@bot revenue-report     # Revenue Overview
 ```
 
 **Automatische Workflows:**
