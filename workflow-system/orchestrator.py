@@ -36,6 +36,7 @@ from state.context import (
     load_pattern_library,
 )
 from steps import step1_audit, step2_architect, step3_analyst, step4_refinery, step5_compounder
+from resource_guard import ResourceGuard
 
 # API Configuration - uses same keys as existing kimi-swarm
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
@@ -190,11 +191,13 @@ async def run_refinery_loop(context: dict = None) -> dict:
 async def run_full_loop() -> dict:
     """Run all 5 steps in sequence. Context accumulates."""
     start = time.time()
+    guard = ResourceGuard()
 
     print("""
 ╔══════════════════════════════════════════════════════════╗
 ║         OPUS 4.6 WORKFLOW SYSTEM - FULL LOOP            ║
 ║         5 Steps. Context compounds. Patterns emerge.    ║
+║         Resource Guard: ACTIVE                          ║
 ╚══════════════════════════════════════════════════════════╝
     """)
 
@@ -202,22 +205,35 @@ async def run_full_loop() -> dict:
     print(f"Cycle: #{state.get('cycle', 0)}")
     print(f"Patterns in library: {len(state.get('patterns', []))}")
     print(f"Prior improvements: {len(state.get('improvements', []))}")
+    print(f"Guard: {guard.format_status()}")
 
     results = {}
 
     # Step 1: AUDIT
+    async with guard.check() as gs:
+        if gs.paused:
+            print("GUARD: System overloaded. Aborting loop.")
+            return {"status": "aborted_by_guard", "guard": guard.get_status()}
     results["audit"] = await run_step("audit")
 
     # Step 2: ARCHITECT (feeds from audit)
+    async with guard.check():
+        pass
     results["architect"] = await run_step("architect")
 
     # Step 3: ANALYST (feeds from architect + audit)
+    async with guard.check():
+        pass
     results["analyst"] = await run_step("analyst")
 
     # Step 4: REFINERY (convergence loop)
+    async with guard.check():
+        pass
     results["refinery"] = await run_refinery_loop()
 
     # Step 5: COMPOUNDER (weekly review of entire cycle)
+    async with guard.check():
+        pass
     results["compounder"] = await run_step("compounder")
 
     # Extract and persist new patterns from compounder
