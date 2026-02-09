@@ -18,6 +18,8 @@ REVENUE: Gumroad + Fiverr + Consulting
 
 ## Key Directories
 - `workflow-system/` - Opus 4.6 5-Step Compound Loop (AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER)
+- `workflow-system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
+- `workflow-system/resource_guard.py` - CPU/RAM/Disk Monitoring + Auto-Throttling
 - `kimi-swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
 - `atomic-reactor/` - YAML-based task definitions + async runner
 - `x-lead-machine/` - Content generation + viral replies + lead gen
@@ -40,6 +42,55 @@ python workflow-system/orchestrator.py --new-cycle
 # Check status
 python workflow-system/orchestrator.py --status
 ```
+
+## Cowork Engine (Autonomer Background Agent)
+```bash
+# Ein Zyklus (Observe → Plan → Act → Reflect)
+python workflow-system/cowork.py
+
+# Daemon-Modus (alle 30 Min)
+python workflow-system/cowork.py --daemon
+
+# Fokus + Intervall anpassen
+python workflow-system/cowork.py --daemon --interval 900 --focus revenue
+
+# Fokus-Bereiche: revenue | content | automation | product
+python workflow-system/cowork.py --status
+```
+
+## Resource Guard (Ueberlastungsschutz)
+```bash
+# Status anzeigen
+python workflow-system/resource_guard.py
+
+# Integriert in Orchestrator + Cowork - stoppt automatisch bei:
+# CPU > 95% oder RAM > 92% → EMERGENCY (alle Agents pausiert)
+# CPU > 85% oder RAM > 85% → CRITICAL (Concurrency: 50, Outsource-Modus)
+# CPU > 70% oder RAM > 75% → WARN (Concurrency: 200, leichte Verzoegerung)
+```
+
+## Empire Control Center (Unified CLI)
+```bash
+# Gesamtstatus aller Systeme
+python workflow-system/empire.py status
+
+# Workflow ausfuehren
+python workflow-system/empire.py workflow
+python workflow-system/empire.py workflow --step audit
+
+# Cowork starten
+python workflow-system/empire.py cowork --daemon --focus revenue
+
+# Neuer Wochen-Zyklus
+python workflow-system/empire.py cycle
+
+# Alles nacheinander (Workflow + Cowork)
+python workflow-system/empire.py full
+```
+
+## Session-Start Hook
+Zeigt bei jedem Claude Code Start automatisch den System-Status.
+Konfiguriert in `~/.claude/settings.json` → hooks.SessionStart.
 
 ## Agent Teams (Experimental)
 Enabled via CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1.
