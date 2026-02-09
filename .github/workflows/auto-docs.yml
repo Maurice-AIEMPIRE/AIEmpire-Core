@@ -32,6 +32,9 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Install Python dependencies
+        run: pip install pyyaml
+
       - name: Generate project structure documentation
         run: |
           echo "# AIEmpire-Core - Project Structure" > docs/PROJECT_STRUCTURE.md
@@ -74,6 +77,39 @@ jobs:
 
       - name: Generate scripts documentation
         run: |
+          cat > /tmp/extract_docstring.py << 'PYEOF'
+          import ast, sys
+          script_path = sys.argv[1]
+          try:
+              with open(script_path) as f:
+                  tree = ast.parse(f.read())
+              doc = ast.get_docstring(tree)
+              if doc:
+                  print(doc)
+              else:
+                  print('_No module docstring._')
+          except Exception:
+              print('_Could not parse module._')
+          PYEOF
+
+          cat > /tmp/extract_symbols.py << 'PYEOF'
+          import ast, sys
+          script_path = sys.argv[1]
+          try:
+              with open(script_path) as f:
+                  tree = ast.parse(f.read())
+              funcs = [n.name for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)]
+              classes = [n.name for n in ast.walk(tree) if isinstance(n, ast.ClassDef)]
+              if classes:
+                  print('**Classes:** ' + ', '.join(classes))
+              if funcs:
+                  print('**Functions:** ' + ', '.join(funcs))
+              if not classes and not funcs:
+                  print('_Script-level code only._')
+          except Exception:
+              print('_Could not parse._')
+          PYEOF
+
           echo "# AIEmpire-Core - Scripts Reference" > docs/SCRIPTS.md
           echo "" >> docs/SCRIPTS.md
           echo "> Auto-generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> docs/SCRIPTS.md
@@ -86,42 +122,9 @@ jobs:
             dir=$(dirname "$script" | sed 's|^\./||')
             echo "### \`$dir/$name\`" >> docs/SCRIPTS.md
             echo "" >> docs/SCRIPTS.md
-            # Extract module docstring if present
-            if head -5 "$script" | grep -q '"""'; then
-              python3 -c "
-import ast, sys
-try:
-    with open('$script') as f:
-        tree = ast.parse(f.read())
-    doc = ast.get_docstring(tree)
-    if doc:
-        print(doc)
-    else:
-        print('_No module docstring._')
-except:
-    print('_Could not parse module._')
-" >> docs/SCRIPTS.md
-            else
-              echo "_No module docstring._" >> docs/SCRIPTS.md
-            fi
+            python3 /tmp/extract_docstring.py "$script" >> docs/SCRIPTS.md
             echo "" >> docs/SCRIPTS.md
-            # List functions and classes
-            python3 -c "
-import ast, sys
-try:
-    with open('$script') as f:
-        tree = ast.parse(f.read())
-    funcs = [n.name for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)]
-    classes = [n.name for n in ast.walk(tree) if isinstance(n, ast.ClassDef)]
-    if classes:
-        print('**Classes:** ' + ', '.join(classes))
-    if funcs:
-        print('**Functions:** ' + ', '.join(funcs))
-    if not classes and not funcs:
-        print('_Script-level code only._')
-except:
-    print('_Could not parse._')
-" >> docs/SCRIPTS.md
+            python3 /tmp/extract_symbols.py "$script" >> docs/SCRIPTS.md
             echo "" >> docs/SCRIPTS.md
             echo "---" >> docs/SCRIPTS.md
             echo "" >> docs/SCRIPTS.md
@@ -129,6 +132,43 @@ except:
 
       - name: Generate workflows documentation
         run: |
+          cat > /tmp/extract_triggers.py << 'PYEOF'
+          import yaml, sys
+          wf_path = sys.argv[1]
+          try:
+              with open(wf_path) as f:
+                  data = yaml.safe_load(f)
+              triggers = data.get('on', data.get(True, {}))
+              if isinstance(triggers, dict):
+                  for key, val in triggers.items():
+                      if val:
+                          print(f'- `{key}`: {val}')
+                      else:
+                          print(f'- `{key}`')
+              elif isinstance(triggers, list):
+                  for t in triggers:
+                      print(f'- `{t}`')
+              else:
+                  print(f'- `{triggers}`')
+          except Exception:
+              print('- _Could not parse triggers._')
+          PYEOF
+
+          cat > /tmp/extract_jobs.py << 'PYEOF'
+          import yaml, sys
+          wf_path = sys.argv[1]
+          try:
+              with open(wf_path) as f:
+                  data = yaml.safe_load(f)
+              jobs = data.get('jobs', {})
+              for job_name, job_config in jobs.items():
+                  steps_count = len(job_config.get('steps', []))
+                  runs_on = job_config.get('runs-on', 'unknown')
+                  print(f'- `{job_name}` ({steps_count} steps, runs on {runs_on})')
+          except Exception:
+              print('- _Could not parse jobs._')
+          PYEOF
+
           echo "# AIEmpire-Core - Workflows Reference" > docs/WORKFLOWS.md
           echo "" >> docs/WORKFLOWS.md
           echo "> Auto-generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> docs/WORKFLOWS.md
@@ -144,44 +184,11 @@ except:
                 echo "" >> docs/WORKFLOWS.md
                 echo "**File:** \`$wf\`" >> docs/WORKFLOWS.md
                 echo "" >> docs/WORKFLOWS.md
-                # Extract triggers
                 echo "**Triggers:**" >> docs/WORKFLOWS.md
-                python3 -c "
-import yaml, sys
-try:
-    with open('$wf') as f:
-        data = yaml.safe_load(f)
-    triggers = data.get('on', data.get(True, {}))
-    if isinstance(triggers, dict):
-        for key, val in triggers.items():
-            if val:
-                print(f'- \`{key}\`: {val}')
-            else:
-                print(f'- \`{key}\`')
-    elif isinstance(triggers, list):
-        for t in triggers:
-            print(f'- \`{t}\`')
-    else:
-        print(f'- \`{triggers}\`')
-except:
-    print('- _Could not parse triggers._')
-" >> docs/WORKFLOWS.md 2>/dev/null || echo "- _Could not parse triggers._" >> docs/WORKFLOWS.md
+                python3 /tmp/extract_triggers.py "$wf" >> docs/WORKFLOWS.md 2>/dev/null || echo "- _Could not parse triggers._" >> docs/WORKFLOWS.md
                 echo "" >> docs/WORKFLOWS.md
-                # Extract jobs
                 echo "**Jobs:**" >> docs/WORKFLOWS.md
-                python3 -c "
-import yaml, sys
-try:
-    with open('$wf') as f:
-        data = yaml.safe_load(f)
-    jobs = data.get('jobs', {})
-    for job_name, job_config in jobs.items():
-        steps_count = len(job_config.get('steps', []))
-        runs_on = job_config.get('runs-on', 'unknown')
-        print(f'- \`{job_name}\` ({steps_count} steps, runs on {runs_on})')
-except:
-    print('- _Could not parse jobs._')
-" >> docs/WORKFLOWS.md 2>/dev/null || echo "- _Could not parse jobs._" >> docs/WORKFLOWS.md
+                python3 /tmp/extract_jobs.py "$wf" >> docs/WORKFLOWS.md 2>/dev/null || echo "- _Could not parse jobs._" >> docs/WORKFLOWS.md
                 echo "" >> docs/WORKFLOWS.md
                 echo "---" >> docs/WORKFLOWS.md
                 echo "" >> docs/WORKFLOWS.md
