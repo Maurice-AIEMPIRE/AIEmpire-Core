@@ -1,0 +1,294 @@
+name: Auto-Generate Documentation
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 0 * * 0'  # Weekly on Sunday at midnight UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate project structure documentation
+        run: |
+          echo "# AIEmpire-Core - Project Structure" > docs/PROJECT_STRUCTURE.md
+          echo "" >> docs/PROJECT_STRUCTURE.md
+          echo "> Auto-generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> docs/PROJECT_STRUCTURE.md
+          echo "" >> docs/PROJECT_STRUCTURE.md
+
+          echo "## Directory Tree" >> docs/PROJECT_STRUCTURE.md
+          echo '```' >> docs/PROJECT_STRUCTURE.md
+          find . -type f \
+            -not -path './.git/*' \
+            -not -path './node_modules/*' \
+            -not -path './__pycache__/*' \
+            -not -path './.mypy_cache/*' \
+            -not -path './.*cache*/*' \
+            -not -name '._*' \
+            | sort \
+            | sed 's|^\./||' \
+            | head -500 >> docs/PROJECT_STRUCTURE.md
+          echo '```' >> docs/PROJECT_STRUCTURE.md
+          echo "" >> docs/PROJECT_STRUCTURE.md
+
+          echo "## Directory Summary" >> docs/PROJECT_STRUCTURE.md
+          echo "" >> docs/PROJECT_STRUCTURE.md
+          for dir in workflow-system kimi-swarm atomic-reactor x-lead-machine crm openclaw-config systems scripts memory gold-nuggets docs sprint; do
+            if [ -d "$dir" ]; then
+              count=$(find "$dir" -type f -not -name '._*' -not -path '*/__pycache__/*' | wc -l)
+              echo "- **$dir/** - $count files" >> docs/PROJECT_STRUCTURE.md
+            fi
+          done
+          echo "" >> docs/PROJECT_STRUCTURE.md
+
+          echo "## File Type Breakdown" >> docs/PROJECT_STRUCTURE.md
+          echo "" >> docs/PROJECT_STRUCTURE.md
+          echo "| Extension | Count |" >> docs/PROJECT_STRUCTURE.md
+          echo "|-----------|-------|" >> docs/PROJECT_STRUCTURE.md
+          find . -type f -not -path './.git/*' -not -name '._*' | sed 's/.*\.//' | sort | uniq -c | sort -rn | head -20 | while read count ext; do
+            echo "| .$ext | $count |" >> docs/PROJECT_STRUCTURE.md
+          done
+
+      - name: Generate scripts documentation
+        run: |
+          echo "# AIEmpire-Core - Scripts Reference" > docs/SCRIPTS.md
+          echo "" >> docs/SCRIPTS.md
+          echo "> Auto-generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> docs/SCRIPTS.md
+          echo "" >> docs/SCRIPTS.md
+
+          echo "## Python Scripts" >> docs/SCRIPTS.md
+          echo "" >> docs/SCRIPTS.md
+          find . -name '*.py' -not -path './.git/*' -not -name '._*' -not -path '*/__pycache__/*' | sort | while read script; do
+            name=$(basename "$script")
+            dir=$(dirname "$script" | sed 's|^\./||')
+            echo "### \`$dir/$name\`" >> docs/SCRIPTS.md
+            echo "" >> docs/SCRIPTS.md
+            # Extract module docstring if present
+            if head -5 "$script" | grep -q '"""'; then
+              python3 -c "
+import ast, sys
+try:
+    with open('$script') as f:
+        tree = ast.parse(f.read())
+    doc = ast.get_docstring(tree)
+    if doc:
+        print(doc)
+    else:
+        print('_No module docstring._')
+except:
+    print('_Could not parse module._')
+" >> docs/SCRIPTS.md
+            else
+              echo "_No module docstring._" >> docs/SCRIPTS.md
+            fi
+            echo "" >> docs/SCRIPTS.md
+            # List functions and classes
+            python3 -c "
+import ast, sys
+try:
+    with open('$script') as f:
+        tree = ast.parse(f.read())
+    funcs = [n.name for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)]
+    classes = [n.name for n in ast.walk(tree) if isinstance(n, ast.ClassDef)]
+    if classes:
+        print('**Classes:** ' + ', '.join(classes))
+    if funcs:
+        print('**Functions:** ' + ', '.join(funcs))
+    if not classes and not funcs:
+        print('_Script-level code only._')
+except:
+    print('_Could not parse._')
+" >> docs/SCRIPTS.md
+            echo "" >> docs/SCRIPTS.md
+            echo "---" >> docs/SCRIPTS.md
+            echo "" >> docs/SCRIPTS.md
+          done
+
+      - name: Generate workflows documentation
+        run: |
+          echo "# AIEmpire-Core - Workflows Reference" > docs/WORKFLOWS.md
+          echo "" >> docs/WORKFLOWS.md
+          echo "> Auto-generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> docs/WORKFLOWS.md
+          echo "" >> docs/WORKFLOWS.md
+
+          echo "## GitHub Actions Workflows" >> docs/WORKFLOWS.md
+          echo "" >> docs/WORKFLOWS.md
+          if [ -d ".github/workflows" ]; then
+            for wf in .github/workflows/*.yml; do
+              if [ -f "$wf" ]; then
+                name=$(grep '^name:' "$wf" | head -1 | sed 's/name: *//')
+                echo "### $name" >> docs/WORKFLOWS.md
+                echo "" >> docs/WORKFLOWS.md
+                echo "**File:** \`$wf\`" >> docs/WORKFLOWS.md
+                echo "" >> docs/WORKFLOWS.md
+                # Extract triggers
+                echo "**Triggers:**" >> docs/WORKFLOWS.md
+                python3 -c "
+import yaml, sys
+try:
+    with open('$wf') as f:
+        data = yaml.safe_load(f)
+    triggers = data.get('on', data.get(True, {}))
+    if isinstance(triggers, dict):
+        for key, val in triggers.items():
+            if val:
+                print(f'- \`{key}\`: {val}')
+            else:
+                print(f'- \`{key}\`')
+    elif isinstance(triggers, list):
+        for t in triggers:
+            print(f'- \`{t}\`')
+    else:
+        print(f'- \`{triggers}\`')
+except:
+    print('- _Could not parse triggers._')
+" >> docs/WORKFLOWS.md 2>/dev/null || echo "- _Could not parse triggers._" >> docs/WORKFLOWS.md
+                echo "" >> docs/WORKFLOWS.md
+                # Extract jobs
+                echo "**Jobs:**" >> docs/WORKFLOWS.md
+                python3 -c "
+import yaml, sys
+try:
+    with open('$wf') as f:
+        data = yaml.safe_load(f)
+    jobs = data.get('jobs', {})
+    for job_name, job_config in jobs.items():
+        steps_count = len(job_config.get('steps', []))
+        runs_on = job_config.get('runs-on', 'unknown')
+        print(f'- \`{job_name}\` ({steps_count} steps, runs on {runs_on})')
+except:
+    print('- _Could not parse jobs._')
+" >> docs/WORKFLOWS.md 2>/dev/null || echo "- _Could not parse jobs._" >> docs/WORKFLOWS.md
+                echo "" >> docs/WORKFLOWS.md
+                echo "---" >> docs/WORKFLOWS.md
+                echo "" >> docs/WORKFLOWS.md
+              fi
+            done
+          else
+            echo "_No workflows found._" >> docs/WORKFLOWS.md
+          fi
+
+          echo "## Workflow System (Opus 4.6 Compound Loop)" >> docs/WORKFLOWS.md
+          echo "" >> docs/WORKFLOWS.md
+          echo "The workflow system implements a 5-step compound loop:" >> docs/WORKFLOWS.md
+          echo "" >> docs/WORKFLOWS.md
+          echo "1. **AUDIT** (\`workflow-system/steps/step1_audit.py\`) - System health and status audit" >> docs/WORKFLOWS.md
+          echo "2. **ARCHITECT** (\`workflow-system/steps/step2_architect.py\`) - Architecture planning and design" >> docs/WORKFLOWS.md
+          echo "3. **ANALYST** (\`workflow-system/steps/step3_analyst.py\`) - Analysis and data processing" >> docs/WORKFLOWS.md
+          echo "4. **REFINERY** (\`workflow-system/steps/step4_refinery.py\`) - Refinement and optimization" >> docs/WORKFLOWS.md
+          echo "5. **COMPOUNDER** (\`workflow-system/steps/step5_compounder.py\`) - Compounding and execution" >> docs/WORKFLOWS.md
+          echo "" >> docs/WORKFLOWS.md
+          echo "**Entry points:**" >> docs/WORKFLOWS.md
+          echo "- \`python workflow-system/orchestrator.py\` - Full loop" >> docs/WORKFLOWS.md
+          echo "- \`python workflow-system/empire.py\` - Empire Control Center CLI" >> docs/WORKFLOWS.md
+          echo "- \`python workflow-system/cowork.py\` - Autonomous Cowork Engine" >> docs/WORKFLOWS.md
+
+      - name: Generate automation overview
+        run: |
+          echo "# AIEmpire-Core - Automation Overview" > docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+          echo "> Auto-generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+
+          echo "## System Components" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+          echo "| Component | Purpose | Entry Point |" >> docs/AUTOMATION.md
+          echo "|-----------|---------|-------------|" >> docs/AUTOMATION.md
+          echo "| Workflow System | 5-Step Compound Loop | \`workflow-system/orchestrator.py\` |" >> docs/AUTOMATION.md
+          echo "| Cowork Engine | Autonomous Observe-Plan-Act-Reflect daemon | \`workflow-system/cowork.py\` |" >> docs/AUTOMATION.md
+          echo "| Empire CLI | Unified control center | \`workflow-system/empire.py\` |" >> docs/AUTOMATION.md
+          echo "| Resource Guard | CPU/RAM/Disk monitoring + auto-throttling | \`workflow-system/resource_guard.py\` |" >> docs/AUTOMATION.md
+          echo "| Atomic Reactor | YAML-based task runner (FastAPI, Port 8888) | \`atomic-reactor/run_tasks.py\` |" >> docs/AUTOMATION.md
+          echo "| Kimi Swarm | 100K/500K agent swarm orchestration | \`kimi-swarm/swarm_100k.py\` |" >> docs/AUTOMATION.md
+          echo "| X Lead Machine | Content generation + viral replies | \`x-lead-machine/x_automation.py\` |" >> docs/AUTOMATION.md
+          echo "| OpenClaw | Agent configs + cron jobs (Port 18789) | \`openclaw-config/\` |" >> docs/AUTOMATION.md
+          echo "| CRM | Express.js CRM with BANT scoring (Port 3500) | \`crm/\` |" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+
+          echo "## Model Routing" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+          echo "| Tier | Model | Usage | Cost |" >> docs/AUTOMATION.md
+          echo "|------|-------|-------|------|" >> docs/AUTOMATION.md
+          echo "| Primary | Ollama (local) | 95% of tasks | Free |" >> docs/AUTOMATION.md
+          echo "| Secondary | Kimi K2.5 | 4% - complex tasks | Low |" >> docs/AUTOMATION.md
+          echo "| Critical | Claude | 1% - critical decisions | Premium |" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+
+          echo "## Data Stores" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+          echo "- **Redis** - Caching and session data" >> docs/AUTOMATION.md
+          echo "- **PostgreSQL** - Persistent structured data" >> docs/AUTOMATION.md
+          echo "- **ChromaDB** - Vector embeddings and semantic search" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+
+          echo "## CI/CD Pipelines" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+          if [ -d ".github/workflows" ]; then
+            for wf in .github/workflows/*.yml; do
+              if [ -f "$wf" ]; then
+                name=$(grep '^name:' "$wf" | head -1 | sed 's/name: *//')
+                echo "- **$name** (\`$wf\`)" >> docs/AUTOMATION.md
+              fi
+            done
+          fi
+          echo "" >> docs/AUTOMATION.md
+
+          echo "## Cron Schedules" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+          echo "| Schedule | System | Description |" >> docs/AUTOMATION.md
+          echo "|----------|--------|-------------|" >> docs/AUTOMATION.md
+          if [ -d ".github/workflows" ]; then
+            for wf in .github/workflows/*.yml; do
+              if [ -f "$wf" ]; then
+                name=$(grep '^name:' "$wf" | head -1 | sed 's/name: *//')
+                grep -A1 'cron:' "$wf" 2>/dev/null | grep "'" | sed "s/.*'\(.*\)'.*/| \`\1\` | GitHub Actions | $name |/" >> docs/AUTOMATION.md
+              fi
+            done
+          fi
+          echo "| Every 30 min | Cowork Engine | Observe-Plan-Act-Reflect cycle |" >> docs/AUTOMATION.md
+          echo "| 9 Jobs | OpenClaw | Agent cron jobs (Port 18789) |" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+
+          echo "## Resource Limits" >> docs/AUTOMATION.md
+          echo "" >> docs/AUTOMATION.md
+          echo "| Level | CPU | RAM | Action |" >> docs/AUTOMATION.md
+          echo "|-------|-----|-----|--------|" >> docs/AUTOMATION.md
+          echo "| NORMAL | < 70% | < 75% | Full concurrency |" >> docs/AUTOMATION.md
+          echo "| WARN | > 70% | > 75% | Concurrency: 200, slight delay |" >> docs/AUTOMATION.md
+          echo "| CRITICAL | > 85% | > 85% | Concurrency: 50, outsource mode |" >> docs/AUTOMATION.md
+          echo "| EMERGENCY | > 95% | > 92% | All agents paused |" >> docs/AUTOMATION.md
+
+      - name: Commit and push documentation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/PROJECT_STRUCTURE.md docs/SCRIPTS.md docs/WORKFLOWS.md docs/AUTOMATION.md
+          if git diff --cached --quiet; then
+            echo "No documentation changes detected."
+          else
+            git commit -m "docs: auto-generate project documentation [skip ci]"
+            git push
+          fi

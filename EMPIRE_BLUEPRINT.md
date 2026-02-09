@@ -7,7 +7,7 @@
 
 ## 1. GRUENDER-PROFIL
 
-**Maurice Pfeifer, 37**
+**Maurice Pfeifer, 33**
 - Elektrotechnikmeister + Wirtschaftsingenieur (IHK)
 - 16 Jahre BMA-Expertise (Brandmeldeanlagen): Esser, Hekatron
 - War 5% GmbH-Partner seit 2018

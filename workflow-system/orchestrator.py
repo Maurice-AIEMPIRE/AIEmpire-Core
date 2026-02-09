@@ -37,19 +37,43 @@ from state.context import (
 )
 from steps import step1_audit, step2_architect, step3_analyst, step4_refinery, step5_compounder
 from resource_guard import ResourceGuard
+from ollama_engine import OllamaEngine
 
-# API Configuration - uses same keys as existing kimi-swarm
+# Global Ollama Engine (lazy init)
+_ollama_engine = None
+
+def _get_ollama():
+    global _ollama_engine
+    if _ollama_engine is None:
+        _ollama_engine = OllamaEngine()
+    return _ollama_engine
+
+# ── Mode Configuration ──────────────────────────────────────
+# OFFLINE_MODE=true (default): Ollama lokal, $0 Kosten
+# OFFLINE_MODE=false: Kimi Cloud, Fallback wenn Ollama versagt
+OFFLINE_MODE = os.getenv("OFFLINE_MODE", "true").lower() == "true"
+
+# API Configuration
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 
-# Model selection: Kimi for bulk, Claude for critical steps
-MODEL_CONFIG = {
-    "audit":     {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "architect": {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "analyst":   {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "refinery":  {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "compounder":{"provider": "kimi",   "model": "moonshot-v1-32k"},
-}
+# Model selection: Ollama for offline, Kimi as fallback
+if OFFLINE_MODE:
+    MODEL_CONFIG = {
+        "audit":     {"provider": "ollama", "model": os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b")},
+        "architect": {"provider": "ollama", "model": os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b")},
+        "analyst":   {"provider": "ollama", "model": os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b")},
+        "refinery":  {"provider": "ollama", "model": os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b")},
+        "compounder":{"provider": "ollama", "model": os.getenv("OLLAMA_MODEL", "qwen2.5-coder:7b")},
+    }
+else:
+    MODEL_CONFIG = {
+        "audit":     {"provider": "kimi",   "model": "moonshot-v1-32k"},
+        "architect": {"provider": "kimi",   "model": "moonshot-v1-32k"},
+        "analyst":   {"provider": "kimi",   "model": "moonshot-v1-32k"},
+        "refinery":  {"provider": "kimi",   "model": "moonshot-v1-32k"},
+        "compounder":{"provider": "kimi",   "model": "moonshot-v1-32k"},
+    }
 
 OUTPUT_DIR = Path(__file__).parent / "output"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -66,12 +90,36 @@ STEP_ORDER = ["audit", "architect", "analyst", "refinery", "compounder"]
 
 
 async def call_model(step_name: str, system_prompt: str, user_prompt: str) -> str:
-    """Call the configured model for a step."""
+    """Call the configured model for a step. Ollama first, Kimi fallback."""
     config = MODEL_CONFIG[step_name]
 
+    # ── OLLAMA (lokal, $0) ──────────────────────────────────
+    if config["provider"] == "ollama":
+        engine = _get_ollama()
+        print(f"    Mode: OFFLINE (Ollama {config['model']})")
+
+        resp = await engine.chat([
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ], model=config["model"])
+
+        if resp.success:
+            print(f"    Tokens: {resp.tokens:,} | {resp.duration_ms:.0f}ms | Cost: $0.00")
+            return resp.content
+
+        # Ollama failed → Fallback zu Kimi
+        print(f"    Ollama failed: {resp.error}")
+        if not MOONSHOT_API_KEY:
+            raise RuntimeError(f"Ollama failed and no MOONSHOT_API_KEY for fallback: {resp.error}")
+        print(f"    Fallback → Kimi Cloud...")
+        config = {"provider": "kimi", "model": "moonshot-v1-32k"}
+
+    # ── KIMI (Cloud, guenstig) ──────────────────────────────
     if config["provider"] == "kimi":
         if not MOONSHOT_API_KEY:
             raise ValueError("MOONSHOT_API_KEY not set")
+
+        print(f"    Mode: CLOUD (Kimi {config['model']})")
         url = "https://api.moonshot.ai/v1/chat/completions"
         headers = {
             "Authorization": f"Bearer {MOONSHOT_API_KEY}",
@@ -86,24 +134,24 @@ async def call_model(step_name: str, system_prompt: str, user_prompt: str) -> st
             "temperature": 0.7,
             "max_tokens": 4000,
         }
-    else:
-        raise ValueError(f"Unknown provider: {config['provider']}")
 
-    async with aiohttp.ClientSession() as session:
-        async with session.post(
-            url, headers=headers, json=payload,
-            timeout=aiohttp.ClientTimeout(total=120),
-        ) as resp:
-            if resp.status == 200:
-                data = await resp.json()
-                content = data["choices"][0]["message"]["content"]
-                tokens = data.get("usage", {}).get("total_tokens", 0)
-                cost = (tokens / 1000) * 0.001
-                print(f"    Tokens: {tokens:,} | Cost: ${cost:.4f}")
-                return content
-            else:
-                text = await resp.text()
-                raise RuntimeError(f"API error {resp.status}: {text[:200]}")
+        async with aiohttp.ClientSession() as session:
+            async with session.post(
+                url, headers=headers, json=payload,
+                timeout=aiohttp.ClientTimeout(total=120),
+            ) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    content = data["choices"][0]["message"]["content"]
+                    tokens = data.get("usage", {}).get("total_tokens", 0)
+                    cost = (tokens / 1000) * 0.001
+                    print(f"    Tokens: {tokens:,} | Cost: ${cost:.4f}")
+                    return content
+                else:
+                    text = await resp.text()
+                    raise RuntimeError(f"API error {resp.status}: {text[:200]}")
+
+    raise ValueError(f"Unknown provider: {config['provider']}")
 
 
 async def run_step(step_name: str, context: dict = None) -> dict:
@@ -270,10 +318,14 @@ def show_status():
     state = load_state()
     patterns = load_pattern_library()
 
+    mode = "OFFLINE (Ollama)" if OFFLINE_MODE else "CLOUD (Kimi)"
+    model = MODEL_CONFIG["audit"]["model"]
     print(f"""
 ╔══════════════════════════════════════════════════════════╗
 ║             WORKFLOW SYSTEM STATUS                       ║
 ╠══════════════════════════════════════════════════════════╣
+  Mode:           {mode}
+  Model:          {model}
   Cycle:          #{state.get('cycle', 0)}
   Created:        {state.get('created', 'N/A')}
   Last updated:   {state.get('updated', 'N/A')}

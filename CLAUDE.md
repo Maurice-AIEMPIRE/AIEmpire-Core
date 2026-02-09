@@ -1,7 +1,7 @@
 # AIEmpire-Core - Project Context
 
 ## Owner
-Maurice Pfeifer, 37, Elektrotechnikmeister, 16 Jahre BMA-Expertise (Brandmeldeanlagen).
+Maurice Pfeifer, 33, Elektrotechnikmeister, 16 Jahre BMA-Expertise (Brandmeldeanlagen).
 Ziel: 100 Mio EUR in 1-3 Jahren, alles automatisiert mit AI.
 
 ## Architecture
@@ -18,6 +18,10 @@ REVENUE: Gumroad + Fiverr + Consulting
 
 ## Key Directories
 - `workflow-system/` - Opus 4.6 5-Step Compound Loop (AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER)
+- `workflow-system/empire_brain.py` - EMPIRE BRAIN: Zentrales Gehirn, verbindet ALLES
+- `workflow-system/ollama_engine.py` - Lokale LLM Engine (Ollama, $0 Kosten)
+- `workflow-system/agent_manager.py` - Revenue-basiertes Agent Ranking (Dirk Kreuter Style)
+- `workflow-system/knowledge_harvester.py` - Knowledge Base + Codebase Scanner
 - `workflow-system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
 - `workflow-system/resource_guard.py` - CPU/RAM/Disk Monitoring + Auto-Throttling
 - `kimi-swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
@@ -27,6 +31,7 @@ REVENUE: Gumroad + Fiverr + Consulting
 - `openclaw-config/` - OpenClaw agent configs, cron jobs, model routing
 - `systems/` - Docker compose, lead agent prompts
 - `gold-nuggets/` - Business intelligence documents
+- `scripts/` - Automation dashboard, notifications, master orchestrator
 
 ## Workflow System Usage
 ```bash
@@ -86,6 +91,34 @@ python workflow-system/empire.py cycle
 
 # Alles nacheinander (Workflow + Cowork)
 python workflow-system/empire.py full
+```
+
+## Empire Brain (Zentrales Gehirn)
+```bash
+# System-Check: Alle Systeme verbinden
+python workflow-system/empire_brain.py --connect
+
+# Denk-Zyklus (Analyse → Entscheidung → Aktion)
+python workflow-system/empire_brain.py --think --focus revenue
+
+# Revenue-Analyse (Dirk Kreuter Modus)
+python workflow-system/empire_brain.py --revenue
+```
+
+## Ollama Engine (Lokale AI, $0)
+```bash
+# OFFLINE_MODE=true (Default) → Ollama statt Cloud
+# OFFLINE_MODE=false → Kimi Cloud Fallback
+# Verfuegbare Modelle: qwen2.5-coder:7b, glm-4.7-flash, deepseek-r1:8b
+python workflow-system/ollama_engine.py  # Test
+```
+
+## Agent Manager (Revenue Ranking)
+```bash
+# Top 10 Leaderboard nach Revenue
+# Auto-Boost: Platz 1-3 → 2-3x Tasks
+# Auto-Demote: Platz 8-10 → 0.5x Tasks
+python workflow-system/agent_manager.py  # Demo
 ```
 
 ## Session-Start Hook

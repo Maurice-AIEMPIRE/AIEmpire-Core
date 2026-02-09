@@ -1,0 +1,198 @@
+name: Automated Backup
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Daily at 2 AM UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Generate backup timestamp
+        id: timestamp
+        run: echo "ts=$(date -u '+%Y%m%d-%H%M%S')" >> "$GITHUB_OUTPUT"
+
+      - name: Create backup directory structure
+        run: |
+          BACKUP_DIR="backup-${{ steps.timestamp.outputs.ts }}"
+          mkdir -p "$BACKUP_DIR"
+
+          echo "=== AIEmpire-Core Backup ===" > "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          echo "Timestamp: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          echo "Repository: ${{ github.repository }}" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          echo "Branch: ${{ github.ref_name }}" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          echo "Commit: ${{ github.sha }}" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          echo "" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          echo "Contents:" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+
+      - name: Backup configuration files
+        run: |
+          BACKUP_DIR="backup-${{ steps.timestamp.outputs.ts }}"
+          mkdir -p "$BACKUP_DIR/configs"
+
+          # OpenClaw configs
+          if [ -d "openclaw-config" ]; then
+            cp -r openclaw-config "$BACKUP_DIR/configs/openclaw-config"
+            echo "  - openclaw-config/ ($(find openclaw-config -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # Docker compose files
+          for f in $(find . -name 'docker-compose*.yaml' -o -name 'docker-compose*.yml' -not -path './.git/*'); do
+            cp "$f" "$BACKUP_DIR/configs/"
+            echo "  - $f" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          done
+
+          # GitHub workflows
+          if [ -d ".github" ]; then
+            cp -r .github "$BACKUP_DIR/configs/.github"
+            echo "  - .github/ ($(find .github -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # CLAUDE.md and other root configs
+          for f in CLAUDE.md COPILOT_BRIEFING.md HANDOFF_PROTOCOL.md; do
+            if [ -f "$f" ]; then
+              cp "$f" "$BACKUP_DIR/configs/"
+              echo "  - $f" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+            fi
+          done
+
+      - name: Backup scripts
+        run: |
+          BACKUP_DIR="backup-${{ steps.timestamp.outputs.ts }}"
+          mkdir -p "$BACKUP_DIR/scripts"
+
+          # Workflow system
+          if [ -d "workflow-system" ]; then
+            cp -r workflow-system "$BACKUP_DIR/scripts/workflow-system"
+            echo "  - workflow-system/ ($(find workflow-system -type f -name '*.py' | wc -l) Python files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # Atomic reactor
+          if [ -d "atomic-reactor" ]; then
+            cp -r atomic-reactor "$BACKUP_DIR/scripts/atomic-reactor"
+            echo "  - atomic-reactor/ ($(find atomic-reactor -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # Kimi swarm
+          if [ -d "kimi-swarm" ]; then
+            cp -r kimi-swarm "$BACKUP_DIR/scripts/kimi-swarm"
+            echo "  - kimi-swarm/ ($(find kimi-swarm -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # X lead machine
+          if [ -d "x-lead-machine" ]; then
+            cp -r x-lead-machine "$BACKUP_DIR/scripts/x-lead-machine"
+            echo "  - x-lead-machine/ ($(find x-lead-machine -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # CRM
+          if [ -d "crm" ]; then
+            cp -r crm "$BACKUP_DIR/scripts/crm"
+            echo "  - crm/ ($(find crm -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # Standalone scripts
+          if [ -d "scripts" ]; then
+            cp -r scripts "$BACKUP_DIR/scripts/scripts"
+            echo "  - scripts/ ($(find scripts -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+      - name: Backup memory and knowledge
+        run: |
+          BACKUP_DIR="backup-${{ steps.timestamp.outputs.ts }}"
+          mkdir -p "$BACKUP_DIR/memory"
+
+          # Memory directory
+          if [ -d "memory" ]; then
+            cp -r memory "$BACKUP_DIR/memory/memory"
+            echo "  - memory/ ($(find memory -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # Gold nuggets (business intelligence)
+          if [ -d "gold-nuggets" ]; then
+            cp -r gold-nuggets "$BACKUP_DIR/memory/gold-nuggets"
+            echo "  - gold-nuggets/ ($(find gold-nuggets -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # Documentation
+          if [ -d "docs" ]; then
+            cp -r docs "$BACKUP_DIR/memory/docs"
+            echo "  - docs/ ($(find docs -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # Sprint data
+          if [ -d "sprint" ]; then
+            cp -r sprint "$BACKUP_DIR/memory/sprint"
+            echo "  - sprint/ ($(find sprint -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+          # Systems documentation
+          if [ -d "systems" ]; then
+            cp -r systems "$BACKUP_DIR/memory/systems"
+            echo "  - systems/ ($(find systems -type f | wc -l) files)" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          fi
+
+      - name: Generate backup statistics
+        run: |
+          BACKUP_DIR="backup-${{ steps.timestamp.outputs.ts }}"
+          echo "" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          echo "Statistics:" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          total_files=$(find "$BACKUP_DIR" -type f | wc -l)
+          echo "  Total files: $total_files" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+          total_size=$(du -sh "$BACKUP_DIR" | cut -f1)
+          echo "  Total size (uncompressed): $total_size" >> "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+
+          echo "--- Backup Manifest ---"
+          cat "$BACKUP_DIR/BACKUP_MANIFEST.txt"
+
+      - name: Create tar.gz archive
+        run: |
+          BACKUP_DIR="backup-${{ steps.timestamp.outputs.ts }}"
+          ARCHIVE_NAME="aiempire-core-backup-${{ steps.timestamp.outputs.ts }}.tar.gz"
+          tar -czf "$ARCHIVE_NAME" "$BACKUP_DIR"
+          echo "Archive created: $ARCHIVE_NAME"
+          ls -lh "$ARCHIVE_NAME"
+
+      - name: Upload backup artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aiempire-core-backup-${{ steps.timestamp.outputs.ts }}
+          path: aiempire-core-backup-${{ steps.timestamp.outputs.ts }}.tar.gz
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Backup summary
+        run: |
+          echo "## Backup Complete" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Timestamp:** ${{ steps.timestamp.outputs.ts }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Archive:** \`aiempire-core-backup-${{ steps.timestamp.outputs.ts }}.tar.gz\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Retention:** 90 days" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Branch:** ${{ github.ref_name }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Commit:** ${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          BACKUP_DIR="backup-${{ steps.timestamp.outputs.ts }}"
+          echo "### Manifest" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat "$BACKUP_DIR/BACKUP_MANIFEST.txt" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"

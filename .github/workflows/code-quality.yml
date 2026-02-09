@@ -1,0 +1,252 @@
+name: Code Quality
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - 'copilot/**'
+  pull_request:
+    branches:
+      - main
+      - develop
+  schedule:
+    - cron: '0 3 * * *'  # Daily at 3 AM UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest flake8 bandit safety pip-audit
+          # Install project requirements if they exist
+          if [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+          fi
+          # Check subdirectories for requirements files
+          for req in $(find . -name 'requirements*.txt' -not -path './.git/*' -not -path './node_modules/*'); do
+            echo "Installing from $req"
+            pip install -r "$req" || true
+          done
+
+      - name: Run Python tests
+        id: tests
+        continue-on-error: true
+        run: |
+          echo "## Test Results" > quality-report.md
+          echo "" >> quality-report.md
+
+          # Discover and run tests
+          TEST_FILES=$(find . -name 'test_*.py' -o -name '*_test.py' | grep -v '__pycache__' | grep -v '.git' || true)
+          if [ -n "$TEST_FILES" ]; then
+            echo "Found test files:"
+            echo "$TEST_FILES"
+            echo "### pytest" >> quality-report.md
+            echo '```' >> quality-report.md
+            python -m pytest --tb=short -v 2>&1 | tee pytest-output.txt || true
+            cat pytest-output.txt >> quality-report.md
+            echo '```' >> quality-report.md
+          else
+            echo "### pytest" >> quality-report.md
+            echo "" >> quality-report.md
+            echo "_No test files found. Consider adding tests for:_" >> quality-report.md
+            find . -name '*.py' -not -path './.git/*' -not -name '._*' -not -path '*/__pycache__/*' | head -10 | while read f; do
+              echo "- \`$f\`" >> quality-report.md
+            done
+          fi
+          echo "" >> quality-report.md
+
+      - name: Run Python syntax check
+        id: syntax
+        continue-on-error: true
+        run: |
+          echo "### Syntax Validation" >> quality-report.md
+          echo "" >> quality-report.md
+          echo '```' >> quality-report.md
+          ERRORS=0
+          find . -name '*.py' -not -path './.git/*' -not -name '._*' -not -path '*/__pycache__/*' | while read pyfile; do
+            python -m py_compile "$pyfile" 2>&1 || echo "SYNTAX ERROR: $pyfile"
+          done | tee syntax-output.txt
+          cat syntax-output.txt >> quality-report.md
+          if [ ! -s syntax-output.txt ]; then
+            echo "All Python files passed syntax validation." >> quality-report.md
+          fi
+          echo '```' >> quality-report.md
+          echo "" >> quality-report.md
+
+      - name: Run flake8 linting
+        id: lint
+        continue-on-error: true
+        run: |
+          echo "### Linting (flake8)" >> quality-report.md
+          echo "" >> quality-report.md
+          echo '```' >> quality-report.md
+          flake8 . \
+            --exclude=.git,__pycache__,node_modules,.mypy_cache \
+            --max-line-length=120 \
+            --count \
+            --statistics \
+            --show-source 2>&1 | tee flake8-output.txt || true
+          cat flake8-output.txt >> quality-report.md
+          if [ ! -s flake8-output.txt ]; then
+            echo "No linting issues found." >> quality-report.md
+          fi
+          echo '```' >> quality-report.md
+          echo "" >> quality-report.md
+
+      - name: Run security audit with bandit
+        id: security
+        continue-on-error: true
+        run: |
+          echo "### Security Audit (bandit)" >> quality-report.md
+          echo "" >> quality-report.md
+          echo '```' >> quality-report.md
+          bandit -r . \
+            --exclude .git,__pycache__,node_modules \
+            -f txt \
+            -ll 2>&1 | tee bandit-output.txt || true
+          cat bandit-output.txt >> quality-report.md
+          echo '```' >> quality-report.md
+          echo "" >> quality-report.md
+
+      - name: Run dependency security check
+        id: deps_security
+        continue-on-error: true
+        run: |
+          echo "### Dependency Security (pip-audit)" >> quality-report.md
+          echo "" >> quality-report.md
+          echo '```' >> quality-report.md
+          pip-audit 2>&1 | tee pip-audit-output.txt || true
+          cat pip-audit-output.txt >> quality-report.md
+          echo '```' >> quality-report.md
+          echo "" >> quality-report.md
+
+      - name: Check for outdated dependencies
+        id: outdated
+        continue-on-error: true
+        run: |
+          echo "### Outdated Dependencies" >> quality-report.md
+          echo "" >> quality-report.md
+          echo '```' >> quality-report.md
+          pip list --outdated 2>&1 | tee outdated-output.txt || true
+          cat outdated-output.txt >> quality-report.md
+          if [ ! -s outdated-output.txt ]; then
+            echo "All dependencies are up to date." >> quality-report.md
+          fi
+          echo '```' >> quality-report.md
+          echo "" >> quality-report.md
+
+      - name: Build verification
+        id: build
+        continue-on-error: true
+        run: |
+          echo "### Build Verification" >> quality-report.md
+          echo "" >> quality-report.md
+
+          BUILD_OK=true
+
+          # Verify all Python files can be imported without errors
+          echo "#### Python Import Check" >> quality-report.md
+          echo '```' >> quality-report.md
+          find . -name '*.py' -not -path './.git/*' -not -name '._*' -not -path '*/__pycache__/*' -not -name 'test_*' | while read pyfile; do
+            module=$(echo "$pyfile" | sed 's|^\./||; s|\.py$||; s|/|.|g')
+            python -c "import ast; ast.parse(open('$pyfile').read())" 2>&1 || {
+              echo "PARSE ERROR: $pyfile"
+              BUILD_OK=false
+            }
+          done | tee build-output.txt
+          cat build-output.txt >> quality-report.md
+          if [ ! -s build-output.txt ]; then
+            echo "All Python files parsed successfully." >> quality-report.md
+          fi
+          echo '```' >> quality-report.md
+          echo "" >> quality-report.md
+
+          # Verify YAML files are valid
+          echo "#### YAML Validation" >> quality-report.md
+          echo '```' >> quality-report.md
+          find . -name '*.yaml' -o -name '*.yml' | grep -v '.git' | while read yamlfile; do
+            python -c "import yaml; yaml.safe_load(open('$yamlfile'))" 2>&1 && echo "OK: $yamlfile" || echo "INVALID: $yamlfile"
+          done | tee yaml-output.txt
+          cat yaml-output.txt >> quality-report.md
+          echo '```' >> quality-report.md
+          echo "" >> quality-report.md
+
+          # Verify JSON files are valid
+          echo "#### JSON Validation" >> quality-report.md
+          echo '```' >> quality-report.md
+          find . -name '*.json' -not -path './.git/*' -not -path './node_modules/*' | while read jsonfile; do
+            python -c "import json; json.load(open('$jsonfile'))" 2>&1 && echo "OK: $jsonfile" || echo "INVALID: $jsonfile"
+          done | tee json-output.txt
+          cat json-output.txt >> quality-report.md
+          echo '```' >> quality-report.md
+          echo "" >> quality-report.md
+
+      - name: Generate quality summary
+        if: always()
+        run: |
+          echo "---" >> quality-report.md
+          echo "" >> quality-report.md
+          echo "### Summary" >> quality-report.md
+          echo "" >> quality-report.md
+          echo "| Check | Status |" >> quality-report.md
+          echo "|-------|--------|" >> quality-report.md
+          echo "| Tests | ${{ steps.tests.outcome }} |" >> quality-report.md
+          echo "| Syntax | ${{ steps.syntax.outcome }} |" >> quality-report.md
+          echo "| Linting | ${{ steps.lint.outcome }} |" >> quality-report.md
+          echo "| Security Audit | ${{ steps.security.outcome }} |" >> quality-report.md
+          echo "| Dependency Security | ${{ steps.deps_security.outcome }} |" >> quality-report.md
+          echo "| Outdated Deps | ${{ steps.outdated.outcome }} |" >> quality-report.md
+          echo "| Build Verification | ${{ steps.build.outcome }} |" >> quality-report.md
+          echo "" >> quality-report.md
+          echo "_Report generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')_" >> quality-report.md
+          echo "_Branch: ${{ github.ref_name }} | Commit: ${{ github.sha }}_" >> quality-report.md
+
+      - name: Upload quality report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quality-report-${{ github.sha }}
+          path: quality-report.md
+          retention-days: 30
+
+      - name: Post quality summary
+        if: always()
+        run: |
+          echo "## Code Quality Report" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          cat quality-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Check for failures
+        if: always()
+        run: |
+          # Fail the workflow if critical checks failed
+          if [ "${{ steps.syntax.outcome }}" = "failure" ]; then
+            echo "::error::Python syntax check found errors"
+            exit 1
+          fi
+          if [ "${{ steps.security.outcome }}" = "failure" ]; then
+            echo "::warning::Security audit found issues - review the report"
+          fi
