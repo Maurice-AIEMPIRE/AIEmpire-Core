@@ -9,10 +9,15 @@ import aiohttp
 import yaml
 import json
 import os
+import sys
 from pathlib import Path
 from datetime import datetime
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
+if not MOONSHOT_API_KEY:
+    print("ERROR: MOONSHOT_API_KEY not set. Export it first: export MOONSHOT_API_KEY=your-key")
+    sys.exit(1)
+
 TASKS_DIR = Path(__file__).parent / "tasks"
 REPORTS_DIR = Path(__file__).parent / "reports"
 
