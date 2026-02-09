@@ -2,11 +2,32 @@
 
 > 100 Mio € in 1-3 Jahren - Alles automatisiert mit AI
 
+## 📚 Struktur-Dokumentation für Mac
+
+**NEU:** Vollständige Strukturübersicht & Setup-Guide für deinen Mac!
+
+| Dokument | Zweck | Größe |
+|----------|-------|-------|
+| 📑 **[DOCUMENTATION_INDEX.md](./DOCUMENTATION_INDEX.md)** | **Start hier!** Alle Docs auf einen Blick | 7KB |
+| 🍎 **[MAC_SETUP_GUIDE.md](./MAC_SETUP_GUIDE.md)** | Schritt-für-Schritt Installation für Mac | 8KB |
+| 📖 **[COMPLETE_STRUCTURE.md](./COMPLETE_STRUCTURE.md)** | Komplette Projekt-Struktur & Details | 17KB |
+| ⚡ **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** | Schnellzugriff auf Commands | 3KB |
+| 🎨 **[STRUCTURE_VISUAL.txt](./STRUCTURE_VISUAL.txt)** | Visuelle ASCII Diagramme | 12KB |
+
+**Quick Links:**
+- 🚀 Neu auf Mac? → [MAC_SETUP_GUIDE.md](./MAC_SETUP_GUIDE.md)
+- 🔍 Alles verstehen? → [COMPLETE_STRUCTURE.md](./COMPLETE_STRUCTURE.md)
+- ⚡ Daily Commands? → [QUICK_REFERENCE.md](./QUICK_REFERENCE.md)
+
+---
+
 ## 📊 Overview
 
 | Component | Status | Purpose |
 |-----------|--------|---------|
+| **📱 Mobile Smartphone Access** | 🔥 **NEW** | **Weltweiter Remote Access via Handy** |
 | **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
+| **Chat Upload & Multi-Model** | 🔥 **NEW** | **Chat-Upload + Alle Modelle (Claude, Kimi, Ollama)** |
 | **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
 | X Auto Poster | ✅ | Tägliche Content Generation + Scheduling |
@@ -20,7 +41,35 @@
 
 ## 🚀 Quick Start
 
-### GitHub Control System (NEU!)
+### 📱 Mobile Smartphone Access (PRIORITY 1!)
+
+**🌍 Weltweiter Remote Access über dein Smartphone:**
+
+**5-Minuten Setup:**
+1. 📱 GitHub App installieren (iOS/Android)
+2. 🔔 Benachrichtigungen aktivieren
+3. ⭐ Repository watchen
+4. 💬 Ersten Command testen: `@bot status`
+5. ✅ **DONE! Remote Access weltweit aktiv!**
+
+**Vollständige Dokumentation:**
+- 📚 **[MOBILE_DOCUMENTATION_INDEX.md](./MOBILE_DOCUMENTATION_INDEX.md)** - Zentrale Übersicht (Start hier!)
+- 📱 **[MOBILE_ACCESS_GUIDE.md](./MOBILE_ACCESS_GUIDE.md)** - Komplette Anleitung
+- ⚡ **[MOBILE_QUICK_REFERENCE.md](./MOBILE_QUICK_REFERENCE.md)** - Schnell-Referenz
+- 🔔 **[MOBILE_NOTIFICATIONS_SETUP.md](./MOBILE_NOTIFICATIONS_SETUP.md)** - Push-Notifications
+- ✅ **[MOBILE_SETUP_CHECKLIST.md](./MOBILE_SETUP_CHECKLIST.md)** - Setup Checkliste
+- ❓ **[MOBILE_FAQ.md](./MOBILE_FAQ.md)** - Häufige Fragen
+- 🚀 **[MOBILE_QUICK_START.md](./MOBILE_QUICK_START.md)** - One-Page Guide
+
+**Features:**
+- ✅ Chat-basierte Steuerung (wie Desktop)
+- ✅ Push-Benachrichtigungen für alles
+- ✅ Releases & Approvals auf Handy
+- ✅ 100% Mobile-fähig
+
+---
+
+### GitHub Control System
 
 **Alles über GitHub Issues steuerbar:**
 
@@ -34,7 +83,20 @@
    ```
 3. Bot antwortet automatisch!
 
-**Dokumentation:** [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)
+**🔥 NEW: Chat Upload & Multi-Model Support!**
+```
+@bot upload-chat text
+User: Hello
+Assistant: Hi there!
+
+@bot ask Was ist AI Automation?
+@bot models
+@bot switch-model ollama-qwen
+```
+
+**Dokumentation:** 
+- [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)
+- [CHAT_UPLOAD_GUIDE.md](./docs/CHAT_UPLOAD_GUIDE.md) 🔥 **NEW**
 
 ### Lokale Services
 
@@ -145,12 +207,24 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 **In jedem Issue oder Comment:**
 
 ```
+# System Status
 @bot status              # System Status
-@bot generate-content    # X/Twitter Posts generieren
-@bot revenue-report      # Revenue Overview
-@bot create-gig          # Fiverr Gig Descriptions
-@bot post-x             # X Posting Guide
 @bot help               # Alle Commands
+
+# Chat & AI (NEW!)
+@bot upload-chat text   # Chat hochladen
+@bot ask [question]     # Frage stellen
+@bot models             # Verfügbare Modelle
+@bot switch-model kimi  # Modell wechseln
+@bot export-chat        # Chat exportieren
+
+# Content & Marketing
+@bot generate-content   # X/Twitter Posts generieren
+@bot post-x            # X Posting Guide
+@bot create-gig        # Fiverr Gig Descriptions
+
+# Business
+@bot revenue-report     # Revenue Overview
 ```
 
 **Automatische Workflows:**
