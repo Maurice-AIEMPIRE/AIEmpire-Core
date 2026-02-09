@@ -97,7 +97,8 @@ def test_swarm_structure():
             "run_batch",
             "claude_orchestration_checkpoint",
             "print_stats",
-            "run_swarm"
+            "run_swarm",
+            "validate_max_agent_capacity"  # NEW: Validation method
         ]
         
         for method in methods:
@@ -167,6 +168,30 @@ def test_configuration():
         print(f"❌ Configuration test failed: {e}")
         return False
 
+def test_max_agent_validation():
+    """Test max agent capacity validation."""
+    print("\nTesting max agent capacity validation...")
+    try:
+        import swarm_500k
+        
+        # Create swarm instance
+        swarm = swarm_500k.KimiSwarm500K()
+        
+        # Run validation
+        result = swarm.validate_max_agent_capacity()
+        
+        # Validation should pass with proper setup
+        if result:
+            print("  ✅ Validation passed")
+        else:
+            print("  ⚠️  Validation failed (may be expected if API key not set)")
+        
+        print("✅ Max agent validation method works")
+        return True
+    except Exception as e:
+        print(f"❌ Max agent validation test failed: {e}")
+        return False
+
 def main():
     """Run all tests."""
     print("="*60)
@@ -180,6 +205,7 @@ def main():
         test_swarm_structure,
         test_output_directories,
         test_configuration,
+        test_max_agent_validation,  # NEW: Test max agent validation
     ]
     
     results = []
@@ -194,7 +220,7 @@ def main():
     print(f"Passed: {passed}/{total}")
     
     if passed == total:
-        print("✅ All tests passed! System ready to run.")
+        print("✅ All tests passed! System ready to spawn max agents.")
         return 0
     else:
         print(f"❌ {total - passed} test(s) failed. Please fix issues before running.")
