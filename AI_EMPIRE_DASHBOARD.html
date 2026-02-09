@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="AI Empire">
+<meta name="theme-color" content="#0A0A1A">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<title>AI Empire Command Center</title>
+<style>
+:root {
+  --bg: #0A0A1A;
+  --bg2: #12122A;
+  --bg3: #1A1A3E;
+  --accent: #E94560;
+  --blue: #4A90D9;
+  --gold: #F5A623;
+  --green: #27AE60;
+  --cyan: #00D2FF;
+  --text: #E8E8F0;
+  --text2: #8888AA;
+  --card: #161630;
+  --border: #2A2A4A;
+  --radius: 16px;
+  --safe-top: env(safe-area-inset-top, 20px);
+  --safe-bottom: env(safe-area-inset-bottom, 20px);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  padding-top: var(--safe-top);
+  padding-bottom: calc(80px + var(--safe-bottom));
+  overflow-x: hidden;
+}
+/* ── Top Bar ── */
+.top-bar {
+  position: sticky; top: 0; z-index: 100;
+  padding: 12px 20px;
+  padding-top: calc(var(--safe-top) + 8px);
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(10,10,26,0.95) 100%);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.top-bar h1 { font-size: 22px; font-weight: 800; }
+.top-bar h1 span { color: var(--accent); }
+.top-bar .pulse { width: 10px; height: 10px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(39,174,96,.5); } 50% { opacity: .8; box-shadow: 0 0 0 8px rgba(39,174,96,0); } }
+
+/* ── Content ── */
+.content { padding: 0 16px 20px; }
+
+/* ── Section Headers ── */
+.section-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 20px 0 12px; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px; color: var(--text2);
+}
+.section-header::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: transform .15s, border-color .15s;
+}
+.card:active { transform: scale(0.98); border-color: var(--accent); }
+.card-row { display: flex; gap: 12px; }
+.card-row .card { flex: 1; }
+
+/* ── Status Grid ── */
+.status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.stat-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px; text-align: center;
+}
+.stat-value { font-size: 28px; font-weight: 800; margin: 4px 0; }
+.stat-label { font-size: 12px; color: var(--text2); text-transform: uppercase; letter-spacing: 1px; }
+.stat-sub { font-size: 11px; color: var(--text2); margin-top: 4px; }
+
+/* ── System Status ── */
+.system-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+}
+.system-row:last-child { border-bottom: none; }
+.system-name { font-size: 14px; font-weight: 600; }
+.system-detail { font-size: 12px; color: var(--text2); }
+.badge {
+  font-size: 11px; font-weight: 700; padding: 4px 10px;
+  border-radius: 20px; text-transform: uppercase; letter-spacing: .5px;
+}
+.badge-green { background: rgba(39,174,96,.15); color: var(--green); }
+.badge-yellow { background: rgba(245,166,35,.15); color: var(--gold); }
+.badge-red { background: rgba(233,69,96,.15); color: var(--accent); }
+
+/* ── Task List ── */
+.task-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.task-item:last-child { border-bottom: none; }
+.task-check {
+  width: 22px; height: 22px; border-radius: 50%; margin-top: 2px;
+  flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+}
+.task-check.done { background: var(--green); color: white; }
+.task-check.pending { border: 2px solid var(--border); }
+.task-check.active { border: 2px solid var(--cyan); background: rgba(0,210,255,.1); }
+.task-title { font-size: 14px; font-weight: 600; }
+.task-title.done-text { text-decoration: line-through; color: var(--text2); }
+.task-meta { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+/* ── Revenue Card ── */
+.revenue-hero {
+  background: linear-gradient(135deg, var(--bg3) 0%, var(--card) 100%);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 24px; text-align: center; margin-bottom: 12px;
+}
+.revenue-amount { font-size: 42px; font-weight: 900; color: var(--accent); }
+.revenue-target { font-size: 13px; color: var(--text2); margin-top: 4px; }
+.progress-bar {
+  height: 6px; background: var(--bg); border-radius: 3px;
+  margin-top: 12px; overflow: hidden;
+}
+.progress-fill {
+  height: 100%; border-radius: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  transition: width .5s ease;
+}
+
+/* ── Quick Actions ── */
+.actions-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.action-btn {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 14px; padding: 16px 12px; text-align: center;
+  color: var(--text); cursor: pointer; transition: all .15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.action-btn:active { transform: scale(0.95); background: var(--border); }
+.action-icon { font-size: 28px; margin-bottom: 6px; }
+.action-label { font-size: 12px; font-weight: 600; }
+
+/* ── Brain System ── */
+.brain-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.brain-node {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 12px; padding: 10px 6px; text-align: center;
+}
+.brain-icon { font-size: 20px; }
+.brain-name { font-size: 10px; color: var(--text2); margin-top: 4px; font-weight: 600; }
+.brain-status { font-size: 8px; margin-top: 2px; }
+
+/* ── Gold Nuggets ── */
+.nugget-card {
+  background: linear-gradient(135deg, rgba(245,166,35,.08), rgba(245,166,35,.02));
+  border: 1px solid rgba(245,166,35,.2);
+  border-radius: 14px; padding: 14px; margin-bottom: 10px;
+}
+.nugget-title { font-size: 14px; font-weight: 700; color: var(--gold); }
+.nugget-desc { font-size: 12px; color: var(--text2); margin-top: 4px; }
+.nugget-value { font-size: 11px; color: var(--green); margin-top: 6px; font-weight: 600; }
+
+/* ── Swarm Monitor ── */
+.swarm-visual {
+  height: 80px; background: var(--bg); border-radius: 12px;
+  display: flex; align-items: flex-end; gap: 3px; padding: 8px;
+  margin: 12px 0;
+}
+.swarm-bar {
+  flex: 1; background: linear-gradient(180deg, var(--cyan), var(--blue));
+  border-radius: 3px 3px 0 0; transition: height .3s;
+  min-height: 4px;
+}
+
+/* ── Timeline / Activity ── */
+.timeline-item {
+  display: flex; gap: 12px; padding: 10px 0;
+  border-bottom: 1px solid rgba(42,42,74,.5);
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  margin-top: 6px; flex-shrink: 0;
+}
+.timeline-text { font-size: 13px; }
+.timeline-time { font-size: 11px; color: var(--text2); margin-top: 2px; }
+
+/* ── Bottom Nav ── */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(10,10,26,.95);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+  padding: 8px 0; padding-bottom: calc(8px + var(--safe-bottom));
+  display: flex; justify-content: space-around;
+}
+.nav-item {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  color: var(--text2); font-size: 10px; font-weight: 600;
+  cursor: pointer; -webkit-tap-highlight-color: transparent;
+  padding: 4px 12px;
+}
+.nav-item.active { color: var(--accent); }
+.nav-icon { font-size: 22px; }
+
+/* ── Tab content ── */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { display: none; }
+
+/* ── Pull to refresh indicator ── */
+.refresh-indicator {
+  text-align: center; padding: 12px; color: var(--text2);
+  font-size: 12px; display: none;
+}
+.refresh-indicator.visible { display: block; }
+
+/* ── Animations ── */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-in { animation: fadeIn .3s ease forwards; }
+
+/* ── Loading Shimmer ── */
+.shimmer {
+  background: linear-gradient(90deg, var(--bg3) 25%, var(--border) 50%, var(--bg3) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  <h1><span>AI</span> EMPIRE</h1>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <span style="font-size:11px;color:var(--text2)" id="lastUpdate">Live</span>
+    <div class="pulse"></div>
+  </div>
+</div>
+
+<!-- TAB: Dashboard -->
+<div class="content tab-content active" id="tab-dashboard">
+
+  <!-- Revenue Hero -->
+  <div class="section-header">Revenue</div>
+  <div class="revenue-hero animate-in">
+    <div style="font-size:12px;color:var(--text2);text-transform:uppercase;letter-spacing:1px;">Monatsumsatz</div>
+    <div class="revenue-amount" id="revenueAmount">&euro;0</div>
+    <div class="revenue-target">Ziel: &euro;10.000 | Monat 1 von 12</div>
+    <div class="progress-bar"><div class="progress-fill" id="revenueBar" style="width:0%"></div></div>
+  </div>
+
+  <!-- Key Stats -->
+  <div class="status-grid animate-in" style="animation-delay:.1s">
+    <div class="stat-card">
+      <div class="stat-label">Agents aktiv</div>
+      <div class="stat-value" style="color:var(--cyan)" id="activeAgents">7</div>
+      <div class="stat-sub">Brain System</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Tasks heute</div>
+      <div class="stat-value" style="color:var(--gold)" id="tasksToday">24</div>
+      <div class="stat-sub">+12 vs. gestern</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Leads</div>
+      <div class="stat-value" style="color:var(--green)" id="totalLeads">0</div>
+      <div class="stat-sub">Pipeline</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Gold Nuggets</div>
+      <div class="stat-value" style="color:var(--gold)" id="totalNuggets">15</div>
+      <div class="stat-sub">Extrahiert</div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="section-header">Schnellaktionen</div>
+  <div class="actions-grid animate-in" style="animation-delay:.2s">
+    <div class="action-btn" onclick="triggerAction('content')">
+      <div class="action-icon">&#x1F4DD;</div>
+      <div class="action-label">Content generieren</div>
+    </div>
+    <div class="action-btn" onclick="triggerAction('swarm')">
+      <div class="action-icon">&#x1F41D;</div>
+      <div class="action-label">Swarm starten</div>
+    </div>
+    <div class="action-btn" onclick="triggerAction('health')">
+      <div class="action-icon">&#x1F3E5;</div>
+      <div class="action-label">Health Check</div>
+    </div>
+    <div class="action-btn" onclick="triggerAction('revenue')">
+      <div class="action-icon">&#x1F4B0;</div>
+      <div class="action-label">Revenue Report</div>
+    </div>
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="section-header">Letzte Aktivit&auml;t</div>
+  <div class="card animate-in" style="animation-delay:.3s" id="activityFeed">
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--green)"></div>
+      <div>
+        <div class="timeline-text">System-Architektur Dokument erstellt</div>
+        <div class="timeline-time">Vor 2 Minuten</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--cyan)"></div>
+      <div>
+        <div class="timeline-text">BMA Academy Struktur aufgesetzt</div>
+        <div class="timeline-time">Vor 15 Minuten</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--gold)"></div>
+      <div>
+        <div class="timeline-text">Kimi Bridge + Universal Swarm committed</div>
+        <div class="timeline-time">Vor 20 Minuten</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--accent)"></div>
+      <div>
+        <div class="timeline-text">Swarm 500K iCloud Sync konfiguriert</div>
+        <div class="timeline-time">Vor 30 Minuten</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-dot" style="background:var(--blue)"></div>
+      <div>
+        <div class="timeline-text">Revenue Engine Launcher erstellt</div>
+        <div class="timeline-time">Vor 45 Minuten</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: Systems -->
+<div class="content tab-content" id="tab-systems">
+
+  <!-- Brain System -->
+  <div class="section-header">Brain System (7 Hirne)</div>
+  <div class="brain-grid animate-in">
+    <div class="brain-node">
+      <div class="brain-icon">&#x1F6E1;</div>
+      <div class="brain-name">Brainstem</div>
+      <div class="brain-status" style="color:var(--green)">AKTIV</div>
+    </div>
+    <div class="brain-node">
+      <div class="brain-icon">&#x1F52D;</div>
+      <div class="brain-name">Neocortex</div>
+      <div class="brain-status" style="color:var(--green)">AKTIV</div>
+    </div>
+    <div class="brain-node">
+      <div class="brain-icon">&#x1F451;</div>
+      <div class="brain-name">Prefrontal</div>
+      <div class="brain-status" style="color:var(--green)">AKTIV</div>
+    </div>
+    <div class="brain-node">
+      <div class="brain-icon">&#x1F4E2;</div>
+      <div class="brain-name">Temporal</div>
+      <div class="brain-status" style="color:var(--green)">AKTIV</div>
+    </div>
+    <div class="brain-node">
+      <div class="brain-icon">&#x1F4CA;</div>
+      <div class="brain-name">Parietal</div>
+      <div class="brain-status" style="color:var(--green)">AKTIV</div>
+    </div>
+    <div class="brain-node">
+      <div class="brain-icon">&#x1F525;</div>
+      <div class="brain-name">Limbic</div>
+      <div class="brain-status" style="color:var(--green)">AKTIV</div>
+    </div>
+    <div class="brain-node">
+      <div class="brain-icon">&#x1F528;</div>
+      <div class="brain-name">Cerebellum</div>
+      <div class="brain-status" style="color:var(--green)">AKTIV</div>
+    </div>
+    <div class="brain-node">
+      <div class="brain-icon">&#x1F4BE;</div>
+      <div class="brain-name">Hippocampus</div>
+      <div class="brain-status" style="color:var(--green)">AKTIV</div>
+    </div>
+  </div>
+
+  <!-- System Status -->
+  <div class="section-header">Infrastruktur</div>
+  <div class="card animate-in" style="animation-delay:.1s">
+    <div class="system-row">
+      <div><div class="system-name">Claude API</div><div class="system-detail">Opus 4.6 + Sonnet</div></div>
+      <div class="badge badge-green">Aktiv</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">Ollama</div><div class="system-detail">Port 11434 &middot; qwen2.5-coder</div></div>
+      <div class="badge badge-green">Aktiv</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">OpenClaw</div><div class="system-detail">Port 18789 &middot; LaunchAgent</div></div>
+      <div class="badge badge-green">Aktiv</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">GitHub Actions</div><div class="system-detail">9 Workflows &middot; 24/7</div></div>
+      <div class="badge badge-green">Aktiv</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">CRM Server</div><div class="system-detail">Port 3500 &middot; Express.js</div></div>
+      <div class="badge badge-yellow">Bereit</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">Redis</div><div class="system-detail">Port 6379 &middot; Queue + Cache</div></div>
+      <div class="badge badge-yellow">Restart</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">PostgreSQL</div><div class="system-detail">Port 5432 &middot; Persistenz</div></div>
+      <div class="badge badge-yellow">Restart</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">Atomic Reactor</div><div class="system-detail">Port 8888 &middot; Task Engine</div></div>
+      <div class="badge badge-red">Inaktiv</div>
+    </div>
+  </div>
+
+  <!-- Swarm Monitor -->
+  <div class="section-header">Kimi Swarm Kapazit&auml;t</div>
+  <div class="card animate-in" style="animation-delay:.2s">
+    <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+      <span style="font-size:13px;font-weight:700;">Swarm Status</span>
+      <span style="font-size:13px;color:var(--cyan);" id="swarmStatus">Bereit</span>
+    </div>
+    <div class="swarm-visual" id="swarmVisual"></div>
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--text2)">
+      <span>100K ($15)</span>
+      <span>Universal</span>
+      <span>500K ($75)</span>
+    </div>
+  </div>
+
+  <!-- Kimi Bridge -->
+  <div class="section-header">AI Modell-Routing</div>
+  <div class="card animate-in" style="animation-delay:.3s">
+    <div class="system-row">
+      <div><div class="system-name">Ollama (lokal)</div><div class="system-detail">95% aller Tasks &middot; GRATIS</div></div>
+      <div style="font-size:20px;">&#x1F7E2;</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">Kimi K2.5 (Cloud)</div><div class="system-detail">4% &middot; $0.001/Task</div></div>
+      <div style="font-size:20px;">&#x1F7E2;</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">Claude Haiku</div><div class="system-detail">0.9% &middot; Spezial-Tasks</div></div>
+      <div style="font-size:20px;">&#x1F7E1;</div>
+    </div>
+    <div class="system-row">
+      <div><div class="system-name">Claude Opus</div><div class="system-detail">0.1% &middot; Nur strategisch</div></div>
+      <div style="font-size:20px;">&#x1F534;</div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: Tasks -->
+<div class="content tab-content" id="tab-tasks">
+
+  <div class="section-header">Kritische Gaps</div>
+  <div class="card animate-in">
+    <div class="task-item">
+      <div class="task-check pending"></div>
+      <div>
+        <div class="task-title">Revenue = &euro;0 &mdash; Produkte LIVE schalten</div>
+        <div class="task-meta">KRITISCH &middot; 2&ndash;4h Aufwand</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check pending"></div>
+      <div>
+        <div class="task-title">Redis + PostgreSQL neustarten</div>
+        <div class="task-meta">KRITISCH &middot; 2 Minuten</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check pending"></div>
+      <div>
+        <div class="task-title">3 Fiverr Gigs erstellen</div>
+        <div class="task-meta">KRITISCH &middot; 1h Aufwand</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check pending"></div>
+      <div>
+        <div class="task-title">YouTube Kanal + erstes Video</div>
+        <div class="task-meta">WICHTIG &middot; 2h Aufwand</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check pending"></div>
+      <div>
+        <div class="task-title">Newsletter (Brevo) aufsetzen</div>
+        <div class="task-meta">WICHTIG &middot; 1h Aufwand</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header">Erledigte Tasks</div>
+  <div class="card animate-in" style="animation-delay:.1s">
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">AI Empire Gesamtstruktur dokumentiert</div>
+        <div class="task-meta">Heute &middot; 16-Seiten Dokument</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">BMA Academy 4-Layer Architektur</div>
+        <div class="task-meta">Heute &middot; Knowledge Pipeline</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">Kimi Bridge (Ollama + Cloud)</div>
+        <div class="task-meta">Heute &middot; FastAPI Gateway</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">Universal Swarm implementiert</div>
+        <div class="task-meta">Heute &middot; Dynamic Task Config</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">500K Swarm iCloud Sync</div>
+        <div class="task-meta">Heute &middot; iOS Zugriff aktiviert</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">Revenue Engine macOS Launcher</div>
+        <div class="task-meta">Heute &middot; Double-Click Start</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">7-Brain System + Synapse Queue</div>
+        <div class="task-meta">08.02 &middot; SQLite Message Queue</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">Workflow 5-Step Compound Loop</div>
+        <div class="task-meta">08.02 &middot; Moonshot API</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">X Lead Machine (4 Module)</div>
+        <div class="task-meta">08.02 &middot; Automation + Content + DM</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">CRM System (Express + SQLite)</div>
+        <div class="task-meta">08.02 &middot; REST API + WebSocket</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">n8n Workflows (6 Pipelines)</div>
+        <div class="task-meta">08.02 &middot; Content + Ollama + Health</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">GitHub Actions (9 Workflows)</div>
+        <div class="task-meta">08.02 &middot; 24/7 CI/CD</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">Gold Nuggets extrahiert (15+)</div>
+        <div class="task-meta">08.02 &middot; Business Intelligence</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">OpenClaw Konfiguration</div>
+        <div class="task-meta">08.02 &middot; Identity + Soul + Tools</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">Claude Failover System</div>
+        <div class="task-meta">08.02 &middot; Auto-Recovery</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check done">&#x2713;</div>
+      <div>
+        <div class="task-title done-text">Docker Infrastruktur (Ollama + ChromaDB + Redis)</div>
+        <div class="task-meta">08.02 &middot; docker-compose.yaml</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: Nuggets -->
+<div class="content tab-content" id="tab-nuggets">
+
+  <div class="section-header">Gold Nuggets (15)</div>
+
+  <div class="nugget-card animate-in">
+    <div class="nugget-title">&#x1F48E; OpenClaw Masterplan</div>
+    <div class="nugget-desc">Langfristige Strategie f&uuml;r OpenClaw Ecosystem mit Skills Marketplace</div>
+    <div class="nugget-value">Potenzial: &euro;500K+ ARR</div>
+  </div>
+  <div class="nugget-card animate-in" style="animation-delay:.05s">
+    <div class="nugget-title">&#x1F48E; AI Empire App</div>
+    <div class="nugget-desc">Mobile + Desktop App-Architektur f&uuml;r das gesamte AI Empire</div>
+    <div class="nugget-value">Potenzial: &euro;100K+ ARR</div>
+  </div>
+  <div class="nugget-card animate-in" style="animation-delay:.1s">
+    <div class="nugget-title">&#x1F48E; BMA + AI (Zero Competition)</div>
+    <div class="nugget-desc">16 Jahre BMA-Expertise &times; KI = Einzigartiger Marktvorteil im &euro;2Mrd Markt</div>
+    <div class="nugget-value">Potenzial: &euro;1M+ (First Mover)</div>
+  </div>
+  <div class="nugget-card animate-in" style="animation-delay:.15s">
+    <div class="nugget-title">&#x1F48E; Kimi Agent Swarm</div>
+    <div class="nugget-desc">500K parallele Agents f&uuml;r $75 &mdash; Revenue-Generator bei Skalierung</div>
+    <div class="nugget-value">Potenzial: &euro;50K/Monat bei Vollbetrieb</div>
+  </div>
+  <div class="nugget-card animate-in" style="animation-delay:.2s">
+    <div class="nugget-title">&#x1F48E; Dexter Finance AI</div>
+    <div class="nugget-desc">Finance-KI Integration f&uuml;r automatisierte Buchhaltung + Steuer</div>
+    <div class="nugget-value">Potenzial: &euro;200K+ ARR</div>
+  </div>
+  <div class="nugget-card animate-in" style="animation-delay:.25s">
+    <div class="nugget-title">&#x1F48E; Elite System Prompt</div>
+    <div class="nugget-desc">Hochoptimierte Prompts als verkaufbare Produkte (Gumroad)</div>
+    <div class="nugget-value">Potenzial: &euro;5K&ndash;20K passiv</div>
+  </div>
+  <div class="nugget-card animate-in" style="animation-delay:.3s">
+    <div class="nugget-title">&#x1F48E; Video Content Pipeline</div>
+    <div class="nugget-desc">Automatisierte YouTube-Produktion: Script &rarr; Voice &rarr; Edit &rarr; Upload</div>
+    <div class="nugget-value">Potenzial: &euro;10K/Monat (AdSense + Funnel)</div>
+  </div>
+  <div class="nugget-card animate-in" style="animation-delay:.35s">
+    <div class="nugget-title">&#x1F48E; RedPlanet Memory Agent</div>
+    <div class="nugget-desc">Persistentes Ged&auml;chtnis-System &uuml;ber alle Sessions hinweg</div>
+    <div class="nugget-value">Potenzial: Kern-Infrastruktur</div>
+  </div>
+</div>
+
+<!-- TAB: Revenue -->
+<div class="content tab-content" id="tab-revenue">
+
+  <div class="section-header">Revenue Kan&auml;le</div>
+
+  <div class="card animate-in">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <div class="system-name" style="font-size:16px;">Gumroad</div>
+      <div class="badge badge-yellow">Setup</div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">AI Prompt Vault, OpenClaw Guide, Docker Guide, BMA+AI Guide</div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;">
+      <span style="color:var(--text2)">Preis: &euro;27&ndash;149</span>
+      <span style="color:var(--green);font-weight:700;">Ziel: &euro;5K&ndash;10K</span>
+    </div>
+  </div>
+
+  <div class="card animate-in" style="animation-delay:.1s">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <div class="system-name" style="font-size:16px;">Fiverr / Upwork</div>
+      <div class="badge badge-red">0 Gigs</div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">AI Automation Setup, SEO Blog Posts, BMA Dokumentation</div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;">
+      <span style="color:var(--text2)">Preis: &euro;30&ndash;1.000</span>
+      <span style="color:var(--green);font-weight:700;">Ziel: &euro;3K&ndash;8K</span>
+    </div>
+  </div>
+
+  <div class="card animate-in" style="animation-delay:.2s">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <div class="system-name" style="font-size:16px;">Consulting</div>
+      <div class="badge badge-yellow">Ready</div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">BMA+AI Integration, AI Stack Setup, Docker Infra</div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;">
+      <span style="color:var(--text2)">Preis: &euro;1K&ndash;5K</span>
+      <span style="color:var(--green);font-weight:700;">Ziel: &euro;5K&ndash;15K</span>
+    </div>
+  </div>
+
+  <div class="card animate-in" style="animation-delay:.3s">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <div class="system-name" style="font-size:16px;">X / Twitter</div>
+      <div class="badge badge-green">Aktiv</div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">Lead-Generierung &rarr; Pipeline f&uuml;llen &rarr; DM-Sequenzen</div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;">
+      <span style="color:var(--text2)">5 Posts/Tag</span>
+      <span style="color:var(--green);font-weight:700;">Ziel: +500 Follower</span>
+    </div>
+  </div>
+
+  <div class="card animate-in" style="animation-delay:.4s">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+      <div class="system-name" style="font-size:16px;">OpenClaw Skills</div>
+      <div class="badge badge-yellow">Dev</div>
+    </div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:8px;">BMA Expert Pack, SEO Engine, Docker DevOps Pack</div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;">
+      <span style="color:var(--text2)">Preis: $20&ndash;100</span>
+      <span style="color:var(--green);font-weight:700;">Ziel: Marketplace Launch</span>
+    </div>
+  </div>
+
+  <!-- 30 Day Plan -->
+  <div class="section-header">30-Tage Execution</div>
+  <div class="card animate-in" style="animation-delay:.5s">
+    <div class="task-item">
+      <div class="task-check active" style="font-size:10px;">W1</div>
+      <div>
+        <div class="task-title">Woche 1: Revenue-Aktivierung</div>
+        <div class="task-meta">3 Gumroad + 3 Fiverr + X-Posts &bull; Ziel: &euro;500&ndash;1K</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check pending" style="font-size:9px;color:var(--text2)">W2</div>
+      <div>
+        <div class="task-title">Woche 2: Scaling</div>
+        <div class="task-meta">YouTube + Newsletter + OpenClaw Skills &bull; Ziel: &euro;1.5K&ndash;3K</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check pending" style="font-size:9px;color:var(--text2)">W3</div>
+      <div>
+        <div class="task-title">Woche 3: Automation</div>
+        <div class="task-meta">Cron-Jobs + A/B-Tests + Voll-Automatisierung &bull; Ziel: &euro;3K&ndash;5K</div>
+      </div>
+    </div>
+    <div class="task-item">
+      <div class="task-check pending" style="font-size:9px;color:var(--text2)">W4</div>
+      <div>
+        <div class="task-title">Woche 4: Scale</div>
+        <div class="task-meta">Paid Ads + Affiliates + Community &bull; Ziel: &euro;5K&ndash;10K</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+  <div class="nav-item active" onclick="switchTab('dashboard')">
+    <div class="nav-icon">&#x1F3E0;</div>
+    <span>Dashboard</span>
+  </div>
+  <div class="nav-item" onclick="switchTab('systems')">
+    <div class="nav-icon">&#x2699;</div>
+    <span>Systems</span>
+  </div>
+  <div class="nav-item" onclick="switchTab('tasks')">
+    <div class="nav-icon">&#x2705;</div>
+    <span>Tasks</span>
+  </div>
+  <div class="nav-item" onclick="switchTab('nuggets')">
+    <div class="nav-icon">&#x1F48E;</div>
+    <span>Nuggets</span>
+  </div>
+  <div class="nav-item" onclick="switchTab('revenue')">
+    <div class="nav-icon">&#x1F4B0;</div>
+    <span>Revenue</span>
+  </div>
+</div>
+
+<script>
+// ── Tab Navigation ──
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.currentTarget.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Haptic feedback (iOS)
+  if (navigator.vibrate) navigator.vibrate(10);
+}
+
+// ── Quick Actions ──
+function triggerAction(action) {
+  const btn = event.currentTarget;
+  btn.style.borderColor = 'var(--accent)';
+  btn.style.background = 'rgba(233,69,96,.1)';
+
+  const messages = {
+    content: 'Content-Generierung gestartet...',
+    swarm: 'Kimi Swarm wird initialisiert...',
+    health: 'Health Check l\u00E4uft...',
+    revenue: 'Revenue Report wird erstellt...'
+  };
+
+  showNotification(messages[action] || 'Aktion gestartet...');
+
+  setTimeout(() => {
+    btn.style.borderColor = '';
+    btn.style.background = '';
+  }, 300);
+
+  // Add to activity feed
+  addActivity(messages[action], 'var(--cyan)');
+}
+
+function showNotification(text) {
+  const n = document.createElement('div');
+  n.style.cssText = 'position:fixed;top:calc(var(--safe-top) + 60px);left:16px;right:16px;background:var(--bg3);border:1px solid var(--accent);border-radius:12px;padding:14px 16px;font-size:13px;font-weight:600;z-index:200;animation:fadeIn .2s;text-align:center;';
+  n.textContent = text;
+  document.body.appendChild(n);
+  setTimeout(() => { n.style.opacity = '0'; n.style.transition = 'opacity .3s'; }, 2000);
+  setTimeout(() => n.remove(), 2500);
+}
+
+function addActivity(text, color) {
+  const feed = document.getElementById('activityFeed');
+  const item = document.createElement('div');
+  item.className = 'timeline-item';
+  item.style.animation = 'fadeIn .3s';
+  item.innerHTML = '<div class="timeline-dot" style="background:' + color + '"></div><div><div class="timeline-text">' + text + '</div><div class="timeline-time">Gerade eben</div></div>';
+  feed.insertBefore(item, feed.firstChild);
+}
+
+// ── Swarm Visualization ──
+function initSwarm() {
+  const container = document.getElementById('swarmVisual');
+  for (let i = 0; i < 30; i++) {
+    const bar = document.createElement('div');
+    bar.className = 'swarm-bar';
+    bar.style.height = (Math.random() * 60 + 10) + 'px';
+    container.appendChild(bar);
+  }
+
+  setInterval(() => {
+    container.querySelectorAll('.swarm-bar').forEach(bar => {
+      bar.style.height = (Math.random() * 60 + 10) + 'px';
+    });
+  }, 2000);
+}
+
+// ── Time Update ──
+function updateTime() {
+  const now = new Date();
+  document.getElementById('lastUpdate').textContent =
+    now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+}
+setInterval(updateTime, 60000);
+updateTime();
+
+// ── Task Toggle ──
+document.querySelectorAll('.task-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const check = item.querySelector('.task-check');
+    const title = item.querySelector('.task-title');
+    if (check.classList.contains('pending')) {
+      check.classList.remove('pending');
+      check.classList.add('done');
+      check.innerHTML = '\u2713';
+      title.classList.add('done-text');
+      if (navigator.vibrate) navigator.vibrate(15);
+    }
+  });
+});
+
+// ── Init ──
+initSwarm();
+
+// ── Service Worker Registration ──
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
+</body>
+</html>
