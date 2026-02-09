@@ -109,11 +109,15 @@ cd crm && npm install && node server.js
 cd kimi-swarm
 python3 -m venv venv && source venv/bin/activate
 pip install aiohttp
+python3 swarm_100k.py --test      # Test: 10 tasks
+python3 swarm_100k.py -n 5000     # Custom: 5K tasks
+python3 swarm_100k.py --max       # Max: 100K agents
 python3 github_scanner_100k.py
 
 # 2b. 🔥 NEW: 500K Swarm mit Claude Orchestration
-python3 swarm_500k.py --test  # Test: 100 tasks
-python3 swarm_500k.py -n 10000  # Production: 10K tasks
+python3 swarm_500k.py --test      # Test: 100 tasks
+python3 swarm_500k.py -n 10000    # Production: 10K tasks
+python3 swarm_500k.py --full      # Max: 500K agents
 
 # 3. X Content generieren
 python3 x_auto_poster.py
