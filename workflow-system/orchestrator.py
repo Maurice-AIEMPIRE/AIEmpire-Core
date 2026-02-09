@@ -42,13 +42,13 @@ from resource_guard import ResourceGuard
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 
-# Model selection: Kimi for bulk, Claude for critical steps
+# Model selection: Ollama local first, Kimi as fallback, Claude for critical
 MODEL_CONFIG = {
-    "audit":     {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "architect": {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "analyst":   {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "refinery":  {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "compounder":{"provider": "kimi",   "model": "moonshot-v1-32k"},
+    "audit":     {"provider": "ollama", "model": "qwen2.5-coder:7b"},
+    "architect": {"provider": "ollama", "model": "qwen2.5-coder:7b"},
+    "analyst":   {"provider": "ollama", "model": "qwen2.5-coder:7b"},
+    "refinery":  {"provider": "ollama", "model": "qwen2.5-coder:7b"},
+    "compounder":{"provider": "ollama", "model": "qwen2.5-coder:7b"},
 }
 
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -69,7 +69,18 @@ async def call_model(step_name: str, system_prompt: str, user_prompt: str) -> st
     """Call the configured model for a step."""
     config = MODEL_CONFIG[step_name]
 
-    if config["provider"] == "kimi":
+    if config["provider"] == "ollama":
+        url = "http://localhost:11434/api/chat"
+        headers = {"Content-Type": "application/json"}
+        payload = {
+            "model": config["model"],
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "stream": False,
+        }
+    elif config["provider"] == "kimi":
         if not MOONSHOT_API_KEY:
             raise ValueError("MOONSHOT_API_KEY not set")
         url = "https://api.moonshot.ai/v1/chat/completions"
@@ -92,13 +103,18 @@ async def call_model(step_name: str, system_prompt: str, user_prompt: str) -> st
     async with aiohttp.ClientSession() as session:
         async with session.post(
             url, headers=headers, json=payload,
-            timeout=aiohttp.ClientTimeout(total=120),
+            timeout=aiohttp.ClientTimeout(total=600),
         ) as resp:
             if resp.status == 200:
                 data = await resp.json()
-                content = data["choices"][0]["message"]["content"]
-                tokens = data.get("usage", {}).get("total_tokens", 0)
-                cost = (tokens / 1000) * 0.001
+                if config["provider"] == "ollama":
+                    content = data["message"]["content"]
+                    tokens = data.get("eval_count", 0) + data.get("prompt_eval_count", 0)
+                    cost = 0.0  # local = free
+                else:
+                    content = data["choices"][0]["message"]["content"]
+                    tokens = data.get("usage", {}).get("total_tokens", 0)
+                    cost = (tokens / 1000) * 0.001
                 print(f"    Tokens: {tokens:,} | Cost: ${cost:.4f}")
                 return content
             else:
