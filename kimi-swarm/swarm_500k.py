@@ -31,7 +31,12 @@ BATCH_DELAY = 0.1  # Faster batches with better concurrency
 CLAUDE_ORCHESTRATION_INTERVAL = 1000  # Claude reviews every 1000 tasks
 
 # Output directories
-OUTPUT_DIR = Path(__file__).parent / "output_500k"
+# Output directories - NOW LINKED TO ICLOUD DRIVE
+# Ensure this path exists on your Mac. It should sync automatically to "Files" app on iPhone.
+ICLOUD_PATH = Path(os.environ["HOME"]) / "Library" / "Mobile Documents" / "com~apple~CloudDocs"
+OUTPUT_DIR = ICLOUD_PATH / "AI_Empire_Revenue"
+
+# Create directories if they don't exist
 LEADS_DIR = OUTPUT_DIR / "leads"
 CONTENT_DIR = OUTPUT_DIR / "content"
 COMPETITORS_DIR = OUTPUT_DIR / "competitors"
@@ -40,8 +45,22 @@ REVENUE_OPS_DIR = OUTPUT_DIR / "revenue_operations"
 CLAUDE_INSIGHTS_DIR = OUTPUT_DIR / "claude_insights"
 
 # Create directories
-for d in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR, REVENUE_OPS_DIR, CLAUDE_INSIGHTS_DIR]:
-    d.mkdir(parents=True, exist_ok=True)
+try:
+    for d in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR, REVENUE_OPS_DIR, CLAUDE_INSIGHTS_DIR]:
+        d.mkdir(parents=True, exist_ok=True)
+    print(f"✅ Output directory set to iCloud: {OUTPUT_DIR}")
+except Exception as e:
+    print(f"⚠️  Could not create iCloud directory: {e}")
+    print(f"⚠️  Falling back to local 'output_500k' directory")
+    OUTPUT_DIR = Path(__file__).parent / "output_500k"
+    LEADS_DIR = OUTPUT_DIR / "leads"
+    CONTENT_DIR = OUTPUT_DIR / "content"
+    COMPETITORS_DIR = OUTPUT_DIR / "competitors"
+    NUGGETS_DIR = OUTPUT_DIR / "gold_nuggets"
+    REVENUE_OPS_DIR = OUTPUT_DIR / "revenue_operations"
+    CLAUDE_INSIGHTS_DIR = OUTPUT_DIR / "claude_insights"
+    for d in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR, REVENUE_OPS_DIR, CLAUDE_INSIGHTS_DIR]:
+        d.mkdir(parents=True, exist_ok=True)
 
 # Enhanced Task Types für maximale Revenue-Generation
 TASK_TYPES = [
