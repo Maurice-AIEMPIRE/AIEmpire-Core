@@ -88,7 +88,7 @@ async def run_all_tasks():
 
         print(f"   Title: {task.get('title')}")
         print(f"   Type: {task.get('type')}")
-        print(f"   Executing...")
+        print("   Executing...")
 
         result = await execute_task(task)
 

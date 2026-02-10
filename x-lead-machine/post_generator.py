@@ -6,7 +6,6 @@ Generiert virale Posts basierend auf Trends
 
 import asyncio
 import aiohttp
-import json
 import os
 from datetime import datetime
 

@@ -8,7 +8,6 @@ Maurice's AI Empire - 2026
 import os
 import json
 import asyncio
-import aiohttp
 from pathlib import Path
 from datetime import datetime
 from chat_manager import ChatManager

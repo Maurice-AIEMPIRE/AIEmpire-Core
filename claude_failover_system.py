@@ -9,7 +9,7 @@ import os
 import json
 import asyncio
 import aiohttp
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 
 # Config
@@ -279,7 +279,7 @@ System has automatically switched to GitHub-based control.
         
         while True:
             # Check Claude availability every 5 minutes
-            claude_available = await self.check_claude_availability()
+            await self.check_claude_availability()
             self.status["last_claude_check"] = datetime.now().isoformat()
             self.status["total_requests"] += 1
             
@@ -289,7 +289,7 @@ System has automatically switched to GitHub-based control.
             
             # If in GitHub mode, monitor issues for commands
             if self.status["github_mode"]:
-                issues = await self.monitor_github_issues()
+                await self.monitor_github_issues()
                 # Process commands from issues
                 # (simplified - would need comment monitoring)
             

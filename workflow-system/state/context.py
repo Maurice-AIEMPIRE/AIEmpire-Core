@@ -7,7 +7,7 @@ This is the memory layer that makes the system compound.
 import json
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Dict, List
 
 
 STATE_DIR = Path(__file__).parent
