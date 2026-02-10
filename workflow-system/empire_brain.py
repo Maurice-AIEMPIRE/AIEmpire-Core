@@ -38,6 +38,11 @@ from agent_manager import AgentManager
 from knowledge_harvester import KnowledgeHarvester
 from resource_guard import ResourceGuard
 
+try:
+    from content_machine import ContentMachine
+except Exception:
+    ContentMachine = None
+
 PROJECT_ROOT = Path(__file__).parent.parent
 STATE_DIR = Path(__file__).parent / "state"
 BRAIN_STATE_FILE = STATE_DIR / "brain_state.json"
@@ -55,6 +60,7 @@ class EmpireBrain:
         self.agents = AgentManager()
         self.knowledge = KnowledgeHarvester()
         self.guard = ResourceGuard()
+        self.content = ContentMachine() if ContentMachine else None
         self.state = self._load_state()
 
     def _load_state(self) -> dict:
@@ -120,7 +126,21 @@ class EmpireBrain:
             "api_key_set": bool(MOONSHOT_API_KEY),
         }
 
-        # 6. Key Directories
+        # 6. Content Machine
+        if self.content:
+            cm_stats = self.content._stats
+            cm_queue = self.content.queue.stats()
+            results["content_machine"] = {
+                "status": "active",
+                "generated": cm_stats.get("total_generated", 0),
+                "queue_ready": cm_queue.get("ready", 0),
+                "x_posts": cm_stats.get("x_posts", 0),
+                "tiktok_scripts": cm_stats.get("tiktok_scripts", 0),
+            }
+        else:
+            results["content_machine"] = {"status": "not_loaded"}
+
+        # 7. Key Directories
         dirs_check = {}
         for d in ["kimi-swarm", "atomic-reactor", "x-lead-machine", "crm", "openclaw-config"]:
             path = PROJECT_ROOT / d
@@ -362,6 +382,14 @@ Beruecksichtige:
         print(f"        API Key: {'Set' if ks['api_key_set'] else 'NOT SET (set MOONSHOT_API_KEY)'}")
         print()
 
+        # Content Machine
+        cm = systems.get("content_machine", {})
+        cm_icon = "ON " if cm.get("status") == "active" else "OFF"
+        print(f"  [{cm_icon}] CONTENT MACHINE (Geldmaschine)")
+        print(f"        Generated: {cm.get('generated', 0)} | Queue: {cm.get('queue_ready', 0)} ready")
+        print(f"        X Posts: {cm.get('x_posts', 0)} | TikTok: {cm.get('tiktok_scripts', 0)}")
+        print()
+
         # Directories
         d = systems["directories"]
         print(f"  [---] SUBSYSTEMS")
@@ -406,12 +434,13 @@ Beruecksichtige:
 
         # Revenue Channels Status
         print(f"\n  REVENUE CHANNELS:")
+        cm_active = self.content is not None
         channels = {
             "Fiverr/Upwork": "NOT ACTIVE - Gigs erstellen!",
             "Gumroad": "NOT ACTIVE - Produkte hochladen!",
             "BMA Consulting": "NOT ACTIVE - Netzwerk kontaktieren!",
-            "TikTok": "NOT ACTIVE - Account erstellen!",
-            "X/Twitter": "READY - Content in READY_TO_POST.md",
+            "TikTok": f"READY - TikTok Factory {'active' if cm_active else 'needs setup'}" if cm_active else "NOT ACTIVE",
+            "X/Twitter": f"READY - Content Machine {'active' if cm_active else 'needs setup'}",
         }
         for channel, status in channels.items():
             icon = "!!" if "NOT" in status else "OK"

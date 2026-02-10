@@ -24,6 +24,9 @@ REVENUE: Gumroad + Fiverr + Consulting
 - `workflow-system/knowledge_harvester.py` - Knowledge Base + Codebase Scanner
 - `workflow-system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
 - `workflow-system/resource_guard.py` - CPU/RAM/Disk Monitoring + Auto-Throttling
+- `workflow-system/content_machine.py` - GELDMASCHINE: 1000x Content fuer X + TikTok ($0 mit Ollama)
+- `workflow-system/tiktok_factory.py` - TikTok Script Factory (45s Format, Batch-Generierung)
+- `workflow-system/x_posting_engine.py` - X/Twitter Posting Pipeline (Posts, Threads, Replies, DMs)
 - `kimi-swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
 - `atomic-reactor/` - YAML-based task definitions + async runner
 - `x-lead-machine/` - Content generation + viral replies + lead gen
@@ -119,6 +122,58 @@ python workflow-system/ollama_engine.py  # Test
 # Auto-Boost: Platz 1-3 → 2-3x Tasks
 # Auto-Demote: Platz 8-10 → 0.5x Tasks
 python workflow-system/agent_manager.py  # Demo
+```
+
+## Content Machine (Geldmaschine)
+```bash
+# Status anzeigen
+python workflow-system/content_machine.py
+
+# 50 Content-Pieces generieren (X + TikTok)
+python workflow-system/content_machine.py --generate 50
+
+# Batch X-Content / TikTok Scripts
+python workflow-system/content_machine.py --batch x --count 20
+python workflow-system/content_machine.py --batch tiktok --count 10
+
+# 1 Idee → 10 Content-Pieces (Multiplier)
+python workflow-system/content_machine.py --multiply "AI Automation fuer KMU"
+
+# Kompletter Wochen-Plan (7 Posts + Thread + 5 TikToks)
+python workflow-system/content_machine.py --weekly
+```
+
+## TikTok Factory
+```bash
+# 20 TikTok Scripts generieren
+python workflow-system/tiktok_factory.py --generate 20
+
+# Nische waehlen: geld_verdienen, ai_automation, bma_ai, build_in_public
+python workflow-system/tiktok_factory.py --generate 10 --niche bma_ai
+
+# Serie generieren (zusammenhaengende Teile)
+python workflow-system/tiktok_factory.py --series 0
+
+# Alle Scripts exportieren
+python workflow-system/tiktok_factory.py --export
+```
+
+## X Posting Engine
+```bash
+# 30 X-Posts generieren
+python workflow-system/x_posting_engine.py --generate 30
+
+# 10 strategische Replies
+python workflow-system/x_posting_engine.py --replies 10
+
+# Wochen-Content-Plan
+python workflow-system/x_posting_engine.py --weekly
+
+# DM-Sequence fuer Lead
+python workflow-system/x_posting_engine.py --dm "AI Automation Interesse"
+
+# Ready-to-Post exportieren
+python workflow-system/x_posting_engine.py --export
 ```
 
 ## Session-Start Hook
