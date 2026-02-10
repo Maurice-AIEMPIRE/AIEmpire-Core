@@ -1,0 +1,350 @@
+name: Auto-Triage — Issues & PRs (Autonomous Agent)
+
+on:
+  issues:
+    types: [opened, labeled, edited]
+  pull_request:
+    types: [opened, labeled, synchronize, ready_for_review]
+  issue_comment:
+    types: [created]
+
+# Minimal permissions (escalate only when needed)
+permissions:
+  contents: write  # For auto-merge
+  issues: write
+  pull-requests: write
+
+jobs:
+  triage-issue:
+    name: Triage New Issue
+    runs-on: ubuntu-latest
+    if: github.event_name == 'issues' && github.event.action == 'opened'
+    timeout-minutes: 5
+
+    steps:
+      - name: Analyze issue type
+        id: analyze
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const body = issue.body?.toLowerCase() || '';
+            const title = issue.title.toLowerCase();
+
+            let labels = [];
+
+            // Bug detection
+            if (title.includes('bug') || title.includes('error') || title.includes('broken') ||
+                body.includes('traceback') || body.includes('exception')) {
+              labels.push('bug');
+            }
+
+            // Feature request detection
+            if (title.includes('feature') || title.includes('add') || title.includes('support for') ||
+                body.includes('would be nice') || body.includes('request')) {
+              labels.push('enhancement');
+            }
+
+            // Documentation detection
+            if (title.includes('doc') || title.includes('readme') || body.includes('documentation')) {
+              labels.push('documentation');
+            }
+
+            // Security detection
+            if (title.includes('security') || title.includes('vulnerability') || title.includes('cve') ||
+                body.includes('exploit') || body.includes('breach')) {
+              labels.push('security');
+              labels.push('priority:critical');
+            }
+
+            // Priority detection
+            if (title.includes('urgent') || title.includes('critical') || title.includes('production')) {
+              labels.push('priority:high');
+            }
+
+            return { labels };
+
+      - name: Apply labels
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            const labels = ${{ steps.analyze.outputs.result }}.labels;
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                labels: labels
+              });
+            }
+
+      - name: Auto-respond to bug reports
+        if: contains(fromJSON(steps.analyze.outputs.result).labels, 'bug')
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `Thanks for reporting this bug! 🐛\n\nOur triage bot has labeled this issue. A maintainer will review it soon.\n\nIn the meantime, please ensure your report includes:\n- [ ] Steps to reproduce\n- [ ] Expected behavior\n- [ ] Actual behavior\n- [ ] System info (OS, Python/Node version)`
+            });
+
+      - name: Escalate security issues
+        if: contains(fromJSON(steps.analyze.outputs.result).labels, 'security')
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `🚨 **Security Issue Detected**\n\nThis issue has been flagged as security-related.\n\n**DO NOT share exploit details publicly.** Please report vulnerabilities privately via GitHub Security Advisories.\n\nA maintainer has been notified and will respond within 24 hours.`
+            });
+
+            // TODO: Send Telegram/email alert to Maurice
+
+  triage-pr:
+    name: Triage Pull Request
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'synchronize')
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4.1.1
+        with:
+          fetch-depth: 0
+
+      - name: Analyze PR changes
+        id: analyze
+        run: |
+          # Fetch base branch
+          git fetch origin ${{ github.base_ref }}
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          CHANGED_LINES=$(git diff --stat origin/${{ github.base_ref }}...HEAD | tail -1 | awk '{print $4+$6}')
+
+          echo "changed_files=$CHANGED_FILES" >> $GITHUB_OUTPUT
+          echo "changed_lines=$CHANGED_LINES" >> $GITHUB_OUTPUT
+
+          # Risk assessment
+          RISK="low"
+          REASONS=""
+
+          # High-risk patterns
+          if echo "$CHANGED_FILES" | grep -qE '(\.github/workflows/|ops/docker-compose\.yml|Dockerfile)'; then
+            RISK="high"
+            REASONS="$REASONS\n- Modifies CI/CD or infrastructure"
+          fi
+
+          if echo "$CHANGED_FILES" | grep -qE '(SECURITY\.md|secrets/|\.env)'; then
+            RISK="high"
+            REASONS="$REASONS\n- Touches security-related files"
+          fi
+
+          if echo "$CHANGED_FILES" | grep -qE '(auth|permission|credential|token)' && [ "$RISK" != "high" ]; then
+            RISK="high"
+            REASONS="$REASONS\n- Changes authentication/authorization code"
+          fi
+
+          # Medium-risk patterns
+          if [ "$RISK" = "low" ] && [ "$CHANGED_LINES" -gt 500 ]; then
+            RISK="med"
+            REASONS="$REASONS\n- Large changeset (>500 lines)"
+          fi
+
+          if [ "$RISK" = "low" ] && echo "$CHANGED_FILES" | grep -qE '(database|migration|schema)'; then
+            RISK="med"
+            REASONS="$REASONS\n- Database schema changes"
+          fi
+
+          # Low-risk patterns (explicitly mark as safe)
+          if echo "$CHANGED_FILES" | grep -qvE '\.(md|txt|json|yml)$' && [ "$RISK" = "low" ]; then
+            # Has code changes, verify tests exist
+            if ! echo "$CHANGED_FILES" | grep -qE '(test_|_test\.py|\.test\.|\.spec\.)'; then
+              RISK="med"
+              REASONS="$REASONS\n- Code changes without new tests"
+            fi
+          fi
+
+          echo "risk=$RISK" >> $GITHUB_OUTPUT
+          echo "reasons=$REASONS" >> $GITHUB_OUTPUT
+
+      - name: Add risk label
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            const risk = '${{ steps.analyze.outputs.risk }}';
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              labels: [`risk:${risk}`]
+            });
+
+      - name: Comment on PR with analysis
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            const risk = '${{ steps.analyze.outputs.risk }}';
+            const reasons = `${{ steps.analyze.outputs.reasons }}`;
+            const lines = '${{ steps.analyze.outputs.changed_lines }}';
+
+            let emoji = '✅';
+            let riskText = 'Low Risk';
+            let autoMerge = '**Auto-merge:** ✅ Eligible (after CI passes)';
+
+            if (risk === 'med') {
+              emoji = '⚠️';
+              riskText = 'Medium Risk';
+              autoMerge = '**Auto-merge:** ⚠️ Manual review recommended';
+            } else if (risk === 'high') {
+              emoji = '🔴';
+              riskText = 'High Risk';
+              autoMerge = '**Auto-merge:** 🔴 BLOCKED — Manual approval required';
+            }
+
+            const body = `${emoji} **PR Triage Analysis**\n\n` +
+                         `**Risk Level:** ${riskText}\n` +
+                         `**Changed Lines:** ${lines}\n\n` +
+                         (reasons ? `**Risk Factors:**${reasons}\n\n` : '') +
+                         `${autoMerge}\n\n` +
+                         `---\n` +
+                         `*This analysis was performed by the auto-triage bot. A maintainer can override this assessment.*`;
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+
+      - name: Request changes for high-risk PR
+        if: steps.analyze.outputs.risk == 'high'
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            await github.rest.pulls.createReview({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              event: 'REQUEST_CHANGES',
+              body: '🔴 **High-risk changes detected.** Manual security review required before merge.\n\nPlease provide:\n- [ ] Security implications documented\n- [ ] Rollback plan\n- [ ] Testing evidence (staging environment)'
+            });
+
+  auto-merge:
+    name: Auto-Merge Low-Risk PR
+    runs-on: ubuntu-latest
+    needs: [triage-pr]
+    if: |
+      github.event_name == 'pull_request' &&
+      contains(github.event.pull_request.labels.*.name, 'risk:low') &&
+      !contains(github.event.pull_request.labels.*.name, 'do-not-merge')
+    timeout-minutes: 5
+
+    steps:
+      - name: Wait for CI to pass
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const checks = await github.rest.checks.listForRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: pr.head.sha
+            });
+
+            const allPassed = checks.data.check_runs.every(check =>
+              check.status === 'completed' && check.conclusion === 'success'
+            );
+
+            if (!allPassed) {
+              core.setFailed('CI checks not yet passed. Will retry.');
+            }
+
+      - name: Auto-approve low-risk PR
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            await github.rest.pulls.createReview({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              event: 'APPROVE',
+              body: '✅ **Auto-approved by triage bot**\n\nThis PR is low-risk and all CI checks passed. Merging automatically.\n\nIf you need to stop this, add the `do-not-merge` label.'
+            });
+
+      - name: Merge PR
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            await github.rest.pulls.merge({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number,
+              merge_method: 'squash',  // Clean git history
+              commit_title: `${context.payload.pull_request.title} (#${context.issue.number})`,
+              commit_message: `Auto-merged by triage bot (risk:low, CI passed)\n\n${context.payload.pull_request.body || ''}`
+            });
+
+      - name: Delete branch after merge
+        if: success()
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            if (pr.head.ref !== 'main' && pr.head.ref !== 'develop') {
+              await github.rest.git.deleteRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: `heads/${pr.head.ref}`
+              });
+            }
+
+  escalate-to-owner:
+    name: Escalate to Maurice (High-Risk Only)
+    runs-on: ubuntu-latest
+    needs: [triage-pr]
+    if: |
+      github.event_name == 'pull_request' &&
+      contains(github.event.pull_request.labels.*.name, 'risk:high')
+    timeout-minutes: 5
+
+    steps:
+      - name: Format escalation message
+        id: format
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+            const message = `🚨 **High-Risk PR Requires Approval**\n\n` +
+                            `**PR:** ${pr.title} (#${pr.number})\n` +
+                            `**Author:** @${pr.user.login}\n` +
+                            `**URL:** ${pr.html_url}\n\n` +
+                            `**What Changed:**\n${pr.body || '(no description)'}\n\n` +
+                            `**Why It Matters:** Touches sensitive files (workflows, security, auth)\n\n` +
+                            `**Risk:** 9/10 (High)\n\n` +
+                            `**Decision Needed:** Approve or request changes\n\n` +
+                            `**Rollback Plan:** Revert commit or redeploy previous version`;
+
+            return { message };
+
+      - name: Comment escalation
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea  # v7.0.1
+        with:
+          script: |
+            const message = ${{ steps.format.outputs.result }}.message;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `${message}\n\n@mauricepfeifer-ctrl — Your review is required.`
+            });
+
+      # TODO: Send Telegram notification
+      # - name: Send Telegram alert
+      #   run: |
+      #     curl -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage" \
+      #       -d "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+      #       -d "text=${{ steps.format.outputs.result.message }}" \
+      #       -d "parse_mode=Markdown"

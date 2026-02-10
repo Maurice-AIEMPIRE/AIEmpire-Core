@@ -1,0 +1,117 @@
+# Caddy Reverse Proxy — VPN-Only Services
+# Version: 1.0
+# Last Updated: 2026-02-10
+
+# Global options
+{
+	# Admin API disabled (security)
+	admin off
+
+	# Auto-HTTPS via Tailscale or self-signed for localhost
+	auto_https disable_redirects
+
+	# Security headers
+	servers {
+		protocols h1 h2 h3
+	}
+}
+
+# OpenClaw Dashboard (VPN-only)
+openclaw.tail1234.ts.net {
+	reverse_proxy openclaw:18789 {
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+
+	# Security headers
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		X-XSS-Protection "1; mode=block"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "geolocation=(), microphone=(), camera=()"
+		-Server  # Hide Caddy version
+	}
+
+	# Rate limiting (10 requests/second per IP)
+	rate_limit {
+		zone openclaw {
+			key {remote_host}
+			events 10
+			window 1s
+		}
+	}
+
+	# Access logs
+	log {
+		output file /data/logs/openclaw-access.log
+		format json
+	}
+}
+
+# Atomic Reactor API (VPN-only)
+reactor.tail1234.ts.net {
+	reverse_proxy atomic-reactor:8888 {
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+
+	# Security headers
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		-Server
+	}
+
+	# API rate limiting (100 requests/minute per IP)
+	rate_limit {
+		zone reactor {
+			key {remote_host}
+			events 100
+			window 1m
+		}
+	}
+
+	log {
+		output file /data/logs/reactor-access.log
+		format json
+	}
+}
+
+# CRM (VPN-only)
+crm.tail1234.ts.net {
+	reverse_proxy crm:3500 {
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+
+	# Security headers
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "SAMEORIGIN"  # Allow framing for embedded dashboards
+		X-XSS-Protection "1; mode=block"
+		-Server
+	}
+
+	# Rate limiting (50 requests/minute per IP)
+	rate_limit {
+		zone crm {
+			key {remote_host}
+			events 50
+			window 1m
+		}
+	}
+
+	log {
+		output file /data/logs/crm-access.log
+		format json
+	}
+}
+
+# Localhost fallback (for local development)
+:443 {
+	respond "AI Empire — VPN-Only Services" 200
+}
