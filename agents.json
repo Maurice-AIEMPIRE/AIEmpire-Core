@@ -1,0 +1,146 @@
+{
+  "version": "1.0",
+  "defaults": {
+    "output_format": "markdown",
+    "require_header": true,
+    "legal_requires_sources": true
+  },
+  "teams": [
+    {
+      "name": "LEGAL_WARROOM",
+      "count": 10,
+      "agents": [
+        {"id": "L01", "name": "Legal_Timeline", "scope": "Chronologie, datierte Ereigniskette", "deliverables": ["legal/timeline/TIMELINE.md"]},
+        {"id": "L02", "name": "Legal_EvidenceMapper", "scope": "Beweisstücke -> Behauptungen -> Fundstellen", "deliverables": ["legal/evidence/EVIDENCE_MAP.md"]},
+        {"id": "L03", "name": "Legal_ClaimsMatrix", "scope": "Ansprüche/Einwände/Beweis/Risiko", "deliverables": ["legal/claims/CLAIM_MATRIX.md"]},
+        {"id": "L04", "name": "Legal_CaseLawScout", "scope": "Relevante Rechtsprechung/Normen recherchieren (nur mit Quellen)", "deliverables": ["legal/memos/CASE_LAW_MEMO.md"]},
+        {"id": "L05", "name": "Legal_OpponentAnalysis", "scope": "Gegenseite: Argumentmuster, Widersprüche, Angriffsflächen", "deliverables": ["legal/strategy/OPPONENT_ANALYSIS.md"]},
+        {"id": "L06", "name": "Legal_RiskOfficer", "scope": "Worst-case/Best-case, Kosten, Prozessrisiken", "deliverables": ["legal/strategy/RISK_REPORT.md"]},
+        {"id": "L07", "name": "Legal_Settlement", "scope": "Vergleichsvorschläge, Verhandlungspunkte, BATNA", "deliverables": ["legal/strategy/SETTLEMENT_PLAN.md"]},
+        {"id": "L08", "name": "Legal_Drafting", "scope": "Entwürfe: Schriftsätze/Mails/Memos", "deliverables": ["legal/drafts/DRAFTS_INDEX.md"]},
+        {"id": "L09", "name": "Legal_Consistency", "scope": "Konsistenzcheck: Timeline vs. Evidence vs. Claims", "deliverables": ["legal/memos/CONSISTENCY_REPORT.md"]},
+        {"id": "L10", "name": "Legal_SummaryExec", "scope": "Executive Briefing (1-2 Seiten) für Anwalt", "deliverables": ["legal/memos/EXEC_BRIEF.md"]}
+      ]
+    },
+    {
+      "name": "DATA_OPS",
+      "count": 10,
+      "agents": [
+        {"id": "D01", "name": "Data_Intake", "scope": "Dateien aufnehmen, Inventar führen", "deliverables": ["data/processed/INVENTORY.md"]},
+        {"id": "D02", "name": "Data_NormalizeNaming", "scope": "Benennungsstandard, Ordnerlogik", "deliverables": ["data/processed/NAMING_RULES.md"]},
+        {"id": "D03", "name": "Data_OCRExtract", "scope": "Text aus PDFs/Bildern extrahieren", "deliverables": ["data/processed/OCR_LOG.md"]},
+        {"id": "D04", "name": "Data_Dedupe", "scope": "Duplikate erkennen/entfernen", "deliverables": ["data/processed/DEDUPE_REPORT.md"]},
+        {"id": "D05", "name": "Data_Tagging", "scope": "Tags/Entities/Dates extrahieren", "deliverables": ["data/index/TAGS.json"]},
+        {"id": "D06", "name": "Data_Indexer", "scope": "Suchindex/Embeddings (optional)", "deliverables": ["data/index/INDEX_STATUS.md"]},
+        {"id": "D07", "name": "Data_CrossLink", "scope": "Zusammenhänge verknüpfen (Personen/Termine/Dokumente)", "deliverables": ["data/processed/CROSSLINK_MAP.md"]},
+        {"id": "D08", "name": "Data_QA", "scope": "Qualitätscheck Extraktion/Tags", "deliverables": ["data/processed/DATA_QA.md"]},
+        {"id": "D09", "name": "Data_ExportManager", "scope": "Exports bündeln (MD/PDF/ZIP)", "deliverables": ["data/exports/EXPORT_LOG.md"]},
+        {"id": "D10", "name": "Data_Dashboards", "scope": "Übersichten/Tabellen/Status", "deliverables": ["data/processed/DASHBOARD.md"]}
+      ]
+    },
+    {
+      "name": "MARKETING",
+      "count": 20,
+      "agents": [
+        {"id": "M01", "name": "Offer_Architect", "scope": "Offer Ladder, Preislogik, Value Props", "deliverables": ["marketing/offers/OFFER_STACK.md"]},
+        {"id": "M02", "name": "Copy_Longform", "scope": "Landingpages/Salespages", "deliverables": ["marketing/copy/LANDINGPAGES.md"]},
+        {"id": "M03", "name": "Copy_Email", "scope": "Email-Sequenzen", "deliverables": ["marketing/copy/EMAIL_SEQUENCES.md"]},
+        {"id": "M04", "name": "SEO_Strategist", "scope": "Cluster, Keywords, Content Plan", "deliverables": ["marketing/seo/SEO_CLUSTER_PLAN.md"]},
+        {"id": "M05", "name": "Content_Batch", "scope": "Posts/Threads/Reels Scripts", "deliverables": ["marketing/content/CONTENT_BATCH.md"]},
+        {"id": "M06", "name": "Funnel_Builder", "scope": "Lead Magnet -> Tripwire -> Upsell", "deliverables": ["marketing/funnels/FUNNEL_BLUEPRINT.md"]},
+        {"id": "M07", "name": "Analytics_Growth", "scope": "KPIs, Tracking, Experimente", "deliverables": ["marketing/content/GROWTH_EXPERIMENTS.md"]},
+        {"id": "M08", "name": "Brand_Positioning", "scope": "Positionierung, Messaging, ICP", "deliverables": ["marketing/offers/POSITIONING.md"]},
+        {"id": "M09", "name": "Ad_Creatives", "scope": "Anzeigen Hooks/Angles", "deliverables": ["marketing/content/ADS_CREATIVE_BANK.md"]},
+        {"id": "M10", "name": "Newsletter_Editor", "scope": "Weekly Newsletter Template", "deliverables": ["marketing/copy/NEWSLETTER_TEMPLATE.md"]},
+        {"id": "M11", "name": "Hook_Lab", "scope": "100 Hooks/Angles", "deliverables": ["marketing/content/HOOK_LIBRARY.md"]},
+        {"id": "M12", "name": "CaseStudy_Writer", "scope": "Case Studies, Social Proof", "deliverables": ["marketing/content/CASE_STUDIES.md"]},
+        {"id": "M13", "name": "LeadMagnet_Author", "scope": "Audit/Scorecards/Guides", "deliverables": ["marketing/offers/LEAD_MAGNETS.md"]},
+        {"id": "M14", "name": "Webinar_Script", "scope": "Webinar Outline + Pitch", "deliverables": ["marketing/copy/WEBINAR_SCRIPT.md"]},
+        {"id": "M15", "name": "PR_Comms", "scope": "Presse/Partnerschaften/Outreach", "deliverables": ["marketing/content/PR_OUTREACH.md"]},
+        {"id": "M16", "name": "UX_Copy", "scope": "Checkout/Onboarding Copy", "deliverables": ["marketing/copy/UX_COPY.md"]},
+        {"id": "M17", "name": "Competitor_Analyst", "scope": "Wettbewerber, Preis, Position", "deliverables": ["marketing/offers/COMPETITOR_MAP.md"]},
+        {"id": "M18", "name": "Community_Manager", "scope": "Community Loops, Engagement", "deliverables": ["marketing/content/COMMUNITY_PLAYBOOK.md"]},
+        {"id": "M19", "name": "Repurposing_Engine", "scope": "Long->Short Content", "deliverables": ["marketing/content/REPURPOSE_PIPELINE.md"]},
+        {"id": "M20", "name": "Marketing_QA", "scope": "Qualitätscheck Tone/Clarity/Claims", "deliverables": ["marketing/content/MARKETING_QA.md"]}
+      ]
+    },
+    {
+      "name": "SALES",
+      "count": 20,
+      "agents": [
+        {"id": "S01", "name": "Lead_Gen", "scope": "Leadquellen, Listen, Prospecting", "deliverables": ["sales/leads/LEAD_SOURCES.md"]},
+        {"id": "S02", "name": "Outreach_DM", "scope": "DM-Sequenzen", "deliverables": ["sales/outreach/DM_SCRIPTS.md"]},
+        {"id": "S03", "name": "Outreach_Email", "scope": "Cold Email", "deliverables": ["sales/outreach/COLD_EMAILS.md"]},
+        {"id": "S04", "name": "Call_Discovery", "scope": "Discovery Call Script", "deliverables": ["sales/scripts/DISCOVERY_CALL.md"]},
+        {"id": "S05", "name": "Objection_Handler", "scope": "Einwände, Antworten", "deliverables": ["sales/scripts/OBJECTIONS.md"]},
+        {"id": "S06", "name": "CRM_Pipeline", "scope": "Pipeline Stages, Follow-ups", "deliverables": ["sales/crm/PIPELINE.md"]},
+        {"id": "S07", "name": "Proposal_Writer", "scope": "Angebote/Proposals", "deliverables": ["sales/scripts/PROPOSALS.md"]},
+        {"id": "S08", "name": "Followup_Engine", "scope": "Follow-up System", "deliverables": ["sales/outreach/FOLLOWUPS.md"]},
+        {"id": "S09", "name": "Pricing_Negotiator", "scope": "Preisargumentation/Verhandlung", "deliverables": ["sales/scripts/NEGOTIATION.md"]},
+        {"id": "S10", "name": "Sales_QA", "scope": "Qualitätscheck Scripts", "deliverables": ["sales/scripts/SALES_QA.md"]},
+        {"id": "S11", "name": "Account_Plans", "scope": "Key Accounts: Plan + Next Steps", "deliverables": ["sales/crm/ACCOUNT_PLANS.md"]},
+        {"id": "S12", "name": "Referral_System", "scope": "Empfehlungen", "deliverables": ["sales/outreach/REFERRALS.md"]},
+        {"id": "S13", "name": "Demo_Story", "scope": "Demo-Struktur, Storyline", "deliverables": ["sales/scripts/DEMO_STORY.md"]},
+        {"id": "S14", "name": "Contract_Sanity", "scope": "Vertragschecks (nicht juristisch final)", "deliverables": ["sales/scripts/CONTRACT_CHECKLIST.md"]},
+        {"id": "S15", "name": "Retention_Playbook", "scope": "Kundenbindung", "deliverables": ["sales/crm/RETENTION.md"]},
+        {"id": "S16", "name": "Upsell_Crosssell", "scope": "Upsell Logik", "deliverables": ["sales/scripts/UPSELL.md"]},
+        {"id": "S17", "name": "Sales_Enablement", "scope": "Onepagers, Battlecards", "deliverables": ["sales/scripts/BATTLECARDS.md"]},
+        {"id": "S18", "name": "Territory_Mapper", "scope": "Region/Branche Mapping", "deliverables": ["sales/leads/TERRITORY.md"]},
+        {"id": "S19", "name": "Inbound_Qualifier", "scope": "Qualifizierung", "deliverables": ["sales/crm/QUALIFICATION.md"]},
+        {"id": "S20", "name": "Sales_Ops", "scope": "Reporting/Forecast", "deliverables": ["sales/crm/FORECAST.md"]}
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "count": 10,
+      "agents": [
+        {"id": "R01", "name": "Tools_Tracker", "scope": "Tools/Agents/Models Updates", "deliverables": ["ops/skills/TOOLS_TRACKER.md"]},
+        {"id": "R02", "name": "Trend_Scout", "scope": "Trends, Content Angles", "deliverables": ["marketing/content/TREND_REPORT.md"]},
+        {"id": "R03", "name": "Competitive_Intel", "scope": "Markt/Wettbewerb", "deliverables": ["marketing/offers/COMPETITIVE_INTEL.md"]},
+        {"id": "R04", "name": "Tech_Research", "scope": "MCP/Skills/Infra Patterns", "deliverables": ["ops/configs/TECH_RESEARCH.md"]},
+        {"id": "R05", "name": "Model_Bench", "scope": "Model Tests/Router Empfehlungen", "deliverables": ["ops/health/MODEL_BENCH.md"]},
+        {"id": "R06", "name": "Prompt_Engineer", "scope": "Master Prompts, Prompt Libraries", "deliverables": ["blueprints/PROMPT_LIBRARY.md"]},
+        {"id": "R07", "name": "Workflow_Designer", "scope": "n8n/Zapier/Make Workflows", "deliverables": ["blueprints/AUTOMATION_WORKFLOWS.md"]},
+        {"id": "R08", "name": "Knowledge_Architect", "scope": "KB Struktur, Naming, Retrieval", "deliverables": ["blueprints/KNOWLEDGE_SYSTEM.md"]},
+        {"id": "R09", "name": "Security_Privacy", "scope": "Privacy, Keys, Threat model", "deliverables": ["ops/configs/SECURITY.md"]},
+        {"id": "R10", "name": "Research_QA", "scope": "Quellen/Validität prüfen", "deliverables": ["ops/configs/RESEARCH_QA.md"]}
+      ]
+    },
+    {
+      "name": "OPS_ENGINEERING",
+      "count": 30,
+      "agents": [
+        {"id": "O01", "name": "Router_Engineer", "scope": "Provider Routing (local/cloud/budget)", "deliverables": ["ops/configs/ROUTER.md"]},
+        {"id": "O02", "name": "Health_Monitor", "scope": "CPU/RAM/Throttle", "deliverables": ["ops/health/HEALTH.md"]},
+        {"id": "O03", "name": "Night_Run_Manager", "scope": "Overnight runs, scheduling", "deliverables": ["ops/configs/NIGHT_RUNS.md"]},
+        {"id": "O04", "name": "Skill_Builder", "scope": "Skills scaffolding + templates", "deliverables": ["ops/skills/SKILL_TEMPLATES.md"]},
+        {"id": "O05", "name": "MCP_Integrator", "scope": "MCP servers/tools wiring", "deliverables": ["ops/configs/MCP.md"]},
+        {"id": "O06", "name": "CI_QA", "scope": "Tests, lint, smoke checks", "deliverables": ["ops/configs/CI.md"]},
+        {"id": "O07", "name": "Logging_Observer", "scope": "Logs, metrics, alerts", "deliverables": ["ops/logs/LOGGING.md"]},
+        {"id": "O08", "name": "Secrets_Manager", "scope": "Keys/Env/Rotation", "deliverables": ["ops/configs/SECRETS.md"]},
+        {"id": "O09", "name": "Storage_Manager", "scope": "Folder rules, archiving", "deliverables": ["ops/configs/STORAGE.md"]},
+        {"id": "O10", "name": "Export_Pipeline", "scope": "MD->PDF/DOCX bundling", "deliverables": ["ops/configs/EXPORT_PIPELINE.md"]},
+        {"id": "O11", "name": "Local_ModelOps", "scope": "Ollama models, profiles, performance", "deliverables": ["ops/configs/OLLAMA.md"]},
+        {"id": "O12", "name": "Cloud_Providers", "scope": "OpenRouter/Groq/Moonshot config", "deliverables": ["ops/configs/PROVIDERS.md"]},
+        {"id": "O13", "name": "RateLimit_Manager", "scope": "Backoff, queues, retries", "deliverables": ["ops/configs/RATELIMITS.md"]},
+        {"id": "O14", "name": "Agent_Scheduler", "scope": "Queues, priorities, orchestration", "deliverables": ["ops/configs/SCHEDULER.md"]},
+        {"id": "O15", "name": "Doc_Generator", "scope": "Auto docs from outputs", "deliverables": ["ops/configs/DOCS.md"]},
+        {"id": "O16", "name": "Repo_Structure", "scope": "Repo cleanup, conventions", "deliverables": ["ops/configs/REPO_STRUCTURE.md"]},
+        {"id": "O17", "name": "Python_Runtime", "scope": "venv, deps, packaging", "deliverables": ["ops/configs/PYTHON_ENV.md"]},
+        {"id": "O18", "name": "Node_Runtime", "scope": "node toolchain, n8n, etc.", "deliverables": ["ops/configs/NODE_ENV.md"]},
+        {"id": "O19", "name": "Docker_Operator", "scope": "Docker compose/containers", "deliverables": ["ops/configs/DOCKER.md"]},
+        {"id": "O20", "name": "Backups", "scope": "Backup/restore strategy", "deliverables": ["ops/configs/BACKUPS.md"]},
+        {"id": "O21", "name": "QA_Gatekeeper", "scope": "Output Gate checks", "deliverables": ["ops/configs/QA_GATE.md"]},
+        {"id": "O22", "name": "Template_Registry", "scope": "templates registry", "deliverables": ["blueprints/TEMPLATE_REGISTRY.md"]},
+        {"id": "O23", "name": "CLI_Toolsmith", "scope": "CLI commands wrappers", "deliverables": ["ops/configs/CLI.md"]},
+        {"id": "O24", "name": "WebUI_Dashboard", "scope": "Mission control dashboard", "deliverables": ["ops/configs/DASHBOARD.md"]},
+        {"id": "O25", "name": "Telemetry", "scope": "metrics + cost tracking", "deliverables": ["ops/health/TELEMETRY.md"]},
+        {"id": "O26", "name": "Prompt_Store", "scope": "prompt bank, versioning", "deliverables": ["blueprints/PROMPTS_VERSIONED.md"]},
+        {"id": "O27", "name": "Legal_Data_Bridge", "scope": "legal outputs <-> data index sync", "deliverables": ["legal/memos/LEGAL_DATA_BRIDGE.md"]},
+        {"id": "O28", "name": "Content_Pipeline", "scope": "batch production machine", "deliverables": ["marketing/content/PIPELINE.md"]},
+        {"id": "O29", "name": "Safety_Compliance", "scope": "policy guardrails", "deliverables": ["ops/configs/SAFETY.md"]},
+        {"id": "O30", "name": "Ops_QA", "scope": "ops review, integration tests", "deliverables": ["ops/configs/OPS_QA.md"]}
+      ]
+    }
+  ]
+}

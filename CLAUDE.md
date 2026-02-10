@@ -114,3 +114,54 @@ Use for parallel tasks: research + implementation + testing.
 - Revenue = 0 EUR (channels need activation)
 - No Fiverr gigs live
 - Telegram bot token invalid
+- MOONSHOT_API_KEY must be set via .env (see .env.example)
+
+## Fixed Issues (2026-02-10)
+- SECURITY: Removed 7 hardcoded API keys from source code (use .env)
+- CONFIG: Created .env.example with all required environment variables
+- CONFIG: Completed requirements.txt (added rich, httpx, fastapi, uvicorn, ruff, pytest)
+- CONFIG: Updated Claude model IDs to current versions (Haiku/Sonnet/Opus 4.5)
+- IMPORT: Added missing __init__.py in systems/ and systems/kimi_bridge/
+- CODE: Fixed X/Twitter auto-poster (uncommented API integration)
+- CODE: Implemented task execution in claude_failover_system.py
+- CODE: Added API key validation + tasks dir check in atomic-reactor
+- CODE: Added missing `import os` in kimi-swarm/swarm_100k.py
+
+## WARROOM Operating System (2026-02-10)
+
+### Overview
+100-agent specialist system organized in 6 squads. Agents are ROLES (prompt-based),
+not separate processes. The orchestrator invokes the right role for each task.
+
+### Command Center
+- `warroom/00_command/` — Mission brief, objectives, status board, rules
+- `warroom/00_nucleus/` — Squad definitions, routing matrix, operating rules
+- `warroom/01_intake/` — Raw uploads + file manifests
+
+### Squad Registry (see `agents.json` for full details)
+| Squad | Count | Agent IDs | Work Folder |
+|-------|-------|-----------|-------------|
+| Legal Warroom | 10 | L01-L10 | `legal/` |
+| Data Ops | 10 | D01-D10 | `data/` |
+| Marketing | 20 | M01-M20 | `marketing/` |
+| Sales | 20 | S01-S20 | `sales/` |
+| Research | 10 | R01-R10 | `ops/skills/`, `blueprints/` |
+| Ops/Engineering | 30 | O01-O30 | `ops/` |
+
+### Warroom Commands
+```
+RUN WARROOM — Full Phase 0-4 execution
+[STATUS] — Show pipeline status + blockers
+[SPAWN] <team> <count> <objective> — Activate squad for task
+[INGEST] <path> — Normalize + tag + index files
+[LEGAL_RUN] — Build timeline + evidence + claims
+[MARKETING_RUN] — Build offer + copy + funnel + email
+[EXPORT] — Generate exports bundle
+```
+
+### Key Docs
+- `ORCHESTRATOR.md` — Master workflow
+- `agents.json` — 100 agent definitions
+- `warroom/00_nucleus/warroom_rules.md` — 14 operating constraints
+- `warroom/00_nucleus/routing_matrix.md` — Model selection + privacy
+- `warroom/00_command/status.md` — Live status board

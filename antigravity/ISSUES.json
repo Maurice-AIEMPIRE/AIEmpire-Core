@@ -1,0 +1,281 @@
+{
+  "generated_at": "2026-02-10T01:42:07",
+  "total_tasks": 3,
+  "total_issues": 22,
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "cluster": "syntax",
+      "label": "Syntax Errors",
+      "owner_agent": "fixer",
+      "priority": 1,
+      "status": "backlog",
+      "issue_count": 19,
+      "files_affected": [
+        "kimi-swarm/test_swarm_500k.py",
+        "workflow-system/orchestrator.py",
+        "x-lead-machine/x_automation.py",
+        "kimi-swarm/USAGE_EXAMPLES.py",
+        "workflow-system/empire.py",
+        "empire-api/server.py",
+        "kimi-swarm/swarm_100k.py",
+        "brain-system/orchestrator.py",
+        "kimi-swarm/demo_max_agents.py",
+        "kimi-swarm/swarm_500k.py",
+        "x-lead-machine/generate_week.py",
+        "workflow-system/cowork.py",
+        "kimi-swarm/github_scanner_100k.py",
+        "n8n-workflows/n8n_connector.py",
+        "kimi-swarm/universal_swarm.py",
+        "x-lead-machine/post_generator.py",
+        "workflow-system/resource_guard.py",
+        "x-lead-machine/viral_reply_generator.py",
+        "atomic-reactor/run_tasks.py"
+      ],
+      "acceptance_criteria": [
+        "All 75 issues resolved",
+        "Tests pass",
+        "No regressions"
+      ],
+      "issues": [
+        {
+          "type": "import_error",
+          "file": "atomic-reactor/run_tasks.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "workflow-system/empire.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "workflow-system/resource_guard.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "workflow-system/orchestrator.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "workflow-system/cowork.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "empire-api/server.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "brain-system/orchestrator.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "kimi-swarm/demo_max_agents.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "kimi-swarm/USAGE_EXAMPLES.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "kimi-swarm/swarm_100k.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "kimi-swarm/swarm_500k.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "kimi-swarm/universal_swarm.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "kimi-swarm/test_swarm_500k.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "kimi-swarm/github_scanner_100k.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "x-lead-machine/generate_week.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "x-lead-machine/viral_reply_generator.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "x-lead-machine/post_generator.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "x-lead-machine/x_automation.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        },
+        {
+          "type": "import_error",
+          "file": "n8n-workflows/n8n_connector.py",
+          "line": 0,
+          "message": "SyntaxError: invalid syntax",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "syntax"
+        }
+      ]
+    },
+    {
+      "id": "TASK-002",
+      "cluster": "missing_deps",
+      "label": "Missing Dependencies",
+      "owner_agent": "fixer",
+      "priority": 1,
+      "status": "backlog",
+      "issue_count": 2,
+      "files_affected": [
+        "systems/kimi_bridge/server.py",
+        "systems/kimi_bridge/test_bridge.py"
+      ],
+      "acceptance_criteria": [
+        "All 2 issues resolved",
+        "Tests pass",
+        "No regressions"
+      ],
+      "issues": [
+        {
+          "type": "import_error",
+          "file": "systems/kimi_bridge/server.py",
+          "line": 0,
+          "message": "ModuleNotFoundError: No module named 'fastapi'",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "missing_deps"
+        },
+        {
+          "type": "import_error",
+          "file": "systems/kimi_bridge/test_bridge.py",
+          "line": 0,
+          "message": "ModuleNotFoundError: No module named 'kimi_client'",
+          "tool": "import_check",
+          "severity": "critical",
+          "cluster": "missing_deps"
+        }
+      ]
+    },
+    {
+      "id": "TASK-003",
+      "cluster": "test_failure",
+      "label": "Test Failures",
+      "owner_agent": "fixer",
+      "priority": 3,
+      "status": "backlog",
+      "issue_count": 1,
+      "files_affected": [
+        "systems/kimi_bridge/test_bridge.py"
+      ],
+      "acceptance_criteria": [
+        "All 1 issues resolved",
+        "Tests pass",
+        "No regressions"
+      ],
+      "issues": [
+        {
+          "type": "test_failure",
+          "file": "systems/kimi_bridge/test_bridge.py",
+          "line": 0,
+          "message": "FAILED systems/kimi_bridge/test_bridge.py::test_bridge - Failed: async def fu...",
+          "tool": "pytest",
+          "severity": "high",
+          "cluster": "test_failure"
+        }
+      ]
+    }
+  ]
+}

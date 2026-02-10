@@ -18,7 +18,7 @@ client = KimiClient()
 class Message(BaseModel):
     role: str
     content: str
-    
+
 class ChatRequest(BaseModel):
     messages: List[Message]
     temperature: Optional[float] = 0.7
@@ -34,7 +34,7 @@ async def chat_endpoint(request: ChatRequest):
     try:
         # Convert Pydantic messages to dict
         messages_dict = [{"role": m.role, "content": m.content} for m in request.messages]
-        
+
         response = await client.chat(
             messages=messages_dict,
             model=request.model,

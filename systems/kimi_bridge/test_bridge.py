@@ -4,11 +4,11 @@ from kimi_client import KimiClient
 async def test_bridge():
     print("🧪 Testing Kimi Bridge Client...")
     client = KimiClient()
-    
+
     print(f"configurations: Local={client.local_model}, API={client.api_model}")
-    
+
     messages = [{"role": "user", "content": "Hello, are you Kimi? Answer briefly."}]
-    
+
     # Test 1: Local (Priority)
     print("\n[1] Testing Local Inference (Ollama)...")
     try:
@@ -24,7 +24,7 @@ async def test_bridge():
         print(f"✅ Success: {res}")
     except Exception as e:
         print(f"❌ Failed: {e}")
-        
+
     print("\n✨ Test Complete.")
 
 if __name__ == "__main__":

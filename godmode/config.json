@@ -1,0 +1,125 @@
+{
+    "version": "1.0",
+    "system": "Godmode Programmer - 4-Role Local AI Router",
+    "hardware": {
+        "chip": "Apple M4",
+        "ram_gb": 16,
+        "max_parallel_models": 2,
+        "note": "2x 7B parallel OR 1x 14B sequential"
+    },
+    "ollama": {
+        "base_url": "http://localhost:11434",
+        "api_endpoint": "/api/generate",
+        "chat_endpoint": "/api/chat"
+    },
+    "roles": {
+        "architect": {
+            "model": "qwen2.5-coder:7b",
+            "description": "Entscheidet Struktur, Refactors, APIs, Systemdesign",
+            "temperature": 0.3,
+            "max_tokens": 4096,
+            "scope": [
+                "repo_structure",
+                "interfaces",
+                "architecture",
+                "refactoring"
+            ],
+            "branch_prefix": "agent/architect",
+            "system_prompt": "Du bist ein Senior Software Architect. Du analysierst Repo-Strukturen, definierst Interfaces und triffst architektonische Entscheidungen. Du schreibst KEINEN Implementierungs-Code, nur Interfaces, Specs und Strukturvorschlaege. Antworte immer als JSON mit keys: decision, files_affected, rationale, interfaces."
+        },
+        "fixer": {
+            "model": "deepseek-r1:7b",
+            "description": "Bugs, Tracebacks, Importfehler, Edge-Cases",
+            "temperature": 0.1,
+            "max_tokens": 4096,
+            "scope": [
+                "tracebacks",
+                "failing_tests",
+                "import_errors",
+                "type_errors",
+                "runtime_errors"
+            ],
+            "branch_prefix": "agent/fixer",
+            "system_prompt": "Du bist ein Bug-Fix-Spezialist. Du bekommst Tracebacks und Fehler und lieferst praezise Fixes. Kein Refactoring, keine neuen Features - nur den Bug fixen. Antworte als JSON: {file, line, old_code, new_code, explanation, test_command}."
+        },
+        "coder": {
+            "model": "qwen2.5-coder:14b",
+            "description": "Feature-Implementierung, schnelle Iteration",
+            "temperature": 0.5,
+            "max_tokens": 8192,
+            "scope": [
+                "new_features",
+                "implementations",
+                "scripts",
+                "integrations"
+            ],
+            "branch_prefix": "agent/coder",
+            "system_prompt": "Du bist ein produktiver Full-Stack-Entwickler. Du implementierst Features schnell und sauber. Schreibe produktionsreifen Code mit Error-Handling. Antworte als JSON: {files: [{path, action, content}], dependencies, test_suggestions}."
+        },
+        "qa": {
+            "model": "codellama:7b",
+            "description": "Tests, Lint, Sicherheit, Code-Review",
+            "temperature": 0.1,
+            "max_tokens": 4096,
+            "scope": [
+                "tests",
+                "lint",
+                "security",
+                "code_review",
+                "diff_review"
+            ],
+            "branch_prefix": "agent/qa",
+            "system_prompt": "Du bist ein QA Engineer und Code Reviewer. Du pruefst Diffs auf Bugs, Security-Issues und Code-Qualitaet. Du schreibst Tests. Antworte als JSON: {verdict: pass|fail|warn, issues: [{severity, file, line, message}], tests: [{file, content}]}."
+        }
+    },
+    "merge_gate": {
+        "required_checks": [
+            "python3 -m compileall . -q",
+            "ruff check . --select E,F,I --quiet 2>/dev/null || true",
+            "python3 -m pytest -q --tb=short 2>/dev/null || echo 'no tests yet'"
+        ],
+        "require_qa_approval": true,
+        "no_direct_main_commits": true
+    },
+    "task_routing": {
+        "error_keywords": [
+            "Traceback",
+            "Error",
+            "Exception",
+            "failed",
+            "FAIL",
+            "ModuleNotFoundError",
+            "ImportError",
+            "TypeError",
+            "AttributeError"
+        ],
+        "architecture_keywords": [
+            "refactor",
+            "restructure",
+            "design",
+            "interface",
+            "architecture",
+            "API",
+            "schema",
+            "migration"
+        ],
+        "feature_keywords": [
+            "implement",
+            "add",
+            "create",
+            "build",
+            "new",
+            "feature",
+            "integrate"
+        ],
+        "qa_keywords": [
+            "test",
+            "lint",
+            "review",
+            "check",
+            "security",
+            "quality",
+            "regression"
+        ]
+    }
+}

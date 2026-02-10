@@ -29,10 +29,10 @@ def test_task_types():
     try:
         # Import from swarm_500k
         import swarm_500k
-        
+
         task_types = swarm_500k.TASK_TYPES
         print(f"  Found {len(task_types)} task types:")
-        
+
         for task_type in task_types:
             assert "type" in task_type, "Task missing 'type' field"
             assert "output_dir" in task_type, "Task missing 'output_dir' field"
@@ -40,7 +40,7 @@ def test_task_types():
             assert "revenue_potential" in task_type, "Task missing 'revenue_potential' field"
             assert "prompt" in task_type, "Task missing 'prompt' field"
             print(f"    ✅ {task_type['type']} (Priority: {task_type['priority']}, Revenue: €{task_type['revenue_potential']})")
-        
+
         print("✅ All task types valid")
         return True
     except Exception as e:
@@ -52,15 +52,15 @@ def test_claude_orchestrator():
     print("\nTesting Claude orchestrator...")
     try:
         import swarm_500k
-        
+
         # Test orchestrator initialization
         orchestrator = swarm_500k.ClaudeOrchestrator("")
         print("  ✅ ClaudeOrchestrator initialized")
-        
+
         # Test that it has required methods
         assert hasattr(orchestrator, "analyze_swarm_progress"), "Missing analyze_swarm_progress method"
         print("  ✅ analyze_swarm_progress method exists")
-        
+
         print("✅ Claude orchestrator structure valid")
         return True
     except Exception as e:
@@ -72,11 +72,11 @@ def test_swarm_structure():
     print("\nTesting swarm structure...")
     try:
         import swarm_500k
-        
+
         # Test swarm initialization
         swarm = swarm_500k.KimiSwarm500K()
         print("  ✅ KimiSwarm500K initialized")
-        
+
         # Test required methods
         methods = [
             "init_session",
@@ -90,11 +90,11 @@ def test_swarm_structure():
             "run_swarm",
             "validate_max_agent_capacity"  # NEW: Validation method
         ]
-        
+
         for method in methods:
             assert hasattr(swarm, method), f"Missing {method} method"
         print(f"  ✅ All {len(methods)} required methods exist")
-        
+
         # Test stats structure
         expected_stats_keys = [
             "total_tasks", "completed", "failed", "tokens_used",
@@ -104,7 +104,7 @@ def test_swarm_structure():
         for key in expected_stats_keys:
             assert key in swarm.stats, f"Missing stats key: {key}"
         print(f"  ✅ Stats structure valid ({len(expected_stats_keys)} keys)")
-        
+
         print("✅ Swarm structure valid")
         return True
     except Exception as e:
@@ -116,18 +116,18 @@ def test_output_directories():
     print("\nTesting output directory structure...")
     try:
         import swarm_500k
-        
+
         required_dirs = [
             "OUTPUT_DIR", "LEADS_DIR", "CONTENT_DIR",
             "COMPETITORS_DIR", "NUGGETS_DIR", "REVENUE_OPS_DIR",
             "CLAUDE_INSIGHTS_DIR"
         ]
-        
+
         for dir_name in required_dirs:
             assert hasattr(swarm_500k, dir_name), f"Missing directory constant: {dir_name}"
             dir_path = getattr(swarm_500k, dir_name)
             print(f"  ✅ {dir_name}: {dir_path}")
-        
+
         print("✅ Output directory structure valid")
         return True
     except Exception as e:
@@ -139,19 +139,19 @@ def test_configuration():
     print("\nTesting configuration...")
     try:
         import swarm_500k
-        
+
         config_checks = [
             ("MAX_CONCURRENT", 500, "Concurrency level"),
             ("TOTAL_AGENTS", 500000, "Total agents capacity"),
             ("BUDGET_USD", 75.0, "Budget limit"),
             ("CLAUDE_ORCHESTRATION_INTERVAL", 1000, "Claude check interval"),
         ]
-        
+
         for var_name, expected_value, description in config_checks:
             actual_value = getattr(swarm_500k, var_name)
             assert actual_value == expected_value, f"{var_name} mismatch: expected {expected_value}, got {actual_value}"
             print(f"  ✅ {description}: {actual_value}")
-        
+
         print("✅ Configuration valid")
         return True
     except Exception as e:
@@ -163,19 +163,19 @@ def test_max_agent_validation():
     print("\nTesting max agent capacity validation...")
     try:
         import swarm_500k
-        
+
         # Create swarm instance
         swarm = swarm_500k.KimiSwarm500K()
-        
+
         # Run validation
         result = swarm.validate_max_agent_capacity()
-        
+
         # Validation should pass with proper setup
         if result:
             print("  ✅ Validation passed")
         else:
             print("  ⚠️  Validation failed (may be expected if API key not set)")
-        
+
         print("✅ Max agent validation method works")
         return True
     except Exception as e:
@@ -187,7 +187,7 @@ def main():
     print("="*60)
     print("500K KIMI SWARM - VALIDATION TESTS")
     print("="*60)
-    
+
     tests = [
         test_imports,
         test_task_types,
@@ -197,18 +197,18 @@ def main():
         test_configuration,
         test_max_agent_validation,  # NEW: Test max agent validation
     ]
-    
+
     results = []
     for test in tests:
         results.append(test())
-    
+
     print("\n" + "="*60)
     print("TEST SUMMARY")
     print("="*60)
     passed = sum(results)
     total = len(results)
     print(f"Passed: {passed}/{total}")
-    
+
     if passed == total:
         print("✅ All tests passed! System ready to spawn max agents.")
         return 0

@@ -54,7 +54,7 @@ PRODUCTS = [
         price_eur=9700,  # 97.00 EUR
         product_type="one_time"
     ),
-    
+
     # Fiverr-Style Services (as Stripe Products)
     Product(
         name="AI Automation Setup - Basic",
@@ -134,51 +134,51 @@ def run_stripe_cmd(args: list) -> dict:
 def create_product(product: Product) -> dict:
     """Create a Stripe product with price."""
     print(f"\n📦 Creating: {product.name} (€{product.price_eur/100:.2f})")
-    
+
     # Create product
     prod_result = run_stripe_cmd([
         "products", "create",
         f"--name={product.name}",
         f"--description={product.description}"
     ])
-    
+
     if not prod_result or "id" not in prod_result:
         print("  ❌ Failed to create product")
         return {}
-    
+
     product_id = prod_result["id"]
     print(f"  ✅ Product: {product_id}")
-    
-    # Create price  
+
+    # Create price
     price_args = [
         "prices", "create",
         f"--product={product_id}",
         f"--unit-amount={product.price_eur}",
         "--currency=eur"
     ]
-    
+
     if product.product_type == "recurring" and product.interval:
         price_args.append(f"--recurring[interval]={product.interval}")
-    
+
     price_result = run_stripe_cmd(price_args)
-    
+
     if not price_result or "id" not in price_result:
         print("  ❌ Failed to create price")
         return {"product_id": product_id}
-    
+
     price_id = price_result["id"]
     print(f"  ✅ Price: {price_id}")
-    
+
     # Create payment link
     link_result = run_stripe_cmd([
         "payment_links", "create",
         "-d", f"line_items[0][price]={price_id}",
         "-d", "line_items[0][quantity]=1"
     ])
-    
+
     payment_url = link_result.get("url", "N/A") if link_result else "N/A"
     print(f"  🔗 Payment Link: {payment_url}")
-    
+
     return {
         "name": product.name,
         "product_id": product_id,
@@ -193,28 +193,28 @@ def create_all_products():
     print("=" * 60)
     print("🚀 AIEmpire Stripe Product Creator")
     print("=" * 60)
-    
+
     results = []
     for product in PRODUCTS:
         result = create_product(product)
         if result:
             results.append(result)
-    
+
     # Save results
     output_file = "stripe_products_live.json"
     with open(output_file, "w") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
-    
+
     print(f"\n{'=' * 60}")
     print(f"✅ Created {len(results)}/{len(PRODUCTS)} products")
     print(f"📄 Saved to: {output_file}")
     print(f"{'=' * 60}")
-    
+
     # Print summary
     print("\n📊 PAYMENT LINKS SUMMARY:")
     for r in results:
         print(f"  €{r.get('price_eur', 0):>8.2f}  {r.get('name', 'Unknown'):40s}  {r.get('payment_url', 'N/A')}")
-    
+
     return results
 
 

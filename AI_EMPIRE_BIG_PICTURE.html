@@ -142,8 +142,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
             background: rgba(6, 6, 11, .7);
             border-bottom: 1px solid var(--border);
             transition: all .3s;
@@ -270,6 +270,7 @@
 
         .rev-stat {
             background: var(--card);
+            -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -372,6 +373,7 @@
             background: var(--card);
             border: 1px solid var(--border);
             white-space: nowrap;
+            min-width: -webkit-fill-available;
             min-width: fit-content;
             transition: all .3s
         }
@@ -421,6 +423,7 @@
             font-size: .85rem;
             font-weight: 600;
             transition: all .3s;
+            -webkit-user-select: none;
             user-select: none;
             position: relative;
             overflow: hidden
@@ -552,6 +555,7 @@
 
         .p-card {
             background: var(--card);
+            -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -728,6 +732,7 @@
 
         .s-card {
             background: var(--card);
+            -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border: 1px solid var(--border);
             border-radius: 14px;
@@ -1104,6 +1109,7 @@
             align-items: center;
             font-weight: 600;
             font-size: .9rem;
+            -webkit-user-select: none;
             user-select: none
         }
 
@@ -1229,6 +1235,7 @@
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, .8);
+            -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
             z-index: 10000;
             display: none;
@@ -1569,35 +1576,35 @@
         <!-- Revenue Stats -->
         <div class="rev-banner reveal">
             <div class="rev-stat">
-                <div class="val c-green">14</div>
+                <div class="val c-green" id="metric-stripe">14</div>
                 <div class="lbl">Stripe Produkte</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-accent">10</div>
+                <div class="val c-accent" id="metric-products">14</div>
                 <div class="lbl">Produkte 100%</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-cyan">9</div>
+                <div class="val c-cyan" id="metric-tiktok">9</div>
                 <div class="lbl">TikTok Scripts</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-yellow">17</div>
+                <div class="val c-yellow" id="metric-twitter">17</div>
                 <div class="lbl">X/Twitter Posts</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-orange">3</div>
+                <div class="val c-orange" id="metric-fiverr">3</div>
                 <div class="lbl">Fiverr Gigs</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-blue">3</div>
+                <div class="val c-blue" id="metric-gumroad">3</div>
                 <div class="lbl">Gumroad Produkte</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-green">5</div>
+                <div class="val c-green" id="metric-revenue-channels">5</div>
                 <div class="lbl">Revenue Kanäle</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-pink">16+</div>
+                <div class="val c-pink" id="metric-systems">1+</div>
                 <div class="lbl">Systeme gebaut</div>
             </div>
         </div>
@@ -2317,7 +2324,7 @@
         Maurice Pfeifer | Stand: 10.02.2026 | Alle Zahlungen → mauricepfeifer@icloud.com<br>
         14 Stripe Produkte + PayPal Integration | 16+ Systeme verbunden | 5 Revenue-Kanäle<br>
         <a href="mailto:mauricepfeifer@icloud.com">📧 Kontakt</a> · <a
-            href="https://www.paypal.com/paypalme/mauricepfeifer" target="_blank">💳 PayPal</a>
+            href="https://www.paypal.com/paypalme/mauricepfeifer" target="_blank" rel="noopener">💳 PayPal</a>
     </footer>
 
     <!-- PRODUCT DETAIL MODAL -->
@@ -2453,8 +2460,9 @@
             function updateLive(live) {
                 let dot = document.getElementById('live-indicator');
                 if (!dot) {
-                    dot = document.createElement('div'); dot.id = 'live-indicator';
-                    dot.style.cssText = 'position:fixed;top:12px;right:12px;z-index:9999;display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08)';
+                    dot = document.createElement('div');
+                    dot.id = 'live-indicator';
+                    dot.style.cssText = 'position:fixed;top:12px;right:12px;z-index:9999;display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.08)';
                     document.body.appendChild(dot)
                 }
                 if (live) {

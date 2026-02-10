@@ -44,18 +44,18 @@ class UniversalSwarm:
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": prompt}
             ]
-            
+
             try:
                 # Use the Hybrid Client
                 response = await self.client.chat(messages, model=model, use_local=use_local)
-                
+
                 # Save result
                 self._save_result(task_id, response)
                 self.stats["success"] += 1
-                
+
                 # Feedback (brief)
                 print(f"✅ Task {task_id} completed via {response['source']} ({response['model']})")
-                
+
             except Exception as e:
                 self.stats["failed"] += 1
                 print(f"❌ Task {task_id} failed: {e}")
@@ -72,15 +72,15 @@ class UniversalSwarm:
     async def run_swarm(self, count: int, prompt_template: str, system_prompt: str, use_local: bool = True):
         print(f"🚀 Starting Universal Swarm: {count} agents")
         print(f"   Mode: {'Local First' if use_local else 'API Only'}")
-        
+
         tasks = []
         for i in range(count):
             # Dynamic prompt injection if needed (e.g. unique IDs)
             final_prompt = prompt_template.replace("{{id}}", str(i))
             tasks.append(self.worker(i, final_prompt, system_prompt, use_local=use_local))
-            
+
         await asyncio.gather(*tasks)
-        
+
         duration = time.time() - self.stats["start_time"]
         print(f"\n🏁 Swarm Finished in {duration:.2f}s")
         print(f"   Success: {self.stats['success']}")
@@ -92,13 +92,13 @@ async def main():
     parser.add_argument("--prompt", type=str, default="Generate a unique business idea for AI automation.", help="Task prompt")
     parser.add_argument("--system", type=str, default="You are a creative AI expert.", help="System prompt")
     parser.add_argument("--api-only", action="store_true", help="Force API usage (disable local)")
-    
+
     args = parser.parse_args()
-    
+
     swarm = UniversalSwarm()
     await swarm.run_swarm(
-        count=args.count, 
-        prompt_template=args.prompt, 
+        count=args.count,
+        prompt_template=args.prompt,
         system_prompt=args.system,
         use_local=not args.api_only
     )

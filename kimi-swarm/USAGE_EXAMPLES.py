@@ -200,7 +200,7 @@ async def show_all_examples():
     print("\n" + "="*80)
     print(" "*20 + "500K KIMI SWARM - USAGE EXAMPLES")
     print("="*80)
-    
+
     examples = [
         example_test_run,
         example_lead_generation,
@@ -211,10 +211,10 @@ async def show_all_examples():
         example_process_results,
         example_crm_integration,
     ]
-    
+
     for example in examples:
         await example()
-    
+
     print("\n" + "="*80)
     print("GETTING STARTED")
     print("="*80)

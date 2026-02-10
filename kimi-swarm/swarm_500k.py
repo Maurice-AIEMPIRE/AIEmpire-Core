@@ -20,7 +20,7 @@ import random
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
 if not MOONSHOT_API_KEY:
     raise ValueError("MOONSHOT_API_KEY environment variable must be set")
-    
+
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")  # Optional: Falls back to rule-based orchestration
 
 # Configuration
@@ -206,14 +206,14 @@ OUTPUT als JSON:
 
 class ClaudeOrchestrator:
     """Claude Agent Army für strategische Orchestrierung"""
-    
+
     def __init__(self, api_key: str):
         self.api_key = api_key
         self.insights = []
-        
+
     async def analyze_swarm_progress(self, stats: Dict, recent_results: List[Dict]) -> Dict:
         """Claude analysiert Swarm Progress und gibt strategische Empfehlungen."""
-        
+
         if not self.api_key:
             # Fallback: Simple rule-based recommendations
             return {
@@ -225,7 +225,7 @@ class ClaudeOrchestrator:
                 ],
                 "task_priority_adjustment": "none"
             }
-        
+
         prompt = f"""Du bist Lead Claude Orchestrator für eine 500K Kimi Agent Army.
 
 Aktueller Status:
@@ -275,12 +275,12 @@ Return JSON:
                     if resp.status == 200:
                         data = await resp.json()
                         content = data["content"][0]["text"]
-                        
+
                         # Save insight
                         insight_file = CLAUDE_INSIGHTS_DIR / f"insight_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
                         with open(insight_file, "w") as f:
                             json.dump({"timestamp": datetime.now().isoformat(), "analysis": content}, f, indent=2)
-                        
+
                         # Parse response
                         try:
                             analysis = json.loads(content)
@@ -295,7 +295,7 @@ Return JSON:
         except Exception as e:
             # Unexpected error - log for debugging
             print(f"  ⚠️  Unexpected error in Claude orchestration: {type(e).__name__}: {str(e)[:100]}")
-        
+
         # Fallback
         return {
             "status": "fallback",
@@ -305,7 +305,7 @@ Return JSON:
 
 class KimiSwarm500K:
     """Enhanced Swarm System for 500K Agents"""
-    
+
     def __init__(self):
         self.stats = {
             "total_tasks": 0,
@@ -327,15 +327,15 @@ class KimiSwarm500K:
         self.recent_results = []
         self.claude = ClaudeOrchestrator(ANTHROPIC_API_KEY)
         self.task_weights = [1.0] * len(TASK_TYPES)  # Dynamic task prioritization
-        
+
     def validate_max_agent_capacity(self) -> bool:
         """Validate that system is configured to spawn max agents."""
         print(f"\n{'='*60}")
         print("🔍 VALIDATING MAX AGENT CAPACITY")
         print(f"{'='*60}")
-        
+
         validation_passed = True
-        
+
         # Check TOTAL_AGENTS configuration
         print(f"Total Agents Capacity: {TOTAL_AGENTS:,}")
         if TOTAL_AGENTS <= 0:
@@ -343,7 +343,7 @@ class KimiSwarm500K:
             validation_passed = False
         else:
             print("  ✅ Valid agent capacity configured")
-        
+
         # Check MAX_CONCURRENT configuration
         print(f"Max Concurrent Workers: {MAX_CONCURRENT}")
         if MAX_CONCURRENT <= 0:
@@ -353,28 +353,28 @@ class KimiSwarm500K:
             print("  ⚠️  Warning: MAX_CONCURRENT > 1000 may cause rate limiting")
         else:
             print("  ✅ Valid concurrency level")
-        
+
         # Check API key is set
         if not MOONSHOT_API_KEY:
             print("  ❌ MOONSHOT_API_KEY not set")
             validation_passed = False
         else:
             print("  ✅ API key configured")
-        
+
         # Check semaphore capacity matches configuration
         if self.max_concurrent != MAX_CONCURRENT:
             print("  ❌ Semaphore capacity mismatch")
             validation_passed = False
         else:
             print("  ✅ Semaphore initialized correctly")
-        
+
         # Check output directories exist
         for dir_path in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR, REVENUE_OPS_DIR, CLAUDE_INSIGHTS_DIR]:
             if not dir_path.exists():
                 print(f"  ❌ Output directory missing: {dir_path}")
                 validation_passed = False
         print("  ✅ All output directories exist")
-        
+
         # Capacity report
         estimated_time = (TOTAL_AGENTS / MAX_CONCURRENT) * ESTIMATED_SECONDS_PER_TASK
         print("\nCapacity Report:")
@@ -382,12 +382,12 @@ class KimiSwarm500K:
         print(f"  • Concurrent Workers: {MAX_CONCURRENT}")
         print(f"  • Estimated Time for Full Run: {estimated_time/3600:.1f} hours")
         print(f"  • Estimated Cost: ${BUDGET_USD:.2f}")
-        
+
         if validation_passed:
             print("\n✅ System validated - ready to spawn max agents!")
         else:
             print("\n❌ Validation failed - fix issues before spawning agents")
-        
+
         print(f"{'='*60}\n")
         return validation_passed
 
@@ -434,7 +434,7 @@ class KimiSwarm500K:
 
         with open(filename, "w") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-        
+
         # Track for Claude analysis
         self.recent_results.append(data)
         if len(self.recent_results) > 100:
@@ -512,13 +512,13 @@ class KimiSwarm500K:
         # Weighted random selection
         total_weight = sum(self.task_weights)
         rand_val = random.uniform(0, total_weight)
-        
+
         cumulative = 0
         for i, weight in enumerate(self.task_weights):
             cumulative += weight
             if rand_val <= cumulative:
                 return TASK_TYPES[i]
-        
+
         # Fallback
         return TASK_TYPES[task_id % len(TASK_TYPES)]
 
@@ -537,25 +537,25 @@ class KimiSwarm500K:
     async def claude_orchestration_checkpoint(self):
         """Let Claude analyze and adjust strategy."""
         self.stats["claude_orchestrations"] += 1
-        
+
         print(f"\n{'='*60}")
         print(f"🧠 CLAUDE ORCHESTRATOR CHECKPOINT #{self.stats['claude_orchestrations']}")
         print(f"{'='*60}")
-        
+
         analysis = await self.claude.analyze_swarm_progress(self.stats, self.recent_results)
-        
+
         print(f"Status: {analysis.get('status', 'unknown')}")
         print(f"Performance Rating: {analysis.get('performance_rating', 'N/A')}")
-        
+
         if "recommendations" in analysis:
             print("\nRecommendations:")
             for rec in analysis.get("recommendations", []):
                 print(f"  • {rec}")
-        
+
         if "task_priority_adjustment" in analysis:
             adjustment = analysis.get("task_priority_adjustment", "balanced")
             print(f"\nTask Priority Adjustment: {adjustment}")
-            
+
             # Adjust task weights based on Claude's recommendation
             if adjustment == "mehr_leads":
                 self.task_weights[0] = 2.0  # High value leads
@@ -565,7 +565,7 @@ class KimiSwarm500K:
             elif adjustment == "mehr_nuggets":
                 self.task_weights[3] = 2.0  # Gold nuggets
                 self.task_weights[4] = 1.5  # Revenue ops
-        
+
         print(f"{'='*60}\n")
 
     def print_stats(self):
@@ -598,7 +598,7 @@ class KimiSwarm500K:
         if not self.validate_max_agent_capacity():
             print("❌ Validation failed. Aborting swarm run.")
             return None
-        
+
         self.stats["start_time"] = time.time()
         await self.init_session()
 

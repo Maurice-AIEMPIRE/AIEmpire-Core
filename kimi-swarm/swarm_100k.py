@@ -8,12 +8,13 @@ Budget: $15 = ~30 Mio Tokens
 import asyncio
 import aiohttp
 import json
+import os
 import time
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict
 
-MOONSHOT_API_KEY = "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF"
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 MAX_CONCURRENT = 50  # Reduced to avoid rate limits
 TOTAL_AGENTS = 100000
 BUDGET_USD = 15.0
@@ -122,15 +123,15 @@ class KimiSwarm:
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT)
         self.session = None
         self.task_counter = 0
-        
+
     def validate_max_agent_capacity(self) -> bool:
         """Validate that system is configured to spawn max agents."""
         print(f"\n{'='*60}")
         print("🔍 VALIDATING MAX AGENT CAPACITY")
         print(f"{'='*60}")
-        
+
         validation_passed = True
-        
+
         # Check TOTAL_AGENTS configuration
         print(f"Total Agents Capacity: {TOTAL_AGENTS:,}")
         if TOTAL_AGENTS <= 0:
@@ -138,7 +139,7 @@ class KimiSwarm:
             validation_passed = False
         else:
             print("  ✅ Valid agent capacity configured")
-        
+
         # Check MAX_CONCURRENT configuration
         print(f"Max Concurrent Workers: {MAX_CONCURRENT}")
         if MAX_CONCURRENT <= 0:
@@ -148,28 +149,28 @@ class KimiSwarm:
             print("  ⚠️  Warning: MAX_CONCURRENT > 200 may cause rate limiting")
         else:
             print("  ✅ Valid concurrency level")
-        
+
         # Check API key is set
         if not MOONSHOT_API_KEY:
             print("  ❌ MOONSHOT_API_KEY not set")
             validation_passed = False
         else:
             print("  ✅ API key configured")
-        
+
         # Check semaphore capacity matches configuration
         if self.max_concurrent != MAX_CONCURRENT:
             print("  ❌ Semaphore capacity mismatch")
             validation_passed = False
         else:
             print("  ✅ Semaphore initialized correctly")
-        
+
         # Check output directories exist
         for dir_path in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR]:
             if not dir_path.exists():
                 print(f"  ❌ Output directory missing: {dir_path}")
                 validation_passed = False
         print("  ✅ All output directories exist")
-        
+
         # Capacity report
         estimated_time = (TOTAL_AGENTS / MAX_CONCURRENT) * ESTIMATED_SECONDS_PER_TASK
         print("\nCapacity Report:")
@@ -177,12 +178,12 @@ class KimiSwarm:
         print(f"  • Concurrent Workers: {MAX_CONCURRENT}")
         print(f"  • Estimated Time for Full Run: {estimated_time/3600:.1f} hours")
         print(f"  • Estimated Cost: ${BUDGET_USD:.2f}")
-        
+
         if validation_passed:
             print("\n✅ System validated - ready to spawn max agents!")
         else:
             print("\n❌ Validation failed - fix issues before spawning agents")
-        
+
         print(f"{'='*60}\n")
         return validation_passed
 
@@ -321,7 +322,7 @@ class KimiSwarm:
         if not self.validate_max_agent_capacity():
             print("❌ Validation failed. Aborting swarm run.")
             return None
-        
+
         self.stats["start_time"] = time.time()
         await self.init_session()
 

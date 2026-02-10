@@ -12,9 +12,13 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 TASKS_DIR = Path(__file__).parent / "tasks"
 REPORTS_DIR = Path(__file__).parent / "reports"
+
+# Ensure directories exist
+TASKS_DIR.mkdir(parents=True, exist_ok=True)
+
 
 async def execute_task(task: dict) -> dict:
     """Execute a single task with Kimi."""
@@ -66,8 +70,18 @@ async def run_all_tasks():
 
     REPORTS_DIR.mkdir(exist_ok=True)
 
+    # Check API key
+    if not MOONSHOT_API_KEY:
+        print("ERROR: MOONSHOT_API_KEY not set. Export it or add to .env file.")
+        print("  export MOONSHOT_API_KEY=sk-your-key-here")
+        return []
+
     # Load all task files
     task_files = list(TASKS_DIR.glob("*.yaml"))
+    if not task_files:
+        print("No task files found in tasks/ directory.")
+        print("Create YAML task files in: " + str(TASKS_DIR))
+        return []
     print(f"Found {len(task_files)} tasks")
     print()
 

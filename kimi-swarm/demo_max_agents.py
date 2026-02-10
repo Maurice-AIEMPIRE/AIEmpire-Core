@@ -12,12 +12,12 @@ def demo_100k_validation():
     print("="*70)
     print("DEMO: 100K SWARM MAX AGENT VALIDATION")
     print("="*70)
-    
+
     from swarm_100k import KimiSwarm, TOTAL_AGENTS, MAX_CONCURRENT
-    
+
     swarm = KimiSwarm()
     result = swarm.validate_max_agent_capacity()
-    
+
     print("\n📊 Summary:")
     print(f"   • Validation: {'✅ PASSED' if result else '❌ FAILED'}")
     print(f"   • Ready to spawn {TOTAL_AGENTS:,} agents")
@@ -29,12 +29,12 @@ def demo_500k_validation():
     print("="*70)
     print("DEMO: 500K SWARM MAX AGENT VALIDATION")
     print("="*70)
-    
+
     from swarm_500k import KimiSwarm500K, TOTAL_AGENTS, MAX_CONCURRENT
-    
+
     swarm = KimiSwarm500K()
     result = swarm.validate_max_agent_capacity()
-    
+
     print("\n📊 Summary:")
     print(f"   • Validation: {'✅ PASSED' if result else '❌ FAILED'}")
     print(f"   • Ready to spawn {TOTAL_AGENTS:,} agents")
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     demo_100k_validation()
     print("\n" + "="*70 + "\n")
     demo_500k_validation()
-    
+
     print("="*70)
     print("✅ MAX AGENT SPAWNING VALIDATION DEMO COMPLETE")
     print("="*70)
