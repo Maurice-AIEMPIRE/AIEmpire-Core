@@ -1,0 +1,179 @@
+{
+  "name": "07 Gemini Mirror Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "id": "sync-trigger",
+      "name": "Every 15 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "gemini-sync",
+        "responseMode": "responseNode"
+      },
+      "id": "sync-webhook",
+      "name": "Sync Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [250, 500]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8888/api/gemini-sync",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{{ JSON.stringify({ \"action\": \"full_sync\", \"timestamp\": $now.format('yyyy-MM-dd HH:mm:ss'), \"trigger\": \"n8n_schedule\" }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "trigger-sync",
+      "name": "Trigger Sync Engine",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [500, 400]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://localhost:8888/api/mirror-status",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "check-status",
+      "name": "Check Mirror Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [750, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.sync_needed }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "sync-needed-check",
+      "name": "Sync Needed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1000, 400]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8888/api/gemini-sync/execute",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "{{ JSON.stringify({ \"pairs\": [\"workflow_state\", \"pattern_library\", \"cowork_state\"], \"cross_pollinate\": true }) }}",
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "id": "execute-sync",
+      "name": "Execute Full Sync",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "sync_result",
+              "value": "={{ $json }}",
+              "type": "object"
+            },
+            {
+              "name": "timestamp",
+              "value": "={{ $now.format('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "log-result",
+      "name": "Log Sync Result",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [1500, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ status: 'synced', timestamp: $now.format('yyyy-MM-dd HH:mm:ss') }) }}"
+      },
+      "id": "respond-webhook",
+      "name": "Respond OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1500, 500]
+    }
+  ],
+  "connections": {
+    "Every 15 Minutes": {
+      "main": [
+        [{"node": "Trigger Sync Engine", "type": "main", "index": 0}]
+      ]
+    },
+    "Sync Webhook": {
+      "main": [
+        [{"node": "Trigger Sync Engine", "type": "main", "index": 0}]
+      ]
+    },
+    "Trigger Sync Engine": {
+      "main": [
+        [{"node": "Check Mirror Status", "type": "main", "index": 0}]
+      ]
+    },
+    "Check Mirror Status": {
+      "main": [
+        [{"node": "Sync Needed?", "type": "main", "index": 0}]
+      ]
+    },
+    "Sync Needed?": {
+      "main": [
+        [{"node": "Execute Full Sync", "type": "main", "index": 0}],
+        [{"node": "Respond OK", "type": "main", "index": 0}]
+      ]
+    },
+    "Execute Full Sync": {
+      "main": [
+        [{"node": "Log Sync Result", "type": "main", "index": 0}]
+      ]
+    },
+    "Log Sync Result": {
+      "main": [
+        [{"node": "Respond OK", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [
+    {
+      "name": "gemini-mirror"
+    }
+  ]
+}
