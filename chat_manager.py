@@ -5,13 +5,14 @@ Ermöglicht Chat-Upload und Fragen mit allen verfügbaren Modellen
 Maurice's AI Empire - 2026
 """
 
-import os
-import json
 import asyncio
-import aiohttp
+import json
+import os
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Optional
+from typing import Dict, List, Optional
+
+import aiohttp
 
 # API Keys
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
@@ -32,38 +33,38 @@ class ChatManager:
                 "name": "Claude Haiku 4.5",
                 "api": "anthropic",
                 "model_id": "claude-haiku-4-5-20251001",
-                "available": bool(ANTHROPIC_API_KEY)
+                "available": bool(ANTHROPIC_API_KEY),
             },
             "claude-sonnet": {
                 "name": "Claude Sonnet 4.5",
                 "api": "anthropic",
                 "model_id": "claude-sonnet-4-5-20250929",
-                "available": bool(ANTHROPIC_API_KEY)
+                "available": bool(ANTHROPIC_API_KEY),
             },
             "claude-opus": {
                 "name": "Claude Opus 4.5",
                 "api": "anthropic",
                 "model_id": "claude-opus-4-5-20251101",
-                "available": bool(ANTHROPIC_API_KEY)
+                "available": bool(ANTHROPIC_API_KEY),
             },
             "kimi": {
                 "name": "Kimi (Moonshot)",
                 "api": "moonshot",
                 "model_id": "moonshot-v1-8k",
-                "available": bool(MOONSHOT_API_KEY)
+                "available": bool(MOONSHOT_API_KEY),
             },
             "ollama-qwen": {
                 "name": "Qwen 2.5 Coder (Local)",
                 "api": "ollama",
                 "model_id": "qwen2.5-coder:7b",
-                "available": True  # Assume Ollama is available locally
+                "available": True,  # Assume Ollama is available locally
             },
             "ollama-mistral": {
                 "name": "Mistral (Local)",
                 "api": "ollama",
                 "model_id": "mistral:7b",
-                "available": True
-            }
+                "available": True,
+            },
         }
         self.current_model = "kimi"  # Default to Kimi (cheapest)
         self.conversation_history = []
@@ -94,12 +95,17 @@ class ChatManager:
             history_file = CHAT_HISTORY_DIR / f"chat_{chat_id}.json"
 
             with open(history_file, "w", encoding="utf-8") as f:
-                json.dump({
-                    "chat_id": chat_id,
-                    "uploaded_at": datetime.now().isoformat(),
-                    "format": format,
-                    "messages": messages
-                }, f, indent=2, ensure_ascii=False)
+                json.dump(
+                    {
+                        "chat_id": chat_id,
+                        "uploaded_at": datetime.now().isoformat(),
+                        "format": format,
+                        "messages": messages,
+                    },
+                    f,
+                    indent=2,
+                    ensure_ascii=False,
+                )
 
             self.conversation_history = messages
 
@@ -107,7 +113,7 @@ class ChatManager:
                 "success": True,
                 "chat_id": chat_id,
                 "message_count": len(messages),
-                "file": str(history_file)
+                "file": str(history_file),
             }
 
         except Exception as e:
@@ -130,10 +136,7 @@ class ChatManager:
             if line.lower().startswith(("user:", "assistant:", "system:")):
                 # Save previous message
                 if current_role and current_content:
-                    messages.append({
-                        "role": current_role,
-                        "content": "\n".join(current_content)
-                    })
+                    messages.append({"role": current_role, "content": "\n".join(current_content)})
                     current_content = []
 
                 # Parse new role
@@ -146,10 +149,7 @@ class ChatManager:
 
         # Save last message
         if current_role and current_content:
-            messages.append({
-                "role": current_role,
-                "content": "\n".join(current_content)
-            })
+            messages.append({"role": current_role, "content": "\n".join(current_content)})
 
         return messages
 
@@ -174,15 +174,11 @@ class ChatManager:
                 role = "system"
 
             if content:
-                messages.append({
-                    "role": role,
-                    "content": content
-                })
+                messages.append({"role": role, "content": content})
 
         return messages
 
-    async def ask_question(self, question: str, model: Optional[str] = None,
-                          use_history: bool = True) -> Dict:
+    async def ask_question(self, question: str, model: Optional[str] = None, use_history: bool = True) -> Dict:
         """
         Ask a question using the specified model.
 
@@ -210,10 +206,7 @@ class ChatManager:
         if use_history and self.conversation_history:
             messages.extend(self.conversation_history[-10:])  # Last 10 messages
 
-        messages.append({
-            "role": "user",
-            "content": question
-        })
+        messages.append({"role": "user", "content": question})
 
         # Route to appropriate API
         try:
@@ -228,14 +221,8 @@ class ChatManager:
 
             # Add to history
             if response.get("success"):
-                self.conversation_history.append({
-                    "role": "user",
-                    "content": question
-                })
-                self.conversation_history.append({
-                    "role": "assistant",
-                    "content": response["answer"]
-                })
+                self.conversation_history.append({"role": "user", "content": question})
+                self.conversation_history.append({"role": "assistant", "content": response["answer"]})
 
             return response
 
@@ -249,19 +236,15 @@ class ChatManager:
                 headers = {
                     "x-api-key": ANTHROPIC_API_KEY,
                     "anthropic-version": "2023-06-01",
-                    "content-type": "application/json"
+                    "content-type": "application/json",
                 }
 
-                payload = {
-                    "model": model_id,
-                    "max_tokens": 4096,
-                    "messages": messages
-                }
+                payload = {"model": model_id, "max_tokens": 4096, "messages": messages}
 
                 async with session.post(
                     "https://api.anthropic.com/v1/messages",
                     headers=headers,
-                    json=payload
+                    json=payload,
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -269,7 +252,7 @@ class ChatManager:
                             "success": True,
                             "answer": data["content"][0]["text"],
                             "model": model_id,
-                            "usage": data.get("usage", {})
+                            "usage": data.get("usage", {}),
                         }
                     else:
                         error_text = await resp.text()
@@ -284,19 +267,15 @@ class ChatManager:
             async with aiohttp.ClientSession() as session:
                 headers = {
                     "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
                 }
 
-                payload = {
-                    "model": model_id,
-                    "messages": messages,
-                    "temperature": 0.7
-                }
+                payload = {"model": model_id, "messages": messages, "temperature": 0.7}
 
                 async with session.post(
-                    "https://api.moonshot.cn/v1/chat/completions",
+                    "https://api.moonshot.ai/v1/chat/completions",
                     headers=headers,
-                    json=payload
+                    json=payload,
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -304,7 +283,7 @@ class ChatManager:
                             "success": True,
                             "answer": data["choices"][0]["message"]["content"],
                             "model": model_id,
-                            "usage": data.get("usage", {})
+                            "usage": data.get("usage", {}),
                         }
                     else:
                         error_text = await resp.text()
@@ -317,23 +296,16 @@ class ChatManager:
         """Ask Ollama (local models)."""
         try:
             async with aiohttp.ClientSession() as session:
-                payload = {
-                    "model": model_id,
-                    "messages": messages,
-                    "stream": False
-                }
+                payload = {"model": model_id, "messages": messages, "stream": False}
 
-                async with session.post(
-                    f"{OLLAMA_BASE_URL}/api/chat",
-                    json=payload
-                ) as resp:
+                async with session.post(f"{OLLAMA_BASE_URL}/api/chat", json=payload) as resp:
                     if resp.status == 200:
                         data = await resp.json()
                         return {
                             "success": True,
                             "answer": data["message"]["content"],
                             "model": model_id,
-                            "local": True
+                            "local": True,
                         }
                     else:
                         error_text = await resp.text()
@@ -347,13 +319,13 @@ class ChatManager:
         if model_name not in self.supported_models:
             return {
                 "error": f"Unknown model: {model_name}",
-                "available_models": list(self.supported_models.keys())
+                "available_models": list(self.supported_models.keys()),
             }
 
         if not self.supported_models[model_name]["available"]:
             return {
                 "error": f"Model {model_name} is not available",
-                "reason": "Missing API key or service not running"
+                "reason": "Missing API key or service not running",
             }
 
         old_model = self.current_model
@@ -363,22 +335,19 @@ class ChatManager:
             "success": True,
             "previous_model": old_model,
             "current_model": model_name,
-            "model_info": self.supported_models[model_name]
+            "model_info": self.supported_models[model_name],
         }
 
     def list_models(self) -> Dict:
         """List all available models."""
-        return {
-            "current_model": self.current_model,
-            "models": self.supported_models
-        }
+        return {"current_model": self.current_model, "models": self.supported_models}
 
     def export_conversation(self) -> str:
         """Export current conversation as JSON."""
         export_data = {
             "exported_at": datetime.now().isoformat(),
             "model": self.current_model,
-            "messages": self.conversation_history
+            "messages": self.conversation_history,
         }
         return json.dumps(export_data, indent=2, ensure_ascii=False)
 
@@ -392,7 +361,7 @@ class ChatManager:
             "message_count": len(self.conversation_history),
             "user_messages": sum(1 for m in self.conversation_history if m["role"] == "user"),
             "assistant_messages": sum(1 for m in self.conversation_history if m["role"] == "assistant"),
-            "current_model": self.current_model
+            "current_model": self.current_model,
         }
 
 
@@ -410,8 +379,8 @@ async def main():
     models_info = manager.list_models()
     print(f"Current model: {models_info['current_model']}")
     print("\nAll models:")
-    for name, info in models_info['models'].items():
-        status = "✅" if info['available'] else "❌"
+    for name, info in models_info["models"].items():
+        status = "✅" if info["available"] else "❌"
         print(f"  {status} {name}: {info['name']}")
     print()
 

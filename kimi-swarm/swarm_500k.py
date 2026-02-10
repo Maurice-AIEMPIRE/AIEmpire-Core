@@ -7,14 +7,15 @@ Orchestrated by Claude agents for optimal revenue generation
 """
 
 import asyncio
-import aiohttp
 import json
 import os
+import random
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict
-import random
+from typing import Dict, List
+
+import aiohttp
 
 # API Keys - MUST be set as environment variables
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
@@ -49,7 +50,15 @@ CLAUDE_INSIGHTS_DIR = OUTPUT_DIR / "claude_insights"
 
 # Create directories
 try:
-    for d in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR, REVENUE_OPS_DIR, CLAUDE_INSIGHTS_DIR]:
+    for d in [
+        OUTPUT_DIR,
+        LEADS_DIR,
+        CONTENT_DIR,
+        COMPETITORS_DIR,
+        NUGGETS_DIR,
+        REVENUE_OPS_DIR,
+        CLAUDE_INSIGHTS_DIR,
+    ]:
         d.mkdir(parents=True, exist_ok=True)
     print(f"✅ Output directory set to iCloud: {OUTPUT_DIR}")
 except Exception as e:
@@ -62,7 +71,15 @@ except Exception as e:
     NUGGETS_DIR = OUTPUT_DIR / "gold_nuggets"
     REVENUE_OPS_DIR = OUTPUT_DIR / "revenue_operations"
     CLAUDE_INSIGHTS_DIR = OUTPUT_DIR / "claude_insights"
-    for d in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR, REVENUE_OPS_DIR, CLAUDE_INSIGHTS_DIR]:
+    for d in [
+        OUTPUT_DIR,
+        LEADS_DIR,
+        CONTENT_DIR,
+        COMPETITORS_DIR,
+        NUGGETS_DIR,
+        REVENUE_OPS_DIR,
+        CLAUDE_INSIGHTS_DIR,
+    ]:
         d.mkdir(parents=True, exist_ok=True)
 
 # Enhanced Task Types für maximale Revenue-Generation
@@ -91,7 +108,7 @@ OUTPUT als JSON:
     "outreach_hook": "Personalisierter erster Satz",
     "priority": "high",
     "bant_score": 8
-}"""
+}""",
     },
     {
         "type": "viral_content_idea",
@@ -114,7 +131,7 @@ OUTPUT als JSON:
     "viral_score": 8,
     "estimated_reach": 50000,
     "lead_conversion_rate": "2-5%"
-}"""
+}""",
     },
     {
         "type": "competitor_intel",
@@ -135,7 +152,7 @@ OUTPUT als JSON:
     "recommended_counter_strategy": "Wie Maurice gewinnt",
     "estimated_market_share": "5-15%",
     "vulnerability_score": 7
-}"""
+}""",
     },
     {
         "type": "gold_nugget_extraction",
@@ -158,7 +175,7 @@ OUTPUT als JSON:
     "roi_multiplier": "20x",
     "priority": "critical",
     "competitive_moat": "Wie defensible ist das?"
-}"""
+}""",
     },
     {
         "type": "revenue_optimization",
@@ -180,7 +197,7 @@ OUTPUT als JSON:
     "required_resources": ["Resource 1", "Resource 2"],
     "success_metrics": ["Metric 1", "Metric 2"],
     "priority_score": 9
-}"""
+}""",
     },
     {
         "type": "strategic_partnership",
@@ -200,9 +217,10 @@ OUTPUT als JSON:
     "strategic_value": "Langfristige strategische Bedeutung",
     "first_outreach_approach": "Wie initiieren",
     "priority": "high"
-}"""
+}""",
     },
 ]
+
 
 class ClaudeOrchestrator:
     """Claude Agent Army für strategische Orchestrierung"""
@@ -221,18 +239,18 @@ class ClaudeOrchestrator:
                 "recommendations": [
                     "Continue with current task distribution",
                     "Focus on high-value lead research",
-                    "Optimize for revenue-generating tasks"
+                    "Optimize for revenue-generating tasks",
                 ],
-                "task_priority_adjustment": "none"
+                "task_priority_adjustment": "none",
             }
 
         prompt = f"""Du bist Lead Claude Orchestrator für eine 500K Kimi Agent Army.
 
 Aktueller Status:
-- Completed Tasks: {stats.get('completed', 0)}
-- Tokens Used: {stats.get('tokens_used', 0)}
-- Cost: ${stats.get('cost_usd', 0):.2f}
-- Task Distribution: {stats.get('by_type', {})}
+- Completed Tasks: {stats.get("completed", 0)}
+- Tokens Used: {stats.get("tokens_used", 0)}
+- Cost: ${stats.get("cost_usd", 0):.2f}
+- Task Distribution: {stats.get("by_type", {})}
 
 Sample Results (letzte 5):
 {json.dumps(recent_results[-5:], indent=2)}
@@ -260,17 +278,14 @@ Return JSON:
                     headers={
                         "x-api-key": self.api_key,
                         "anthropic-version": "2023-06-01",
-                        "content-type": "application/json"
+                        "content-type": "application/json",
                     },
                     json={
                         "model": "claude-3-haiku-20240307",  # Fast & cheap for orchestration
                         "max_tokens": 1024,
-                        "messages": [{
-                            "role": "user",
-                            "content": prompt
-                        }]
+                        "messages": [{"role": "user", "content": prompt}],
                     },
-                    timeout=aiohttp.ClientTimeout(total=30)
+                    timeout=aiohttp.ClientTimeout(total=30),
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -279,7 +294,14 @@ Return JSON:
                         # Save insight
                         insight_file = CLAUDE_INSIGHTS_DIR / f"insight_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
                         with open(insight_file, "w") as f:
-                            json.dump({"timestamp": datetime.now().isoformat(), "analysis": content}, f, indent=2)
+                            json.dump(
+                                {
+                                    "timestamp": datetime.now().isoformat(),
+                                    "analysis": content,
+                                },
+                                f,
+                                indent=2,
+                            )
 
                         # Parse response
                         try:
@@ -288,7 +310,11 @@ Return JSON:
                             return analysis
                         except json.JSONDecodeError as e:
                             # Claude returned non-JSON response - save but continue
-                            return {"status": "parse_error", "raw": content, "error": str(e)}
+                            return {
+                                "status": "parse_error",
+                                "raw": content,
+                                "error": str(e),
+                            }
         except (aiohttp.ClientError, asyncio.TimeoutError) as e:
             # Network or timeout error - log and fallback to rule-based
             print(f"  ⚠️  Claude API error: {type(e).__name__}: {str(e)[:100]}")
@@ -300,8 +326,9 @@ Return JSON:
         return {
             "status": "fallback",
             "recommendations": ["Continue current operations"],
-            "task_priority_adjustment": "balanced"
+            "task_priority_adjustment": "balanced",
         }
+
 
 class KimiSwarm500K:
     """Enhanced Swarm System for 500K Agents"""
@@ -317,7 +344,7 @@ class KimiSwarm500K:
             "results": [],
             "by_type": {t["type"]: 0 for t in TASK_TYPES},
             "estimated_revenue": 0.0,
-            "claude_orchestrations": 0
+            "claude_orchestrations": 0,
         }
         self.running = True
         self.max_concurrent = MAX_CONCURRENT  # Store for validation
@@ -330,9 +357,9 @@ class KimiSwarm500K:
 
     def validate_max_agent_capacity(self) -> bool:
         """Validate that system is configured to spawn max agents."""
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("🔍 VALIDATING MAX AGENT CAPACITY")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         validation_passed = True
 
@@ -369,7 +396,15 @@ class KimiSwarm500K:
             print("  ✅ Semaphore initialized correctly")
 
         # Check output directories exist
-        for dir_path in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR, REVENUE_OPS_DIR, CLAUDE_INSIGHTS_DIR]:
+        for dir_path in [
+            OUTPUT_DIR,
+            LEADS_DIR,
+            CONTENT_DIR,
+            COMPETITORS_DIR,
+            NUGGETS_DIR,
+            REVENUE_OPS_DIR,
+            CLAUDE_INSIGHTS_DIR,
+        ]:
             if not dir_path.exists():
                 print(f"  ❌ Output directory missing: {dir_path}")
                 validation_passed = False
@@ -380,7 +415,7 @@ class KimiSwarm500K:
         print("\nCapacity Report:")
         print(f"  • Max Agents: {TOTAL_AGENTS:,}")
         print(f"  • Concurrent Workers: {MAX_CONCURRENT}")
-        print(f"  • Estimated Time for Full Run: {estimated_time/3600:.1f} hours")
+        print(f"  • Estimated Time for Full Run: {estimated_time / 3600:.1f} hours")
         print(f"  • Estimated Cost: ${BUDGET_USD:.2f}")
 
         if validation_passed:
@@ -388,7 +423,7 @@ class KimiSwarm500K:
         else:
             print("\n❌ Validation failed - fix issues before spawning agents")
 
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
         return validation_passed
 
     async def init_session(self):
@@ -420,7 +455,7 @@ class KimiSwarm500K:
                 "priority": task_type.get("priority", "medium"),
                 "revenue_potential": task_type.get("revenue_potential", 0),
                 "timestamp": datetime.now().isoformat(),
-                "data": parsed
+                "data": parsed,
             }
         except (json.JSONDecodeError, IndexError, KeyError) as e:
             # JSON parsing failed - save raw content for manual review
@@ -429,7 +464,7 @@ class KimiSwarm500K:
                 "type": task_type["type"],
                 "timestamp": datetime.now().isoformat(),
                 "raw": content,
-                "parse_error": str(e)
+                "parse_error": str(e),
             }
 
         with open(filename, "w") as f:
@@ -449,17 +484,20 @@ class KimiSwarm500K:
                         "https://api.moonshot.ai/v1/chat/completions",
                         headers={
                             "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
                         },
                         json={
                             "model": "moonshot-v1-8k",
                             "messages": [
-                                {"role": "system", "content": "Du bist ein Elite Research Agent. Antworte NUR mit validem JSON. Fokus auf Qualität und Revenue-Impact."},
-                                {"role": "user", "content": task_type["prompt"]}
+                                {
+                                    "role": "system",
+                                    "content": "Du bist ein Elite Research Agent. Antworte NUR mit validem JSON. Fokus auf Qualität und Revenue-Impact.",
+                                },
+                                {"role": "user", "content": task_type["prompt"]},
                             ],
                             "temperature": 0.8,
-                            "max_tokens": 500
-                        }
+                            "max_tokens": 500,
+                        },
                     ) as resp:
                         if resp.status == 200:
                             data = await resp.json()
@@ -471,7 +509,9 @@ class KimiSwarm500K:
                             self.stats["by_type"][task_type["type"]] += 1
                             # Kimi moonshot-v1-8k: $0.0005 per 1K tokens
                             self.stats["cost_usd"] += (tokens / 1000) * 0.0005
-                            self.stats["estimated_revenue"] += task_type.get("revenue_potential", 0) * 0.1  # 10% conversion rate assumption
+                            self.stats["estimated_revenue"] += (
+                                task_type.get("revenue_potential", 0) * 0.1
+                            )  # 10% conversion rate assumption
 
                             # Save to file
                             self.save_result(task_id, task_type, content)
@@ -481,22 +521,30 @@ class KimiSwarm500K:
                                 "type": task_type["type"],
                                 "status": "success",
                                 "tokens": tokens,
-                                "revenue_potential": task_type.get("revenue_potential", 0)
+                                "revenue_potential": task_type.get("revenue_potential", 0),
                             }
                         elif resp.status == 429:
                             # Rate limited
-                            wait = (2 ** attempt) + random.uniform(0, 1)
+                            wait = (2**attempt) + random.uniform(0, 1)
                             await asyncio.sleep(wait)
                             continue
                         else:
                             text = await resp.text()
                             if attempt == retries - 1:
                                 self.stats["failed"] += 1
-                                return {"task_id": task_id, "status": "error", "error": f"HTTP {resp.status}: {text[:100]}"}
+                                return {
+                                    "task_id": task_id,
+                                    "status": "error",
+                                    "error": f"HTTP {resp.status}: {text[:100]}",
+                                }
                 except asyncio.TimeoutError:
                     if attempt == retries - 1:
                         self.stats["failed"] += 1
-                        return {"task_id": task_id, "status": "error", "error": "timeout"}
+                        return {
+                            "task_id": task_id,
+                            "status": "error",
+                            "error": "timeout",
+                        }
                     await asyncio.sleep(1)
                 except Exception as e:
                     if attempt == retries - 1:
@@ -538,9 +586,9 @@ class KimiSwarm500K:
         """Let Claude analyze and adjust strategy."""
         self.stats["claude_orchestrations"] += 1
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"🧠 CLAUDE ORCHESTRATOR CHECKPOINT #{self.stats['claude_orchestrations']}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
 
         analysis = await self.claude.analyze_swarm_progress(self.stats, self.recent_results)
 
@@ -566,7 +614,7 @@ class KimiSwarm500K:
                 self.task_weights[3] = 2.0  # Gold nuggets
                 self.task_weights[4] = 1.5  # Revenue ops
 
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
 
     def print_stats(self):
         """Print current stats."""
@@ -574,9 +622,9 @@ class KimiSwarm500K:
         rate = self.stats["completed"] / elapsed if elapsed > 0 else 0
         eta = (self.stats["total_tasks"] - self.stats["completed"]) / rate if rate > 0 else 0
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("💰 500K KIMI SWARM + CLAUDE ARMY - STATS")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         print(f"Completed:      {self.stats['completed']:,} / {self.stats['total_tasks']:,}")
         print(f"Failed:         {self.stats['failed']:,}")
         print(f"Tokens Used:    {self.stats['tokens_used']:,}")
@@ -588,9 +636,9 @@ class KimiSwarm500K:
         print(f"Claude Checks:  {self.stats['claude_orchestrations']}")
         print("---")
         for task_type in TASK_TYPES:
-            count = self.stats['by_type'].get(task_type['type'], 0)
+            count = self.stats["by_type"].get(task_type["type"], 0)
             print(f"{task_type['type'][:25]:25s}: {count:,}")
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
 
     async def run_swarm(self, total_tasks: int = 10000):
         """Run the full 500K swarm."""
@@ -603,17 +651,17 @@ class KimiSwarm500K:
         await self.init_session()
 
         print(f"""
-{'='*60}
+{"=" * 60}
    🚀 500K KIMI SWARM + CLAUDE ORCHESTRATION 🚀
       Maurice's AI Empire - Maximum Revenue
-{'='*60}
+{"=" * 60}
    Total Tasks:  {total_tasks:,}
    Max Capacity: {TOTAL_AGENTS:,}
    Concurrent:   {MAX_CONCURRENT}
    Budget:       ${BUDGET_USD}
    Output:       {OUTPUT_DIR}
    Claude:       {"✅ Active" if ANTHROPIC_API_KEY else "❌ Disabled (rule-based fallback)"}
-{'='*60}
+{"=" * 60}
 """)
 
         batch_size = min(MAX_CONCURRENT, total_tasks)
@@ -652,21 +700,25 @@ class KimiSwarm500K:
         # Save final stats
         output_file = OUTPUT_DIR / f"stats_500k_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         with open(output_file, "w") as f:
-            json.dump({
-                "completed": self.stats["completed"],
-                "failed": self.stats["failed"],
-                "tokens_used": self.stats["tokens_used"],
-                "cost_usd": self.stats["cost_usd"],
-                "estimated_revenue_eur": self.stats["estimated_revenue"],
-                "roi": self.stats["estimated_revenue"] / max(self.stats["cost_usd"], 0.01),
-                "by_type": self.stats["by_type"],
-                "duration_sec": time.time() - self.stats["start_time"],
-                "claude_orchestrations": self.stats["claude_orchestrations"]
-            }, f, indent=2)
+            json.dump(
+                {
+                    "completed": self.stats["completed"],
+                    "failed": self.stats["failed"],
+                    "tokens_used": self.stats["tokens_used"],
+                    "cost_usd": self.stats["cost_usd"],
+                    "estimated_revenue_eur": self.stats["estimated_revenue"],
+                    "roi": self.stats["estimated_revenue"] / max(self.stats["cost_usd"], 0.01),
+                    "by_type": self.stats["by_type"],
+                    "duration_sec": time.time() - self.stats["start_time"],
+                    "claude_orchestrations": self.stats["claude_orchestrations"],
+                },
+                f,
+                indent=2,
+            )
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("✅ SWARM COMPLETE - MAURICE'S AI EMPIRE")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         print(f"Stats saved:     {output_file}")
         print(f"Total Revenue:   €{self.stats['estimated_revenue']:,.0f}")
         print(f"Total Cost:      ${self.stats['cost_usd']:.2f}")
@@ -678,7 +730,7 @@ class KimiSwarm500K:
         print(f"  Gold Nuggets:  {NUGGETS_DIR}")
         print(f"  Revenue Ops:   {REVENUE_OPS_DIR}")
         print(f"  Claude:        {CLAUDE_INSIGHTS_DIR}")
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
 
         return self.stats
 
@@ -687,7 +739,13 @@ async def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="500K KIMI Swarm with Claude Orchestration")
-    parser.add_argument("-n", "--tasks", type=int, default=10000, help="Number of tasks (default: 10000, max: 500000)")
+    parser.add_argument(
+        "-n",
+        "--tasks",
+        type=int,
+        default=10000,
+        help="Number of tasks (default: 10000, max: 500000)",
+    )
     parser.add_argument("--test", action="store_true", help="Test mode (100 tasks)")
     parser.add_argument("--full", action="store_true", help="Full 500K mode (WARNING: expensive!)")
     args = parser.parse_args()

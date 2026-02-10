@@ -7,14 +7,13 @@ Handles branching, execution, and result collection.
 
 import subprocess
 import time
+from antigravity.config import MERGE_CHECKS, PROJECT_ROOT, AgentConfig
+from antigravity.ollama_client import OllamaClient, get_client
 from dataclasses import dataclass, field
 from typing import Optional
 
 from rich.console import Console
 from rich.panel import Panel
-
-from antigravity.config import AgentConfig, MERGE_CHECKS, PROJECT_ROOT
-from antigravity.ollama_client import OllamaClient, get_client
 
 console = Console()
 
@@ -22,6 +21,7 @@ console = Console()
 @dataclass
 class AgentResult:
     """Result from a single agent run."""
+
     agent_name: str
     role: str
     model: str
@@ -50,10 +50,7 @@ class AgentResult:
 
 def _run_shell(cmd: str, cwd: str = PROJECT_ROOT) -> tuple[int, str]:
     """Run a shell command and return (returncode, output)."""
-    result = subprocess.run(
-        cmd, shell=True, cwd=cwd,
-        capture_output=True, text=True, timeout=120
-    )
+    result = subprocess.run(cmd, shell=True, cwd=cwd, capture_output=True, text=True, timeout=120)
     output = result.stdout + result.stderr
     return result.returncode, output.strip()
 
@@ -105,13 +102,15 @@ def run_agent(
     if task_id is None:
         task_id = f"task-{int(time.time())}"
 
-    console.print(Panel(
-        f"[bold cyan]🚀 Agent: {agent.name}[/bold cyan]\n"
-        f"[dim]Model: {agent.model}[/dim]\n"
-        f"[dim]Task: {task[:100]}...[/dim]",
-        title="[bold]GODMODE PROGRAMMER[/bold]",
-        border_style="cyan"
-    ))
+    console.print(
+        Panel(
+            f"[bold cyan]🚀 Agent: {agent.name}[/bold cyan]\n"
+            f"[dim]Model: {agent.model}[/dim]\n"
+            f"[dim]Task: {task[:100]}...[/dim]",
+            title="[bold]GODMODE PROGRAMMER[/bold]",
+            border_style="cyan",
+        )
+    )
 
     # Create branch if needed
     branch = None
@@ -210,11 +209,13 @@ def run_merge_checks(branch: Optional[str] = None) -> dict:
             for line in output.split("\n")[:5]:
                 console.print(f"    [dim]{line}[/dim]")
 
-        results.append({
-            "check": check_cmd,
-            "passed": passed,
-            "output": output[:500],
-        })
+        results.append(
+            {
+                "check": check_cmd,
+                "passed": passed,
+                "output": output[:500],
+            }
+        )
 
     verdict = "[bold green]✅ ALL CHECKS PASSED[/bold green]" if all_passed else "[bold red]❌ MERGE BLOCKED[/bold red]"
     console.print(f"\n  {verdict}\n")

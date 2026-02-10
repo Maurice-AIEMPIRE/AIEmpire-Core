@@ -58,9 +58,7 @@ def patch_css_block(content: str) -> tuple[str, list[str]]:
                     continue
 
                 # Extract value
-                match = re.search(
-                    rf"{re.escape(std_prop)}\s*:\s*([^;\"}}]+)", line
-                )
+                match = re.search(rf"{re.escape(std_prop)}\s*:\s*([^;\"}}]+)", line)
                 if not match:
                     continue
 
@@ -79,9 +77,7 @@ def patch_css_block(content: str) -> tuple[str, list[str]]:
                 webkit_line = f"{indent}{webkit_prop}: {value};"
 
                 new_lines.append(webkit_line)
-                fixes.append(
-                    f"  L{i+1}: +{webkit_prop}: {value}; (before {std_prop})"
-                )
+                fixes.append(f"  L{i + 1}: +{webkit_prop}: {value}; (before {std_prop})")
 
         new_lines.append(line)
 
@@ -97,9 +93,7 @@ def patch_inline_styles(content: str) -> tuple[str, list[str]]:
         additions = []
         for std_prop, webkit_prop, val_filter in PATCH_RULES:
             if std_prop + ":" in style and webkit_prop not in style:
-                vmatch = re.search(
-                    rf"{re.escape(std_prop)}\s*:\s*([^;\"]+)", style
-                )
+                vmatch = re.search(rf"{re.escape(std_prop)}\s*:\s*([^;\"]+)", style)
                 if not vmatch:
                     continue
                 value = vmatch.group(1).strip().rstrip(";")

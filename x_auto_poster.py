@@ -5,9 +5,9 @@ Automated posting to X/Twitter with scheduling
 Maurice's AI Empire - 2026
 """
 
-import os
-import json
 import asyncio
+import json
+import os
 from datetime import datetime, timedelta
 from pathlib import Path
 
@@ -20,6 +20,7 @@ TWITTER_API_SECRET = os.getenv("TWITTER_API_SECRET", "")
 TWITTER_ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN", "")
 TWITTER_ACCESS_SECRET = os.getenv("TWITTER_ACCESS_SECRET", "")
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+
 
 class XAutoPoster:
     """Automated X/Twitter posting system."""
@@ -34,11 +35,7 @@ class XAutoPoster:
             with open(self.queue_file) as f:
                 self.queue = json.load(f)
         else:
-            self.queue = {
-                "pending": [],
-                "posted": [],
-                "scheduled": []
-            }
+            self.queue = {"pending": [], "posted": [], "scheduled": []}
 
     def save_queue(self):
         """Save post queue."""
@@ -48,6 +45,7 @@ class XAutoPoster:
     async def generate_daily_content(self, count: int = 5) -> list:
         """Generate daily content for X."""
         import sys
+
         sys.path.append(str(Path(__file__).parent / "x-lead-machine"))
 
         from x_automation import XLeadMachine
@@ -67,13 +65,15 @@ class XAutoPoster:
         for topic, style in topics_styles[:count]:
             content = await machine.generate_content(topic, style)
             if content:
-                posts.append({
-                    "content": content,
-                    "topic": topic,
-                    "style": style,
-                    "generated_at": datetime.now().isoformat(),
-                    "status": "pending"
-                })
+                posts.append(
+                    {
+                        "content": content,
+                        "topic": topic,
+                        "style": style,
+                        "generated_at": datetime.now().isoformat(),
+                        "status": "pending",
+                    }
+                )
 
         return posts
 
@@ -102,8 +102,14 @@ class XAutoPoster:
 
     async def post_to_twitter(self, content: str) -> bool:
         """Post to Twitter/X (requires API credentials)."""
-        if not all([TWITTER_API_KEY, TWITTER_API_SECRET,
-                    TWITTER_ACCESS_TOKEN, TWITTER_ACCESS_SECRET]):
+        if not all(
+            [
+                TWITTER_API_KEY,
+                TWITTER_API_SECRET,
+                TWITTER_ACCESS_TOKEN,
+                TWITTER_ACCESS_SECRET,
+            ]
+        ):
             print("⚠️  Twitter API credentials not configured")
             print(f"📝 Would post: {content}")
             return False
@@ -111,6 +117,7 @@ class XAutoPoster:
         # Twitter API v2 posting
         try:
             import aiohttp
+
             async with aiohttp.ClientSession() as session:
                 async with session.post(
                     "https://api.twitter.com/2/tweets",
@@ -118,7 +125,7 @@ class XAutoPoster:
                         "Authorization": f"Bearer {TWITTER_ACCESS_TOKEN}",
                         "Content-Type": "application/json",
                     },
-                    json={"text": content}
+                    json={"text": content},
                 ) as resp:
                     if resp.status == 201:
                         data = await resp.json()
@@ -162,9 +169,9 @@ class XAutoPoster:
 
     async def run_daily_generation(self):
         """Run daily content generation."""
-        print("\n" + "="*60)
+        print("\n" + "=" * 60)
         print("X AUTO POSTER - Daily Content Generation")
-        print("="*60)
+        print("=" * 60)
 
         # Generate posts
         print("\n📝 Generating content...")
@@ -186,10 +193,10 @@ class XAutoPoster:
             f.write(guide)
 
         print(f"✅ Guide saved: {guide_file}")
-        print("\n" + "="*60)
+        print("\n" + "=" * 60)
         print("✅ Daily generation complete!")
         print(f"📂 Check {guide_file} for posting schedule")
-        print("="*60)
+        print("=" * 60)
 
         return guide
 

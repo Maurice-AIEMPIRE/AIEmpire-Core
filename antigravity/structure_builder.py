@@ -3,13 +3,21 @@
 Structure Builder – Generates STRUCTURE_MAP.json + STRUCTURE_MAP.html dashboard
 Usage: python3 antigravity/structure_builder.py && open antigravity/STRUCTURE_MAP.html
 """
+
 import json
 import os
 import sys
 import time
 from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from antigravity.config import PROJECT_ROOT, STRUCTURE_MAP_JSON, STRUCTURE_MAP_HTML, ISSUES_FILE
+from antigravity.config import (
+    ISSUES_FILE,
+    PROJECT_ROOT,
+    STRUCTURE_MAP_HTML,
+    STRUCTURE_MAP_JSON,
+)
+
 
 def get_python_files():
     files = []
@@ -21,8 +29,15 @@ def get_python_files():
             lines = len(f.read_text(encoding="utf-8", errors="replace").split("\n"))
         except (OSError, UnicodeDecodeError):
             lines = 0
-        files.append({"path": rel, "lines": lines, "dir": str(f.parent.relative_to(PROJECT_ROOT))})
+        files.append(
+            {
+                "path": rel,
+                "lines": lines,
+                "dir": str(f.parent.relative_to(PROJECT_ROOT)),
+            }
+        )
     return sorted(files, key=lambda x: x["path"])
+
 
 def get_imports(filepath):
     imports = []
@@ -35,10 +50,12 @@ def get_imports(filepath):
         pass
     return imports
 
+
 def load_issues():
     if os.path.exists(ISSUES_FILE):
         return json.loads(Path(ISSUES_FILE).read_text())
     return {"total_issues": 0, "tasks": []}
+
 
 def build_structure_map():
     files = get_python_files()
@@ -64,14 +81,17 @@ def build_structure_map():
         "directories": dirs,
         "files": files,
         "hotspots": [{"file": h[0], "issue_count": h[1]} for h in hotspots],
-        "issues_summary": {"total": issues.get("total_issues", 0),
-            "tasks": len(issues.get("tasks", []))},
+        "issues_summary": {
+            "total": issues.get("total_issues", 0),
+            "tasks": len(issues.get("tasks", [])),
+        },
     }
+
 
 def generate_html(data):
     tasks_json = "[]"
     if os.path.exists(ISSUES_FILE):
-        tasks_json = json.dumps(json.loads(Path(ISSUES_FILE).read_text()).get("tasks",[]))
+        tasks_json = json.dumps(json.loads(Path(ISSUES_FILE).read_text()).get("tasks", []))
     hotspots_json = json.dumps(data["hotspots"])
     dirs_json = json.dumps(data["directories"])
     return f"""<!DOCTYPE html>
@@ -104,12 +124,12 @@ body{{font-family:'Inter',system-ui,sans-serif;background:#0a0a1a;color:#e0e0ff;
 </style></head><body>
 <div class="header">
 <h1>⚡ Antigravity Structure Dashboard</h1>
-<p style="color:#666;margin:0.5rem 0">Godmode Programmer – {data['generated_at']}</p>
+<p style="color:#666;margin:0.5rem 0">Godmode Programmer – {data["generated_at"]}</p>
 <div class="stats">
-<div class="stat"><div class="val">{data['total_files']}</div><div class="lbl">Python Files</div></div>
-<div class="stat"><div class="val">{data['total_lines']:,}</div><div class="lbl">Lines of Code</div></div>
-<div class="stat"><div class="val">{data['issues_summary']['total']}</div><div class="lbl">Issues</div></div>
-<div class="stat"><div class="val">{data['issues_summary']['tasks']}</div><div class="lbl">Tasks</div></div>
+<div class="stat"><div class="val">{data["total_files"]}</div><div class="lbl">Python Files</div></div>
+<div class="stat"><div class="val">{data["total_lines"]:,}</div><div class="lbl">Lines of Code</div></div>
+<div class="stat"><div class="val">{data["issues_summary"]["total"]}</div><div class="lbl">Issues</div></div>
+<div class="stat"><div class="val">{data["issues_summary"]["tasks"]}</div><div class="lbl">Tasks</div></div>
 </div></div>
 <div class="grid">
 <div class="card"><h2>📋 Kanban Board</h2><div class="kanban" id="kanban"></div></div>
@@ -145,8 +165,10 @@ Object.entries(dirs).sort((a,b)=>b[1].lines-a[1].lines).forEach(([name,d])=>{{
   ds.appendChild(el)}});
 </script></body></html>"""
 
+
 def main():
     from rich.console import Console
+
     c = Console()
     c.print("[bold cyan]🏗️ Building Structure Map...[/bold cyan]")
     data = build_structure_map()
@@ -155,6 +177,7 @@ def main():
     Path(STRUCTURE_MAP_HTML).write_text(generate_html(data))
     c.print(f"[green]✓[/green] {STRUCTURE_MAP_HTML}")
     c.print(f"\n[bold]open {STRUCTURE_MAP_HTML}[/bold]")
+
 
 if __name__ == "__main__":
     main()

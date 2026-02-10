@@ -10,24 +10,33 @@ Usage:
     python3 empire_launch.py --smoke-test
     python3 empire_launch.py --full-pipeline
 """
+
 import argparse
+import os
 import subprocess
 import sys
-import os
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, PROJECT_ROOT)
 
+
 def run(cmd):
-    print(f"\n{'='*60}\n▶ {cmd}\n{'='*60}")
+    print(f"\n{'=' * 60}\n▶ {cmd}\n{'=' * 60}")
     return subprocess.run(cmd, shell=True, cwd=PROJECT_ROOT).returncode
+
 
 def cmd_status(args):
     """Show full system status."""
     from rich.console import Console
     from rich.panel import Panel
+
     c = Console()
-    c.print(Panel("[bold magenta]⚡ GODMODE PROGRAMMER – SYSTEM STATUS[/bold magenta]", border_style="magenta"))
+    c.print(
+        Panel(
+            "[bold magenta]⚡ GODMODE PROGRAMMER – SYSTEM STATUS[/bold magenta]",
+            border_style="magenta",
+        )
+    )
 
     # Ollama
     rc = subprocess.run("ollama list", shell=True, capture_output=True, text=True)
@@ -54,6 +63,7 @@ def cmd_status(args):
 
     # API check
     import httpx
+
     try:
         r = httpx.get("http://localhost:11434/v1/models", timeout=5)
         models = r.json().get("data", [])
@@ -63,6 +73,7 @@ def cmd_status(args):
 
     # Reports
     from pathlib import Path
+
     rp = Path(PROJECT_ROOT) / "antigravity" / "_reports"
     rcount = len(list(rp.glob("*"))) if rp.exists() else 0
     c.print(f"[green]✓[/green] Reports: {rcount} files")
@@ -71,21 +82,28 @@ def cmd_status(args):
     ip = Path(PROJECT_ROOT) / "antigravity" / "ISSUES.json"
     if ip.exists():
         import json
+
         data = json.loads(ip.read_text())
-        c.print(f"[green]✓[/green] Issues: {data.get('total_issues',0)} tracked in {data.get('total_tasks',0)} tasks")
+        c.print(f"[green]✓[/green] Issues: {data.get('total_issues', 0)} tracked in {data.get('total_tasks', 0)} tasks")
 
     c.print()
+
 
 def cmd_smoke_test(args):
     """Run smoke tests."""
     results = []
-    for cmd in ["python3 -m compileall . -q", "ruff check . --select E,F --quiet", "pytest -q --tb=short --no-header 2>/dev/null || true"]:
+    for cmd in [
+        "python3 -m compileall . -q",
+        "ruff check . --select E,F --quiet",
+        "pytest -q --tb=short --no-header 2>/dev/null || true",
+    ]:
         rc = run(cmd)
         results.append((cmd, rc == 0))
-    print("\n" + "="*60)
+    print("\n" + "=" * 60)
     for cmd, ok in results:
         s = "✅ PASS" if ok else "❌ FAIL"
         print(f"  {s}  {cmd}")
+
 
 def main():
     p = argparse.ArgumentParser(description="Godmode Programmer – Empire Launch")
@@ -122,6 +140,7 @@ def main():
         run("python3 antigravity/structure_builder.py")
     else:
         p.print_help()
+
 
 if __name__ == "__main__":
     main()

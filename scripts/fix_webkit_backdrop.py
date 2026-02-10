@@ -15,6 +15,7 @@ import sys
 from pathlib import Path
 from typing import List, Tuple
 
+
 class BackdropFilterFixer:
     def __init__(self, root_path: str):
         self.root_path = Path(root_path)
@@ -26,7 +27,7 @@ class BackdropFilterFixer:
     def find_html_css_files(self) -> List[Path]:
         """Find all HTML and CSS files recursively."""
         files = []
-        for pattern in ['**/*.html', '**/*.css']:
+        for pattern in ["**/*.html", "**/*.css"]:
             files.extend(self.root_path.glob(pattern))
         return sorted(files)
 
@@ -38,7 +39,7 @@ class BackdropFilterFixer:
         search_text = text[search_start:search_end]
 
         # Look for -webkit-backdrop-filter
-        if '-webkit-backdrop-filter' in search_text:
+        if "-webkit-backdrop-filter" in search_text:
             return True
         return False
 
@@ -47,12 +48,12 @@ class BackdropFilterFixer:
         match = re.search(r'backdrop-filter\s*:\s*([^;}"]+)', line)
         if match:
             return match.group(1).strip()
-        return ''
+        return ""
 
     def fix_css_block(self, content: str) -> Tuple[str, int]:
         """Fix backdrop-filter in CSS blocks."""
         fixes = 0
-        lines = content.split('\n')
+        lines = content.split("\n")
         new_lines = []
         i = 0
 
@@ -60,29 +61,31 @@ class BackdropFilterFixer:
             line = lines[i]
 
             # Check if this line has backdrop-filter
-            if 'backdrop-filter:' in line and '-webkit-backdrop-filter' not in line:
+            if "backdrop-filter:" in line and "-webkit-backdrop-filter" not in line:
                 # Extract the value
-                value_match = re.search(r'backdrop-filter\s*:\s*([^;]+(?:;)?)', line)
+                value_match = re.search(r"backdrop-filter\s*:\s*([^;]+(?:;)?)", line)
                 if value_match:
                     value = value_match.group(1).strip()
 
                     # Check if webkit variant exists nearby (in previous or next lines)
-                    text_around = '\n'.join(lines[max(0, i-3):min(len(lines), i+4)])
-                    if '-webkit-backdrop-filter' not in text_around:
+                    text_around = "\n".join(lines[max(0, i - 3) : min(len(lines), i + 4)])
+                    if "-webkit-backdrop-filter" not in text_around:
                         # Add webkit version
                         # Determine indentation
-                        indent_match = re.match(r'^(\s*)', line)
-                        indent = indent_match.group(1) if indent_match else ''
+                        indent_match = re.match(r"^(\s*)", line)
+                        indent = indent_match.group(1) if indent_match else ""
 
                         # Insert webkit-backdrop-filter before the standard property
-                        webkit_line = f"{indent}-webkit-backdrop-filter: {value.replace('backdrop-filter: ', '').rstrip(';')};"
+                        webkit_line = (
+                            f"{indent}-webkit-backdrop-filter: {value.replace('backdrop-filter: ', '').rstrip(';')};"
+                        )
                         new_lines.append(webkit_line)
                         fixes += 1
 
             new_lines.append(line)
             i += 1
 
-        return '\n'.join(new_lines), fixes
+        return "\n".join(new_lines), fixes
 
     def fix_inline_style(self, content: str) -> Tuple[str, int]:
         """Fix backdrop-filter in inline styles."""
@@ -95,18 +98,18 @@ class BackdropFilterFixer:
             style_content = match.group(1)
 
             # Check if -webkit-backdrop-filter already exists
-            if '-webkit-backdrop-filter' in style_content:
+            if "-webkit-backdrop-filter" in style_content:
                 return full_match
 
             # Check if backdrop-filter exists
-            if 'backdrop-filter:' in style_content:
+            if "backdrop-filter:" in style_content:
                 # Extract backdrop-filter value
-                bf_match = re.search(r'backdrop-filter:\s*([^;]+)', style_content)
+                bf_match = re.search(r"backdrop-filter:\s*([^;]+)", style_content)
                 if bf_match:
                     bf_value = bf_match.group(1).strip()
                     # Add -webkit version
-                    if not bf_value.endswith(';'):
-                        bf_value += ';'
+                    if not bf_value.endswith(";"):
+                        bf_value += ";"
                     new_style = f"-webkit-backdrop-filter: {bf_value} {style_content}"
                     fixes += 1
                     return f'style="{new_style}"'
@@ -123,7 +126,7 @@ class BackdropFilterFixer:
         """Process a single file and return (was_modified, num_fixes)."""
         try:
             # Read file
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+            with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
                 original_content = f.read()
 
             content = original_content
@@ -139,7 +142,7 @@ class BackdropFilterFixer:
 
             # Write back if changed
             if content != original_content:
-                with open(file_path, 'w', encoding='utf-8') as f:
+                with open(file_path, "w", encoding="utf-8") as f:
                     f.write(content)
                 return True, total_fixes
 
@@ -187,6 +190,7 @@ class BackdropFilterFixer:
         else:
             print("\nNo changes needed - all backdrop-filter properties already have webkit prefixes!")
 
+
 def main():
     root_path = "/sessions/awesome-dreamy-einstein/mnt/AIEmpire-Core"
 
@@ -197,5 +201,6 @@ def main():
     fixer = BackdropFilterFixer(root_path)
     fixer.run()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

@@ -7,12 +7,13 @@ Usage:
     python scripts/update_dashboard.py          # One-shot update
     python scripts/update_dashboard.py --watch  # Continuous (every 30s)
 """
-import sys
+
 import json
-import re
 import os
-from pathlib import Path
+import re
+import sys
 from datetime import datetime
+from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT_DIR / "workflow-system"))
@@ -21,6 +22,7 @@ DASHBOARD_FILE = ROOT_DIR / "AI_EMPIRE_BIG_PICTURE.html"
 
 
 # ── Data Collection ─────────────────────────────────────
+
 
 def count_files(directory, pattern="*"):
     """Count files matching a glob pattern in a directory."""
@@ -53,6 +55,7 @@ def get_system_health():
     """Get CPU-based system health percentage."""
     try:
         from resource_guard import sample_resources
+
         r = sample_resources()
         return round(100 - r.get("cpu_percent", 0), 1)
     except Exception:
@@ -111,6 +114,7 @@ def collect_stats():
 
 # ── HTML Injection ──────────────────────────────────────
 
+
 def update_html(stats):
     """Inject stats into the dashboard HTML by targeting element IDs."""
     if not DASHBOARD_FILE.exists():
@@ -123,7 +127,7 @@ def update_html(stats):
     for metric_id, value in stats.items():
         pattern = rf'(<div[^>]*id="{metric_id}"[^>]*>)(.*?)(</div>)'
         if re.search(pattern, content):
-            content = re.sub(pattern, rf'\g<1>{value}\g<3>', content)
+            content = re.sub(pattern, rf"\g<1>{value}\g<3>", content)
             print(f"  {metric_id} → {value}")
             updated = True
         else:
@@ -140,8 +144,10 @@ def update_html(stats):
 
 # ── Main ────────────────────────────────────────────────
 
+
 def main():
     import argparse
+
     parser = argparse.ArgumentParser(description="AI Empire Dashboard Updater")
     parser.add_argument("--watch", action="store_true", help="Continuous update every 30s")
     args = parser.parse_args()
@@ -152,6 +158,7 @@ def main():
 
     if args.watch:
         import time
+
         while True:
             stats = collect_stats()
             update_html(stats)

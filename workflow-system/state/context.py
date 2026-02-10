@@ -5,10 +5,9 @@ This is the memory layer that makes the system compound.
 """
 
 import json
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List
-
 
 STATE_DIR = Path(__file__).parent
 HISTORY_DIR = STATE_DIR / "history"
@@ -47,11 +46,13 @@ def save_state(state: Dict) -> None:
 def append_step_result(step_name: str, result: Dict) -> Dict:
     """Add a step's output to the accumulated context."""
     state = load_state()
-    state["steps_completed"].append({
-        "step": step_name,
-        "timestamp": datetime.now().isoformat(),
-        "summary": result.get("summary", ""),
-    })
+    state["steps_completed"].append(
+        {
+            "step": step_name,
+            "timestamp": datetime.now().isoformat(),
+            "summary": result.get("summary", ""),
+        }
+    )
     state["context"][step_name] = result
     save_state(state)
     return state
@@ -93,11 +94,13 @@ def advance_cycle() -> int:
 def add_pattern(pattern: Dict) -> None:
     """Add a discovered pattern to the persistent library."""
     state = load_state()
-    state.setdefault("patterns", []).append({
-        **pattern,
-        "discovered": datetime.now().isoformat(),
-        "cycle": state.get("cycle", 0),
-    })
+    state.setdefault("patterns", []).append(
+        {
+            **pattern,
+            "discovered": datetime.now().isoformat(),
+            "cycle": state.get("cycle", 0),
+        }
+    )
     save_state(state)
 
     # Also update standalone pattern library

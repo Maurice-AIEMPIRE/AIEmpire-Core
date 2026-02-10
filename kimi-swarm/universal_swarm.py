@@ -7,17 +7,18 @@ The "Maximum Integration" Agent Swarm.
 - No longer hardcoded to just 6 task types.
 """
 
+import argparse
 import asyncio
 import json
 import os
-import argparse
-import time
-from datetime import datetime
-from pathlib import Path
 
 # Import the new Bridge Client
 # Add parent directory to path to import systems module
 import sys
+import time
+from datetime import datetime
+from pathlib import Path
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from systems.kimi_bridge.kimi_client import KimiClient
 
@@ -25,24 +26,27 @@ from systems.kimi_bridge.kimi_client import KimiClient
 MAX_CONCURRENT = int(os.getenv("SWARM_CONCURRENCY", 50))
 DEFAULT_OUTPUT_DIR = Path("output_universal")
 
+
 class UniversalSwarm:
     def __init__(self, output_dir: Path = DEFAULT_OUTPUT_DIR):
         self.client = KimiClient()
         self.output_dir = output_dir
         self.output_dir.mkdir(parents=True, exist_ok=True)
-        self.stats = {
-            "total": 0,
-            "success": 0,
-            "failed": 0,
-            "start_time": time.time()
-        }
+        self.stats = {"total": 0, "success": 0, "failed": 0, "start_time": time.time()}
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT)
 
-    async def worker(self, task_id: int, prompt: str, system_prompt: str, model: str = None, use_local: bool = True):
+    async def worker(
+        self,
+        task_id: int,
+        prompt: str,
+        system_prompt: str,
+        model: str = None,
+        use_local: bool = True,
+    ):
         async with self.semaphore:
             messages = [
                 {"role": "system", "content": system_prompt},
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": prompt},
             ]
 
             try:
@@ -63,13 +67,23 @@ class UniversalSwarm:
     def _save_result(self, task_id: int, data: dict):
         filename = self.output_dir / f"task_{task_id:06d}.json"
         with open(filename, "w") as f:
-            json.dump({
-                "task_id": task_id,
-                "timestamp": datetime.now().isoformat(),
-                "result": data
-            }, f, indent=2)
+            json.dump(
+                {
+                    "task_id": task_id,
+                    "timestamp": datetime.now().isoformat(),
+                    "result": data,
+                },
+                f,
+                indent=2,
+            )
 
-    async def run_swarm(self, count: int, prompt_template: str, system_prompt: str, use_local: bool = True):
+    async def run_swarm(
+        self,
+        count: int,
+        prompt_template: str,
+        system_prompt: str,
+        use_local: bool = True,
+    ):
         print(f"🚀 Starting Universal Swarm: {count} agents")
         print(f"   Mode: {'Local First' if use_local else 'API Only'}")
 
@@ -86,11 +100,22 @@ class UniversalSwarm:
         print(f"   Success: {self.stats['success']}")
         print(f"   Failed:  {self.stats['failed']}")
 
+
 async def main():
     parser = argparse.ArgumentParser(description="Universal Kimi Swarm")
     parser.add_argument("-n", "--count", type=int, default=10, help="Number of agents")
-    parser.add_argument("--prompt", type=str, default="Generate a unique business idea for AI automation.", help="Task prompt")
-    parser.add_argument("--system", type=str, default="You are a creative AI expert.", help="System prompt")
+    parser.add_argument(
+        "--prompt",
+        type=str,
+        default="Generate a unique business idea for AI automation.",
+        help="Task prompt",
+    )
+    parser.add_argument(
+        "--system",
+        type=str,
+        default="You are a creative AI expert.",
+        help="System prompt",
+    )
     parser.add_argument("--api-only", action="store_true", help="Force API usage (disable local)")
 
     args = parser.parse_args()
@@ -100,8 +125,9 @@ async def main():
         count=args.count,
         prompt_template=args.prompt,
         system_prompt=args.system,
-        use_local=not args.api_only
+        use_local=not args.api_only,
     )
+
 
 if __name__ == "__main__":
     asyncio.run(main())

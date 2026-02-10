@@ -50,6 +50,7 @@ MERGE_CHECKS = [
 @dataclass
 class AgentConfig:
     """Configuration for a single Godmode Programmer agent."""
+
     name: str
     role: str
     model: str

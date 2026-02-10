@@ -24,16 +24,22 @@ from pathlib import Path
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+from antigravity.agent_runner import AgentResult, run_agent, run_merge_checks
+from antigravity.config import (
+    ARCHITECT,
+    CODER,
+    FIXER,
+    ISSUES_FILE,
+    MODES,
+    PROJECT_ROOT,
+    QA_REVIEWER,
+    REPORTS_DIR,
+)
+from antigravity.ollama_client import get_client
+
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-
-from antigravity.config import (
-    ARCHITECT, FIXER, CODER, QA_REVIEWER,
-    MODES, ISSUES_FILE, REPORTS_DIR, PROJECT_ROOT,
-)
-from antigravity.ollama_client import get_client
-from antigravity.agent_runner import run_agent, run_merge_checks, AgentResult
 
 console = Console()
 
@@ -78,9 +84,13 @@ def load_reports() -> str:
 def get_repo_structure() -> str:
     """Get a summary of the repo structure for the Architect."""
     import subprocess
+
     result = subprocess.run(
         "find . -type f -name '*.py' | grep -v __pycache__ | grep -v .venv | sort | head -80",
-        shell=True, capture_output=True, text=True, cwd=PROJECT_ROOT
+        shell=True,
+        capture_output=True,
+        text=True,
+        cwd=PROJECT_ROOT,
     )
     return f"Python files in repo:\n{result.stdout}"
 
@@ -91,25 +101,48 @@ def route_task_to_agent(task: str) -> str:
 
     # Fixer signals
     fixer_keywords = [
-        "error", "bug", "fix", "traceback", "exception", "crash",
-        "importerror", "attributeerror", "typeerror", "nonetype",
-        "broken", "failing", "regression",
+        "error",
+        "bug",
+        "fix",
+        "traceback",
+        "exception",
+        "crash",
+        "importerror",
+        "attributeerror",
+        "typeerror",
+        "nonetype",
+        "broken",
+        "failing",
+        "regression",
     ]
     if any(kw in task_lower for kw in fixer_keywords):
         return "fixer"
 
     # Architect signals
     arch_keywords = [
-        "structure", "refactor", "architect", "design", "interface",
-        "api", "reorganize", "dependency", "migration",
+        "structure",
+        "refactor",
+        "architect",
+        "design",
+        "interface",
+        "api",
+        "reorganize",
+        "dependency",
+        "migration",
     ]
     if any(kw in task_lower for kw in arch_keywords):
         return "architect"
 
     # QA signals
     qa_keywords = [
-        "test", "review", "lint", "check", "audit", "security",
-        "quality", "coverage",
+        "test",
+        "review",
+        "lint",
+        "check",
+        "audit",
+        "security",
+        "quality",
+        "coverage",
     ]
     if any(kw in task_lower for kw in qa_keywords):
         return "qa"
@@ -140,15 +173,17 @@ def run_swarm(
     """
     mode_config = MODES.get(mode, MODES["fix-first"])
 
-    console.print(Panel(
-        f"[bold magenta]⚡ GODMODE PROGRAMMER SWARM ⚡[/bold magenta]\n\n"
-        f"[cyan]Mode:[/cyan] {mode} – {mode_config['description']}\n"
-        f"[cyan]Task:[/cyan] {task[:200]}\n"
-        f"[cyan]Agents:[/cyan] {max_agents}\n"
-        f"[cyan]Branches:[/cyan] {'Yes' if use_branches else 'No'}",
-        title="[bold]ANTIGRAVITY[/bold]",
-        border_style="magenta"
-    ))
+    console.print(
+        Panel(
+            f"[bold magenta]⚡ GODMODE PROGRAMMER SWARM ⚡[/bold magenta]\n\n"
+            f"[cyan]Mode:[/cyan] {mode} – {mode_config['description']}\n"
+            f"[cyan]Task:[/cyan] {task[:200]}\n"
+            f"[cyan]Agents:[/cyan] {max_agents}\n"
+            f"[cyan]Branches:[/cyan] {'Yes' if use_branches else 'No'}",
+            title="[bold]ANTIGRAVITY[/bold]",
+            border_style="magenta",
+        )
+    )
 
     # Check Ollama health
     client = get_client()
@@ -197,10 +232,9 @@ def run_swarm(
 
         # Add previous results as context for later agents
         if results:
-            prev_context = "\n\n".join([
-                f"=== Ergebnis von {r.agent_name} ===\n{r.content[:1000]}"
-                for r in results if r.success
-            ])
+            prev_context = "\n\n".join(
+                [f"=== Ergebnis von {r.agent_name} ===\n{r.content[:1000]}" for r in results if r.success]
+            )
             agent_context = f"{context}\n\n{prev_context}" if context else prev_context
         else:
             agent_context = context
@@ -277,42 +311,29 @@ def _save_results(results: list[AgentResult], task: str, mode: str):
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description="Godmode Programmer – 4-Model Swarm Runner"
-    )
+    parser = argparse.ArgumentParser(description="Godmode Programmer – 4-Model Swarm Runner")
     parser.add_argument(
-        "--task", "-t",
+        "--task",
+        "-t",
         type=str,
         default="Analysiere das Repo und identifiziere die Top-5 kritischsten Issues.",
-        help="Task description for the swarm"
+        help="Task description for the swarm",
     )
     parser.add_argument(
-        "--mode", "-m",
+        "--mode",
+        "-m",
         choices=list(MODES.keys()),
         default="fix-first",
-        help="Operating mode"
+        help="Operating mode",
     )
-    parser.add_argument(
-        "--models", "-n",
-        type=int,
-        default=4,
-        help="Number of agents to use"
-    )
-    parser.add_argument(
-        "--no-branch",
-        action="store_true",
-        help="Don't create git branches"
-    )
+    parser.add_argument("--models", "-n", type=int, default=4, help="Number of agents to use")
+    parser.add_argument("--no-branch", action="store_true", help="Don't create git branches")
     parser.add_argument(
         "--no-route",
         action="store_true",
-        help="Don't auto-route, run all agents in order"
+        help="Don't auto-route, run all agents in order",
     )
-    parser.add_argument(
-        "--status",
-        action="store_true",
-        help="Show system status and exit"
-    )
+    parser.add_argument("--status", action="store_true", help="Show system status and exit")
 
     args = parser.parse_args()
 
@@ -332,10 +353,12 @@ def main():
 def _show_status():
     """Show current system status."""
 
-    console.print(Panel(
-        "[bold cyan]GODMODE PROGRAMMER – SYSTEM STATUS[/bold cyan]",
-        border_style="cyan"
-    ))
+    console.print(
+        Panel(
+            "[bold cyan]GODMODE PROGRAMMER – SYSTEM STATUS[/bold cyan]",
+            border_style="cyan",
+        )
+    )
 
     client = get_client()
 

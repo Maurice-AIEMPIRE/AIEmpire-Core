@@ -5,11 +5,10 @@ Verteilt Tasks an spezialisierte lokale Modelle
 
 import asyncio
 import json
-from typing import Any, Optional
 import subprocess
 import sys
-
 from antigravity.config import AGENTS
+from typing import Any, Optional
 
 
 class GodmodeRouter:
@@ -33,22 +32,24 @@ class GodmodeRouter:
 
         return agent
 
-    async def execute_task(self, agent_key: str, prompt: str, context: Optional[dict[str, str]] = None) -> dict[str, Any]:
+    async def execute_task(
+        self, agent_key: str, prompt: str, context: Optional[dict[str, str]] = None
+    ) -> dict[str, Any]:
         """Execute task with specific agent"""
         agent = self.agents[agent_key]
 
         # Create branch
-        task_id = context.get('task_id', 'task') if context else 'task'
+        task_id = context.get("task_id", "task") if context else "task"
         branch_name = f"{agent.branch_prefix}/{task_id}"
 
         # Check if we're in a git repo
-        git_check = await asyncio.to_thread(
-            subprocess.run, ["git", "rev-parse", "--git-dir"], capture_output=True
-        )
+        git_check = await asyncio.to_thread(subprocess.run, ["git", "rev-parse", "--git-dir"], capture_output=True)
         if git_check.returncode == 0:
             # Create branch (ignore if exists)
             await asyncio.to_thread(
-                subprocess.run, ["git", "checkout", "-b", branch_name], capture_output=True
+                subprocess.run,
+                ["git", "checkout", "-b", branch_name],
+                capture_output=True,
             )
 
         # Build prompt with role context
@@ -75,7 +76,7 @@ Context: {json.dumps(context or {}, indent=2)}
                 ["ollama", "run", agent.model, full_prompt],
                 capture_output=True,
                 text=True,
-                timeout=300  # 5 min timeout
+                timeout=300,  # 5 min timeout
             )
         except subprocess.TimeoutExpired:
             return {
@@ -84,7 +85,7 @@ Context: {json.dumps(context or {}, indent=2)}
                 "branch": branch_name,
                 "output": "",
                 "error": f"Timeout: {agent.model} took >300s",
-                "success": False
+                "success": False,
             }
 
         return {
@@ -93,7 +94,7 @@ Context: {json.dumps(context or {}, indent=2)}
             "branch": branch_name,
             "output": result.stdout,
             "error": result.stderr,
-            "success": result.returncode == 0
+            "success": result.returncode == 0,
         }
 
     async def run_parallel_swarm(self, tasks: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -121,19 +122,19 @@ async def main() -> None:
 
 Usage:
   python godmode_router.py <task_type> <prompt>
-  
+
 Task Types:
   - architecture: Design, refactoring, structure
   - fix: Bug fixes, errors, imports
   - code: Feature implementation
   - qa: Tests, reviews, quality checks
-  
+
 Examples:
   python godmode_router.py fix "Fix all import errors in antigravity/"
   python godmode_router.py architecture "Design a plugin system for agents"
   python godmode_router.py code "Add logging to empire_launch.py"
   python godmode_router.py qa "Review antigravity/core.py for bugs"
-  
+
 Agents:
   - Architect (qwen2.5-coder:14b): Structure, APIs, Refactoring
   - Fixer (qwen2.5-coder:7b): Bugs, Tracebacks, Imports
@@ -145,7 +146,7 @@ Agents:
     task: dict[str, Any] = {
         "type": sys.argv[1],
         "prompt": " ".join(sys.argv[2:]),
-        "context": {"task_id": f"cli-{sys.argv[1]}"}
+        "context": {"task_id": f"cli-{sys.argv[1]}"},
     }
 
     agent_key = await router.route_task(task)
@@ -156,18 +157,19 @@ Agents:
 
     result = await router.execute_task(agent_key, str(task["prompt"]), task.get("context"))
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"🤖 {result['agent']} Response:")
-    print(f"{'='*60}")
-    print(result['output'])
+    print(f"{'=' * 60}")
+    print(result["output"])
 
-    if result['error']:
+    if result["error"]:
         print("\n⚠️  Errors:")
-        print(result['error'])
+        print(result["error"])
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"✅ Task completed on branch: {result['branch']}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

@@ -3,8 +3,8 @@
 Test script for 500K Swarm - validates structure without API calls
 """
 
-import sys
 import os
+import sys
 from pathlib import Path
 
 # Set dummy API key for testing (won't actually be used)
@@ -13,7 +13,8 @@ os.environ["MOONSHOT_API_KEY"] = "test-key-for-validation"
 # Add parent directory to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-def test_imports():
+
+def _test_imports():
     """Test that all imports work."""
     print("Testing imports...")
     try:
@@ -23,7 +24,8 @@ def test_imports():
         print(f"❌ Import failed: {e}")
         return False
 
-def test_task_types():
+
+def _test_task_types():
     """Test that task types are properly defined."""
     print("\nTesting task types...")
     try:
@@ -39,7 +41,9 @@ def test_task_types():
             assert "priority" in task_type, "Task missing 'priority' field"
             assert "revenue_potential" in task_type, "Task missing 'revenue_potential' field"
             assert "prompt" in task_type, "Task missing 'prompt' field"
-            print(f"    ✅ {task_type['type']} (Priority: {task_type['priority']}, Revenue: €{task_type['revenue_potential']})")
+            print(
+                f"    ✅ {task_type['type']} (Priority: {task_type['priority']}, Revenue: €{task_type['revenue_potential']})"
+            )
 
         print("✅ All task types valid")
         return True
@@ -47,7 +51,8 @@ def test_task_types():
         print(f"❌ Task type validation failed: {e}")
         return False
 
-def test_claude_orchestrator():
+
+def _test_claude_orchestrator():
     """Test Claude orchestrator structure."""
     print("\nTesting Claude orchestrator...")
     try:
@@ -67,7 +72,8 @@ def test_claude_orchestrator():
         print(f"❌ Claude orchestrator test failed: {e}")
         return False
 
-def test_swarm_structure():
+
+def _test_swarm_structure():
     """Test swarm class structure."""
     print("\nTesting swarm structure...")
     try:
@@ -88,7 +94,7 @@ def test_swarm_structure():
             "claude_orchestration_checkpoint",
             "print_stats",
             "run_swarm",
-            "validate_max_agent_capacity"  # NEW: Validation method
+            "validate_max_agent_capacity",  # NEW: Validation method
         ]
 
         for method in methods:
@@ -97,9 +103,16 @@ def test_swarm_structure():
 
         # Test stats structure
         expected_stats_keys = [
-            "total_tasks", "completed", "failed", "tokens_used",
-            "cost_usd", "start_time", "results", "by_type",
-            "estimated_revenue", "claude_orchestrations"
+            "total_tasks",
+            "completed",
+            "failed",
+            "tokens_used",
+            "cost_usd",
+            "start_time",
+            "results",
+            "by_type",
+            "estimated_revenue",
+            "claude_orchestrations",
         ]
         for key in expected_stats_keys:
             assert key in swarm.stats, f"Missing stats key: {key}"
@@ -111,16 +124,21 @@ def test_swarm_structure():
         print(f"❌ Swarm structure test failed: {e}")
         return False
 
-def test_output_directories():
+
+def _test_output_directories():
     """Test that output directory structure is defined."""
     print("\nTesting output directory structure...")
     try:
         import swarm_500k
 
         required_dirs = [
-            "OUTPUT_DIR", "LEADS_DIR", "CONTENT_DIR",
-            "COMPETITORS_DIR", "NUGGETS_DIR", "REVENUE_OPS_DIR",
-            "CLAUDE_INSIGHTS_DIR"
+            "OUTPUT_DIR",
+            "LEADS_DIR",
+            "CONTENT_DIR",
+            "COMPETITORS_DIR",
+            "NUGGETS_DIR",
+            "REVENUE_OPS_DIR",
+            "CLAUDE_INSIGHTS_DIR",
         ]
 
         for dir_name in required_dirs:
@@ -134,7 +152,8 @@ def test_output_directories():
         print(f"❌ Output directory test failed: {e}")
         return False
 
-def test_configuration():
+
+def _test_configuration():
     """Test configuration values."""
     print("\nTesting configuration...")
     try:
@@ -158,7 +177,8 @@ def test_configuration():
         print(f"❌ Configuration test failed: {e}")
         return False
 
-def test_max_agent_validation():
+
+def _test_max_agent_validation():
     """Test max agent capacity validation."""
     print("\nTesting max agent capacity validation...")
     try:
@@ -182,29 +202,30 @@ def test_max_agent_validation():
         print(f"❌ Max agent validation test failed: {e}")
         return False
 
+
 def main():
     """Run all tests."""
-    print("="*60)
+    print("=" * 60)
     print("500K KIMI SWARM - VALIDATION TESTS")
-    print("="*60)
+    print("=" * 60)
 
     tests = [
-        test_imports,
-        test_task_types,
-        test_claude_orchestrator,
-        test_swarm_structure,
-        test_output_directories,
-        test_configuration,
-        test_max_agent_validation,  # NEW: Test max agent validation
+        _test_imports,
+        _test_task_types,
+        _test_claude_orchestrator,
+        _test_swarm_structure,
+        _test_output_directories,
+        _test_configuration,
+        _test_max_agent_validation,  # NEW: Test max agent validation
     ]
 
     results = []
     for test in tests:
         results.append(test())
 
-    print("\n" + "="*60)
+    print("\n" + "=" * 60)
     print("TEST SUMMARY")
-    print("="*60)
+    print("=" * 60)
     passed = sum(results)
     total = len(results)
     print(f"Passed: {passed}/{total}")
@@ -215,6 +236,7 @@ def main():
     else:
         print(f"❌ {total - passed} test(s) failed. Please fix issues before running.")
         return 1
+
 
 if __name__ == "__main__":
     sys.exit(main())

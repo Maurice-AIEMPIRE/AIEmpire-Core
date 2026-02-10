@@ -6,9 +6,9 @@ Monitors RAM/CPU and auto-kills heavy processes before the system hangs.
 Runs as a LaunchAgent every 30 seconds.
 """
 
+import json
 import subprocess
 import sys
-import json
 import time
 from datetime import datetime
 from pathlib import Path
@@ -18,12 +18,12 @@ from pathlib import Path
 # ═══════════════════════════════════════════════════════════
 
 TOTAL_RAM_GB = 16
-RAM_CRITICAL_MB = 500       # Below this: emergency kill all models
-RAM_WARNING_MB = 1000       # Below this: stop idle Ollama models
-RAM_MIN_FOR_7B_GB = 6       # Minimum free RAM to load a 7B model
-RAM_MIN_FOR_14B_GB = 11     # Minimum free RAM to load a 14B model
-LOAD_AVG_CRITICAL = 10.0    # Above this for 60s: kill Ollama models
-OLLAMA_IDLE_TIMEOUT_MIN = 5 # Auto-unload after N minutes idle
+RAM_CRITICAL_MB = 500  # Below this: emergency kill all models
+RAM_WARNING_MB = 1000  # Below this: stop idle Ollama models
+RAM_MIN_FOR_7B_GB = 6  # Minimum free RAM to load a 7B model
+RAM_MIN_FOR_14B_GB = 11  # Minimum free RAM to load a 14B model
+LOAD_AVG_CRITICAL = 10.0  # Above this for 60s: kill Ollama models
+OLLAMA_IDLE_TIMEOUT_MIN = 5  # Auto-unload after N minutes idle
 
 LOG_DIR = Path.home() / ".antigravity" / "logs"
 LOG_FILE = LOG_DIR / "guardian.log"
@@ -33,8 +33,10 @@ STATE_FILE = LOG_DIR / "guardian_state.json"
 # HELPERS
 # ═══════════════════════════════════════════════════════════
 
+
 def ensure_dirs():
     LOG_DIR.mkdir(parents=True, exist_ok=True)
+
 
 def log(msg: str, level: str = "INFO"):
     ensure_dirs()
@@ -51,6 +53,7 @@ def log(msg: str, level: str = "INFO"):
     except Exception:
         pass
 
+
 def run(cmd: str, timeout: int = 10) -> str:
     try:
         r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
@@ -58,9 +61,11 @@ def run(cmd: str, timeout: int = 10) -> str:
     except Exception:
         return ""
 
+
 # ═══════════════════════════════════════════════════════════
 # SYSTEM METRICS
 # ═══════════════════════════════════════════════════════════
+
 
 def get_free_ram_mb() -> int:
     """Get free RAM in MB using vm_stat."""
@@ -93,6 +98,7 @@ def get_free_ram_mb() -> int:
     free_bytes = (free_pages + inactive_pages) * page_size
     return int(free_bytes / 1024 / 1024)
 
+
 def get_used_ram_gb() -> float:
     """Get used RAM from top."""
     output = run("top -l 1 -s 0 | grep PhysMem")
@@ -112,6 +118,7 @@ def get_used_ram_gb() -> float:
         pass
     return 0.0
 
+
 def get_load_avg() -> float:
     """Get 1-minute load average."""
     output = run("sysctl -n vm.loadavg")
@@ -124,6 +131,7 @@ def get_load_avg() -> float:
     except (ValueError, IndexError):
         return 0.0
 
+
 def get_ollama_models() -> list[dict]:
     """Get currently loaded Ollama models."""
     output = run("ollama ps 2>/dev/null")
@@ -134,21 +142,26 @@ def get_ollama_models() -> list[dict]:
     for line in output.splitlines()[1:]:  # Skip header
         parts = line.split()
         if len(parts) >= 2:
-            models.append({
-                "name": parts[0],
-                "id": parts[1] if len(parts) > 1 else "",
-                "size": parts[2] if len(parts) > 2 else "",
-            })
+            models.append(
+                {
+                    "name": parts[0],
+                    "id": parts[1] if len(parts) > 1 else "",
+                    "size": parts[2] if len(parts) > 2 else "",
+                }
+            )
     return models
+
 
 # ═══════════════════════════════════════════════════════════
 # ACTIONS
 # ═══════════════════════════════════════════════════════════
 
+
 def stop_ollama_model(model_name: str):
     """Stop a specific Ollama model."""
     log(f"🛑 STOPPING Ollama model: {model_name}", "ACTION")
     run(f"ollama stop {model_name}")
+
 
 def stop_all_ollama_models():
     """Stop ALL loaded Ollama models."""
@@ -158,14 +171,17 @@ def stop_all_ollama_models():
     if models:
         log(f"🛑 STOPPED {len(models)} Ollama models to free RAM", "ACTION")
 
+
 def send_notification(title: str, message: str):
     """Send macOS notification."""
     script = f'display notification "{message}" with title "{title}" sound name "Basso"'
-    run(f'osascript -e \'{script}\'')
+    run(f"osascript -e '{script}'")
+
 
 # ═══════════════════════════════════════════════════════════
 # GUARDIAN LOGIC
 # ═══════════════════════════════════════════════════════════
+
 
 def check_and_protect() -> dict:
     """Main guardian check. Returns status dict."""
@@ -179,20 +195,29 @@ def check_and_protect() -> dict:
         "load_avg": load_avg,
         "ollama_models": len(models),
         "actions_taken": [],
-        "status": "OK"
+        "status": "OK",
     }
 
     # ─── CRITICAL: Almost no RAM left ───
     if free_ram < RAM_CRITICAL_MB:
-        log(f"🚨 CRITICAL: Only {free_ram}MB RAM free! Emergency shutdown of all models.", "CRITICAL")
+        log(
+            f"🚨 CRITICAL: Only {free_ram}MB RAM free! Emergency shutdown of all models.",
+            "CRITICAL",
+        )
         stop_all_ollama_models()
-        send_notification("⚠️ System Guardian", f"CRITICAL: {free_ram}MB RAM free. Ollama models stopped.")
+        send_notification(
+            "⚠️ System Guardian",
+            f"CRITICAL: {free_ram}MB RAM free. Ollama models stopped.",
+        )
         status["actions_taken"].append("emergency_stop_all_models")
         status["status"] = "CRITICAL"
 
     # ─── WARNING: RAM getting low ───
     elif free_ram < RAM_WARNING_MB:
-        log(f"⚠️ WARNING: Only {free_ram}MB RAM free. Checking for idle models.", "WARNING")
+        log(
+            f"⚠️ WARNING: Only {free_ram}MB RAM free. Checking for idle models.",
+            "WARNING",
+        )
         if models:
             # Stop all models when RAM is low
             stop_all_ollama_models()
@@ -212,7 +237,10 @@ def check_and_protect() -> dict:
 
     # ─── TOO MANY MODELS ───
     if len(models) > 1:
-        log(f"⚠️ {len(models)} models loaded. Max allowed: 1. Stopping extras.", "WARNING")
+        log(
+            f"⚠️ {len(models)} models loaded. Max allowed: 1. Stopping extras.",
+            "WARNING",
+        )
         # Keep only the first model, stop the rest
         for m in models[1:]:
             stop_ollama_model(m["name"])
@@ -231,6 +259,7 @@ def check_and_protect() -> dict:
 
     return status
 
+
 def can_load_model(model_name: str) -> tuple[bool, str]:
     """Check if it's safe to load a model. Returns (allowed, reason)."""
     free_ram = get_free_ram_mb()
@@ -239,20 +268,31 @@ def can_load_model(model_name: str) -> tuple[bool, str]:
 
     # Already a model loaded?
     if models:
-        return False, f"❌ Already {len(models)} model(s) loaded: {', '.join(m['name'] for m in models)}. Stop them first: ollama stop {models[0]['name']}"
+        return (
+            False,
+            f"❌ Already {len(models)} model(s) loaded: {', '.join(m['name'] for m in models)}. Stop them first: ollama stop {models[0]['name']}",
+        )
 
     # Check RAM for model size
     is_large = any(s in model_name for s in ["14b", "32b", "70b"])
     required_gb = RAM_MIN_FOR_14B_GB if is_large else RAM_MIN_FOR_7B_GB
 
     if free_ram_gb < required_gb:
-        return False, f"❌ Not enough RAM: {free_ram_gb:.1f}GB free, need {required_gb}GB for {model_name}. Close apps first."
+        return (
+            False,
+            f"❌ Not enough RAM: {free_ram_gb:.1f}GB free, need {required_gb}GB for {model_name}. Close apps first.",
+        )
 
-    return True, f"✅ Safe to load {model_name}: {free_ram_gb:.1f}GB free (need {required_gb}GB)"
+    return (
+        True,
+        f"✅ Safe to load {model_name}: {free_ram_gb:.1f}GB free (need {required_gb}GB)",
+    )
+
 
 # ═══════════════════════════════════════════════════════════
 # CLI
 # ═══════════════════════════════════════════════════════════
+
 
 def print_status():
     """Print current system status."""
@@ -260,10 +300,10 @@ def print_status():
     load_avg = get_load_avg()
     models = get_ollama_models()
 
-    print(f"\n{'='*50}")
+    print(f"\n{'=' * 50}")
     print("🛡️  System Guardian — Status")
-    print(f"{'='*50}")
-    print(f"  RAM free:     {free_ram}MB ({free_ram/1024:.1f}GB)")
+    print(f"{'=' * 50}")
+    print(f"  RAM free:     {free_ram}MB ({free_ram / 1024:.1f}GB)")
     print(f"  Load avg:     {load_avg:.1f}")
     print(f"  Ollama models: {len(models)}")
     for m in models:
@@ -279,7 +319,8 @@ def print_status():
     else:
         print("\n  ✅ HEALTHY: System running well.")
 
-    print(f"{'='*50}\n")
+    print(f"{'=' * 50}\n")
+
 
 def daemon_loop():
     """Run guardian in daemon mode (every 30 seconds)."""
@@ -292,6 +333,7 @@ def daemon_loop():
         except Exception as e:
             log(f"Guardian error: {e}", "ERROR")
         time.sleep(30)
+
 
 def main():
     if len(sys.argv) < 2:
@@ -332,6 +374,7 @@ Usage:
     else:
         print(f"Unknown command: {cmd}")
         sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

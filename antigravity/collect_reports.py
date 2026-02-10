@@ -18,10 +18,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
+from antigravity.config import PROJECT_ROOT, REPORTS_DIR
+
 from rich.console import Console
 from rich.table import Table
-
-from antigravity.config import PROJECT_ROOT, REPORTS_DIR
 
 console = Console()
 
@@ -30,8 +30,12 @@ def _run(cmd: str) -> tuple[int, str]:
     """Run a command and return (returncode, combined output)."""
     try:
         result = subprocess.run(
-            cmd, shell=True, capture_output=True, text=True,
-            cwd=PROJECT_ROOT, timeout=120
+            cmd,
+            shell=True,
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_ROOT,
+            timeout=120,
         )
         return result.returncode, (result.stdout + result.stderr).strip()
     except subprocess.TimeoutExpired:
@@ -52,15 +56,17 @@ def collect_compile_errors() -> list[dict]:
         match = re.search(r"['\"]\.?/?(.+?\.py)['\"]", line)
         filepath = match.group(1) if match else "unknown"
 
-        issues.append({
-            "type": "compile_error",
-            "file": filepath,
-            "line": 0,
-            "message": line[:200],
-            "tool": "compileall",
-            "severity": "critical",
-            "cluster": "syntax",
-        })
+        issues.append(
+            {
+                "type": "compile_error",
+                "file": filepath,
+                "line": 0,
+                "message": line[:200],
+                "tool": "compileall",
+                "severity": "critical",
+                "cluster": "syntax",
+            }
+        )
 
     console.print(f"  Found {len(issues)} compile errors")
     return issues
@@ -90,15 +96,17 @@ def collect_ruff_errors() -> list[dict]:
             severity = "low"
             cluster = "style"
 
-        issues.append({
-            "type": "lint_error",
-            "file": item.get("filename", "unknown"),
-            "line": item.get("location", {}).get("row", 0),
-            "message": f"[{code}] {item.get('message', '')}",
-            "tool": "ruff",
-            "severity": severity,
-            "cluster": cluster,
-        })
+        issues.append(
+            {
+                "type": "lint_error",
+                "file": item.get("filename", "unknown"),
+                "line": item.get("location", {}).get("row", 0),
+                "message": f"[{code}] {item.get('message', '')}",
+                "tool": "ruff",
+                "severity": severity,
+                "cluster": cluster,
+            }
+        )
 
     console.print(f"  Found {len(issues)} ruff errors")
     return issues
@@ -119,15 +127,17 @@ def collect_pytest_errors() -> list[dict]:
             match = re.search(r"([\w/]+\.py)(?:::(\w+))?", line)
             filepath = match.group(1) if match else "unknown"
 
-            issues.append({
-                "type": "test_failure",
-                "file": filepath,
-                "line": 0,
-                "message": line[:200],
-                "tool": "pytest",
-                "severity": "high",
-                "cluster": "test_failure",
-            })
+            issues.append(
+                {
+                    "type": "test_failure",
+                    "file": filepath,
+                    "line": 0,
+                    "message": line[:200],
+                    "tool": "pytest",
+                    "severity": "high",
+                    "cluster": "test_failure",
+                }
+            )
 
     console.print(f"  Found {len(issues)} test failures")
     return issues
@@ -161,15 +171,17 @@ def collect_import_errors() -> list[dict]:
             else:
                 cluster = "init_error"
 
-            issues.append({
-                "type": "import_error",
-                "file": str(rel_path),
-                "line": 0,
-                "message": error_msg[:200],
-                "tool": "import_check",
-                "severity": "critical",
-                "cluster": cluster,
-            })
+            issues.append(
+                {
+                    "type": "import_error",
+                    "file": str(rel_path),
+                    "line": 0,
+                    "message": error_msg[:200],
+                    "tool": "import_check",
+                    "severity": "critical",
+                    "cluster": cluster,
+                }
+            )
 
     console.print(f"  Found {len(issues)} import errors")
     return issues

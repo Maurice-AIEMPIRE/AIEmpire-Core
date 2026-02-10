@@ -1,10 +1,31 @@
 # AIEmpire-Core - Project Context
 
 ## Owner
+
 Maurice Pfeifer, 37, Elektrotechnikmeister, 16 Jahre BMA-Expertise (Brandmeldeanlagen).
 Ziel: 100 Mio EUR in 1-3 Jahren, alles automatisiert mit AI.
 
+## HARD BACKEND LOCK (OFFLINE ONLY)
+
+```
+- LOCAL ONLY. No cloud. No web calls.
+- OFFLINE_MODE=1, CLOUD_MODE=0
+- Use Ollama at OLLAMA_HOST=http://127.0.0.1:11434 ONLY.
+- Default model: qwen2.5-coder:14b (Code/Refactor/Ops)
+- Fast model:    llama3.1:8b (Strategy/Text/Planning)
+- Heavy model:   qwen3-coder:latest (Deep Refactor, use only when needed)
+- If any code path tries OpenAI/Anthropic/Moonshot/Kimi/Gemini → treat as BUG
+  and disable behind CLOUD_MODE flag.
+- Never request API keys. Never log secrets.
+- Never delete files. Never move >10 files at once. Prefer additive changes.
+- Every change must include: reason + exact diff + run command + rollback.
+- If any referenced file/path/branch/worktree does not exist:
+  STOP and output MISSING ARTIFACTS with found vs expected paths.
+- If something requires internet, output an offline alternative.
+```
+
 ## Architecture
+
 ```
 CONTROL: Claude Code + GitHub
 AGENTS:  OpenClaw (Port 18789, 9 Cron Jobs)
@@ -17,6 +38,7 @@ REVENUE: Gumroad + Fiverr + Consulting
 ```
 
 ## Key Directories
+
 - `workflow-system/` - Opus 4.6 5-Step Compound Loop (AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER)
 - `workflow-system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
 - `workflow-system/resource_guard.py` - CPU/RAM/Disk Monitoring + Auto-Throttling
@@ -29,6 +51,7 @@ REVENUE: Gumroad + Fiverr + Consulting
 - `gold-nuggets/` - Business intelligence documents
 
 ## Workflow System Usage
+
 ```bash
 # Full 5-step loop
 python workflow-system/orchestrator.py
@@ -44,6 +67,7 @@ python workflow-system/orchestrator.py --status
 ```
 
 ## Cowork Engine (Autonomer Background Agent)
+
 ```bash
 # Ein Zyklus (Observe → Plan → Act → Reflect)
 python workflow-system/cowork.py
@@ -59,6 +83,7 @@ python workflow-system/cowork.py --status
 ```
 
 ## Resource Guard (Ueberlastungsschutz)
+
 ```bash
 # Status anzeigen
 python workflow-system/resource_guard.py
@@ -70,6 +95,7 @@ python workflow-system/resource_guard.py
 ```
 
 ## Empire Control Center (Unified CLI)
+
 ```bash
 # Gesamtstatus aller Systeme
 python workflow-system/empire.py status
@@ -89,14 +115,17 @@ python workflow-system/empire.py full
 ```
 
 ## Session-Start Hook
+
 Zeigt bei jedem Claude Code Start automatisch den System-Status.
 Konfiguriert in `~/.claude/settings.json` → hooks.SessionStart.
 
 ## Agent Teams (Experimental)
+
 Enabled via CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1.
 Use for parallel tasks: research + implementation + testing.
 
 ## Coding Standards
+
 - Python 3 with asyncio/aiohttp for all async I/O
 - JSON output from all AI agents (structured, parseable)
 - Cost tracking on every API call
@@ -104,6 +133,7 @@ Use for parallel tasks: research + implementation + testing.
 - Environment variables for all API keys (never hardcode)
 
 ## Revenue Channels
+
 1. Gumroad digital products (27-149 EUR)
 2. Fiverr/Upwork AI services (30-5000 EUR)
 3. BMA + AI consulting (2000-10000 EUR) - UNIQUE NICHE
@@ -111,12 +141,14 @@ Use for parallel tasks: research + implementation + testing.
 5. X/Twitter content + lead generation
 
 ## Current Blockers
+
 - Revenue = 0 EUR (channels need activation)
 - No Fiverr gigs live
 - Telegram bot token invalid
 - MOONSHOT_API_KEY must be set via .env (see .env.example)
 
 ## Fixed Issues (2026-02-10)
+
 - SECURITY: Removed 7 hardcoded API keys from source code (use .env)
 - CONFIG: Created .env.example with all required environment variables
 - CONFIG: Completed requirements.txt (added rich, httpx, fastapi, uvicorn, ruff, pytest)
@@ -130,15 +162,18 @@ Use for parallel tasks: research + implementation + testing.
 ## WARROOM Operating System (2026-02-10)
 
 ### Overview
+
 100-agent specialist system organized in 6 squads. Agents are ROLES (prompt-based),
 not separate processes. The orchestrator invokes the right role for each task.
 
 ### Command Center
+
 - `warroom/00_command/` — Mission brief, objectives, status board, rules
 - `warroom/00_nucleus/` — Squad definitions, routing matrix, operating rules
 - `warroom/01_intake/` — Raw uploads + file manifests
 
 ### Squad Registry (see `agents.json` for full details)
+
 | Squad | Count | Agent IDs | Work Folder |
 |-------|-------|-----------|-------------|
 | Legal Warroom | 10 | L01-L10 | `legal/` |
@@ -149,6 +184,7 @@ not separate processes. The orchestrator invokes the right role for each task.
 | Ops/Engineering | 30 | O01-O30 | `ops/` |
 
 ### Warroom Commands
+
 ```
 RUN WARROOM — Full Phase 0-4 execution
 [STATUS] — Show pipeline status + blockers
@@ -160,6 +196,7 @@ RUN WARROOM — Full Phase 0-4 execution
 ```
 
 ### Key Docs
+
 - `ORCHESTRATOR.md` — Master workflow
 - `agents.json` — 100 agent definitions
 - `warroom/00_nucleus/warroom_rules.md` — 14 operating constraints

@@ -5,16 +5,18 @@ Vollständige Steuerung des AI Empire über GitHub
 Maurice's AI Empire - 2026
 """
 
-import os
-import json
 import asyncio
-from pathlib import Path
+import json
+import os
 from datetime import datetime
+from pathlib import Path
+
 from chat_manager import ChatManager
 
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 GITHUB_REPO = os.getenv("GITHUB_REPO", "mauricepfeifer-ctrl/AIEmpire-Core")
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+
 
 class GitHubControlInterface:
     """Interface für vollständige GitHub-basierte Steuerung."""
@@ -43,8 +45,8 @@ class GitHubControlInterface:
         chat_status = self.chat_manager.get_history_summary()
         models_info = self.chat_manager.list_models()
 
-        available_models = sum(1 for m in models_info['models'].values() if m['available'])
-        total_models = len(models_info['models'])
+        available_models = sum(1 for m in models_info["models"].values() if m["available"])
+        total_models = len(models_info["models"])
 
         status = f"""# 🤖 System Status - {datetime.now().isoformat()}
 
@@ -57,10 +59,10 @@ class GitHubControlInterface:
 - ✅ Chat Manager - Active ({available_models}/{total_models} models available)
 
 ## Chat Status
-- Current Model: {models_info['current_model']}
-- Conversation Messages: {chat_status['message_count']}
-- User Messages: {chat_status['user_messages']}
-- Assistant Responses: {chat_status['assistant_messages']}
+- Current Model: {models_info["current_model"]}
+- Conversation Messages: {chat_status["message_count"]}
+- User Messages: {chat_status["user_messages"]}
+- Assistant Responses: {chat_status["assistant_messages"]}
 
 ## Recent Activity
 - Last content generation: Check workflows
@@ -86,6 +88,7 @@ class GitHubControlInterface:
     async def cmd_generate_content(self, issue_num: int):
         """Generate content for X/Twitter."""
         import sys
+
         sys.path.append(str(Path(__file__).parent / "x-lead-machine"))
 
         try:
@@ -98,7 +101,7 @@ class GitHubControlInterface:
                 ("Building AI Empire", "behind_scenes"),
                 ("Revenue with AI", "result"),
                 ("Productivity", "tutorial"),
-                ("AI vs Traditional", "controversial")
+                ("AI vs Traditional", "controversial"),
             ]
 
             content = "# 🎨 Generated X/Twitter Content\n\n"
@@ -324,16 +327,16 @@ Assistant: AI stands for Artificial Intelligence...
         if result.get("success"):
             return f"""# ✅ Chat Upload Successful
 
-- Chat ID: {result['chat_id']}
-- Messages: {result['message_count']}
-- File: {result['file']}
+- Chat ID: {result["chat_id"]}
+- Messages: {result["message_count"]}
+- File: {result["file"]}
 
 You can now use `@bot ask` to ask questions with this context!
 """
         else:
             return f"""# ❌ Chat Upload Failed
 
-Error: {result.get('error')}
+Error: {result.get("error")}
 
 Please check your format and try again.
 """
@@ -377,14 +380,14 @@ To use a specific model:
 
             return f"""# 💬 Answer
 
-**Model:** {result['model']}
+**Model:** {result["model"]}
 
-{result['answer']}{usage_info}
+{result["answer"]}{usage_info}
 """
         else:
             return f"""# ❌ Error
 
-{result.get('error')}
+{result.get("error")}
 
 Use `@bot models` to see available models.
 """
@@ -395,14 +398,14 @@ Use `@bot models` to see available models.
 
         output = f"""# 🤖 Available Models
 
-**Current Model:** {models_info['current_model']}
+**Current Model:** {models_info["current_model"]}
 
 ## All Models
 
 """
-        for name, info in models_info['models'].items():
-            status = "✅ Available" if info['available'] else "❌ Not Available"
-            current = " **← CURRENT**" if name == models_info['current_model'] else ""
+        for name, info in models_info["models"].items():
+            status = "✅ Available" if info["available"] else "❌ Not Available"
+            current = " **← CURRENT**" if name == models_info["current_model"] else ""
             output += f"### {name}{current}\n"
             output += f"- Name: {info['name']}\n"
             output += f"- API: {info['api']}\n"
@@ -441,18 +444,18 @@ Use `@bot models` to see available models.
         if result.get("success"):
             return f"""# ✅ Model Switched
 
-- Previous: {result['previous_model']}
-- Current: {result['current_model']}
-- Info: {result['model_info']['name']}
+- Previous: {result["previous_model"]}
+- Current: {result["current_model"]}
+- Info: {result["model_info"]["name"]}
 
 You can now use `@bot ask` with the new model!
 """
         else:
-            available = ", ".join(result.get('available_models', []))
+            available = ", ".join(result.get("available_models", []))
             return f"""# ❌ Switch Failed
 
-Error: {result.get('error')}
-Reason: {result.get('reason', 'Unknown')}
+Error: {result.get("error")}
+Reason: {result.get("reason", "Unknown")}
 
 Available models: {available}
 """
@@ -465,10 +468,10 @@ Available models: {available}
         return f"""# 📥 Exported Conversation
 
 **Summary:**
-- Total Messages: {summary['message_count']}
-- User Messages: {summary['user_messages']}
-- Assistant Messages: {summary['assistant_messages']}
-- Model Used: {summary['current_model']}
+- Total Messages: {summary["message_count"]}
+- User Messages: {summary["user_messages"]}
+- Assistant Messages: {summary["assistant_messages"]}
+- Model Used: {summary["current_model"]}
 
 **Exported JSON:**
 ```json

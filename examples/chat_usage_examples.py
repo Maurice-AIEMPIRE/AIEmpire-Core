@@ -36,7 +36,7 @@ Assistant: Du kannst FastAPI oder Flask verwenden. FastAPI ist moderner."""
     print("\n📝 Stelle Frage mit Kontext:")
     answer = await manager.ask_question(
         "Gib mir ein Beispiel für FastAPI",
-        model="ollama-qwen"  # Lokal, kostenlos
+        model="ollama-qwen",  # Lokal, kostenlos
     )
     print(f"Antwort: {answer.get('answer', answer.get('error'))[:200]}...")
 
@@ -163,6 +163,7 @@ async def main():
     except Exception as e:
         print(f"\n❌ Error: {e}")
         import traceback
+
         traceback.print_exc()
 
 

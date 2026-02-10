@@ -5,8 +5,9 @@ Generiert Replies auf virale Posts um Leads zu gewinnen
 """
 
 import asyncio
-import aiohttp
 import os
+
+import aiohttp
 
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 
@@ -16,27 +17,28 @@ VIRAL_POSTS = [
         "author": "@milesdeutscher",
         "topic": "30 Automation Ideas",
         "hook": "i dOnT kNoW wHaT tO aUtoMaTe - bro..",
-        "content": "30 automation ideas from morning briefings to competitor monitoring"
+        "content": "30 automation ideas from morning briefings to competitor monitoring",
     },
     {
         "author": "@TheAIColony",
         "topic": "Claude Cowork",
         "hook": "How to Set Up Claude Cowork and Get Real Work Done",
-        "content": "Claude working autonomously while you do something else"
+        "content": "Claude working autonomously while you do something else",
     },
     {
         "author": "@pankajkumar_dev",
         "topic": "Claude Opus 4.6 vs GPT-5.3",
         "hook": "The Benchmark Paradox",
-        "content": "Claude ships production apps on first try"
+        "content": "Claude ships production apps on first try",
     },
     {
         "author": "@tom_doerr",
         "topic": "Memory Agent for AI Tools",
         "hook": "github.com/RedPlanetHQ/core",
-        "content": "AI memory persistence across sessions"
-    }
+        "content": "AI memory persistence across sessions",
+    },
 ]
+
 
 async def generate_viral_reply(post: dict) -> str:
     """Generiere Reply die Aufmerksamkeit bekommt."""
@@ -44,9 +46,9 @@ async def generate_viral_reply(post: dict) -> str:
     prompt = f"""Du antwortest auf einen viralen X/Twitter Post.
 
 ORIGINAL POST:
-Author: {post['author']}
-Thema: {post['topic']}
-Hook: {post['hook']}
+Author: {post["author"]}
+Thema: {post["topic"]}
+Hook: {post["hook"]}
 
 ZIEL:
 - Mehrwert geben (nicht nur "great post!")
@@ -75,13 +77,13 @@ Schreibe jetzt die Reply:"""
             "https://api.moonshot.ai/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             json={
                 "model": "moonshot-v1-8k",
                 "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.8
-            }
+                "temperature": 0.8,
+            },
         ) as resp:
             if resp.status == 200:
                 data = await resp.json()

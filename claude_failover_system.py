@@ -5,18 +5,20 @@ Automatischer Umstieg auf GitHub-Steuerung bei API-Limits
 Maurice's AI Empire - 2026
 """
 
-import os
-import json
 import asyncio
-import aiohttp
+import json
+import os
 from datetime import datetime
 from pathlib import Path
+
+import aiohttp
 
 # Config
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 GITHUB_REPO = os.getenv("GITHUB_REPO", "mauricepfeifer-ctrl/AIEmpire-Core")
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+
 
 class ClaudeFailoverSystem:
     """System das automatisch auf GitHub umschaltet wenn Claude Limits erreicht."""
@@ -37,7 +39,7 @@ class ClaudeFailoverSystem:
                 "last_claude_check": None,
                 "claude_errors": 0,
                 "total_requests": 0,
-                "last_switch": None
+                "last_switch": None,
             }
 
     def save_status(self):
@@ -58,14 +60,14 @@ class ClaudeFailoverSystem:
                     headers={
                         "x-api-key": ANTHROPIC_API_KEY,
                         "anthropic-version": "2023-06-01",
-                        "content-type": "application/json"
+                        "content-type": "application/json",
                     },
                     json={
                         "model": "claude-haiku-4-5-20251001",
                         "max_tokens": 10,
-                        "messages": [{"role": "user", "content": "test"}]
+                        "messages": [{"role": "user", "content": "test"}],
                     },
-                    timeout=aiohttp.ClientTimeout(total=10)
+                    timeout=aiohttp.ClientTimeout(total=10),
                 ) as resp:
                     if resp.status == 200:
                         self.status["claude_errors"] = 0
@@ -86,9 +88,9 @@ class ClaudeFailoverSystem:
 
     async def switch_to_github_mode(self):
         """Switch to GitHub-based control mode."""
-        print("\n" + "="*60)
+        print("\n" + "=" * 60)
         print("🔄 SWITCHING TO GITHUB MODE")
-        print("="*60)
+        print("=" * 60)
 
         self.status["github_mode"] = True
         self.status["claude_active"] = False
@@ -105,8 +107,8 @@ System has automatically switched to GitHub-based control.
 **Status:**
 - Claude Active: ❌
 - GitHub Mode: ✅
-- Last Switch: {self.status['last_switch']}
-- Total Errors: {self.status['claude_errors']}
+- Last Switch: {self.status["last_switch"]}
+- Total Errors: {self.status["claude_errors"]}
 
 **Available Commands:**
 - Comment `@bot status` for system status
@@ -119,7 +121,7 @@ System has automatically switched to GitHub-based control.
 2. Alle Tasks werden via Issues/Comments gesteuert
 3. Kimi API wird als primäres Model genutzt
 4. Content-Generation läuft weiter
-"""
+""",
         )
 
         print("✅ GitHub Mode aktiviert")
@@ -136,13 +138,13 @@ System has automatically switched to GitHub-based control.
                 f"https://api.github.com/repos/{GITHUB_REPO}/issues",
                 headers={
                     "Authorization": f"token {GITHUB_TOKEN}",
-                    "Accept": "application/vnd.github.v3+json"
+                    "Accept": "application/vnd.github.v3+json",
                 },
                 json={
                     "title": title,
                     "body": body,
-                    "labels": ["automation", "system-control"]
-                }
+                    "labels": ["automation", "system-control"],
+                },
             ) as resp:
                 if resp.status == 201:
                     data = await resp.json()
@@ -160,9 +162,9 @@ System has automatically switched to GitHub-based control.
                 f"https://api.github.com/repos/{GITHUB_REPO}/issues",
                 headers={
                     "Authorization": f"token {GITHUB_TOKEN}",
-                    "Accept": "application/vnd.github.v3+json"
+                    "Accept": "application/vnd.github.v3+json",
                 },
-                params={"state": "open", "labels": "system-control"}
+                params={"state": "open", "labels": "system-control"},
             ) as resp:
                 if resp.status == 200:
                     issues = await resp.json()
@@ -187,18 +189,18 @@ System has automatically switched to GitHub-based control.
         """Post current system status to issue."""
         status_text = f"""# System Status
 
-**Mode:** {'🟢 GitHub Mode' if self.status['github_mode'] else '🔵 Claude Mode'}
-**Claude Active:** {'✅' if self.status['claude_active'] else '❌'}
-**Total Requests:** {self.status['total_requests']}
-**Claude Errors:** {self.status['claude_errors']}
-**Last Check:** {self.status['last_claude_check'] or 'Never'}
+**Mode:** {"🟢 GitHub Mode" if self.status["github_mode"] else "🔵 Claude Mode"}
+**Claude Active:** {"✅" if self.status["claude_active"] else "❌"}
+**Total Requests:** {self.status["total_requests"]}
+**Claude Errors:** {self.status["claude_errors"]}
+**Last Check:** {self.status["last_claude_check"] or "Never"}
 
 **Available Services:**
 - ✅ Kimi API (Moonshot)
 - ✅ X Lead Machine
 - ✅ Content Generator
 - ✅ Atomic Reactor
-- {'✅' if self.status['claude_active'] else '❌'} Claude API
+- {"✅" if self.status["claude_active"] else "❌"} Claude API
 """
         await self.post_comment(issue_number, status_text)
 
@@ -206,6 +208,7 @@ System has automatically switched to GitHub-based control.
         """Generate X content using Kimi."""
         # Import X automation
         import sys
+
         sys.path.append(str(Path(__file__).parent / "x-lead-machine"))
 
         try:
@@ -219,7 +222,7 @@ System has automatically switched to GitHub-based control.
                 "Building in Public",
                 "Revenue Growth",
                 "AI Tools",
-                "Productivity"
+                "Productivity",
             ]
 
             posts = []
@@ -251,18 +254,21 @@ System has automatically switched to GitHub-based control.
                     "https://api.moonshot.ai/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     json={
                         "model": "moonshot-v1-32k",
                         "messages": [
-                            {"role": "system", "content": "You are a task executor. Complete the task and return structured results."},
-                            {"role": "user", "content": task}
+                            {
+                                "role": "system",
+                                "content": "You are a task executor. Complete the task and return structured results.",
+                            },
+                            {"role": "user", "content": task},
                         ],
                         "temperature": 0.7,
-                        "max_tokens": 2000
+                        "max_tokens": 2000,
                     },
-                    timeout=aiohttp.ClientTimeout(total=60)
+                    timeout=aiohttp.ClientTimeout(total=60),
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -294,9 +300,9 @@ System has automatically switched to GitHub-based control.
                 f"https://api.github.com/repos/{GITHUB_REPO}/issues/{issue_number}/comments",
                 headers={
                     "Authorization": f"token {GITHUB_TOKEN}",
-                    "Accept": "application/vnd.github.v3+json"
+                    "Accept": "application/vnd.github.v3+json",
                 },
-                json={"body": body}
+                json={"body": body},
             ) as resp:
                 if resp.status == 201:
                     print(f"✅ Comment posted to issue #{issue_number}")
@@ -305,9 +311,9 @@ System has automatically switched to GitHub-based control.
 
     async def run_monitoring_loop(self):
         """Main monitoring loop."""
-        print("\n" + "="*60)
+        print("\n" + "=" * 60)
         print("🚀 CLAUDE FAILOVER SYSTEM ACTIVE")
-        print("="*60)
+        print("=" * 60)
 
         while True:
             # Check Claude availability every 5 minutes

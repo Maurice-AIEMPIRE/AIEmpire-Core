@@ -21,32 +21,34 @@ import asyncio
 import os
 import time
 from dataclasses import dataclass, field
-from typing import Dict, Optional, Callable, Awaitable
-
+from typing import Awaitable, Callable, Dict, Optional
 
 # ── Thresholds ───────────────────────────────────────────
+
 
 @dataclass
 class ResourceLimits:
     """Konfigurierbare Schwellenwerte."""
-    cpu_warn: float = 70.0          # % - Ab hier: Warning, langsamere Batches
-    cpu_critical: float = 85.0      # % - Ab hier: Throttle, halbe Concurrency
-    cpu_emergency: float = 95.0     # % - Ab hier: Pause alle Agents
-    ram_warn: float = 75.0          # %
-    ram_critical: float = 85.0      # %
-    ram_emergency: float = 92.0     # %
-    disk_warn: float = 85.0         # %
-    disk_critical: float = 95.0     # %
+
+    cpu_warn: float = 70.0  # % - Ab hier: Warning, langsamere Batches
+    cpu_critical: float = 85.0  # % - Ab hier: Throttle, halbe Concurrency
+    cpu_emergency: float = 95.0  # % - Ab hier: Pause alle Agents
+    ram_warn: float = 75.0  # %
+    ram_critical: float = 85.0  # %
+    ram_emergency: float = 92.0  # %
+    disk_warn: float = 85.0  # %
+    disk_critical: float = 95.0  # %
     max_concurrent_default: int = 500
     max_concurrent_warn: int = 200
     max_concurrent_critical: int = 50
-    max_concurrent_emergency: int = 0   # 0 = pause
-    throttle_delay_warn: float = 0.5    # Extra-Delay in Sekunden
+    max_concurrent_emergency: int = 0  # 0 = pause
+    throttle_delay_warn: float = 0.5  # Extra-Delay in Sekunden
     throttle_delay_critical: float = 2.0
-    recovery_check_interval: int = 10   # Sekunden zwischen Recovery-Checks
+    recovery_check_interval: int = 10  # Sekunden zwischen Recovery-Checks
 
 
 # ── Resource Sampling ────────────────────────────────────
+
 
 def _get_cpu_percent() -> float:
     """CPU-Auslastung ohne psutil (pure /proc/stat oder Fallback)."""
@@ -121,18 +123,20 @@ def sample_resources() -> Dict:
 
 # ── Guard State ──────────────────────────────────────────
 
+
 @dataclass
 class GuardState:
-    level: str = "normal"            # normal | warn | critical | emergency
+    level: str = "normal"  # normal | warn | critical | emergency
     max_concurrent: int = 500
     throttle_delay: float = 0.0
     paused: bool = False
-    outsource_mode: bool = False     # True = Arbeit auf externe API verlagern
+    outsource_mode: bool = False  # True = Arbeit auf externe API verlagern
     last_sample: Dict = field(default_factory=dict)
     history: list = field(default_factory=list)  # Letzte 60 Samples
 
 
 # ── Resource Guard ───────────────────────────────────────
+
 
 class ResourceGuard:
     """Schuetzt den Rechner vor Ueberlastung durch AI Agents."""
@@ -204,8 +208,10 @@ class ResourceGuard:
     async def wait_if_paused(self) -> None:
         """Blockiert bis System nicht mehr im Emergency-Modus."""
         if self.state.paused:
-            print(f"    GUARD: System paused (CPU={self.state.last_sample.get('cpu_percent', '?')}%, "
-                  f"RAM={self.state.last_sample.get('ram_percent', '?')}%). Waiting for recovery...")
+            print(
+                f"    GUARD: System paused (CPU={self.state.last_sample.get('cpu_percent', '?')}%, "
+                f"RAM={self.state.last_sample.get('ram_percent', '?')}%). Waiting for recovery..."
+            )
             while self.state.paused:
                 await asyncio.sleep(self.limits.recovery_check_interval)
                 self.evaluate()
@@ -219,7 +225,8 @@ class ResourceGuard:
 
     class _CheckContext:
         """Async Context Manager fuer guard.check()."""
-        def __init__(self, guard: 'ResourceGuard'):
+
+        def __init__(self, guard: "ResourceGuard"):
             self.guard = guard
 
         async def __aenter__(self):
@@ -231,7 +238,7 @@ class ResourceGuard:
         async def __aexit__(self, *args):
             pass
 
-    def check(self) -> '_CheckContext':
+    def check(self) -> "_CheckContext":
         """Context Manager: evaluiert, wartet bei Pause, throttled.
 
         Usage:
@@ -270,7 +277,11 @@ class ResourceGuard:
         return {
             "avg_cpu": round(avg_cpu, 1),
             "avg_ram": round(avg_ram, 1),
-            "cpu_direction": "rising" if last_cpu > first_cpu + 5 else "falling" if last_cpu < first_cpu - 5 else "stable",
+            "cpu_direction": "rising"
+            if last_cpu > first_cpu + 5
+            else "falling"
+            if last_cpu < first_cpu - 5
+            else "stable",
             "ram_direction": "stable",
             "samples": len(recent),
         }
@@ -278,7 +289,12 @@ class ResourceGuard:
     def format_status(self) -> str:
         """Human-readable Status-Zeile."""
         s = self.get_status()
-        level_icons = {"normal": "OK", "warn": "WARN", "critical": "CRIT", "emergency": "STOP"}
+        level_icons = {
+            "normal": "OK",
+            "warn": "WARN",
+            "critical": "CRIT",
+            "emergency": "STOP",
+        }
         icon = level_icons.get(s["level"], "?")
         return (
             f"[{icon}] CPU={s['cpu_percent']}% RAM={s['ram_percent']}% "
@@ -291,6 +307,7 @@ class ResourceGuard:
 
 # ── Standalone Check ─────────────────────────────────────
 
+
 def main():
     """CLI: Zeige aktuellen Ressourcen-Status."""
     guard = ResourceGuard()
@@ -299,14 +316,14 @@ def main():
 ╔══════════════════════════════════════════════════════════╗
 ║              RESOURCE GUARD STATUS                      ║
 ╠══════════════════════════════════════════════════════════╣
-  Level:          {status['level'].upper()}
-  CPU:            {status['cpu_percent']}%
-  RAM:            {status['ram_percent']}%
-  Disk:           {status['disk_percent']}%
-  Max Concurrent: {status['max_concurrent']}
-  Throttle Delay: {status['throttle_delay']}s
-  Paused:         {status['paused']}
-  Outsource Mode: {status['outsource_mode']}
+  Level:          {status["level"].upper()}
+  CPU:            {status["cpu_percent"]}%
+  RAM:            {status["ram_percent"]}%
+  Disk:           {status["disk_percent"]}%
+  Max Concurrent: {status["max_concurrent"]}
+  Throttle Delay: {status["throttle_delay"]}s
+  Paused:         {status["paused"]}
+  Outsource Mode: {status["outsource_mode"]}
 ╚══════════════════════════════════════════════════════════╝
     """)
 

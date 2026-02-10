@@ -7,41 +7,42 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 class Colors:
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    YELLOW = '\033[93m'
-    BLUE = '\033[94m'
-    RESET = '\033[0m'
-    BOLD = '\033[1m'
+    GREEN = "\033[92m"
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    BLUE = "\033[94m"
+    RESET = "\033[0m"
+    BOLD = "\033[1m"
+
 
 def print_header(text):
-    print(f"\n{Colors.BOLD}{Colors.BLUE}{'='*60}{Colors.RESET}")
+    print(f"\n{Colors.BOLD}{Colors.BLUE}{'=' * 60}{Colors.RESET}")
     print(f"{Colors.BOLD}{Colors.BLUE}{text}{Colors.RESET}")
-    print(f"{Colors.BOLD}{Colors.BLUE}{'='*60}{Colors.RESET}\n")
+    print(f"{Colors.BOLD}{Colors.BLUE}{'=' * 60}{Colors.RESET}\n")
+
 
 def print_success(text):
     print(f"{Colors.GREEN}✅ {text}{Colors.RESET}")
 
+
 def print_error(text):
     print(f"{Colors.RED}❌ {text}{Colors.RESET}")
+
 
 def print_warning(text):
     print(f"{Colors.YELLOW}⚠️  {text}{Colors.RESET}")
 
+
 def print_info(text):
     print(f"{Colors.BLUE}ℹ️  {text}{Colors.RESET}")
+
 
 def run_command(cmd, check=True, timeout=10):
     """Run command and return result"""
     try:
-        result = subprocess.run(
-            cmd,
-            shell=True,
-            capture_output=True,
-            text=True,
-            timeout=timeout
-        )
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
         return result
     except subprocess.TimeoutExpired:
         print_error(f"Command timed out: {cmd}")
@@ -50,7 +51,8 @@ def run_command(cmd, check=True, timeout=10):
         print_error(f"Command failed: {e}")
         return None
 
-def test_ollama():
+
+def _test_ollama():
     """Test 1: Ollama is running"""
     print_header("Test 1: Ollama Status")
 
@@ -73,7 +75,8 @@ def test_ollama():
 
     return True
 
-def test_models():
+
+def _test_models():
     """Test 2: Required models are available"""
     print_header("Test 2: Models Available")
 
@@ -83,11 +86,7 @@ def test_models():
         return False
 
     output = result.stdout
-    required_models = [
-        "qwen2.5-coder:7b",
-        "qwen2.5-coder:14b",
-        "deepseek-r1:7b"
-    ]
+    required_models = ["qwen2.5-coder:7b", "qwen2.5-coder:14b", "deepseek-r1:7b"]
 
     all_found = True
     for model in required_models:
@@ -100,7 +99,8 @@ def test_models():
 
     return all_found
 
-def test_router():
+
+def _test_router():
     """Test 3: Godmode Router exists and is executable"""
     print_header("Test 3: Godmode Router")
 
@@ -121,7 +121,8 @@ def test_router():
 
     return True
 
-def test_merge_gate():
+
+def _test_merge_gate():
     """Test 4: Merge Gate exists and is executable"""
     print_header("Test 4: Merge Gate")
 
@@ -142,7 +143,8 @@ def test_merge_gate():
 
     return True
 
-def test_git():
+
+def _test_git():
     """Test 5: Git repository is valid"""
     print_header("Test 5: Git Repository")
 
@@ -161,41 +163,38 @@ def test_git():
 
     return True
 
-def test_simple_task():
+
+def _test_simple_task():
     """Test 6: Run a simple task with the router"""
     print_header("Test 6: Simple Router Task")
 
     print_info("Running a simple test task (this may take 30-60 seconds)...")
 
     # Simple task that should complete quickly
-    result = run_command(
-        'python3 antigravity/godmode_router.py qa "What is 2+2?"',
-        timeout=60
-    )
+    result = run_command('python3 antigravity/godmode_router.py qa "What is 2+2?"', timeout=60)
 
     if result and result.returncode == 0:
         print_success("Router executed task successfully")
         if "Task completed" in result.stdout:
             print_success("Task completed message found")
         return True
-    else:
-        print_warning("Router task failed or timed out")
-        print_info("This is OK - models might be slow on first run")
-        return True  # Don't fail smoke test for this
 
-    return True
+    print_warning("Router task failed or timed out")
+    print_info("This is OK - models might be slow on first run")
+    return True  # Don't fail smoke test for this
+
 
 def main():
     """Run all smoke tests"""
     print_header("🚀 Godmode Programmer - Smoke Test")
 
     tests = [
-        ("Ollama Status", test_ollama),
-        ("Models Available", test_models),
-        ("Godmode Router", test_router),
-        ("Merge Gate", test_merge_gate),
-        ("Git Repository", test_git),
-        ("Simple Task", test_simple_task),
+        ("Ollama Status", _test_ollama),
+        ("Models Available", _test_models),
+        ("Godmode Router", _test_router),
+        ("Merge Gate", _test_merge_gate),
+        ("Git Repository", _test_git),
+        ("Simple Task", _test_simple_task),
     ]
 
     results = []
@@ -235,6 +234,7 @@ def main():
         print("  2. Pull models: ollama pull qwen2.5-coder:7b")
         print("  3. Check docs: antigravity/CLAUDE_OFFLINE_SETUP.md")
         return 1
+
 
 if __name__ == "__main__":
     sys.exit(main())

@@ -14,8 +14,8 @@ Usage:
   python empire.py full                 # Workflow + Cowork nacheinander
 """
 
-import asyncio
 import argparse
+import asyncio
 import json
 import sys
 from datetime import datetime
@@ -28,7 +28,8 @@ sys.path.insert(0, str(WORKFLOW_DIR))
 
 
 def show_banner():
-    print("""
+    print(
+        """
 ╔══════════════════════════════════════════════════════════════╗
 ║                                                              ║
 ║     ██████╗ ██╗    ███████╗███╗   ███╗██████╗ ██╗██████╗    ║
@@ -41,7 +42,8 @@ def show_banner():
 ║    Control Center - Maurice Pfeifer                          ║
 ║    {date}                                        ║
 ╚══════════════════════════════════════════════════════════════╝
-    """.format(date=datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+    """.format(date=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    )
 
 
 def show_full_status():
@@ -50,6 +52,7 @@ def show_full_status():
 
     # 1. Resource Guard
     from resource_guard import ResourceGuard
+
     guard = ResourceGuard()
     guard.get_status()
     print(f"  RESOURCES: {guard.format_status()}")
@@ -113,21 +116,24 @@ def show_full_status():
         if path.exists():
             files = list(path.glob("*"))
             total_size = sum(f.stat().st_size for f in files if f.is_file())
-            print(f"    {name:20s}: {len(files):4d} files ({total_size/1024:.0f} KB)")
+            print(f"    {name:20s}: {len(files):4d} files ({total_size / 1024:.0f} KB)")
         else:
             print(f"    {name:20s}: (not created)")
     print()
 
     # 5. Git Status
     import subprocess
+
     try:
         branch = subprocess.check_output(
             ["git", "-C", str(EMPIRE_ROOT), "branch", "--show-current"],
-            text=True, timeout=5
+            text=True,
+            timeout=5,
         ).strip()
         uncommitted = subprocess.check_output(
             ["git", "-C", str(EMPIRE_ROOT), "status", "--porcelain"],
-            text=True, timeout=5
+            text=True,
+            timeout=5,
         ).strip()
         changes = len(uncommitted.split("\n")) if uncommitted else 0
         print(f"  GIT: {branch} | {changes} uncommitted changes")
@@ -146,7 +152,7 @@ def show_full_status():
 
 async def run_workflow(args):
     """Run the 5-step workflow orchestrator."""
-    from orchestrator import run_full_loop, run_step, run_refinery_loop
+    from orchestrator import run_full_loop, run_refinery_loop, run_step
     from state.context import advance_cycle
 
     if hasattr(args, "new_cycle") and args.new_cycle:
@@ -165,7 +171,8 @@ async def run_workflow(args):
 
 async def run_cowork(args):
     """Run the cowork engine."""
-    from cowork import run_cycle, run_daemon, show_status as cowork_status
+    from cowork import run_cycle, run_daemon
+    from cowork import show_status as cowork_status
 
     if hasattr(args, "status") and args.status:
         cowork_status()
@@ -181,8 +188,8 @@ async def run_cowork(args):
 
 async def run_full(args):
     """Run workflow loop followed by cowork cycle."""
-    from orchestrator import run_full_loop
     from cowork import run_cycle
+    from orchestrator import run_full_loop
 
     print("Phase 1: Workflow System (5-Step Loop)")
     await run_full_loop()
@@ -207,7 +214,7 @@ Examples:
   python empire.py cycle                     New weekly cycle
   python empire.py full                      Workflow + Cowork
   python empire.py guard                     Resource guard status
-        """
+        """,
     )
 
     sub = parser.add_subparsers(dest="command")
@@ -247,10 +254,12 @@ Examples:
         asyncio.run(run_cowork(args))
     elif args.command == "cycle":
         from state.context import advance_cycle
+
         cycle = advance_cycle()
         print(f"New weekly cycle started: #{cycle}")
     elif args.command == "guard":
         from resource_guard import main as guard_main
+
         guard_main()
     elif args.command == "full":
         asyncio.run(run_full(args))

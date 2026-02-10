@@ -5,20 +5,45 @@ Generiert 7 Posts + 1 Thread für die ganze Woche
 """
 
 import asyncio
-import aiohttp
 import os
 from datetime import datetime, timedelta
+
+import aiohttp
 
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 
 WEEK_PLAN = [
-    {"day": "Montag", "topic": "AI Agents automatisieren mein Business", "style": "result"},
-    {"day": "Dienstag", "topic": "Vibe Coding - AI schreibt Code für mich", "style": "tutorial"},
-    {"day": "Mittwoch", "topic": "Warum 90% der AI-Berater Faker sind", "style": "controversial"},
-    {"day": "Donnerstag", "topic": "Mein AI-Setup heute: 20 Claude Agents", "style": "behind_scenes"},
+    {
+        "day": "Montag",
+        "topic": "AI Agents automatisieren mein Business",
+        "style": "result",
+    },
+    {
+        "day": "Dienstag",
+        "topic": "Vibe Coding - AI schreibt Code für mich",
+        "style": "tutorial",
+    },
+    {
+        "day": "Mittwoch",
+        "topic": "Warum 90% der AI-Berater Faker sind",
+        "style": "controversial",
+    },
+    {
+        "day": "Donnerstag",
+        "topic": "Mein AI-Setup heute: 20 Claude Agents",
+        "style": "behind_scenes",
+    },
     {"day": "Freitag", "topic": "Von Elektriker zu AI-Unternehmer", "style": "story"},
-    {"day": "Samstag", "topic": "Was ist euer größtes Automatisierungs-Problem?", "style": "question"},
-    {"day": "Sonntag", "topic": "Thread: Wie du in 2026 mit AI Geld verdienst", "style": "thread"},
+    {
+        "day": "Samstag",
+        "topic": "Was ist euer größtes Automatisierungs-Problem?",
+        "style": "question",
+    },
+    {
+        "day": "Sonntag",
+        "topic": "Thread: Wie du in 2026 mit AI Geld verdienst",
+        "style": "thread",
+    },
 ]
 
 STYLES = {
@@ -30,6 +55,7 @@ STYLES = {
     "question": "Echte Frage an die Community",
     "thread": "Ausführlicher Thread mit 7 Posts",
 }
+
 
 async def generate_single_post(topic: str, style: str) -> str:
     """Generiere einen Post."""
@@ -64,13 +90,13 @@ POST:"""
             "https://api.moonshot.ai/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             json={
                 "model": "moonshot-v1-8k",
                 "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.8
-            }
+                "temperature": 0.8,
+            },
         ) as resp:
             if resp.status == 200:
                 data = await resp.json()
@@ -105,13 +131,13 @@ THREAD:"""
             "https://api.moonshot.ai/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             json={
                 "model": "moonshot-v1-32k",
                 "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.7
-            }
+                "temperature": 0.7,
+            },
         ) as resp:
             if resp.status == 200:
                 data = await resp.json()
@@ -139,13 +165,15 @@ async def generate_full_week():
         else:
             content = await generate_single_post(day["topic"], day["style"])
 
-        results.append({
-            "day": day["day"],
-            "date": date.strftime("%Y-%m-%d"),
-            "topic": day["topic"],
-            "style": day["style"],
-            "content": content
-        })
+        results.append(
+            {
+                "day": day["day"],
+                "date": date.strftime("%Y-%m-%d"),
+                "topic": day["topic"],
+                "style": day["style"],
+                "content": content,
+            }
+        )
 
         print(f"  ✅ {len(content)} Zeichen")
 

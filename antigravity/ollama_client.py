@@ -6,9 +6,10 @@ Used by all 4 Godmode Programmer agents to communicate with local models.
 """
 
 import json
-import httpx
-from typing import Optional
 from antigravity.config import OLLAMA_API_V1, AgentConfig
+from typing import Optional
+
+import httpx
 
 
 class OllamaClient:
@@ -40,10 +41,7 @@ class OllamaClient:
         ]
 
         if context:
-            messages.append({
-                "role": "user",
-                "content": f"KONTEXT:\n```\n{context}\n```"
-            })
+            messages.append({"role": "user", "content": f"KONTEXT:\n```\n{context}\n```"})
 
         messages.append({"role": "user", "content": user_message})
 
@@ -65,8 +63,7 @@ class OllamaClient:
                 data = response.json()
         except httpx.ConnectError:
             raise ConnectionError(
-                f"Cannot connect to Ollama at {self.base_url}. "
-                "Is Ollama running? Start with: ollama serve"
+                f"Cannot connect to Ollama at {self.base_url}. Is Ollama running? Start with: ollama serve"
             )
         except httpx.TimeoutException:
             raise TimeoutError(
@@ -74,17 +71,13 @@ class OllamaClient:
                 "Try increasing timeout or using a smaller model."
             )
         except httpx.HTTPStatusError as e:
-            raise RuntimeError(
-                f"Ollama API error {e.response.status_code}: {e.response.text[:200]}"
-            )
+            raise RuntimeError(f"Ollama API error {e.response.status_code}: {e.response.text[:200]}")
 
         try:
             content = data["choices"][0]["message"]["content"]
         except (KeyError, IndexError) as e:
             data_str = str(data)
-            raise ValueError(
-                f"Unexpected Ollama response format: {data_str[:300]}"
-            ) from e
+            raise ValueError(f"Unexpected Ollama response format: {data_str[:300]}") from e
 
         usage = data.get("usage", {})
 
@@ -116,10 +109,7 @@ class OllamaClient:
         ]
 
         if context:
-            messages.append({
-                "role": "user",
-                "content": f"KONTEXT:\n```\n{context}\n```"
-            })
+            messages.append({"role": "user", "content": f"KONTEXT:\n```\n{context}\n```"})
 
         messages.append({"role": "user", "content": user_message})
 
@@ -178,6 +168,7 @@ class OllamaClient:
 
 # ─── Singleton for convenience ──────────────────────────────────────
 _default_client: Optional[OllamaClient] = None
+
 
 def get_client() -> OllamaClient:
     """Get the default OllamaClient instance."""

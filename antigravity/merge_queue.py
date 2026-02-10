@@ -3,25 +3,39 @@
 Merge Queue – Checks branches, runs gate checks, merges approved changes.
 Usage: python3 antigravity/merge_queue.py
 """
+
 import subprocess
 import sys
 from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MERGE_CHECKS, PROJECT_ROOT
+
 from rich.console import Console
 from rich.table import Table
-from antigravity.config import PROJECT_ROOT, MERGE_CHECKS
+
 console = Console()
+
 
 def run(cmd):
     try:
-        r = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=PROJECT_ROOT, timeout=120)
+        r = subprocess.run(
+            cmd,
+            shell=True,
+            capture_output=True,
+            text=True,
+            cwd=PROJECT_ROOT,
+            timeout=120,
+        )
         return r.returncode, (r.stdout + r.stderr).strip()
     except subprocess.TimeoutExpired:
         return 1, f"TIMEOUT: Command took >120s: {cmd[:80]}"
 
+
 def get_agent_branches():
     _, out = run("git branch --list 'agent/*' 2>/dev/null")
     return [b.strip().lstrip("* ") for b in out.split("\n") if b.strip()]
+
 
 def check_branch(branch):
     run(f"git checkout {branch} 2>/dev/null")
@@ -31,6 +45,7 @@ def check_branch(branch):
         results.append({"check": check, "passed": rc == 0, "output": out[:300]})
     run("git checkout main 2>/dev/null || git checkout master 2>/dev/null")
     return results
+
 
 def main():
     console.print("[bold cyan]🔀 MERGE QUEUE[/bold cyan]\n")
@@ -51,6 +66,7 @@ def main():
         if all_ok:
             console.print(f"  [green]→ {br} can be merged![/green]")
     console.print(table)
+
 
 if __name__ == "__main__":
     main()

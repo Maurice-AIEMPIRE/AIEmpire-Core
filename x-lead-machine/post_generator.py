@@ -5,9 +5,10 @@ Generiert virale Posts basierend auf Trends
 """
 
 import asyncio
-import aiohttp
 import os
 from datetime import datetime
+
+import aiohttp
 
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 
@@ -34,6 +35,7 @@ STYLES = {
     "behind_scenes": "Zeig was du gerade baust/machst. Transparent, authentisch",
     "story": "Kurze Story mit Lektion. Problem → Lösung → Learning",
 }
+
 
 async def generate_post(topic: str, style: str = "result") -> dict:
     """Generiere einen X-Post mit Kimi."""
@@ -72,13 +74,13 @@ Generiere jetzt den Post:"""
             "https://api.moonshot.ai/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             json={
                 "model": "moonshot-v1-8k",
                 "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.8
-            }
+                "temperature": 0.8,
+            },
         ) as resp:
             if resp.status == 200:
                 data = await resp.json()
@@ -87,7 +89,7 @@ Generiere jetzt den Post:"""
                     "topic": topic,
                     "style": style,
                     "post": content,
-                    "generated_at": datetime.now().isoformat()
+                    "generated_at": datetime.now().isoformat(),
                 }
             else:
                 return {"error": f"API Error: {resp.status}"}
@@ -125,13 +127,13 @@ Schreibe den Thread:"""
             "https://api.moonshot.ai/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             json={
                 "model": "moonshot-v1-32k",
                 "messages": [{"role": "user", "content": prompt}],
-                "temperature": 0.7
-            }
+                "temperature": 0.7,
+            },
         ) as resp:
             if resp.status == 200:
                 data = await resp.json()
@@ -140,7 +142,7 @@ Schreibe den Thread:"""
                     "topic": topic,
                     "thread": content,
                     "posts": points,
-                    "generated_at": datetime.now().isoformat()
+                    "generated_at": datetime.now().isoformat(),
                 }
             else:
                 return {"error": f"API Error: {resp.status}"}
@@ -198,7 +200,7 @@ async def main():
     print("- generate_week_content() - Ganze Woche")
     print()
     print("STYLES:", list(STYLES.keys()))
-    print("TRENDS:", [t[:20]+"..." for t in TRENDS[:5]])
+    print("TRENDS:", [t[:20] + "..." for t in TRENDS[:5]])
 
 
 if __name__ == "__main__":

@@ -35,9 +35,11 @@ CONFIG_PATH = GODMODE_DIR / "config.json"
 LOG_DIR = GODMODE_DIR / "logs"
 REPO_ROOT = GODMODE_DIR.parent
 
+
 def load_config():
     with open(CONFIG_PATH) as f:
         return json.load(f)
+
 
 CONFIG = load_config()
 OLLAMA_URL = CONFIG["ollama"]["base_url"]
@@ -47,10 +49,12 @@ OLLAMA_URL = CONFIG["ollama"]["base_url"]
 # OLLAMA CLIENT
 # ============================================
 
+
 def ollama_available():
     """Check if Ollama is running."""
     try:
         import urllib.request
+
         req = urllib.request.Request(f"{OLLAMA_URL}/api/tags")
         with urllib.request.urlopen(req, timeout=3) as resp:
             return resp.status == 200
@@ -62,24 +66,23 @@ def ollama_chat(model, system_prompt, user_message, temperature=0.3, max_tokens=
     """Send a chat request to Ollama and return the response."""
     import urllib.request
 
-    payload = json.dumps({
-        "model": model,
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_message}
-        ],
-        "stream": False,
-        "options": {
-            "temperature": temperature,
-            "num_predict": max_tokens
+    payload = json.dumps(
+        {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_message},
+            ],
+            "stream": False,
+            "options": {"temperature": temperature, "num_predict": max_tokens},
         }
-    }).encode()
+    ).encode()
 
     req = urllib.request.Request(
         f"{OLLAMA_URL}/api/chat",
         data=payload,
         headers={"Content-Type": "application/json"},
-        method="POST"
+        method="POST",
     )
 
     try:
@@ -93,6 +96,7 @@ def ollama_chat(model, system_prompt, user_message, temperature=0.3, max_tokens=
 # ============================================
 # TASK ROUTER — decides which role handles a task
 # ============================================
+
 
 def classify_task(task_description):
     """Classify a task into the right role based on keywords."""
@@ -152,11 +156,14 @@ def classify_multi(task_description):
 # GIT BRANCH MANAGEMENT
 # ============================================
 
+
 def git_current_branch():
     """Get current git branch."""
     result = subprocess.run(
         ["git", "branch", "--show-current"],
-        cwd=REPO_ROOT, capture_output=True, text=True
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
     )
     return result.stdout.strip()
 
@@ -171,14 +178,13 @@ def git_create_branch(branch_name):
     subprocess.run(["git", "pull", "--rebase"], cwd=REPO_ROOT, capture_output=True)
     result = subprocess.run(
         ["git", "checkout", "-b", branch_name],
-        cwd=REPO_ROOT, capture_output=True, text=True
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
     )
     if result.returncode != 0:
         # Branch might already exist
-        subprocess.run(
-            ["git", "checkout", branch_name],
-            cwd=REPO_ROOT, capture_output=True
-        )
+        subprocess.run(["git", "checkout", branch_name], cwd=REPO_ROOT, capture_output=True)
     return current
 
 
@@ -187,17 +193,16 @@ def git_commit_and_return(message, return_branch="main"):
     subprocess.run(["git", "add", "-A"], cwd=REPO_ROOT, capture_output=True)
     subprocess.run(
         ["git", "commit", "-m", message, "--allow-empty"],
-        cwd=REPO_ROOT, capture_output=True
+        cwd=REPO_ROOT,
+        capture_output=True,
     )
-    subprocess.run(
-        ["git", "checkout", return_branch],
-        cwd=REPO_ROOT, capture_output=True
-    )
+    subprocess.run(["git", "checkout", return_branch], cwd=REPO_ROOT, capture_output=True)
 
 
 # ============================================
 # MERGE GATE — only merge if checks pass
 # ============================================
+
 
 def run_merge_checks():
     """Run all merge gate checks. Returns (passed, results)."""
@@ -206,16 +211,15 @@ def run_merge_checks():
     all_passed = True
 
     for cmd in checks:
-        result = subprocess.run(
-            cmd, shell=True, cwd=REPO_ROOT,
-            capture_output=True, text=True, timeout=60
-        )
+        result = subprocess.run(cmd, shell=True, cwd=REPO_ROOT, capture_output=True, text=True, timeout=60)
         passed = result.returncode == 0
-        results.append({
-            "command": cmd,
-            "passed": passed,
-            "output": (result.stdout + result.stderr)[:500]
-        })
+        results.append(
+            {
+                "command": cmd,
+                "passed": passed,
+                "output": (result.stdout + result.stderr)[:500],
+            }
+        )
         if not passed:
             all_passed = False
 
@@ -243,17 +247,23 @@ def merge_branch(branch_name):
     # Merge into main
     subprocess.run(["git", "checkout", "main"], cwd=REPO_ROOT, capture_output=True)
     result = subprocess.run(
-        ["git", "merge", "--no-ff", branch_name, "-m", f"Merge {branch_name} (Godmode auto-merge)"],
-        cwd=REPO_ROOT, capture_output=True, text=True
+        [
+            "git",
+            "merge",
+            "--no-ff",
+            branch_name,
+            "-m",
+            f"Merge {branch_name} (Godmode auto-merge)",
+        ],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
     )
 
     if result.returncode == 0:
         print(f"\n✅ MERGED: {branch_name} → main")
         # Delete the branch
-        subprocess.run(
-            ["git", "branch", "-d", branch_name],
-            cwd=REPO_ROOT, capture_output=True
-        )
+        subprocess.run(["git", "branch", "-d", branch_name], cwd=REPO_ROOT, capture_output=True)
         return True
     else:
         print(f"\n⚠️  MERGE CONFLICT: {branch_name}")
@@ -267,15 +277,32 @@ def merge_branch(branch_name):
 # TASK EXECUTION
 # ============================================
 
+
 def gather_context(role, task_description):
     """Gather relevant context for the role."""
     context_parts = []
 
     # Always include repo structure (top-level)
     result = subprocess.run(
-        ["find", ".", "-maxdepth", "2", "-type", "f", "-name", "*.py",
-         "-not", "-path", "./.venv/*", "-not", "-path", "./__pycache__/*"],
-        cwd=REPO_ROOT, capture_output=True, text=True
+        [
+            "find",
+            ".",
+            "-maxdepth",
+            "2",
+            "-type",
+            "f",
+            "-name",
+            "*.py",
+            "-not",
+            "-path",
+            "./.venv/*",
+            "-not",
+            "-path",
+            "./__pycache__/*",
+        ],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
     )
     context_parts.append(f"=== Python files in repo ===\n{result.stdout[:2000]}")
 
@@ -301,7 +328,9 @@ def gather_context(role, task_description):
         # Include git diff
         result = subprocess.run(
             ["git", "diff", "--stat", "main"],
-            cwd=REPO_ROOT, capture_output=True, text=True
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
         )
         if result.stdout.strip():
             context_parts.append(f"=== Git Diff (vs main) ===\n{result.stdout[:2000]}")
@@ -321,13 +350,13 @@ def execute_task(task_description, force_role=None):
     else:
         roles = classify_multi(task_description)
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("🧠 GODMODE PROGRAMMER — Task Router")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"📝 Task: {task_description[:100]}")
     print(f"🎯 Roles: {', '.join(r.upper() for r in roles)}")
     print(f"⏰ Started: {datetime.now().strftime('%H:%M:%S')}")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
     results = {}
 
@@ -382,7 +411,7 @@ Provide your response as structured JSON per your role specification."""
             "branch": branch,
             "response": parsed,
             "elapsed_seconds": round(elapsed, 1),
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
         }
 
         # Log the result
@@ -399,15 +428,16 @@ Provide your response as structured JSON per your role specification."""
 # SUMMARY PRINTER
 # ============================================
 
+
 def print_summary(task_description, results):
     """Print a formatted summary of all role results."""
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("📊 GODMODE SUMMARY")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"📝 Task: {task_description[:100]}")
     print(f"🎯 Roles executed: {len(results)}")
     print(f"⏰ Finished: {datetime.now().strftime('%H:%M:%S')}")
-    print(f"{'─'*60}")
+    print(f"{'─' * 60}")
 
     for role, data in results.items():
         model = data.get("model", "unknown")
@@ -435,21 +465,28 @@ def print_summary(task_description, results):
     log_file = LOG_DIR / f"{datetime.now().strftime('%Y-%m-%d')}_summary.jsonl"
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     with open(log_file, "a") as f:
-        f.write(json.dumps({
-            "task": task_description[:200],
-            "roles": list(results.keys()),
-            "total_time": sum(r.get("elapsed_seconds", 0) for r in results.values()),
-            "timestamp": datetime.now().isoformat()
-        }, ensure_ascii=False) + "\n")
+        f.write(
+            json.dumps(
+                {
+                    "task": task_description[:200],
+                    "roles": list(results.keys()),
+                    "total_time": sum(r.get("elapsed_seconds", 0) for r in results.values()),
+                    "timestamp": datetime.now().isoformat(),
+                },
+                ensure_ascii=False,
+            )
+            + "\n"
+        )
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"💾 Logged to: {log_file}")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
 
 # ============================================
 # LOGGING
 # ============================================
+
 
 def log_result(role, task, result):
     """Log a task result to disk."""
@@ -460,7 +497,7 @@ def log_result(role, task, result):
     entry = {
         "task": task[:200],
         "result": result,
-        "timestamp": datetime.now().isoformat()
+        "timestamp": datetime.now().isoformat(),
     }
 
     with open(log_file, "a") as f:
@@ -471,11 +508,12 @@ def log_result(role, task, result):
 # STATUS DASHBOARD
 # ============================================
 
+
 def show_status():
     """Show status of all roles and pending branches."""
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("🧠 GODMODE PROGRAMMER — Status")
-    print(f"{'='*60}\n")
+    print(f"{'=' * 60}\n")
 
     # Ollama status
     if ollama_available():
@@ -483,6 +521,7 @@ def show_status():
         # Show loaded models
         try:
             import urllib.request
+
             req = urllib.request.Request(f"{OLLAMA_URL}/api/tags")
             with urllib.request.urlopen(req, timeout=3) as resp:
                 data = json.loads(resp.read().decode())
@@ -501,7 +540,9 @@ def show_status():
     # Pending agent branches
     result = subprocess.run(
         ["git", "branch", "--list", "agent/*"],
-        cwd=REPO_ROOT, capture_output=True, text=True
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
     )
     branches = [b.strip() for b in result.stdout.strip().split("\n") if b.strip()]
     if branches:
@@ -532,6 +573,7 @@ def show_status():
 # ISSUE COLLECTOR
 # ============================================
 
+
 def collect_issues():
     """Collect all issues from the repo and create a prioritized task queue."""
     print("\n🔍 Collecting issues from repo...\n")
@@ -540,43 +582,52 @@ def collect_issues():
     # 1. Check for Python syntax errors
     result = subprocess.run(
         ["python3", "-m", "compileall", ".", "-q"],
-        cwd=REPO_ROOT, capture_output=True, text=True
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
     )
     if result.stderr:
         for line in result.stderr.strip().split("\n"):
             if line.strip():
-                issues.append({
-                    "type": "syntax_error",
-                    "severity": "critical",
-                    "message": line.strip(),
-                    "owner": "fixer"
-                })
+                issues.append(
+                    {
+                        "type": "syntax_error",
+                        "severity": "critical",
+                        "message": line.strip(),
+                        "owner": "fixer",
+                    }
+                )
 
     # 2. Check ruff lint
     result = subprocess.run(
         ["ruff", "check", ".", "--select", "E,F,I", "--output-format", "json"],
-        cwd=REPO_ROOT, capture_output=True, text=True
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
     )
     try:
         lint_results = json.loads(result.stdout)
         for item in lint_results[:50]:  # Cap at 50
-            issues.append({
-                "type": "lint",
-                "severity": "warning",
-                "file": item.get("filename", ""),
-                "line": item.get("location", {}).get("row", 0),
-                "message": item.get("message", ""),
-                "code": item.get("code", ""),
-                "owner": "fixer"
-            })
+            issues.append(
+                {
+                    "type": "lint",
+                    "severity": "warning",
+                    "file": item.get("filename", ""),
+                    "line": item.get("location", {}).get("row", 0),
+                    "message": item.get("message", ""),
+                    "code": item.get("code", ""),
+                    "owner": "fixer",
+                }
+            )
     except (json.JSONDecodeError, TypeError):
         pass
 
     # 3. Check for missing imports
     result = subprocess.run(
-        ["grep", "-rn", "^import\\|^from", "--include=*.py",
-         "-l", "."],
-        cwd=REPO_ROOT, capture_output=True, text=True
+        ["grep", "-rn", "^import\\|^from", "--include=*.py", "-l", "."],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
     )
     py_files = result.stdout.strip().split("\n")
     for pyf in py_files[:30]:
@@ -584,25 +635,34 @@ def collect_issues():
             continue
         check = subprocess.run(
             ["python3", "-c", f"import ast; ast.parse(open('{pyf}').read())"],
-            cwd=REPO_ROOT, capture_output=True, text=True
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
         )
         if check.returncode != 0:
-            issues.append({
-                "type": "parse_error",
-                "severity": "critical",
-                "file": pyf,
-                "message": check.stderr[:200],
-                "owner": "fixer"
-            })
+            issues.append(
+                {
+                    "type": "parse_error",
+                    "severity": "critical",
+                    "file": pyf,
+                    "message": check.stderr[:200],
+                    "owner": "fixer",
+                }
+            )
 
     # Save issues
     issues_file = GODMODE_DIR / "ISSUES.json"
     with open(issues_file, "w") as f:
-        json.dump({
-            "collected_at": datetime.now().isoformat(),
-            "total": len(issues),
-            "issues": issues
-        }, f, indent=2, ensure_ascii=False)
+        json.dump(
+            {
+                "collected_at": datetime.now().isoformat(),
+                "total": len(issues),
+                "issues": issues,
+            },
+            f,
+            indent=2,
+            ensure_ascii=False,
+        )
 
     # Print summary
     by_severity = {}
@@ -630,6 +690,7 @@ def collect_issues():
 # BATCH PROCESSOR
 # ============================================
 
+
 def process_issues_file(filepath):
     """Read tasks from a file and process them sequentially."""
     with open(filepath) as f:
@@ -638,9 +699,9 @@ def process_issues_file(filepath):
     print(f"\n📋 Processing {len(tasks)} tasks from {filepath}\n")
 
     for i, task in enumerate(tasks, 1):
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print(f"  Task {i}/{len(tasks)}")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         execute_task(task)
 
     print(f"\n✅ All {len(tasks)} tasks processed!")
@@ -649,6 +710,7 @@ def process_issues_file(filepath):
 # ============================================
 # CLI
 # ============================================
+
 
 def main():
     parser = argparse.ArgumentParser(
@@ -664,12 +726,15 @@ Examples:
   python godmode/router.py --status
   python godmode/router.py --merge agent/fixer/fix-imports-0210
   python godmode/router.py --check
-        """
+        """,
     )
 
     parser.add_argument("task", nargs="?", help="Task description")
-    parser.add_argument("--role", choices=["architect", "fixer", "coder", "qa"],
-                       help="Force a specific role")
+    parser.add_argument(
+        "--role",
+        choices=["architect", "fixer", "coder", "qa"],
+        help="Force a specific role",
+    )
     parser.add_argument("--file", help="Read tasks from file (one per line)")
     parser.add_argument("--status", action="store_true", help="Show system status")
     parser.add_argument("--collect", action="store_true", help="Collect all issues")

@@ -1,12 +1,14 @@
-import os
 import asyncio
-import aiohttp
 import logging
-from typing import Dict, Optional, Any
+import os
+from typing import Any, Dict, Optional
+
+import aiohttp
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("kimi_client")
+
 
 class KimiClient:
     """
@@ -25,7 +27,7 @@ class KimiClient:
         # iPad Compute Node (LLM Farm / Layla)
         # Default to a common local IP or localhost if bridged via USB
         self.ipad_url = os.getenv("IPAD_LLM_URL", "http://192.168.178.45:3000/v1")
-        self.ipad_model = "default" # Most iPad apps ignore this or use loaded model
+        self.ipad_model = "default"  # Most iPad apps ignore this or use loaded model
 
     async def _check_ipad(self) -> bool:
         """Check if iPad Compute Node is available."""
@@ -43,7 +45,13 @@ class KimiClient:
             return False
         return False
 
-    async def chat(self, messages: list, model: Optional[str] = None, temperature: float = 0.7, use_local: bool = True) -> Dict[str, Any]:
+    async def chat(
+        self,
+        messages: list,
+        model: Optional[str] = None,
+        temperature: float = 0.7,
+        use_local: bool = True,
+    ) -> Dict[str, Any]:
         """
         Unified chat method.
         Priority:
@@ -60,7 +68,7 @@ class KimiClient:
                         return {
                             "content": response,
                             "source": "ipad_compute_node",
-                            "model": "ipad-local"
+                            "model": "ipad-local",
                         }
                 except Exception as e:
                     logger.warning(f"iPad inference failed: {e}. Falling back to Mac.")
@@ -74,7 +82,7 @@ class KimiClient:
                     return {
                         "content": response,
                         "source": "local_ollama",
-                        "model": self.local_model
+                        "model": self.local_model,
                     }
             except Exception as e:
                 logger.warning(f"Local inference failed: {e}. Falling back to Cloud API.")
@@ -85,11 +93,7 @@ class KimiClient:
 
         logger.info(f"Attempting Cloud Inference with {self.api_model}...")
         response = await self._chat_api(messages, temperature)
-        return {
-            "content": response,
-            "source": "moonshot_api",
-            "model": self.api_model
-        }
+        return {"content": response, "source": "moonshot_api", "model": self.api_model}
 
     async def _chat_ipad(self, messages: list, temperature: float) -> str:
         """Internal method to call iPad LLM Server (OpenAI compatible)."""
@@ -99,7 +103,7 @@ class KimiClient:
             payload = {
                 "model": self.ipad_model,
                 "messages": messages,
-                "temperature": temperature
+                "temperature": temperature,
             }
             # iPad apps usually expose /v1/chat/completions
             target_url = f"{self.ipad_url.rstrip('/v1')}/v1/chat/completions"
@@ -123,7 +127,7 @@ class KimiClient:
                 "model": self.local_model,
                 "messages": messages,
                 "temperature": temperature,
-                "stream": False
+                "stream": False,
             }
             try:
                 async with session.post(f"{self.ollama_url}/api/chat", json=payload) as resp:
@@ -157,13 +161,17 @@ class KimiClient:
             payload = {
                 "model": self.api_model,
                 "messages": messages,
-                "temperature": temperature
+                "temperature": temperature,
             }
             headers = {
                 "Authorization": f"Bearer {self.api_key}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             }
-            async with session.post("https://api.moonshot.ai/v1/chat/completions", json=payload, headers=headers) as resp:
+            async with session.post(
+                "https://api.moonshot.ai/v1/chat/completions",
+                json=payload,
+                headers=headers,
+            ) as resp:
                 if resp.status == 200:
                     data = await resp.json()
                     return data["choices"][0]["message"]["content"]
