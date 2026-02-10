@@ -16,7 +16,11 @@ from typing import List, Dict, Optional
 # API Keys
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+
+# Gemini Config
+GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 # Storage paths
 CHAT_HISTORY_DIR = Path(__file__).parent / "chat_history"
@@ -63,9 +67,27 @@ class ChatManager:
                 "api": "ollama",
                 "model_id": "mistral:7b",
                 "available": True
+            },
+            "gemini-flash": {
+                "name": "Gemini 2.0 Flash",
+                "api": "gemini",
+                "model_id": "gemini-2.0-flash",
+                "available": bool(GEMINI_API_KEY)
+            },
+            "gemini-pro": {
+                "name": "Gemini 2.0 Pro",
+                "api": "gemini",
+                "model_id": "gemini-2.0-pro",
+                "available": bool(GEMINI_API_KEY)
+            },
+            "gemini-thinking": {
+                "name": "Gemini 2.0 Flash Thinking",
+                "api": "gemini",
+                "model_id": "gemini-2.0-flash-thinking",
+                "available": bool(GEMINI_API_KEY)
             }
         }
-        self.current_model = "kimi"  # Default to Kimi (cheapest)
+        self.current_model = "gemini-flash"  # Default to Gemini Flash (fast + cheap)
         self.conversation_history = []
     
     async def upload_chat(self, chat_data: str, format: str = "json") -> Dict:
@@ -221,6 +243,8 @@ class ChatManager:
                 response = await self._ask_anthropic(model_config["model_id"], messages)
             elif model_config["api"] == "moonshot":
                 response = await self._ask_moonshot(model_config["model_id"], messages)
+            elif model_config["api"] == "gemini":
+                response = await self._ask_gemini(model_config["model_id"], messages)
             elif model_config["api"] == "ollama":
                 response = await self._ask_ollama(model_config["model_id"], messages)
             else:
@@ -341,7 +365,66 @@ class ChatManager:
         
         except Exception as e:
             return {"error": f"Ollama request failed: {e}. Is Ollama running on {OLLAMA_BASE_URL}?"}
-    
+
+    async def _ask_gemini(self, model_id: str, messages: List[Dict]) -> Dict:
+        """Ask Google Gemini via REST API."""
+        try:
+            async with aiohttp.ClientSession() as session:
+                # Convert messages to Gemini format
+                contents = []
+                for msg in messages:
+                    role = "user" if msg["role"] == "user" else "model"
+                    contents.append({
+                        "role": role,
+                        "parts": [{"text": msg["content"]}]
+                    })
+
+                payload = {
+                    "contents": contents,
+                    "generationConfig": {
+                        "temperature": 0.7,
+                        "maxOutputTokens": 4096,
+                        "topP": 0.95
+                    }
+                }
+
+                url = (
+                    f"{GEMINI_API_BASE}/models/{model_id}:generateContent"
+                    f"?key={GEMINI_API_KEY}"
+                )
+
+                async with session.post(
+                    url,
+                    headers={"Content-Type": "application/json"},
+                    json=payload
+                ) as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        candidates = data.get("candidates", [])
+                        if not candidates:
+                            return {"error": "No candidates in Gemini response"}
+
+                        content_parts = candidates[0].get("content", {}).get("parts", [])
+                        answer = "".join(p.get("text", "") for p in content_parts)
+                        usage_meta = data.get("usageMetadata", {})
+
+                        return {
+                            "success": True,
+                            "answer": answer,
+                            "model": model_id,
+                            "usage": {
+                                "prompt_tokens": usage_meta.get("promptTokenCount", 0),
+                                "completion_tokens": usage_meta.get("candidatesTokenCount", 0),
+                                "total_tokens": usage_meta.get("totalTokenCount", 0)
+                            }
+                        }
+                    else:
+                        error_text = await resp.text()
+                        return {"error": f"Gemini API error ({resp.status}): {error_text}"}
+
+        except Exception as e:
+            return {"error": f"Gemini request failed: {e}"}
+
     def switch_model(self, model_name: str) -> Dict:
         """Switch to a different model."""
         if model_name not in self.supported_models:
