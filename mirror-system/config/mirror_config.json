@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "main_brain": {
+    "name": "Main Brain (Mac)",
+    "role": "production",
+    "ollama_host": "http://127.0.0.1:11434",
+    "default_model": "qwen2.5-coder:14b",
+    "fast_model": "llama3.1:8b",
+    "heavy_model": "qwen3-coder:latest",
+    "offline_mode": true
+  },
+  "mirror_lab": {
+    "name": "Mirror Lab (Gemini)",
+    "role": "research_and_development",
+    "api": "vertex_ai",
+    "model": "gemini-2.5-pro",
+    "fast_model": "gemini-2.5-flash",
+    "region": "europe-west3",
+    "project_id": "SET_VIA_ENV",
+    "max_daily_cost_eur": 5.0,
+    "max_requests_per_hour": 100
+  },
+  "sync": {
+    "method": "git_pull",
+    "branch_prefix": "mirror/",
+    "export_schedule": "daily_08:00",
+    "max_diff_lines": 500,
+    "require_tests": true,
+    "require_changelog": true,
+    "require_human_approval": false,
+    "auto_merge_if_green": true
+  },
+  "storage": {
+    "gcs_bucket": "gs://ai-empire-mirror",
+    "export_path": "exports/",
+    "reports_path": "reports/",
+    "artifacts_path": "artifacts/",
+    "local_export_dir": "mirror-system/export/exports/"
+  },
+  "telemetry": {
+    "collect_interval_seconds": 3600,
+    "metrics": ["task_count", "error_rate", "latency_avg", "revenue", "content_produced"]
+  }
+}

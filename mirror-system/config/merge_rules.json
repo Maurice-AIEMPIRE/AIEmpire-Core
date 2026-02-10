@@ -1,0 +1,46 @@
+{
+  "version": "1.0",
+  "merge_gate": {
+    "auto_merge": {
+      "enabled": true,
+      "conditions": {
+        "tests_pass": true,
+        "no_secrets_detected": true,
+        "no_cloud_api_without_flag": true,
+        "diff_lines_max": 500,
+        "changelog_present": true,
+        "no_deletions_without_approval": true,
+        "no_p3_data_in_diff": true
+      }
+    },
+    "require_human_approval": {
+      "when": [
+        "diff_lines > 500",
+        "changes_to_empire.py",
+        "changes_to_orchestrator.py",
+        "changes_to_.env",
+        "new_external_dependencies",
+        "changes_to_merge_rules.json",
+        "changes_to_privacy_rules.json"
+      ]
+    },
+    "always_reject": [
+      "contains_hardcoded_api_keys",
+      "modifies_private_vault_paths",
+      "adds_cloud_api_calls_without_CLOUD_MODE",
+      "deletes_more_than_10_files",
+      "modifies_git_config"
+    ]
+  },
+  "branch_naming": {
+    "prefix": "mirror/",
+    "types": {
+      "fix": "mirror/fix-{description}",
+      "feat": "mirror/feat-{description}",
+      "opt": "mirror/opt-{description}",
+      "agent": "mirror/agent-{description}",
+      "prompt": "mirror/prompt-{description}",
+      "product": "mirror/product-{description}"
+    }
+  }
+}

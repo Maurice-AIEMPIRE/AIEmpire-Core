@@ -1,0 +1,41 @@
+{
+  "version": "1.0",
+  "scoring_dimensions": {
+    "payment_willingness": {
+      "weight": 0.25,
+      "description": "Wie wahrscheinlich ist es, dass jemand dafuer zahlt?",
+      "scale": "1-10 (1=niemand, 10=shut up and take my money)"
+    },
+    "speed_to_market": {
+      "weight": 0.20,
+      "description": "Wie schnell kann das Produkt fertig sein?",
+      "scale": "1-10 (1=6+ Monate, 10=heute lieferbar)"
+    },
+    "reusability": {
+      "weight": 0.20,
+      "description": "Wie oft kann das Produkt verkauft werden?",
+      "scale": "1-10 (1=einmalig, 10=unbegrenzt skalierbar)"
+    },
+    "compliance": {
+      "weight": 0.15,
+      "description": "Rechtlich/ethisch sauber und risikoarm?",
+      "scale": "1-10 (1=riskant, 10=komplett clean)"
+    },
+    "signature_factor": {
+      "weight": 0.20,
+      "description": "Wie einzigartig ist das fuer Maurice? (BMA+AI USP)",
+      "scale": "1-10 (1=generisch, 10=nur Maurice kann das)"
+    }
+  },
+  "thresholds": {
+    "minimum_score": 6.0,
+    "auto_approve": 8.0,
+    "require_review": 5.0
+  },
+  "product_tiers": {
+    "basic": {"price_range": [19, 49], "currency": "EUR"},
+    "pro": {"price_range": [79, 199], "currency": "EUR"},
+    "elite": {"price_range": [299, 999], "currency": "EUR"},
+    "consulting": {"price_range": [2000, 10000], "currency": "EUR"}
+  }
+}

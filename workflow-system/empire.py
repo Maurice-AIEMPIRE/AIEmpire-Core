@@ -12,6 +12,14 @@ Usage:
   python empire.py guard                # Resource Guard Status
   python empire.py cycle                # Neuen Wochen-Zyklus starten
   python empire.py full                 # Workflow + Cowork nacheinander
+  python empire.py mirror               # Mirror Lab Status + Sync
+  python empire.py mirror --export      # Export-Paket erstellen
+  python empire.py mirror --sync        # Voller Sync-Zyklus
+  python empire.py dip morning          # Daily Interrogation (Morgen)
+  python empire.py dip evening          # Daily Interrogation (Abend)
+  python empire.py product add "Idee"   # Produktidee hinzufügen
+  python empire.py product score        # Ideen bewerten
+  python empire.py product status       # Pipeline Status
 """
 
 import argparse
@@ -141,12 +149,48 @@ def show_full_status():
         print("  GIT: (could not read)")
     print()
 
-    # 6. Quick Commands
+    # 6. Mirror System Status
+    mirror_dir = EMPIRE_ROOT / "mirror-system"
+    if mirror_dir.exists():
+        vision_file = mirror_dir / "dip" / "vision_state.json"
+        if vision_file.exists():
+            try:
+                vs = json.loads(vision_file.read_text())
+                sessions = vs.get("sessions_completed", 0)
+                streak = vs.get("meta", {}).get("streak_days", 0)
+                print(f"  MIRROR SYSTEM:")
+                print(f"    DIP Sessions:  {sessions}")
+                print(f"    Streak:        {streak} days")
+                focus = vs.get("vision", {}).get("daily_focus")
+                if focus:
+                    print(f"    Focus:         {focus}")
+            except json.JSONDecodeError:
+                print("  MIRROR SYSTEM: vision_state.json corrupted")
+        else:
+            print("  MIRROR SYSTEM: Not initialized (run: python empire.py dip morning)")
+
+        # Product Factory
+        inbox = mirror_dir / "product-factory" / "data" / "ideas" / "inbox.jsonl"
+        if inbox.exists():
+            idea_count = sum(1 for line in inbox.read_text().split("\n") if line.strip())
+            print(f"    Product Ideas: {idea_count}")
+
+        # Export count
+        exports = list((mirror_dir / "export" / "exports").glob("*.zip")) if (mirror_dir / "export" / "exports").exists() else []
+        print(f"    Exports:       {len(exports)}")
+    else:
+        print("  MIRROR SYSTEM: Not installed")
+    print()
+
+    # 7. Quick Commands
     print("  COMMANDS:")
     print("    python empire.py workflow          # Run 5-step loop")
     print("    python empire.py cowork --daemon   # Start background agent")
     print("    python empire.py cycle             # New weekly cycle")
     print("    python empire.py full              # Workflow + Cowork")
+    print("    python empire.py mirror            # Mirror Lab status")
+    print("    python empire.py dip morning       # Daily Vision Interview")
+    print("    python empire.py product status    # Product Factory")
     print()
 
 
@@ -244,6 +288,23 @@ Examples:
     full_p = sub.add_parser("full", help="Run workflow + cowork")
     full_p.add_argument("--focus", choices=["revenue", "content", "automation", "product"])
 
+    # mirror
+    mir = sub.add_parser("mirror", help="Mirror Lab operations")
+    mir.add_argument("--export", action="store_true", help="Create export package")
+    mir.add_argument("--sync", action="store_true", help="Full sync cycle")
+    mir.add_argument("--gate", action="store_true", help="Check merge gate")
+
+    # dip
+    dip = sub.add_parser("dip", help="Daily Interrogation Protocol")
+    dip.add_argument("session", choices=["morning", "evening", "status", "history", "generate"],
+                     nargs="?", default="status")
+
+    # product
+    prod = sub.add_parser("product", help="Product Factory Pipeline")
+    prod.add_argument("action", choices=["add", "score", "rank", "design", "marketing", "status"],
+                      nargs="?", default="status")
+    prod.add_argument("product_args", nargs="*")
+
     args = parser.parse_args()
 
     if not args.command or args.command == "status":
@@ -263,6 +324,31 @@ Examples:
         guard_main()
     elif args.command == "full":
         asyncio.run(run_full(args))
+    elif args.command == "mirror":
+        mirror_dir = EMPIRE_ROOT / "mirror-system"
+        if args.export:
+            import subprocess
+            subprocess.run([sys.executable, str(mirror_dir / "export" / "export_daily.py")])
+        elif args.sync:
+            import subprocess
+            subprocess.run([sys.executable, str(mirror_dir / "sync" / "sync_manager.py"), "daily"])
+        elif args.gate:
+            import subprocess
+            subprocess.run([sys.executable, str(mirror_dir / "import" / "merge_gate.py"), "check"])
+        else:
+            import subprocess
+            subprocess.run([sys.executable, str(mirror_dir / "sync" / "sync_manager.py"), "status"])
+    elif args.command == "dip":
+        import subprocess
+        mirror_dir = EMPIRE_ROOT / "mirror-system"
+        subprocess.run([sys.executable, str(mirror_dir / "dip" / "daily_interrogation.py"),
+                       args.session])
+    elif args.command == "product":
+        import subprocess
+        mirror_dir = EMPIRE_ROOT / "mirror-system"
+        cmd = [sys.executable, str(mirror_dir / "product-factory" / "product_pipeline.py"),
+               args.action] + (args.product_args or [])
+        subprocess.run(cmd)
 
 
 if __name__ == "__main__":
