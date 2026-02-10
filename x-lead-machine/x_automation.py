@@ -7,7 +7,6 @@ Maurice's AI Empire
 
 import os
 import json
-import asyncio
 import aiohttp
 from datetime import datetime
 
@@ -100,9 +99,9 @@ Antworte als JSON:
                         content = data["choices"][0]["message"]["content"]
                         try:
                             return json.loads(content)
-                        except:
+                        except Exception:
                             return {"score": 0, "action": "ignore"}
-            except:
+            except Exception:
                 pass
         return {"score": 0, "action": "ignore"}
 
@@ -159,7 +158,7 @@ Schreibe jetzt den Post:"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data["choices"][0]["message"]["content"]
-            except:
+            except Exception:
                 pass
         return ""
 
@@ -200,7 +199,7 @@ Schreibe die Reply:"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data["choices"][0]["message"]["content"]
-            except:
+            except Exception:
                 pass
         return ""
 
@@ -242,9 +241,9 @@ Antworte als JSON Array mit 3 DMs:
                         content = data["choices"][0]["message"]["content"]
                         try:
                             return json.loads(content)
-                        except:
+                        except Exception:
                             return []
-            except:
+            except Exception:
                 pass
         return []
 

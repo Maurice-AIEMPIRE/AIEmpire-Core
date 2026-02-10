@@ -10,13 +10,11 @@ FREE Stack: Ollama + Kimi K2.5 + OpenClaw + Antigravity
 Claude nur als externer Berater (kein Token-Dependency!)
 """
 
-import asyncio
 import json
 import os
 import sqlite3
 import subprocess
 from datetime import datetime, timedelta
-from pathlib import Path
 
 # ============================================
 # BRAIN DEFINITIONS
@@ -169,7 +167,7 @@ def run_brainstem():
                            "http://localhost:11434/api/tags"],
                           capture_output=True, text=True, timeout=5)
         results["ollama"] = "OK" if r.stdout.strip() == "200" else "DOWN"
-    except:
+    except Exception:
         results["ollama"] = "DOWN"
 
     # Disk space
@@ -179,14 +177,14 @@ def run_brainstem():
         if len(lines) > 1:
             parts = lines[1].split()
             results["disk_free"] = parts[3] if len(parts) > 3 else "unknown"
-    except:
+    except Exception:
         results["disk_free"] = "unknown"
 
     # OpenClaw
     try:
         r = subprocess.run(["openclaw", "health"], capture_output=True, text=True, timeout=10)
         results["openclaw"] = "OK" if r.returncode == 0 else "WARN"
-    except:
+    except Exception:
         results["openclaw"] = "NOT_RUNNING"
 
     # Report
@@ -329,7 +327,7 @@ def run_daily_cycle():
 
     print("\n✅ All brains signaled. Daily cycle initialized.")
     print(f"Active brains: {len(BRAINS)}")
-    print(f"Pending synapses: Check with --status")
+    print("Pending synapses: Check with --status")
 
     return reports
 
@@ -368,7 +366,7 @@ if __name__ == '__main__':
         c.execute('SELECT from_brain, COUNT(*) FROM synapses GROUP BY from_brain')
         brain_msgs = c.fetchall()
         print(f"Pending synapses: {pending}")
-        print(f"Messages by brain:")
+        print("Messages by brain:")
         for brain, count in brain_msgs:
             print(f"  {brain}: {count}")
         conn.close()

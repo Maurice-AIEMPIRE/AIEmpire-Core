@@ -8,14 +8,12 @@ The "Maximum Integration" Agent Swarm.
 """
 
 import asyncio
-import aiohttp
 import json
 import os
 import argparse
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Optional
 
 # Import the new Bridge Client
 # Add parent directory to path to import systems module

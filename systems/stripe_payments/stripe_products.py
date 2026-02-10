@@ -7,7 +7,6 @@ Uses Stripe CLI for operations.
 
 import subprocess
 import json
-import os
 from dataclasses import dataclass
 from typing import Optional
 
@@ -144,7 +143,7 @@ def create_product(product: Product) -> dict:
     ])
     
     if not prod_result or "id" not in prod_result:
-        print(f"  ❌ Failed to create product")
+        print("  ❌ Failed to create product")
         return {}
     
     product_id = prod_result["id"]
@@ -164,7 +163,7 @@ def create_product(product: Product) -> dict:
     price_result = run_stripe_cmd(price_args)
     
     if not price_result or "id" not in price_result:
-        print(f"  ❌ Failed to create price")
+        print("  ❌ Failed to create price")
         return {"product_id": product_id}
     
     price_id = price_result["id"]
@@ -173,8 +172,8 @@ def create_product(product: Product) -> dict:
     # Create payment link
     link_result = run_stripe_cmd([
         "payment_links", "create",
-        f"-d", f"line_items[0][price]={price_id}",
-        f"-d", f"line_items[0][quantity]=1"
+        "-d", f"line_items[0][price]={price_id}",
+        "-d", "line_items[0][quantity]=1"
     ])
     
     payment_url = link_result.get("url", "N/A") if link_result else "N/A"

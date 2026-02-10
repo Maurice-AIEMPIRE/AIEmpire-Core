@@ -6,17 +6,15 @@ Runs on your Mac, accessible from iPhone over local network.
 import os
 import json
 import subprocess
-import sqlite3
-import asyncio
 import httpx
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional
 import uvicorn
 
 app = FastAPI(title="AI Empire Control API", version="1.0.0")
@@ -84,7 +82,7 @@ async def health_check():
             r = await c.get("http://localhost:11434/api/tags")
             models = r.json().get("models", [])
             checks["ollama"] = {"status": "active", "models": [m["name"] for m in models]}
-    except:
+    except Exception:
         checks["ollama"] = {"status": "offline", "models": []}
 
     # CRM
@@ -92,21 +90,21 @@ async def health_check():
         async with httpx.AsyncClient(timeout=3) as c:
             r = await c.get("http://localhost:3500/api/stats")
             checks["crm"] = {"status": "active", "data": r.json()}
-    except:
+    except Exception:
         checks["crm"] = {"status": "offline"}
 
     # Redis
     try:
         result = subprocess.run(["redis-cli", "ping"], capture_output=True, text=True, timeout=3)
         checks["redis"] = {"status": "active" if result.stdout.strip() == "PONG" else "offline"}
-    except:
+    except Exception:
         checks["redis"] = {"status": "offline"}
 
     # PostgreSQL
     try:
         result = subprocess.run(["pg_isready"], capture_output=True, text=True, timeout=3)
         checks["postgresql"] = {"status": "active" if result.returncode == 0 else "offline"}
-    except:
+    except Exception:
         checks["postgresql"] = {"status": "offline"}
 
     # OpenClaw
@@ -114,7 +112,7 @@ async def health_check():
         async with httpx.AsyncClient(timeout=3) as c:
             r = await c.get("http://localhost:18789/health")
             checks["openclaw"] = {"status": "active"}
-    except:
+    except Exception:
         checks["openclaw"] = {"status": "offline"}
 
     # GitHub Actions
@@ -130,7 +128,7 @@ async def health_check():
                     "status": "active",
                     "recent_runs": [{"name": r["name"], "status": r["status"], "conclusion": r.get("conclusion")} for r in runs]
                 }
-        except:
+        except Exception:
             checks["github_actions"] = {"status": "unknown"}
     else:
         checks["github_actions"] = {"status": "no_token"}
@@ -348,7 +346,7 @@ async def trigger_action(req: ActionRequest):
     for ws in active_connections:
         try:
             await ws.send_json({"type": "action_result", "data": result})
-        except:
+        except Exception:
             pass
 
     return result
@@ -370,7 +368,7 @@ async def get_issues(state: str = "open"):
             issues = r.json()
             return {"count": len(issues), "issues": [
                 {"id": i["number"], "title": i["title"], "state": i["state"],
-                 "labels": [l["name"] for l in i.get("labels", [])],
+                 "labels": [label["name"] for label in i.get("labels", [])],
                  "created": i["created_at"], "updated": i["updated_at"]}
                 for i in issues if "pull_request" not in i
             ]}
@@ -469,7 +467,7 @@ async def websocket_endpoint(websocket: WebSocket):
             for ws in active_connections:
                 try:
                     await ws.send_text(data)
-                except:
+                except Exception:
                     pass
     except WebSocketDisconnect:
         active_connections.remove(websocket)
@@ -491,7 +489,7 @@ async def system_info():
         branch = subprocess.run(["git", "branch", "--show-current"], capture_output=True, text=True, cwd=str(EMPIRE_ROOT)).stdout.strip()
         commits = subprocess.run(["git", "rev-list", "--count", "HEAD"], capture_output=True, text=True, cwd=str(EMPIRE_ROOT)).stdout.strip()
         last_commit = subprocess.run(["git", "log", "-1", "--format=%s (%cr)"], capture_output=True, text=True, cwd=str(EMPIRE_ROOT)).stdout.strip()
-    except:
+    except Exception:
         branch, commits, last_commit = "unknown", "0", "unknown"
 
     return {
@@ -517,7 +515,7 @@ if __name__ == "__main__":
     try:
         s.connect(("8.8.8.8", 80))
         local_ip = s.getsockname()[0]
-    except:
+    except Exception:
         local_ip = "localhost"
     finally:
         s.close()
