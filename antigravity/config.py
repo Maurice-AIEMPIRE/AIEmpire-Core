@@ -18,12 +18,15 @@ GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west1")
 VERTEX_AI_ENABLED = os.getenv("VERTEX_AI_ENABLED", "false").lower() == "true"
 OFFLINE_MODE = os.getenv("OFFLINE_MODE", "false").lower() in ("1", "true", "yes")
 
-# ─── Model Selection (optimized for 16GB RAM) ──────────────────────
+# ─── Model Selection (optimized for M4 16GB RAM) ───────────────────
+# Strategy: 7B models as daily drivers, 14B only for critical tasks.
+# Only 1 model loaded at a time to avoid swap thrashing.
 # Local models (Ollama)
-DEFAULT_MODEL_14B = "qwen2.5-coder:14b"
-DEFAULT_MODEL_7B = "qwen2.5-coder:7b"
-REASONING_MODEL = "deepseek-r1:7b"
-CODE_MODEL = "codellama:7b"
+DEFAULT_MODEL_14B = "qwen2.5-coder:14b"  # Heavy lift ONLY — 9GB VRAM
+DEFAULT_MODEL_7B = "qwen2.5-coder:7b"    # Primary driver — 4.7GB VRAM
+REASONING_MODEL = "deepseek-r1:8b"         # Planning & review — 5.2GB VRAM
+CODE_MODEL = "codellama:7b"                # Code completion — 3.8GB VRAM
+LIGHT_MODEL = "phi:q4"                     # Quick tasks — 1.6GB VRAM
 
 # Cloud models (Gemini)
 GEMINI_FLASH = "gemini-2.0-flash"
@@ -79,7 +82,7 @@ class AgentConfig:
 ARCHITECT = AgentConfig(
     name="Architect",
     role="architect",
-    model=DEFAULT_MODEL_14B,
+    model=DEFAULT_MODEL_7B,  # 7B for speed; use 14B explicitly for critical work
     system_prompt="""Du bist der ARCHITECT Agent im Godmode Programmer System.
 Deine Aufgaben:
 - Repo-Struktur analysieren und optimieren
@@ -101,7 +104,7 @@ REGELN:
 FIXER = AgentConfig(
     name="Fixer",
     role="fixer",
-    model=DEFAULT_MODEL_14B,
+    model=DEFAULT_MODEL_7B,  # 7B is plenty for focused bugfixes
     system_prompt="""Du bist der FIXER Agent im Godmode Programmer System.
 Deine Aufgaben:
 - Bugs fixen basierend auf Tracebacks
@@ -144,7 +147,7 @@ REGELN:
 QA_REVIEWER = AgentConfig(
     name="QA",
     role="qa",
-    model=REASONING_MODEL,  # DeepSeek R1 for thorough review
+    model=REASONING_MODEL,  # DeepSeek R1:8b for thorough review
     system_prompt="""Du bist der QA/REVIEWER Agent im Godmode Programmer System.
 Deine Aufgaben:
 - Code-Review aller Änderungen
@@ -197,3 +200,17 @@ MODES = {
         "parallel": True,
     },
 }
+
+# ─── M4 16GB Runtime Optimizations ─────────────────────────────────
+# These get passed to Ollama's /api/chat options
+M4_RUNTIME_OPTS = {
+    "num_thread": 4,       # Performance cores only (avoid E-cores for inference)
+    "num_gpu": 99,         # Offload ALL layers to Metal GPU
+    "num_batch": 512,      # Optimal batch size for M4
+    "num_ctx": 4096,       # Default context window
+    "repeat_penalty": 1.1, # Prevent repetitive output
+}
+
+# Safe model budget: 16GB total - 6GB reserved for macOS/apps = 10GB for models
+MAX_MODEL_VRAM_GB = 10.0
+MAX_LOADED_MODELS = 1  # Only 1 model at a time on 16GB
