@@ -1,0 +1,107 @@
+[
+  {
+    "name": "Agent Problem Detection & Routing",
+    "nodes": [
+      {
+        "parameters": {
+          "interval": [{ "triggerAtTime": "*/5 * * * *" }]
+        },
+        "id": "Check Every 5 Min",
+        "type": "n8n-nodes-base.cron"
+      },
+      {
+        "parameters": {
+          "url": "http://localhost:8000/api/problems/queue",
+          "method": "GET"
+        },
+        "id": "Get Problem Queue",
+        "type": "n8n-nodes-base.httpRequest"
+      },
+      {
+        "parameters": {
+          "pythonCode": "# Filter high-priority problems\nproblems = $input.all()[0].json.problems\nhigh_priority = [p for p in problems if p.get('severity', 2) <= 1]\nreturn {'count': len(high_priority), 'problems': high_priority}"
+        },
+        "id": "Filter High Priority",
+        "type": "n8n-nodes-base.python"
+      },
+      {
+        "parameters": {
+          "url": "http://localhost:8000/api/agents/route",
+          "method": "POST",
+          "bodyParameter": "$json"
+        },
+        "id": "Route to Agents",
+        "type": "n8n-nodes-base.httpRequest"
+      }
+    ]
+  },
+  {
+    "name": "Agent Health Monitoring",
+    "nodes": [
+      {
+        "parameters": {
+          "interval": [{ "triggerAtTime": "*/1 * * * *" }]
+        },
+        "id": "Monitor Every Minute",
+        "type": "n8n-nodes-base.cron"
+      },
+      {
+        "parameters": {
+          "pythonCode": "import subprocess\n\nstatus = {}\n\n# Check each agent\nagents = ['maestro_agent.py', 'autonomous_debugger_agent.py', 'code_optimizer_agent.py']\n\nfor agent in agents:\n    result = subprocess.run(['pgrep', '-f', agent], capture_output=True)\n    status[agent] = {'running': result.returncode == 0}\n\nreturn status"
+        },
+        "id": "Check Agent Processes",
+        "type": "n8n-nodes-base.python"
+      },
+      {
+        "parameters": {
+          "url": "http://localhost:5432",
+          "method": "GET"
+        },
+        "id": "Check Database",
+        "type": "n8n-nodes-base.httpRequest"
+      },
+      {
+        "parameters": {
+          "url": "http://localhost:6379",
+          "method": "GET"
+        },
+        "id": "Check Redis",
+        "type": "n8n-nodes-base.httpRequest"
+      }
+    ]
+  },
+  {
+    "name": "Solution Implementation & Verification",
+    "nodes": [
+      {
+        "parameters": {
+          "pollTimes": ["*/10 * * * *"]
+        },
+        "id": "Check Solutions Queue",
+        "type": "n8n-nodes-base.pollTrigger"
+      },
+      {
+        "parameters": {
+          "url": "http://localhost:8000/api/solutions/pending",
+          "method": "POST"
+        },
+        "id": "Get Pending Solutions",
+        "type": "n8n-nodes-base.httpRequest"
+      },
+      {
+        "parameters": {
+          "pythonCode": "# Apply solution\nsolution = $input.all()[0].json.solution\nif solution.get('code_change'):\n    # Write to temp file\n    with open('/tmp/solution.py', 'w') as f:\n        f.write(solution['code_change'])\n    return {'applied': True, 'file': '/tmp/solution.py'}\nreturn {'applied': False}"
+        },
+        "id": "Apply Solution",
+        "type": "n8n-nodes-base.python"
+      },
+      {
+        "parameters": {
+          "pythonCode": "# Verify solution works\nimport subprocess\nresult = subprocess.run(\n    ['python3', '-m', 'py_compile', '/tmp/solution.py'],\n    capture_output=True\n)\nreturn {'valid': result.returncode == 0}"
+        },
+        "id": "Verify Solution",
+        "type": "n8n-nodes-base.python"
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+# Agent Swarm Python Dependencies
+# 100% open source, no proprietary licenses
+
+# Async HTTP requests
+aiohttp>=3.9.0
+httpx>=0.26.0
+
+# Database connectivity
+psycopg2-binary>=2.9.0  # PostgreSQL
+redis>=5.0.0            # Redis cache
+
+# System monitoring
+psutil>=5.9.0
+
+# Data processing
+pyyaml>=6.0
+pydantic>=2.0.0
+
+# Optional: Enhanced testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# Optional: Development
+black>=23.0.0           # Code formatter
+flake8>=6.0.0           # Linter
+isort>=5.12.0           # Import sorting
