@@ -95,9 +95,25 @@ Assistant: Hi there!
 @bot switch-model ollama-qwen
 ```
 
-**Dokumentation:** 
+**Dokumentation:**
 - [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)
 - [CHAT_UPLOAD_GUIDE.md](./docs/CHAT_UPLOAD_GUIDE.md) 🔥 **NEW**
+
+### Mission Control (NEW!)
+
+**Zentrales Task-Scanning + Priorisiertes Dashboard:**
+
+```bash
+# Full scan aller offenen Tasks
+python mission_control.py
+
+# Oder via GitHub Bot
+@bot mission-control
+```
+
+Scannt GitHub Issues, Workflow Runs, Atomic Reactor Tasks, Docker Services, Brain System und Logs. Generiert ein priorisiertes Dashboard nach IMPACT > URGENCY > EFFORT.
+
+**Dokumentation:** [MISSION_CONTROL_README.md](./MISSION_CONTROL_README.md)
 
 ### Lokale Services
 
@@ -230,6 +246,7 @@ Tier 4 (PREMIUM):  Claude Opus        → 0.1%
 
 # Business
 @bot revenue-report     # Revenue Overview
+@bot mission-control    # Full System Scan + Dashboard
 ```
 
 **Automatische Workflows:**
