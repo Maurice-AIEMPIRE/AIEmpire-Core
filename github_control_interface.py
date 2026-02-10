@@ -35,6 +35,7 @@ class GitHubControlInterface:
             "@bot switch-model": self.cmd_switch_model,
             "@bot export-chat": self.cmd_export_chat,
             "@bot clear-history": self.cmd_clear_history,
+            "@bot mission-control": self.cmd_mission_control,
         }
     
     async def cmd_status(self, issue_num: int):
@@ -86,10 +87,8 @@ class GitHubControlInterface:
     async def cmd_generate_content(self, issue_num: int):
         """Generate content for X/Twitter."""
         import sys
-        sys.path.append(str(Path(__file__).parent / "x-lead-machine"))
-        
         try:
-            from x_automation import XLeadMachine
+            from x_lead_machine.x_automation import XLeadMachine
             
             machine = XLeadMachine()
             
@@ -487,48 +486,107 @@ Conversation history has been cleared.
 You can start a new conversation or upload a new chat history.
 """
     
+    async def cmd_mission_control(self, issue_num: int):
+        """Run Mission Control task prioritization scan."""
+        try:
+            import sys
+            sys.path.insert(0, str(Path(__file__).parent))
+
+            from mission_control import MissionControl
+
+            mission = MissionControl()
+            await mission.scan_all_sources()
+
+            # Generate outputs
+            dashboard = mission.generate_dashboard()
+            action_list = mission.generate_action_list(7)
+
+            # Export to JSON for reference
+            mission.export_to_json()
+
+            generated_at = datetime.now().isoformat()
+
+            # Combine dashboard and action list (Mission Control writes a combined file too,
+            # but for the bot response we return the content directly).
+            result = f"""{dashboard}
+
+---
+
+{action_list}
+
+---
+
+**Generated:** {generated_at}
+**Export:** `mission_control_data.json`
+**Documentation:** See [MISSION_CONTROL_README.md](MISSION_CONTROL_README.md)
+"""
+
+            return result
+
+        except Exception as e:
+            return f"""# ❌ Mission Control Error
+
+{str(e)}
+
+Please ensure:
+- GitHub token is configured
+- mission_control.py is in the repository
+- All dependencies are installed
+
+See [MISSION_CONTROL_README.md](MISSION_CONTROL_README.md) for troubleshooting.
+"""
+
     async def cmd_help(self, issue_num: int):
         """Show help."""
         return """# 🤖 GitHub Control Interface - Help
-        
+
 ## Available Commands
-        
+
 ### System Commands
 - `@bot status` - Show current system status
 - `@bot help` - Show this help message
-        
-### Chat & AI Commands (NEW!)
+
+### Task Prioritization & Strategy
+- `@bot mission-control` - Run task prioritization scan with strategic analysis
+
+### Chat & AI Commands
 - `@bot upload-chat [format]` - Upload chat history (text/json/markdown)
 - `@bot ask [question]` - Ask a question with current model
 - `@bot models` - List all available AI models
 - `@bot switch-model [name]` - Switch to a different model
 - `@bot export-chat` - Export current conversation
 - `@bot clear-history` - Clear conversation history
-        
+
 ### Content & Marketing
 - `@bot generate-content` - Generate X/Twitter content
 - `@bot post-x` - Get X posting guide
 - `@bot create-gig` - Generate Fiverr gig descriptions
-        
+
 ### Business Operations
 - `@bot revenue-report` - Show revenue status
 - `@bot run-task <name>` - Run specific task
-        
+
 ## How to Use
 1. Create an issue or comment on existing issue
 2. Include a command (e.g., `@bot status`)
 3. The bot will respond with the result
-        
+
 ## Automation
 - Content is generated every 4 hours
 - Revenue reports daily at 9 AM UTC
+- Mission Control scans daily at 9 AM UTC
 - Claude health checks every 30 minutes
-        
+
 ## Manual Workflows
 Go to Actions tab to manually trigger:
+- Mission Control Scan
 - Content Generation
 - Revenue Tracking
 - Any other workflow
+
+## Documentation
+- See [MISSION_CONTROL_README.md](MISSION_CONTROL_README.md) for task prioritization
+- See [IMPLEMENTATION_COMPLETE.md](IMPLEMENTATION_COMPLETE.md) for system overview
 """
     
     async def process_comment(self, comment_body: str, issue_num: int) -> str:

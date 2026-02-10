@@ -6,6 +6,11 @@ on:
   issue_comment:
     types: [created]
 
+permissions:
+  contents: read
+  issues: write
+  actions: write
+
 jobs:
   process-command:
     runs-on: ubuntu-latest
@@ -20,7 +25,28 @@ jobs:
           
       - name: Install dependencies
         run: |
-          pip install aiohttp pyyaml
+          pip install aiohttp PyYAML==6.0.1
+
+      - name: Run Mission Control (if requested)
+        if: >
+          (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@bot mission-control')) ||
+          (github.event_name == 'issues' && contains(github.event.issue.body, '@bot mission-control'))
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: |
+          python3 mission_control.py
+
+      - name: Comment Mission Control Report
+        if: >
+          (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@bot mission-control')) ||
+          (github.event_name == 'issues' && contains(github.event.issue.body, '@bot mission-control'))
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue comment "$ISSUE_NUMBER" --body-file MISSION_CONTROL.md
           
       - name: Process Command
         env:

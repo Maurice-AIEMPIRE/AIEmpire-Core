@@ -1,0 +1,77 @@
+name: Mission Control Daily Scan
+
+'on':
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install PyYAML==6.0.1
+
+      - name: Setup GitHub CLI
+        run: |
+          gh --version || echo "GitHub CLI not available"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Mission Control Scan
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: |
+          python3 mission_control.py
+
+      - name: Upload Dashboard
+        uses: actions/upload-artifact@v4
+        with:
+          name: mission-control-dashboard
+          path: MISSION_CONTROL.md
+          retention-days: 30
+
+      - name: Upload JSON Data
+        uses: actions/upload-artifact@v4
+        with:
+          name: mission-control-data
+          path: mission_control_data.json
+          retention-days: 90
+
+      - name: Ensure labels exist
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create mission-control --color 0e8a16 --description "Mission Control reports" || true
+          gh label create automated --color 5319e7 --description "Automation-generated" || true
+          gh label create daily-report --color fbca04 --description "Daily report" || true
+
+      - name: Create Issue with Results
+        if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          TITLE="📊 Mission Control Daily Report - $DATE"
+          gh issue create \
+            --title "$TITLE" \
+            --body-file MISSION_CONTROL.md \
+            --label "mission-control,automated,daily-report"
