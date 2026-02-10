@@ -1,0 +1,77 @@
+{
+  "monitoring": {
+    "health_checks": {
+      "n8n": {
+        "url": "http://localhost:5678/api/v1/health",
+        "interval": "5min"
+      },
+      "crm": {
+        "url": "http://localhost:3000/api/health",
+        "interval": "5min"
+      },
+      "empire_api": {
+        "url": "http://localhost:8000/health",
+        "interval": "5min"
+      },
+      "ollama": {
+        "url": "http://localhost:11434/api/tags",
+        "interval": "10min"
+      },
+      "postgres": {
+        "method": "pg_isready",
+        "interval": "5min"
+      },
+      "redis": {
+        "method": "redis-cli ping",
+        "interval": "5min"
+      }
+    },
+    "alerts": {
+      "channels": [
+        "Telegram",
+        "Email"
+      ],
+      "conditions": [
+        "Service down > 2 min",
+        "Workflow failure rate > 10%",
+        "Queue depth > 100",
+        "CPU > 85%",
+        "Disk > 90%"
+      ]
+    },
+    "dashboards": {
+      "daily_kpi": {
+        "metrics": [
+          "Revenue",
+          "Leads generated",
+          "Content posted",
+          "Workflows executed",
+          "Errors"
+        ],
+        "delivery": "Telegram 07:00 + 19:00"
+      },
+      "system_health": {
+        "metrics": [
+          "Uptime",
+          "Response times",
+          "Queue depth",
+          "Memory usage",
+          "API costs"
+        ],
+        "delivery": "Prometheus/Grafana + Telegram alerts"
+      }
+    }
+  },
+  "insights": [
+    "6 Services muessen ueberwacht werden",
+    "Telegram ist der primaere Alert-Kanal",
+    "Taegliche KPI-Reports fuer Ueberblick",
+    "Queue Depth Monitoring fuer Skalierungsentscheidungen"
+  ],
+  "actions": [
+    "Telegram Bot Token erneuern (aktuell invalid!)",
+    "Health Check Workflow in n8n erstellen",
+    "Prometheus Metrics in n8n aktivieren",
+    "Daily KPI Workflow aufsetzen"
+  ]
+}

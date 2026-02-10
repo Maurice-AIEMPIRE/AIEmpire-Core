@@ -1,0 +1,42 @@
+{
+  "memory_sync": {
+    "n8n_to_memory": {
+      "trigger": "Every workflow execution completion",
+      "process": "Extract insights from execution results → Digital Memory",
+      "categories": [
+        "patterns",
+        "decisions",
+        "lessons",
+        "financial"
+      ]
+    },
+    "memory_to_n8n": {
+      "trigger": "Memory update event",
+      "process": "Push relevant memories to n8n workflow context",
+      "usage": "AI Agents access memories for better decisions"
+    },
+    "sync_workflow": {
+      "name": "Memory Sync Engine",
+      "trigger": "Schedule (every 15 min) + Webhook (on memory update)",
+      "nodes": [
+        "Read Digital Memory state",
+        "Compare with n8n execution history",
+        "Extract new patterns and insights",
+        "Update Digital Memory via API",
+        "Notify if critical insight found"
+      ]
+    }
+  },
+  "insights": [
+    "Bidirektionale Sync zwischen n8n Executions und Digital Memory",
+    "Jede Workflow-Ausfuehrung generiert lernbare Insights",
+    "AI Agents in n8n nutzen Digital Memory fuer bessere Entscheidungen",
+    "Patterns aus Workflow-Erfolgen werden persistent gespeichert"
+  ],
+  "actions": [
+    "n8n Webhook in Digital Memory registrieren",
+    "Memory Export API Endpoint erstellen",
+    "Sync Workflow in n8n deployen",
+    "Pattern Extraction Logic implementieren"
+  ]
+}

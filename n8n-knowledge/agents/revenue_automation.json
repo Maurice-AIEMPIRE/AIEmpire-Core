@@ -1,0 +1,69 @@
+{
+  "revenue_automation": {
+    "pipeline": {
+      "stage_1_attract": {
+        "channels": [
+          "X/Twitter content",
+          "SEO blog posts",
+          "YouTube shorts"
+        ],
+        "automation": "n8n Schedule → AI Content Gen → Multi-platform post",
+        "goal": "100 new leads/week"
+      },
+      "stage_2_qualify": {
+        "method": "BANT scoring via AI Agent",
+        "automation": "New lead webhook → AI scores → Route by score",
+        "goal": "20% lead-to-qualified rate"
+      },
+      "stage_3_convert": {
+        "methods": [
+          "Email sequence",
+          "Personalized demo",
+          "Free value delivery"
+        ],
+        "automation": "n8n email sequences + Calendly integration",
+        "goal": "10% qualified-to-customer rate"
+      },
+      "stage_4_deliver": {
+        "products": {
+          "digital": "Gumroad auto-delivery",
+          "service": "AI-assisted Fiverr delivery",
+          "consulting": "BMA + AI consulting package"
+        },
+        "automation": "Webhook → AI generates deliverable → Quality check → Send"
+      },
+      "stage_5_retain": {
+        "methods": [
+          "Upsell sequences",
+          "Customer success check-ins",
+          "Referral program"
+        ],
+        "automation": "n8n sequences + AI personalization"
+      }
+    },
+    "quick_wins": [
+      "Gumroad Webhook → CRM + Email = FIRST REVENUE AUTOMATION",
+      "X/Twitter content schedule = 3x daily automated posts",
+      "BMA landing page + Form → Auto email + CRM = CONSULTING LEADS"
+    ],
+    "revenue_projections": {
+      "month_1": "Focus on Gumroad + Fiverr activation",
+      "month_2": "BMA consulting pipeline live",
+      "month_3": "Full automation, scale X/Twitter reach"
+    }
+  },
+  "insights": [
+    "5-Stage Revenue Pipeline komplett automatisierbar",
+    "Gumroad ist der schnellste Weg zu erstem Revenue",
+    "BMA Consulting hat den hoechsten Deal-Wert",
+    "X/Twitter ist der primaere Lead-Trichter",
+    "AI Agents in jeder Pipeline-Stage fuer Personalisierung"
+  ],
+  "actions": [
+    "Gumroad Account einrichten + erstes Produkt listen",
+    "Fiverr Gigs erstellen (AI Automation Services)",
+    "BMA Landing Page mit Form Trigger",
+    "X/Twitter Content Schedule starten (3x daily)",
+    "Email Sequences in n8n aufsetzen"
+  ]
+}

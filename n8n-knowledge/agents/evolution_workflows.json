@@ -1,0 +1,46 @@
+{
+  "evolution_workflows": {
+    "self_healing": {
+      "description": "Workflow erkennt Fehler und repariert sich selbst",
+      "trigger": "Error Trigger",
+      "flow": "Error → AI analysiert Ursache → Fix vorschlagen → Auto-repair oder Alert",
+      "models": [
+        "Ollama (quick fix)",
+        "Gemini Pro (complex fix)"
+      ]
+    },
+    "ab_testing": {
+      "description": "Verschiedene Workflow-Varianten testen",
+      "trigger": "Schedule",
+      "flow": "Run Variant A + B → Compare results → Keep winner → Generate new variant",
+      "application": "Content generation, email subjects, lead scoring weights"
+    },
+    "performance_optimizer": {
+      "description": "Workflow-Performance automatisch optimieren",
+      "trigger": "Schedule (weekly)",
+      "flow": "Analyze execution times → Find bottlenecks → Suggest optimizations → Apply"
+    },
+    "knowledge_accumulator": {
+      "description": "Lernt aus jedem Workflow-Durchlauf",
+      "trigger": "Every execution",
+      "flow": "Extract patterns → Compare with history → Update knowledge base → Improve next run"
+    },
+    "cross_system_evolution": {
+      "description": "n8n + Gemini Mirror gemeinsame Evolution",
+      "trigger": "Daily",
+      "flow": "n8n insights → Gemini analysis → Improvement suggestions → n8n workflow updates"
+    }
+  },
+  "insights": [
+    "Self-Healing reduziert manuellen Maintenance-Aufwand",
+    "A/B Testing fuer kontinuierliche Verbesserung",
+    "Knowledge Accumulator macht Workflows mit der Zeit besser",
+    "Cross-System Evolution: n8n + Gemini verstaerken sich gegenseitig"
+  ],
+  "actions": [
+    "Error Trigger Workflow mit AI-Analyse erstellen",
+    "A/B Testing Framework fuer Content Workflows",
+    "Execution Analytics Pipeline aufsetzen",
+    "Cross-System Sync mit Gemini Mirror verbinden"
+  ]
+}

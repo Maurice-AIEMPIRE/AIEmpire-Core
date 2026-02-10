@@ -1,0 +1,84 @@
+{
+  "workflows": {
+    "gumroad_sales_pipeline": {
+      "trigger": "Webhook (Gumroad sale event)",
+      "nodes": [
+        "Parse sale data",
+        "Add to CRM",
+        "Send welcome email",
+        "AI personalized follow-up",
+        "Upsell sequence trigger"
+      ],
+      "revenue_impact": "Direct - automates post-sale, increases upsells"
+    },
+    "fiverr_order_processor": {
+      "trigger": "Webhook (Fiverr order)",
+      "nodes": [
+        "Parse requirements",
+        "AI Agent generates deliverable",
+        "Quality check",
+        "Deliver to client",
+        "Request review"
+      ],
+      "revenue_impact": "Direct - automates Fiverr delivery"
+    },
+    "x_twitter_content_engine": {
+      "trigger": "Schedule (3x daily)",
+      "nodes": [
+        "AI Agent generates content",
+        "Check against calendar",
+        "Post to X",
+        "Monitor engagement",
+        "Extract leads from replies"
+      ],
+      "revenue_impact": "Indirect - generates leads and visibility"
+    },
+    "lead_qualification_pipeline": {
+      "trigger": "Webhook (new lead from any source)",
+      "nodes": [
+        "AI Agent scores lead (BANT)",
+        "Route by score",
+        "High score: personal outreach",
+        "Medium: nurture sequence",
+        "Low: content drip"
+      ],
+      "revenue_impact": "Direct - converts leads to customers"
+    },
+    "bma_consulting_funnel": {
+      "trigger": "Form submission + Schedule",
+      "nodes": [
+        "Qualify BMA need",
+        "AI creates proposal",
+        "Send to prospect",
+        "Follow-up sequence",
+        "Schedule call via Calendly"
+      ],
+      "revenue_impact": "High - 2000-10000 EUR per deal"
+    },
+    "daily_revenue_dashboard": {
+      "trigger": "Schedule (daily 07:00)",
+      "nodes": [
+        "Fetch Gumroad sales",
+        "Fetch Fiverr orders",
+        "Fetch CRM deals",
+        "Calculate totals",
+        "Send report to Telegram"
+      ],
+      "revenue_impact": "Indirect - visibility drives decisions"
+    }
+  },
+  "insights": [
+    "6 Revenue-Workflows decken alle Channels ab",
+    "AI Agents in jedem Workflow fuer intelligente Entscheidungen",
+    "BMA Consulting hat hoechsten Einzeldeal-Wert",
+    "X/Twitter ist der Lead-Trichter fuer alles andere",
+    "Gumroad + Fiverr komplett automatisierbar"
+  ],
+  "actions": [
+    "Gumroad Webhook einrichten",
+    "Fiverr API Integration aufsetzen",
+    "X/Twitter API Credentials in n8n",
+    "BMA Landing Page mit Form Trigger verbinden",
+    "Telegram Bot fuer Daily Reports"
+  ]
+}

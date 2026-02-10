@@ -1,0 +1,126 @@
+{
+  "integration_map": {
+    "crm_to_n8n": {
+      "method": "REST API + Direct PostgreSQL",
+      "triggers": [
+        "New lead created",
+        "Deal stage changed",
+        "Activity logged"
+      ],
+      "actions": [
+        "Create lead",
+        "Update deal",
+        "Log activity",
+        "Query leads"
+      ],
+      "port": 3000
+    },
+    "empire_api_to_n8n": {
+      "method": "Webhook + HTTP Request",
+      "triggers": [
+        "System event webhooks"
+      ],
+      "actions": [
+        "Get status",
+        "Execute tasks",
+        "Update config"
+      ],
+      "connection": "Bidirectional webhooks"
+    },
+    "kimi_swarm_to_n8n": {
+      "method": "HTTP Request → Moonshot API",
+      "triggers": [
+        "Schedule (batch processing)"
+      ],
+      "actions": [
+        "Spawn agents",
+        "Collect results",
+        "Route to CRM"
+      ],
+      "api": "https://api.moonshot.ai/v1/chat/completions"
+    },
+    "atomic_reactor_to_n8n": {
+      "method": "File Watch + HTTP Request",
+      "triggers": [
+        "New YAML task file",
+        "Schedule"
+      ],
+      "actions": [
+        "Execute task",
+        "Generate report",
+        "Store results"
+      ]
+    },
+    "gemini_mirror_to_n8n": {
+      "method": "Schedule + File System",
+      "triggers": [
+        "Every 30 min sync cycle"
+      ],
+      "actions": [
+        "Read sync state",
+        "Call Gemini API",
+        "Update memory",
+        "Push artifacts"
+      ]
+    },
+    "brain_system_to_n8n": {
+      "method": "SQLite + HTTP Request",
+      "triggers": [
+        "Synapse messages",
+        "Schedule"
+      ],
+      "actions": [
+        "Route messages between brains",
+        "Execute brain tasks"
+      ]
+    },
+    "x_lead_machine_to_n8n": {
+      "method": "Schedule + X API",
+      "triggers": [
+        "Content schedule",
+        "Lead detection"
+      ],
+      "actions": [
+        "Post content",
+        "Extract leads",
+        "Score engagement"
+      ]
+    },
+    "ollama_to_n8n": {
+      "method": "AI Agent Node → Ollama API",
+      "endpoint": "http://localhost:11434",
+      "models": [
+        "glm-4.7-flash:latest",
+        "qwen2.5-coder:7b"
+      ],
+      "usage": "Primary AI for all agent nodes (free)"
+    },
+    "github_to_n8n": {
+      "method": "GitHub Node + Webhooks",
+      "triggers": [
+        "Push events",
+        "Issue creation",
+        "PR events"
+      ],
+      "actions": [
+        "Create issues",
+        "Update code",
+        "Deploy"
+      ]
+    }
+  },
+  "insights": [
+    "9 Systeme muessen mit n8n verbunden werden",
+    "Ollama ist der primaere AI Provider (kostenlos)",
+    "CRM-Integration ueber Direct DB + REST API",
+    "Gemini Mirror Sync als Schedule-Workflow",
+    "GitHub fuer CI/CD und Issue-basierte Steuerung"
+  ],
+  "actions": [
+    "n8n Credentials fuer alle 9 Systeme einrichten",
+    "Webhook Endpoints in Empire API registrieren",
+    "Ollama Connection testen",
+    "CRM PostgreSQL Credentials konfigurieren",
+    "GitHub Webhook fuer Auto-Deploy"
+  ]
+}

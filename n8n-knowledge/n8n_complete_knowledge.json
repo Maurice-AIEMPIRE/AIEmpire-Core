@@ -1,0 +1,382 @@
+{
+  "meta": {
+    "source": "n8n-io/n8n GitHub + docs.n8n.io + community",
+    "scraped_at": "2026-02-10",
+    "version": "n8n 2.2.4",
+    "purpose": "Complete n8n knowledge base for AIEmpire AI learning"
+  },
+
+  "core": {
+    "name": "n8n",
+    "meaning": "node to node (nodemation)",
+    "type": "Open-source workflow automation platform",
+    "license": "Sustainable Use License (fair-code)",
+    "repo": "https://github.com/n8n-io/n8n",
+    "docs": "https://docs.n8n.io",
+    "version": "2.2.4",
+    "language": "TypeScript/Node.js",
+    "founded": 2019,
+    "integrations": "500+",
+    "community_nodes": 5834,
+    "templates": "1700+",
+    "default_port": 5678,
+    "database_default": "SQLite",
+    "database_production": "PostgreSQL"
+  },
+
+  "architecture": {
+    "editor": {
+      "description": "Visual drag-and-drop workflow editor",
+      "framework": "Vue.js",
+      "features": ["Canvas editor", "Inline debugging", "Branch merging", "Conditional logic", "Error handling", "Execution preview"]
+    },
+    "execution_engine": {
+      "description": "Runs workflows step-by-step based on JSON definitions",
+      "features": ["Data transfer between nodes", "Error handling", "Logging", "Queue mode for scaling", "Task runners"]
+    },
+    "api": {
+      "spec": "OpenAPI 3.0",
+      "type": "REST",
+      "auth": "API Key / User session",
+      "endpoints": {
+        "workflows": {
+          "create": "POST /workflows",
+          "get": "GET /workflows/:id",
+          "update": "PATCH /workflows/:id",
+          "delete": "DELETE /workflows/:id",
+          "activate": "POST /workflows/:id/activate",
+          "deactivate": "POST /workflows/:id/deactivate",
+          "archive": "POST /workflows/:id/archive",
+          "list": "GET /workflows"
+        },
+        "executions": {
+          "get": "GET /executions/:id",
+          "list": "GET /executions",
+          "delete": "DELETE /executions/:id"
+        },
+        "credentials": {
+          "create": "POST /credentials",
+          "get": "GET /credentials/:id",
+          "update": "PATCH /credentials/:id",
+          "delete": "DELETE /credentials/:id",
+          "list": "GET /credentials",
+          "for_workflow": "GET /credentials/for-workflow"
+        }
+      }
+    },
+    "database": {
+      "supported": ["SQLite", "PostgreSQL"],
+      "stores": ["Workflow definitions", "User data", "Credentials (encrypted)", "Execution logs"]
+    }
+  },
+
+  "node_types": {
+    "trigger_nodes": {
+      "description": "Initiate workflows based on events",
+      "examples": [
+        "Webhook Trigger", "Schedule Trigger", "Chat Trigger",
+        "Email Trigger (IMAP)", "Kafka Trigger", "AMQP Trigger",
+        "Cron Trigger", "RSS Feed Trigger", "Form Trigger",
+        "Manual Trigger", "Error Trigger"
+      ]
+    },
+    "core_nodes": {
+      "description": "Logic, scheduling, generic API calls",
+      "nodes": [
+        "HTTP Request", "Code (JavaScript/Python)", "IF", "Switch",
+        "Merge", "Set", "Function", "Split In Batches",
+        "Wait", "No Operation", "Execute Workflow",
+        "Respond to Webhook", "Send Email", "SSH",
+        "FTP", "Execute Command", "Read/Write Files",
+        "Crypto", "Date & Time", "HTML Extract",
+        "JSON", "XML", "Markdown", "Compression",
+        "RSS Read", "GraphQL", "SOAP", "n8n (self-API)"
+      ]
+    },
+    "cluster_nodes": {
+      "description": "Group of root + sub-nodes",
+      "types": ["AI Agent", "QA Chain", "Summarization Chain", "Custom Chain"]
+    },
+    "ai_nodes": {
+      "description": "AI and LangChain integration nodes",
+      "agent_types": [
+        "Tools Agent (recommended)",
+        "OpenAI Functions Agent",
+        "ReAct Agent",
+        "Conversational Agent",
+        "Plan and Execute Agent"
+      ],
+      "model_nodes": [
+        "OpenAI Chat Model (GPT-4o, GPT-4.1)",
+        "Anthropic Chat Model (Claude 3.5/4)",
+        "Google Gemini Chat Model",
+        "Azure OpenAI Chat Model",
+        "Ollama Chat Model (local)",
+        "Hugging Face Chat Model",
+        "Groq Chat Model",
+        "Mistral Chat Model",
+        "Cohere Chat Model"
+      ],
+      "memory_nodes": [
+        "Window Buffer Memory",
+        "Summary Buffer Memory",
+        "Redis Chat Memory",
+        "Postgres Chat Memory",
+        "Supabase Vector Memory",
+        "Simple Memory"
+      ],
+      "vector_stores": [
+        "Simple Vector Store (in-memory)",
+        "Pinecone Vector Store",
+        "Qdrant Vector Store",
+        "PGVector Vector Store",
+        "Weaviate Vector Store",
+        "Supabase Vector Store",
+        "Chroma Vector Store"
+      ],
+      "tools": [
+        "Calculator Tool",
+        "Code Tool (custom JS/Python)",
+        "HTTP Request Tool",
+        "Wikipedia Tool",
+        "SerpAPI Tool (web search)",
+        "Wolfram Alpha Tool",
+        "Workflow Tool (call n8n workflows)",
+        "Vector Store Tool",
+        "MCP Client Tool"
+      ],
+      "document_loaders": [
+        "PDF Loader", "CSV Loader", "JSON Loader",
+        "Text Loader", "GitHub Loader", "Notion Loader",
+        "Google Drive Loader", "Confluence Loader"
+      ],
+      "text_splitters": [
+        "Character Text Splitter",
+        "Token Text Splitter",
+        "Recursive Character Text Splitter"
+      ],
+      "embeddings": [
+        "OpenAI Embeddings", "Cohere Embeddings",
+        "Hugging Face Embeddings", "Ollama Embeddings",
+        "Google Gemini Embeddings", "Azure OpenAI Embeddings"
+      ],
+      "output_parsers": [
+        "Structured Output Parser",
+        "Auto-fixing Output Parser",
+        "Item List Output Parser"
+      ],
+      "guardrails": {
+        "description": "Rules controlling AI agent behavior",
+        "operations": ["Check text for violations (NSFW, prompt injection)", "Sanitize text (replace PII, URLs, secrets)"]
+      }
+    }
+  },
+
+  "popular_integrations": {
+    "communication": ["Slack", "Discord", "Telegram", "Microsoft Teams", "WhatsApp", "Twilio"],
+    "email": ["Gmail", "Microsoft Outlook", "IMAP", "SMTP", "Mailchimp", "SendGrid"],
+    "crm": ["Salesforce", "HubSpot", "Pipedrive", "Zoho CRM", "Freshsales"],
+    "project_management": ["Jira", "Asana", "Trello", "Monday.com", "ClickUp", "Notion", "Linear"],
+    "cloud_storage": ["Google Drive", "Dropbox", "OneDrive", "Box", "Nextcloud", "S3"],
+    "databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Supabase", "Airtable", "Google Sheets"],
+    "ai_ml": ["OpenAI", "Anthropic Claude", "Google Gemini", "Hugging Face", "Ollama", "Cohere", "Replicate"],
+    "devops": ["GitHub", "GitLab", "Bitbucket", "Docker", "Kubernetes", "Jenkins", "CircleCI"],
+    "ecommerce": ["Shopify", "WooCommerce", "Stripe", "PayPal", "Gumroad"],
+    "social_media": ["Twitter/X", "Facebook", "LinkedIn", "Instagram", "TikTok", "YouTube"],
+    "analytics": ["Google Analytics", "Segment", "Mixpanel", "PostHog"],
+    "marketing": ["Mailchimp", "ActiveCampaign", "ConvertKit", "Brevo"],
+    "productivity": ["Google Calendar", "Google Docs", "Microsoft 365", "Todoist", "Calendly"],
+    "support": ["Zendesk", "Freshdesk", "Intercom", "Crisp"],
+    "automation": ["Webhook", "Cron", "RSS", "MQTT", "AMQP", "Kafka"]
+  },
+
+  "self_hosting": {
+    "docker": {
+      "image": "n8nio/n8n",
+      "port": 5678,
+      "data_volume": "/home/node/.n8n",
+      "basic_run": "docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n",
+      "compose_example": {
+        "services": {
+          "n8n": {
+            "image": "n8nio/n8n",
+            "ports": ["5678:5678"],
+            "environment": {
+              "N8N_HOST": "0.0.0.0",
+              "N8N_PORT": "5678",
+              "N8N_PROTOCOL": "https",
+              "WEBHOOK_URL": "https://your-domain.com/",
+              "N8N_ENCRYPTION_KEY": "your-encryption-key",
+              "DB_TYPE": "postgresdb",
+              "DB_POSTGRESDB_HOST": "postgres",
+              "DB_POSTGRESDB_PORT": "5432",
+              "DB_POSTGRESDB_DATABASE": "n8n",
+              "DB_POSTGRESDB_USER": "n8n",
+              "DB_POSTGRESDB_PASSWORD": "secret",
+              "GENERIC_TIMEZONE": "Europe/Berlin",
+              "TZ": "Europe/Berlin"
+            },
+            "volumes": ["n8n_data:/home/node/.n8n"]
+          }
+        }
+      }
+    },
+    "environment_variables": {
+      "core": {
+        "N8N_HOST": "Host for n8n (default: localhost)",
+        "N8N_PORT": "Port (default: 5678)",
+        "N8N_PROTOCOL": "http or https",
+        "N8N_ENCRYPTION_KEY": "Key for encrypting credentials",
+        "WEBHOOK_URL": "Public URL for webhooks"
+      },
+      "database": {
+        "DB_TYPE": "sqlite or postgresdb",
+        "DB_POSTGRESDB_HOST": "PostgreSQL host",
+        "DB_POSTGRESDB_PORT": "PostgreSQL port (5432)",
+        "DB_POSTGRESDB_DATABASE": "Database name",
+        "DB_POSTGRESDB_USER": "Database user",
+        "DB_POSTGRESDB_PASSWORD": "Database password"
+      },
+      "execution": {
+        "EXECUTIONS_MODE": "regular or queue",
+        "EXECUTIONS_TIMEOUT": "Max execution time (seconds)",
+        "EXECUTIONS_TIMEOUT_MAX": "Max user-settable timeout",
+        "EXECUTIONS_DATA_SAVE_ON_ERROR": "all, none",
+        "EXECUTIONS_DATA_SAVE_ON_SUCCESS": "all, none",
+        "EXECUTIONS_DATA_PRUNE": "true/false",
+        "EXECUTIONS_DATA_MAX_AGE": "Hours to keep data"
+      },
+      "queue": {
+        "QUEUE_BULL_REDIS_HOST": "Redis host for queue mode",
+        "QUEUE_BULL_REDIS_PORT": "Redis port",
+        "QUEUE_BULL_REDIS_DB": "Redis DB number",
+        "QUEUE_HEALTH_CHECK_ACTIVE": "Enable health check"
+      },
+      "security": {
+        "N8N_BASIC_AUTH_ACTIVE": "deprecated - use user management",
+        "N8N_USER_MANAGEMENT_DISABLED": "Disable user management",
+        "N8N_SECURITY_AUDIT_DAYS_INTERVAL": "Audit interval"
+      },
+      "timezone": {
+        "GENERIC_TIMEZONE": "Timezone for schedule nodes",
+        "TZ": "System timezone"
+      }
+    },
+    "scaling": {
+      "queue_mode": "Distribute execution across multiple workers via Redis",
+      "workers": "Run n8n worker instances for horizontal scaling",
+      "monitoring": "Prometheus + Grafana for runtime and failure patterns",
+      "database": "PostgreSQL required for production (not SQLite)"
+    },
+    "security_best_practices": [
+      "Always use HTTPS in production",
+      "Set N8N_ENCRYPTION_KEY for credential encryption",
+      "Use PostgreSQL instead of SQLite for production",
+      "Enable user management (disable basic auth)",
+      "Use reverse proxy (Traefik/Nginx) with auto-SSL",
+      "Set API keys as environment variables not in workflows",
+      "Regular backups of data volume"
+    ]
+  },
+
+  "ai_agent_patterns": {
+    "basic_chat_agent": {
+      "description": "Simple conversational AI agent",
+      "nodes": ["Chat Trigger", "AI Agent (Tools)", "OpenAI Chat Model", "Window Buffer Memory"],
+      "flow": "Chat Trigger → AI Agent → Response"
+    },
+    "rag_agent": {
+      "description": "Retrieval Augmented Generation with documents",
+      "nodes": ["Chat Trigger", "AI Agent", "Vector Store Tool", "PGVector Store", "OpenAI Embeddings"],
+      "flow": "Chat Trigger → AI Agent → Vector Store Tool → PGVector → Response"
+    },
+    "multi_tool_agent": {
+      "description": "Agent with multiple tools (search, calculate, code)",
+      "nodes": ["Chat Trigger", "AI Agent", "SerpAPI Tool", "Calculator Tool", "Code Tool", "HTTP Request Tool"],
+      "flow": "Agent decides which tool to use based on query"
+    },
+    "document_processor": {
+      "description": "Ingest and process documents for RAG",
+      "nodes": ["Manual Trigger", "Google Drive Loader", "Text Splitter", "OpenAI Embeddings", "PGVector Insert"],
+      "flow": "Load docs → Split → Embed → Store in vector DB"
+    },
+    "workflow_as_tool": {
+      "description": "Any n8n workflow can be a tool for an agent",
+      "nodes": ["AI Agent", "Workflow Tool (references another workflow)"],
+      "flow": "Agent decides to call sub-workflow when needed"
+    },
+    "self_healing_workflow": {
+      "description": "Workflow that detects and corrects errors",
+      "nodes": ["Error Trigger", "AI Agent", "HTTP Request", "IF node"],
+      "flow": "Error → AI analyzes → Suggests fix → Re-executes"
+    }
+  },
+
+  "workflow_patterns_for_aiempire": {
+    "lead_generation": {
+      "description": "Automated lead gen from X/Twitter + CRM storage",
+      "nodes": ["Schedule Trigger", "HTTP Request (X API)", "AI Agent (qualify leads)", "IF (score > threshold)", "HTTP Request (CRM API)"],
+      "relevance": "Direct revenue impact - find and qualify leads automatically"
+    },
+    "content_pipeline": {
+      "description": "AI-powered content creation and scheduling",
+      "nodes": ["Schedule Trigger", "AI Agent (generate content)", "Google Sheets (content calendar)", "HTTP Request (post to X)"],
+      "relevance": "X/Twitter content automation for lead gen"
+    },
+    "gumroad_automation": {
+      "description": "Automated product delivery and follow-up",
+      "nodes": ["Webhook (Gumroad sale)", "Email (send welcome)", "CRM (add customer)", "AI Agent (personalized follow-up)"],
+      "relevance": "Revenue channel activation"
+    },
+    "fiverr_order_processor": {
+      "description": "Process Fiverr orders with AI",
+      "nodes": ["Webhook (order)", "AI Agent (process requirements)", "Code (generate deliverable)", "Email (deliver)"],
+      "relevance": "Revenue channel activation"
+    },
+    "system_health_monitor": {
+      "description": "Monitor all AIEmpire systems",
+      "nodes": ["Schedule Trigger (every 5min)", "HTTP Request (check endpoints)", "IF (unhealthy)", "Slack/Telegram alert"],
+      "relevance": "System reliability"
+    },
+    "gemini_mirror_sync": {
+      "description": "Sync artifacts between Claude and Gemini via n8n",
+      "nodes": ["Schedule Trigger", "Code (read sync state)", "HTTP Request (Gemini API)", "Code (merge results)", "Git push"],
+      "relevance": "Dual system evolution automation"
+    },
+    "vision_discovery_scheduler": {
+      "description": "Auto-generate and deliver vision questions",
+      "nodes": ["Schedule Trigger (08:00/19:00)", "Code (generate questions)", "Telegram/Email (deliver to Maurice)"],
+      "relevance": "Vision discovery automation"
+    },
+    "bma_consulting_pipeline": {
+      "description": "BMA + AI consulting lead pipeline",
+      "nodes": ["Form Trigger", "AI Agent (qualify)", "CRM (store)", "Email (follow-up)", "Calendar (schedule call)"],
+      "relevance": "Unique niche revenue - BMA consulting"
+    }
+  },
+
+  "code_examples": {
+    "docker_compose_production": "version: '3.8'\nservices:\n  n8n:\n    image: n8nio/n8n:latest\n    restart: always\n    ports:\n      - '5678:5678'\n    environment:\n      - N8N_HOST=0.0.0.0\n      - N8N_PORT=5678\n      - N8N_PROTOCOL=https\n      - N8N_ENCRYPTION_KEY=${N8N_ENCRYPTION_KEY}\n      - DB_TYPE=postgresdb\n      - DB_POSTGRESDB_HOST=postgres\n      - DB_POSTGRESDB_PORT=5432\n      - DB_POSTGRESDB_DATABASE=n8n\n      - DB_POSTGRESDB_USER=n8n\n      - DB_POSTGRESDB_PASSWORD=${DB_PASSWORD}\n      - GENERIC_TIMEZONE=Europe/Berlin\n      - EXECUTIONS_MODE=queue\n      - QUEUE_BULL_REDIS_HOST=redis\n    volumes:\n      - n8n_data:/home/node/.n8n\n    depends_on:\n      - postgres\n      - redis\n  postgres:\n    image: postgres:16\n    restart: always\n    environment:\n      - POSTGRES_DB=n8n\n      - POSTGRES_USER=n8n\n      - POSTGRES_PASSWORD=${DB_PASSWORD}\n    volumes:\n      - postgres_data:/var/lib/postgresql/data\n  redis:\n    image: redis:7-alpine\n    restart: always\n    volumes:\n      - redis_data:/data\nvolumes:\n  n8n_data:\n  postgres_data:\n  redis_data:",
+    "api_create_workflow": "curl -X POST http://localhost:5678/api/v1/workflows \\\n  -H 'X-N8N-API-KEY: your-api-key' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"name\": \"My Workflow\", \"nodes\": [], \"connections\": {}}'",
+    "api_execute_workflow": "curl -X POST http://localhost:5678/api/v1/workflows/{id}/execute \\\n  -H 'X-N8N-API-KEY: your-api-key' \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"data\": {\"key\": \"value\"}}'",
+    "python_n8n_api_client": "import aiohttp\n\nclass N8NClient:\n    def __init__(self, base_url='http://localhost:5678', api_key=''):\n        self.base_url = base_url\n        self.headers = {'X-N8N-API-KEY': api_key, 'Content-Type': 'application/json'}\n\n    async def list_workflows(self):\n        async with aiohttp.ClientSession() as s:\n            async with s.get(f'{self.base_url}/api/v1/workflows', headers=self.headers) as r:\n                return await r.json()\n\n    async def execute_workflow(self, workflow_id, data=None):\n        async with aiohttp.ClientSession() as s:\n            async with s.post(f'{self.base_url}/api/v1/workflows/{workflow_id}/execute',\n                              headers=self.headers, json={'data': data or {}}) as r:\n                return await r.json()"
+  },
+
+  "faq": [
+    {"q": "Was ist n8n?", "a": "Open-source Workflow-Automatisierung mit 500+ Integrationen, Visual Editor, AI-Agents, und Self-Hosting."},
+    {"q": "Ist n8n kostenlos?", "a": "Self-hosted ist kostenlos (Sustainable Use License). Cloud-Pläne ab $20/Monat."},
+    {"q": "Welche Datenbank?", "a": "SQLite (dev), PostgreSQL (production). Redis für Queue-Modus."},
+    {"q": "Wie skaliert n8n?", "a": "Queue-Modus mit Redis, mehrere Worker-Instanzen, PostgreSQL als DB."},
+    {"q": "AI Agents in n8n?", "a": "Ja - LangChain-basiert. Tools Agent empfohlen. OpenAI, Claude, Gemini, Ollama Support."},
+    {"q": "MCP Support?", "a": "Ja - MCP Client Node für remote MCP Server Verbindung."},
+    {"q": "Python in n8n?", "a": "Ja - Native Python Execution seit 2026 neben JavaScript."},
+    {"q": "Vector Stores?", "a": "Pinecone, Qdrant, PGVector, Weaviate, Supabase, Chroma, In-Memory."},
+    {"q": "RAG in n8n?", "a": "Ja - Document Loader → Text Splitter → Embeddings → Vector Store → AI Agent."},
+    {"q": "Webhooks?", "a": "Ja - Webhook Trigger für externe Events. WEBHOOK_URL env var für public URL."},
+    {"q": "Guardrails?", "a": "Ja - Guardrails Node für NSFW-Check, Prompt Injection Detection, PII Sanitization."},
+    {"q": "Self-Healing?", "a": "Ja - Error Trigger + AI Agent können Fehler automatisch analysieren und beheben."},
+    {"q": "n8n API?", "a": "REST API (OpenAPI 3.0) für Workflows, Executions, Credentials. API Key Auth."},
+    {"q": "Docker Setup?", "a": "docker run -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n"},
+    {"q": "Community Nodes?", "a": "5834+ Community Nodes. Installation über n8n UI oder npm."}
+  ]
+}

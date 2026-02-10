@@ -1,0 +1,96 @@
+{
+  "docker_compose": {
+    "services": {
+      "n8n": {
+        "image": "n8nio/n8n:latest",
+        "restart": "always",
+        "ports": [
+          "5678:5678"
+        ],
+        "environment": {
+          "N8N_HOST": "0.0.0.0",
+          "N8N_PORT": "5678",
+          "N8N_PROTOCOL": "https",
+          "N8N_ENCRYPTION_KEY": "${N8N_ENCRYPTION_KEY}",
+          "DB_TYPE": "postgresdb",
+          "DB_POSTGRESDB_HOST": "postgres",
+          "DB_POSTGRESDB_PORT": "5432",
+          "DB_POSTGRESDB_DATABASE": "n8n",
+          "DB_POSTGRESDB_USER": "n8n",
+          "DB_POSTGRESDB_PASSWORD": "${N8N_DB_PASSWORD}",
+          "GENERIC_TIMEZONE": "Europe/Berlin",
+          "TZ": "Europe/Berlin",
+          "EXECUTIONS_MODE": "queue",
+          "QUEUE_BULL_REDIS_HOST": "redis",
+          "QUEUE_BULL_REDIS_PORT": "6379",
+          "N8N_METRICS": "true",
+          "N8N_DIAGNOSTICS_ENABLED": "false"
+        },
+        "volumes": [
+          "n8n_data:/home/node/.n8n"
+        ],
+        "depends_on": [
+          "postgres",
+          "redis"
+        ]
+      },
+      "n8n_worker": {
+        "image": "n8nio/n8n:latest",
+        "restart": "always",
+        "command": "worker",
+        "environment": "same as n8n (minus port)",
+        "depends_on": [
+          "postgres",
+          "redis",
+          "n8n"
+        ],
+        "note": "Horizontal scaling - add more workers as needed"
+      },
+      "postgres": {
+        "image": "postgres:16-alpine",
+        "restart": "always",
+        "environment": {
+          "POSTGRES_DB": "n8n",
+          "POSTGRES_USER": "n8n",
+          "POSTGRES_PASSWORD": "${N8N_DB_PASSWORD}"
+        },
+        "volumes": [
+          "postgres_data:/var/lib/postgresql/data"
+        ],
+        "note": "Shared with CRM when migrated from SQLite"
+      },
+      "redis": {
+        "image": "redis:7-alpine",
+        "restart": "always",
+        "volumes": [
+          "redis_data:/data"
+        ],
+        "note": "Used for queue mode + AI agent memory"
+      }
+    },
+    "volumes": [
+      "n8n_data",
+      "postgres_data",
+      "redis_data"
+    ]
+  },
+  "scaling_strategy": {
+    "phase_1": "Single n8n instance (handles 100+ workflows)",
+    "phase_2": "Add worker for queue mode (1000+ executions/day)",
+    "phase_3": "Multiple workers + load balancer (10K+ executions/day)"
+  },
+  "insights": [
+    "Queue-Modus mit Redis fuer parallele Ausfuehrung",
+    "PostgreSQL statt SQLite fuer Production",
+    "Worker-Instanzen fuer horizontale Skalierung",
+    "Redis shared mit bestehendem Redis Stack",
+    "Metrics aktiviert fuer Prometheus/Grafana Monitoring"
+  ],
+  "actions": [
+    "docker-compose.yaml erstellen mit n8n + postgres + redis",
+    "Environment Variables in .env File",
+    "N8N_ENCRYPTION_KEY generieren",
+    "Traefik Reverse Proxy konfigurieren",
+    "Backup-Strategie fuer PostgreSQL"
+  ]
+}

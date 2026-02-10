@@ -1,0 +1,2215 @@
+[
+  {
+    "id": "mem_1770729875009_6218",
+    "category": "technical",
+    "key": "n8n_name",
+    "value": "n8n",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.009161+00:00",
+    "updated_at": "2026-02-10T13:24:35.009161+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875009_1676",
+    "category": "technical",
+    "key": "n8n_meaning",
+    "value": "node to node (nodemation)",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.009785+00:00",
+    "updated_at": "2026-02-10T13:24:35.009785+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875010_198",
+    "category": "technical",
+    "key": "n8n_type",
+    "value": "Open-source workflow automation platform",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.010477+00:00",
+    "updated_at": "2026-02-10T13:24:35.010477+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875011_7737",
+    "category": "technical",
+    "key": "n8n_license",
+    "value": "Sustainable Use License (fair-code)",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.011081+00:00",
+    "updated_at": "2026-02-10T13:24:35.011081+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875011_7659",
+    "category": "technical",
+    "key": "n8n_repo",
+    "value": "https://github.com/n8n-io/n8n",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.011795+00:00",
+    "updated_at": "2026-02-10T13:24:35.011795+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875012_8425",
+    "category": "technical",
+    "key": "n8n_docs",
+    "value": "https://docs.n8n.io",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.012435+00:00",
+    "updated_at": "2026-02-10T13:24:35.012435+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875012_6786",
+    "category": "technical",
+    "key": "n8n_version",
+    "value": "2.2.4",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.013001+00:00",
+    "updated_at": "2026-02-10T13:24:35.013001+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875013_2566",
+    "category": "technical",
+    "key": "n8n_language",
+    "value": "TypeScript/Node.js",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.013608+00:00",
+    "updated_at": "2026-02-10T13:24:35.013608+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875014_8724",
+    "category": "technical",
+    "key": "n8n_founded",
+    "value": "2019",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.014368+00:00",
+    "updated_at": "2026-02-10T13:24:35.014368+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875014_8452",
+    "category": "technical",
+    "key": "n8n_integrations",
+    "value": "500+",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.014953+00:00",
+    "updated_at": "2026-02-10T13:24:35.014953+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875015_1540",
+    "category": "technical",
+    "key": "n8n_community_nodes",
+    "value": "5834",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.015568+00:00",
+    "updated_at": "2026-02-10T13:24:35.015568+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875016_4162",
+    "category": "technical",
+    "key": "n8n_templates",
+    "value": "1700+",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.016482+00:00",
+    "updated_at": "2026-02-10T13:24:35.016482+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875017_7645",
+    "category": "technical",
+    "key": "n8n_default_port",
+    "value": "5678",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.017164+00:00",
+    "updated_at": "2026-02-10T13:24:35.017164+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875017_3452",
+    "category": "technical",
+    "key": "n8n_database_default",
+    "value": "SQLite",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.017956+00:00",
+    "updated_at": "2026-02-10T13:24:35.017956+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875018_6342",
+    "category": "technical",
+    "key": "n8n_database_production",
+    "value": "PostgreSQL",
+    "confidence": 0.95,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.018663+00:00",
+    "updated_at": "2026-02-10T13:24:35.018663+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875019_2564",
+    "category": "technical",
+    "key": "n8n_architecture",
+    "value": "{\"editor\": {\"description\": \"Visual drag-and-drop workflow editor\", \"framework\": \"Vue.js\", \"features\": [\"Canvas editor\", \"Inline debugging\", \"Branch merging\", \"Conditional logic\", \"Error handling\", \"Execution preview\"]}, \"execution_engine\": {\"description\": \"Runs workflows step-by-step based on JSON definitions\", \"features\": [\"Data transfer between nodes\", \"Error handling\", \"Logging\", \"Queue mode for scaling\", \"Task runners\"]}, \"api\": {\"spec\": \"OpenAPI 3.0\", \"type\": \"REST\", \"auth\": \"API Key / User",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.019374+00:00",
+    "updated_at": "2026-02-10T13:24:35.019374+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875020_9803",
+    "category": "technical",
+    "key": "n8n_api_workflows",
+    "value": "{\"create\": \"POST /workflows\", \"get\": \"GET /workflows/:id\", \"update\": \"PATCH /workflows/:id\", \"delete\": \"DELETE /workflows/:id\", \"activate\": \"POST /workflows/:id/activate\", \"deactivate\": \"POST /workflows/:id/deactivate\", \"archive\": \"POST /workflows/:id/archive\", \"list\": \"GET /workflows\"}",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.020109+00:00",
+    "updated_at": "2026-02-10T13:24:35.020109+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875020_7723",
+    "category": "technical",
+    "key": "n8n_api_executions",
+    "value": "{\"get\": \"GET /executions/:id\", \"list\": \"GET /executions\", \"delete\": \"DELETE /executions/:id\"}",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.020815+00:00",
+    "updated_at": "2026-02-10T13:24:35.020815+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875021_2765",
+    "category": "technical",
+    "key": "n8n_api_credentials",
+    "value": "{\"create\": \"POST /credentials\", \"get\": \"GET /credentials/:id\", \"update\": \"PATCH /credentials/:id\", \"delete\": \"DELETE /credentials/:id\", \"list\": \"GET /credentials\", \"for_workflow\": \"GET /credentials/for-workflow\"}",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.021516+00:00",
+    "updated_at": "2026-02-10T13:24:35.021516+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875022_6512",
+    "category": "technical",
+    "key": "n8n_ai_description",
+    "value": "\"AI and LangChain integration nodes\"",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.022371+00:00",
+    "updated_at": "2026-02-10T13:24:35.022371+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875023_7043",
+    "category": "technical",
+    "key": "n8n_ai_agent_types",
+    "value": "[\"Tools Agent (recommended)\", \"OpenAI Functions Agent\", \"ReAct Agent\", \"Conversational Agent\", \"Plan and Execute Agent\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.023132+00:00",
+    "updated_at": "2026-02-10T13:24:35.023132+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875024_656",
+    "category": "technical",
+    "key": "n8n_ai_model_nodes",
+    "value": "[\"OpenAI Chat Model (GPT-4o, GPT-4.1)\", \"Anthropic Chat Model (Claude 3.5/4)\", \"Google Gemini Chat Model\", \"Azure OpenAI Chat Model\", \"Ollama Chat Model (local)\", \"Hugging Face Chat Model\", \"Groq Chat Model\", \"Mistral Chat Model\", \"Cohere Chat Model\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.024074+00:00",
+    "updated_at": "2026-02-10T13:24:35.024074+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875024_8190",
+    "category": "technical",
+    "key": "n8n_ai_memory_nodes",
+    "value": "[\"Window Buffer Memory\", \"Summary Buffer Memory\", \"Redis Chat Memory\", \"Postgres Chat Memory\", \"Supabase Vector Memory\", \"Simple Memory\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.024987+00:00",
+    "updated_at": "2026-02-10T13:24:35.024987+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875025_2597",
+    "category": "technical",
+    "key": "n8n_ai_vector_stores",
+    "value": "[\"Simple Vector Store (in-memory)\", \"Pinecone Vector Store\", \"Qdrant Vector Store\", \"PGVector Vector Store\", \"Weaviate Vector Store\", \"Supabase Vector Store\", \"Chroma Vector Store\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.025913+00:00",
+    "updated_at": "2026-02-10T13:24:35.025913+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875026_3654",
+    "category": "technical",
+    "key": "n8n_ai_tools",
+    "value": "[\"Calculator Tool\", \"Code Tool (custom JS/Python)\", \"HTTP Request Tool\", \"Wikipedia Tool\", \"SerpAPI Tool (web search)\", \"Wolfram Alpha Tool\", \"Workflow Tool (call n8n workflows)\", \"Vector Store Tool\", \"MCP Client Tool\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.026746+00:00",
+    "updated_at": "2026-02-10T13:24:35.026746+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875027_7367",
+    "category": "technical",
+    "key": "n8n_ai_document_loaders",
+    "value": "[\"PDF Loader\", \"CSV Loader\", \"JSON Loader\", \"Text Loader\", \"GitHub Loader\", \"Notion Loader\", \"Google Drive Loader\", \"Confluence Loader\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.027576+00:00",
+    "updated_at": "2026-02-10T13:24:35.027576+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875028_6249",
+    "category": "technical",
+    "key": "n8n_ai_text_splitters",
+    "value": "[\"Character Text Splitter\", \"Token Text Splitter\", \"Recursive Character Text Splitter\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.028372+00:00",
+    "updated_at": "2026-02-10T13:24:35.028372+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875029_8319",
+    "category": "technical",
+    "key": "n8n_ai_embeddings",
+    "value": "[\"OpenAI Embeddings\", \"Cohere Embeddings\", \"Hugging Face Embeddings\", \"Ollama Embeddings\", \"Google Gemini Embeddings\", \"Azure OpenAI Embeddings\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.029206+00:00",
+    "updated_at": "2026-02-10T13:24:35.029206+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875030_3664",
+    "category": "technical",
+    "key": "n8n_ai_output_parsers",
+    "value": "[\"Structured Output Parser\", \"Auto-fixing Output Parser\", \"Item List Output Parser\"]",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.030068+00:00",
+    "updated_at": "2026-02-10T13:24:35.030068+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875031_1746",
+    "category": "technical",
+    "key": "n8n_ai_guardrails",
+    "value": "{\"description\": \"Rules controlling AI agent behavior\", \"operations\": [\"Check text for violations (NSFW, prompt injection)\", \"Sanitize text (replace PII, URLs, secrets)\"]}",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.031008+00:00",
+    "updated_at": "2026-02-10T13:24:35.031008+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875032_840",
+    "category": "technical",
+    "key": "n8n_docker_config",
+    "value": "{\"image\": \"n8nio/n8n\", \"port\": 5678, \"data_volume\": \"/home/node/.n8n\", \"basic_run\": \"docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n\", \"compose_example\": {\"services\": {\"n8n\": {\"image\": \"n8nio/n8n\", \"ports\": [\"5678:5678\"], \"environment\": {\"N8N_HOST\": \"0.0.0.0\", \"N8N_PORT\": \"5678\", \"N8N_PROTOCOL\": \"https\", \"WEBHOOK_URL\": \"https://your-domain.com/\", \"N8N_ENCRYPTION_KEY\": \"your-encryption-key\", \"DB_TYPE\": \"postgresdb\", \"DB_POSTGRESDB_HOST\": \"postgres\", \"DB_POSTGRESD",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.032045+00:00",
+    "updated_at": "2026-02-10T13:24:35.032045+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875032_5552",
+    "category": "technical",
+    "key": "n8n_env_vars",
+    "value": "{\"core\": {\"N8N_HOST\": \"Host for n8n (default: localhost)\", \"N8N_PORT\": \"Port (default: 5678)\", \"N8N_PROTOCOL\": \"http or https\", \"N8N_ENCRYPTION_KEY\": \"Key for encrypting credentials\", \"WEBHOOK_URL\": \"Public URL for webhooks\"}, \"database\": {\"DB_TYPE\": \"sqlite or postgresdb\", \"DB_POSTGRESDB_HOST\": \"PostgreSQL host\", \"DB_POSTGRESDB_PORT\": \"PostgreSQL port (5432)\", \"DB_POSTGRESDB_DATABASE\": \"Database name\", \"DB_POSTGRESDB_USER\": \"Database user\", \"DB_POSTGRESDB_PASSWORD\": \"Database password\"}, \"execu",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.032985+00:00",
+    "updated_at": "2026-02-10T13:24:35.032985+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875034_3524",
+    "category": "technical",
+    "key": "n8n_scaling",
+    "value": "{\"queue_mode\": \"Distribute execution across multiple workers via Redis\", \"workers\": \"Run n8n worker instances for horizontal scaling\", \"monitoring\": \"Prometheus + Grafana for runtime and failure patterns\", \"database\": \"PostgreSQL required for production (not SQLite)\"}",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.034117+00:00",
+    "updated_at": "2026-02-10T13:24:35.034117+00:00",
+    "reinforced_count": 0,
+    "tags": [],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875035_5440",
+    "category": "patterns",
+    "key": "n8n_workflow_lead_generation",
+    "value": "{\"description\": \"Automated lead gen from X/Twitter + CRM storage\", \"nodes\": [\"Schedule Trigger\", \"HTTP Request (X API)\", \"AI Agent (qualify leads)\", \"IF (score > threshold)\", \"HTTP Request (CRM API)\"], \"relevance\": \"Direct revenue impact - find and qualify leads automatically\"}",
+    "confidence": 0.85,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.035061+00:00",
+    "updated_at": "2026-02-10T13:24:35.035061+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "workflow",
+      "revenue"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875036_6905",
+    "category": "patterns",
+    "key": "n8n_workflow_content_pipeline",
+    "value": "{\"description\": \"AI-powered content creation and scheduling\", \"nodes\": [\"Schedule Trigger\", \"AI Agent (generate content)\", \"Google Sheets (content calendar)\", \"HTTP Request (post to X)\"], \"relevance\": \"X/Twitter content automation for lead gen\"}",
+    "confidence": 0.85,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.036042+00:00",
+    "updated_at": "2026-02-10T13:24:35.036042+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "workflow",
+      "revenue"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875037_7179",
+    "category": "patterns",
+    "key": "n8n_workflow_gumroad_automation",
+    "value": "{\"description\": \"Automated product delivery and follow-up\", \"nodes\": [\"Webhook (Gumroad sale)\", \"Email (send welcome)\", \"CRM (add customer)\", \"AI Agent (personalized follow-up)\"], \"relevance\": \"Revenue channel activation\"}",
+    "confidence": 0.85,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.037057+00:00",
+    "updated_at": "2026-02-10T13:24:35.037057+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "workflow",
+      "revenue"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875038_9855",
+    "category": "patterns",
+    "key": "n8n_workflow_fiverr_order_processor",
+    "value": "{\"description\": \"Process Fiverr orders with AI\", \"nodes\": [\"Webhook (order)\", \"AI Agent (process requirements)\", \"Code (generate deliverable)\", \"Email (deliver)\"], \"relevance\": \"Revenue channel activation\"}",
+    "confidence": 0.85,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.038327+00:00",
+    "updated_at": "2026-02-10T13:24:35.038327+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "workflow",
+      "revenue"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875039_5622",
+    "category": "patterns",
+    "key": "n8n_workflow_system_health_monitor",
+    "value": "{\"description\": \"Monitor all AIEmpire systems\", \"nodes\": [\"Schedule Trigger (every 5min)\", \"HTTP Request (check endpoints)\", \"IF (unhealthy)\", \"Slack/Telegram alert\"], \"relevance\": \"System reliability\"}",
+    "confidence": 0.85,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.039372+00:00",
+    "updated_at": "2026-02-10T13:24:35.039372+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "workflow",
+      "revenue"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875040_8757",
+    "category": "patterns",
+    "key": "n8n_workflow_gemini_mirror_sync",
+    "value": "{\"description\": \"Sync artifacts between Claude and Gemini via n8n\", \"nodes\": [\"Schedule Trigger\", \"Code (read sync state)\", \"HTTP Request (Gemini API)\", \"Code (merge results)\", \"Git push\"], \"relevance\": \"Dual system evolution automation\"}",
+    "confidence": 0.85,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.040365+00:00",
+    "updated_at": "2026-02-10T13:24:35.040365+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "workflow",
+      "revenue"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875041_9298",
+    "category": "patterns",
+    "key": "n8n_workflow_vision_discovery_scheduler",
+    "value": "{\"description\": \"Auto-generate and deliver vision questions\", \"nodes\": [\"Schedule Trigger (08:00/19:00)\", \"Code (generate questions)\", \"Telegram/Email (deliver to Maurice)\"], \"relevance\": \"Vision discovery automation\"}",
+    "confidence": 0.85,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.041464+00:00",
+    "updated_at": "2026-02-10T13:24:35.041464+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "workflow",
+      "revenue"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875042_7464",
+    "category": "patterns",
+    "key": "n8n_workflow_bma_consulting_pipeline",
+    "value": "{\"description\": \"BMA + AI consulting lead pipeline\", \"nodes\": [\"Form Trigger\", \"AI Agent (qualify)\", \"CRM (store)\", \"Email (follow-up)\", \"Calendar (schedule call)\"], \"relevance\": \"Unique niche revenue - BMA consulting\"}",
+    "confidence": 0.85,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.042609+00:00",
+    "updated_at": "2026-02-10T13:24:35.042609+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "workflow",
+      "revenue"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875043_6595",
+    "category": "technical",
+    "key": "n8n_faq_Was ist n8n?",
+    "value": "Open-source Workflow-Automatisierung mit 500+ Integrationen, Visual Editor, AI-Agents, und Self-Hosting.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.043690+00:00",
+    "updated_at": "2026-02-10T13:24:35.043690+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875045_6150",
+    "category": "technical",
+    "key": "n8n_faq_Ist n8n kostenlos?",
+    "value": "Self-hosted ist kostenlos (Sustainable Use License). Cloud-Pläne ab $20/Monat.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.045541+00:00",
+    "updated_at": "2026-02-10T13:24:35.045541+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875046_7417",
+    "category": "technical",
+    "key": "n8n_faq_Welche Datenbank?",
+    "value": "SQLite (dev), PostgreSQL (production). Redis für Queue-Modus.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.046716+00:00",
+    "updated_at": "2026-02-10T13:24:35.046716+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875047_1734",
+    "category": "technical",
+    "key": "n8n_faq_Wie skaliert n8n?",
+    "value": "Queue-Modus mit Redis, mehrere Worker-Instanzen, PostgreSQL als DB.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.047814+00:00",
+    "updated_at": "2026-02-10T13:24:35.047814+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875048_1986",
+    "category": "technical",
+    "key": "n8n_faq_AI Agents in n8n?",
+    "value": "Ja - LangChain-basiert. Tools Agent empfohlen. OpenAI, Claude, Gemini, Ollama Support.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.048982+00:00",
+    "updated_at": "2026-02-10T13:24:35.048982+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875050_6674",
+    "category": "technical",
+    "key": "n8n_faq_MCP Support?",
+    "value": "Ja - MCP Client Node für remote MCP Server Verbindung.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.050307+00:00",
+    "updated_at": "2026-02-10T13:24:35.050307+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875051_3244",
+    "category": "technical",
+    "key": "n8n_faq_Python in n8n?",
+    "value": "Ja - Native Python Execution seit 2026 neben JavaScript.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.051576+00:00",
+    "updated_at": "2026-02-10T13:24:35.051576+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875052_6181",
+    "category": "technical",
+    "key": "n8n_faq_Vector Stores?",
+    "value": "Pinecone, Qdrant, PGVector, Weaviate, Supabase, Chroma, In-Memory.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.052802+00:00",
+    "updated_at": "2026-02-10T13:24:35.052802+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875054_8029",
+    "category": "technical",
+    "key": "n8n_faq_RAG in n8n?",
+    "value": "Ja - Document Loader → Text Splitter → Embeddings → Vector Store → AI Agent.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.054023+00:00",
+    "updated_at": "2026-02-10T13:24:35.054023+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875055_5098",
+    "category": "technical",
+    "key": "n8n_faq_Webhooks?",
+    "value": "Ja - Webhook Trigger für externe Events. WEBHOOK_URL env var für public URL.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.055280+00:00",
+    "updated_at": "2026-02-10T13:24:35.055280+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875056_1210",
+    "category": "technical",
+    "key": "n8n_faq_Guardrails?",
+    "value": "Ja - Guardrails Node für NSFW-Check, Prompt Injection Detection, PII Sanitization.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.056532+00:00",
+    "updated_at": "2026-02-10T13:24:35.056532+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875058_6246",
+    "category": "technical",
+    "key": "n8n_faq_Self-Healing?",
+    "value": "Ja - Error Trigger + AI Agent können Fehler automatisch analysieren und beheben.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.058205+00:00",
+    "updated_at": "2026-02-10T13:24:35.058205+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875059_9786",
+    "category": "technical",
+    "key": "n8n_faq_n8n API?",
+    "value": "REST API (OpenAPI 3.0) für Workflows, Executions, Credentials. API Key Auth.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.059611+00:00",
+    "updated_at": "2026-02-10T13:24:35.059611+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875060_644",
+    "category": "technical",
+    "key": "n8n_faq_Docker Setup?",
+    "value": "docker run -p 5678:5678 -v n8n_data:/home/node/.n8n n8nio/n8n",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.060786+00:00",
+    "updated_at": "2026-02-10T13:24:35.060786+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875061_3043",
+    "category": "technical",
+    "key": "n8n_faq_Community Nodes?",
+    "value": "5834+ Community Nodes. Installation über n8n UI oder npm.",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.061956+00:00",
+    "updated_at": "2026-02-10T13:24:35.061956+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "faq"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875063_402",
+    "category": "technical",
+    "key": "n8n_integrations_communication",
+    "value": "Slack, Discord, Telegram, Microsoft Teams, WhatsApp, Twilio",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.063324+00:00",
+    "updated_at": "2026-02-10T13:24:35.063324+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875064_6728",
+    "category": "technical",
+    "key": "n8n_integrations_email",
+    "value": "Gmail, Microsoft Outlook, IMAP, SMTP, Mailchimp, SendGrid",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.064639+00:00",
+    "updated_at": "2026-02-10T13:24:35.064639+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875065_8534",
+    "category": "technical",
+    "key": "n8n_integrations_crm",
+    "value": "Salesforce, HubSpot, Pipedrive, Zoho CRM, Freshsales",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.065979+00:00",
+    "updated_at": "2026-02-10T13:24:35.065979+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875067_6404",
+    "category": "technical",
+    "key": "n8n_integrations_project_management",
+    "value": "Jira, Asana, Trello, Monday.com, ClickUp, Notion, Linear",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.067455+00:00",
+    "updated_at": "2026-02-10T13:24:35.067455+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875068_8175",
+    "category": "technical",
+    "key": "n8n_integrations_cloud_storage",
+    "value": "Google Drive, Dropbox, OneDrive, Box, Nextcloud, S3",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.068816+00:00",
+    "updated_at": "2026-02-10T13:24:35.068816+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875070_3629",
+    "category": "technical",
+    "key": "n8n_integrations_databases",
+    "value": "PostgreSQL, MySQL, MongoDB, Redis, Supabase, Airtable, Google Sheets",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.070094+00:00",
+    "updated_at": "2026-02-10T13:24:35.070094+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875071_4198",
+    "category": "technical",
+    "key": "n8n_integrations_ai_ml",
+    "value": "OpenAI, Anthropic Claude, Google Gemini, Hugging Face, Ollama, Cohere, Replicate",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.071505+00:00",
+    "updated_at": "2026-02-10T13:24:35.071505+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875072_9899",
+    "category": "technical",
+    "key": "n8n_integrations_devops",
+    "value": "GitHub, GitLab, Bitbucket, Docker, Kubernetes, Jenkins, CircleCI",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.072824+00:00",
+    "updated_at": "2026-02-10T13:24:35.072824+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875074_9238",
+    "category": "technical",
+    "key": "n8n_integrations_ecommerce",
+    "value": "Shopify, WooCommerce, Stripe, PayPal, Gumroad",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.074265+00:00",
+    "updated_at": "2026-02-10T13:24:35.074265+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875075_2290",
+    "category": "technical",
+    "key": "n8n_integrations_social_media",
+    "value": "Twitter/X, Facebook, LinkedIn, Instagram, TikTok, YouTube",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.075552+00:00",
+    "updated_at": "2026-02-10T13:24:35.075552+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875076_3941",
+    "category": "technical",
+    "key": "n8n_integrations_analytics",
+    "value": "Google Analytics, Segment, Mixpanel, PostHog",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.076803+00:00",
+    "updated_at": "2026-02-10T13:24:35.076803+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875078_7009",
+    "category": "technical",
+    "key": "n8n_integrations_marketing",
+    "value": "Mailchimp, ActiveCampaign, ConvertKit, Brevo",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.078113+00:00",
+    "updated_at": "2026-02-10T13:24:35.078113+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875079_1298",
+    "category": "technical",
+    "key": "n8n_integrations_productivity",
+    "value": "Google Calendar, Google Docs, Microsoft 365, Todoist, Calendly",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.079391+00:00",
+    "updated_at": "2026-02-10T13:24:35.079391+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875080_428",
+    "category": "technical",
+    "key": "n8n_integrations_support",
+    "value": "Zendesk, Freshdesk, Intercom, Crisp",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.080862+00:00",
+    "updated_at": "2026-02-10T13:24:35.080862+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875082_8846",
+    "category": "technical",
+    "key": "n8n_integrations_automation",
+    "value": "Webhook, Cron, RSS, MQTT, AMQP, Kafka",
+    "confidence": 0.9,
+    "source": "n8n_knowledge",
+    "created_at": "2026-02-10T13:24:35.082290+00:00",
+    "updated_at": "2026-02-10T13:24:35.082290+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "integrations"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875084_6914",
+    "category": "patterns",
+    "key": "n8n_insight_6 Revenue-Workflows decken alle Channels",
+    "value": "6 Revenue-Workflows decken alle Channels ab",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.084299+00:00",
+    "updated_at": "2026-02-10T13:24:35.084299+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875085_6432",
+    "category": "patterns",
+    "key": "n8n_insight_AI Agents in jedem Workflow fuer intelli",
+    "value": "AI Agents in jedem Workflow fuer intelligente Entscheidungen",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.085759+00:00",
+    "updated_at": "2026-02-10T13:24:35.085759+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875087_1095",
+    "category": "patterns",
+    "key": "n8n_insight_BMA Consulting hat hoechsten Einzeldeal-",
+    "value": "BMA Consulting hat hoechsten Einzeldeal-Wert",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.087259+00:00",
+    "updated_at": "2026-02-10T13:24:35.087259+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875088_8963",
+    "category": "patterns",
+    "key": "n8n_insight_X/Twitter ist der Lead-Trichter fuer all",
+    "value": "X/Twitter ist der Lead-Trichter fuer alles andere",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.088735+00:00",
+    "updated_at": "2026-02-10T13:24:35.088735+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875090_6686",
+    "category": "patterns",
+    "key": "n8n_insight_Gumroad + Fiverr komplett automatisierba",
+    "value": "Gumroad + Fiverr komplett automatisierbar",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.090583+00:00",
+    "updated_at": "2026-02-10T13:24:35.090583+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875092_821",
+    "category": "decisions",
+    "key": "n8n_action_Gumroad Webhook einrichten",
+    "value": "Gumroad Webhook einrichten",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.092247+00:00",
+    "updated_at": "2026-02-10T13:24:35.092247+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875093_7910",
+    "category": "decisions",
+    "key": "n8n_action_Fiverr API Integration aufsetzen",
+    "value": "Fiverr API Integration aufsetzen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.093822+00:00",
+    "updated_at": "2026-02-10T13:24:35.093822+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875095_6418",
+    "category": "decisions",
+    "key": "n8n_action_X/Twitter API Credentials in n8n",
+    "value": "X/Twitter API Credentials in n8n",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.095316+00:00",
+    "updated_at": "2026-02-10T13:24:35.095316+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875096_8293",
+    "category": "decisions",
+    "key": "n8n_action_BMA Landing Page mit Form Trigger verbin",
+    "value": "BMA Landing Page mit Form Trigger verbinden",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.096796+00:00",
+    "updated_at": "2026-02-10T13:24:35.096796+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875098_7697",
+    "category": "decisions",
+    "key": "n8n_action_Telegram Bot fuer Daily Reports",
+    "value": "Telegram Bot fuer Daily Reports",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.098308+00:00",
+    "updated_at": "2026-02-10T13:24:35.098308+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875100_6446",
+    "category": "patterns",
+    "key": "n8n_insight_Self-Healing reduziert manuellen Mainten",
+    "value": "Self-Healing reduziert manuellen Maintenance-Aufwand",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.100038+00:00",
+    "updated_at": "2026-02-10T13:24:35.100038+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875101_1018",
+    "category": "patterns",
+    "key": "n8n_insight_A/B Testing fuer kontinuierliche Verbess",
+    "value": "A/B Testing fuer kontinuierliche Verbesserung",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.101736+00:00",
+    "updated_at": "2026-02-10T13:24:35.101736+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875103_4565",
+    "category": "patterns",
+    "key": "n8n_insight_Knowledge Accumulator macht Workflows mi",
+    "value": "Knowledge Accumulator macht Workflows mit der Zeit besser",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.103305+00:00",
+    "updated_at": "2026-02-10T13:24:35.103305+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875104_6552",
+    "category": "patterns",
+    "key": "n8n_insight_Cross-System Evolution: n8n + Gemini ver",
+    "value": "Cross-System Evolution: n8n + Gemini verstaerken sich gegenseitig",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.104982+00:00",
+    "updated_at": "2026-02-10T13:24:35.104982+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875106_5544",
+    "category": "decisions",
+    "key": "n8n_action_Error Trigger Workflow mit AI-Analyse er",
+    "value": "Error Trigger Workflow mit AI-Analyse erstellen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.106981+00:00",
+    "updated_at": "2026-02-10T13:24:35.106981+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875109_6015",
+    "category": "decisions",
+    "key": "n8n_action_A/B Testing Framework fuer Content Workf",
+    "value": "A/B Testing Framework fuer Content Workflows",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.109016+00:00",
+    "updated_at": "2026-02-10T13:24:35.109016+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875110_6905",
+    "category": "decisions",
+    "key": "n8n_action_Execution Analytics Pipeline aufsetzen",
+    "value": "Execution Analytics Pipeline aufsetzen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.110770+00:00",
+    "updated_at": "2026-02-10T13:24:35.110770+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875112_1228",
+    "category": "decisions",
+    "key": "n8n_action_Cross-System Sync mit Gemini Mirror verb",
+    "value": "Cross-System Sync mit Gemini Mirror verbinden",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.112724+00:00",
+    "updated_at": "2026-02-10T13:24:35.112724+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875114_4635",
+    "category": "patterns",
+    "key": "n8n_insight_6 Services muessen ueberwacht werden",
+    "value": "6 Services muessen ueberwacht werden",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.114822+00:00",
+    "updated_at": "2026-02-10T13:24:35.114822+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875116_5778",
+    "category": "patterns",
+    "key": "n8n_insight_Telegram ist der primaere Alert-Kanal",
+    "value": "Telegram ist der primaere Alert-Kanal",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.116589+00:00",
+    "updated_at": "2026-02-10T13:24:35.116589+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875118_3916",
+    "category": "patterns",
+    "key": "n8n_insight_Taegliche KPI-Reports fuer Ueberblick",
+    "value": "Taegliche KPI-Reports fuer Ueberblick",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.118402+00:00",
+    "updated_at": "2026-02-10T13:24:35.118402+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875120_6309",
+    "category": "patterns",
+    "key": "n8n_insight_Queue Depth Monitoring fuer Skalierungse",
+    "value": "Queue Depth Monitoring fuer Skalierungsentscheidungen",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.120235+00:00",
+    "updated_at": "2026-02-10T13:24:35.120235+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875121_6966",
+    "category": "decisions",
+    "key": "n8n_action_Telegram Bot Token erneuern (aktuell inv",
+    "value": "Telegram Bot Token erneuern (aktuell invalid!)",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.121960+00:00",
+    "updated_at": "2026-02-10T13:24:35.121960+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875123_5074",
+    "category": "decisions",
+    "key": "n8n_action_Health Check Workflow in n8n erstellen",
+    "value": "Health Check Workflow in n8n erstellen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.123763+00:00",
+    "updated_at": "2026-02-10T13:24:35.123763+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875125_2758",
+    "category": "decisions",
+    "key": "n8n_action_Prometheus Metrics in n8n aktivieren",
+    "value": "Prometheus Metrics in n8n aktivieren",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.125710+00:00",
+    "updated_at": "2026-02-10T13:24:35.125710+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875127_1544",
+    "category": "decisions",
+    "key": "n8n_action_Daily KPI Workflow aufsetzen",
+    "value": "Daily KPI Workflow aufsetzen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.127632+00:00",
+    "updated_at": "2026-02-10T13:24:35.127632+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875129_851",
+    "category": "patterns",
+    "key": "n8n_insight_9 Systeme muessen mit n8n verbunden werd",
+    "value": "9 Systeme muessen mit n8n verbunden werden",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.129814+00:00",
+    "updated_at": "2026-02-10T13:24:35.129814+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875131_6091",
+    "category": "patterns",
+    "key": "n8n_insight_Ollama ist der primaere AI Provider (kos",
+    "value": "Ollama ist der primaere AI Provider (kostenlos)",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.131724+00:00",
+    "updated_at": "2026-02-10T13:24:35.131724+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875133_333",
+    "category": "patterns",
+    "key": "n8n_insight_CRM-Integration ueber Direct DB + REST A",
+    "value": "CRM-Integration ueber Direct DB + REST API",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.133602+00:00",
+    "updated_at": "2026-02-10T13:24:35.133602+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875135_1346",
+    "category": "patterns",
+    "key": "n8n_insight_Gemini Mirror Sync als Schedule-Workflow",
+    "value": "Gemini Mirror Sync als Schedule-Workflow",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.135846+00:00",
+    "updated_at": "2026-02-10T13:24:35.135846+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875137_5565",
+    "category": "patterns",
+    "key": "n8n_insight_GitHub fuer CI/CD und Issue-basierte Ste",
+    "value": "GitHub fuer CI/CD und Issue-basierte Steuerung",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.137843+00:00",
+    "updated_at": "2026-02-10T13:24:35.137843+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875140_490",
+    "category": "decisions",
+    "key": "n8n_action_n8n Credentials fuer alle 9 Systeme einr",
+    "value": "n8n Credentials fuer alle 9 Systeme einrichten",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.140171+00:00",
+    "updated_at": "2026-02-10T13:24:35.140171+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875142_3497",
+    "category": "decisions",
+    "key": "n8n_action_Webhook Endpoints in Empire API registri",
+    "value": "Webhook Endpoints in Empire API registrieren",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.142398+00:00",
+    "updated_at": "2026-02-10T13:24:35.142398+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875144_4142",
+    "category": "decisions",
+    "key": "n8n_action_Ollama Connection testen",
+    "value": "Ollama Connection testen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.144365+00:00",
+    "updated_at": "2026-02-10T13:24:35.144365+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875146_5025",
+    "category": "decisions",
+    "key": "n8n_action_CRM PostgreSQL Credentials konfigurieren",
+    "value": "CRM PostgreSQL Credentials konfigurieren",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.146573+00:00",
+    "updated_at": "2026-02-10T13:24:35.146573+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875148_3984",
+    "category": "decisions",
+    "key": "n8n_action_GitHub Webhook fuer Auto-Deploy",
+    "value": "GitHub Webhook fuer Auto-Deploy",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.148640+00:00",
+    "updated_at": "2026-02-10T13:24:35.148640+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875150_550",
+    "category": "patterns",
+    "key": "n8n_insight_Bidirektionale Sync zwischen n8n Executi",
+    "value": "Bidirektionale Sync zwischen n8n Executions und Digital Memory",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.150904+00:00",
+    "updated_at": "2026-02-10T13:24:35.150904+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875153_9719",
+    "category": "patterns",
+    "key": "n8n_insight_Jede Workflow-Ausfuehrung generiert lern",
+    "value": "Jede Workflow-Ausfuehrung generiert lernbare Insights",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.153065+00:00",
+    "updated_at": "2026-02-10T13:24:35.153065+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875155_1272",
+    "category": "patterns",
+    "key": "n8n_insight_AI Agents in n8n nutzen Digital Memory f",
+    "value": "AI Agents in n8n nutzen Digital Memory fuer bessere Entscheidungen",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.155228+00:00",
+    "updated_at": "2026-02-10T13:24:35.155228+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875157_1517",
+    "category": "patterns",
+    "key": "n8n_insight_Patterns aus Workflow-Erfolgen werden pe",
+    "value": "Patterns aus Workflow-Erfolgen werden persistent gespeichert",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.157306+00:00",
+    "updated_at": "2026-02-10T13:24:35.157306+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875159_7351",
+    "category": "decisions",
+    "key": "n8n_action_n8n Webhook in Digital Memory registrier",
+    "value": "n8n Webhook in Digital Memory registrieren",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.159516+00:00",
+    "updated_at": "2026-02-10T13:24:35.159516+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875161_3883",
+    "category": "decisions",
+    "key": "n8n_action_Memory Export API Endpoint erstellen",
+    "value": "Memory Export API Endpoint erstellen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.161512+00:00",
+    "updated_at": "2026-02-10T13:24:35.161512+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875163_1347",
+    "category": "decisions",
+    "key": "n8n_action_Sync Workflow in n8n deployen",
+    "value": "Sync Workflow in n8n deployen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.163652+00:00",
+    "updated_at": "2026-02-10T13:24:35.163652+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875165_2132",
+    "category": "decisions",
+    "key": "n8n_action_Pattern Extraction Logic implementieren",
+    "value": "Pattern Extraction Logic implementieren",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.165747+00:00",
+    "updated_at": "2026-02-10T13:24:35.165747+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875168_2484",
+    "category": "patterns",
+    "key": "n8n_insight_n8n wird der zentrale Automatisierungshu",
+    "value": "n8n wird der zentrale Automatisierungshub - alle Systeme verbunden",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.168048+00:00",
+    "updated_at": "2026-02-10T13:24:35.168048+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875170_4328",
+    "category": "patterns",
+    "key": "n8n_insight_Queue-Modus mit Redis fuer parallele Wor",
+    "value": "Queue-Modus mit Redis fuer parallele Workflow-Ausfuehrung",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.170202+00:00",
+    "updated_at": "2026-02-10T13:24:35.170202+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875172_2026",
+    "category": "patterns",
+    "key": "n8n_insight_AI Agent Nodes ersetzen manuelle Kimi/Ol",
+    "value": "AI Agent Nodes ersetzen manuelle Kimi/Ollama Aufrufe",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.172287+00:00",
+    "updated_at": "2026-02-10T13:24:35.172287+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875174_2002",
+    "category": "patterns",
+    "key": "n8n_insight_Webhook-basierte Integration mit Empire ",
+    "value": "Webhook-basierte Integration mit Empire API",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.174355+00:00",
+    "updated_at": "2026-02-10T13:24:35.174355+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875176_3129",
+    "category": "patterns",
+    "key": "n8n_insight_PostgreSQL shared zwischen n8n und CRM f",
+    "value": "PostgreSQL shared zwischen n8n und CRM fuer konsistente Daten",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.176536+00:00",
+    "updated_at": "2026-02-10T13:24:35.176536+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875178_9618",
+    "category": "decisions",
+    "key": "n8n_action_Docker Compose mit n8n + PostgreSQL + Re",
+    "value": "Docker Compose mit n8n + PostgreSQL + Redis erstellen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.178713+00:00",
+    "updated_at": "2026-02-10T13:24:35.178713+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875180_8892",
+    "category": "decisions",
+    "key": "n8n_action_Empire API Webhook Endpoints hinzufuegen",
+    "value": "Empire API Webhook Endpoints hinzufuegen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.180975+00:00",
+    "updated_at": "2026-02-10T13:24:35.180975+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875183_7453",
+    "category": "decisions",
+    "key": "n8n_action_n8n Credentials fuer alle APIs einrichte",
+    "value": "n8n Credentials fuer alle APIs einrichten",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.183359+00:00",
+    "updated_at": "2026-02-10T13:24:35.183359+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875185_8262",
+    "category": "decisions",
+    "key": "n8n_action_Initiale Workflows fuer jeden Revenue Ch",
+    "value": "Initiale Workflows fuer jeden Revenue Channel erstellen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.185599+00:00",
+    "updated_at": "2026-02-10T13:24:35.185599+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875188_3783",
+    "category": "patterns",
+    "key": "n8n_insight_5-Stage Revenue Pipeline komplett automa",
+    "value": "5-Stage Revenue Pipeline komplett automatisierbar",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.188225+00:00",
+    "updated_at": "2026-02-10T13:24:35.188225+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875190_2294",
+    "category": "patterns",
+    "key": "n8n_insight_Gumroad ist der schnellste Weg zu erstem",
+    "value": "Gumroad ist der schnellste Weg zu erstem Revenue",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.190482+00:00",
+    "updated_at": "2026-02-10T13:24:35.190482+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875192_6987",
+    "category": "patterns",
+    "key": "n8n_insight_BMA Consulting hat den hoechsten Deal-We",
+    "value": "BMA Consulting hat den hoechsten Deal-Wert",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.192743+00:00",
+    "updated_at": "2026-02-10T13:24:35.192743+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875195_5121",
+    "category": "patterns",
+    "key": "n8n_insight_X/Twitter ist der primaere Lead-Trichter",
+    "value": "X/Twitter ist der primaere Lead-Trichter",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.195280+00:00",
+    "updated_at": "2026-02-10T13:24:35.195280+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875198_6122",
+    "category": "patterns",
+    "key": "n8n_insight_AI Agents in jeder Pipeline-Stage fuer P",
+    "value": "AI Agents in jeder Pipeline-Stage fuer Personalisierung",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.198063+00:00",
+    "updated_at": "2026-02-10T13:24:35.198063+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875201_6854",
+    "category": "decisions",
+    "key": "n8n_action_Gumroad Account einrichten + erstes Prod",
+    "value": "Gumroad Account einrichten + erstes Produkt listen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.201037+00:00",
+    "updated_at": "2026-02-10T13:24:35.201037+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875204_2004",
+    "category": "decisions",
+    "key": "n8n_action_Fiverr Gigs erstellen (AI Automation Ser",
+    "value": "Fiverr Gigs erstellen (AI Automation Services)",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.204091+00:00",
+    "updated_at": "2026-02-10T13:24:35.204091+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875206_3513",
+    "category": "decisions",
+    "key": "n8n_action_BMA Landing Page mit Form Trigger",
+    "value": "BMA Landing Page mit Form Trigger",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.207003+00:00",
+    "updated_at": "2026-02-10T13:24:35.207003+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875210_3945",
+    "category": "decisions",
+    "key": "n8n_action_X/Twitter Content Schedule starten (3x d",
+    "value": "X/Twitter Content Schedule starten (3x daily)",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.210058+00:00",
+    "updated_at": "2026-02-10T13:24:35.210058+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875212_6507",
+    "category": "decisions",
+    "key": "n8n_action_Email Sequences in n8n aufsetzen",
+    "value": "Email Sequences in n8n aufsetzen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.212957+00:00",
+    "updated_at": "2026-02-10T13:24:35.212957+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875216_755",
+    "category": "patterns",
+    "key": "n8n_insight_6 spezialisierte AI Agents fuer verschie",
+    "value": "6 spezialisierte AI Agents fuer verschiedene Aufgaben",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.216072+00:00",
+    "updated_at": "2026-02-10T13:24:35.216072+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875218_4386",
+    "category": "patterns",
+    "key": "n8n_insight_Ollama-first Strategie: 90% kostenlos, G",
+    "value": "Ollama-first Strategie: 90% kostenlos, Gemini als Fallback",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.219006+00:00",
+    "updated_at": "2026-02-10T13:24:35.219006+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875221_4361",
+    "category": "patterns",
+    "key": "n8n_insight_RAG mit PGVector fuer BMA-Expertise und ",
+    "value": "RAG mit PGVector fuer BMA-Expertise und Produkt-Wissen",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.221908+00:00",
+    "updated_at": "2026-02-10T13:24:35.221908+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875224_5854",
+    "category": "patterns",
+    "key": "n8n_insight_Redis Memory fuer persistente Konversati",
+    "value": "Redis Memory fuer persistente Konversationen",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.224760+00:00",
+    "updated_at": "2026-02-10T13:24:35.224760+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875227_6320",
+    "category": "patterns",
+    "key": "n8n_insight_Jeder Agent hat spezifische Tools fuer s",
+    "value": "Jeder Agent hat spezifische Tools fuer seine Aufgabe",
+    "confidence": 0.8,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.227868+00:00",
+    "updated_at": "2026-02-10T13:24:35.227868+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "insight"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875231_1954",
+    "category": "decisions",
+    "key": "n8n_action_PGVector Extension in PostgreSQL aktivie",
+    "value": "PGVector Extension in PostgreSQL aktivieren",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.231054+00:00",
+    "updated_at": "2026-02-10T13:24:35.231054+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875234_2387",
+    "category": "decisions",
+    "key": "n8n_action_BMA Dokumente in Vector Store laden",
+    "value": "BMA Dokumente in Vector Store laden",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.234373+00:00",
+    "updated_at": "2026-02-10T13:24:35.234373+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875237_6470",
+    "category": "decisions",
+    "key": "n8n_action_Ollama Embeddings Model installieren",
+    "value": "Ollama Embeddings Model installieren",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.237609+00:00",
+    "updated_at": "2026-02-10T13:24:35.237609+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875240_4262",
+    "category": "decisions",
+    "key": "n8n_action_Redis Memory Nodes konfigurieren",
+    "value": "Redis Memory Nodes konfigurieren",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.240637+00:00",
+    "updated_at": "2026-02-10T13:24:35.240637+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  },
+  {
+    "id": "mem_1770729875246_461",
+    "category": "decisions",
+    "key": "n8n_action_AI Agent Workflows in n8n erstellen",
+    "value": "AI Agent Workflows in n8n erstellen",
+    "confidence": 0.75,
+    "source": "n8n_agents",
+    "created_at": "2026-02-10T13:24:35.246056+00:00",
+    "updated_at": "2026-02-10T13:24:35.246056+00:00",
+    "reinforced_count": 0,
+    "tags": [
+      "n8n",
+      "action"
+    ],
+    "related_ids": []
+  }
+]

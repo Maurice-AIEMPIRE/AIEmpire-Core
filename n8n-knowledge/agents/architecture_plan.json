@@ -1,0 +1,37 @@
+{
+  "architecture": {
+    "n8n_role": "Central automation hub connecting all AIEmpire systems",
+    "deployment": {
+      "type": "Docker self-hosted",
+      "database": "PostgreSQL (shared with CRM)",
+      "queue": "Redis (shared with existing Redis)",
+      "port": 5678,
+      "ssl": "Traefik auto-SSL"
+    },
+    "connections": {
+      "empire_api": "Webhook ↔ Empire API (FastAPI)",
+      "crm": "Direct PostgreSQL + REST API",
+      "kimi_swarm": "HTTP Request nodes → Kimi API",
+      "atomic_reactor": "Webhook triggers → Task execution",
+      "gemini_mirror": "Schedule → Sync workflows",
+      "brain_system": "Webhook ↔ Brain orchestrator",
+      "x_lead_machine": "Schedule → Content + Lead workflows",
+      "ollama": "AI Agent nodes → Ollama local models",
+      "github": "GitHub nodes → Auto-deploy, issues"
+    },
+    "flow": "n8n orchestrates all systems, replaces manual triggers with automated workflows"
+  },
+  "insights": [
+    "n8n wird der zentrale Automatisierungshub - alle Systeme verbunden",
+    "Queue-Modus mit Redis fuer parallele Workflow-Ausfuehrung",
+    "AI Agent Nodes ersetzen manuelle Kimi/Ollama Aufrufe",
+    "Webhook-basierte Integration mit Empire API",
+    "PostgreSQL shared zwischen n8n und CRM fuer konsistente Daten"
+  ],
+  "actions": [
+    "Docker Compose mit n8n + PostgreSQL + Redis erstellen",
+    "Empire API Webhook Endpoints hinzufuegen",
+    "n8n Credentials fuer alle APIs einrichten",
+    "Initiale Workflows fuer jeden Revenue Channel erstellen"
+  ]
+}

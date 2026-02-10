@@ -1,0 +1,1154 @@
+[
+  {
+    "timestamp": "2026-02-10T13:24:35.009311+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875009_6218",
+    "category": "technical",
+    "key": "n8n_name",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.010008+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875009_1676",
+    "category": "technical",
+    "key": "n8n_meaning",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.010702+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875010_198",
+    "category": "technical",
+    "key": "n8n_type",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.011321+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875011_7737",
+    "category": "technical",
+    "key": "n8n_license",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.012020+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875011_7659",
+    "category": "technical",
+    "key": "n8n_repo",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.012638+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875012_8425",
+    "category": "technical",
+    "key": "n8n_docs",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.013221+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875012_6786",
+    "category": "technical",
+    "key": "n8n_version",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.013831+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875013_2566",
+    "category": "technical",
+    "key": "n8n_language",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.014572+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875014_8724",
+    "category": "technical",
+    "key": "n8n_founded",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.015150+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875014_8452",
+    "category": "technical",
+    "key": "n8n_integrations",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.015847+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875015_1540",
+    "category": "technical",
+    "key": "n8n_community_nodes",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.016696+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875016_4162",
+    "category": "technical",
+    "key": "n8n_templates",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.017477+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875017_7645",
+    "category": "technical",
+    "key": "n8n_default_port",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.018166+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875017_3452",
+    "category": "technical",
+    "key": "n8n_database_default",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.018885+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875018_6342",
+    "category": "technical",
+    "key": "n8n_database_production",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.019616+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875019_2564",
+    "category": "technical",
+    "key": "n8n_architecture",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.020342+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875020_9803",
+    "category": "technical",
+    "key": "n8n_api_workflows",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.021023+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875020_7723",
+    "category": "technical",
+    "key": "n8n_api_executions",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.021723+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875021_2765",
+    "category": "technical",
+    "key": "n8n_api_credentials",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.022600+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875022_6512",
+    "category": "technical",
+    "key": "n8n_ai_description",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.023446+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875023_7043",
+    "category": "technical",
+    "key": "n8n_ai_agent_types",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.024345+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875024_656",
+    "category": "technical",
+    "key": "n8n_ai_model_nodes",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.025302+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875024_8190",
+    "category": "technical",
+    "key": "n8n_ai_memory_nodes",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.026120+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875025_2597",
+    "category": "technical",
+    "key": "n8n_ai_vector_stores",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.026988+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875026_3654",
+    "category": "technical",
+    "key": "n8n_ai_tools",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.027783+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875027_7367",
+    "category": "technical",
+    "key": "n8n_ai_document_loaders",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.028591+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875028_6249",
+    "category": "technical",
+    "key": "n8n_ai_text_splitters",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.029415+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875029_8319",
+    "category": "technical",
+    "key": "n8n_ai_embeddings",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.030331+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875030_3664",
+    "category": "technical",
+    "key": "n8n_ai_output_parsers",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.031269+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875031_1746",
+    "category": "technical",
+    "key": "n8n_ai_guardrails",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.032311+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875032_840",
+    "category": "technical",
+    "key": "n8n_docker_config",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.033391+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875032_5552",
+    "category": "technical",
+    "key": "n8n_env_vars",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.034379+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875034_3524",
+    "category": "technical",
+    "key": "n8n_scaling",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.035333+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875035_5440",
+    "category": "patterns",
+    "key": "n8n_workflow_lead_generation",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.036307+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875036_6905",
+    "category": "patterns",
+    "key": "n8n_workflow_content_pipeline",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.037290+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875037_7179",
+    "category": "patterns",
+    "key": "n8n_workflow_gumroad_automation",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.038606+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875038_9855",
+    "category": "patterns",
+    "key": "n8n_workflow_fiverr_order_processor",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.039622+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875039_5622",
+    "category": "patterns",
+    "key": "n8n_workflow_system_health_monitor",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.040597+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875040_8757",
+    "category": "patterns",
+    "key": "n8n_workflow_gemini_mirror_sync",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.041710+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875041_9298",
+    "category": "patterns",
+    "key": "n8n_workflow_vision_discovery_scheduler",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.042855+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875042_7464",
+    "category": "patterns",
+    "key": "n8n_workflow_bma_consulting_pipeline",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.043933+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875043_6595",
+    "category": "technical",
+    "key": "n8n_faq_Was ist n8n?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.045826+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875045_6150",
+    "category": "technical",
+    "key": "n8n_faq_Ist n8n kostenlos?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.046942+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875046_7417",
+    "category": "technical",
+    "key": "n8n_faq_Welche Datenbank?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.048035+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875047_1734",
+    "category": "technical",
+    "key": "n8n_faq_Wie skaliert n8n?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.049243+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875048_1986",
+    "category": "technical",
+    "key": "n8n_faq_AI Agents in n8n?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.050645+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875050_6674",
+    "category": "technical",
+    "key": "n8n_faq_MCP Support?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.051807+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875051_3244",
+    "category": "technical",
+    "key": "n8n_faq_Python in n8n?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.053080+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875052_6181",
+    "category": "technical",
+    "key": "n8n_faq_Vector Stores?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.054276+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875054_8029",
+    "category": "technical",
+    "key": "n8n_faq_RAG in n8n?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.055563+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875055_5098",
+    "category": "technical",
+    "key": "n8n_faq_Webhooks?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.056920+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875056_1210",
+    "category": "technical",
+    "key": "n8n_faq_Guardrails?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.058511+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875058_6246",
+    "category": "technical",
+    "key": "n8n_faq_Self-Healing?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.059843+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875059_9786",
+    "category": "technical",
+    "key": "n8n_faq_n8n API?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.061014+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875060_644",
+    "category": "technical",
+    "key": "n8n_faq_Docker Setup?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.062196+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875061_3043",
+    "category": "technical",
+    "key": "n8n_faq_Community Nodes?",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.063632+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875063_402",
+    "category": "technical",
+    "key": "n8n_integrations_communication",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.064919+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875064_6728",
+    "category": "technical",
+    "key": "n8n_integrations_email",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.066229+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875065_8534",
+    "category": "technical",
+    "key": "n8n_integrations_crm",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.067750+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875067_6404",
+    "category": "technical",
+    "key": "n8n_integrations_project_management",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.069056+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875068_8175",
+    "category": "technical",
+    "key": "n8n_integrations_cloud_storage",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.070362+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875070_3629",
+    "category": "technical",
+    "key": "n8n_integrations_databases",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.071767+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875071_4198",
+    "category": "technical",
+    "key": "n8n_integrations_ai_ml",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.073088+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875072_9899",
+    "category": "technical",
+    "key": "n8n_integrations_devops",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.074517+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875074_9238",
+    "category": "technical",
+    "key": "n8n_integrations_ecommerce",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.075790+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875075_2290",
+    "category": "technical",
+    "key": "n8n_integrations_social_media",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.077038+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875076_3941",
+    "category": "technical",
+    "key": "n8n_integrations_analytics",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.078370+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875078_7009",
+    "category": "technical",
+    "key": "n8n_integrations_marketing",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.079719+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875079_1298",
+    "category": "technical",
+    "key": "n8n_integrations_productivity",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.081110+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875080_428",
+    "category": "technical",
+    "key": "n8n_integrations_support",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.082557+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875082_8846",
+    "category": "technical",
+    "key": "n8n_integrations_automation",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.084574+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875084_6914",
+    "category": "patterns",
+    "key": "n8n_insight_6 Revenue-Workflows decken alle Channels",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.086057+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875085_6432",
+    "category": "patterns",
+    "key": "n8n_insight_AI Agents in jedem Workflow fuer intelli",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.087495+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875087_1095",
+    "category": "patterns",
+    "key": "n8n_insight_BMA Consulting hat hoechsten Einzeldeal-",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.089122+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875088_8963",
+    "category": "patterns",
+    "key": "n8n_insight_X/Twitter ist der Lead-Trichter fuer all",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.090913+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875090_6686",
+    "category": "patterns",
+    "key": "n8n_insight_Gumroad + Fiverr komplett automatisierba",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.092568+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875092_821",
+    "category": "decisions",
+    "key": "n8n_action_Gumroad Webhook einrichten",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.094092+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875093_7910",
+    "category": "decisions",
+    "key": "n8n_action_Fiverr API Integration aufsetzen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.095586+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875095_6418",
+    "category": "decisions",
+    "key": "n8n_action_X/Twitter API Credentials in n8n",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.097075+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875096_8293",
+    "category": "decisions",
+    "key": "n8n_action_BMA Landing Page mit Form Trigger verbin",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.098582+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875098_7697",
+    "category": "decisions",
+    "key": "n8n_action_Telegram Bot fuer Daily Reports",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.100453+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875100_6446",
+    "category": "patterns",
+    "key": "n8n_insight_Self-Healing reduziert manuellen Mainten",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.101979+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875101_1018",
+    "category": "patterns",
+    "key": "n8n_insight_A/B Testing fuer kontinuierliche Verbess",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.103650+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875103_4565",
+    "category": "patterns",
+    "key": "n8n_insight_Knowledge Accumulator macht Workflows mi",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.105317+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875104_6552",
+    "category": "patterns",
+    "key": "n8n_insight_Cross-System Evolution: n8n + Gemini ver",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.107399+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875106_5544",
+    "category": "decisions",
+    "key": "n8n_action_Error Trigger Workflow mit AI-Analyse er",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.109328+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875109_6015",
+    "category": "decisions",
+    "key": "n8n_action_A/B Testing Framework fuer Content Workf",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.111071+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875110_6905",
+    "category": "decisions",
+    "key": "n8n_action_Execution Analytics Pipeline aufsetzen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.113066+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875112_1228",
+    "category": "decisions",
+    "key": "n8n_action_Cross-System Sync mit Gemini Mirror verb",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.115117+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875114_4635",
+    "category": "patterns",
+    "key": "n8n_insight_6 Services muessen ueberwacht werden",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.116889+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875116_5778",
+    "category": "patterns",
+    "key": "n8n_insight_Telegram ist der primaere Alert-Kanal",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.118787+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875118_3916",
+    "category": "patterns",
+    "key": "n8n_insight_Taegliche KPI-Reports fuer Ueberblick",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.120528+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875120_6309",
+    "category": "patterns",
+    "key": "n8n_insight_Queue Depth Monitoring fuer Skalierungse",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.122237+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875121_6966",
+    "category": "decisions",
+    "key": "n8n_action_Telegram Bot Token erneuern (aktuell inv",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.124086+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875123_5074",
+    "category": "decisions",
+    "key": "n8n_action_Health Check Workflow in n8n erstellen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.126027+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875125_2758",
+    "category": "decisions",
+    "key": "n8n_action_Prometheus Metrics in n8n aktivieren",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.127963+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875127_1544",
+    "category": "decisions",
+    "key": "n8n_action_Daily KPI Workflow aufsetzen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.130156+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875129_851",
+    "category": "patterns",
+    "key": "n8n_insight_9 Systeme muessen mit n8n verbunden werd",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.132019+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875131_6091",
+    "category": "patterns",
+    "key": "n8n_insight_Ollama ist der primaere AI Provider (kos",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.133997+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875133_333",
+    "category": "patterns",
+    "key": "n8n_insight_CRM-Integration ueber Direct DB + REST A",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.136167+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875135_1346",
+    "category": "patterns",
+    "key": "n8n_insight_Gemini Mirror Sync als Schedule-Workflow",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.138170+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875137_5565",
+    "category": "patterns",
+    "key": "n8n_insight_GitHub fuer CI/CD und Issue-basierte Ste",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.140610+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875140_490",
+    "category": "decisions",
+    "key": "n8n_action_n8n Credentials fuer alle 9 Systeme einr",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.142742+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875142_3497",
+    "category": "decisions",
+    "key": "n8n_action_Webhook Endpoints in Empire API registri",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.144817+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875144_4142",
+    "category": "decisions",
+    "key": "n8n_action_Ollama Connection testen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.146940+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875146_5025",
+    "category": "decisions",
+    "key": "n8n_action_CRM PostgreSQL Credentials konfigurieren",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.148943+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875148_3984",
+    "category": "decisions",
+    "key": "n8n_action_GitHub Webhook fuer Auto-Deploy",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.151223+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875150_550",
+    "category": "patterns",
+    "key": "n8n_insight_Bidirektionale Sync zwischen n8n Executi",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.153441+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875153_9719",
+    "category": "patterns",
+    "key": "n8n_insight_Jede Workflow-Ausfuehrung generiert lern",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.155538+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875155_1272",
+    "category": "patterns",
+    "key": "n8n_insight_AI Agents in n8n nutzen Digital Memory f",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.157623+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875157_1517",
+    "category": "patterns",
+    "key": "n8n_insight_Patterns aus Workflow-Erfolgen werden pe",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.159833+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875159_7351",
+    "category": "decisions",
+    "key": "n8n_action_n8n Webhook in Digital Memory registrier",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.161820+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875161_3883",
+    "category": "decisions",
+    "key": "n8n_action_Memory Export API Endpoint erstellen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.163962+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875163_1347",
+    "category": "decisions",
+    "key": "n8n_action_Sync Workflow in n8n deployen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.166067+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875165_2132",
+    "category": "decisions",
+    "key": "n8n_action_Pattern Extraction Logic implementieren",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.168370+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875168_2484",
+    "category": "patterns",
+    "key": "n8n_insight_n8n wird der zentrale Automatisierungshu",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.170516+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875170_4328",
+    "category": "patterns",
+    "key": "n8n_insight_Queue-Modus mit Redis fuer parallele Wor",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.172589+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875172_2026",
+    "category": "patterns",
+    "key": "n8n_insight_AI Agent Nodes ersetzen manuelle Kimi/Ol",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.174674+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875174_2002",
+    "category": "patterns",
+    "key": "n8n_insight_Webhook-basierte Integration mit Empire ",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.176864+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875176_3129",
+    "category": "patterns",
+    "key": "n8n_insight_PostgreSQL shared zwischen n8n und CRM f",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.179037+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875178_9618",
+    "category": "decisions",
+    "key": "n8n_action_Docker Compose mit n8n + PostgreSQL + Re",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.181383+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875180_8892",
+    "category": "decisions",
+    "key": "n8n_action_Empire API Webhook Endpoints hinzufuegen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.183674+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875183_7453",
+    "category": "decisions",
+    "key": "n8n_action_n8n Credentials fuer alle APIs einrichte",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.185915+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875185_8262",
+    "category": "decisions",
+    "key": "n8n_action_Initiale Workflows fuer jeden Revenue Ch",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.188550+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875188_3783",
+    "category": "patterns",
+    "key": "n8n_insight_5-Stage Revenue Pipeline komplett automa",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.190795+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875190_2294",
+    "category": "patterns",
+    "key": "n8n_insight_Gumroad ist der schnellste Weg zu erstem",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.193077+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875192_6987",
+    "category": "patterns",
+    "key": "n8n_insight_BMA Consulting hat den hoechsten Deal-We",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.195708+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875195_5121",
+    "category": "patterns",
+    "key": "n8n_insight_X/Twitter ist der primaere Lead-Trichter",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.198543+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875198_6122",
+    "category": "patterns",
+    "key": "n8n_insight_AI Agents in jeder Pipeline-Stage fuer P",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.201530+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875201_6854",
+    "category": "decisions",
+    "key": "n8n_action_Gumroad Account einrichten + erstes Prod",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.204587+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875204_2004",
+    "category": "decisions",
+    "key": "n8n_action_Fiverr Gigs erstellen (AI Automation Ser",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.207543+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875206_3513",
+    "category": "decisions",
+    "key": "n8n_action_BMA Landing Page mit Form Trigger",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.210552+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875210_3945",
+    "category": "decisions",
+    "key": "n8n_action_X/Twitter Content Schedule starten (3x d",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.213375+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875212_6507",
+    "category": "decisions",
+    "key": "n8n_action_Email Sequences in n8n aufsetzen",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.216495+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875216_755",
+    "category": "patterns",
+    "key": "n8n_insight_6 spezialisierte AI Agents fuer verschie",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.219477+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875218_4386",
+    "category": "patterns",
+    "key": "n8n_insight_Ollama-first Strategie: 90% kostenlos, G",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.222337+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875221_4361",
+    "category": "patterns",
+    "key": "n8n_insight_RAG mit PGVector fuer BMA-Expertise und ",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.225301+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875224_5854",
+    "category": "patterns",
+    "key": "n8n_insight_Redis Memory fuer persistente Konversati",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.228348+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875227_6320",
+    "category": "patterns",
+    "key": "n8n_insight_Jeder Agent hat spezifische Tools fuer s",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.231534+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875231_1954",
+    "category": "decisions",
+    "key": "n8n_action_PGVector Extension in PostgreSQL aktivie",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.234818+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875234_2387",
+    "category": "decisions",
+    "key": "n8n_action_BMA Dokumente in Vector Store laden",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.238047+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875237_6470",
+    "category": "decisions",
+    "key": "n8n_action_Ollama Embeddings Model installieren",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.241324+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875240_4262",
+    "category": "decisions",
+    "key": "n8n_action_Redis Memory Nodes konfigurieren",
+    "details": ""
+  },
+  {
+    "timestamp": "2026-02-10T13:24:35.246771+00:00",
+    "action": "created",
+    "entry_id": "mem_1770729875246_461",
+    "category": "decisions",
+    "key": "n8n_action_AI Agent Workflows in n8n erstellen",
+    "details": ""
+  }
+]

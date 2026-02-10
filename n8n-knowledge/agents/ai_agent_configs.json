@@ -1,0 +1,97 @@
+{
+  "ai_agents": {
+    "lead_qualifier": {
+      "type": "Tools Agent",
+      "model": "Ollama (free) → Gemini Flash (fallback)",
+      "tools": [
+        "HTTP Request (CRM lookup)",
+        "Calculator (BANT score)",
+        "Code (custom scoring)"
+      ],
+      "memory": "Redis Chat Memory (persist across sessions)",
+      "purpose": "Qualify leads automatically using BANT methodology"
+    },
+    "content_creator": {
+      "type": "Tools Agent",
+      "model": "Gemini Flash (fast, cheap)",
+      "tools": [
+        "SerpAPI (trend research)",
+        "Code (format content)",
+        "HTTP Request (post to X)"
+      ],
+      "memory": "Window Buffer (last 10 posts for style consistency)",
+      "purpose": "Generate viral X/Twitter content"
+    },
+    "customer_support": {
+      "type": "Tools Agent",
+      "model": "Ollama local",
+      "tools": [
+        "Vector Store Tool (product knowledge)",
+        "HTTP Request (CRM)",
+        "Email (respond)"
+      ],
+      "memory": "PostgreSQL Chat Memory",
+      "vector_store": "PGVector with product docs + FAQ",
+      "purpose": "Auto-respond to customer inquiries"
+    },
+    "bma_expert": {
+      "type": "Tools Agent",
+      "model": "Gemini Pro (deep thinking)",
+      "tools": [
+        "Vector Store Tool (BMA knowledge)",
+        "Calculator",
+        "Code (proposal generator)"
+      ],
+      "memory": "Redis Chat Memory",
+      "vector_store": "PGVector with BMA regulations + case studies",
+      "purpose": "BMA consulting assistant with deep domain knowledge"
+    },
+    "empire_analyst": {
+      "type": "Tools Agent",
+      "model": "Gemini Flash",
+      "tools": [
+        "HTTP Request (all system APIs)",
+        "Code (data analysis)",
+        "Calculator"
+      ],
+      "memory": "Summary Buffer Memory",
+      "purpose": "Analyze empire performance, suggest optimizations"
+    },
+    "vision_interviewer": {
+      "type": "Conversational Agent",
+      "model": "Gemini Pro",
+      "tools": [
+        "Code (store answers)",
+        "HTTP Request (Digital Memory API)"
+      ],
+      "memory": "PostgreSQL Chat Memory (full history)",
+      "purpose": "Daily vision discovery - ask Maurice strategic questions"
+    }
+  },
+  "rag_setup": {
+    "document_sources": [
+      "BMA Academy materials → PGVector",
+      "Gold Nuggets → PGVector",
+      "Product documentation → PGVector",
+      "Customer interactions → PGVector",
+      "Workflow outputs → PGVector"
+    ],
+    "embeddings": "Ollama Embeddings (free) or OpenAI (better quality)",
+    "vector_store": "PGVector (shared PostgreSQL)",
+    "chunking": "Recursive Character Splitter, 1000 chars, 200 overlap"
+  },
+  "insights": [
+    "6 spezialisierte AI Agents fuer verschiedene Aufgaben",
+    "Ollama-first Strategie: 90% kostenlos, Gemini als Fallback",
+    "RAG mit PGVector fuer BMA-Expertise und Produkt-Wissen",
+    "Redis Memory fuer persistente Konversationen",
+    "Jeder Agent hat spezifische Tools fuer seine Aufgabe"
+  ],
+  "actions": [
+    "PGVector Extension in PostgreSQL aktivieren",
+    "BMA Dokumente in Vector Store laden",
+    "Ollama Embeddings Model installieren",
+    "Redis Memory Nodes konfigurieren",
+    "AI Agent Workflows in n8n erstellen"
+  ]
+}
