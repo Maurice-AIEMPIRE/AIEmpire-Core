@@ -1,0 +1,65 @@
+{
+  "created": "2026-02-10T13:53:42.288956",
+  "updated": "2026-02-10T13:53:42.288956",
+  "total_questions_asked": 5,
+  "total_answers_received": 0,
+  "answers": [],
+  "pending_questions": [
+    {
+      "id": "Q-001",
+      "question": "Was ist dein ULTIMATIVES Ziel in 12 Monaten - nicht finanziell, sondern wie soll dein LEBEN aussehen?",
+      "category": "vision",
+      "depth": "deep",
+      "purpose": "Kernvision jenseits von Geld verstehen",
+      "expected_insight": "Lebensvorstellung und wahre Motivation",
+      "generated_at": "2026-02-10T13:53:42.293828",
+      "answered": false,
+      "source": "setup_init"
+    },
+    {
+      "id": "Q-002",
+      "question": "Welcher Revenue-Kanal ist fuer DICH am einfachsten zu starten - Gumroad Produkte, Fiverr Services, oder BMA+AI Consulting?",
+      "category": "strategy",
+      "depth": "medium",
+      "purpose": "Schnellsten Weg zum ersten Umsatz finden",
+      "expected_insight": "Praeferenz und Selbsteinschaetzung",
+      "generated_at": "2026-02-10T13:53:42.293831",
+      "answered": false,
+      "source": "setup_init"
+    },
+    {
+      "id": "Q-003",
+      "question": "Hast du schon ein konkretes Produkt im Kopf das du auf Gumroad verkaufen koenntest? Wenn ja, welches?",
+      "category": "priorities",
+      "depth": "medium",
+      "purpose": "Konkretes erstes Produkt identifizieren",
+      "expected_insight": "Produktideen und Marktverstaendnis",
+      "generated_at": "2026-02-10T13:53:42.293832",
+      "answered": false,
+      "source": "setup_init"
+    },
+    {
+      "id": "Q-004",
+      "question": "Wieviele Stunden pro Tag kannst/willst du SELBST aktiv am Empire arbeiten? Und was davon ist AI-delegierbar?",
+      "category": "preferences",
+      "depth": "medium",
+      "purpose": "Verfuegbare Kapazitaet und Delegationsbereitschaft",
+      "expected_insight": "Arbeitsbudget und Automatisierungsgrad",
+      "generated_at": "2026-02-10T13:53:42.293833",
+      "answered": false,
+      "source": "setup_init"
+    },
+    {
+      "id": "Q-005",
+      "question": "Was ist gerade dein GROESSTER Frust mit dem AIEmpire System? Was funktioniert nicht wie gewollt?",
+      "category": "blockers",
+      "depth": "deep",
+      "purpose": "Hauptblocker und Schmerzpunkte identifizieren",
+      "expected_insight": "Wo der Schuh drueckt",
+      "generated_at": "2026-02-10T13:53:42.293834",
+      "answered": false,
+      "source": "setup_init"
+    }
+  ],
+  "daily_stats": {}
+}

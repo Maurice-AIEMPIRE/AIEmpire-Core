@@ -85,17 +85,21 @@ class GeminiClient:
         self,
         api_key: Optional[str] = None,
         ollama_url: str = "http://localhost:11434",
+        offline_mode: bool = False,
     ):
         self.api_key = api_key or GEMINI_API_KEY
         self.ollama_url = ollama_url
         self.local_model = "gemma2:9b"
         self.fallback_local = "qwen2.5-coder:7b"
+        self.offline_mode = offline_mode or (not self.api_key)
         self.cost_tracker = CostTracker(
             daily_limit=RESOURCE_LIMITS["emergency_stop_daily_cost"]
         )
         self.semaphore = asyncio.Semaphore(
             RESOURCE_LIMITS["max_concurrent_gemini_calls"]
         )
+        if self.offline_mode:
+            logger.info("OFFLINE-MODUS: Kein API-Key, verwende Bootstrap-Daten")
 
     async def chat(
         self,

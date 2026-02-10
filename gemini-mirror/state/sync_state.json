@@ -1,0 +1,16 @@
+{
+  "created": "2026-02-10T13:53:42.288956",
+  "updated": "2026-02-10T13:53:57.835736",
+  "last_sync": "2026-02-10T13:53:57.835728",
+  "sync_count": 1,
+  "conflicts_resolved": 0,
+  "bytes_transferred": 0,
+  "sync_history": [
+    {
+      "timestamp": "2026-02-10T13:53:57.832972",
+      "pairs": 3,
+      "conflicts": 0,
+      "errors": 0
+    }
+  ]
+}
