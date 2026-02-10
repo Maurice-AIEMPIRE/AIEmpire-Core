@@ -1,0 +1,181 @@
+{
+  "name": "09 Dual Brain Pulse",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "hourly-pulse",
+      "name": "Hourly Amplification",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "dual-brain-pulse",
+        "responseMode": "responseNode"
+      },
+      "id": "pulse-webhook",
+      "name": "Manual Pulse Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [250, 550]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://localhost:8888/api/mirror-status",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "id": "get-main-status",
+      "name": "Get Main System Status",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8888/api/dual-brain/review",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ main_status: $json, trigger: 'n8n_hourly', timestamp: $now.format('yyyy-MM-dd HH:mm:ss') }) }}",
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "id": "trigger-review",
+      "name": "Trigger Mirror Review",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8888/api/dual-brain/amplify",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ review_result: $json, timestamp: $now.format('yyyy-MM-dd HH:mm:ss') }) }}",
+        "options": {
+          "timeout": 180000
+        }
+      },
+      "id": "trigger-amplify",
+      "name": "Trigger Amplification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1000, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8888/api/gemini-sync",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ action: 'post_amplification_sync', trigger: 'dual_brain_pulse' }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "post-sync",
+      "name": "Post-Amplification Sync",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "pulse_complete",
+              "value": true,
+              "type": "boolean"
+            },
+            {
+              "name": "timestamp",
+              "value": "={{ $now.format('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            },
+            {
+              "name": "amplification_result",
+              "value": "={{ $('Trigger Amplification').item.json }}",
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "id": "log-pulse",
+      "name": "Log Pulse Result",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [1500, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ status: 'pulse_complete', timestamp: $now.format('yyyy-MM-dd HH:mm:ss') }) }}"
+      },
+      "id": "respond-pulse",
+      "name": "Respond Pulse OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [750, 550]
+    }
+  ],
+  "connections": {
+    "Hourly Amplification": {
+      "main": [
+        [{"node": "Get Main System Status", "type": "main", "index": 0}]
+      ]
+    },
+    "Manual Pulse Trigger": {
+      "main": [
+        [{"node": "Get Main System Status", "type": "main", "index": 0}]
+      ]
+    },
+    "Get Main System Status": {
+      "main": [
+        [{"node": "Trigger Mirror Review", "type": "main", "index": 0}]
+      ]
+    },
+    "Trigger Mirror Review": {
+      "main": [
+        [{"node": "Trigger Amplification", "type": "main", "index": 0}]
+      ]
+    },
+    "Trigger Amplification": {
+      "main": [
+        [{"node": "Post-Amplification Sync", "type": "main", "index": 0}]
+      ]
+    },
+    "Post-Amplification Sync": {
+      "main": [
+        [{"node": "Log Pulse Result", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [
+    {
+      "name": "gemini-mirror"
+    },
+    {
+      "name": "dual-brain"
+    }
+  ]
+}
