@@ -11,9 +11,30 @@
       "wartung",
       "nische"
     ],
-    "status": "inbox",
-    "score": null,
-    "score_details": {},
+    "status": "scored",
+    "score": 72.3,
+    "score_details": {
+      "zahlungsbereitschaft": {
+        "score": 8,
+        "grund": "Statische Bewertung"
+      },
+      "umsetzungsgeschwindigkeit": {
+        "score": 5,
+        "grund": "Statische Bewertung"
+      },
+      "wiederverwendbarkeit": {
+        "score": 7,
+        "grund": "Statische Bewertung"
+      },
+      "differenzierung": {
+        "score": 10,
+        "grund": "Statische Bewertung"
+      },
+      "marktgroesse": {
+        "score": 6,
+        "grund": "Statische Bewertung"
+      }
+    },
     "created_at": "2026-02-10T13:11:24.712982"
   },
   {
@@ -28,9 +49,30 @@
       "anfaenger",
       "schnell"
     ],
-    "status": "inbox",
-    "score": null,
-    "score_details": {},
+    "status": "scored",
+    "score": 73.2,
+    "score_details": {
+      "zahlungsbereitschaft": {
+        "score": 6,
+        "grund": "Statische Bewertung"
+      },
+      "umsetzungsgeschwindigkeit": {
+        "score": 9,
+        "grund": "Statische Bewertung"
+      },
+      "wiederverwendbarkeit": {
+        "score": 10,
+        "grund": "Statische Bewertung"
+      },
+      "differenzierung": {
+        "score": 4,
+        "grund": "Statische Bewertung"
+      },
+      "marktgroesse": {
+        "score": 8,
+        "grund": "Statische Bewertung"
+      }
+    },
     "created_at": "2026-02-10T13:11:24.713486"
   },
   {
@@ -45,9 +87,30 @@
       "einsteiger",
       "breit"
     ],
-    "status": "inbox",
-    "score": null,
-    "score_details": {},
+    "status": "scored",
+    "score": 72.3,
+    "score_details": {
+      "zahlungsbereitschaft": {
+        "score": 7,
+        "grund": "Statische Bewertung"
+      },
+      "umsetzungsgeschwindigkeit": {
+        "score": 8,
+        "grund": "Statische Bewertung"
+      },
+      "wiederverwendbarkeit": {
+        "score": 9,
+        "grund": "Statische Bewertung"
+      },
+      "differenzierung": {
+        "score": 5,
+        "grund": "Statische Bewertung"
+      },
+      "marktgroesse": {
+        "score": 7,
+        "grund": "Statische Bewertung"
+      }
+    },
     "created_at": "2026-02-10T13:11:24.713865"
   },
   {
@@ -62,9 +125,30 @@
       "norm",
       "nische"
     ],
-    "status": "inbox",
-    "score": null,
-    "score_details": {},
+    "status": "designed",
+    "score": 76.4,
+    "score_details": {
+      "zahlungsbereitschaft": {
+        "score": 8,
+        "grund": "Statische Bewertung"
+      },
+      "umsetzungsgeschwindigkeit": {
+        "score": 6,
+        "grund": "Statische Bewertung"
+      },
+      "wiederverwendbarkeit": {
+        "score": 8,
+        "grund": "Statische Bewertung"
+      },
+      "differenzierung": {
+        "score": 10,
+        "grund": "Statische Bewertung"
+      },
+      "marktgroesse": {
+        "score": 6,
+        "grund": "Statische Bewertung"
+      }
+    },
     "created_at": "2026-02-10T13:11:24.714126"
   },
   {
@@ -79,9 +163,30 @@
       "automatisierung",
       "technik"
     ],
-    "status": "inbox",
-    "score": null,
-    "score_details": {},
+    "status": "scored",
+    "score": 72.3,
+    "score_details": {
+      "zahlungsbereitschaft": {
+        "score": 7,
+        "grund": "Statische Bewertung"
+      },
+      "umsetzungsgeschwindigkeit": {
+        "score": 8,
+        "grund": "Statische Bewertung"
+      },
+      "wiederverwendbarkeit": {
+        "score": 9,
+        "grund": "Statische Bewertung"
+      },
+      "differenzierung": {
+        "score": 5,
+        "grund": "Statische Bewertung"
+      },
+      "marktgroesse": {
+        "score": 7,
+        "grund": "Statische Bewertung"
+      }
+    },
     "created_at": "2026-02-10T13:11:24.714410"
   },
   {
@@ -96,9 +201,30 @@
       "crm",
       "automation"
     ],
-    "status": "inbox",
-    "score": null,
-    "score_details": {},
+    "status": "scored",
+    "score": 66.8,
+    "score_details": {
+      "zahlungsbereitschaft": {
+        "score": 8,
+        "grund": "Statische Bewertung"
+      },
+      "umsetzungsgeschwindigkeit": {
+        "score": 5,
+        "grund": "Statische Bewertung"
+      },
+      "wiederverwendbarkeit": {
+        "score": 7,
+        "grund": "Statische Bewertung"
+      },
+      "differenzierung": {
+        "score": 7,
+        "grund": "Statische Bewertung"
+      },
+      "marktgroesse": {
+        "score": 6,
+        "grund": "Statische Bewertung"
+      }
+    },
     "created_at": "2026-02-10T13:11:24.714726"
   }
 ]

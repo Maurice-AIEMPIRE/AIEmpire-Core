@@ -1,0 +1,63 @@
+[
+  {
+    "id": 1,
+    "idea_id": 4,
+    "title": "BMA Checklisten-Pack DIN 14675",
+    "type": "sop",
+    "line": "bma_automation",
+    "offer": {
+      "headline": "BMA Checklisten-Pack DIN 14675",
+      "subheadline": "Der komplette Guide fuer Alle Checklisten fuer Planung, Errichtung, Inbetriebnahme, Wartung",
+      "bullets": [
+        "SOP Dokument",
+        "Schritt-fuer-Schritt Checkliste",
+        "Fehlerliste + Loesungen",
+        "Video-Walkthrough (optional)"
+      ],
+      "pricing": {
+        "basic": {
+          "price": 49,
+          "includes": [
+            "SOP Dokument",
+            "Schritt-fuer-Schritt Checkliste"
+          ]
+        },
+        "pro": {
+          "price": 74,
+          "includes": [
+            "SOP Dokument",
+            "Schritt-fuer-Schritt Checkliste",
+            "Fehlerliste + Loesungen"
+          ]
+        },
+        "elite": {
+          "price": 99,
+          "includes": [
+            "SOP Dokument",
+            "Schritt-fuer-Schritt Checkliste",
+            "Fehlerliste + Loesungen",
+            "Video-Walkthrough (optional)"
+          ]
+        }
+      },
+      "objections": [
+        {
+          "objection": "Zu teuer",
+          "answer": "Spart dir 40+ Stunden Arbeit"
+        },
+        {
+          "objection": "Brauche ich das?",
+          "answer": "30 Tage Geld-zurueck-Garantie"
+        },
+        {
+          "objection": "Gibt es kostenlos?",
+          "answer": "Nicht in dieser Qualitaet und Praxis-Naehe"
+        }
+      ],
+      "cta": "Jetzt BMA Checklisten-Pack DIN 14675 sichern - Sofort-Download",
+      "guarantee": "30 Tage Geld-zurueck-Garantie. Kein Risiko."
+    },
+    "status": "marketed",
+    "created_at": "2026-02-10T22:03:00.351946"
+  }
+]
