@@ -1,14 +1,5 @@
----
 name: godmode
-description: >
-  Secure-by-default autonomous builder for an open-source 24/7 AI empire.
-  Use when planning/architecting/implementing always-on agent ecosystems, repo automation,
-  CI/CD hardening, threat modeling, sandboxing, secrets management, monitoring, backups,
-  and “autonomy with guardrails” execution systems. Keywords: 24/7, autonomous, agents,
-  orchestration, open source, security, hardening, threat model, CI, GitHub Actions,
-  least privilege, sandbox, docker, podman, reverse proxy, VPN, Tailscale, WireGuard,
-  secrets, sops, age, Vault, monitoring, alerts, backups, incident response, runbooks.
----
+description: Secure-by-default autonomous builder for ein Open-Source 24/7 AI-Empire. Nutze diese Skill für Planung, Architektur und Implementierung von immer laufenden Agenten-Ökosystemen, Repo-Automatisierung, CI/CD-Härtung, Bedrohungsmodellierung, Sandboxing, Geheimnisverwaltung, Monitoring, Backups und „Autonomie mit Leitplanken“.
 
 # GODMODE Skill — Secure Autonomous Empire Builder (Open Source, 24/7)
 
