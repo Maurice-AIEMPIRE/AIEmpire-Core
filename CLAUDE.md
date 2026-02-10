@@ -176,6 +176,55 @@ python workflow-system/x_posting_engine.py --dm "AI Automation Interesse"
 python workflow-system/x_posting_engine.py --export
 ```
 
+## Product Factory (Signature-Produkt-Engine)
+```bash
+# Status + Ideen anzeigen
+python workflow-system/product_factory.py
+
+# Starter-Ideen laden (6 Produkte)
+python workflow-system/product_factory.py --seed
+
+# Neue Idee hinzufuegen
+python workflow-system/product_factory.py --idea "BMA Checkliste" --desc "..."
+
+# Alle Ideen bewerten (Score 0-100)
+python workflow-system/product_factory.py --score
+
+# Offer designen (Pricing, Bullets, CTA)
+python workflow-system/product_factory.py --design 1
+
+# Marketing generieren (30 Posts + 3 Emails)
+python workflow-system/product_factory.py --market 1
+
+# Volle Pipeline (Idea → Score → Design → Marketing)
+python workflow-system/product_factory.py --pipeline
+```
+
+## Agent Registry (100-Agent-Management)
+```bash
+# Status
+python workflow-system/agent_registry.py
+
+# 20 Standard-Agents registrieren
+python workflow-system/agent_registry.py --seed
+
+# Agent nach Capability suchen
+python workflow-system/agent_registry.py --find content_generation
+
+# Health Check
+python workflow-system/agent_registry.py --health
+
+# Performance Report
+python workflow-system/agent_registry.py --report
+```
+
+## QA Gate (make check)
+```bash
+make check    # Import + Lint + Status Checks
+make test     # Quick Tests ohne Ollama
+make help     # Alle verfuegbaren Commands
+```
+
 ## Session-Start Hook
 Zeigt bei jedem Claude Code Start automatisch den System-Status.
 Konfiguriert in `~/.claude/settings.json` → hooks.SessionStart.
@@ -197,6 +246,9 @@ Use for parallel tasks: research + implementation + testing.
 3. BMA + AI consulting (2000-10000 EUR) - UNIQUE NICHE
 4. OpenClaw Skills marketplace
 5. X/Twitter content + lead generation
+
+## Revenue Channels (via Product Factory)
+6. Product Factory (Blueprints 27-49 EUR, SOPs 49-99 EUR, Automation Packs 99-149 EUR)
 
 ## Current Blockers
 - Revenue = 0 EUR (channels need activation)

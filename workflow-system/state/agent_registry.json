@@ -1,0 +1,425 @@
+{
+  "agents": [
+    {
+      "agent_id": "content-x",
+      "name": "X Content Agent",
+      "capabilities": [
+        "content_generation",
+        "marketing"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "content",
+      "priority": 8,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.243796"
+    },
+    {
+      "agent_id": "content-tiktok",
+      "name": "TikTok Script Agent",
+      "capabilities": [
+        "content_generation"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "content",
+      "priority": 7,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.244142"
+    },
+    {
+      "agent_id": "content-thread",
+      "name": "Thread Writer",
+      "capabilities": [
+        "content_generation",
+        "marketing"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "content",
+      "priority": 7,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.244351"
+    },
+    {
+      "agent_id": "lead-finder",
+      "name": "Lead Discovery Agent",
+      "capabilities": [
+        "lead_generation",
+        "research"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "sales",
+      "priority": 9,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.244539"
+    },
+    {
+      "agent_id": "lead-scorer",
+      "name": "Lead Scoring Agent",
+      "capabilities": [
+        "lead_generation",
+        "data_analysis"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "sales",
+      "priority": 8,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.244941"
+    },
+    {
+      "agent_id": "dm-nurture",
+      "name": "DM Nurture Agent",
+      "capabilities": [
+        "sales",
+        "content_generation"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "sales",
+      "priority": 8,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.245192"
+    },
+    {
+      "agent_id": "reply-engine",
+      "name": "Viral Reply Engine",
+      "capabilities": [
+        "content_generation",
+        "lead_generation"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "engagement",
+      "priority": 7,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.245429"
+    },
+    {
+      "agent_id": "product-designer",
+      "name": "Product Design Agent",
+      "capabilities": [
+        "product_design",
+        "marketing"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "product",
+      "priority": 9,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.245680"
+    },
+    {
+      "agent_id": "product-builder",
+      "name": "Asset Builder Agent",
+      "capabilities": [
+        "product_design",
+        "code_generation"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "product",
+      "priority": 8,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.246009"
+    },
+    {
+      "agent_id": "market-gen",
+      "name": "Marketing Content Agent",
+      "capabilities": [
+        "marketing",
+        "content_generation"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "marketing",
+      "priority": 8,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.246345"
+    },
+    {
+      "agent_id": "email-writer",
+      "name": "Email Sequence Agent",
+      "capabilities": [
+        "marketing",
+        "sales"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "marketing",
+      "priority": 7,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.246648"
+    },
+    {
+      "agent_id": "trend-scanner",
+      "name": "Trend Research Agent",
+      "capabilities": [
+        "research",
+        "data_analysis"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "intelligence",
+      "priority": 6,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.246956"
+    },
+    {
+      "agent_id": "competitor-watch",
+      "name": "Competitor Monitor",
+      "capabilities": [
+        "research",
+        "monitoring"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "intelligence",
+      "priority": 6,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.247241"
+    },
+    {
+      "agent_id": "bma-expert",
+      "name": "BMA Expertise Agent",
+      "capabilities": [
+        "product_design",
+        "support"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "niche",
+      "priority": 10,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.247613"
+    },
+    {
+      "agent_id": "code-builder",
+      "name": "Code Generation Agent",
+      "capabilities": [
+        "code_generation",
+        "automation"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "engineering",
+      "priority": 7,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.247958"
+    },
+    {
+      "agent_id": "workflow-bot",
+      "name": "n8n Workflow Agent",
+      "capabilities": [
+        "automation",
+        "code_generation"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "engineering",
+      "priority": 7,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.248281"
+    },
+    {
+      "agent_id": "quality-gate",
+      "name": "QA & Review Agent",
+      "capabilities": [
+        "monitoring",
+        "data_analysis"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "engineering",
+      "priority": 6,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.248745"
+    },
+    {
+      "agent_id": "crm-agent",
+      "name": "CRM Management Agent",
+      "capabilities": [
+        "data_analysis",
+        "sales"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "sales",
+      "priority": 7,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.249149"
+    },
+    {
+      "agent_id": "ollama-router",
+      "name": "Model Router Agent",
+      "capabilities": [
+        "automation",
+        "monitoring"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "infrastructure",
+      "priority": 8,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.249504"
+    },
+    {
+      "agent_id": "brain-thinker",
+      "name": "Empire Brain Think Agent",
+      "capabilities": [
+        "data_analysis",
+        "research"
+      ],
+      "provider": "ollama",
+      "model": "qwen2.5-coder:7b",
+      "squad": "command",
+      "priority": 10,
+      "status": "idle",
+      "stats": {
+        "tasks_completed": 0,
+        "tasks_failed": 0,
+        "total_revenue": 0.0,
+        "avg_duration_ms": 0,
+        "last_active": null
+      },
+      "created_at": "2026-02-10T13:11:32.249894"
+    }
+  ],
+  "updated": "2026-02-10T13:11:32.249900",
+  "total": 20
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "title": "BMA Wartungsprotokoll Generator",
+    "description": "AI-gestuetzter Generator fuer normkonforme BMA-Wartungsprotokolle",
+    "type": "automation",
+    "line": "bma_automation",
+    "tags": [
+      "bma",
+      "din14675",
+      "wartung",
+      "nische"
+    ],
+    "status": "inbox",
+    "score": null,
+    "score_details": {},
+    "created_at": "2026-02-10T13:11:24.712982"
+  },
+  {
+    "id": 2,
+    "title": "50 AI Business Prompts",
+    "description": "Die besten Prompts fuer Unternehmer - Lead Gen, Sales, Content, Analyse",
+    "type": "prompts",
+    "line": "content_factory",
+    "tags": [
+      "prompts",
+      "business",
+      "anfaenger",
+      "schnell"
+    ],
+    "status": "inbox",
+    "score": null,
+    "score_details": {},
+    "created_at": "2026-02-10T13:11:24.713486"
+  },
+  {
+    "id": 3,
+    "title": "AI Automation Blueprint - KMU",
+    "description": "Schritt-fuer-Schritt Guide: So automatisiert ein KMU mit AI",
+    "type": "blueprint",
+    "line": "ai_ops_handwerk",
+    "tags": [
+      "kmu",
+      "automation",
+      "einsteiger",
+      "breit"
+    ],
+    "status": "inbox",
+    "score": null,
+    "score_details": {},
+    "created_at": "2026-02-10T13:11:24.713865"
+  },
+  {
+    "id": 4,
+    "title": "BMA Checklisten-Pack DIN 14675",
+    "description": "Alle Checklisten fuer Planung, Errichtung, Inbetriebnahme, Wartung",
+    "type": "sop",
+    "line": "bma_automation",
+    "tags": [
+      "bma",
+      "checklisten",
+      "norm",
+      "nische"
+    ],
+    "status": "inbox",
+    "score": null,
+    "score_details": {},
+    "created_at": "2026-02-10T13:11:24.714126"
+  },
+  {
+    "id": 5,
+    "title": "Content Machine Setup Guide",
+    "description": "Wie du mit Ollama + Claude Code 1000 Content Pieces pro Woche erstellst",
+    "type": "blueprint",
+    "line": "content_factory",
+    "tags": [
+      "content",
+      "ollama",
+      "automatisierung",
+      "technik"
+    ],
+    "status": "inbox",
+    "score": null,
+    "score_details": {},
+    "created_at": "2026-02-10T13:11:24.714410"
+  },
+  {
+    "id": 6,
+    "title": "n8n Lead-Gen Workflow Pack",
+    "description": "5 fertige n8n Workflows: X-Monitoring, CRM-Sync, Email-Follow-up",
+    "type": "automation",
+    "line": "ai_ops_handwerk",
+    "tags": [
+      "n8n",
+      "leads",
+      "crm",
+      "automation"
+    ],
+    "status": "inbox",
+    "score": null,
+    "score_details": {},
+    "created_at": "2026-02-10T13:11:24.714726"
+  }
+]

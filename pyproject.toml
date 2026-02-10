@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "ai-empire-core"
+version = "0.1.0"
+description = "AI Empire - 100M EUR Automation System by Maurice Pfeifer"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+dependencies = [
+    "aiohttp>=3.9",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "mypy",
+    "pytest",
+    "pytest-asyncio",
+]
+full = [
+    "pydantic>=2.0",
+    "rich",
+    "typer",
+    "chromadb",
+    "redis",
+]
+
+[tool.setuptools.packages]
+# workflow-system hat Bindestrich - nicht als Python Package installierbar
+# Imports laufen ueber sys.path.insert() in jedem Modul
+# Spaeter: rename zu workflow_system/ fuer saubere Package-Struktur
+
+[tool.setuptools.py-modules]
+# Kein automatisches Package Discovery (Hyphen-Problem)
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
