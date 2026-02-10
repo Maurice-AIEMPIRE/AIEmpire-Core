@@ -31,7 +31,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 from state.context import (
-    load_state, save_state, append_step_result,
+    load_state, append_step_result,
     get_context_for_step, advance_cycle, add_pattern,
     load_pattern_library,
 )
@@ -121,7 +121,7 @@ async def run_step(step_name: str, context: dict = None) -> dict:
 
     prompt = step_module.build_prompt(context)
     print(f"  Prompt length: {len(prompt)} chars")
-    print(f"  Calling model...")
+    print("  Calling model...")
 
     raw = await call_model(step_name, step_module.SYSTEM_PROMPT, prompt)
     result = step_module.parse_result(raw)
@@ -145,7 +145,7 @@ async def run_refinery_loop(context: dict = None) -> dict:
         context = get_context_for_step("refinery")
 
     print(f"\n{'='*60}")
-    print(f"  STEP: REFINERY (Convergence Loop)")
+    print("  STEP: REFINERY (Convergence Loop)")
     print(f"  Max iterations: {step4_refinery.MAX_ITERATIONS}")
     print(f"  Target score: {step4_refinery.TARGET_SCORE}")
     print(f"  Convergence threshold: {step4_refinery.CONVERGENCE_THRESHOLD}")

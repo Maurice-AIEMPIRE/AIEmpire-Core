@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMPIRE NUCLEUS — Alle Systeme Verbunden</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#05050a;--card:#0c0c14;--border:#1a1a2e;--accent:#7c3aed;--green:#10b981;--red:#ef4444;--yellow:#f59e0b;--orange:#f97316;--blue:#3b82f6;--pink:#ec4899;--cyan:#06b6d4;--text:#e2e8f0;--muted:#64748b;--dim:#334155}
+body{font-family:'Inter',-apple-system,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{display:none}}
+
+/* Sidebar */
+.sidebar{background:#08080f;border-right:1px solid var(--border);padding:20px 0;position:sticky;top:0;height:100vh;overflow-y:auto}
+.sidebar .logo{padding:0 20px 20px;border-bottom:1px solid var(--border);margin-bottom:16px}
+.sidebar .logo h1{font-size:1rem;background:linear-gradient(135deg,#7c3aed,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.sidebar .logo small{color:var(--muted);font-size:0.7rem}
+.nav-group{padding:0 12px;margin-bottom:16px}
+.nav-label{font-size:0.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);padding:0 8px;margin-bottom:6px}
+.nav-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;font-size:0.82rem;color:var(--muted);cursor:pointer;transition:all .2s}
+.nav-item:hover,.nav-item.active{background:rgba(124,58,237,0.1);color:var(--text)}
+.nav-item.active{border-left:2px solid var(--accent)}
+.nav-item .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.dot-green{background:var(--green)}
+.dot-red{background:var(--red)}
+.dot-yellow{background:var(--yellow)}
+.dot-blue{background:var(--blue)}
+.dot-pink{background:var(--pink)}
+
+/* Main Content */
+.main{padding:24px;overflow-y:auto}
+.section{display:none}.section.active{display:block}
+
+/* Header Stats */
+.stat-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+.stat-box{flex:1;min-width:130px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.stat-box .val{font-size:1.6rem;font-weight:800}
+.stat-box .lbl{font-size:0.7rem;color:var(--muted);margin-top:2px}
+.v-red{color:var(--red)}.v-green{color:var(--green)}.v-accent{color:var(--accent)}.v-yellow{color:var(--yellow)}.v-cyan{color:var(--cyan)}.v-pink{color:var(--pink)}.v-blue{color:var(--blue)}.v-orange{color:var(--orange)}
+
+/* Cards */
+.grid{display:grid;gap:14px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .3s}
+.card:hover{border-color:var(--accent);transform:translateY(-1px)}
+.card h3{font-size:0.95rem;margin-bottom:6px}
+.card p{font-size:0.8rem;color:var(--muted)}
+.card .tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:0.65rem;font-weight:600;margin-top:8px}
+.tag-live{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.tag-ready{background:rgba(59,130,246,.15);color:var(--blue);border:1px solid rgba(59,130,246,.3)}
+.tag-blocked{background:rgba(239,68,68,.15);color:var(--red);border:1px solid rgba(239,68,68,.3)}
+.tag-wip{background:rgba(245,158,11,.15);color:var(--yellow);border:1px solid rgba(245,158,11,.3)}
+.card .meta{font-size:0.7rem;color:var(--dim);margin-top:8px;font-family:monospace}
+
+/* Connection Graph */
+.conn-map{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px}
+.conn-map h2{font-size:1.2rem;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.conn-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.conn-node{padding:8px 14px;border-radius:8px;font-size:0.78rem;font-weight:600;white-space:nowrap}
+.conn-arrow{color:var(--accent);font-weight:800;font-size:1.1rem}
+.cn-purple{background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);color:var(--accent)}
+.cn-green{background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--green)}
+.cn-blue{background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.3);color:var(--blue)}
+.cn-pink{background:rgba(236,72,153,.15);border:1px solid rgba(236,72,153,.3);color:var(--pink)}
+.cn-orange{background:rgba(249,115,22,.15);border:1px solid rgba(249,115,22,.3);color:var(--orange)}
+.cn-cyan{background:rgba(6,182,212,.15);border:1px solid rgba(6,182,212,.3);color:var(--cyan)}
+.cn-red{background:rgba(239,68,68,.15);border:1px solid rgba(239,68,68,.3);color:var(--red)}
+.cn-yellow{background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:var(--yellow)}
+
+/* Table */
+.tbl{width:100%;border-collapse:collapse;font-size:0.8rem}
+.tbl th{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);color:var(--muted);font-size:0.7rem;text-transform:uppercase;letter-spacing:1px}
+.tbl td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.03)}
+.tbl tr:hover td{background:rgba(124,58,237,.03)}
+
+/* Section Headers */
+.sh{font-size:1.3rem;font-weight:700;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.sh2{font-size:1rem;font-weight:600;margin:20px 0 12px;color:var(--accent)}
+
+/* File Tree */
+.ftree{font-family:'JetBrains Mono',monospace;font-size:0.72rem;line-height:1.8;background:#08080f;border:1px solid var(--border);border-radius:10px;padding:16px;max-height:600px;overflow-y:auto}
+.ftree .d{color:var(--accent);font-weight:600}
+.ftree .f{color:var(--muted)}
+.ftree .h{color:var(--green);font-weight:600}
+.ftree .w{color:var(--yellow)}
+
+/* Alerts */
+.alert{padding:16px 20px;border-radius:10px;margin-bottom:16px;font-size:0.85rem}
+.alert-red{background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);color:#fca5a5}
+.alert-green{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.25);color:#6ee7b7}
+.alert-purple{background:rgba(124,58,237,.08);border:1px solid rgba(124,58,237,.25);color:#c4b5fd}
+
+/* Progress Bars */
+.pbar{height:6px;background:var(--border);border-radius:3px;margin-top:8px;overflow:hidden}
+.pbar .fill{height:100%;border-radius:3px;transition:width .5s}
+.fill-green{background:var(--green)}.fill-red{background:var(--red)}.fill-accent{background:var(--accent)}.fill-yellow{background:var(--yellow)}
+
+footer{text-align:center;padding:30px;color:var(--dim);font-size:0.7rem;border-top:1px solid var(--border);margin-top:30px}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+<div class="logo">
+<h1>EMPIRE NUCLEUS</h1>
+<small>Maurice Pfeifer | 09.02.2026</small>
+</div>
+
+<div class="nav-group">
+<div class="nav-label">Command Center</div>
+<div class="nav-item active" onclick="show('overview')"><span class="dot dot-green"></span>Overview</div>
+<div class="nav-item" onclick="show('connections')"><span class="dot dot-pink"></span>Verbindungen</div>
+<div class="nav-item" onclick="show('critical')"><span class="dot dot-red"></span>Kritischer Pfad</div>
+</div>
+
+<div class="nav-group">
+<div class="nav-label">Revenue</div>
+<div class="nav-item" onclick="show('products')"><span class="dot dot-green"></span>Produkte (14 Stripe)</div>
+<div class="nav-item" onclick="show('content')"><span class="dot dot-blue"></span>Content Arsenal</div>
+<div class="nav-item" onclick="show('channels')"><span class="dot dot-yellow"></span>Kanäle & Flow</div>
+</div>
+
+<div class="nav-group">
+<div class="nav-label">Systeme</div>
+<div class="nav-item" onclick="show('agents')"><span class="dot dot-pink"></span>Agent Army (100+)</div>
+<div class="nav-item" onclick="show('infra')"><span class="dot dot-blue"></span>Infrastruktur</div>
+<div class="nav-item" onclick="show('workflows')"><span class="dot dot-green"></span>Workflows</div>
+<div class="nav-item" onclick="show('data')"><span class="dot dot-yellow"></span>Data Layer</div>
+</div>
+
+<div class="nav-group">
+<div class="nav-label">Assets</div>
+<div class="nav-item" onclick="show('goldnuggets')"><span class="dot dot-yellow"></span>Gold Nuggets (15)</div>
+<div class="nav-item" onclick="show('bma')"><span class="dot dot-green"></span>BMA Academy</div>
+<div class="nav-item" onclick="show('docs')"><span class="dot dot-blue"></span>Dokumente (14)</div>
+<div class="nav-item" onclick="show('files')"><span class="dot dot-pink"></span>Datei-Index (100+)</div>
+</div>
+
+<div class="nav-group">
+<div class="nav-label">Analyse</div>
+<div class="nav-item" onclick="show('gap')"><span class="dot dot-red"></span>Gap-Analyse</div>
+<div class="nav-item" onclick="show('timeline')"><span class="dot dot-green"></span>Zeitplan</div>
+</div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- OVERVIEW -->
+<div class="section active" id="s-overview">
+<div class="stat-bar">
+<div class="stat-box"><div class="val v-red">€0</div><div class="lbl">Revenue (aktuell)</div></div>
+<div class="stat-box"><div class="val v-green">100+</div><div class="lbl">Dateien im Repo</div></div>
+<div class="stat-box"><div class="val v-accent">14</div><div class="lbl">Stripe Produkte LIVE</div></div>
+<div class="stat-box"><div class="val v-cyan">8</div><div class="lbl">Systeme gebaut</div></div>
+<div class="stat-box"><div class="val v-pink">26</div><div class="lbl">Content-Pieces ready</div></div>
+<div class="stat-box"><div class="val v-yellow">15</div><div class="lbl">Gold Nuggets</div></div>
+<div class="stat-box"><div class="val v-orange">7</div><div class="lbl">Squads geplant</div></div>
+<div class="stat-box"><div class="val v-blue">5</div><div class="lbl">Revenue-Kanäle</div></div>
+</div>
+
+<div class="alert alert-red">
+<strong>REALITÄT:</strong> Gesamtes Empire ist gebaut aber nicht aktiviert. Revenue = €0. Kein Fiverr Gig live, kein Gumroad Produkt hochgeladen, kein TikTok Video gepostet, kein X-Post veröffentlicht, kein Kunde angerufen. Die Infrastruktur ist beeindruckend — aber Infrastruktur zahlt keine Rechnungen.
+</div>
+
+<div class="alert alert-green">
+<strong>STÄRKE:</strong> 16 Jahre BMA-Expertise + AI-Automation = weltweit einzigartige Nische mit NULL Konkurrenz. 14 Stripe-Produkte bereits konfiguriert (€27 bis €5.000). 3 Fiverr-Gig-Texte fertig. 9 TikTok-Scripts fertig. 17 X-Posts fertig. Alles wartet nur auf ACTIVATION.
+</div>
+
+<h2 class="sh">System-Übersicht nach Status</h2>
+<div class="grid g3">
+<div class="card"><h3>Stripe Payments</h3><p>14 Produkte mit Payment Links konfiguriert. BMA + AI Produkte von €27 bis €5.000.</p><span class="tag tag-live">LIVE</span><div class="meta">stripe_products_live.json</div></div>
+<div class="card"><h3>Empire CLI</h3><p>Unified Control: empire.py steuert Orchestrator + Cowork + Resource Guard.</p><span class="tag tag-ready">CODE FERTIG</span><div class="meta">workflow-system/empire.py</div></div>
+<div class="card"><h3>Kimi Swarm</h3><p>100K-500K Agents. Async/await. Moonshot API. ~€5 für 50K Tasks.</p><span class="tag tag-ready">CODE FERTIG</span><div class="meta">kimi-swarm/swarm_500k.py</div></div>
+<div class="card"><h3>CRM V2</h3><p>Express.js + SQLite. BANT Scoring. REST API auf Port 3500.</p><span class="tag tag-ready">CODE FERTIG</span><div class="meta">crm/server.js</div></div>
+<div class="card"><h3>Resource Guard</h3><p>CPU/RAM/Disk Monitor. 4 Level: Normal → Warn → Critical → Emergency.</p><span class="tag tag-ready">CODE FERTIG</span><div class="meta">workflow-system/resource_guard.py</div></div>
+<div class="card"><h3>GitHub Actions</h3><p>5 Workflows: Content (4h), Health (30m), Issues, Revenue (9AM), X (7AM).</p><span class="tag tag-ready">KONFIGURIERT</span><div class="meta">.github/workflows/ (5 YAMLs)</div></div>
+<div class="card"><h3>OpenClaw</h3><p>5 Agents + 9 Cron Jobs + Model Routing. Kimi K2.5 primary.</p><span class="tag tag-wip">TEILWEISE AKTIV</span><div class="meta">openclaw-config/ (12+ Dateien)</div></div>
+<div class="card"><h3>Fiverr Gigs</h3><p>3 Gig-Texte fertig: AI Automation (€30-500), BMA Consulting (€200-2K), Custom Agent (€500-5K).</p><span class="tag tag-blocked">NICHT LIVE</span><div class="meta">docs/FIVERR_GIGS.md</div></div>
+<div class="card"><h3>Gumroad Produkte</h3><p>3 Produkte fertig: BMA Pack (€27), AI Starter Kit (€49), Blueprint (€79).</p><span class="tag tag-blocked">NICHT LIVE</span><div class="meta">docs/GUMROAD_PRODUCTS_READY.md</div></div>
+<div class="card"><h3>X Lead Machine</h3><p>17 Posts + Viral Reply Generator + 30 Automatisierungen identifiziert.</p><span class="tag tag-blocked">BRAUCHT API AUTH</span><div class="meta">x-lead-machine/ (12 Dateien)</div></div>
+<div class="card"><h3>TikTok Content</h3><p>9 Scripts für 3 Personas. Viral-Score bis 9.5/10. Kein Account erstellt.</p><span class="tag tag-blocked">KEIN ACCOUNT</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+<div class="card"><h3>Telegram Bot</h3><p>Token invalid. Braucht neuen Token von @BotFather.</p><span class="tag tag-blocked">TOKEN INVALID</span><div class="meta">openclaw-config/</div></div>
+</div>
+</div>
+
+<!-- CONNECTIONS -->
+<div class="section" id="s-connections">
+<h2 class="sh">Wie ALLES verbunden ist</h2>
+
+<div class="conn-map">
+<h2>Datenfluss: Content → Leads → Revenue</h2>
+<div class="conn-row">
+<div class="conn-node cn-purple">TikTok Scripts (9)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">AI Avatar (HeyGen)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-cyan">TikTok/YT/IG Posts</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-green">Audience wächst</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-orange">Gumroad Link im Bio</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-pink">Stripe Payment (€27-149)</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">X Posts (17)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">Engagement + DMs</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-cyan">CRM (BANT Score)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-green">Lead Nurturing</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-orange">Consulting Call</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-pink">Stripe (€200-10.000)</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">Fiverr Gigs (3)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">Kunde bestellt</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-cyan">Kimi Swarm produziert</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-green">Deliverable liefern</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-orange">Review + Repeat</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-pink">Fiverr Payment (€30-5K)</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">BMA Netzwerk (16 Jahre)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">5 Kontakte anrufen</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-green">Projekt-Anfrage</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-pink">Consulting €2K-10K</div>
+</div>
+</div>
+
+<div class="conn-map">
+<h2>Technik-Verbindungen: System → System</h2>
+<div class="conn-row">
+<div class="conn-node cn-purple">Empire CLI</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">Orchestrator (5 Steps)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-cyan">Cowork Engine (Daemon)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-green">Resource Guard</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">OpenClaw (9 Jobs)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">Ollama (95% Tasks)</div>
+<div class="conn-arrow">+</div>
+<div class="conn-node cn-cyan">Kimi K2.5 (4%)</div>
+<div class="conn-arrow">+</div>
+<div class="conn-node cn-orange">Claude (1%)</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">Kimi Swarm (500K)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">Content Arsenal</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-cyan">Gumroad Products</div>
+<div class="conn-arrow">+</div>
+<div class="conn-node cn-green">Fiverr Deliverables</div>
+<div class="conn-arrow">+</div>
+<div class="conn-node cn-orange">X/TikTok Posts</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">X Lead Machine</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">Viral Reply Gen</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-cyan">CRM (Port 3500)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-green">BANT Scoring</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-orange">Email Sequence</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-pink">Consulting/Sale</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">GitHub Actions (5x)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">Auto Content (4h)</div>
+<div class="conn-arrow">+</div>
+<div class="conn-node cn-cyan">Health Check (30m)</div>
+<div class="conn-arrow">+</div>
+<div class="conn-node cn-green">Revenue Report (9AM)</div>
+<div class="conn-arrow">+</div>
+<div class="conn-node cn-orange">X Poster (7AM)</div>
+</div>
+</div>
+
+<div class="conn-map">
+<h2>Daten-Verbindungen: Storage → Nutzung</h2>
+<div class="conn-row">
+<div class="conn-node cn-purple">PostgreSQL</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-blue">Persistent State + Leads + Metrics</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">Redis</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-cyan">Session Cache + Task Queues + Rate Limiting</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">ChromaDB</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-green">Vector Store + Agent Memory + Embeddings</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">SQLite (CRM)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-orange">Lead Database + BANT Scores + Pipeline</div>
+</div>
+<div class="conn-row">
+<div class="conn-node cn-purple">Gold Nuggets (15)</div>
+<div class="conn-arrow">→</div>
+<div class="conn-node cn-pink">Business Intel + Strategie + Produkt-Ideen</div>
+</div>
+</div>
+</div>
+
+<!-- CRITICAL PATH -->
+<div class="section" id="s-critical">
+<h2 class="sh">Kritischer Pfad: €0 → €500+ → €10K/Mo</h2>
+<div class="alert alert-purple"><strong>REGEL:</strong> Nur Aktionen die DIREKT zu Revenue führen. Kein weiteres Bauen, Planen, Dokumentieren.</div>
+
+<div class="grid g2">
+<div class="card" style="border-color:var(--red)">
+<h3 style="color:var(--red)">HEUTE ABEND (2-3h)</h3>
+<p>1. Fiverr Account erstellen → 3 Gigs live (Copy aus docs/FIVERR_GIGS.md)<br>
+2. Gumroad: 3 Produkte hochladen (BMA Pack €27, AI Kit €49, Blueprint €79)<br>
+3. Stripe Payment Links testen</p>
+<div class="pbar"><div class="fill fill-red" style="width:0%"></div></div>
+<div class="meta">Impact: 2 Revenue-Kanäle aktiviert | Quelle: docs/FIVERR_GIGS.md + docs/GUMROAD_PRODUCTS_READY.md</div>
+</div>
+
+<div class="card" style="border-color:var(--orange)">
+<h3 style="color:var(--orange)">MORGEN FRÜH (1h)</h3>
+<p>1. X Post 1A um 08:00 (aus docs/CONTENT_LAUNCH_PLAN.md)<br>
+2. 5 BMA-Kontakte aus 16 Jahren anrufen<br>
+3. 30 Min Engagement auf X<br>
+4. TikTok Video 3 drehen (Script: docs/TIKTOK_SCRIPTS.md)</p>
+<div class="pbar"><div class="fill fill-orange" style="width:0%"></div></div>
+<div class="meta">Impact: Schnellster Weg zu €500+ = ein Consulting-Auftrag</div>
+</div>
+
+<div class="card" style="border-color:var(--yellow)">
+<h3 style="color:var(--yellow)">WOCHE 1 (€500-1.000 Ziel)</h3>
+<p>3 X Posts/Tag (17 fertig), 1-2 TikTok Videos/Tag (9 Scripts), Fiverr optimieren, Gumroad Bundle (€149), Newsletter (Brevo), 3 DMs/Tag an warme Leads.</p>
+<div class="pbar"><div class="fill fill-yellow" style="width:0%"></div></div>
+<div class="meta">Content: docs/CONTENT_LAUNCH_PLAN.md + docs/TIKTOK_SCRIPTS.md</div>
+</div>
+
+<div class="card" style="border-color:var(--green)">
+<h3 style="color:var(--green)">WOCHE 2-4 (€1.500-10.000 Ziel)</h3>
+<p>YouTube starten, Newsletter 100 Subs, Upwork Proposals (20x), BMA Consulting-Angebote, Content-Pipeline automatisieren, Agent Builders Club (€29/Mo) launchen.</p>
+<div class="pbar"><div class="fill fill-green" style="width:0%"></div></div>
+<div class="meta">Skalierung: Recurring Revenue + Passive Income</div>
+</div>
+</div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="section" id="s-products">
+<h2 class="sh">Alle 14 Stripe-Produkte + Preise</h2>
+
+<h2 class="sh2">BMA-Produkte (Nische)</h2>
+<table class="tbl">
+<tr><th>Produkt</th><th>Preis</th><th>Stripe</th><th>Content</th><th>Status</th></tr>
+<tr><td><strong>BMA Profi-Checklisten Pack</strong></td><td>€27</td><td>Konfiguriert</td><td>docs/GUMROAD_BMA_PACK.md</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>BMA Video-Schulungspaket</strong></td><td>€47</td><td>Konfiguriert</td><td>Videos fehlen</td><td><span class="tag tag-blocked">Content fehlt</span></td></tr>
+<tr><td><strong>BMA Troubleshooting-Kompass</strong></td><td>€37</td><td>Konfiguriert</td><td>Aus Gold Nuggets generierbar</td><td><span class="tag tag-wip">Möglich</span></td></tr>
+<tr><td><strong>BMA Consulting Basic</strong></td><td>€200</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 2</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>BMA Consulting Standard</strong></td><td>€750</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 2</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>BMA Consulting Premium</strong></td><td>€2.000</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 2</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+</table>
+
+<h2 class="sh2">AI-Produkte</h2>
+<table class="tbl">
+<tr><th>Produkt</th><th>Preis</th><th>Stripe</th><th>Content</th><th>Status</th></tr>
+<tr><td><strong>AI Agent Blueprint Starter</strong></td><td>€47</td><td>Konfiguriert</td><td>docs/GUMROAD_PRODUCTS_READY.md</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>AI Side Hustle Playbook</strong></td><td>€97</td><td>Konfiguriert</td><td>Aus Gold Nuggets generierbar</td><td><span class="tag tag-wip">Möglich</span></td></tr>
+<tr><td><strong>AI Automation Setup Basic</strong></td><td>€30</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 1</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>AI Automation Setup Standard</strong></td><td>€150</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 1</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>AI Automation Setup Premium</strong></td><td>€500</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 1</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>Custom AI Agent Basic</strong></td><td>€500</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 3</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>Custom AI Agent Standard</strong></td><td>€2.000</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 3</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+<tr><td><strong>Custom AI Agent Premium</strong></td><td>€5.000</td><td>Konfiguriert</td><td>docs/FIVERR_GIGS.md → Gig 3</td><td><span class="tag tag-ready">Copy fertig</span></td></tr>
+</table>
+
+<div class="alert alert-green" style="margin-top:16px">
+<strong>Revenue-Potential bei nur 1% Conversion:</strong> Gesamtwert aller Produkte = €11.335. Bei 100 Besuchern und 1% Conversion = €113/Tag. Bei 1.000 Besuchern = €1.130/Tag.
+</div>
+</div>
+
+<!-- CONTENT ARSENAL -->
+<div class="section" id="s-content">
+<h2 class="sh">Content Arsenal — 26 Pieces fertig</h2>
+
+<h2 class="sh2">X/Twitter: 17 Posts (7-Tage Kampagne)</h2>
+<div class="grid g3">
+<div class="card"><h3>Mo: Result Post</h3><p>"25% mehr Umsatz in 4 Wochen" — Case Study Format</p><div class="meta">08:00 | docs/CONTENT_LAUNCH_PLAN.md</div></div>
+<div class="card"><h3>Mo: How-To</h3><p>"Von 0 auf 100 Leads" — Tutorial mit CTA</p><div class="meta">13:00 | docs/CONTENT_LAUNCH_PLAN.md</div></div>
+<div class="card"><h3>Mo: Engagement</h3><p>"Welches AI-Tool nutzt ihr?" — Poll/Frage</p><div class="meta">18:00 | docs/CONTENT_LAUNCH_PLAN.md</div></div>
+<div class="card"><h3>Di-Sa: 3 Posts/Tag</h3><p>Tutorials, Takes, BTS, Stories, Fragen. Je 3 Posts mit Hashtags + CTA.</p><div class="meta">08-19 Uhr | docs/CONTENT_LAUNCH_PLAN.md</div></div>
+<div class="card"><h3>So: Mega-Thread</h3><p>7-teiliger Thread: "Wie du 2026 mit AI Geld verdienst"</p><div class="meta">09:00 | docs/CONTENT_LAUNCH_PLAN.md</div></div>
+<div class="card"><h3>+7 Ready Posts</h3><p>Zusätzliche Posts in x-lead-machine/READY_TO_POST.md</p><div class="meta">x-lead-machine/</div></div>
+</div>
+
+<h2 class="sh2">TikTok: 9 Scripts (3 Personas)</h2>
+<div class="grid g3">
+<div class="card"><h3>BMA-Meister #1</h3><p>"3 Fehler bei Brandmeldeanlagen"</p><span class="tag tag-ready">7.5/10 Viral</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+<div class="card"><h3>BMA-Meister #2</h3><p>"80% aller BMA-Wartungen falsch"</p><span class="tag tag-ready">8/10 Viral</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+<div class="card"><h3>BMA-Meister #3</h3><p>"Die teuerste BMA-Panne in 16 Jahren"</p><span class="tag tag-ready">8.5/10 Viral</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+<div class="card"><h3>AI Agent King #4</h3><p>"100 AI Agents gebaut — mein System"</p><span class="tag tag-ready">8/10 Viral</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+<div class="card" style="border-color:var(--green)"><h3>AI Agent King #5</h3><p>"Dieser AI Agent verdient im Schlaf"</p><span class="tag tag-live">9/10 Viral ★</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+<div class="card"><h3>AI Agent King #6</h3><p>"Warum du JETZT AI Agent brauchst"</p><span class="tag tag-ready">8.5/10 Viral</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+<div class="card" style="border-color:var(--green)"><h3>Money Machine #7</h3><p>"Von 0 auf passives Einkommen mit AI"</p><span class="tag tag-live">9/10 Viral ★</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+<div class="card" style="border-color:var(--pink)"><h3>Money Machine #8</h3><p>"5 AI Side Hustles die 2026 EXPLODIEREN"</p><span class="tag tag-live">9.5/10 Viral ★★★</span><div class="meta">docs/TIKTOK_SCRIPTS.md — HÖCHSTES POTENTIAL</div></div>
+<div class="card"><h3>Money Machine #9</h3><p>"Ich automatisiere ALLES"</p><span class="tag tag-ready">8.5/10 Viral</span><div class="meta">docs/TIKTOK_SCRIPTS.md</div></div>
+</div>
+</div>
+
+<!-- CHANNELS -->
+<div class="section" id="s-channels">
+<h2 class="sh">5 Revenue-Kanäle & Ihre Verbindungen</h2>
+<div class="grid g2">
+<div class="card" style="border-left:3px solid var(--green)">
+<h3>Kanal 1: BMA Consulting (SCHNELLSTER WEG)</h3>
+<p><strong>€2.000-10.000/Projekt</strong></p>
+<p>16 Jahre Netzwerk → 5 Anrufe → 1 Auftrag = €500-2.000. NULL Plattform-Abhängigkeit. Einziger Anbieter weltweit für BMA+AI.</p>
+<p style="color:var(--green);margin-top:8px"><strong>Verbindungen:</strong> BMA Academy → Gold Nuggets → Stripe (€200/750/2000) → Fiverr Gig 2</p>
+</div>
+<div class="card" style="border-left:3px solid var(--blue)">
+<h3>Kanal 2: Fiverr Services</h3>
+<p><strong>€30-5.000/Gig</strong></p>
+<p>3 Gig-Texte fertig. Deliverables vorproduzierbar mit Kimi Swarm (50K Tasks = €5). Aggressive Einstiegspreise für erste Reviews.</p>
+<p style="color:var(--blue);margin-top:8px"><strong>Verbindungen:</strong> Kimi Swarm → Vorproduzierte Deliverables → Fiverr → Stripe (€30-5000)</p>
+</div>
+<div class="card" style="border-left:3px solid var(--accent)">
+<h3>Kanal 3: Gumroad Digital Products</h3>
+<p><strong>€27-149 (passiv)</strong></p>
+<p>3 Produkte fertig. Braucht Traffic (X/TikTok). Bei 1K Besuchern/Monat und 2% Conversion = €540-2.980/Monat.</p>
+<p style="color:var(--accent);margin-top:8px"><strong>Verbindungen:</strong> TikTok (9 Videos) + X (17 Posts) → Traffic → Gumroad → Stripe (€27-149)</p>
+</div>
+<div class="card" style="border-left:3px solid var(--pink)">
+<h3>Kanal 4: TikTok/X Content</h3>
+<p><strong>Traffic-Maschine → Leads → Sales</strong></p>
+<p>9 TikTok Scripts (3 Personas). 17 X Posts (7-Tage Plan). Viral Reply Generator. Lead Magnets in Bio.</p>
+<p style="color:var(--pink);margin-top:8px"><strong>Verbindungen:</strong> Content → Audience → CRM (BANT) → Email Sequence → Consulting/Gumroad/Fiverr</p>
+</div>
+<div class="card" style="border-left:3px solid var(--orange)">
+<h3>Kanal 5: Agent Builders Club (Recurring)</h3>
+<p><strong>€29/Monat</strong></p>
+<p>Discord/Telegram Community. Wöchentliche Q&A. Templates. Frühzugang. Launch nach Audience-Aufbau (Woche 4).</p>
+<p style="color:var(--orange);margin-top:8px"><strong>Verbindungen:</strong> Content Audience → Community → Recurring Revenue → Upsell zu Consulting</p>
+</div>
+</div>
+</div>
+
+<!-- AGENTS -->
+<div class="section" id="s-agents">
+<h2 class="sh">Agent Army — 7 Squads (100+ Agents geplant)</h2>
+<div class="grid g2">
+<div class="card"><h3 style="color:var(--pink)">SQUAD 1: Content Factory (15 Agents)</h3>
+<p>TikTok Script Writer (3x), Video Editor, Thumbnail Optimizer, Cross-Platform Repurposer, Trend Scanner, SEO/Hashtag Optimizer</p>
+<div class="meta">Verbunden mit: TikTok Scripts → X Posts → YouTube</div></div>
+
+<div class="card"><h3 style="color:var(--blue)">SQUAD 2: Growth & Marketing (12 Agents)</h3>
+<p>Viral Reply Agent, Community Manager, Engagement Tracker, Influencer Outreach, Lead Magnet Creator, Ad Copy Generator</p>
+<div class="meta">Verbunden mit: X Lead Machine → CRM → Email Sequences</div></div>
+
+<div class="card"><h3 style="color:var(--green)">SQUAD 3: Sales (10 Agents)</h3>
+<p>Lead Qualifier (BANT), CRM Manager, Email Sequence Writer, Upsell Optimizer, Price Optimizer, Testimonial Collector</p>
+<div class="meta">Verbunden mit: CRM (Port 3500) → Stripe → Fiverr</div></div>
+
+<div class="card"><h3 style="color:var(--accent)">SQUAD 4: Product & Tech (15 Agents)</h3>
+<p>Gumroad Product Builder, Course Creator, Landing Page Generator, Checkout Optimizer, A/B Test Runner, Analytics Dashboard</p>
+<div class="meta">Verbunden mit: Gumroad → Stripe → Kimi Swarm</div></div>
+
+<div class="card"><h3 style="color:var(--orange)">SQUAD 5: Operations (8 Agents)</h3>
+<p>Scheduler/Cron Manager, Budget Tracker, Performance Reporter, Error Handler, Backup Agent, Integration Manager</p>
+<div class="meta">Verbunden mit: OpenClaw (9 Cron Jobs) → Resource Guard</div></div>
+
+<div class="card"><h3 style="color:var(--red)">SQUAD 6: Security (5 Agents)</h3>
+<p>API Key Rotator, Cost Monitor, Rate Limit Guard, Backup Validator, Audit Logger</p>
+<div class="meta">Budget: max €100/Monat | Verbunden mit: Resource Guard</div></div>
+
+<div class="card"><h3 style="color:var(--cyan)">SQUAD 7: Brain Trust (5 Agents)</h3>
+<p>Strategy Advisor (Napoleon Hill), Devil's Advocate, Risk Assessor, Innovation Scout, Weekly Reviewer</p>
+<div class="meta">Mentoren-DNA: Hill, Carnegie, Lange, Bischof, Reuter, Mankevich</div></div>
+</div>
+
+<h2 class="sh2">Model Routing (Kostenoptimiert)</h2>
+<div class="grid g4">
+<div class="card"><h3>Ollama (Lokal)</h3><p>80% aller Tasks. Kostenlos. qwen2.5, mistral, phi.</p><span class="tag tag-live">Port 11434</span></div>
+<div class="card"><h3>Kimi K2.5</h3><p>15% der Tasks. 50K-500K Swarms. ~€20/Mo.</p><span class="tag tag-ready">Moonshot API</span></div>
+<div class="card"><h3>Claude Haiku/Sonnet</h3><p>4% der Tasks. Code Review, Strategie.</p><span class="tag tag-wip">~€10/Mo</span></div>
+<div class="card"><h3>Claude Opus</h3><p>1% der Tasks. Kritische Entscheidungen.</p><span class="tag tag-wip">Nur Notfall</span></div>
+</div>
+</div>
+
+<!-- INFRASTRUCTURE -->
+<div class="section" id="s-infra">
+<h2 class="sh">Infrastruktur — 8 Services</h2>
+<table class="tbl">
+<tr><th>Service</th><th>Port</th><th>Technologie</th><th>Zweck</th><th>Status</th><th>Verbindungen</th></tr>
+<tr><td><strong>Ollama</strong></td><td>11434</td><td>Native (Mac M4)</td><td>Lokale LLM Inference</td><td><span class="tag tag-live">Läuft</span></td><td>→ OpenClaw, Agents, Cowork</td></tr>
+<tr><td><strong>Redis</strong></td><td>6379</td><td>Docker</td><td>Session Cache + Task Queues</td><td><span class="tag tag-live">Gestartet</span></td><td>→ CRM, Atomic Reactor, Swarm</td></tr>
+<tr><td><strong>PostgreSQL</strong></td><td>5432</td><td>Docker</td><td>Persistent State + Metrics</td><td><span class="tag tag-live">Gestartet</span></td><td>→ CRM, Analytics, Gold Nuggets</td></tr>
+<tr><td><strong>CRM</strong></td><td>3500</td><td>Express.js + SQLite</td><td>Lead Management + BANT</td><td><span class="tag tag-ready">Code fertig</span></td><td>→ X Lead Machine, Email, Stripe</td></tr>
+<tr><td><strong>OpenClaw</strong></td><td>18789</td><td>LaunchAgent</td><td>9 Cron Jobs + Agent Routing</td><td><span class="tag tag-wip">Teilweise</span></td><td>→ Ollama, Kimi, Brain System</td></tr>
+<tr><td><strong>Atomic Reactor</strong></td><td>8888</td><td>FastAPI</td><td>YAML Task Definitions</td><td><span class="tag tag-ready">Code fertig</span></td><td>→ Docker, Redis, Swarm</td></tr>
+<tr><td><strong>n8n</strong></td><td>5678</td><td>Docker</td><td>Workflow Automation</td><td><span class="tag tag-blocked">Nicht gestartet</span></td><td>→ X Lead Machine, CRM, Email</td></tr>
+<tr><td><strong>ChromaDB</strong></td><td>8000</td><td>Docker</td><td>Vector Store + Agent Memory</td><td><span class="tag tag-blocked">Nicht gestartet</span></td><td>→ Brain System, Gold Nuggets</td></tr>
+</table>
+</div>
+
+<!-- WORKFLOWS -->
+<div class="section" id="s-workflows">
+<h2 class="sh">Workflow-Systeme & Automatisierung</h2>
+<div class="grid g2">
+<div class="card">
+<h3>Orchestrator (5-Step Compound Loop)</h3>
+<p><strong>AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER</strong></p>
+<p>Jeder Zyklus baut auf dem vorherigen auf. Patterns werden extrahiert und wiederverwendet.</p>
+<div class="meta">workflow-system/orchestrator.py | Trigger: empire.py workflow</div>
+</div>
+<div class="card">
+<h3>Cowork Engine (Autonomer Daemon)</h3>
+<p><strong>OBSERVE → PLAN → ACT → REFLECT</strong></p>
+<p>Läuft alle 30 Min als Daemon. Fokus-Modi: revenue, content, automation, product.</p>
+<div class="meta">workflow-system/cowork.py | Trigger: empire.py cowork --daemon</div>
+</div>
+<div class="card">
+<h3>GitHub Actions (5 Workflows)</h3>
+<p>auto-content-generation.yml (4h), claude-health-check.yml (30m), issue-command-bot.yml, revenue-tracking.yml (9AM), x-auto-poster.yml (7AM)</p>
+<div class="meta">.github/workflows/ | Automatisch via GitHub</div>
+</div>
+<div class="card">
+<h3>OpenClaw Cron Jobs (9 Jobs)</h3>
+<p>Laufen 08:00-19:00. Model Routing: Kimi K2.5 primary. Budget: $7.72. 5 Agents definiert.</p>
+<div class="meta">openclaw-config/jobs.json + models.json</div>
+</div>
+<div class="card">
+<h3>Resource Guard (Überlastungsschutz)</h3>
+<p>NORMAL (CPU &lt;70%) → WARN (Concurrency 200) → CRITICAL (Concurrency 50) → EMERGENCY (alle Agents pausiert)</p>
+<div class="meta">workflow-system/resource_guard.py | Auto-Throttle</div>
+</div>
+<div class="card">
+<h3>Kimi Swarm (Massen-Produktion)</h3>
+<p>50K-500K parallele Agents. ~6.5 Tasks/Sek. ~€5 für 50K Tasks. Revenue-Fokus: 30% Produkte, 25% Fiverr, 20% Leads, 15% Social, 10% BMA.</p>
+<div class="meta">kimi-swarm/swarm_500k.py | Config: REVENUE_WEIGHTS dict</div>
+</div>
+</div>
+</div>
+
+<!-- DATA LAYER -->
+<div class="section" id="s-data">
+<h2 class="sh">Data Layer — Alle Datenquellen</h2>
+<div class="grid g3">
+<div class="card"><h3>PostgreSQL</h3><p>Port 5432. Persistent State: Leads, Metrics, Agent Logs, Revenue Tracking.</p><span class="tag tag-live">Gestartet</span></div>
+<div class="card"><h3>Redis</h3><p>Port 6379. Cache: Sessions, Task Queues, Rate Limits, Temp Data.</p><span class="tag tag-live">Gestartet</span></div>
+<div class="card"><h3>ChromaDB</h3><p>Port 8000. Vectors: Agent Memory, Embeddings, Semantic Search.</p><span class="tag tag-blocked">Nicht gestartet</span></div>
+<div class="card"><h3>SQLite (CRM)</h3><p>crm/database.sqlite. Lead Database, BANT Scores, Pipeline Status.</p><span class="tag tag-ready">Via CRM Server</span></div>
+<div class="card"><h3>Gold Nuggets</h3><p>15 Markdown-Dateien. Business Intel, Strategien, Produkt-Ideen, Vision.</p><span class="tag tag-live">15 Dateien</span></div>
+<div class="card"><h3>Brain System</h3><p>Agent-Persönlichkeiten, Wissens-Configs, Training-Daten, Mentoren-DNA.</p><span class="tag tag-ready">Konfiguriert</span></div>
+<div class="card"><h3>stripe_products_live.json</h3><p>14 Produkte mit Payment Links. BMA + AI. €27 bis €5.000.</p><span class="tag tag-live">LIVE</span></div>
+<div class="card"><h3>OpenClaw Config</h3><p>12+ Dateien. Agents, Identity, Soul, Tools, User, Jobs, Models.</p><span class="tag tag-ready">Konfiguriert</span></div>
+<div class="card"><h3>GitHub Scan Data</h3><p>kimi-swarm/github_scan_*.json. Trend-Daten, Repo-Analyse.</p><span class="tag tag-ready">Vorhanden</span></div>
+</div>
+</div>
+
+<!-- GOLD NUGGETS -->
+<div class="section" id="s-goldnuggets">
+<h2 class="sh">Gold Nuggets — 15 Business Intelligence Dokumente</h2>
+<div class="grid g2">
+<div class="card"><h3>OpenClaw Masterplan</h3><p>9.3 KB — Komplette AI Agent Strategie. Squad-Struktur, Deployment, Monetarisierung.</p><div class="meta">gold-nuggets/GOLD_OPENCLAW_MASTERPLAN_2026-02-08.md</div></div>
+<div class="card"><h3>OpenClaw Ecosystem</h3><p>15 KB — Volles Ecosystem-Design. Integrationen, Partner, Marketplace.</p><div class="meta">gold-nuggets/GOLD_OPENCLAW_ECOSYSTEM_2026-02-08.md</div></div>
+<div class="card"><h3>Kimi Agent Swarm</h3><p>12.6 KB — 50K-500K Agent Architektur. Async, Rate Limiting, Cost Control.</p><div class="meta">gold-nuggets/GOLD_KIMI_AGENT_SWARM_2026-02-08.md</div></div>
+<div class="card"><h3>RedPlanet Memory Agent</h3><p>11 KB — Memory-System für Agents. Vector Store, Embedding, Retrieval.</p><div class="meta">gold-nuggets/GOLD_REDPLANET_MEMORY_AGENT_2026-02-08.md</div></div>
+<div class="card"><h3>NotebookLM + OpenClaw</h3><p>10.6 KB — NotebookLM Integration. Knowledge Base, Training, Queries.</p><div class="meta">gold-nuggets/GOLD_NOTEBOOKLM_OPENCLAW_2026-02-08.md</div></div>
+<div class="card"><h3>Video Content Pipeline</h3><p>9.7 KB — Automatisierte Video-Produktion. TikTok, YouTube, Instagram.</p><div class="meta">gold-nuggets/GOLD_VIDEO_CONTENT_PIPELINE_2026-02-08.md</div></div>
+<div class="card"><h3>Dexter Finance AI</h3><p>9.7 KB — Finance Tracking AI. Budget, Revenue, Cost Monitoring.</p><div class="meta">gold-nuggets/GOLD_DEXTER_FINANCE_AI_2026-02-08.md</div></div>
+<div class="card"><h3>Elite System Prompt</h3><p>7 KB — Master Prompt Engineering. Templates, Patterns, Best Practices.</p><div class="meta">gold-nuggets/GOLD_ELITE_SYSTEM_PROMPT_2026-02-08.md</div></div>
+<div class="card"><h3>Vision Scan</h3><p>8.1 KB — Strategische Vision. Marktanalyse, Chancen, Risiken.</p><div class="meta">gold-nuggets/GOLD_VISION_SCAN_2026-02-08.md</div></div>
+<div class="card"><h3>Monetization Report</h3><p>2.7 KB — Revenue-Strategien analysiert. Kanäle, Potentiale, Prioritäten.</p><div class="meta">gold-nuggets/MONETIZATION_REPORT_2026-02-08.md</div></div>
+<div class="card"><h3>GitHub Gold Nuggets</h3><p>Top 5 GitHub Repos: openai-cookbook, playwright, langchain, dify, langflow.</p><div class="meta">gold-nuggets/GITHUB_GOLD_NUGGETS.md</div></div>
+<div class="card"><h3>AI Empire App</h3><p>1.5 KB — App Development Roadmap. Mobile PWA, Features, UX.</p><div class="meta">gold-nuggets/GOLD_AI_EMPIRE_APP_2026-02-08.md</div></div>
+</div>
+</div>
+
+<!-- BMA ACADEMY -->
+<div class="section" id="s-bma">
+<h2 class="sh">BMA Academy — Knowledge Fortress</h2>
+<div class="alert alert-purple"><strong>UNIQUE SELLING PROPOSITION:</strong> 16 Jahre BMA-Expertise (Esser, Hekatron, DIN 14675) + AI = weltweit einzigartige Nische. KEIN Wettbewerb.</div>
+<div class="grid g2">
+<div class="card"><h3>Struktur</h3><p>00_META (Struktur, Readme, Roadmap, Agents Config) → 01_RAW_IMPORT → 02_ANALYZED → 03_KNOWLEDGE_BASE → 04_PRODUCTS</p><div class="meta">BMA_ACADEMY/ — 5 Ordner-Pipeline</div></div>
+<div class="card"><h3>Produkte aus BMA</h3><p>Checklisten-Pack (€27), Video-Schulung (€47), Troubleshooting (€37), Consulting (€200-2000), Masterclass (€149)</p><div class="meta">Verbunden mit: Stripe (6 BMA-Produkte) + Fiverr Gig 2 + Gumroad</div></div>
+<div class="card"><h3>Content aus BMA</h3><p>TikTok Persona "BMA-Meister" (3 Scripts), X Posts mit BMA-Hooks, LinkedIn BMA-Artikel (geplant)</p><div class="meta">Verbunden mit: TikTok Scripts #1-3 + Content Launch Plan</div></div>
+<div class="card"><h3>Consulting aus BMA</h3><p>Direkte Kontakte aus 16 Jahren. Brandschutz-Firmen, Facility Manager, Krankenhäuser, Rechenzentren.</p><div class="meta">Verbunden mit: Fiverr Gig 2 + Stripe Consulting + Netzwerk</div></div>
+</div>
+</div>
+
+<!-- DOCS INDEX -->
+<div class="section" id="s-docs">
+<h2 class="sh">Alle Dokumente (14 in docs/)</h2>
+<table class="tbl">
+<tr><th>Datei</th><th>Größe</th><th>Inhalt</th><th>Verbindung zu</th></tr>
+<tr><td><strong>FIVERR_GIGS.md</strong></td><td>26 KB</td><td>3 Gig-Beschreibungen mit Preisen + Copy</td><td>Stripe (6 Produkte), Kimi Swarm (Deliverables)</td></tr>
+<tr><td><strong>GUMROAD_PRODUCTS_READY.md</strong></td><td>17 KB</td><td>3 Produkte: BMA Pack, AI Kit, Blueprint</td><td>Stripe (3 Produkte), Content (CTA in Posts)</td></tr>
+<tr><td><strong>GUMROAD_BMA_PACK.md</strong></td><td>10 KB</td><td>BMA Checklisten-Pack Details + Email Sequences</td><td>BMA Academy, Stripe (€27), Upsell zu €149</td></tr>
+<tr><td><strong>CONTENT_LAUNCH_PLAN.md</strong></td><td>26 KB</td><td>7-Tage X/Twitter Kampagne, 17 Posts</td><td>X Lead Machine, CRM, Gumroad Traffic</td></tr>
+<tr><td><strong>TIKTOK_SCRIPTS.md</strong></td><td>27 KB</td><td>9 Video-Scripts für 3 Personas</td><td>TikTok Accounts, Gumroad Traffic, Brand</td></tr>
+<tr><td><strong>BUSINESSPLAN_IST_2026-02-08.md</strong></td><td>15 KB</td><td>Aktueller Businessplan + Lückenanalyse</td><td>Alle Systeme (Ist-Stand)</td></tr>
+<tr><td><strong>GUMROAD_TOP10_BLUEPRINT.md</strong></td><td>25 KB</td><td>Top 10 Gumroad-Produkt-Strategie</td><td>Gumroad, Pricing, Bundling</td></tr>
+<tr><td><strong>SYSTEM_ARCHITECTURE.md</strong></td><td>12 KB</td><td>Tech-Stack, Docker, Microservices</td><td>Alle 8 Services, Docker Compose</td></tr>
+<tr><td><strong>CODEBASE_AUDIT_2026-02-09.md</strong></td><td>18 KB</td><td>Code-Audit: Qualität, Bugs, Empfehlungen</td><td>Alle Code-Dateien</td></tr>
+<tr><td><strong>CHATGPT_TASKS.md</strong></td><td>8 KB</td><td>Operative Task-Liste</td><td>Master Execution Plan</td></tr>
+<tr><td><strong>OPENCLAW_SYSTEM_STATUS.md</strong></td><td>6 KB</td><td>OpenClaw Health + Component Status</td><td>OpenClaw Config, Agents</td></tr>
+<tr><td><strong>CHAT_UPLOAD_GUIDE.md</strong></td><td>5 KB</td><td>Chat Upload + Multi-Model Support</td><td>GitHub Control Interface</td></tr>
+<tr><td><strong>CHAT_QUICK_REFERENCE.md</strong></td><td>3 KB</td><td>Chat Commands Kurzreferenz</td><td>GitHub Control Interface</td></tr>
+<tr><td><strong>VERMARKTUNGSKONZEPT_TOP10.md</strong></td><td>10 KB</td><td>Marketing-Strategie für Top 10 Produkte</td><td>Alle Gumroad + Fiverr Produkte</td></tr>
+</table>
+</div>
+
+<!-- FILE INDEX -->
+<div class="section" id="s-files">
+<h2 class="sh">Kompletter Datei-Index (100+ Dateien)</h2>
+<div class="ftree"><pre><span class="d">AIEmpire-Core/</span>                        <span class="w">← ROOT</span>
+├── <span class="h">CLAUDE.md</span>                          ← Kontext für Claude Sessions
+├── <span class="h">EMPIRE_BLUEPRINT.md</span>                ← Vision + Agent-Architektur + Phasen
+├── <span class="h">MASTER_EXECUTION_PLAN.md</span>           ← Tages-/Wochen-Aktionsplan
+├── <span class="h">REVENUE_STRATEGY_50K_AGENTS.md</span>     ← Kimi Swarm Revenue-Strategie
+├── REVENUE_LAUNCH_PLAYBOOK.docx       ← 7-Tage Sprint Playbook
+├── AI_EMPIRE_GESAMTSTRUKTUR.docx      ← Gesamtstruktur als Word
+├── AI_EMPIRE_DASHBOARD.html           ← Dashboard v1
+├── <span class="h">AI_EMPIRE_BIG_PICTURE.html</span>         ← Dashboard v2 (Big Picture)
+├── <span class="h">party_dashboard.html</span>               ← Dashboard v3 (DIESES FILE)
+├── README.md / STARTUP_GUIDE.md       ← Projekt-Start + Services
+├── AUTOPILOT.md / COPILOT_BRIEFING.md ← AI-Briefings
+├── <span class="h">stripe_products_live.json</span>          ← 14 Stripe Produkte (LIVE!)
+├── COMPLETE_STRUCTURE.md              ← Projektstruktur
+├── DOCUMENTATION_INDEX.md             ← Docs Navigation
+│
+├── <span class="d">docs/</span>                              ← 14 Content-Vorlagen
+│   ├── <span class="h">FIVERR_GIGS.md</span>                 ← 3 Gig-Beschreibungen (26 KB)
+│   ├── <span class="h">GUMROAD_PRODUCTS_READY.md</span>      ← 3 Produkte (17 KB)
+│   ├── <span class="h">GUMROAD_BMA_PACK.md</span>            ← BMA Checklisten (10 KB)
+│   ├── <span class="h">CONTENT_LAUNCH_PLAN.md</span>         ← 17 X-Posts (26 KB)
+│   ├── <span class="h">TIKTOK_SCRIPTS.md</span>              ← 9 TikTok Scripts (27 KB)
+│   ├── BUSINESSPLAN_IST_2026-02-08.md ← Businessplan
+│   ├── GUMROAD_TOP10_BLUEPRINT.md     ← Top 10 Strategie
+│   ├── SYSTEM_ARCHITECTURE.md         ← Architektur
+│   ├── CODEBASE_AUDIT_2026-02-09.md   ← Code-Audit
+│   └── + 5 weitere Docs
+│
+├── <span class="d">workflow-system/</span>                   ← Kern-Automatisierung
+│   ├── empire.py                      ← Unified CLI
+│   ├── orchestrator.py                ← 5-Step Loop
+│   ├── cowork.py                      ← Autonomer Daemon
+│   ├── resource_guard.py              ← Überlastungsschutz
+│   ├── session_start.sh               ← Auto-Status
+│   ├── <span class="d">state/</span>                         ← Zustandsverwaltung
+│   └── <span class="d">steps/</span>                         ← Workflow-Schritte
+│
+├── <span class="d">kimi-swarm/</span>                        ← Massen-Agent-System
+│   ├── swarm_100k.py                  ← 100K Agents
+│   ├── swarm_500k.py                  ← 500K + Claude
+│   ├── universal_swarm.py             ← Universal Interface
+│   ├── github_scanner_100k.py         ← GitHub Scanner
+│   └── config.yaml                    ← Swarm Config
+│
+├── <span class="d">x-lead-machine/</span>                    ← X/Twitter (12 Dateien)
+│   ├── READY_TO_POST.md               ← 7 Posts sofort postbar
+│   ├── post_generator.py              ← AI Post-Generator
+│   ├── viral_reply_generator.py       ← Virale Antworten
+│   ├── x_automation.py                ← Lead-Gen Automation
+│   ├── generate_week.py               ← Wochen-Content
+│   ├── GOLD_30_AUTOMATIONS.md         ← 30 Automation-Ideen
+│   └── + 6 weitere Dateien
+│
+├── <span class="d">crm/</span>                               ← Lead Management
+│   ├── server.js                      ← Express + SQLite (7 KB)
+│   ├── import-data.js                 ← Bulk Import (23 KB)
+│   └── reset-leads.js                 ← DB Reset
+│
+├── <span class="d">openclaw-config/</span>                   ← Agent Framework (12+ Dateien)
+│   ├── AGENTS.md / SOUL.md / IDENTITY.md / TOOLS.md / USER.md
+│   ├── jobs.json (9 Cron Jobs) / models.json (Kimi K2.5)
+│   └── docker-compose.yaml / BOOTSTRAP.md / HEARTBEAT.md
+│
+├── <span class="d">gold-nuggets/</span>                      ← 15 Business Intel Docs
+│   ├── INDEX.md + MONETIZATION_REPORT.md
+│   └── 13 GOLD_*.md Dateien
+│
+├── <span class="d">BMA_ACADEMY/</span>                       ← Knowledge Fortress
+│   └── 00_META/ → 01_RAW → 02_ANALYZED → 03_KB → 04_PRODUCTS
+│
+├── <span class="d">systems/</span>                           ← Docker + Infra
+│   ├── docker-compose.yaml            ← Ollama+ChromaDB+Redis
+│   ├── LEAD_AGENT_PROMPT.md
+│   ├── <span class="d">kimi_bridge/</span> + <span class="d">stripe_payments/</span>
+│
+├── <span class="d">empire-api/</span>                        ← FastAPI (Port 3333)
+├── <span class="d">brain-system/</span>                      ← Agent Personalities
+├── <span class="d">n8n-workflows/</span>                     ← Workflow Automation
+├── <span class="d">mobile-command-center/</span>             ← PWA Mobile
+├── <span class="d">atomic-reactor/</span>                    ← Task Orchestration
+├── <span class="d">scripts/</span>                           ← Ops Scripts
+│   └── <span class="d">email-archiver/</span>
+├── <span class="d">system-prompts/</span>                    ← Master Prompts
+├── <span class="d">output_universal/</span>                  ← Generated Output
+├── <span class="d">examples/</span>                          ← Code Examples
+└── <span class="d">.github/workflows/</span>                 ← 5 GitHub Actions
+    ├── auto-content-generation.yml    (alle 4h)
+    ├── claude-health-check.yml        (alle 30m)
+    ├── issue-command-bot.yml          (on issue)
+    ├── revenue-tracking.yml           (tägl. 9AM)
+    └── x-auto-poster.yml             (tägl. 7AM)</pre></div>
+</div>
+
+<!-- GAP ANALYSIS -->
+<div class="section" id="s-gap">
+<h2 class="sh">Gap-Analyse: Gebaut vs. Aktiviert</h2>
+<div class="grid g2">
+<div class="card" style="border-color:var(--green)">
+<h3 style="color:var(--green)">GEBAUT & BEREIT (15 Items)</h3>
+<table class="tbl">
+<tr><td>Empire CLI + Orchestrator + Cowork</td><td style="color:var(--green)">Code fertig</td></tr>
+<tr><td>Kimi Swarm (100K/500K Agents)</td><td style="color:var(--green)">Code fertig</td></tr>
+<tr><td>CRM V2 mit BANT Scoring</td><td style="color:var(--green)">Code fertig</td></tr>
+<tr><td>Resource Guard (4 Level)</td><td style="color:var(--green)">Code fertig</td></tr>
+<tr><td>Empire API (FastAPI)</td><td style="color:var(--green)">Code fertig</td></tr>
+<tr><td>GitHub Actions (5 Workflows)</td><td style="color:var(--green)">Konfiguriert</td></tr>
+<tr><td>14 Stripe Produkte</td><td style="color:var(--green)">LIVE</td></tr>
+<tr><td>3 Fiverr Gig-Texte</td><td style="color:var(--green)">Copy fertig</td></tr>
+<tr><td>3 Gumroad Produkt-Texte</td><td style="color:var(--green)">Copy fertig</td></tr>
+<tr><td>9 TikTok Video Scripts</td><td style="color:var(--green)">Alle fertig</td></tr>
+<tr><td>17 X/Twitter Posts</td><td style="color:var(--green)">Alle fertig</td></tr>
+<tr><td>Email Sequences (BMA Pack)</td><td style="color:var(--green)">Fertig</td></tr>
+<tr><td>Gold Nuggets (15 Docs)</td><td style="color:var(--green)">Gesammelt</td></tr>
+<tr><td>OpenClaw Config (12+ Dateien)</td><td style="color:var(--green)">Konfiguriert</td></tr>
+<tr><td>Docker Compose (8 Services)</td><td style="color:var(--green)">Konfiguriert</td></tr>
+</table>
+</div>
+
+<div class="card" style="border-color:var(--red)">
+<h3 style="color:var(--red)">FEHLT / BLOCKIERT (13 Items)</h3>
+<table class="tbl">
+<tr><td>Fiverr Account + Gigs LIVE</td><td style="color:var(--red)">0 Gigs</td></tr>
+<tr><td>Gumroad Produkte hochgeladen</td><td style="color:var(--red)">0 live</td></tr>
+<tr><td>TikTok Account + Videos</td><td style="color:var(--red)">0 Videos</td></tr>
+<tr><td>X/Twitter Posts gepostet</td><td style="color:var(--red)">0 Posts</td></tr>
+<tr><td>Erster zahlender Kunde</td><td style="color:var(--red)">0 Kunden</td></tr>
+<tr><td>Email-Liste / Newsletter</td><td style="color:var(--red)">Nicht vorhanden</td></tr>
+<tr><td>BMA-Kontakte angerufen</td><td style="color:var(--red)">0 Anrufe</td></tr>
+<tr><td>Calendly für Consulting</td><td style="color:var(--red)">Nicht erstellt</td></tr>
+<tr><td>Telegram Bot Token</td><td style="color:var(--red)">Invalid</td></tr>
+<tr><td>Digistore24 Account</td><td style="color:var(--red)">Nicht erstellt</td></tr>
+<tr><td>Landing Page</td><td style="color:var(--red)">Nicht erstellt</td></tr>
+<tr><td>Audience / Follower</td><td style="color:var(--red)">~0</td></tr>
+<tr><td>Social Proof / Reviews</td><td style="color:var(--red)">0 Reviews</td></tr>
+</table>
+</div>
+</div>
+</div>
+
+<!-- TIMELINE -->
+<div class="section" id="s-timeline">
+<h2 class="sh">Zeitplan: Meilensteine</h2>
+<table class="tbl">
+<tr><th>Wann</th><th>Was</th><th>Revenue-Ziel</th><th>Key Actions</th></tr>
+<tr><td style="color:var(--red)"><strong>Heute 09.02</strong></td><td>Kanäle aktivieren</td><td>€0 → Setup</td><td>Fiverr (3 Gigs) + Gumroad (3 Produkte) live</td></tr>
+<tr><td style="color:var(--orange)"><strong>Morgen 10.02</strong></td><td>Content + Direktvertrieb</td><td>€0 → erste Leads</td><td>X Post 1A + 5 BMA-Anrufe + TikTok Video</td></tr>
+<tr><td style="color:var(--yellow)"><strong>Woche 1</strong></td><td>Tägliches Tempo</td><td>€500-1.000</td><td>3 Posts/Tag + TikTok + Fiverr + Consulting</td></tr>
+<tr><td style="color:var(--green)"><strong>Woche 2</strong></td><td>Skalieren</td><td>€1.500-3.000</td><td>YouTube + Newsletter + Upwork + BMA-Angebote</td></tr>
+<tr><td style="color:var(--blue)"><strong>Woche 3-4</strong></td><td>Automatisieren</td><td>€5.000-10.000</td><td>Pipeline auto + Community + A/B Testing</td></tr>
+<tr><td style="color:var(--accent)"><strong>01.03.2026</strong></td><td>Neuer Job (Roewer)</td><td>€10K/Mo parallel</td><td>Empire läuft abends + Wochenende</td></tr>
+<tr><td style="color:var(--cyan)"><strong>Monat 3</strong></td><td>Recurring Revenue</td><td>€20K/Mo</td><td>Community + Produkte + Auto-Content</td></tr>
+<tr><td style="color:var(--pink)"><strong>Monat 6</strong></td><td>Volle Automation</td><td>€50K/Mo</td><td>Passive Income + Agent Army + Scale</td></tr>
+<tr><td><strong>Jahr 1</strong></td><td>Finanzielle Freiheit</td><td>€100K+ MRR</td><td>Option: Hauptjob kündigen</td></tr>
+</table>
+</div>
+
+</main>
+</div>
+
+<footer>
+<strong>EMPIRE NUCLEUS — Alle Systeme Verbunden</strong><br>
+Maurice Pfeifer | 100+ Dateien | 18 Ordner | 14 Stripe-Produkte | 8 Services | 7 Agent Squads | 5 Revenue-Kanäle<br>
+Stand: 09.02.2026 | Generiert von Claude Opus 4.6
+</footer>
+
+<script>
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById('s-'+id).classList.add('active');
+document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+event.target.closest('.nav-item').classList.add('active');
+}
+</script>
+</body>
+</html>
