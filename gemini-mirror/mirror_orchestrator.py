@@ -185,12 +185,12 @@ Verbessere die Loesung basierend auf dem Analyst-Feedback.
 Fokus auf: Praktikabilitaet, Sofort-Umsetzbarkeit, ROI.
 
 Antworte NUR als JSON:
-{
+{{
   "timestamp": "ISO-Datum",
   "iteration": {iteration},
-  "refined_plan": {
+  "refined_plan": {{
     "actions": [
-      {
+      {{
         "title": "Aktion",
         "description": "Was genau",
         "priority": 1-5,
@@ -198,16 +198,16 @@ Antworte NUR als JSON:
         "assignee": "main|mirror|both|manual",
         "dependencies": [],
         "deliverable": "Was kommt raus"
-      }
+      }}
     ],
     "execution_order": ["Aktion-1", "Aktion-2"],
     "parallel_tracks": [["Track A Aktionen"], ["Track B Aktionen"]]
-  },
+  }},
   "quality_score": 1-10,
   "improvements_made": ["Was wurde verbessert"],
   "remaining_issues": ["Was ist noch offen"],
   "converged": true/false
-}""",
+}}""",
         "user_template": """ZU VERBESSERN:
 {previous_result}
 

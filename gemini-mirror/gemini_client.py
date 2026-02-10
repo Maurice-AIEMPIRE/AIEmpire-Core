@@ -134,6 +134,10 @@ class GeminiClient:
         """
         start_time = time.time()
 
+        # Offline-Modus: Bootstrap-Daten zurueckgeben
+        if self.offline_mode and force_provider != "ollama":
+            return self._offline_response(messages, model, start_time)
+
         # Forced Provider
         if force_provider == "ollama":
             return await self._try_ollama(messages, temperature, start_time)
@@ -291,6 +295,219 @@ class GeminiClient:
             "cost_usd": round(cost, 6),
             "latency_ms": latency,
         }
+
+    def _offline_response(
+        self,
+        messages: List[Dict[str, str]],
+        model: str,
+        start_time: float,
+    ) -> Dict[str, Any]:
+        """Generiert Bootstrap-Antworten im Offline-Modus."""
+        # System-Prompt analysieren um Kontext zu verstehen
+        system_msg = ""
+        user_msg = ""
+        for m in messages:
+            if m.get("role") == "system":
+                system_msg = m["content"]
+            elif m.get("role") == "user":
+                user_msg = m["content"]
+
+        # Intelligente Offline-Antwort basierend auf Step-Typ
+        content = self._generate_offline_content(system_msg, user_msg)
+        latency = int((time.time() - start_time) * 1000)
+
+        return {
+            "content": content,
+            "source": "offline_bootstrap",
+            "model": f"offline_{model}",
+            "tokens_in": 0,
+            "tokens_out": 0,
+            "cost_usd": 0.0,
+            "latency_ms": latency,
+        }
+
+    def _generate_offline_content(self, system: str, user: str) -> str:
+        """Generiert kontextabhaengige Offline-Daten."""
+        s = system.lower()
+
+        if "audit" in s:
+            return json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "overall_score": 3,
+                "areas": {
+                    "revenue": {"score": 1, "status": "Kein Umsatz - Aktivierung noetig", "blockers": ["Kein Gumroad Produkt live", "Keine Fiverr Gigs"], "opportunities": ["BMA+AI Consulting", "Gumroad Templates"]},
+                    "content": {"score": 2, "status": "Content Pipeline existiert, aber inaktiv", "blockers": ["Keine regelmaessigen Posts"], "opportunities": ["X/Twitter BMA Content", "LinkedIn Fachbeitraege"]},
+                    "automation": {"score": 5, "status": "Grundstruktur steht (Orchestrator, Cowork, n8n)", "blockers": ["API Keys fehlen teilweise"], "opportunities": ["Gemini Mirror aktivieren", "Kimi Swarm produktiv nutzen"]},
+                    "system_health": {"score": 4, "status": "Mirror initialisiert, Main laeuft", "blockers": ["GEMINI_API_KEY fehlt"], "opportunities": ["Dual-Brain Amplification starten"]},
+                    "swarm": {"score": 3, "status": "Swarm-Code existiert, nicht produktiv", "blockers": ["Kein aktiver Swarm-Job"], "opportunities": ["Content-Generierung per Swarm"]},
+                    "mirror": {"score": 2, "status": "Initialisiert, Offline-Modus", "blockers": ["GEMINI_API_KEY fehlt"], "opportunities": ["Volle Dual-Brain Power nach Key-Setup"]}
+                },
+                "top_3_priorities": [
+                    {"title": "GEMINI_API_KEY setzen und Mirror aktivieren", "impact": "high", "effort": "5 Minuten"},
+                    {"title": "Erstes Gumroad Produkt erstellen (BMA Checkliste)", "impact": "high", "effort": "2-4 Stunden"},
+                    {"title": "Fiverr Profil + 3 Gigs erstellen", "impact": "high", "effort": "3-5 Stunden"}
+                ],
+                "energy_score": 4,
+                "recommended_focus": "revenue",
+                "_offline": True,
+            })
+
+        elif "architect" in s:
+            return json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "solutions": [
+                    {
+                        "priority": "Revenue-Aktivierung",
+                        "approaches": [
+                            {"name": "Gumroad Quick Launch", "description": "BMA-Checkliste als PDF, Preis 27 EUR", "pros": ["Schnell", "Passiv"], "cons": ["Braucht Marketing"], "setup_hours": 3, "implementation_steps": ["Template erstellen", "Gumroad Upload", "X/Twitter Promotion"], "resources_needed": ["Gumroad Account", "Canva/Design"], "expected_roi": "27-270 EUR/Monat nach Marketing"},
+                            {"name": "Fiverr AI-Services", "description": "3 Gigs: AI Setup, BMA Docs, Automation", "pros": ["Marketplace Traffic", "Recurring"], "cons": ["Zeitaufwand pro Order"], "setup_hours": 4, "implementation_steps": ["Profil erstellen", "3 Gigs aufsetzen", "Portfolio Samples"], "resources_needed": ["Fiverr Account", "Portfolio"], "expected_roi": "500-3000 EUR/Monat"},
+                        ],
+                        "recommended": "Gumroad Quick Launch",
+                        "why": "Schnellster Weg zu passivem Einkommen, parallel zu Fiverr aufbaubar"
+                    }
+                ],
+                "cross_system_synergies": ["Mirror generiert Content-Ideen fuer Gumroad", "Main Swarm erstellt Social Media Posts"],
+                "quick_wins": [{"action": "GEMINI_API_KEY setzen", "impact": "Volles Dual-Brain System", "effort_minutes": 5}],
+                "_offline": True,
+            })
+
+        elif "analyst" in s:
+            return json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "reviews": [
+                    {"solution": "Gumroad Quick Launch", "feasibility_score": 9, "risk_assessment": {"technical_risks": ["Kein Design-Skill"], "business_risks": ["Kein Marketing-Budget"], "mitigation": ["Canva Templates nutzen", "Organic X/Twitter Marketing"]}, "scalability": "Hoch - weitere Produkte leicht hinzufuegbar", "cost_analysis": "Near-Zero Cost, nur Zeit", "timeline_realistic": True, "recommended_changes": ["Erst 1 Produkt, dann iterieren"], "go_no_go": "GO"}
+                ],
+                "overall_recommendation": "Revenue-First Strategie starten, parallel Mirror aktivieren",
+                "critical_path": ["API Key setzen", "Gumroad Produkt erstellen", "First Sale erreichen"],
+                "dual_brain_advantage": "Mirror generiert Produkt-Ideen und Content, Main exekutiert",
+                "_offline": True,
+            })
+
+        elif "refinery" in s:
+            return json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "iteration": 1,
+                "refined_plan": {
+                    "actions": [
+                        {"title": "GEMINI_API_KEY setzen", "description": "Kostenloser Key von aistudio.google.com", "priority": 1, "estimated_minutes": 5, "assignee": "manual", "dependencies": [], "deliverable": "Funktionierendes Dual-Brain System"},
+                        {"title": "BMA Safety Checklist PDF", "description": "27 EUR Gumroad Produkt", "priority": 2, "estimated_minutes": 180, "assignee": "both", "dependencies": [], "deliverable": "Verkaufsfertiges Digitales Produkt"},
+                        {"title": "Fiverr AI Consultant Profil", "description": "3 Gigs aufsetzen", "priority": 3, "estimated_minutes": 240, "assignee": "manual", "dependencies": [], "deliverable": "Live Fiverr Profil mit 3 Gigs"},
+                    ],
+                    "execution_order": ["GEMINI_API_KEY setzen", "BMA Safety Checklist PDF", "Fiverr AI Consultant Profil"],
+                    "parallel_tracks": [["API Key + Mirror"], ["Gumroad + Fiverr"]]
+                },
+                "quality_score": 7,
+                "improvements_made": ["Priorisierung nach Impact/Effort"],
+                "remaining_issues": ["Marketing-Strategie noch offen"],
+                "converged": True,
+                "_offline": True,
+            })
+
+        elif "compounder" in s:
+            return json.dumps({
+                "timestamp": datetime.now().isoformat(),
+                "cycle_summary": "Bootstrap-Zyklus: System initialisiert, Offline-Audit durchgefuehrt, Revenue-Strategie entworfen",
+                "patterns_discovered": [
+                    {"name": "Revenue-First", "description": "Immer zuerst Umsatz generieren, dann optimieren", "category": "revenue", "reusable": True, "confidence": 8},
+                    {"name": "Dual-Brain-Bootstrap", "description": "System kann offline starten und sich selbst bootstrappen", "category": "system", "reusable": True, "confidence": 9}
+                ],
+                "cross_system_insights": [
+                    {"insight": "Mirror braucht API-Key fuer volle Power", "applies_to": "mirror", "action_required": "GEMINI_API_KEY setzen"},
+                    {"insight": "Main und Mirror zusammen koennen Content 10x schneller produzieren", "applies_to": "both", "action_required": "Beide Systeme aktivieren"}
+                ],
+                "next_cycle_priorities": [
+                    {"title": "API-Key setzen und vollen Zyklus fahren", "why": "Dual-Brain Amplification braucht echte AI", "estimated_impact": "10x Insight-Qualitaet"},
+                    {"title": "Erstes Revenue-Produkt erstellen", "why": "Revenue = 0 ist der groesste Blocker", "estimated_impact": "Erste Einnahmen"}
+                ],
+                "knowledge_compressed": "System steht, Revenue fehlt, API-Key ist der Gate-Opener fuer volle Power",
+                "dual_brain_effectiveness": 3,
+                "recommended_model_adjustments": {"main": "Kimi Swarm fuer Content-Generierung einsetzen", "mirror": "Gemini Pro fuer strategische Analysen nutzen"},
+                "_offline": True,
+            })
+
+        elif "executor" in s:
+            return json.dumps({
+                "action_title": "Bootstrap-Analyse: System-Readiness Check",
+                "deliverable_type": "analysis",
+                "deliverable": "SYSTEM-STATUS:\n- Mirror: Initialisiert, Offline-Modus\n- Orchestrator: 5-Step Loop bereit\n- Cowork: Observe-Plan-Act-Reflect bereit\n- Sync: Bidirektional konfiguriert\n- Vision: 5 Starter-Fragen generiert\n- Dual-Brain: Amplification Engine bereit\n\nNAECHSTER SCHRITT: GEMINI_API_KEY setzen (https://aistudio.google.com/apikey)\nDANN: python gemini-mirror/gemini_empire.py full",
+                "files_to_create": [],
+                "files_to_modify": [],
+                "next_manual_step": "GEMINI_API_KEY setzen: export GEMINI_API_KEY='AIza...'",
+                "execution_notes": "Offline-Bootstrap abgeschlossen. System wartet auf API-Key.",
+                "quality_score": 6,
+                "ready_for_main": True,
+                "_offline": True,
+            })
+
+        elif "reflektor" in s or ("reflekt" in s and "cowork" in s):
+            return json.dumps({
+                "cycle_score": 5,
+                "what_worked": "Bootstrap-Initialisierung erfolgreich, alle Subsysteme bereit",
+                "what_didnt": "Ohne API-Key nur Offline-Daten moeglich",
+                "pattern_discovered": {"name": "Bootstrap-First", "description": "System kann sich selbst initialisieren und ist sofort nach Key-Setup voll einsatzbereit", "reusable": True, "share_with_main": True},
+                "improvement_for_next_cycle": "API-Key setzen und echten Zyklus fahren",
+                "recommended_focus_shift": "revenue",
+                "confidence": 7,
+                "message_to_main": "Mirror ist bereit - brauche nur den Gemini API Key fuer volle Power!",
+                "_offline": True,
+            })
+
+        elif "review" in s or "verstaerk" in s:
+            return json.dumps({
+                "review_score": 5,
+                "strengths": ["Solide Architektur", "Gutes Automatisierungs-Framework"],
+                "weaknesses": ["Kein Revenue", "APIs nicht verbunden"],
+                "blind_spots": ["Marketing-Strategie fehlt komplett"],
+                "improvements": [{"area": "Revenue", "current": "0 EUR", "suggested": "BMA Consulting + Gumroad starten", "impact": "high", "effort": "1 Woche"}],
+                "missed_opportunities": ["BMA-Expertise ist einzigartig - nicht genutzt"],
+                "competitive_edge": "Mirror wuerde tiefere strategische Analysen liefern",
+                "synthesis": "Main exekutiert, Mirror denkt strategisch - zusammen unschlagbar",
+                "next_action": "GEMINI_API_KEY setzen fuer echte Dual-Brain Power",
+                "_offline": True,
+            })
+
+        elif "plan" in s or "cowork" in s:
+            return json.dumps({
+                "priority_action": {
+                    "title": "Gemini API Key einrichten und Mirror vollstaendig aktivieren",
+                    "why": "Ohne Key laeuft das System nur im Bootstrap-Modus",
+                    "how": ["aistudio.google.com oeffnen", "API Key generieren", "export GEMINI_API_KEY='...'", "python gemini_empire.py full"],
+                    "expected_impact": "Volles Dual-Brain System mit echter AI",
+                    "effort_minutes": 5,
+                    "category": "automation",
+                    "dependencies": [],
+                    "success_criteria": "Voller Workflow-Zyklus laeuft mit echten Gemini-Antworten",
+                    "dual_brain_relevance": "Kernvoraussetzung fuer beide Systeme"
+                },
+                "secondary_actions": [
+                    {"title": "Erstes Gumroad Produkt erstellen", "why": "Revenue = 0", "effort_minutes": 180},
+                    {"title": "Vision-Fragen beantworten", "why": "System muss Maurice verstehen", "effort_minutes": 15}
+                ],
+                "situation_assessment": "System ist initialisiert und bereit, braucht nur noch den API-Key-Startschuss",
+                "risk_alert": None,
+                "_offline": True,
+            })
+
+        elif "reflekt" in s or "reflect" in s:
+            return json.dumps({
+                "cycle_score": 5,
+                "what_worked": "Bootstrap-Initialisierung erfolgreich, alle Subsysteme bereit",
+                "what_didnt": "Ohne API-Key nur Offline-Daten moeglich",
+                "pattern_discovered": {"name": "Bootstrap-First", "description": "System kann sich selbst initialisieren und ist sofort nach Key-Setup voll einsatzbereit", "reusable": True, "share_with_main": True},
+                "improvement_for_next_cycle": "API-Key setzen und echten Zyklus fahren",
+                "recommended_focus_shift": "revenue",
+                "confidence": 7,
+                "message_to_main": "Mirror ist bereit - brauche nur den Gemini API Key fuer volle Power!",
+                "_offline": True,
+            })
+
+        else:
+            return json.dumps({
+                "status": "offline_bootstrap",
+                "message": "System im Offline-Modus. Setze GEMINI_API_KEY fuer echte AI-Antworten.",
+                "timestamp": datetime.now().isoformat(),
+                "_offline": True,
+            })
 
     def _convert_messages(
         self, messages: List[Dict[str, str]]
