@@ -1,0 +1,82 @@
+[
+  {
+    "product": "AI Prompt Vault",
+    "platform": "twitter",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 27,
+    "link": "[GUMROAD_LINK_1]",
+    "generated": "2026-02-09T23:00:31.875241"
+  },
+  {
+    "product": "AI Prompt Vault",
+    "platform": "linkedin",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 27,
+    "link": "[GUMROAD_LINK_1]",
+    "generated": "2026-02-09T23:02:32.877646"
+  },
+  {
+    "product": "Docker Mastery Guide",
+    "platform": "twitter",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 99,
+    "link": "[GUMROAD_LINK_2]",
+    "generated": "2026-02-09T23:04:33.882932"
+  },
+  {
+    "product": "Docker Mastery Guide",
+    "platform": "linkedin",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 99,
+    "link": "[GUMROAD_LINK_2]",
+    "generated": "2026-02-09T23:06:34.859447"
+  },
+  {
+    "product": "AI Stack-as-Service",
+    "platform": "twitter",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 99,
+    "link": "[GUMROAD_LINK_3]",
+    "generated": "2026-02-09T23:08:35.851286"
+  },
+  {
+    "product": "AI Stack-as-Service",
+    "platform": "linkedin",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 99,
+    "link": "[GUMROAD_LINK_3]",
+    "generated": "2026-02-09T23:10:36.853239"
+  },
+  {
+    "product": "BMA + AI Consulting",
+    "platform": "twitter",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 2000,
+    "link": "[CALENDAR_LINK]",
+    "generated": "2026-02-09T23:12:37.859346"
+  },
+  {
+    "product": "BMA + AI Consulting",
+    "platform": "linkedin",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 2000,
+    "link": "[CALENDAR_LINK]",
+    "generated": "2026-02-09T23:14:38.867919"
+  },
+  {
+    "product": "AI Automation Setup",
+    "platform": "twitter",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 30,
+    "link": "[FIVERR_LINK]",
+    "generated": "2026-02-09T23:16:39.850711"
+  },
+  {
+    "product": "AI Automation Setup",
+    "platform": "linkedin",
+    "text": "[OLLAMA ERROR: ]",
+    "price": 30,
+    "link": "[FIVERR_LINK]",
+    "generated": "2026-02-09T23:18:40.850698"
+  }
+]

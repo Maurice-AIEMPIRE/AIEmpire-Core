@@ -36,6 +36,7 @@ class GitHubControlInterface:
             "@bot switch-model": self.cmd_switch_model,
             "@bot export-chat": self.cmd_export_chat,
             "@bot clear-history": self.cmd_clear_history,
+            "@bot mission-control": self.cmd_mission_control,
         }
     
     async def cmd_status(self, issue_num: int):
@@ -488,6 +489,17 @@ Conversation history has been cleared.
 You can start a new conversation or upload a new chat history.
 """
     
+    async def cmd_mission_control(self, issue_num: int):
+        """Run Mission Control scan and return dashboard."""
+        try:
+            from mission_control import MissionControl
+            mc = MissionControl(repo_path=str(Path(__file__).parent))
+            await mc.scan_all_sources()
+            dashboard = mc.generate_dashboard()
+            return dashboard
+        except Exception as e:
+            return f"Mission Control error: {e}"
+
     async def cmd_help(self, issue_num: int):
         """Show help."""
         return """# 🤖 GitHub Control Interface - Help
@@ -496,6 +508,7 @@ You can start a new conversation or upload a new chat history.
         
 ### System Commands
 - `@bot status` - Show current system status
+- `@bot mission-control` - Run Mission Control scan and show dashboard
 - `@bot help` - Show this help message
         
 ### Chat & AI Commands (NEW!)
@@ -564,7 +577,10 @@ Go to Actions tab to manually trigger:
         elif "@bot run-task" in comment_lower:
             task = comment_body.split("@bot run-task", 1)[1].strip()
             return await self.cmd_run_task(issue_num, task)
-        
+
+        elif "@bot mission-control" in comment_lower:
+            return await self.cmd_mission_control(issue_num)
+
         # Handle simple commands
         for cmd, handler in self.commands.items():
             if cmd in comment_lower:

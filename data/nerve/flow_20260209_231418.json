@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-02-09T23:12:18.082860",
+  "stages": [
+    {
+      "name": "mission_control",
+      "tasks": 5,
+      "blockers": 0
+    },
+    {
+      "name": "revenue",
+      "today": 0,
+      "total": 0
+    },
+    {
+      "name": "workflow",
+      "cycle": 1,
+      "steps": 0
+    },
+    {
+      "name": "assets",
+      "total": 83
+    },
+    {
+      "name": "n8n_cloud",
+      "status": "online"
+    }
+  ]
+}

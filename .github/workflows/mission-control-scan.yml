@@ -1,0 +1,66 @@
+name: Mission Control Daily Scan
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # Daily at 9 AM UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: read
+
+jobs:
+  mission-control-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install aiohttp pyyaml
+
+      - name: Set up gh CLI
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Mission Control scan
+        run: python3 mission_control.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+          REPO_PATH: ${{ github.workspace }}
+
+      - name: Upload dashboard artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mission-control-dashboard
+          path: MISSION_CONTROL.md
+          retention-days: 30
+
+      - name: Upload JSON data artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mission-control-data
+          path: mission_control_data.json
+          retention-days: 90
+
+      - name: Create issue with dashboard
+        if: github.event_name == 'schedule'
+        run: |
+          TITLE="Mission Control Dashboard - $(date +'%Y-%m-%d')"
+          BODY=$(cat MISSION_CONTROL.md)
+          gh issue create \
+            --repo "${{ github.repository }}" \
+            --title "$TITLE" \
+            --body "$BODY" \
+            --label "mission-control,automated"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

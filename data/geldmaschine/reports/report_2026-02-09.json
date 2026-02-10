@@ -1,0 +1,11 @@
+{
+  "date": "2026-02-09",
+  "revenue": 0,
+  "target": 180,
+  "posts_generated": 10,
+  "products": 5,
+  "systems": {
+    "ollama": true,
+    "n8n": true
+  }
+}

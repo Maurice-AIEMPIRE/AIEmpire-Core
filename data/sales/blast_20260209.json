@@ -1,0 +1,166 @@
+{
+  "date": "2026-02-09",
+  "count": 20,
+  "posts": [
+    {
+      "id": 1,
+      "platform": "twitter",
+      "content": "[Ollama unavailable: ]",
+      "seed": "AI Prompt Vault: 500+ prompts for EUR 27. Stop guessing, start automating. [LINK] #AI #Automation",
+      "generated_at": "2026-02-09T22:58:47.580502",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 2,
+      "platform": "twitter",
+      "content": "[Ollama unavailable: ]",
+      "seed": "I replaced a 10-person team with AI agents on a EUR 500 laptop. Here's how: [LINK] #AIEmpire",
+      "generated_at": "2026-02-09T23:00:48.568866",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 3,
+      "platform": "twitter",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Docker + AI = unstoppable. My EUR 99 guide shows you the exact stack. [LINK] #Docker #AI",
+      "generated_at": "2026-02-09T23:02:49.572023",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 4,
+      "platform": "twitter",
+      "content": "[Ollama unavailable: ]",
+      "seed": "BMA + AI: the niche NOBODY is talking about. EUR 2000/client consulting. DM me.",
+      "generated_at": "2026-02-09T23:04:50.567810",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 5,
+      "platform": "twitter",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Local LLMs save me EUR 500/month vs ChatGPT API. Free guide in bio. #Ollama #AI",
+      "generated_at": "2026-02-09T23:06:51.636558",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 6,
+      "platform": "linkedin",
+      "content": "[Ollama unavailable: ]",
+      "seed": "From Elektrotechnikmeister to AI Empire builder - my unconventional path",
+      "generated_at": "2026-02-09T23:08:52.579940",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 7,
+      "platform": "linkedin",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Why I believe local AI models will disrupt the cloud-first narrative",
+      "generated_at": "2026-02-09T23:10:53.550575",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 8,
+      "platform": "linkedin",
+      "content": "[Ollama unavailable: ]",
+      "seed": "The 5-step compound workflow that generates content while I sleep",
+      "generated_at": "2026-02-09T23:12:54.560953",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 9,
+      "platform": "linkedin",
+      "content": "[Ollama unavailable: ]",
+      "seed": "BMA meets AI: How fire safety expertise creates a unique consulting niche",
+      "generated_at": "2026-02-09T23:14:55.549974",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 10,
+      "platform": "linkedin",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Stack-as-a-Service: Why I'm packaging my entire AI infrastructure as a product",
+      "generated_at": "2026-02-09T23:16:56.551206",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 11,
+      "platform": "reddit",
+      "content": "[Ollama unavailable: ]",
+      "seed": "I automated my entire content pipeline with free local LLMs - here's the stack",
+      "generated_at": "2026-02-09T23:18:57.573423",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 12,
+      "platform": "reddit",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Built a consulting business combining 16 years of fire safety with AI automation",
+      "generated_at": "2026-02-09T23:20:58.558563",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 13,
+      "platform": "reddit",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Honest review: running AI agents locally vs cloud - cost breakdown included",
+      "generated_at": "2026-02-09T23:22:59.561943",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 14,
+      "platform": "reddit",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Created a prompt vault with 500+ tested prompts - looking for beta testers",
+      "generated_at": "2026-02-09T23:25:00.565307",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 15,
+      "platform": "reddit",
+      "content": "[Ollama unavailable: ]",
+      "seed": "How I use Docker to deploy AI stacks in under 5 minutes",
+      "generated_at": "2026-02-09T23:27:01.642596",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 16,
+      "platform": "email_subject",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Your AI stack is costing you 10x too much",
+      "generated_at": "2026-02-09T23:29:02.568159",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 17,
+      "platform": "email_subject",
+      "content": "[Ollama unavailable: ]",
+      "seed": "The EUR 27 shortcut to AI mastery",
+      "generated_at": "2026-02-09T23:31:03.577563",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 18,
+      "platform": "email_subject",
+      "content": "[Ollama unavailable: ]",
+      "seed": "I automated everything. Here's the blueprint.",
+      "generated_at": "2026-02-09T23:33:04.580337",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 19,
+      "platform": "email_subject",
+      "content": "[Ollama unavailable: ]",
+      "seed": "BMA + AI = EUR 2000/client (and nobody's doing it)",
+      "generated_at": "2026-02-09T23:35:05.559822",
+      "status": "ready_to_post"
+    },
+    {
+      "id": 20,
+      "platform": "email_subject",
+      "content": "[Ollama unavailable: ]",
+      "seed": "Stop paying for cloud AI. Go local. Save 90%.",
+      "generated_at": "2026-02-09T23:37:06.623011",
+      "status": "ready_to_post"
+    }
+  ]
+}

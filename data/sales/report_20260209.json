@@ -1,0 +1,18 @@
+{
+  "date": "2026-02-09",
+  "posts_generated": 10,
+  "platforms": {
+    "linkedin": 3,
+    "twitter": 3,
+    "reddit": 2,
+    "email_subject": 2
+  },
+  "product_descriptions": {
+    "AI Prompt Vault": "[Ollama unavailable: ]",
+    "Docker Automation Guide": "[Ollama unavailable: ]",
+    "Stack-as-a-Service": "[Ollama unavailable: ]",
+    "BMA + AI Consulting": "[Ollama unavailable: ]",
+    "AI Automation Setup": "[Ollama unavailable: ]"
+  },
+  "generated_at": "2026-02-09T23:27:01.974252"
+}

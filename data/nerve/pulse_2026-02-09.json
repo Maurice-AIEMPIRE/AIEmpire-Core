@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-02-09T23:12:18.082501",
+  "online": 11,
+  "total": 11,
+  "systems": {
+    "ollama": {
+      "status": true,
+      "name": "Ollama (Local AI)"
+    },
+    "n8n_local": {
+      "status": true,
+      "name": "n8n Local"
+    },
+    "n8n_cloud": {
+      "status": true,
+      "name": "n8n Cloud"
+    },
+    "mission_control": {
+      "status": true,
+      "name": "Mission Control"
+    },
+    "geldmaschine": {
+      "status": true,
+      "name": "Geldmaschine"
+    },
+    "revenue_pipeline": {
+      "status": true,
+      "name": "Revenue Pipeline"
+    },
+    "sales_machine": {
+      "status": true,
+      "name": "Sales Machine"
+    },
+    "workflow_system": {
+      "status": true,
+      "name": "Empire Workflow (5-Step)"
+    },
+    "lead_machine": {
+      "status": true,
+      "name": "X Lead Machine"
+    },
+    "atomic_reactor": {
+      "status": true,
+      "name": "Atomic Reactor"
+    },
+    "kimi_swarm": {
+      "status": true,
+      "name": "Kimi Swarm (100K Agents)"
+    }
+  }
+}
