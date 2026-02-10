@@ -26,7 +26,7 @@ DEFAULT_MODEL_14B = "qwen2.5-coder:14b"  # Heavy lift ONLY — 9GB VRAM
 DEFAULT_MODEL_7B = "qwen2.5-coder:7b"    # Primary driver — 4.7GB VRAM
 REASONING_MODEL = "deepseek-r1:8b"         # Planning & review — 5.2GB VRAM
 CODE_MODEL = "codellama:7b"                # Code completion — 3.8GB VRAM
-LIGHT_MODEL = "phi:q4"                     # Quick tasks — 1.6GB VRAM
+LIGHT_MODEL = "phi4-mini"                   # Quick tasks — 2.5GB VRAM
 
 # Cloud models (Gemini)
 GEMINI_FLASH = "gemini-2.0-flash"

@@ -1,0 +1,134 @@
+{
+    "name": "AI Empire Godmode Workflow (With Email Alerts)",
+    "nodes": [
+        {
+            "parameters": {
+                "path": "godmode",
+                "responseMode": "lastNode",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.webhook",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ],
+            "id": "webhook-trigger",
+            "name": "Godmode Webhook"
+        },
+        {
+            "parameters": {
+                "dataType": "string",
+                "value1": "={{ $json.type }}",
+                "rules": {
+                    "rules": [
+                        {
+                            "value2": "new_post",
+                            "output": 0
+                        },
+                        {
+                            "value2": "new_lead_list",
+                            "output": 1
+                        },
+                        {
+                            "value2": "sale_alert",
+                            "output": 2
+                        }
+                    ]
+                }
+            },
+            "type": "n8n-nodes-base.switch",
+            "typeVersion": 1,
+            "position": [
+                500,
+                300
+            ],
+            "id": "route-type",
+            "name": "Router"
+        },
+        {
+            "parameters": {
+                "text": "🚀 NEW CONTENT GENERATED:\n{{ $json.content }}"
+            },
+            "type": "n8n-nodes-base.twitter",
+            "typeVersion": 1,
+            "position": [
+                800,
+                100
+            ],
+            "id": "post-twitter",
+            "name": "Twitter Post (Optional)"
+        },
+        {
+            "parameters": {
+                "operation": "append",
+                "sheetId": "YOUR_SHEET_ID_HERE",
+                "range": "A:B",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.googleSheets",
+            "typeVersion": 1,
+            "position": [
+                800,
+                300
+            ],
+            "id": "save-leads",
+            "name": "Save Leads"
+        },
+        {
+            "parameters": {
+                "fromEmail": "maurice.ai.empire@gmail.com",
+                "toEmail": "mauricepfeifer@icloud.com",
+                "subject": "💰 CH-CHING! New Sale: ${{ $json.amount }}",
+                "text": "BOOM! 🚀\n\nNew Customer: {{ $json.email }}\nProduct: {{ $json.product }}\nAmount: ${{ $json.amount }}\n\nKeep pushing!\n- The System",
+                "options": {}
+            },
+            "type": "n8n-nodes-base.email",
+            "typeVersion": 1,
+            "position": [
+                800,
+                500
+            ],
+            "id": "send-email",
+            "name": "Send Sales Alert"
+        }
+    ],
+    "connections": {
+        "Godmode Webhook": {
+            "main": [
+                [
+                    {
+                        "node": "Router",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Router": {
+            "main": [
+                [
+                    {
+                        "node": "Twitter Post (Optional)",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Save Leads",
+                        "type": "main",
+                        "index": 0
+                    }
+                ],
+                [
+                    {
+                        "node": "Send Sales Alert",
+                        "type": "main",
+                        "index": 2
+                    }
+                ]
+            ]
+        }
+    }
+}

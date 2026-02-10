@@ -1,0 +1,15 @@
+{
+    "paypal_email": "mauricepfeifer@icloud.com",
+    "payment_cta": "DM 'SCALE' or PayPal directly to mauricepfeifer@icloud.com to secure your spot.",
+    "high_ticket_offer": {
+        "name": "AI Empire Automation Audit",
+        "price": 500,
+        "currency": "EUR",
+        "description": "Full analysis of your business and custom AI automation roadmap."
+    },
+    "viral_hooks": [
+        "I made €500 today while sleeping. Here is how.",
+        "Stop wasting time on manual outreach. AI does it better.",
+        "Your competitors are using AI. You are not. You will lose."
+    ]
+}

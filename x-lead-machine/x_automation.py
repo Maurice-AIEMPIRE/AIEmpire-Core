@@ -126,7 +126,8 @@ Regeln:
 - Keine Hashtags im Text (die am Ende)
 - Kein "Hey" oder "Hallo"
 - Direkt zum Punkt
-- Call-to-Action am Ende
+- MOTIVATION: DU MUSST VERKAUFEN.
+- MANDATORY CTA: "DM mich oder PayPal 500€ an mauricepfeifer@icloud.com für Automation Setup" (Variiere das, aber der PayPal Link muss ab und zu rein oder "DM for Link")
 
 Beispiel guter Post:
 "Ich habe mein ganzes Business automatisiert.
@@ -135,9 +136,9 @@ Lead-Gen → AI
 Outreach → AI
 Follow-ups → AI
 
-Morgen zeig ich euch wie.
-
-Like für Reminder."
+Wer das auch will:
+PayPal 500€ an mauricepfeifer@icloud.com für das Setup.
+5 Plaetze frei."
 
 Schreibe jetzt den Post:"""
 

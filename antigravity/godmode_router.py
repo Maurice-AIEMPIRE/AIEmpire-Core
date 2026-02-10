@@ -36,7 +36,10 @@ class GodmodeRouter:
         self, agent_key: str, prompt: str, context: Optional[dict[str, str]] = None
     ) -> dict[str, Any]:
         """Execute task with specific agent"""
+        from antigravity.ollama_client import get_client
+        
         agent = self.agents[agent_key]
+        client = get_client()
 
         # Create branch
         task_id = context.get("task_id", "task") if context else "task"
@@ -52,50 +55,42 @@ class GodmodeRouter:
                 capture_output=True,
             )
 
-        # Build prompt with role context
-        full_prompt = f"""You are {agent.name}, specialized in: {agent.role}
-
-Task: {prompt}
-
-Rules:
-- Work only in your domain
-- Make atomic commits
-- Add tests for changes
-- Follow existing patterns
-
-Context: {json.dumps(context or {}, indent=2)}
-"""
-
         print(f"\n🤖 {agent.name} ({agent.model}) is working on task...")
         print(f"📋 Task: {prompt[:100]}...")
 
-        # Call Ollama via subprocess (run in thread to avoid blocking event loop)
+        # Execute via optimized OllamaClient
         try:
-            result = await asyncio.to_thread(
-                subprocess.run,
-                ["ollama", "run", agent.model, full_prompt],
-                capture_output=True,
-                text=True,
-                timeout=300,  # 5 min timeout
+            # Run in thread executor to avoid blocking implementation details
+            response = await asyncio.to_thread(
+                client.chat,
+                agent=agent,
+                user_message=prompt,
+                context=json.dumps(context or {}, indent=2)
             )
-        except subprocess.TimeoutExpired:
+            
+            output = response.get("content", "")
+            if not output and response.get("raw_response"):
+                # Fallback if content key missing
+                output = str(response["raw_response"])
+
+            return {
+                "agent": agent.name,
+                "model": agent.model,
+                "branch": branch_name,
+                "output": output,
+                "error": "",
+                "success": True,
+            }
+            
+        except Exception as e:
             return {
                 "agent": agent.name,
                 "model": agent.model,
                 "branch": branch_name,
                 "output": "",
-                "error": f"Timeout: {agent.model} took >300s",
+                "error": f"Error executing task: {str(e)}",
                 "success": False,
             }
-
-        return {
-            "agent": agent.name,
-            "model": agent.model,
-            "branch": branch_name,
-            "output": result.stdout,
-            "error": result.stderr,
-            "success": result.returncode == 0,
-        }
 
     async def run_parallel_swarm(self, tasks: list[dict[str, Any]]) -> list[dict[str, Any]]:
         """Run multiple agents in parallel"""

@@ -6,7 +6,7 @@ Used by all 4 Godmode Programmer agents to communicate with local models.
 """
 
 import json
-from antigravity.config import OLLAMA_API_V1, AgentConfig
+from antigravity.config import OLLAMA_API_V1, AgentConfig, M4_RUNTIME_OPTS
 from typing import Optional
 
 import httpx

@@ -19,6 +19,7 @@ node_modules/
 *.log
 .DS_Store
 chat_history/
+logs/
 .claude/worktrees/
 
 # Mission Control generated files

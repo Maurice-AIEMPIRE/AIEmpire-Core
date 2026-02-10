@@ -103,12 +103,17 @@ OUTPUT als JSON:
 Fokus: AI-Automation Success Stories, Behind-the-Scenes, Controversial Takes
 Ziel: Max. Engagement + Lead-Magnets einbauen
 
+MANDATORY INSTRUCTIONS:
+- CTA MUSS ENTHALTEN: "PayPal 500€ an mauricepfeifer@icloud.com" fuer Premium Setup.
+- ODER: "DM me 'SCALE' for payment link".
+- Wir brauchen CASHFLOW JETZT.
+
 OUTPUT als JSON:
 {
     "format": "thread/single/meme/story",
     "hook": "Attention-grabbing erster Satz",
     "main_content": "Story/Insight/Take mit konkreten Zahlen",
-    "cta": "Call to Action mit Lead-Magnet (Free Guide/Template/Audit)",
+    "cta": "Call to Action mit PayPal mauricepfeifer@icloud.com",
     "lead_magnet": "Kostenloser Download Titel",
     "hashtags": ["#AI", "#Automation", "#BuildInPublic"],
     "viral_score": 8,

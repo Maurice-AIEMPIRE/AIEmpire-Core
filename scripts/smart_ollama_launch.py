@@ -159,8 +159,8 @@ RECOMMENDED_MODELS: list[ModelSpec] = [
         priority=60,
     ),
     ModelSpec(
-        name="phi:q4",
-        size_gb=1.6, params="3.8B", quant="Q4_0",
+        name="phi4-mini:latest",
+        size_gb=2.5, params="3.8B", quant="Q4_K_M",
         speed_class="very_fast", quality_class="medium",
         best_for=["quick_tasks", "formatting", "simple_code", "chat"],
         priority=50,
