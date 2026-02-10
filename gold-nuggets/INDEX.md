@@ -1,5 +1,5 @@
 # GOLD NUGGETS INDEX
-**Stand:** 2026-02-09
+**Stand:** 2026-02-10
 **Anzahl:** 15 Nuggets
 
 ---

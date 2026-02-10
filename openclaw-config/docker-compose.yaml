@@ -1,6 +1,7 @@
 # OPENCLAW PRODUCTION STACK
-# Maurice's AI Empire - Haiku/Sonnet/Opus Routing
-# Erstellt: 2026-02-08
+# Maurice's AI Empire - Multi-Provider Routing
+# Gemini + Ollama + ChromaDB + Redis
+# Updated: 2026-02-10
 
 version: '3.8'
 
@@ -24,7 +25,29 @@ services:
     restart: unless-stopped
 
   # ═══════════════════════════════════════════
-  # 2. CHROMA - Vector Database
+  # 2. LITELLM PROXY - Unified API Gateway
+  #    Routes Gemini/Ollama/Moonshot through
+  #    a single OpenAI-compatible endpoint
+  # ═══════════════════════════════════════════
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: litellm-proxy
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./litellm_config.yaml:/app/config.yaml
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - GOOGLE_CLOUD_PROJECT=${GOOGLE_CLOUD_PROJECT:-}
+      - GOOGLE_CLOUD_REGION=${GOOGLE_CLOUD_REGION:-europe-west1}
+      - MOONSHOT_API_KEY=${MOONSHOT_API_KEY:-}
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+    depends_on:
+      - ollama
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # 3. CHROMA - Vector Database
   # ═══════════════════════════════════════════
   chromadb:
     image: chromadb/chroma:latest
@@ -38,7 +61,7 @@ services:
     restart: unless-stopped
 
   # ═══════════════════════════════════════════
-  # 3. REDIS - Queue & Cache
+  # 4. REDIS - Queue & Cache
   # ═══════════════════════════════════════════
   redis:
     image: redis:alpine

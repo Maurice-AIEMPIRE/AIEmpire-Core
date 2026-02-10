@@ -5,8 +5,6 @@ Demonstrates different use cases and configurations
 """
 
 import asyncio
-import os
-from pathlib import Path
 
 # Example 1: Basic Test Run (100 tasks)
 async def example_test_run():
@@ -157,7 +155,7 @@ async def example_process_results():
     print("        if lead['data'].get('bant_score', 0) >= 8:")
     print("            high_priority_leads.append(lead)")
     print()
-    print(f"print(f'Found {{len(high_priority_leads)}} high-priority leads')")
+    print("print(f'Found {len(high_priority_leads)} high-priority leads')")
     print()
 
 # Example 8: Integration with CRM

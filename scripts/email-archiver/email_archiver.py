@@ -11,12 +11,10 @@ import imaplib
 import email
 import hashlib
 import sqlite3
-import json
 import os
 import sys
 from email.header import decode_header
 from datetime import datetime
-from pathlib import Path
 
 # ============================================
 # CONFIGURATION (NICHT in Git committen!)
@@ -327,7 +325,7 @@ def scan_mailbox(config, folder="INBOX", limit=None):
     print(f"Duplikate:           {stats['duplicate']}")
     print(f"Legal/Beweismittel:  {stats['legal']}")
     print(f"pfeifer-sicherheit:  {stats['pfeifer']}")
-    print(f"\nKategorien:")
+    print("\nKategorien:")
     for cat, count in sorted(stats['categories'].items(), key=lambda x: -x[1]):
         print(f"  {cat}: {count}")
 
@@ -356,11 +354,11 @@ def export_legal_report(output_file=None):
     with open(output_file, 'w') as f:
         f.write("# BEWEISMITTEL-REPORT: E-Mail Archiv\n")
         f.write(f"Erstellt: {datetime.utcnow().isoformat()} UTC\n")
-        f.write(f"System: Email Archiver v1.0\n")
-        f.write(f"Integritaet: SHA256 Hash pro Email\n\n")
+        f.write("System: Email Archiver v1.0\n")
+        f.write("Integritaet: SHA256 Hash pro Email\n\n")
         f.write("---\n\n")
 
-        f.write(f"## Uebersicht\n")
+        f.write("## Uebersicht\n")
         f.write(f"- Beweismittel-Emails gesamt: {len(legal_emails)}\n")
         f.write(f"- Chain of Custody Eintraege: {len(custody_log)}\n\n")
 
@@ -369,7 +367,7 @@ def export_legal_report(output_file=None):
         f.write("|---|-------|-----|---------|--------|-------|\n")
 
         for i, row in enumerate(legal_emails, 1):
-            msg_id, from_a, to_a, subj = row[1], row[2], row[3], row[4]
+            _msg_id, from_a, _to_a, subj = row[1], row[2], row[3], row[4]
             date_s, sha = row[5], row[9]
             f.write(f"| {i} | {date_s} | {from_a[:30]} | {subj[:40]} | {sha[:12]}... | {row[10]} |\n")
 
@@ -417,13 +415,13 @@ def show_stats():
     spam = c.fetchone()[0]
 
     print(f"\n{'='*50}")
-    print(f"EMAIL ARCHIVER STATISTIK")
+    print("EMAIL ARCHIVER STATISTIK")
     print(f"{'='*50}")
     print(f"Gesamt archiviert:     {total}")
     print(f"Beweismittel (Legal):  {legal}")
     print(f"pfeifer-sicherheit.de: {pfeifer}")
     print(f"Spam erkannt:          {spam}")
-    print(f"\nKategorien:")
+    print("\nKategorien:")
     for cat, count in categories:
         pct = round(count / total * 100, 1) if total > 0 else 0
         print(f"  {cat:25s} {count:5d} ({pct}%)")

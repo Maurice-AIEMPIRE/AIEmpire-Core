@@ -107,7 +107,7 @@ Return as JSON: {{problem, monetization, readiness, rating, action, reason}}"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data.get("items", [])
-            except:
+            except Exception:
                 pass
         return []
 
@@ -148,7 +148,7 @@ URL: {repo['html_url']}
                             })
                             self.stats["nuggets_found"] += 1
                             print(f"    💰 GOLD: {repo['full_name']} (Rating: {analysis.get('rating')})")
-                    except:
+                    except Exception:
                         pass
 
             print(f"    Scanned: {len(repos[:5])} repos")

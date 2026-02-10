@@ -6,7 +6,6 @@ Generiert 7 Posts + 1 Thread für die ganze Woche
 
 import asyncio
 import aiohttp
-import json
 import os
 from datetime import datetime, timedelta
 
