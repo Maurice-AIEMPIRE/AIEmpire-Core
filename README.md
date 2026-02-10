@@ -27,6 +27,7 @@
 |-----------|--------|---------|
 | **📱 Mobile Smartphone Access** | 🔥 **NEW** | **Weltweiter Remote Access via Handy** |
 | **GitHub Control System** | ✅ | Chat-basierte Steuerung über Issues |
+| **Mission Control System** | ✅ | Task Scan + Priorisierung (Dashboard + Next 90 Minutes) |
 | **Chat Upload & Multi-Model** | 🔥 **NEW** | **Chat-Upload + Alle Modelle (Claude, Kimi, Ollama)** |
 | **Claude Failover** | ✅ | Automatischer Umstieg bei API Limits |
 | X Lead Machine | ✅ | Automatisierte Lead-Gen auf X/Twitter |
@@ -77,6 +78,7 @@
 2. Kommentiere mit Commands:
    ```
    @bot status
+   @bot mission-control
    @bot generate-content
    @bot revenue-report
    @bot create-gig
@@ -93,6 +95,22 @@ Assistant: Hi there!
 @bot models
 @bot switch-model ollama-qwen
 ```
+
+### Mission Control System
+
+**Kompakter Task-Scan + Priorisierung (IMPACT > URGENCY > EFFORT):**
+
+**CLI:**
+```bash
+python3 mission_control.py
+```
+
+**GitHub (Issue/Comment):**
+```
+@bot mission-control
+```
+
+**Dokumentation:** [MISSION_CONTROL_README.md](./MISSION_CONTROL_README.md)
 
 **Dokumentation:** 
 - [GITHUB_CONTROL_SYSTEM.md](./GITHUB_CONTROL_SYSTEM.md)
@@ -133,6 +151,7 @@ ai-empire/
 │   ├── auto-content-generation.yml   # Alle 4h
 │   ├── claude-health-check.yml       # Alle 30min
 │   ├── issue-command-bot.yml         # Issue Commands
+│   ├── mission-control-scan.yml       # Täglich 9 AM (UTC)
 │   ├── revenue-tracking.yml          # Täglich 9 AM
 │   └── x-auto-poster.yml            # Täglich 7 AM
 ├── GITHUB_CONTROL_SYSTEM.md   # 📖 Vollständige Doku

@@ -20,3 +20,7 @@ node_modules/
 .DS_Store
 chat_history/
 .claude/worktrees/
+
+# Mission Control generated files
+mission_control_data.json
+MISSION_CONTROL.md
