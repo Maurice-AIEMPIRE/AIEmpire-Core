@@ -12,6 +12,10 @@ Usage:
   python empire.py guard                # Resource Guard Status
   python empire.py cycle                # Neuen Wochen-Zyklus starten
   python empire.py full                 # Workflow + Cowork nacheinander
+  python empire.py gemini status        # Gemini Mirror Status
+  python empire.py gemini questions     # Vision Discovery Fragen
+  python empire.py gemini evolve        # Cross-System Evolution
+  python empire.py gemini daemon        # Gemini Mirror Daemon
 """
 
 import asyncio
@@ -24,8 +28,10 @@ from pathlib import Path
 
 EMPIRE_ROOT = Path(__file__).parent.parent
 WORKFLOW_DIR = Path(__file__).parent
+GEMINI_DIR = EMPIRE_ROOT / "gemini-mirror"
 
 sys.path.insert(0, str(WORKFLOW_DIR))
+sys.path.insert(0, str(GEMINI_DIR))
 
 
 def show_banner():
@@ -119,7 +125,33 @@ def show_full_status():
             print(f"    {name:20s}: (not created)")
     print()
 
-    # 5. Git Status
+    # 5. Gemini Mirror
+    gemini_state = GEMINI_DIR / "state" / "memory.json"
+    if gemini_state.exists():
+        try:
+            sys.path.insert(0, str(GEMINI_DIR))
+            from digital_memory import DigitalMemory
+            mem = DigitalMemory()
+            mem_stats = mem.stats()
+            print(f"  GEMINI MIRROR:")
+            print(f"    Memories:  {mem_stats['total_memories']}")
+            print(f"    High conf: {mem_stats['high_confidence']}")
+            print(f"    Gaps:      {len(mem_stats['gaps'])}")
+
+            # Check pending questions
+            q_file = GEMINI_DIR / "state" / "vision_questions.json"
+            if q_file.exists():
+                qs = json.loads(q_file.read_text())
+                pending = [q for q in qs if not q.get("answered")]
+                print(f"    Questions: {len(pending)} pending")
+        except Exception as e:
+            print(f"  GEMINI MIRROR: Error - {e}")
+    else:
+        print(f"  GEMINI MIRROR: Not initialized")
+        print(f"    Run: python empire.py gemini seed")
+    print()
+
+    # 6. Git Status
     import subprocess
     try:
         branch = subprocess.check_output(
@@ -136,10 +168,12 @@ def show_full_status():
         print(f"  GIT: (could not read)")
     print()
 
-    # 6. Quick Commands
+    # 7. Quick Commands
     print(f"  COMMANDS:")
     print(f"    python empire.py workflow          # Run 5-step loop")
     print(f"    python empire.py cowork --daemon   # Start background agent")
+    print(f"    python empire.py gemini questions   # Vision discovery")
+    print(f"    python empire.py gemini daemon      # Gemini mirror daemon")
     print(f"    python empire.py cycle             # New weekly cycle")
     print(f"    python empire.py full              # Workflow + Cowork")
     print()
@@ -194,6 +228,49 @@ async def run_full(args):
     print("\nFull run complete.")
 
 
+async def run_gemini(args):
+    """Run Gemini Mirror operations."""
+    sys.path.insert(0, str(GEMINI_DIR))
+    from mirror_daemon import GeminiMirrorDaemon
+
+    daemon = GeminiMirrorDaemon()
+    action = getattr(args, "action", "status")
+
+    if action == "status":
+        daemon.show_status()
+    elif action == "seed":
+        daemon.seed_knowledge()
+    elif action == "questions":
+        session = getattr(args, "session", "morning") or "morning"
+        await daemon.generate_questions(session)
+    elif action == "answer":
+        q_id = getattr(args, "question_id", None)
+        answer_text = getattr(args, "answer_text", None)
+        if q_id and answer_text:
+            await daemon.answer_question(q_id, answer_text)
+        else:
+            print("Usage: empire.py gemini answer <question_id> <answer>")
+    elif action == "profile":
+        await daemon.show_profile()
+    elif action == "evolve":
+        mode = getattr(args, "mode", "daily") or "daily"
+        await daemon.run_evolution(mode)
+    elif action == "sync":
+        await daemon.run_sync()
+    elif action == "daemon":
+        interval = getattr(args, "interval", 1800)
+        await daemon.daemon_mode(interval)
+    elif action == "pending":
+        pending = await daemon.vision.get_pending_questions()
+        if pending:
+            for q in pending:
+                print(f"  [{q.get('id')}] ({q.get('category')}) {q.get('question')}")
+        else:
+            print("  Keine offenen Fragen.")
+    else:
+        await daemon.single_cycle()
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="AI Empire - Unified Control Center",
@@ -208,6 +285,11 @@ Examples:
   python empire.py cycle                     New weekly cycle
   python empire.py full                      Workflow + Cowork
   python empire.py guard                     Resource guard status
+  python empire.py gemini status             Gemini mirror status
+  python empire.py gemini seed               Seed initial knowledge
+  python empire.py gemini questions          Generate vision questions
+  python empire.py gemini evolve             Run cross-system evolution
+  python empire.py gemini daemon             Start mirror daemon
         """
     )
 
@@ -238,6 +320,18 @@ Examples:
     full_p = sub.add_parser("full", help="Run workflow + cowork")
     full_p.add_argument("--focus", choices=["revenue", "content", "automation", "product"])
 
+    # gemini mirror
+    gm = sub.add_parser("gemini", help="Gemini Mirror dual-system operations")
+    gm.add_argument("action", nargs="?", default="status",
+                     choices=["status", "seed", "questions", "answer", "profile",
+                              "evolve", "sync", "daemon", "pending", "cycle"],
+                     help="Gemini mirror action")
+    gm.add_argument("--session", choices=["morning", "evening"], default="morning")
+    gm.add_argument("--mode", choices=["daily", "weekly"], default="daily")
+    gm.add_argument("--interval", type=int, default=1800)
+    gm.add_argument("question_id", nargs="?", default=None)
+    gm.add_argument("answer_text", nargs="?", default=None)
+
     args = parser.parse_args()
 
     if not args.command or args.command == "status":
@@ -255,6 +349,8 @@ Examples:
         guard_main()
     elif args.command == "full":
         asyncio.run(run_full(args))
+    elif args.command == "gemini":
+        asyncio.run(run_gemini(args))
 
 
 if __name__ == "__main__":

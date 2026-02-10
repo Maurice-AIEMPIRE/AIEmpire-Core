@@ -1,0 +1,114 @@
+# ============================================================
+# GEMINI MIRROR - Dual System Configuration
+# ============================================================
+# Two systems, one vision. Claude (Mac) + Gemini (Cloud)
+# Both evolve each other. Both serve Maurice's empire.
+# ============================================================
+
+gemini:
+  # Gemini API Configuration
+  api_key_env: "GEMINI_API_KEY"
+  # Models: gemini-2.0-flash (fast/cheap), gemini-2.0-pro (deep thinking)
+  models:
+    fast: "gemini-2.0-flash"
+    deep: "gemini-2.5-pro"
+    experimental: "gemini-2.0-flash-thinking"
+  # Rate limits (free tier: 15 RPM, paid: 360 RPM)
+  rate_limit_rpm: 60
+  max_tokens: 8192
+  temperature: 0.7
+
+sync:
+  # Bidirectional sync interval (seconds)
+  interval: 1800  # 30 minutes
+  # What gets synced
+  artifacts:
+    - "improvements"      # Code improvements discovered by either system
+    - "patterns"          # Discovered patterns & strategies
+    - "insights"          # Business intelligence
+    - "vision_answers"    # Maurice's answers to vision questions
+    - "memory_updates"    # Knowledge graph updates
+    - "evolution_logs"    # How each system evolved
+  # Sync storage
+  state_dir: "gemini-mirror/state"
+  # Git-based sync (push/pull between systems)
+  git_sync: true
+  git_branch: "gemini-mirror-sync"
+
+vision_discovery:
+  # Daily question system
+  questions_per_day: 5
+  # Question categories
+  categories:
+    - "mission"          # What is your ultimate goal?
+    - "lifestyle"        # What does your ideal day look like?
+    - "revenue"          # Revenue targets and strategies
+    - "automation"       # What should be automated next?
+    - "products"         # Product ideas and priorities
+    - "customers"        # Who are your ideal customers?
+    - "strengths"        # What unique advantages do you have?
+    - "blockers"         # What's stopping you right now?
+    - "decisions"        # What decisions need to be made?
+    - "experiments"      # What should we test next?
+  # Question schedule
+  morning_session: "08:00"   # 3 strategic questions
+  evening_session: "19:00"   # 2 reflection questions
+  # Store answers permanently
+  memory_integration: true
+
+digital_memory:
+  # Persistent knowledge graph
+  storage: "gemini-mirror/state/memory.json"
+  # Memory categories
+  categories:
+    vision: "Maurice's ultimate vision and goals"
+    preferences: "Personal preferences and working style"
+    decisions: "Key decisions made and reasoning"
+    patterns: "Recurring patterns in behavior and business"
+    strengths: "Identified strengths and unique advantages"
+    lessons: "Lessons learned from successes and failures"
+    relationships: "Key people, partners, and networks"
+    technical: "Technical preferences and stack decisions"
+    financial: "Financial targets, budgets, and strategies"
+    emotional: "Motivations, fears, and driving forces"
+  # Memory decay: older memories get lower weight unless reinforced
+  decay_rate: 0.95  # per week
+  # Max memories before compression
+  max_entries: 10000
+
+evolution:
+  # Cross-system evolution protocol
+  # How the two systems improve each other
+  strategies:
+    - name: "code_improvement"
+      description: "Gemini reviews Claude's code, suggests improvements"
+      frequency: "daily"
+    - name: "strategy_challenge"
+      description: "Each system challenges the other's strategies"
+      frequency: "daily"
+    - name: "blind_spot_detection"
+      description: "Find what the other system missed"
+      frequency: "daily"
+    - name: "capability_expansion"
+      description: "Each system teaches the other new capabilities"
+      frequency: "weekly"
+    - name: "performance_benchmark"
+      description: "Compare outputs, keep the best"
+      frequency: "weekly"
+  # Evolution scoring
+  scoring:
+    revenue_impact: 0.4
+    automation_gain: 0.3
+    quality_improvement: 0.2
+    innovation: 0.1
+
+# Model routing for mirror operations
+model_routing:
+  # Quick operations (status checks, simple sync)
+  quick: "gemini-2.0-flash"
+  # Deep analysis (strategy, vision, evolution)
+  deep: "gemini-2.5-pro"
+  # Experimental (creative solutions, innovation)
+  creative: "gemini-2.0-flash-thinking"
+  # Cost optimization: use flash for 90%, pro for 10%
+  flash_ratio: 0.9

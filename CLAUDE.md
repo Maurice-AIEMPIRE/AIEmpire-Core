@@ -7,19 +7,22 @@ Ziel: 100 Mio EUR in 1-3 Jahren, alles automatisiert mit AI.
 ## Architecture
 ```
 CONTROL: Claude Code + GitHub
+MIRROR:  Gemini (Flash 90% + Pro 10%) - Dual System Evolution
 AGENTS:  OpenClaw (Port 18789, 9 Cron Jobs)
-MODELS:  Ollama (95% free) → Kimi K2.5 (4%) → Claude (1%)
+MODELS:  Ollama (95% free) → Kimi K2.5 (4%) → Claude (1%) → Gemini (mirror)
 DATA:    Redis + PostgreSQL + ChromaDB
 TASKS:   Atomic Reactor (FastAPI, Port 8888)
 SWARM:   Kimi 50K-500K Agents
 SALES:   X/Twitter Lead Machine + CRM (Port 3500)
 REVENUE: Gumroad + Fiverr + Consulting
+MEMORY:  Digital Memory (persistent knowledge graph)
 ```
 
 ## Key Directories
 - `workflow-system/` - Opus 4.6 5-Step Compound Loop (AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER)
 - `workflow-system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
 - `workflow-system/resource_guard.py` - CPU/RAM/Disk Monitoring + Auto-Throttling
+- `gemini-mirror/` - Dual System: Claude (Mac) ↔ Gemini (Cloud) with Vision Discovery + Digital Memory + Evolution
 - `kimi-swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
 - `atomic-reactor/` - YAML-based task definitions + async runner
 - `x-lead-machine/` - Content generation + viral replies + lead gen
@@ -86,6 +89,43 @@ python workflow-system/empire.py cycle
 
 # Alles nacheinander (Workflow + Cowork)
 python workflow-system/empire.py full
+```
+
+## Gemini Mirror (Dual System)
+```bash
+# Status
+python workflow-system/empire.py gemini status
+
+# Initial-Wissen laden
+python workflow-system/empire.py gemini seed
+
+# Vision Discovery Fragen generieren
+python workflow-system/empire.py gemini questions
+python workflow-system/empire.py gemini questions --session evening
+
+# Frage beantworten
+python workflow-system/empire.py gemini answer <question_id> "Deine Antwort"
+
+# Offene Fragen anzeigen
+python workflow-system/empire.py gemini pending
+
+# Vision-Profil anzeigen
+python workflow-system/empire.py gemini profile
+
+# Cross-System Evolution
+python workflow-system/empire.py gemini evolve
+python workflow-system/empire.py gemini evolve --mode weekly
+
+# Sync zwischen Systemen
+python workflow-system/empire.py gemini sync
+
+# Daemon-Modus (alle 30 Min)
+python workflow-system/empire.py gemini daemon
+python workflow-system/empire.py gemini daemon --interval 900
+
+# Oder direkt:
+python gemini-mirror/mirror_daemon.py --status
+python gemini-mirror/mirror_daemon.py --daemon
 ```
 
 ## Session-Start Hook
