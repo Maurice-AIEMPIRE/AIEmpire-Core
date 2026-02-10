@@ -1,0 +1,210 @@
+{
+  "name": "08 Vision Interrogator",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8,
+              "triggerAtMinute": 0
+            },
+            {
+              "triggerAtHour": 14,
+              "triggerAtMinute": 0
+            },
+            {
+              "triggerAtHour": 20,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "vision-schedule",
+      "name": "3x Daily Questions",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "vision-answer",
+        "responseMode": "responseNode"
+      },
+      "id": "answer-webhook",
+      "name": "Answer Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [250, 550]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "categories",
+              "value": "={{ [\"vision\", \"strategy\", \"priorities\", \"preferences\", \"blockers\", \"values\", \"lifestyle\"] }}",
+              "type": "object"
+            },
+            {
+              "name": "focus",
+              "value": "={{ $json.categories ? $json.categories[Math.floor(Math.random() * $json.categories.length)] : [\"vision\", \"strategy\", \"priorities\", \"preferences\", \"blockers\", \"values\", \"lifestyle\"].randomItem() }}",
+              "type": "string"
+            },
+            {
+              "name": "depth",
+              "value": "={{ [\"surface\", \"medium\", \"deep\"].randomItem() }}",
+              "type": "string"
+            },
+            {
+              "name": "count",
+              "value": 3,
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "id": "select-focus",
+      "name": "Select Question Focus",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-pro:generateContent",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ contents: [{ role: 'user', parts: [{ text: `Du bist der Vision-Interrogator. Generiere ${$json.count} ${$json.depth}-Fragen in der Kategorie ${$json.focus} fuer Maurice Pfeifer (37, Elektrotechnikmeister, Ziel: 100M EUR mit AI). Antworte als JSON Array: [{\"id\": \"Q-001\", \"question\": \"Frage auf Deutsch\", \"category\": \"${$json.focus}\", \"depth\": \"${$json.depth}\"}]` }] }], generationConfig: { temperature: 0.9, maxOutputTokens: 2000 } }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "generate-questions",
+      "name": "Generate Questions (Gemini)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [750, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "name": "questions",
+              "value": "={{ $json.candidates[0].content.parts[0].text }}",
+              "type": "string"
+            },
+            {
+              "name": "generated_at",
+              "value": "={{ $now.format('yyyy-MM-dd HH:mm:ss') }}",
+              "type": "string"
+            },
+            {
+              "name": "focus",
+              "value": "={{ $('Select Question Focus').item.json.focus }}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "parse-questions",
+      "name": "Parse Questions",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.2,
+      "position": [1000, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8888/api/vision/questions",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ questions: $json.questions, focus: $json.focus, generated_at: $json.generated_at }) }}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "id": "store-questions",
+      "name": "Store in Mirror State",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:8888/api/vision/process-answer",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ question_id: $json.body.question_id, answer: $json.body.answer }) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "id": "process-answer",
+      "name": "Process Answer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [500, 550]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ status: 'answer_processed', result: $json }) }}"
+      },
+      "id": "respond-answer",
+      "name": "Respond Answer OK",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [750, 550]
+    }
+  ],
+  "connections": {
+    "3x Daily Questions": {
+      "main": [
+        [{"node": "Select Question Focus", "type": "main", "index": 0}]
+      ]
+    },
+    "Select Question Focus": {
+      "main": [
+        [{"node": "Generate Questions (Gemini)", "type": "main", "index": 0}]
+      ]
+    },
+    "Generate Questions (Gemini)": {
+      "main": [
+        [{"node": "Parse Questions", "type": "main", "index": 0}]
+      ]
+    },
+    "Parse Questions": {
+      "main": [
+        [{"node": "Store in Mirror State", "type": "main", "index": 0}]
+      ]
+    },
+    "Answer Webhook": {
+      "main": [
+        [{"node": "Process Answer", "type": "main", "index": 0}]
+      ]
+    },
+    "Process Answer": {
+      "main": [
+        [{"node": "Respond Answer OK", "type": "main", "index": 0}]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [
+    {
+      "name": "gemini-mirror"
+    },
+    {
+      "name": "vision"
+    }
+  ]
+}
