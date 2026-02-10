@@ -3,7 +3,6 @@
 Demo script to showcase max agent spawning validation
 """
 import os
-import sys
 
 # Set dummy API key for demo
 os.environ['MOONSHOT_API_KEY'] = 'demo-key-for-validation'
@@ -19,7 +18,7 @@ def demo_100k_validation():
     swarm = KimiSwarm()
     result = swarm.validate_max_agent_capacity()
     
-    print(f"\n📊 Summary:")
+    print("\n📊 Summary:")
     print(f"   • Validation: {'✅ PASSED' if result else '❌ FAILED'}")
     print(f"   • Ready to spawn {TOTAL_AGENTS:,} agents")
     print(f"   • With {MAX_CONCURRENT} concurrent workers")
@@ -36,7 +35,7 @@ def demo_500k_validation():
     swarm = KimiSwarm500K()
     result = swarm.validate_max_agent_capacity()
     
-    print(f"\n📊 Summary:")
+    print("\n📊 Summary:")
     print(f"   • Validation: {'✅ PASSED' if result else '❌ FAILED'}")
     print(f"   • Ready to spawn {TOTAL_AGENTS:,} agents")
     print(f"   • With {MAX_CONCURRENT} concurrent workers")

@@ -8,7 +8,6 @@ Maurice's AI Empire - 2026
 import os
 import json
 import asyncio
-import aiohttp
 from datetime import datetime, timedelta
 from pathlib import Path
 

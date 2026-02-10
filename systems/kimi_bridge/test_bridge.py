@@ -1,6 +1,5 @@
 import asyncio
 from kimi_client import KimiClient
-import sys
 
 async def test_bridge():
     print("🧪 Testing Kimi Bridge Client...")

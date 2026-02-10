@@ -8,7 +8,6 @@ Budget: $15 = ~30 Mio Tokens
 import asyncio
 import aiohttp
 import json
-import os
 import time
 from datetime import datetime
 from pathlib import Path
@@ -127,7 +126,7 @@ class KimiSwarm:
     def validate_max_agent_capacity(self) -> bool:
         """Validate that system is configured to spawn max agents."""
         print(f"\n{'='*60}")
-        print(f"🔍 VALIDATING MAX AGENT CAPACITY")
+        print("🔍 VALIDATING MAX AGENT CAPACITY")
         print(f"{'='*60}")
         
         validation_passed = True
@@ -135,54 +134,54 @@ class KimiSwarm:
         # Check TOTAL_AGENTS configuration
         print(f"Total Agents Capacity: {TOTAL_AGENTS:,}")
         if TOTAL_AGENTS <= 0:
-            print(f"  ❌ TOTAL_AGENTS must be > 0")
+            print("  ❌ TOTAL_AGENTS must be > 0")
             validation_passed = False
         else:
-            print(f"  ✅ Valid agent capacity configured")
+            print("  ✅ Valid agent capacity configured")
         
         # Check MAX_CONCURRENT configuration
         print(f"Max Concurrent Workers: {MAX_CONCURRENT}")
         if MAX_CONCURRENT <= 0:
-            print(f"  ❌ MAX_CONCURRENT must be > 0")
+            print("  ❌ MAX_CONCURRENT must be > 0")
             validation_passed = False
         elif MAX_CONCURRENT > 200:
-            print(f"  ⚠️  Warning: MAX_CONCURRENT > 200 may cause rate limiting")
+            print("  ⚠️  Warning: MAX_CONCURRENT > 200 may cause rate limiting")
         else:
-            print(f"  ✅ Valid concurrency level")
+            print("  ✅ Valid concurrency level")
         
         # Check API key is set
         if not MOONSHOT_API_KEY:
-            print(f"  ❌ MOONSHOT_API_KEY not set")
+            print("  ❌ MOONSHOT_API_KEY not set")
             validation_passed = False
         else:
-            print(f"  ✅ API key configured")
+            print("  ✅ API key configured")
         
         # Check semaphore capacity matches configuration
         if self.max_concurrent != MAX_CONCURRENT:
-            print(f"  ❌ Semaphore capacity mismatch")
+            print("  ❌ Semaphore capacity mismatch")
             validation_passed = False
         else:
-            print(f"  ✅ Semaphore initialized correctly")
+            print("  ✅ Semaphore initialized correctly")
         
         # Check output directories exist
         for dir_path in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR]:
             if not dir_path.exists():
                 print(f"  ❌ Output directory missing: {dir_path}")
                 validation_passed = False
-        print(f"  ✅ All output directories exist")
+        print("  ✅ All output directories exist")
         
         # Capacity report
         estimated_time = (TOTAL_AGENTS / MAX_CONCURRENT) * ESTIMATED_SECONDS_PER_TASK
-        print(f"\nCapacity Report:")
+        print("\nCapacity Report:")
         print(f"  • Max Agents: {TOTAL_AGENTS:,}")
         print(f"  • Concurrent Workers: {MAX_CONCURRENT}")
         print(f"  • Estimated Time for Full Run: {estimated_time/3600:.1f} hours")
         print(f"  • Estimated Cost: ${BUDGET_USD:.2f}")
         
         if validation_passed:
-            print(f"\n✅ System validated - ready to spawn max agents!")
+            print("\n✅ System validated - ready to spawn max agents!")
         else:
-            print(f"\n❌ Validation failed - fix issues before spawning agents")
+            print("\n❌ Validation failed - fix issues before spawning agents")
         
         print(f"{'='*60}\n")
         return validation_passed
@@ -211,7 +210,7 @@ class KimiSwarm:
                 content = content.split("```")[1].split("```")[0]
             parsed = json.loads(content.strip())
             data = {"task_id": task_id, "type": task_type["type"], "timestamp": datetime.now().isoformat(), "data": parsed}
-        except:
+        except Exception:
             data = {"task_id": task_id, "type": task_type["type"], "timestamp": datetime.now().isoformat(), "raw": content}
 
         with open(filename, "w") as f:
@@ -301,7 +300,7 @@ class KimiSwarm:
         eta = (self.stats["total_tasks"] - self.stats["completed"]) / rate if rate > 0 else 0
 
         print(f"\n{'='*60}")
-        print(f"KIMI SWARM STATS")
+        print("KIMI SWARM STATS")
         print(f"{'='*60}")
         print(f"Completed:      {self.stats['completed']:,} / {self.stats['total_tasks']:,}")
         print(f"Failed:         {self.stats['failed']:,}")
@@ -309,7 +308,7 @@ class KimiSwarm:
         print(f"Cost:           ${self.stats['cost_usd']:.4f} / ${BUDGET_USD:.2f}")
         print(f"Rate:           {rate:.1f} tasks/sec")
         print(f"Elapsed:        {elapsed:.1f}s | ETA: {eta:.0f}s")
-        print(f"---")
+        print("---")
         print(f"Leads:          {self.stats['by_type']['lead_research']:,}")
         print(f"Content:        {self.stats['by_type']['content_idea']:,}")
         print(f"Competitors:    {self.stats['by_type']['competitor_analysis']:,}")
@@ -345,7 +344,7 @@ class KimiSwarm:
         try:
             for batch in range(batches):
                 if self.stats["cost_usd"] >= BUDGET_USD * 0.95:
-                    print(f"Budget nearly exhausted! Stopping...")
+                    print("Budget nearly exhausted! Stopping...")
                     break
 
                 remaining = total_tasks - task_id
@@ -380,7 +379,7 @@ class KimiSwarm:
             }, f, indent=2)
 
         print(f"Stats saved to: {output_file}")
-        print(f"\nResults in:")
+        print("\nResults in:")
         print(f"  Leads:       {LEADS_DIR}")
         print(f"  Content:     {CONTENT_DIR}")
         print(f"  Competitors: {COMPETITORS_DIR}")
@@ -403,7 +402,7 @@ async def main():
     elif args.max:
         num_tasks = TOTAL_AGENTS
         print(f"⚠️  WARNING: Running MAX 100K agents (~${BUDGET_USD} cost)")
-        print(f"⚠️  Press Ctrl+C within 5 seconds to cancel...")
+        print("⚠️  Press Ctrl+C within 5 seconds to cancel...")
         await asyncio.sleep(5)
     else:
         num_tasks = min(args.tasks, TOTAL_AGENTS)

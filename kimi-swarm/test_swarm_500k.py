@@ -4,7 +4,6 @@ Test script for 500K Swarm - validates structure without API calls
 """
 
 import sys
-import json
 import os
 from pathlib import Path
 
@@ -18,15 +17,6 @@ def test_imports():
     """Test that all imports work."""
     print("Testing imports...")
     try:
-        import asyncio
-        import aiohttp
-        import json
-        import os
-        import time
-        from datetime import datetime
-        from pathlib import Path
-        from typing import List, Dict, Optional
-        import random
         print("✅ All imports successful")
         return True
     except Exception as e:
@@ -44,11 +34,11 @@ def test_task_types():
         print(f"  Found {len(task_types)} task types:")
         
         for task_type in task_types:
-            assert "type" in task_type, f"Task missing 'type' field"
-            assert "output_dir" in task_type, f"Task missing 'output_dir' field"
-            assert "priority" in task_type, f"Task missing 'priority' field"
-            assert "revenue_potential" in task_type, f"Task missing 'revenue_potential' field"
-            assert "prompt" in task_type, f"Task missing 'prompt' field"
+            assert "type" in task_type, "Task missing 'type' field"
+            assert "output_dir" in task_type, "Task missing 'output_dir' field"
+            assert "priority" in task_type, "Task missing 'priority' field"
+            assert "revenue_potential" in task_type, "Task missing 'revenue_potential' field"
+            assert "prompt" in task_type, "Task missing 'prompt' field"
             print(f"    ✅ {task_type['type']} (Priority: {task_type['priority']}, Revenue: €{task_type['revenue_potential']})")
         
         print("✅ All task types valid")

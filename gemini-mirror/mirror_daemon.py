@@ -43,7 +43,7 @@ from datetime import datetime, timezone
 # Add parent dir for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from gemini_client import GeminiClient
+from gemini_client import MirrorGeminiClient as GeminiClient
 from digital_memory import DigitalMemory
 from mirror_sync import MirrorSyncEngine
 from vision_discovery import VisionDiscoveryEngine

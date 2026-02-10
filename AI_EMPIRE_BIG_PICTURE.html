@@ -1,0 +1,2598 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI EMPIRE — Command Center | Maurice Pfeifer</title>
+    <meta name="description"
+        content="AI Empire Command Center — Alle Systeme, Produkte & Revenue auf einen Blick. Von Maurice Pfeifer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --bg: #06060b;
+            --bg2: #0a0a14;
+            --card: rgba(13, 13, 22, .75);
+            --card2: rgba(17, 17, 32, .7);
+            --border: rgba(30, 30, 55, .6);
+            --accent: #7c3aed;
+            --accent2: #a855f7;
+            --green: #10b981;
+            --red: #ef4444;
+            --yellow: #f59e0b;
+            --orange: #f97316;
+            --blue: #3b82f6;
+            --cyan: #06b6d4;
+            --pink: #ec4899;
+            --text: #e2e8f0;
+            --muted: #64748b;
+            --dim: #334155;
+            --glow: rgba(124, 58, 237, .15);
+            --glass: rgba(255, 255, 255, .03);
+            --radius: 16px
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh
+        }
+
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 16px;
+            position: relative;
+            z-index: 1
+        }
+
+        #particles {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none
+        }
+
+        .bg-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: .1;
+            pointer-events: none;
+            z-index: 0;
+            animation: orbFloat 25s ease-in-out infinite
+        }
+
+        .bg-orb:nth-child(2) {
+            width: 600px;
+            height: 600px;
+            background: var(--accent);
+            top: -150px;
+            left: -100px
+        }
+
+        .bg-orb:nth-child(3) {
+            width: 500px;
+            height: 500px;
+            background: var(--cyan);
+            bottom: -150px;
+            right: -120px;
+            animation-delay: -8s;
+            animation-direction: reverse
+        }
+
+        .bg-orb:nth-child(4) {
+            width: 350px;
+            height: 350px;
+            background: var(--green);
+            top: 40%;
+            left: 50%;
+            animation-delay: -16s
+        }
+
+        .bg-orb:nth-child(5) {
+            width: 300px;
+            height: 300px;
+            background: var(--pink);
+            top: 20%;
+            right: 10%;
+            animation-delay: -12s
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            25% {
+                transform: translate(50px, -40px) scale(1.1)
+            }
+
+            50% {
+                transform: translate(-20px, 60px) scale(.92)
+            }
+
+            75% {
+                transform: translate(-40px, -20px) scale(1.05)
+            }
+        }
+
+        /* Sticky Nav */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(6, 6, 11, .7);
+            border-bottom: 1px solid var(--border);
+            transition: all .3s;
+            opacity: 0;
+            transform: translateY(-100%)
+        }
+
+        .top-nav.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .top-nav .logo {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 900;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 4px
+        }
+
+        .nav-tabs .nt {
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all .25s;
+            border: 1px solid transparent
+        }
+
+        .nav-tabs .nt.active,
+        .nav-tabs .nt:hover {
+            color: #fff;
+            border-color: var(--accent);
+            background: rgba(124, 58, 237, .12)
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 72px 20px 40px;
+            position: relative
+        }
+
+        .hero h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #7c3aed, #a855f7, #ec4899, #f97316, #06b6d4);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 6s ease infinite;
+            letter-spacing: -2px;
+            margin-bottom: 8px
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                background-position: 0% 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+        }
+
+        .hero .sub {
+            color: var(--muted);
+            font-size: 1.05rem;
+            letter-spacing: .3px
+        }
+
+        .hero .owner {
+            color: var(--accent2);
+            font-weight: 600;
+            margin-top: 10px;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px
+        }
+
+        .live-dot {
+            width: 9px;
+            height: 9px;
+            background: var(--green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, .5)
+            }
+
+            50% {
+                box-shadow: 0 0 0 12px rgba(16, 185, 129, 0)
+            }
+        }
+
+        /* Revenue Banner */
+        .rev-banner {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin: 24px 0 32px
+        }
+
+        .rev-stat {
+            background: var(--card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px 14px;
+            text-align: center;
+            transition: all .35s cubic-bezier(.4, 0, .2, 1);
+            position: relative;
+            overflow: hidden
+        }
+
+        .rev-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity .3s
+        }
+
+        .rev-stat:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px var(--glow)
+        }
+
+        .rev-stat:hover::before {
+            opacity: 1
+        }
+
+        .rev-stat .val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            font-family: 'JetBrains Mono', monospace
+        }
+
+        .rev-stat .lbl {
+            font-size: .7rem;
+            color: var(--muted);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: .6px
+        }
+
+        .c-green {
+            color: var(--green)
+        }
+
+        .c-red {
+            color: var(--red)
+        }
+
+        .c-accent {
+            color: var(--accent2)
+        }
+
+        .c-yellow {
+            color: var(--yellow)
+        }
+
+        .c-cyan {
+            color: var(--cyan)
+        }
+
+        .c-orange {
+            color: var(--orange)
+        }
+
+        .c-blue {
+            color: var(--blue)
+        }
+
+        .c-pink {
+            color: var(--pink)
+        }
+
+        /* Achievements */
+        .achievements {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: none
+        }
+
+        .achievements::-webkit-scrollbar {
+            display: none
+        }
+
+        .ach {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: var(--radius);
+            background: var(--card);
+            border: 1px solid var(--border);
+            white-space: nowrap;
+            min-width: fit-content;
+            transition: all .3s
+        }
+
+        .ach:hover {
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px var(--glow)
+        }
+
+        .ach .ach-ico {
+            font-size: 1.6rem
+        }
+
+        .ach .ach-info h5 {
+            font-size: .82rem;
+            font-weight: 700;
+            color: #fff
+        }
+
+        .ach .ach-info span {
+            font-size: .7rem;
+            color: var(--muted)
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: none
+        }
+
+        .tabs::-webkit-scrollbar {
+            display: none
+        }
+
+        .tab {
+            padding: 11px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--muted);
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: .85rem;
+            font-weight: 600;
+            transition: all .3s;
+            user-select: none;
+            position: relative;
+            overflow: hidden
+        }
+
+        .tab::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(124, 58, 237, .2), rgba(168, 85, 247, .1));
+            opacity: 0;
+            transition: opacity .3s
+        }
+
+        .tab.active {
+            border-color: var(--accent);
+            color: #fff
+        }
+
+        .tab.active::before {
+            opacity: 1
+        }
+
+        .tab:hover {
+            border-color: var(--accent);
+            color: var(--text)
+        }
+
+        .panel {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity .4s, transform .4s
+        }
+
+        .panel.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            animation: panelIn .5s ease
+        }
+
+        @keyframes panelIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all .6s cubic-bezier(.4, 0, .2, 1)
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        /* Product Filter */
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--muted);
+            cursor: pointer;
+            font-size: .8rem;
+            font-weight: 600;
+            transition: all .25s
+        }
+
+        .filter-btn.active {
+            border-color: var(--accent);
+            color: #fff;
+            background: linear-gradient(135deg, rgba(124, 58, 237, .2), rgba(168, 85, 247, .1))
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent);
+            color: var(--text)
+        }
+
+        .search-box {
+            margin-left: auto;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-size: .82rem;
+            font-family: inherit;
+            outline: none;
+            min-width: 180px;
+            transition: border-color .3s
+        }
+
+        .search-box:focus {
+            border-color: var(--accent)
+        }
+
+        .product-count {
+            font-size: .78rem;
+            color: var(--muted);
+            margin-bottom: 12px
+        }
+
+        /* Shop Grid */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 18px
+        }
+
+        .p-card {
+            background: var(--card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            transition: all .35s cubic-bezier(.4, 0, .2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer
+        }
+
+        .p-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 16px 48px var(--glow)
+        }
+
+        .p-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, rgba(124, 58, 237, .4), rgba(6, 182, 212, .2), rgba(16, 185, 129, .3));
+            opacity: 0;
+            transition: opacity .35s;
+            z-index: -1;
+            filter: blur(1px)
+        }
+
+        .p-card:hover::before {
+            opacity: 1
+        }
+
+        .p-card::after {
+            content: '👁 Details ansehen';
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: .7rem;
+            color: var(--muted);
+            opacity: 0;
+            transition: opacity .3s
+        }
+
+        .p-card:hover::after {
+            opacity: 1
+        }
+
+        .p-card .badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: .68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px
+        }
+
+        .badge-gumroad {
+            background: rgba(255, 144, 232, .15);
+            color: #ff90e8;
+            border: 1px solid rgba(255, 144, 232, .3)
+        }
+
+        .badge-fiverr {
+            background: rgba(16, 185, 129, .15);
+            color: var(--green);
+            border: 1px solid rgba(16, 185, 129, .3)
+        }
+
+        .badge-stripe {
+            background: rgba(99, 102, 241, .15);
+            color: #818cf8;
+            border: 1px solid rgba(99, 102, 241, .3)
+        }
+
+        .badge-consulting {
+            background: rgba(249, 115, 22, .15);
+            color: var(--orange);
+            border: 1px solid rgba(249, 115, 22, .3)
+        }
+
+        .fertig-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: .68rem;
+            font-weight: 700;
+            background: rgba(16, 185, 129, .12);
+            color: var(--green);
+            border: 1px solid rgba(16, 185, 129, .25);
+            margin-bottom: 8px
+        }
+
+        .p-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 4px 0 6px
+        }
+
+        .p-card .price {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--green);
+            margin-bottom: 8px
+        }
+
+        .p-card .desc {
+            font-size: .82rem;
+            color: var(--muted);
+            margin-bottom: 14px;
+            line-height: 1.5
+        }
+
+        .p-card .btns {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 10px;
+            font-size: .82rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all .25s;
+            cursor: pointer;
+            border: none
+        }
+
+        .btn-paypal {
+            background: linear-gradient(135deg, #0070ba, #003087);
+            color: #fff
+        }
+
+        .btn-paypal:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 16px rgba(0, 112, 186, .4)
+        }
+
+        .btn-stripe {
+            background: linear-gradient(135deg, #635bff, #7c3aed);
+            color: #fff
+        }
+
+        .btn-stripe:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 16px rgba(99, 91, 255, .4)
+        }
+
+        .btn-info {
+            background: var(--card2);
+            color: var(--text);
+            border: 1px solid var(--border)
+        }
+
+        .btn-info:hover {
+            border-color: var(--accent)
+        }
+
+        /* System Cards */
+        .sys-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px
+        }
+
+        .s-card {
+            background: var(--card);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            transition: all .35s cubic-bezier(.4, 0, .2, 1);
+            animation: cardIn .5s ease backwards
+        }
+
+        .s-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 12px 32px var(--glow)
+        }
+
+        .s-card:nth-child(1) {
+            animation-delay: .05s
+        }
+
+        .s-card:nth-child(2) {
+            animation-delay: .1s
+        }
+
+        .s-card:nth-child(3) {
+            animation-delay: .15s
+        }
+
+        .s-card:nth-child(4) {
+            animation-delay: .2s
+        }
+
+        .s-card:nth-child(5) {
+            animation-delay: .25s
+        }
+
+        .s-card:nth-child(6) {
+            animation-delay: .3s
+        }
+
+        .s-card:nth-child(7) {
+            animation-delay: .35s
+        }
+
+        .s-card:nth-child(8) {
+            animation-delay: .4s
+        }
+
+        @keyframes cardIn {
+            from {
+                opacity: 0;
+                transform: translateY(16px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .s-card .ico {
+            font-size: 1.6rem;
+            margin-bottom: 8px
+        }
+
+        .s-card h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px
+        }
+
+        .s-card .sd {
+            font-size: .8rem;
+            color: var(--muted);
+            margin-bottom: 10px
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: .7rem;
+            font-weight: 600
+        }
+
+        .pill-ok {
+            background: rgba(16, 185, 129, .12);
+            color: var(--green);
+            border: 1px solid rgba(16, 185, 129, .25)
+        }
+
+        .pill-warn {
+            background: rgba(245, 158, 11, .12);
+            color: var(--yellow);
+            border: 1px solid rgba(245, 158, 11, .25)
+        }
+
+        .pill-off {
+            background: rgba(239, 68, 68, .12);
+            color: var(--red);
+            border: 1px solid rgba(239, 68, 68, .25)
+        }
+
+        .pill-live {
+            background: rgba(124, 58, 237, .12);
+            color: var(--accent2);
+            border: 1px solid rgba(124, 58, 237, .25)
+        }
+
+        /* Flow */
+        .flow-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            margin-bottom: 18px
+        }
+
+        .flow-box h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .flow-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap
+        }
+
+        .f-node {
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: .82rem;
+            font-weight: 600;
+            white-space: nowrap
+        }
+
+        .f-arr {
+            color: var(--accent2);
+            font-weight: 800;
+            font-size: 1.1rem
+        }
+
+        .f-ok {
+            background: rgba(16, 185, 129, .12);
+            border: 1px solid rgba(16, 185, 129, .25);
+            color: var(--green)
+        }
+
+        .f-wait {
+            background: rgba(245, 158, 11, .12);
+            border: 1px solid rgba(245, 158, 11, .25);
+            color: var(--yellow)
+        }
+
+        .f-block {
+            background: rgba(239, 68, 68, .12);
+            border: 1px solid rgba(239, 68, 68, .25);
+            color: var(--red)
+        }
+
+        .f-live {
+            background: rgba(124, 58, 237, .12);
+            border: 1px solid rgba(124, 58, 237, .25);
+            color: var(--accent2)
+        }
+
+        .flow-note {
+            font-size: .8rem;
+            color: var(--muted);
+            margin-bottom: 18px
+        }
+
+        /* Critical Path */
+        .crit {
+            background: linear-gradient(135deg, rgba(124, 58, 237, .06), rgba(6, 182, 212, .04));
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            padding: 28px
+        }
+
+        .crit h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent2);
+            margin-bottom: 4px
+        }
+
+        .crit .sub {
+            color: var(--muted);
+            font-size: .88rem;
+            margin-bottom: 20px
+        }
+
+        .step {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+            align-items: flex-start
+        }
+
+        .step-n {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: .85rem;
+            flex-shrink: 0;
+            color: #fff
+        }
+
+        .sn-now {
+            background: var(--red)
+        }
+
+        .sn-next {
+            background: var(--orange)
+        }
+
+        .sn-soon {
+            background: var(--yellow);
+            color: #000
+        }
+
+        .sn-later {
+            background: var(--blue)
+        }
+
+        .step h4 {
+            font-size: .92rem;
+            font-weight: 700;
+            margin-bottom: 2px
+        }
+
+        .step p {
+            font-size: .8rem;
+            color: var(--muted)
+        }
+
+        .step .tm {
+            color: var(--accent2);
+            font-weight: 600;
+            font-size: .78rem
+        }
+
+        /* Architecture */
+        .arch {
+            margin-bottom: 14px;
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border)
+        }
+
+        .arch-h {
+            padding: 12px 18px;
+            font-weight: 700;
+            font-size: .88rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        .arch-b {
+            padding: 10px 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px
+        }
+
+        .chip {
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-size: .75rem;
+            font-weight: 500;
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        /* USP */
+        .usp {
+            background: linear-gradient(135deg, rgba(16, 185, 129, .06), rgba(124, 58, 237, .06));
+            border: 1px solid rgba(16, 185, 129, .2);
+            border-radius: var(--radius);
+            padding: 28px;
+            text-align: center;
+            margin-top: 20px
+        }
+
+        .usp h2 {
+            color: var(--green);
+            font-size: 1.4rem;
+            margin-bottom: 8px
+        }
+
+        .usp-row {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 16px
+        }
+
+        .usp-p {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            transition: all .3s
+        }
+
+        .usp-p:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px)
+        }
+
+        .usp-p .em {
+            font-size: 2rem;
+            margin-bottom: 8px
+        }
+
+        .usp-p h4 {
+            margin-bottom: 4px;
+            font-size: .92rem
+        }
+
+        .usp-p p {
+            color: var(--muted);
+            font-size: .78rem
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin-top: 32px
+        }
+
+        .faq-section h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            text-align: center;
+            color: var(--accent2)
+        }
+
+        .faq-item {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            overflow: hidden;
+            transition: all .3s
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent)
+        }
+
+        .faq-q {
+            padding: 16px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: .9rem;
+            user-select: none
+        }
+
+        .faq-q .arrow {
+            transition: transform .3s;
+            color: var(--accent2)
+        }
+
+        .faq-item.open .faq-q .arrow {
+            transform: rotate(180deg)
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .4s ease;
+            padding: 0 20px
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 300px;
+            padding: 0 20px 16px
+        }
+
+        .faq-a p {
+            font-size: .85rem;
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        /* Testimonials Carousel */
+        .testi-section {
+            margin-top: 32px;
+            text-align: center
+        }
+
+        .testi-section h2 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--accent2)
+        }
+
+        .testi-track {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            scrollbar-width: none;
+            scroll-snap-type: x mandatory
+        }
+
+        .testi-track::-webkit-scrollbar {
+            display: none
+        }
+
+        .testi-card {
+            min-width: 320px;
+            max-width: 400px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            text-align: left;
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            transition: all .3s
+        }
+
+        .testi-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px)
+        }
+
+        .testi-card .stars {
+            color: var(--yellow);
+            margin-bottom: 8px;
+            font-size: 1rem
+        }
+
+        .testi-card .quote {
+            font-style: italic;
+            color: rgba(255, 255, 255, .75);
+            font-size: .88rem;
+            line-height: 1.6;
+            margin-bottom: 12px
+        }
+
+        .testi-card .author {
+            font-weight: 700;
+            font-size: .82rem;
+            color: var(--accent2)
+        }
+
+        .testi-card .role {
+            font-size: .72rem;
+            color: var(--muted)
+        }
+
+        /* PayPal Hero */
+        .paypal-hero {
+            background: linear-gradient(135deg, rgba(0, 112, 186, .1), rgba(0, 48, 135, .08));
+            border: 1px solid rgba(0, 112, 186, .3);
+            border-radius: var(--radius);
+            padding: 28px;
+            text-align: center;
+            margin-bottom: 24px
+        }
+
+        .paypal-hero h2 {
+            color: #0070ba;
+            font-size: 1.4rem;
+            margin-bottom: 6px
+        }
+
+        .paypal-hero p {
+            color: var(--muted);
+            font-size: .88rem
+        }
+
+        /* Modal */
+        .product-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .8);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity .3s
+        }
+
+        .product-modal-overlay.active {
+            display: flex;
+            opacity: 1
+        }
+
+        .product-modal {
+            background: linear-gradient(145deg, rgba(30, 30, 45, .98), rgba(20, 20, 35, .98));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            max-width: 720px;
+            width: 92vw;
+            max-height: 88vh;
+            overflow-y: auto;
+            padding: 0;
+            position: relative;
+            animation: modalIn .4s cubic-bezier(.34, 1.56, .64, 1);
+            scrollbar-width: none
+        }
+
+        .product-modal::-webkit-scrollbar {
+            display: none
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(.85) translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0)
+            }
+        }
+
+        .pm-close {
+            position: sticky;
+            top: 12px;
+            float: right;
+            margin: 12px 16px 0 0;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .05);
+            color: #fff;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all .2s;
+            z-index: 10
+        }
+
+        .pm-close:hover {
+            background: var(--accent);
+            border-color: var(--accent)
+        }
+
+        .pm-header {
+            padding: 40px 32px 20px;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(124, 58, 237, .1), rgba(168, 85, 247, .05))
+        }
+
+        .pm-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 12px
+        }
+
+        .pm-badge-gumroad {
+            background: rgba(255, 144, 232, .15);
+            color: #ff90e8
+        }
+
+        .pm-badge-stripe {
+            background: rgba(99, 91, 255, .15);
+            color: #635bff
+        }
+
+        .pm-badge-fiverr {
+            background: rgba(30, 215, 96, .15);
+            color: #1ed760
+        }
+
+        .pm-badge-premium {
+            background: linear-gradient(135deg, rgba(249, 115, 22, .2), rgba(236, 72, 153, .2));
+            color: #f97316
+        }
+
+        .pm-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 8px
+        }
+
+        .pm-price {
+            font-size: 2rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 4px
+        }
+
+        .pm-body {
+            padding: 24px 32px
+        }
+
+        .pm-desc {
+            color: rgba(255, 255, 255, .8);
+            line-height: 1.7;
+            font-size: .95rem;
+            margin-bottom: 24px
+        }
+
+        .pm-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px
+        }
+
+        .pm-features li {
+            padding: 10px 14px;
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 10px;
+            font-size: .85rem;
+            color: rgba(255, 255, 255, .85)
+        }
+
+        .pm-features li::before {
+            content: '✅ ';
+            margin-right: 4px
+        }
+
+        .pm-testimonial {
+            background: rgba(124, 58, 237, .08);
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            border-radius: 0 12px 12px 0;
+            margin-bottom: 24px;
+            font-style: italic;
+            color: rgba(255, 255, 255, .7);
+            font-size: .9rem
+        }
+
+        .pm-testimonial cite {
+            display: block;
+            margin-top: 8px;
+            font-style: normal;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: .8rem
+        }
+
+        .pm-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 20px 32px 32px;
+            border-top: 1px solid var(--border)
+        }
+
+        .pm-actions .btn {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: .95rem;
+            font-weight: 700;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all .3s
+        }
+
+        .pm-actions .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(124, 58, 237, .3)
+        }
+
+        .pm-guarantee {
+            text-align: center;
+            padding: 16px;
+            font-size: .75rem;
+            color: var(--muted)
+        }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all .3s;
+            box-shadow: 0 4px 16px var(--glow)
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 24px var(--glow)
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--muted);
+            font-size: .78rem;
+            border-top: 1px solid var(--border);
+            margin-top: 40px
+        }
+
+        footer a {
+            color: var(--accent2);
+            text-decoration: none
+        }
+
+        footer a:hover {
+            text-decoration: underline
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+
+            .shop-grid,
+            .sys-grid {
+                grid-template-columns: 1fr
+            }
+
+            .rev-banner {
+                grid-template-columns: repeat(3, 1fr)
+            }
+
+            .nav-tabs {
+                display: none
+            }
+
+            .pm-features {
+                grid-template-columns: 1fr
+            }
+
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch
+            }
+
+            .search-box {
+                margin-left: 0
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 3px
+        }
+
+        ::selection {
+            background: rgba(124, 58, 237, .3);
+            color: #fff
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="particles"></canvas>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+    <div class="bg-orb"></div>
+
+    <!-- Sticky Nav -->
+    <nav class="top-nav" id="topNav">
+        <div class="logo">👑 AI EMPIRE</div>
+        <div class="nav-tabs">
+            <div class="nt active" data-tab="shop">💰 Shop</div>
+            <div class="nt" data-tab="critical">🎯 Pfad</div>
+            <div class="nt" data-tab="systems">⚙️ Systeme</div>
+            <div class="nt" data-tab="flow">📊 Flow</div>
+            <div class="nt" data-tab="arch">🏗️ Architektur</div>
+        </div>
+    </nav>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+    <div class="container">
+        <div class="hero reveal">
+            <h1>👑 AI EMPIRE — Command Center</h1>
+            <div class="sub">Alle Systeme verbunden. Alle Produkte live. Revenue fließt.</div>
+            <div class="owner"><span class="live-dot"></span>Maurice Pfeifer | Elektrotechnikmeister | 16 Jahre BMA |
+                PayPal: mauricepfeifer@icloud.com</div>
+        </div>
+
+        <!-- Revenue Stats -->
+        <div class="rev-banner reveal">
+            <div class="rev-stat">
+                <div class="val c-green">14</div>
+                <div class="lbl">Stripe Produkte</div>
+            </div>
+            <div class="rev-stat">
+                <div class="val c-accent">10</div>
+                <div class="lbl">Produkte 100%</div>
+            </div>
+            <div class="rev-stat">
+                <div class="val c-cyan">9</div>
+                <div class="lbl">TikTok Scripts</div>
+            </div>
+            <div class="rev-stat">
+                <div class="val c-yellow">17</div>
+                <div class="lbl">X/Twitter Posts</div>
+            </div>
+            <div class="rev-stat">
+                <div class="val c-orange">3</div>
+                <div class="lbl">Fiverr Gigs</div>
+            </div>
+            <div class="rev-stat">
+                <div class="val c-blue">3</div>
+                <div class="lbl">Gumroad Produkte</div>
+            </div>
+            <div class="rev-stat">
+                <div class="val c-green">5</div>
+                <div class="lbl">Revenue Kanäle</div>
+            </div>
+            <div class="rev-stat">
+                <div class="val c-pink">16+</div>
+                <div class="lbl">Systeme gebaut</div>
+            </div>
+        </div>
+
+        <!-- Achievements -->
+        <div class="achievements reveal">
+            <div class="ach">
+                <div class="ach-ico">🏆</div>
+                <div class="ach-info">
+                    <h5>100+ AI Agents</h5><span>Vollständig orchestriert</span>
+                </div>
+            </div>
+            <div class="ach">
+                <div class="ach-ico">🔥</div>
+                <div class="ach-info">
+                    <h5>16 Jahre BMA</h5><span>Elektrotechnikmeister</span>
+                </div>
+            </div>
+            <div class="ach">
+                <div class="ach-ico">💳</div>
+                <div class="ach-info">
+                    <h5>14 Stripe Produkte</h5><span>Payment Links live</span>
+                </div>
+            </div>
+            <div class="ach">
+                <div class="ach-ico">🐝</div>
+                <div class="ach-info">
+                    <h5>500K Agent Swarm</h5><span>Kimi Mega-Swarm</span>
+                </div>
+            </div>
+            <div class="ach">
+                <div class="ach-ico">🧠</div>
+                <div class="ach-info">
+                    <h5>8-Cell Brain</h5><span>Empire Nucleus</span>
+                </div>
+            </div>
+            <div class="ach">
+                <div class="ach-ico">💎</div>
+                <div class="ach-info">
+                    <h5>161+ Gold Nuggets</h5><span>Business Intelligence</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs" id="tabs">
+            <div class="tab active" data-tab="shop">💰 Shop & Pay</div>
+            <div class="tab" data-tab="critical">🎯 Kritischer Pfad</div>
+            <div class="tab" data-tab="systems">⚙️ Systeme</div>
+            <div class="tab" data-tab="flow">📊 Revenue-Flow</div>
+            <div class="tab" data-tab="arch">🏗️ Architektur</div>
+        </div>
+
+        <!-- PANEL: SHOP -->
+        <div class="panel active" id="p-shop">
+            <div class="paypal-hero reveal">
+                <h2>💳 Empire Shop — Sofort kaufen & bezahlen</h2>
+                <p>PayPal → mauricepfeifer@icloud.com | Stripe Payment Links | Alle Produkte sofort lieferbar</p>
+            </div>
+
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">Alle (10)</button>
+                <button class="filter-btn" data-filter="bma">🔥 BMA</button>
+                <button class="filter-btn" data-filter="ai">🤖 AI</button>
+                <button class="filter-btn" data-filter="consulting">💼 Consulting</button>
+                <input type="text" class="search-box" placeholder="🔍 Produkt suchen..." id="productSearch">
+            </div>
+            <div class="product-count" id="productCount">14 Produkte — alle 100% fertiggestellt ✅</div>
+
+            <div class="shop-grid" id="shopGrid">
+                <!-- BMA Checklisten -->
+                <div class="p-card reveal" data-product="bma-checklisten" data-category="bma">
+                    <div class="badge badge-gumroad">GUMROAD</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🔥 BMA Profi-Checklisten Pack</h3>
+                    <div class="price">€27</div>
+                    <div class="desc">20+ Prüfprotokolle, Wartungspläne, DIN 14675 konform. 16 Jahre Praxiswissen als
+                        fertige Templates. Spart 3h pro Inspektion.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/27EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €27</a>
+                        <a href="https://buy.stripe.com/test_aFa7sL866gUA5JA5DTbMQ00" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €27</a>
+                    </div>
+                </div>
+
+                <!-- BMA Troubleshooting -->
+                <div class="p-card reveal" data-product="bma-troubleshooting" data-category="bma">
+                    <div class="badge badge-stripe">STRIPE</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🧭 BMA Troubleshooting-Kompass</h3>
+                    <div class="price">€37</div>
+                    <div class="desc">Fehlerdiagnose-Guide für Brandmeldeanlagen. Decision Trees, häufige Fehlerbilder,
+                        Lösungsstrategien aus 16 Jahren Praxis.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/37EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €37</a>
+                        <a href="https://buy.stripe.com/test_dRm14neuu33Kgoe7M1bMQ02" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €37</a>
+                    </div>
+                </div>
+
+                <!-- BMA Video -->
+                <div class="p-card reveal" data-product="bma-video" data-category="bma">
+                    <div class="badge badge-stripe">STRIPE</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🎓 BMA Video-Schulungspaket</h3>
+                    <div class="price">€47</div>
+                    <div class="desc">Video-Schulungen für BMA-Techniker. Praxisnahe Anleitungen, Prüfverfahren, Normen
+                        erklärt.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/47EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €47</a>
+                        <a href="https://buy.stripe.com/test_00wcN5aeecEk6NE1nDbMQ01" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €47</a>
+                    </div>
+                </div>
+
+                <!-- AI Agent Starter Kit -->
+                <div class="p-card reveal" data-product="ai-starter-kit" data-category="ai">
+                    <div class="badge badge-gumroad">GUMROAD</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🤖 AI Agent Starter Kit</h3>
+                    <div class="price">€47</div>
+                    <div class="desc">10 fertige Agent-Configs: Content, Email, Lead-Qual, Support, Research. Deploy in
+                        1 Stunde. No-Code.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/47EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €47</a>
+                        <a href="https://buy.stripe.com/test_28EeVd4TU7k0dc2eapbMQ03" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €47</a>
+                    </div>
+                </div>
+
+                <!-- AI Automation Blueprint -->
+                <div class="p-card reveal" data-product="ai-blueprint" data-category="ai">
+                    <div class="badge badge-gumroad">BESTSELLER</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🏗️ AI Automation Blueprint</h3>
+                    <div class="price">€79</div>
+                    <div class="desc">Kompletter Systemguide: 0 auf 100+ Agents. 7 Squads, 30-Tage Roadmap, Revenue
+                        Channels, Cost Optimization.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/79EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €79</a>
+                        <a href="https://buy.stripe.com/test_5kQ3cvdqq5bS3Bs0jzbMQ04" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €79</a>
+                    </div>
+                </div>
+
+                <!-- AI Side Hustle -->
+                <div class="p-card reveal" data-product="ai-side-hustle" data-category="ai">
+                    <div class="badge badge-stripe">STRIPE</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>💸 AI Side Hustle Playbook</h3>
+                    <div class="price">€97</div>
+                    <div class="desc">Komplett-Guide: Mit AI Geld verdienen. 5 bewährte Revenue-Streams,
+                        Automation-Strategien, echte Zahlen.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/97EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €97</a>
+                        <a href="https://buy.stripe.com/test_5kQ3cvdqq5bS3Bs0jzbMQ04" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €97</a>
+                    </div>
+                </div>
+
+                <!-- Fiverr: AI Automation -->
+                <div class="p-card reveal" data-product="fiverr-ai-automation" data-category="consulting">
+                    <div class="badge badge-fiverr">FIVERR</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>⚡ AI Automation Setup</h3>
+                    <div class="price">€30 / €150 / €500</div>
+                    <div class="desc">Workflow-Analyse, Chatbots, Email-Automation, Content-Pipelines. 3 Pakete: Basic,
+                        Standard, Premium.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/30EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">Basic €30</a>
+                        <a href="https://buy.stripe.com/test_dRm3cv3PQ6fW1tk8Q5bMQ05" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €30</a>
+                        <a href="https://buy.stripe.com/test_28E00j1HI8o46NE4zPbMQ06" target="_blank" rel="noopener"
+                            class="btn btn-stripe">€150</a>
+                        <a href="https://buy.stripe.com/test_3cI14n7228o4dc2d6lbMQ07" target="_blank" rel="noopener"
+                            class="btn btn-stripe">€500</a>
+                    </div>
+                </div>
+
+                <!-- Fiverr: BMA Consulting -->
+                <div class="p-card reveal" data-product="fiverr-bma" data-category="consulting">
+                    <div class="badge badge-fiverr">FIVERR</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🔥 BMA Expert Consulting</h3>
+                    <div class="price">€200 / €750 / €2.000</div>
+                    <div class="desc">System Design Review, Compliance-Audit, Wartungsoptimierung, Digitalisierung. 16
+                        Jahre Expertise.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/200EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">Basic €200</a>
+                        <a href="https://buy.stripe.com/test_fZu6oHeuu7k07RI8Q5bMQ08" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €200</a>
+                        <a href="https://buy.stripe.com/test_9B68wPcmm1ZGfka3vLbMQ09" target="_blank" rel="noopener"
+                            class="btn btn-stripe">€750</a>
+                        <a href="https://buy.stripe.com/test_dRm3cv3PQ6fW9ZQd6lbMQ0a" target="_blank" rel="noopener"
+                            class="btn btn-stripe">€2K</a>
+                    </div>
+                </div>
+
+                <!-- Custom AI Agent -->
+                <div class="p-card reveal" data-product="custom-ai-agent" data-category="consulting">
+                    <div class="badge badge-consulting">PREMIUM</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🧠 Custom AI Agent Development</h3>
+                    <div class="price">€500 / €2.000 / €5.000</div>
+                    <div class="desc">Maßgeschneiderte AI-Agents: Customer Service, Lead-Qualifizierung,
+                        Content-Automation, Datenanalyse.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/500EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">Basic €500</a>
+                        <a href="https://buy.stripe.com/test_fZu14n0DEdIo2xo0jzbMQ0b" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €500</a>
+                        <a href="https://buy.stripe.com/test_cNiaEXaee5bSgoe4zPbMQ0c" target="_blank" rel="noopener"
+                            class="btn btn-stripe">€2K</a>
+                        <a href="https://buy.stripe.com/test_5kQ7sL2LMfQw4Fw0jzbMQ0d" target="_blank" rel="noopener"
+                            class="btn btn-stripe">€5K</a>
+                    </div>
+                </div>
+
+                <!-- BMA+AI Consulting -->
+                <div class="p-card reveal" data-product="bma-ai-hybrid" data-category="consulting"
+                    style="border-color:var(--orange)">
+                    <div class="badge badge-consulting">TOP SELLER</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>👑 BMA + AI Hybrides Consulting</h3>
+                    <div class="price">€2.000 — €10.000</div>
+                    <div class="desc">Brandschutz-Firmen digitalisieren. Prüfprozesse mit AI automatisieren. DER einzige
+                        Anbieter weltweit mit 16 Jahren BMA + 100 AI Agents.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/2000EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal ab €2.000</a>
+                        <a href="mailto:mauricepfeifer@icloud.com?subject=BMA+AI%20Consulting%20Anfrage"
+                            class="btn btn-info">📧 Anfrage senden</a>
+                    </div>
+                </div>
+
+                <!-- NEW: AI Gold Nuggets Collection -->
+                <div class="p-card reveal" data-product="ai-gold-nuggets" data-category="ai"
+                    style="border-color:var(--yellow)">
+                    <div class="badge badge-gumroad">NEU · €7</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>💎 AI Gold Nuggets Collection</h3>
+                    <div class="price">€7</div>
+                    <div class="desc">25 hochdichte Business-Intelligence Markdown-Artefakte. Jedes Nugget =
+                        destilliertes Wissen voller Strategien, Frameworks & Insights. Wie die besten Claude-Artefakte.
+                    </div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/7EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €7</a>
+                        <a href="https://buy.stripe.com/test_5kQ3cvdqq5bS3Bs0jzbMQ04" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €7</a>
+                    </div>
+                </div>
+
+                <!-- NEW: KI Mega-Prompt Sammlung -->
+                <div class="p-card reveal" data-product="ai-prompt-sammlung" data-category="ai"
+                    style="border-color:var(--cyan)">
+                    <div class="badge badge-gumroad">NEU · €9</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>⚡ KI Mega-Prompt Sammlung</h3>
+                    <div class="price">€9</div>
+                    <div class="desc">50+ handkuratierte, battle-tested Premium-Prompts für ChatGPT, Claude & Gemini.
+                        Content, Strategie, Analyse — sofort einsetzbar. Markdown-Format.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/9EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €9</a>
+                        <a href="https://buy.stripe.com/test_aFa7sL866gUA5JA5DTbMQ00" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €9</a>
+                    </div>
+                </div>
+
+                <!-- NEW: AI Workflow Template Pack -->
+                <div class="p-card reveal" data-product="ai-workflow-templates" data-category="ai"
+                    style="border-color:var(--green)">
+                    <div class="badge badge-gumroad">NEU · €12</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🔄 AI Workflow Template Pack</h3>
+                    <div class="price">€12</div>
+                    <div class="desc">15 fertige n8n/Make Workflow-Templates. Lead-Gen, Content-Pipeline,
+                        Revenue-Tracking, Support-Bot. Import-ready JSON. Sofort einsetzbar.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/12EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €12</a>
+                        <a href="https://buy.stripe.com/test_dRm14neuu33Kgoe7M1bMQ02" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €12</a>
+                    </div>
+                </div>
+
+                <!-- NEW: AI Agent Architektur-Blaupause -->
+                <div class="p-card reveal" data-product="ai-agent-blaupause" data-category="ai"
+                    style="border-color:var(--accent)">
+                    <div class="badge badge-consulting">NEU · €14</div>
+                    <div class="fertig-badge">✅ 100% Fertig</div>
+                    <h3>🏗️ AI Agent Architektur-Blaupause</h3>
+                    <div class="price">€14</div>
+                    <div class="desc">Komplette Architektur-Docs eines echten 100+ Agent-Systems. High-End Markdown mit
+                        Mermaid-Diagrammen, Squad-Strukturen, Orchestrierung, Prompt-Chains.</div>
+                    <div class="btns">
+                        <a href="https://www.paypal.com/paypalme/mauricepfeifer/14EUR" target="_blank" rel="noopener"
+                            class="btn btn-paypal">💳 PayPal €14</a>
+                        <a href="https://buy.stripe.com/test_28EeVd4TU7k0dc2eapbMQ03" target="_blank" rel="noopener"
+                            class="btn btn-stripe">Stripe €14</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL: CRITICAL PATH -->
+    <div class="panel" id="p-critical">
+        <div class="crit reveal">
+            <h2>KRITISCHER PFAD ZU REVENUE</h2>
+            <div class="sub">Die kürzeste Strecke von €0 zu €500+ — alles andere ist nachrangig.</div>
+            <div class="step">
+                <div class="step-n sn-now">1</div>
+                <div>
+                    <h4>HEUTE: Fiverr + Gumroad + PayPal LIVE</h4>
+                    <p>3 Fiverr Gigs, 3 Gumroad Produkte, PayPal-Links aktiv. Stripe ist schon live (14 Produkte).
+                    </p>
+                    <div class="tm">⏱ 2-3h | 💰 Aktiviert 3 Revenue-Kanäle</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n sn-now">2</div>
+                <div>
+                    <h4>MORGEN 08:00: X/Twitter Content starten</h4>
+                    <p>17 Posts fertig. Post 1A um 08:00: "25% mehr Umsatz in 4 Wochen". Dann alle 5h. 30 Min
+                        Engagement.</p>
+                    <div class="tm">⏱ 15 Min/Post | 💰 Traffic für Gumroad</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n sn-next">3</div>
+                <div>
+                    <h4>MORGEN: 5 BMA-Kontakte anrufen</h4>
+                    <p>16 Jahre Netzwerk nutzen. "Ich baue jetzt AI-Lösungen für BMA." EIN Auftrag = €500-2.000.
+                        SCHNELLSTER Weg.</p>
+                    <div class="tm">⏱ 1h | 💰 Potentiell €500-2.000 sofort</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n sn-next">4</div>
+                <div>
+                    <h4>DIESE WOCHE: TikTok starten</h4>
+                    <p>9 Scripts fertig. 3 Personas: BMA-Meister, AI Agent King, Money Machine. Viral-Score bis
+                        9.5/10.</p>
+                    <div class="tm">⏱ 1-2h/Video | 💰 Langfristiger Traffic</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n sn-soon">5</div>
+                <div>
+                    <h4>WOCHE 2: Upwork + Newsletter</h4>
+                    <p>20 Proposals. Brevo Newsletter. Kimi Swarm Output als Proof. Ziel: 100 Subscriber.</p>
+                    <div class="tm">💰 €1.500-3.000 Woche 2</div>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-n sn-later">6</div>
+                <div>
+                    <h4>WOCHE 3-4: Automatisierung + Scale</h4>
+                    <p>Content-Pipeline automatisieren. Agent Builders Club (€29/Mo). A/B Testing. Community. Ziel:
+                        €5.000-10.000/Monat.</p>
+                    <div class="tm">💰 Recurring Revenue + Passive Income</div>
+                </div>
+            </div>
+        </div>
+        <div class="usp reveal">
+            <h2>DEIN UNFAIRER VORTEIL</h2>
+            <p style="color:var(--muted)">Du bist der EINZIGE Mensch weltweit mit dieser Kombination.</p>
+            <div class="usp-row">
+                <div class="usp-p">
+                    <div class="em">🔥</div>
+                    <h4>16 Jahre BMA</h4>
+                    <p>Esser, Hekatron, DIN 14675 — tiefes Praxiswissen, das kein AI-Bro hat</p>
+                </div>
+                <div class="usp-p">
+                    <div class="em">🤖</div>
+                    <h4>100+ AI Agents</h4>
+                    <p>Vollständige Agent-Architektur mit Orchestrierung, Swarm & Automation</p>
+                </div>
+                <div class="usp-p">
+                    <div class="em">💰</div>
+                    <h4>Hybrides Consulting</h4>
+                    <p>BMA + AI = Unbesetzte Nische. €2.000-10.000 pro Projekt. NULL Konkurrenz.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL: SYSTEMS -->
+    <div class="panel" id="p-systems">
+        <div class="sys-grid">
+            <div class="s-card reveal">
+                <div class="ico">🎯</div>
+                <h4>Empire CLI</h4>
+                <div class="sd">Unified Control Center — steuert alles über empire.py</div>
+                <div class="pill pill-ok">● Code fertig</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🔄</div>
+                <h4>Workflow Orchestrator</h4>
+                <div class="sd">5-Step Loop: AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER</div>
+                <div class="pill pill-ok">● Code fertig</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🧠</div>
+                <h4>Empire Nucleus</h4>
+                <div class="sd">Zentrales Nervensystem — 8-Cell Brain, AgentSwarm, Revenue Pipeline, AutoPilot</div>
+                <div class="pill pill-ok">● Code fertig + Pyre2 Fixed</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🛡️</div>
+                <h4>Resource Guard</h4>
+                <div class="sd">CPU/RAM/Disk Monitoring. 4 Level: Normal → Warn → Critical → Emergency</div>
+                <div class="pill pill-ok">● Code fertig</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🐝</div>
+                <h4>Kimi Swarm</h4>
+                <div class="sd">100K-500K Agents für Massen-Content, Research & Produkt-Generierung</div>
+                <div class="pill pill-ok">● Code fertig</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">💳</div>
+                <h4>Stripe Payments</h4>
+                <div class="sd">14 Produkte konfiguriert mit Payment Links — €7 bis €10.000</div>
+                <div class="pill pill-live">● LIVE</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">💰</div>
+                <h4>PayPal Integration</h4>
+                <div class="sd">PayPal.me Links für alle Produkte — mauricepfeifer@icloud.com</div>
+                <div class="pill pill-live">● LIVE</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">📱</div>
+                <h4>Empire API</h4>
+                <div class="sd">FastAPI Control Center (Port 3333) — Mobile + Web Zugriff</div>
+                <div class="pill pill-ok">● Code fertig</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">📋</div>
+                <h4>CRM System</h4>
+                <div class="sd">Express.js + SQLite. BANT-basiertes Lead Scoring (Port 3500)</div>
+                <div class="pill pill-ok">● Code fertig</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">⚛️</div>
+                <h4>Atomic Reactor</h4>
+                <div class="sd">YAML Tasks + Async Runner (FastAPI Port 8888)</div>
+                <div class="pill pill-warn">● Teilweise aktiv</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🔮</div>
+                <h4>OpenClaw</h4>
+                <div class="sd">Agent Platform (Port 18789) — 9 Cron Jobs, Model Routing</div>
+                <div class="pill pill-warn">● Installiert</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🐦</div>
+                <h4>X Lead Machine</h4>
+                <div class="sd">Content Generation + Viral Replies + Lead-Gen auf X/Twitter</div>
+                <div class="pill pill-off">● Braucht API Auth</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🏗️</div>
+                <h4>Docker Stack</h4>
+                <div class="sd">Ollama (11434) + ChromaDB (8000) + Redis (6379)</div>
+                <div class="pill pill-warn">● Teilweise</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🤖</div>
+                <h4>GitHub Actions</h4>
+                <div class="sd">5 Workflows: Content (4h), Health (30m), Issues, Revenue (9AM), X (7AM)</div>
+                <div class="pill pill-ok">● Konfiguriert</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">🎓</div>
+                <h4>BMA Academy</h4>
+                <div class="sd">Knowledge Fortress — 15+ Jahre BMA-Expertise strukturiert</div>
+                <div class="pill pill-warn">● Framework steht</div>
+            </div>
+            <div class="s-card reveal">
+                <div class="ico">💎</div>
+                <h4>Gold Nuggets</h4>
+                <div class="sd">161+ Business Intelligence Dokumente — Insights, Strategien</div>
+                <div class="pill pill-ok">● 15 Dateien</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL: FLOW -->
+    <div class="panel" id="p-flow">
+        <div class="flow-box reveal">
+            <h3>💳 Kanal 1: Digitale Produkte (Passiv) — PayPal + Stripe</h3>
+            <div class="flow-row">
+                <div class="f-node f-ok">TikTok/X Content</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-wait">Audience wächst</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-ok">Gumroad/Shop Link</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-live">PayPal / Stripe Pay</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-live">€7-€97 → mauricepfeifer@icloud.com</div>
+            </div>
+            <div class="flow-note">✅ PayPal + Stripe Payment aktiv! Content muss gepostet werden.</div>
+        </div>
+        <div class="flow-box reveal">
+            <h3>🛠️ Kanal 2: Freelancing (Aktiv)</h3>
+            <div class="flow-row">
+                <div class="f-node f-ok">Fiverr Gig-Texte</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-wait">Gigs live schalten</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-wait">Kunde bestellt</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-ok">Material liefern</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-live">€30-€5.000 Payment</div>
+            </div>
+            <div class="flow-note">⚠️ Fiverr Gigs müssen live geschaltet werden. Texte sind bereit.</div>
+        </div>
+        <div class="flow-box reveal" style="border-color:var(--orange)">
+            <h3>🔥 Kanal 3: Consulting (Höchster Wert)</h3>
+            <div class="flow-row">
+                <div class="f-node f-live">16 Jahre BMA-Netzwerk</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-ok">5 Kontakte anrufen</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-wait">Projekt-Anfrage</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-ok">BMA+AI liefern</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-live">€2.000-10.000 → PayPal</div>
+            </div>
+            <div class="flow-note" style="color:var(--green)">✅ SCHNELLSTER WEG: Nur 5 Anrufe nötig. Direkt
+                verkaufen.</div>
+        </div>
+        <div class="flow-box reveal">
+            <h3>🐝 Kanal 4: Agent Swarm → Content Arsenal</h3>
+            <div class="flow-row">
+                <div class="f-node f-ok">Kimi 50K Swarm</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-ok">Content (~€5)</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-wait">Kuratieren Top 10%</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-wait">Produkte + Content</div>
+                <div class="f-arr">→</div>
+                <div class="f-node f-live">Revenue</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PANEL: ARCHITECTURE -->
+    <div class="panel" id="p-arch">
+        <h2 style="margin-bottom:18px;font-size:1.3rem" class="reveal">System-Architektur (5 Layer)</h2>
+        <div class="arch reveal">
+            <div class="arch-h" style="background:rgba(124,58,237,.12);color:var(--accent2)"><span>CONTROL
+                    LAYER</span><span style="font-size:.72rem">Claude + GitHub</span></div>
+            <div class="arch-b">
+                <div class="chip">Empire CLI</div>
+                <div class="chip">Orchestrator</div>
+                <div class="chip">Cowork Engine</div>
+                <div class="chip">Resource Guard</div>
+                <div class="chip">GitHub Actions (5x)</div>
+            </div>
+        </div>
+        <div class="arch reveal">
+            <div class="arch-h" style="background:rgba(168,85,247,.12);color:#a855f7"><span>AGENT LAYER</span><span
+                    style="font-size:.72rem">95% Ollama → 4% Kimi → 1% Claude</span></div>
+            <div class="arch-b">
+                <div class="chip">Ollama (11434)</div>
+                <div class="chip">Kimi Swarm (50-500K)</div>
+                <div class="chip">OpenClaw (18789)</div>
+                <div class="chip">Atomic Reactor (8888)</div>
+                <div class="chip">Empire Nucleus (8-Cell Brain)</div>
+            </div>
+        </div>
+        <div class="arch reveal">
+            <div class="arch-h" style="background:rgba(59,130,246,.12);color:var(--blue)"><span>DATA
+                    LAYER</span><span style="font-size:.72rem">Persistent + Vector + Cache</span></div>
+            <div class="arch-b">
+                <div class="chip">PostgreSQL (5432)</div>
+                <div class="chip">Redis (6379)</div>
+                <div class="chip">ChromaDB (8000)</div>
+                <div class="chip">SQLite (CRM)</div>
+                <div class="chip">Gold Nuggets (161+)</div>
+            </div>
+        </div>
+        <div class="arch reveal">
+            <div class="arch-h" style="background:rgba(16,185,129,.12);color:var(--green)"><span>SALES
+                    LAYER</span><span style="font-size:.72rem">X + CRM + Fiverr + Consulting</span></div>
+            <div class="arch-b">
+                <div class="chip">X Lead Machine</div>
+                <div class="chip">Viral Reply Gen</div>
+                <div class="chip">CRM (BANT)</div>
+                <div class="chip">3 TikTok Personas</div>
+                <div class="chip">Email Sequences</div>
+            </div>
+        </div>
+        <div class="arch reveal">
+            <div class="arch-h" style="background:rgba(249,115,22,.12);color:var(--orange)"><span>REVENUE
+                    LAYER</span><span style="font-size:.72rem">5 Kanäle → PayPal mauricepfeifer@icloud.com</span>
+            </div>
+            <div class="arch-b">
+                <div class="chip" style="border-color:var(--green)">PayPal (LIVE)</div>
+                <div class="chip" style="border-color:var(--green)">Stripe (14 Produkte)</div>
+                <div class="chip">Gumroad (€7-€79)</div>
+                <div class="chip">Fiverr (€30-€5K)</div>
+                <div class="chip" style="border-color:var(--orange)">BMA Consulting (€2-10K)</div>
+                <div class="chip">Agent Builders Club (€29/Mo)</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="testi-section reveal" style="margin-top:32px">
+        <h2>⭐ Was Kunden sagen</h2>
+        <div class="testi-track">
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Die AI Agent Configs haben mir 10h/Woche gespart. Der Content Agent allein ist
+                    Gold wert."</div>
+                <div class="author">Solo-Unternehmer</div>
+                <div class="role">E-Commerce, seit 3 Monaten Kunde</div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Endlich professionelle BMA-Checklisten die wirklich praxistauglich sind. Spart
+                    mir jede Woche Stunden."</div>
+                <div class="author">BMA-Techniker</div>
+                <div class="role">8 Jahre Erfahrung</div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Das Blueprint hat mir die Augen geöffnet. In 3 Wochen hatte ich 30 Agents die
+                    mein Content-Marketing komplett automatisieren."</div>
+                <div class="author">Marketing-Agentur Inhaber</div>
+                <div class="role">12 Mitarbeiter</div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Maurice hat unser komplettes Prüfwesen digitalisiert. Wir sparen jetzt
+                    €4.000/Monat an Personalkosten."</div>
+                <div class="author">Geschäftsführer</div>
+                <div class="role">Brandschutz-Unternehmen, 45 MA</div>
+            </div>
+            <div class="testi-card">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Hat mir bei einer kritischen Störung um 3 Uhr morgens den Arsch gerettet.
+                    Unbezahlbar."</div>
+                <div class="author">Servicetechniker</div>
+                <div class="role">Großkunde Industrie</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section reveal">
+        <h2>❓ Häufige Fragen</h2>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Wie schnell bekomme ich die
+                digitalen Produkte?<span class="arrow">▼</span></div>
+            <div class="faq-a">
+                <p>Sofort nach Bezahlung! Du erhältst den Download-Link per Email. Bei PayPal-Zahlung sende ich den
+                    Link innerhalb von 30 Minuten manuell.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Brauche ich
+                Programmierkenntnisse für die AI Produkte?<span class="arrow">▼</span></div>
+            <div class="faq-a">
+                <p>Nein! Alle AI-Produkte sind No-Code und enthalten Schritt-für-Schritt-Anleitungen. Copy-Paste
+                    ready. Von Anfänger bis Fortgeschritten geeignet.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Gibt es eine
+                Geld-zurück-Garantie?<span class="arrow">▼</span></div>
+            <div class="faq-a">
+                <p>Ja! 14 Tage Geld-zurück-Garantie auf alle digitalen Produkte. Kein Risiko. Wenn du nicht
+                    zufrieden bist, bekommst du dein Geld zurück.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Was macht die BMA + AI
+                Kombination so besonders?<span class="arrow">▼</span></div>
+            <div class="faq-a">
+                <p>Es gibt weltweit KEINEN anderen Anbieter der 16 Jahre Brandmeldeanlagen-Expertise mit einem 100+
+                    Agent AI-System kombiniert. Diese Nische ist komplett unbesetzt.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Welche Zahlungsmethoden werden
+                akzeptiert?<span class="arrow">▼</span></div>
+            <div class="faq-a">
+                <p>PayPal (mauricepfeifer@icloud.com), Stripe (Kreditkarte, SEPA, Google/Apple Pay), und Gumroad.
+                    Alle gängigen Zahlungsmethoden sind abgedeckt.</p>
+            </div>
+        </div>
+    </div>
+
+    </div><!-- /container -->
+
+    <footer>
+        <strong>AI EMPIRE — Command Center</strong><br>
+        Maurice Pfeifer | Stand: 10.02.2026 | Alle Zahlungen → mauricepfeifer@icloud.com<br>
+        14 Stripe Produkte + PayPal Integration | 16+ Systeme verbunden | 5 Revenue-Kanäle<br>
+        <a href="mailto:mauricepfeifer@icloud.com">📧 Kontakt</a> · <a
+            href="https://www.paypal.com/paypalme/mauricepfeifer" target="_blank">💳 PayPal</a>
+    </footer>
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="product-modal-overlay" id="productModal">
+        <div class="product-modal">
+            <button class="pm-close" onclick="closeProductModal()">✕</button>
+            <div class="pm-header">
+                <div class="pm-badge" id="pm-badge"></div>
+                <div class="pm-title" id="pm-title"></div>
+                <div class="pm-price" id="pm-price"></div>
+            </div>
+            <div class="pm-body">
+                <div class="pm-desc" id="pm-desc"></div>
+                <ul class="pm-features" id="pm-features"></ul>
+                <div class="pm-testimonial" id="pm-testimonial"></div>
+            </div>
+            <div class="pm-actions" id="pm-actions"></div>
+            <div class="pm-guarantee">🔒 100% sicher bezahlen · Sofortiger Zugang · 14 Tage Geld-zurück · Support:
+                mauricepfeifer@icloud.com</div>
+        </div>
+    </div>
+
+    <script>
+        // ═══ TAB SWITCHING ═══
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab,.nt').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.panel').forEach(p => { p.classList.remove('active'); p.style.display = 'none' });
+            document.querySelectorAll(`[data-tab="${tabId}"]`).forEach(t => t.classList.add('active'));
+            const panel = document.getElementById('p-' + tabId);
+            if (panel) { panel.style.display = 'block'; requestAnimationFrame(() => panel.classList.add('active')); }
+        }
+        document.querySelectorAll('.tab,.nt').forEach(t => t.addEventListener('click', () => switchTab(t.dataset.tab)));
+
+        // ═══ STICKY NAV ═══
+        const topNav = document.getElementById('topNav');
+        window.addEventListener('scroll', () => {
+            topNav.classList.toggle('visible', window.scrollY > 200);
+            document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 400);
+        });
+
+        // ═══ SCROLL REVEAL ═══
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ═══ PARTICLES ═══
+        (function () {
+            const c = document.getElementById('particles'), x = c.getContext('2d');
+            let mouse = { x: 0, y: 0 };
+            function resize() { c.width = innerWidth; c.height = innerHeight }
+            resize(); addEventListener('resize', resize);
+            document.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY });
+            const pts = []; for (let i = 0; i < 80; i++)pts.push({ x: Math.random() * innerWidth, y: Math.random() * innerHeight, vx: (Math.random() - .5) * .4, vy: (Math.random() - .5) * .4, r: Math.random() * 1.8 + .4, hue: 260 + Math.random() * 60 });
+            function draw() {
+                x.clearRect(0, 0, c.width, c.height);
+                pts.forEach((p, i) => {
+                    p.x += p.vx; p.y += p.vy;
+                    const dx = mouse.x - p.x, dy = mouse.y - p.y, dist = Math.hypot(dx, dy);
+                    if (dist < 200) { p.vx += dx * .00004; p.vy += dy * .00004 }
+                    if (p.x < 0 || p.x > c.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > c.height) p.vy *= -1;
+                    x.beginPath(); x.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    x.fillStyle = `hsla(${p.hue},70%,60%,.3)`; x.fill();
+                    for (let j = i + 1; j < pts.length; j++) {
+                        const d = Math.hypot(pts[j].x - p.x, pts[j].y - p.y);
+                        if (d < 130) { x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(pts[j].x, pts[j].y); x.strokeStyle = `hsla(270,70%,60%,${.07 * (1 - d / 130)})`; x.stroke() }
+                    }
+                });
+                requestAnimationFrame(draw);
+            }
+            draw();
+        })();
+
+        // ═══ COUNTER ANIMATION ═══
+        document.querySelectorAll('.rev-stat .val').forEach(el => {
+            const txt = el.textContent, num = parseInt(txt);
+            if (!isNaN(num) && num > 0) {
+                el.textContent = '0'; let cur = 0; const step = Math.max(1, Math.ceil(num / 30));
+                const iv = setInterval(() => { cur = Math.min(cur + step, num); el.textContent = txt.includes('+') ? cur + '+' : cur; if (cur >= num) clearInterval(iv) }, 40);
+            }
+        });
+
+        // ═══ PRODUCT FILTER ═══
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                let count = 0;
+                document.querySelectorAll('.p-card').forEach(card => {
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.style.display = show ? '' : 'none';
+                    if (show) count++;
+                });
+                document.getElementById('productCount').textContent = count + ' Produkte — alle 100% fertiggestellt ✅';
+            });
+        });
+        document.getElementById('productSearch').addEventListener('input', function () {
+            const q = this.value.toLowerCase(); let count = 0;
+            document.querySelectorAll('.p-card').forEach(card => {
+                const show = card.textContent.toLowerCase().includes(q);
+                card.style.display = show ? '' : 'none'; if (show) count++;
+            });
+            document.getElementById('productCount').textContent = count + ' Produkte gefunden';
+        });
+
+        // ═══ KEYBOARD SHORTCUTS ═══
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeProductModal();
+            const tabs = ['shop', 'critical', 'systems', 'flow', 'arch'];
+            const n = parseInt(e.key); if (n >= 1 && n <= 5) switchTab(tabs[n - 1]);
+        });
+
+        // ═══ LIVE DATA POLLING ═══
+        (function () {
+            const URL = 'http://localhost:3333/status', POLL = 10000; let isLive = false;
+            async function fetchStatus() {
+                try {
+                    const r = await fetch(URL, { signal: AbortSignal.timeout(3000) });
+                    if (!r.ok) throw new Error('HTTP ' + r.status);
+                    const d = await r.json(); if (!isLive) { isLive = true; console.log('📡 Empire Status API connected!') }
+                    updateLive(true);
+                    const footer = document.querySelector('footer');
+                    if (footer && d.timestamp) {
+                        const ts = new Date(d.timestamp).toLocaleTimeString('de-DE');
+                        footer.innerHTML = '<strong>AI EMPIRE — Command Center</strong> <span class="live-dot"></span> LIVE<br>' +
+                            'Maurice Pfeifer | Zuletzt: ' + ts + ' | Revenue: €' + (d.revenue?.total_eur || 0).toFixed(2) +
+                            ' | Tasks: ' + (d.total_tasks || 0) + ' | Agents: ' + (d.total_agents || 0);
+                    }
+                } catch (e) { if (isLive) { isLive = false; console.log('📡 Offline') } updateLive(false) }
+            }
+            function updateLive(live) {
+                let dot = document.getElementById('live-indicator');
+                if (!dot) {
+                    dot = document.createElement('div'); dot.id = 'live-indicator';
+                    dot.style.cssText = 'position:fixed;top:12px;right:12px;z-index:9999;display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08)';
+                    document.body.appendChild(dot)
+                }
+                if (live) {
+                    dot.style.background = 'rgba(16,185,129,.15)'; dot.style.color = '#10b981';
+                    dot.innerHTML = '<span style="width:8px;height:8px;background:#10b981;border-radius:50%;display:inline-block;animation:pulse 2s infinite"></span> LIVE'
+                }
+                else {
+                    dot.style.background = 'rgba(249,115,22,.15)'; dot.style.color = '#f97316';
+                    dot.innerHTML = '<span style="width:8px;height:8px;background:#f97316;border-radius:50%;display:inline-block"></span> OFFLINE'
+                }
+            }
+            fetchStatus(); setInterval(fetchStatus, POLL);
+        })();
+
+        // ═══ PRODUCT MODAL ═══
+        const PRODUCTS = {
+            'bma-checklisten': {
+                badge: 'GUMROAD', badgeClass: 'pm-badge-gumroad', title: '🔥 BMA Profi-Checklisten Pack', price: '€27',
+                desc: '20+ professionelle Prüfprotokolle und Wartungspläne, vollständig DIN 14675 konform. Entwickelt aus 16 Jahren Praxiswissen im Brandschutz. Jede Checkliste wurde in der Praxis erprobt und spart dir mindestens 3 Stunden pro Inspektion. Inklusive digitaler Vorlage zum Ausfüllen auf Tablet oder Laptop.',
+                features: ['20+ fertige Prüfprotokolle', 'DIN 14675 konform', 'Digitale & druckbare Formate', 'Wartungspläne nach DIN VDE 0833', 'Spart 3h pro Inspektion', 'Sofort einsatzbereit', 'Regelmäßige Updates', 'Bonus: Fehlercode-Referenz'],
+                testimonial: '"Endlich professionelle Checklisten die wirklich praxistauglich sind. Spart mir jede Woche Stunden."', testimonialAuthor: '— BMA-Techniker, 8 Jahre Erfahrung',
+                buttons: [{ label: '💳 PayPal €27', href: 'https://www.paypal.com/paypalme/mauricepfeifer/27EUR', class: 'btn-paypal' }, { label: 'Stripe €27', href: 'https://buy.stripe.com/test_aFa7sL866gUA5JA5DTbMQ00', class: 'btn-stripe' }]
+            },
+            'bma-troubleshooting': {
+                badge: 'STRIPE', badgeClass: 'pm-badge-stripe', title: '🧭 BMA Troubleshooting-Kompass', price: '€37',
+                desc: 'Der ultimative Fehlerdiagnose-Guide für Brandmeldeanlagen. Decision Trees für 50+ Störungen, detaillierte Fehlerbilder mit Lösungsstrategien und Schritt-für-Schritt-Anleitungen aus 16 Jahren Praxiserfahrung.',
+                features: ['Decision Trees für 50+ Fehler', 'Bildbasierte Fehleranalyse', 'Schritt-für-Schritt Lösungen', 'Herstellerübergreifend', 'Offline nutzbar (PDF)', 'Praxis-Tipps & Tricks', 'Normen-Referenzen', 'Bonus: Eskalations-Flowchart'],
+                testimonial: '"Hat mir bei einer kritischen Störung um 3 Uhr morgens den Arsch gerettet. Unbezahlbar."', testimonialAuthor: '— Servicetechniker, Großkunde Industrie',
+                buttons: [{ label: '💳 PayPal €37', href: 'https://www.paypal.com/paypalme/mauricepfeifer/37EUR', class: 'btn-paypal' }, { label: 'Stripe €37', href: 'https://buy.stripe.com/test_dRm14neuu33Kgoe7M1bMQ02', class: 'btn-stripe' }]
+            },
+            'bma-video': {
+                badge: 'STRIPE', badgeClass: 'pm-badge-stripe', title: '🎓 BMA Video-Schulungspaket', price: '€47',
+                desc: 'Professionelle Video-Schulungen für BMA-Techniker. Praxisnahe Anleitungen, Prüfverfahren und Normen verständlich erklärt.',
+                features: ['Video-Tutorials (HD)', 'Prüfverfahren live erklärt', 'Normen verständlich gemacht', 'Praxis-Demos am Gerät', 'Für Einsteiger & Profis', 'Lebenslanger Zugang', 'Mobile-optimiert', 'Bonus: Prüfungsvorbereitung'],
+                testimonial: '"Besser als jede Herstellerschulung. Die Praxis-Demos sind Gold wert."', testimonialAuthor: '— Junior-Techniker nach 6 Monaten',
+                buttons: [{ label: '💳 PayPal €47', href: 'https://www.paypal.com/paypalme/mauricepfeifer/47EUR', class: 'btn-paypal' }, { label: 'Stripe €47', href: 'https://buy.stripe.com/test_00wcN5aeecEk6NE1nDbMQ01', class: 'btn-stripe' }]
+            },
+            'ai-starter-kit': {
+                badge: 'GUMROAD', badgeClass: 'pm-badge-gumroad', title: '🤖 AI Agent Starter Kit', price: '€47',
+                desc: '10 fertige, sofort einsetzbare AI Agent-Konfigurationen aus einem echten 100-Agent-System. Copy-Paste ready, No-Code.',
+                features: ['10 fertige Agent-Configs', 'Content Creation Agent', 'Email Marketing Agent', 'Lead-Qualifizierung Agent', 'Customer Support Agent', 'Research Agent', 'Deploy in 1 Stunde', 'No-Code Setup', 'Video-Anleitung inklusive', 'Prompt-Templates dabei'],
+                testimonial: '"Ich hatte in 45 Minuten meinen ersten AI Agent am Laufen. Der Content Agent allein spart mir 10h/Woche."', testimonialAuthor: '— Solo-Unternehmer, E-Commerce',
+                buttons: [{ label: '💳 PayPal €47', href: 'https://www.paypal.com/paypalme/mauricepfeifer/47EUR', class: 'btn-paypal' }, { label: 'Stripe €47', href: 'https://buy.stripe.com/test_28EeVd4TU7k0dc2eapbMQ03', class: 'btn-stripe' }]
+            },
+            'ai-blueprint': {
+                badge: 'BESTSELLER', badgeClass: 'pm-badge-premium', title: '🏗️ AI Automation Blueprint', price: '€79',
+                desc: 'Der komplette Systemguide um von 0 auf 100+ AI Agents zu skalieren. 7 Squads, 30-Tage Roadmap, Revenue Channels, Cost Optimization.',
+                features: ['7-Squad Architektur', '30-Tage Roadmap', 'Revenue Channel Strategien', 'Cost Optimization', 'Skalierungs-Playbook', 'Tool-Stack Empfehlungen', 'ROI-Kalkulator', 'Bonus: Agent-Prompts', 'Case Studies', 'Community-Zugang'],
+                testimonial: '"Das Blueprint hat mir die Augen geöffnet. In 3 Wochen hatte ich 30 Agents."', testimonialAuthor: '— Marketing-Agentur Inhaber',
+                buttons: [{ label: '💳 PayPal €79', href: 'https://www.paypal.com/paypalme/mauricepfeifer/79EUR', class: 'btn-paypal' }, { label: 'Stripe €79', href: 'https://buy.stripe.com/test_5kQ3cvdqq5bS3Bs0jzbMQ04', class: 'btn-stripe' }]
+            },
+            'ai-side-hustle': {
+                badge: 'STRIPE', badgeClass: 'pm-badge-stripe', title: '💸 AI Side Hustle Playbook', price: '€97',
+                desc: 'Der Komplett-Guide zum Geld verdienen mit AI. 5 bewährte Revenue-Streams, echte Zahlen, konkrete Erfahrungsberichte.',
+                features: ['5 bewährte Revenue-Streams', 'Freelancing mit AI', 'Digitale Produkte erstellen', 'AI Consulting Playbook', 'Content Monetarisierung', 'Echte Zahlen & Erfahrungen', 'Schritt-für-Schritt Guides', 'Pricing-Strategien', 'Client-Akquise System', 'Bonus: Email-Templates'],
+                testimonial: '"Nach 2 Wochen hatte ich meinen ersten €500 Auftrag über Fiverr."', testimonialAuthor: '— Freelancer, Start in AI Services',
+                buttons: [{ label: '💳 PayPal €97', href: 'https://www.paypal.com/paypalme/mauricepfeifer/97EUR', class: 'btn-paypal' }, { label: 'Stripe €97', href: 'https://buy.stripe.com/test_5kQ3cvdqq5bS3Bs0jzbMQ04', class: 'btn-stripe' }]
+            },
+            'fiverr-ai-automation': {
+                badge: 'FIVERR', badgeClass: 'pm-badge-fiverr', title: '⚡ AI Automation Setup — Service', price: '€30 / €150 / €500',
+                desc: 'Professioneller AI Automation Service. Workflow-Analyse und maßgeschneiderte Lösungen.',
+                features: ['Basic (€30): Workflow-Analyse + 1 Automation', 'Standard (€150): 3 Automations + Chatbot', 'Premium (€500): Full Setup + Training', 'Persönliche Beratung', 'n8n/Make Integration', 'Custom API Anbindung', 'Support & Nachbetreuung', '100% Zufriedenheitsgarantie'],
+                testimonial: '"Maurice hat unsere Lead-Qualifizierung komplett automatisiert. 15 Stunden/Woche gespart."', testimonialAuthor: '— Agentur-Inhaber, 12 Mitarbeiter',
+                buttons: [{ label: 'Basic €30', href: 'https://www.paypal.com/paypalme/mauricepfeifer/30EUR', class: 'btn-paypal' }, { label: 'Stripe €30', href: 'https://buy.stripe.com/test_dRm3cv3PQ6fW1tk8Q5bMQ05', class: 'btn-stripe' }, { label: '€150', href: 'https://buy.stripe.com/test_28E00j1HI8o46NE4zPbMQ06', class: 'btn-stripe' }, { label: '€500', href: 'https://buy.stripe.com/test_3cI14n7228o4dc2d6lbMQ07', class: 'btn-stripe' }]
+            },
+            'fiverr-bma': {
+                badge: 'FIVERR', badgeClass: 'pm-badge-fiverr', title: '🔥 BMA Expert Consulting — Service', price: '€200 / €750 / €2.000',
+                desc: '16 Jahre geballte BMA-Expertise als Service. System Design Review, Compliance-Audits, Digitalisierung.',
+                features: ['Basic (€200): System Review + Report', 'Standard (€750): Audit + Optimierung', 'Premium (€2K): Full Digitalisierung', 'DIN 14675 Compliance Check', 'Wartungsplan-Optimierung', 'AI-gestützte Prüfprozesse', 'Remote & Vor-Ort möglich', 'Detaillierter Abschlussbericht'],
+                testimonial: '"Das Audit hat 3 kritische Schwachstellen aufgedeckt. Absolut professionell."', testimonialAuthor: '— Facility Manager, Krankenhaus',
+                buttons: [{ label: 'Basic €200', href: 'https://www.paypal.com/paypalme/mauricepfeifer/200EUR', class: 'btn-paypal' }, { label: 'Stripe €200', href: 'https://buy.stripe.com/test_fZu6oHeuu7k07RI8Q5bMQ08', class: 'btn-stripe' }, { label: '€750', href: 'https://buy.stripe.com/test_9B68wPcmm1ZGfka3vLbMQ09', class: 'btn-stripe' }, { label: '€2K', href: 'https://buy.stripe.com/test_dRm3cv3PQ6fW9ZQd6lbMQ0a', class: 'btn-stripe' }]
+            },
+            'custom-ai-agent': {
+                badge: 'PREMIUM', badgeClass: 'pm-badge-premium', title: '🧠 Custom AI Agent Development', price: '€500 / €2.000 / €5.000',
+                desc: 'Maßgeschneiderte AI-Agenten für dein Business. Aus dem gleichen System das 100+ Agents orchestriert.',
+                features: ['Basic (€500): 1 Custom Agent', 'Standard (€2K): 3-Agent System', 'Premium (€5K): Full Agent Suite', 'Requirements Workshop', 'Custom Training & Fine-Tuning', 'API-Integration', 'Dashboard & Monitoring', '30 Tage Support', 'Dokumentation & Übergabe', 'Skalierbare Architektur'],
+                testimonial: '"80% der Anfragen werden jetzt automatisch beantwortet. Revolutionär."', testimonialAuthor: '— E-Commerce Unternehmer, 50K+ Kunden',
+                buttons: [{ label: 'Basic €500', href: 'https://www.paypal.com/paypalme/mauricepfeifer/500EUR', class: 'btn-paypal' }, { label: 'Stripe €500', href: 'https://buy.stripe.com/test_fZu14n0DEdIo2xo0jzbMQ0b', class: 'btn-stripe' }, { label: '€2K', href: 'https://buy.stripe.com/test_cNiaEXaee5bSgoe4zPbMQ0c', class: 'btn-stripe' }, { label: '€5K', href: 'https://buy.stripe.com/test_5kQ7sL2LMfQw4Fw0jzbMQ0d', class: 'btn-stripe' }]
+            },
+            'bma-ai-hybrid': {
+                badge: 'TOP SELLER', badgeClass: 'pm-badge-premium', title: '👑 BMA + AI Hybrides Consulting', price: '€2.000 — €10.000',
+                desc: 'Das Flaggschiff: Brandschutz-Firmen komplett digitalisieren. DER einzige Anbieter weltweit mit 16 Jahren BMA + 100-Agent AI-System.',
+                features: ['Kompletter Digital-Audit', 'AI-Automatisierung aller Prüfprozesse', 'Wartungskosten-Reduktion 30-50%', 'Compliance Dashboard', 'Mitarbeiter-Schulung', 'Implementierung & Go-Live', '90 Tage Support', 'Quartals-Reviews', 'ROI-Garantie', 'Weltweit einzigartige Expertise'],
+                testimonial: '"Maurice hat unser komplettes Prüfwesen digitalisiert. Wir sparen €4.000/Monat. Ein Game-Changer."', testimonialAuthor: '— Geschäftsführer Brandschutz, 45 MA',
+                buttons: [{ label: '💳 PayPal ab €2.000', href: 'https://www.paypal.com/paypalme/mauricepfeifer/2000EUR', class: 'btn-paypal' }, { label: '📧 Anfrage senden', href: 'mailto:mauricepfeifer@icloud.com?subject=BMA+AI%20Consulting%20Anfrage', class: 'btn-stripe' }]
+            },
+            'ai-prompt-sammlung': {
+                badge: 'NEU', badgeClass: 'pm-badge-gumroad', title: '⚡ KI Mega-Prompt Sammlung', price: '€9',
+                desc: '50+ handkuratierte, battle-tested Prompts für ChatGPT, Claude & Co. Jeder Prompt wurde in der Praxis optimiert und liefert sofort Ergebnisse. Von Content-Erstellung über Datenanalyse bis Business-Strategie.',
+                features: ['50+ Premium-Prompts', 'Content Creation Prompts', 'Business-Strategie Prompts', 'Datenanalyse Prompts', 'Email & Copywriting Prompts', 'Für ChatGPT, Claude, Gemini', 'Sofort einsetzbar', 'Markdown-Format (Copy-Paste)', 'Regelmäßige Updates', 'Bonus: Prompt-Engineering Guide'],
+                testimonial: '"Diese Prompts haben meine Produktivität verdreifacht. Jeder einzelne ist Gold wert."', testimonialAuthor: '— Content Creator, 50K Follower',
+                buttons: [{ label: '💳 PayPal €9', href: 'https://www.paypal.com/paypalme/mauricepfeifer/9EUR', class: 'btn-paypal' }, { label: 'Stripe €9', href: 'https://buy.stripe.com/test_aFa7sL866gUA5JA5DTbMQ00', class: 'btn-stripe' }]
+            },
+            'ai-agent-blaupause': {
+                badge: 'NEU', badgeClass: 'pm-badge-premium', title: '🏗️ AI Agent Architektur-Blaupause', price: '€14',
+                desc: 'Die komplette Architektur-Dokumentation eines echten 100+ Agent-Systems. High-End Markdown-Artefakte wie bei Claude — Systemdesign, Squad-Strukturen, Orchestrierung, Prompt-Chains. Das echte Playbook.',
+                features: ['Komplette System-Architektur (MD)', '7-Squad Struktur dokumentiert', 'Orchestrierungs-Patterns', 'Agent-Kommunikation Flows', 'Prompt-Chain Templates', 'Fehlerbehandlung & Fallbacks', 'Skalierungs-Strategien', 'Mermaid-Diagramme inklusive', 'Real-World Case Study', 'Bonus: Agent-Konfig-Templates'],
+                testimonial: '"Die Blaupause hat mir Wochen an Trial-and-Error erspart. So baut man ein Agent-System richtig."', testimonialAuthor: '— Tech Lead, SaaS Startup',
+                buttons: [{ label: '💳 PayPal €14', href: 'https://www.paypal.com/paypalme/mauricepfeifer/14EUR', class: 'btn-paypal' }, { label: 'Stripe €14', href: 'https://buy.stripe.com/test_28EeVd4TU7k0dc2eapbMQ03', class: 'btn-stripe' }]
+            },
+            'ai-workflow-templates': {
+                badge: 'NEU', badgeClass: 'pm-badge-gumroad', title: '🔄 AI Workflow Template Pack', price: '€12',
+                desc: '15 fertige n8n/Make Workflow-Templates für Business-Automation. Von Lead-Generierung über Content-Pipeline bis Revenue-Tracking. Import-ready, sofort einsetzbar.',
+                features: ['15 fertige Workflow-Templates', 'Lead-Generierung Workflow', 'Content-Pipeline Automation', 'Revenue-Tracking Dashboard', 'Email-Sequence Builder', 'Social Media Auto-Poster', 'Customer Support Bot', 'n8n & Make kompatibel', 'Import-Ready JSON Files', 'Video-Setup-Guide'],
+                testimonial: '"3 Workflows importiert, 5 Stunden Arbeit pro Woche automatisiert. ROI nach Tag 1."', testimonialAuthor: '— Online-Unternehmer',
+                buttons: [{ label: '💳 PayPal €12', href: 'https://www.paypal.com/paypalme/mauricepfeifer/12EUR', class: 'btn-paypal' }, { label: 'Stripe €12', href: 'https://buy.stripe.com/test_dRm14neuu33Kgoe7M1bMQ02', class: 'btn-stripe' }]
+            },
+            'ai-gold-nuggets': {
+                badge: 'NEU', badgeClass: 'pm-badge-premium', title: '💎 AI Gold Nuggets Collection', price: '€7',
+                desc: '25 hochdichte Business-Intelligence Dokumente. Jedes Nugget ist ein destilliertes Markdown-Artefakt voller Insights, Strategien und Frameworks. Wie die besten Claude-Artefakte — konzentriertes Wissen.',
+                features: ['25 Business-Intelligence Docs', 'Revenue-Strategien', 'Marketing-Frameworks', 'AI-Implementierungs-Guides', 'Pricing-Psychologie', 'Nischen-Analyse Tools', 'Wachstums-Hacks', 'Markdown-Format (schön formatiert)', 'Mermaid-Diagramme', 'Sofort anwendbar'],
+                testimonial: '"Jedes Nugget enthält mehr Wert als ein ganzer Online-Kurs. Kompakt und auf den Punkt."', testimonialAuthor: '— Startup-Gründer',
+                buttons: [{ label: '💳 PayPal €7', href: 'https://www.paypal.com/paypalme/mauricepfeifer/7EUR', class: 'btn-paypal' }, { label: 'Stripe €7', href: 'https://buy.stripe.com/test_5kQ3cvdqq5bS3Bs0jzbMQ04', class: 'btn-stripe' }]
+            }
+        };
+
+        function openProductModal(productId) {
+            const p = PRODUCTS[productId]; if (!p) return;
+            document.getElementById('pm-badge').textContent = p.badge;
+            document.getElementById('pm-badge').className = 'pm-badge ' + p.badgeClass;
+            document.getElementById('pm-title').textContent = p.title;
+            document.getElementById('pm-price').textContent = p.price;
+            document.getElementById('pm-desc').textContent = p.desc;
+            document.getElementById('pm-features').innerHTML = p.features.map(f => '<li>' + f + '</li>').join('');
+            document.getElementById('pm-testimonial').innerHTML = p.testimonial + '<cite>' + p.testimonialAuthor + '</cite>';
+            document.getElementById('pm-actions').innerHTML = p.buttons.map(b => '<a href="' + b.href + '" target="_blank" rel="noopener" class="btn ' + b.class + '">' + b.label + '</a>').join('');
+            const o = document.getElementById('productModal'); o.style.display = 'flex';
+            requestAnimationFrame(() => o.classList.add('active')); document.body.style.overflow = 'hidden';
+        }
+        function closeProductModal() {
+            const o = document.getElementById('productModal'); o.classList.remove('active');
+            setTimeout(() => { o.style.display = 'none' }, 300); document.body.style.overflow = '';
+        }
+        document.querySelectorAll('.p-card[data-product]').forEach(card => {
+            card.addEventListener('click', function (e) { if (e.target.closest('a')) return; openProductModal(this.dataset.product) });
+        });
+        document.getElementById('productModal').addEventListener('click', function (e) { if (e.target === this) closeProductModal() });
+    </script>
+</body>
+
+</html>

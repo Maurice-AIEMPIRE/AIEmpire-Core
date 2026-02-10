@@ -22,7 +22,6 @@ import asyncio
 import argparse
 import json
 import sys
-import os
 from datetime import datetime
 from pathlib import Path
 
@@ -58,7 +57,7 @@ def show_full_status():
     # 1. Resource Guard
     from resource_guard import ResourceGuard
     guard = ResourceGuard()
-    status = guard.get_status()
+    guard.get_status()
     print(f"  RESOURCES: {guard.format_status()}")
     print()
 
@@ -70,27 +69,27 @@ def show_full_status():
         steps = len(state.get("steps_completed", []))
         patterns = len(state.get("patterns", []))
         updated = state.get("updated", "never")
-        print(f"  WORKFLOW:")
+        print("  WORKFLOW:")
         print(f"    Cycle:    #{cycle}")
         print(f"    Steps:    {steps} completed")
         print(f"    Patterns: {patterns} in library")
         print(f"    Updated:  {updated}")
 
         if state.get("steps_completed"):
-            print(f"    Recent:")
+            print("    Recent:")
             for s in state["steps_completed"][-3:]:
                 summary = s.get("summary", "")[:60]
                 print(f"      [{s['step'].upper():12s}] {summary}")
     else:
-        print(f"  WORKFLOW: Not initialized")
-        print(f"    Run: python empire.py workflow")
+        print("  WORKFLOW: Not initialized")
+        print("    Run: python empire.py workflow")
     print()
 
     # 3. Cowork Engine
     cowork_file = WORKFLOW_DIR / "state" / "cowork_state.json"
     if cowork_file.exists():
         cw = json.loads(cowork_file.read_text())
-        print(f"  COWORK:")
+        print("  COWORK:")
         print(f"    Cycles:   {cw.get('total_cycles', 0)}")
         print(f"    Focus:    {cw.get('active_focus', 'N/A')}")
         print(f"    Actions:  {len(cw.get('actions_taken', []))}")
@@ -99,12 +98,12 @@ def show_full_status():
 
         pending = cw.get("pending_recommendations", [])
         if pending:
-            print(f"    Pending:")
+            print("    Pending:")
             for p in pending[:3]:
                 print(f"      - {p.get('title', 'N/A')[:50]}")
     else:
-        print(f"  COWORK: Not started")
-        print(f"    Run: python empire.py cowork")
+        print("  COWORK: Not started")
+        print("    Run: python empire.py cowork")
     print()
 
     # 4. Output Inventory
@@ -115,7 +114,7 @@ def show_full_status():
         "Reactor reports": EMPIRE_ROOT / "atomic-reactor" / "reports",
     }
 
-    print(f"  OUTPUT INVENTORY:")
+    print("  OUTPUT INVENTORY:")
     for name, path in output_dirs.items():
         if path.exists():
             files = list(path.glob("*"))
@@ -165,23 +164,23 @@ def show_full_status():
         changes = len(uncommitted.split("\n")) if uncommitted else 0
         print(f"  GIT: {branch} | {changes} uncommitted changes")
     except (subprocess.SubprocessError, FileNotFoundError):
-        print(f"  GIT: (could not read)")
+        print("  GIT: (could not read)")
     print()
 
     # 7. Quick Commands
-    print(f"  COMMANDS:")
-    print(f"    python empire.py workflow          # Run 5-step loop")
-    print(f"    python empire.py cowork --daemon   # Start background agent")
-    print(f"    python empire.py gemini questions   # Vision discovery")
-    print(f"    python empire.py gemini daemon      # Gemini mirror daemon")
-    print(f"    python empire.py cycle             # New weekly cycle")
-    print(f"    python empire.py full              # Workflow + Cowork")
+    print("  COMMANDS:")
+    print("    python empire.py workflow          # Run 5-step loop")
+    print("    python empire.py cowork --daemon   # Start background agent")
+    print("    python empire.py gemini questions   # Vision discovery")
+    print("    python empire.py gemini daemon      # Gemini mirror daemon")
+    print("    python empire.py cycle             # New weekly cycle")
+    print("    python empire.py full              # Workflow + Cowork")
     print()
 
 
 async def run_workflow(args):
     """Run the 5-step workflow orchestrator."""
-    from orchestrator import run_full_loop, run_step, run_refinery_loop, show_status
+    from orchestrator import run_full_loop, run_step, run_refinery_loop
     from state.context import advance_cycle
 
     if hasattr(args, "new_cycle") and args.new_cycle:

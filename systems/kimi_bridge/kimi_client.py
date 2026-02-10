@@ -1,6 +1,6 @@
 import os
+import asyncio
 import aiohttp
-import json
 import logging
 from typing import Dict, Optional, Any
 
@@ -54,10 +54,9 @@ class KimiClient:
         }
 
     async def _chat_ollama(self, messages: list, temperature: float) -> str:
-        """Internal method to call Ollama."""
-        async with aiohttp.ClientSession() as session:
-            # Convert OpenAI format messages to Ollama format if needed, 
-            # but Ollama /api/chat endpoint supports OpenAI-like messages structure usually.
+        """Internal method to call Ollama. Uses 120s timeout for large models like glm-4.7-flash (19GB)."""
+        timeout = aiohttp.ClientTimeout(total=120)
+        async with aiohttp.ClientSession(timeout=timeout) as session:
             payload = {
                 "model": self.local_model,
                 "messages": messages,
@@ -70,12 +69,20 @@ class KimiClient:
                         data = await resp.json()
                         return data["message"]["content"]
                     elif resp.status == 404:
-                         # Try fallback model
+                        # Try fallback model (smaller, faster)
+                        logger.info(f"Model {self.local_model} not found, trying {self.fallback_local_model}")
                         payload["model"] = self.fallback_local_model
                         async with session.post(f"{self.ollama_url}/api/chat", json=payload) as resp_fallback:
                             if resp_fallback.status == 200:
                                 data = await resp_fallback.json()
+                                self.local_model = self.fallback_local_model  # Cache for next calls
                                 return data["message"]["content"]
+                    else:
+                        text = await resp.text()
+                        raise Exception(f"Ollama HTTP {resp.status}: {text[:200]}")
+            except asyncio.TimeoutError:
+                logger.warning(f"Ollama timeout after 120s (model: {self.local_model})")
+                raise
             except aiohttp.ClientConnectorError:
                 logger.error("Could not connect to Ollama. Is it running?")
                 raise

@@ -24,11 +24,10 @@ import aiohttp
 import argparse
 import json
 import os
-import sys
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
 from resource_guard import ResourceGuard
 
@@ -503,9 +502,9 @@ async def run_daemon(interval: int = 1800, focus: Optional[str] = None):
             print(f"  Guard: {guard.format_status()}")
 
             if status["paused"]:
-                print(f"  System overloaded! Waiting for recovery...")
+                print("  System overloaded! Waiting for recovery...")
                 await guard.wait_if_paused()
-                print(f"  Recovered. Starting cycle.")
+                print("  Recovered. Starting cycle.")
 
             await run_cycle(focus=focus, guard=guard)
             print(f"\n  Next cycle in {interval}s ({interval//60} min)...\n")
