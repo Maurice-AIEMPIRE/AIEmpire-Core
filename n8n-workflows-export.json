@@ -1,0 +1,133 @@
+[
+  {
+    "name": "X Post Auto-Publisher (Daily)",
+    "nodes": [
+      {
+        "parameters": {
+          "interval": [
+            {
+              "triggerAtTime": "08:00",
+              "triggerAtDayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ]
+            }
+          ]
+        },
+        "id": "Schedule Trigger",
+        "type": "n8n-nodes-base.cron",
+        "typeVersion": 1,
+        "position": [
+          100,
+          400
+        ]
+      },
+      {
+        "parameters": {
+          "filePath": "/Users/maurice/AIEmpire-Core/.claude/worktrees/cranky-leavitt/JETZT_POSTEN.md"
+        },
+        "id": "Read X Posts File",
+        "type": "n8n-nodes-base.readBinaryFile",
+        "typeVersion": 1,
+        "position": [
+          300,
+          400
+        ]
+      },
+      {
+        "parameters": {
+          "pythonCode": "import re\nimport json\n\n# Parse JETZT_POSTEN.md file\nfile_content = $input.all()[0].binary.data.toString()\nposts = re.findall(r'```\\n(.+?)\\n```', file_content, re.DOTALL)\n\n# Get today's post index (0-6 for each day)\nfrom datetime import datetime\ntoday_index = datetime.now().weekday() % len(posts)\n\n# Return today's post\ntoday_post = posts[today_index] if today_index < len(posts) else posts[0]\n\nreturn {\n  'post': today_post.strip(),\n  'timestamp': datetime.now().isoformat(),\n  'day_index': today_index\n}"
+        },
+        "id": "Parse Daily Post",
+        "type": "n8n-nodes-base.python",
+        "typeVersion": 1,
+        "position": [
+          500,
+          400
+        ]
+      },
+      {
+        "parameters": {
+          "url": "https://api.twitter.com/2/tweets",
+          "authentication": "oAuth2",
+          "method": "POST",
+          "bodyParametersUi": "json",
+          "bodyParameters": "{\"text\": \"{{ $node[\\\"Parse Daily Post\\\"].json.post }}\"}"
+        },
+        "id": "Post to X",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.1,
+        "position": [
+          700,
+          400
+        ]
+      },
+      {
+        "parameters": {
+          "method": "POST",
+          "url": "http://localhost:3500/api/leads",
+          "bodyParametersUi": "json",
+          "bodyParameters": "{\"source\": \"x_auto\", \"post_id\": \"{{ $node[\\\"Post to X\\\"].json.data.id }}\", \"timestamp\": \"{{ $node[\\\"Parse Daily Post\\\"].json.timestamp }}\"}"
+        },
+        "id": "Log to CRM",
+        "type": "n8n-nodes-base.httpRequest",
+        "typeVersion": 4.1,
+        "position": [
+          900,
+          400
+        ]
+      }
+    ],
+    "connections": {
+      "Schedule Trigger": {
+        "main": [
+          [
+            {
+              "node": "Read X Posts File",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Read X Posts File": {
+        "main": [
+          [
+            {
+              "node": "Parse Daily Post",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Parse Daily Post": {
+        "main": [
+          [
+            {
+              "node": "Post to X",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      },
+      "Post to X": {
+        "main": [
+          [
+            {
+              "node": "Log to CRM",
+              "type": "main",
+              "index": 0
+            }
+          ]
+        ]
+      }
+    }
+  }
+]

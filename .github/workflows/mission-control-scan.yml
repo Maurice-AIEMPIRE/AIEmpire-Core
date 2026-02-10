@@ -78,9 +78,9 @@ jobs:
         if: github.event_name == 'issue_comment' || github.event_name == 'issues'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_NUMBER: ${{ github.event.issue && github.event.issue.number || '' }}
         run: |
-          if [ -n "$ISSUE_NUMBER" ]; then
+          if [ -n "$ISSUE_NUMBER" ] && [ "$ISSUE_NUMBER" != "null" ]; then
             BODY=$(cat MISSION_CONTROL.md)
-            gh issue comment $ISSUE_NUMBER --body "$BODY"
+            gh issue comment "$ISSUE_NUMBER" --body "$BODY"
           fi
