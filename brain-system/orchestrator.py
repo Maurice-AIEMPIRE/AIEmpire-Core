@@ -67,7 +67,7 @@ BRAINS = {
     },
     "hippocampus": {
         "name": "The Memory",
-        "model": "sqlite+redplanet",  # Persistent, kein LLM
+        "model": "sqlite",  # Persistent storage, no LLM - local DB only
         "schedule": ["continuous", "22:00-consolidation"],
         "priority": 1,
     },
@@ -169,7 +169,8 @@ def run_brainstem():
                            "http://localhost:11434/api/tags"],
                           capture_output=True, text=True, timeout=5)
         results["ollama"] = "OK" if r.stdout.strip() == "200" else "DOWN"
-    except:
+    except (OSError, subprocess.TimeoutExpired) as e:
+        print(f"Ollama health check failed: {e}")
         results["ollama"] = "DOWN"
 
     # Disk space
@@ -179,14 +180,16 @@ def run_brainstem():
         if len(lines) > 1:
             parts = lines[1].split()
             results["disk_free"] = parts[3] if len(parts) > 3 else "unknown"
-    except:
+    except (OSError, IndexError) as e:
+        print(f"Disk space check failed: {e}")
         results["disk_free"] = "unknown"
 
     # OpenClaw
     try:
         r = subprocess.run(["openclaw", "health"], capture_output=True, text=True, timeout=10)
         results["openclaw"] = "OK" if r.returncode == 0 else "WARN"
-    except:
+    except (OSError, FileNotFoundError, subprocess.TimeoutExpired) as e:
+        print(f"OpenClaw health check failed: {e}")
         results["openclaw"] = "NOT_RUNNING"
 
     # Report

@@ -14,14 +14,17 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict
 
-MOONSHOT_API_KEY = "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF"
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
+if not MOONSHOT_API_KEY:
+    raise ValueError("MOONSHOT_API_KEY environment variable is required. Set it before running this script.")
 MAX_CONCURRENT = 50  # Reduced to avoid rate limits
 TOTAL_AGENTS = 100000
 BUDGET_USD = 15.0
 BATCH_DELAY = 0.5  # Delay between batches in seconds
 
-# Output directories
-OUTPUT_DIR = Path("/Users/maurice/.openclaw/workspace/kimi-swarm/output")
+# Output directories - use environment variable or fallback to home directory
+OPENCLAW_HOME = os.getenv("OPENCLAW_HOME", os.path.expanduser("~/.openclaw"))
+OUTPUT_DIR = Path(OPENCLAW_HOME) / "workspace" / "kimi-swarm" / "output"
 LEADS_DIR = OUTPUT_DIR / "leads"
 CONTENT_DIR = OUTPUT_DIR / "content"
 COMPETITORS_DIR = OUTPUT_DIR / "competitors"

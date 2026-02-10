@@ -61,7 +61,9 @@ class Task:
 class MissionControl:
     """Mission Control System for scanning and prioritizing all tasks"""
     
-    def __init__(self, repo_path: str = "/home/runner/work/AIEmpire-Core/AIEmpire-Core"):
+    def __init__(self, repo_path: Optional[str] = None):
+        if repo_path is None:
+            repo_path = os.getenv("GITHUB_WORKSPACE", os.getcwd())
         self.repo_path = Path(repo_path)
         self.tasks: List[Task] = []
         self.github_token = os.getenv("GITHUB_TOKEN", "")
@@ -189,13 +191,13 @@ class MissionControl:
     async def scan_docker_services(self):
         """Scan Docker services for issues"""
         print("  🐳 Scanning Docker services...")
-        
+
         try:
             result = subprocess.run(
                 ["docker", "ps", "-a", "--format", "json"],
                 capture_output=True, text=True, timeout=10
             )
-            
+
             if result.returncode == 0 and result.stdout.strip():
                 for line in result.stdout.strip().split('\n'):
                     if line.strip():
@@ -214,39 +216,44 @@ class MissionControl:
                                     cost_risk="Container downtime"
                                 )
                                 self.tasks.append(task)
-                        except json.JSONDecodeError:
-                            pass
+                        except json.JSONDecodeError as e:
+                            print(f"    ⚠️ Failed to parse Docker container JSON: {e}")
         except Exception as e:
             print(f"    ⚠️ Could not scan Docker: {e}")
     
     async def scan_brain_system(self):
         """Scan brain system for pending tasks"""
         print("  🧠 Scanning brain system...")
-        
+
         db_path = Path.home() / ".openclaw/brain-system/synapses.db"
-        if db_path.exists():
-            try:
-                conn = sqlite3.connect(str(db_path))
-                c = conn.cursor()
-                c.execute('SELECT COUNT(*) FROM synapses WHERE processed = 0')
-                pending = c.fetchone()[0]
-                
-                if pending > 5:
-                    task = Task(
-                        id="BRAIN-BACKLOG",
-                        title=f"Process {pending} pending brain synapses",
-                        source="Brain System",
-                        category=TaskCategory.AUTOMATE,
-                        priority=Priority.MEDIUM,
-                        impact=6,
-                        urgency=5,
-                        effort=3
-                    )
-                    self.tasks.append(task)
-                
-                conn.close()
-            except Exception as e:
-                print(f"    ⚠️ Could not scan brain system: {e}")
+        if not db_path.exists():
+            print("    ⚠️ Brain system database not found at {db_path}")
+            return
+
+        try:
+            conn = sqlite3.connect(str(db_path))
+            c = conn.cursor()
+            c.execute('SELECT COUNT(*) FROM synapses WHERE processed = 0')
+            pending = c.fetchone()[0]
+
+            if pending > 5:
+                task = Task(
+                    id="BRAIN-BACKLOG",
+                    title=f"Process {pending} pending brain synapses",
+                    source="Brain System",
+                    category=TaskCategory.AUTOMATE,
+                    priority=Priority.MEDIUM,
+                    impact=6,
+                    urgency=5,
+                    effort=3
+                )
+                self.tasks.append(task)
+
+            conn.close()
+        except sqlite3.DatabaseError as e:
+            print(f"    ⚠️ Database error in brain system: {e}")
+        except Exception as e:
+            print(f"    ⚠️ Could not scan brain system: {e}")
     
     async def scan_logs(self):
         """Scan logs for errors"""
@@ -267,9 +274,9 @@ class MissionControl:
                             content = f.read()
                             if "ERROR" in content or "CRITICAL" in content:
                                 error_count += 1
-                    except Exception:
-                        # Silently skip files we can't read
-                        pass
+                    except (IOError, OSError) as e:
+                        # Skip files we can't read due to permissions or other I/O issues
+                        print(f"    ⚠️ Could not read log file {log_file}: {e}")
         
         if error_count > 0:
             task = Task(
