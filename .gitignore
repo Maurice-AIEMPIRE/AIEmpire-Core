@@ -23,3 +23,7 @@ chat_history/
 cloud-export/
 scripts/cloud-sync/token.json
 scripts/cloud-sync/credentials.json
+
+# Mission Control generated files
+mission_control_data.json
+MISSION_CONTROL.md

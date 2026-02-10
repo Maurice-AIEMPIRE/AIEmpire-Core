@@ -35,6 +35,7 @@
 | Kimi Swarm | ✅ | 100.000 Agents für Bulk-Tasks |
 | **Kimi 500K Swarm** | 🔥 **NEW** | **500.000 Agents + Claude Orchestration** |
 | Atomic Reactor | ✅ | Task Orchestration + Docker |
+| **Mission Control** | 🔥 **NEW** | **Daily Scan aller Tasks + Prioritized Dashboard** |
 | Gold Nuggets | ✅ | Wertvolle Insights extrahiert |
 
 ---

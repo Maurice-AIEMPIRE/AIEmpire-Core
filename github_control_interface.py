@@ -35,6 +35,7 @@ class GitHubControlInterface:
             "@bot switch-model": self.cmd_switch_model,
             "@bot export-chat": self.cmd_export_chat,
             "@bot clear-history": self.cmd_clear_history,
+            "@bot mission-control": self.cmd_mission_control,
         }
     
     async def cmd_status(self, issue_num: int):
@@ -487,6 +488,18 @@ Conversation history has been cleared.
 You can start a new conversation or upload a new chat history.
 """
     
+    async def cmd_mission_control(self, issue_num: int):
+        """Run Mission Control scan and return dashboard."""
+        try:
+            from mission_control import MissionControl
+            mc = MissionControl()
+            await mc.scan_all_sources()
+            dashboard = mc.generate_dashboard()
+            mc.export_to_json()
+            return dashboard
+        except Exception as e:
+            return f"Mission Control scan failed: {e}"
+
     async def cmd_help(self, issue_num: int):
         """Show help."""
         return """# 🤖 GitHub Control Interface - Help
@@ -513,6 +526,7 @@ You can start a new conversation or upload a new chat history.
 ### Business Operations
 - `@bot revenue-report` - Show revenue status
 - `@bot run-task <name>` - Run specific task
+- `@bot mission-control` - Run Mission Control scan
         
 ## How to Use
 1. Create an issue or comment on existing issue
