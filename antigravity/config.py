@@ -13,7 +13,18 @@ OLLAMA_API_V1 = f"{OLLAMA_BASE_URL}/v1"  # OpenAI-compatible endpoint
 
 # ─── Google Gemini Connection ───────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT", "")
+import subprocess
+
+def _gcloud_project():
+    try:
+        out = subprocess.check_output(["gcloud","config","get-value","project"], stderr=subprocess.DEVNULL, text=True).strip()
+        return out if out and out != "(unset)" else ""
+    except Exception:
+        return ""
+
+GOOGLE_CLOUD_PROJECT = (os.getenv("GOOGLE_CLOUD_PROJECT") or os.getenv("GCLOUD_PROJECT") or os.getenv("PROJECT_ID") or _gcloud_project())
+if not GOOGLE_CLOUD_PROJECT:
+    raise RuntimeError("Missing GCP project id. Set GOOGLE_CLOUD_PROJECT or run: gcloud config set project <id>.")
 GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west1")
 VERTEX_AI_ENABLED = os.getenv("VERTEX_AI_ENABLED", "false").lower() == "true"
 OFFLINE_MODE = os.getenv("OFFLINE_MODE", "false").lower() in ("1", "true", "yes")
