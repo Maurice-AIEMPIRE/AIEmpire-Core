@@ -28,10 +28,10 @@ from antigravity.config import (
 # ─── Configuration ──────────────────────────────────────────────────
 # Endpoints
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
-VERTEX_AI_BASE = (
-    f"https://{GOOGLE_CLOUD_REGION}-aiplatform.googleapis.com/v1/projects"
-    f"/{GOOGLE_CLOUD_PROJECT}/locations/{GOOGLE_CLOUD_REGION}/publishers/google"
-)
+
+# NOTE: VERTEX_AI_BASE removed to prevent "Invalid project resource name projects/" error
+# when GOOGLE_CLOUD_PROJECT is empty. Vertex AI URLs are now built dynamically in __init__
+# only when actually needed (see line 85-87).
 
 # Default models
 GEMINI_FLASH = "gemini-2.0-flash"
