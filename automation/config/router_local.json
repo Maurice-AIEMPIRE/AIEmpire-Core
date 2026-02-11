@@ -1,0 +1,51 @@
+{
+  "providers": {
+    "ollama": {
+      "type": "openai_compat",
+      "base_url": "http://127.0.0.1:11434/v1",
+      "api_key_env": "OLLAMA_API_KEY"
+    }
+  },
+  "models": {
+    "cheap": [
+      {
+        "provider": "ollama",
+        "model": "phi4-mini:latest",
+        "max_output_tokens": 350,
+        "temperature": 0.5
+      }
+    ],
+    "balanced": [
+      {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:7b",
+        "max_output_tokens": 450,
+        "temperature": 0.6
+      }
+    ],
+    "premium": [
+      {
+        "provider": "ollama",
+        "model": "deepseek-r1:8b",
+        "max_output_tokens": 550,
+        "temperature": 0.6
+      }
+    ]
+  },
+  "routing": {
+    "orchestrator": "balanced",
+    "ideation": "cheap",
+    "nuggets_ideation": "cheap",
+    "writer": "cheap",
+    "writer_threads": "cheap",
+    "writer_tweets": "cheap",
+    "writer_premium": "cheap",
+    "refiner": "cheap",
+    "strategy": "balanced",
+    "nugget_extraction": "cheap"
+  },
+  "fallback_order": [
+    "cheap",
+    "balanced"
+  ]
+}

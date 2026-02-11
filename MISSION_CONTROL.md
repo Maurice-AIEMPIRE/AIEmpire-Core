@@ -26,6 +26,24 @@ Optional mit Sprache:
 - `voice`: transkribiert, erkennt Intent, kann automatisch ausfuehren.
 - `revenue-add`: macht Fortschritt messbar.
 
+## Legion 50 (dein 50-Agenten-Team)
+Du fuehrst ein 50er-Team als Mastermind-System mit klarer Kommando-Struktur.
+
+Doktrin:
+- `ai-vault/AGENT_LEGION_50_DOCTRINE.md`
+
+Schnellstart:
+1. Dry-Run (ohne API-Kosten):
+   - `./automation/scripts/run_legion_50.sh`
+2. Live-Run (echte Ausfuehrung):
+   - `./automation/scripts/run_legion_50.sh --execute`
+3. Eigener Fokus-Prompt:
+   - `./automation/scripts/run_legion_50.sh --execute --prompt "Baue 3 neue Angebote und 30 Content-Assets fuer diese Woche."`
+
+Hinweis:
+- Das Script startet 5 Wellen mit je 10 Agenten. Das ist stabiler als 50 auf einmal.
+- Fuer maximale Geschwindigkeit kannst du `--tier premium` setzen.
+
 ## Think and Grow Rich -> operative Uebersetzung
 Die 13 Prinzipien sind nicht als Motivation gespeichert, sondern als:
 - taegliche Aktion

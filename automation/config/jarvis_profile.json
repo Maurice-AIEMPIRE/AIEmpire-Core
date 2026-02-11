@@ -1,0 +1,39 @@
+{
+  "profile_name": "jarvis",
+  "wake_word": "jarvis",
+  "language": "de-DE",
+  "audio": {
+    "preferred_input_contains": [
+      "DJI",
+      "Wireless Mic",
+      "Mikrofon"
+    ],
+    "preferred_output_contains": [
+      "AirPods",
+      "Lautsprecher",
+      "Speaker"
+    ],
+    "strict_input": false,
+    "strict_output": false
+  },
+  "assistant": {
+    "provider": "ollama",
+    "model": "llama3.1:8b",
+    "ollama_url": "http://127.0.0.1:11434",
+    "system_prompt": "Du bist Jarvis fuer Maurice. Antworte knapp, direkt, umsetzbar. Bei operativen Befehlen gib zuerst das Ergebnis, dann maximal 3 naechste Schritte."
+  },
+  "tts": {
+    "enabled": true,
+    "voice": "Anna",
+    "rate": 190,
+    "max_chars": 320
+  },
+  "routing": {
+    "default_agents": 6,
+    "default_task_type": "strategy",
+    "allow_shell_commands": false
+  },
+  "security": {
+    "api_token": ""
+  }
+}
