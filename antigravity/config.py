@@ -2,10 +2,38 @@
 Antigravity Configuration
 ==========================
 Central config for all 4 Godmode Programmer agents + Ollama routing.
+Auto-loads .env file for reliable config after system restarts/crashes.
 """
 
 import os
+import subprocess
 from dataclasses import dataclass, field
+from pathlib import Path
+
+# ─── Auto-Load .env ─────────────────────────────────────────────────
+# This ensures env vars survive crashes, reboots, and terminal resets.
+def _load_dotenv():
+    """Load .env file from project root without requiring python-dotenv."""
+    env_path = Path(__file__).parent.parent / ".env"
+    if not env_path.exists():
+        return
+    try:
+        for line in env_path.read_text().splitlines():
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if "=" not in line:
+                continue
+            key, _, value = line.partition("=")
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            # Only set if not already in environment (env vars take priority)
+            if key and key not in os.environ:
+                os.environ[key] = value
+    except Exception:
+        pass
+
+_load_dotenv()
 
 # ─── Ollama Connection ──────────────────────────────────────────────
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
@@ -13,8 +41,33 @@ OLLAMA_API_V1 = f"{OLLAMA_BASE_URL}/v1"  # OpenAI-compatible endpoint
 
 # ─── Google Gemini Connection ───────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT", "")
-GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west1")
+
+def _gcloud_project():
+    try:
+        out = subprocess.check_output(
+            ["gcloud", "config", "get-value", "project"],
+            stderr=subprocess.DEVNULL, text=True, timeout=5
+        ).strip()
+        return out if out and out != "(unset)" else ""
+    except Exception:
+        return ""
+
+GOOGLE_CLOUD_PROJECT = (
+    os.getenv("GOOGLE_CLOUD_PROJECT")
+    or os.getenv("GCLOUD_PROJECT")
+    or os.getenv("PROJECT_ID")
+    or _gcloud_project()
+)
+if not GOOGLE_CLOUD_PROJECT:
+    # Soft fallback instead of hard crash - allows offline mode to work
+    import warnings
+    warnings.warn(
+        "Missing GCP project id. Set GOOGLE_CLOUD_PROJECT in .env or run: "
+        "gcloud config set project <id>. Gemini/Vertex AI will be disabled."
+    )
+    GOOGLE_CLOUD_PROJECT = ""
+
+GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west4")
 VERTEX_AI_ENABLED = os.getenv("VERTEX_AI_ENABLED", "false").lower() == "true"
 OFFLINE_MODE = os.getenv("OFFLINE_MODE", "false").lower() in ("1", "true", "yes")
 

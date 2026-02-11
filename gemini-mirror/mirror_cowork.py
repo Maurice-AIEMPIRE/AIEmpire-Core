@@ -22,7 +22,7 @@ import os
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 
 MIRROR_DIR = Path(__file__).parent
 sys.path.insert(0, str(MIRROR_DIR))
@@ -530,7 +530,7 @@ class MirrorCowork:
 
         recent = self.state.get("actions_taken", [])[-5:]
         if recent:
-            print(f"\n  Letzte Aktionen:")
+            print("\n  Letzte Aktionen:")
             for a in recent:
                 print(f"    [{a.get('score', '?')}/10] {a.get('action', '?')[:60]} ({a.get('focus', '?')})")
         print()

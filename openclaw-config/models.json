@@ -16,7 +16,7 @@
           ],
           "cost": {
             "input": 0.075,
-            "output": 0.30,
+            "output": 0.3,
             "cacheRead": 0.01875,
             "cacheWrite": 0.075
           },
@@ -52,7 +52,7 @@
           ],
           "cost": {
             "input": 0.075,
-            "output": 0.30,
+            "output": 0.3,
             "cacheRead": 0.01875,
             "cacheWrite": 0.075
           },
@@ -156,7 +156,7 @@
           ],
           "cost": {
             "input": 0.075,
-            "output": 0.30,
+            "output": 0.3,
             "cacheRead": 0.01875,
             "cacheWrite": 0.075
           },
@@ -184,7 +184,7 @@
         }
       ],
       "apiKey": "GOOGLE_CLOUD_SERVICE_ACCOUNT",
-      "projectId": "GOOGLE_CLOUD_PROJECT",
+      "projectId": "ai-empire-486415",
       "region": "GOOGLE_CLOUD_REGION"
     }
   }

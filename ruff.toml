@@ -1,0 +1,6 @@
+# Ruff Linter Configuration — AIEmpire-Core
+# https://docs.astral.sh/ruff/
+
+[lint]
+# E402: Module level import not at top — we use sys.path.insert() before imports
+ignore = ["E402"]

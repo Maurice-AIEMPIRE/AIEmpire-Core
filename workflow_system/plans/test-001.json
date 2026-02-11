@@ -1,0 +1,35 @@
+{
+  "task_id": "test-001",
+  "title": "Test Plan",
+  "objective": "Verify planning mode works",
+  "phase": "EXECUTE",
+  "changes": [
+    {
+      "file": "antigravity/config.py",
+      "type": "MODIFY",
+      "description": "Fix env var loading",
+      "component": "config",
+      "risk": "high",
+      "dependencies": []
+    },
+    {
+      "file": "antigravity/new_feature.py",
+      "type": "NEW",
+      "description": "Add new feature",
+      "component": "features",
+      "risk": "low",
+      "dependencies": []
+    }
+  ],
+  "verification": "",
+  "approved_by": "claude",
+  "approved_at": "2026-02-11T01:16:33.485447",
+  "created_at": "2026-02-11T01:16:33.482968",
+  "execution_log": [],
+  "risk_summary": {
+    "low": 1,
+    "medium": 0,
+    "high": 1,
+    "critical": 0
+  }
+}

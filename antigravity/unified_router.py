@@ -13,7 +13,6 @@ falls back to Ollama. If Ollama is offline, tries Moonshot.
 import asyncio
 import json
 import os
-import subprocess
 import sys
 import time
 from dataclasses import dataclass, field
@@ -431,7 +430,7 @@ Environment:
         for provider_name, available in results.items():
             if available:
                 print(f"\n  Testing {provider_name}...")
-                agent = AGENTS["coder"]
+                AGENTS["coder"]
                 result = await router.execute(
                     "Respond with exactly: HELLO FROM {provider}. Nothing else.",
                     agent_key="coder",

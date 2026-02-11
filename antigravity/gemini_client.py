@@ -10,31 +10,37 @@ Supports:
 - Vertex AI (Google Cloud project + region)
 - Streaming responses
 - Model listing & health checks
+
+IMPORTANT: All config is loaded through antigravity.config which
+auto-loads .env. Never read env vars directly here.
 """
 
 import json
-import os
-from antigravity.config import AgentConfig
 from typing import Any, Optional
 
 import httpx
 
-# ─── Configuration ──────────────────────────────────────────────────
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT", "")
-GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west1")
+from antigravity.config import (
+    AgentConfig,
+    GEMINI_API_KEY,
+    GEMINI_FLASH,
+    GEMINI_PRO,
+    GEMINI_FLASH_THINKING,
+    GOOGLE_CLOUD_PROJECT,
+    GOOGLE_CLOUD_REGION,
+)
 
 # Endpoints
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
-VERTEX_AI_BASE = (
-    f"https://{GOOGLE_CLOUD_REGION}-aiplatform.googleapis.com/v1/projects"
-    f"/{GOOGLE_CLOUD_PROJECT}/locations/{GOOGLE_CLOUD_REGION}/publishers/google"
-)
 
-# Default models
-GEMINI_FLASH = "gemini-2.0-flash"
-GEMINI_PRO = "gemini-2.0-pro"
-GEMINI_FLASH_THINKING = "gemini-2.0-flash-thinking"
+# Build Vertex AI base URL only if project is configured
+if GOOGLE_CLOUD_PROJECT:
+    VERTEX_AI_BASE = (
+        f"https://{GOOGLE_CLOUD_REGION}-aiplatform.googleapis.com/v1/projects"
+        f"/{GOOGLE_CLOUD_PROJECT}/locations/{GOOGLE_CLOUD_REGION}/publishers/google"
+    )
+else:
+    VERTEX_AI_BASE = ""  # Vertex AI disabled without project ID
 
 
 class GeminiClient:
@@ -58,7 +64,8 @@ class GeminiClient:
         self.project = project
         self.region = region
         self.timeout = timeout
-        self.use_vertex = use_vertex and bool(project)
+        # Vertex AI requires a valid project ID — refuse to enable without one
+        self.use_vertex = use_vertex and bool(project) and project.strip() != ""
 
         if self.use_vertex:
             self.base_url = (
@@ -67,6 +74,8 @@ class GeminiClient:
             )
         else:
             self.base_url = GEMINI_API_BASE
+            if not self.api_key:
+                print("⚠️  GeminiClient: No API key. Use direct key or Vertex AI.")
 
     def _get_model_name(self, agent: AgentConfig) -> str:
         """Map agent config model to Gemini model if needed."""
@@ -312,6 +321,10 @@ class GeminiClient:
             if not self.api_key and not self.use_vertex:
                 return False
 
+            # Guard: don't even try Vertex AI without a valid project ID
+            if self.use_vertex and not self.project:
+                return False
+
             if self.use_vertex:
                 url = (
                     f"https://{self.region}-aiplatform.googleapis.com/v1/"
@@ -326,7 +339,7 @@ class GeminiClient:
             with httpx.Client(timeout=10.0) as client:
                 response = client.get(url, headers=headers)
                 return response.status_code == 200
-        except (httpx.ConnectError, httpx.TimeoutException):
+        except (httpx.ConnectError, httpx.TimeoutException, Exception):
             return False
 
 

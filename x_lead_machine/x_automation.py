@@ -11,7 +11,7 @@ import aiohttp
 from datetime import datetime
 
 # Config
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-hMWtpmLkLxNsqTyVEiKimq5ypRDBjhJGNqngxqe6HvGP3o9Y")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 
 # Keywords die auf Kaufsignale hindeuten
 BUYER_KEYWORDS = [
