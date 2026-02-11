@@ -570,7 +570,7 @@ async def run_full_loop():
 
     # Kosten-Report
     stats = client.get_cost_stats()
-    logger.info(f"\n=== ZYKLUS ABGESCHLOSSEN ===")
+    logger.info("\n=== ZYKLUS ABGESCHLOSSEN ===")
     logger.info(f"Kosten: ${stats['today_cost_usd']:.4f}")
     logger.info(f"Calls: {stats['total_calls']}")
     logger.info(f"Tokens: {stats['total_tokens_in'] + stats['total_tokens_out']:,}")

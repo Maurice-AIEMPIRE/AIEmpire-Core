@@ -16,7 +16,6 @@ auto-loads .env. Never read env vars directly here.
 """
 
 import json
-import os
 from typing import Any, Optional
 
 import httpx

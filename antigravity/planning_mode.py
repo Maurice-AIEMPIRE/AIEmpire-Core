@@ -24,13 +24,11 @@ Based on patterns from:
 """
 
 import json
-import os
-import time
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any, Optional
+from typing import Optional
 
 from antigravity.config import PROJECT_ROOT
 
@@ -136,20 +134,19 @@ class ImplementationPlan:
         """Generate a markdown implementation plan (like Antigravity's implementation_plan.md)."""
         lines = [
             f"# Implementation Plan: {self.title}",
-            f"",
+            "",
             f"**Task ID:** {self.task_id}",
             f"**Phase:** {self.phase.value}",
             f"**Created:** {self.created_at}",
             f"**Objective:** {self.objective}",
-            f"",
-            f"## Risk Summary",
-            f"",
+            "",
+            "## Risk Summary",
+            "",
         ]
 
         risks = self.get_risk_summary()
         for level, count in risks.items():
             if count > 0:
-                marker = {"low": "", "medium": "> [!IMPORTANT]", "high": "> [!WARNING]", "critical": "> [!CAUTION]"}
                 lines.append(f"- **{level.upper()}**: {count} changes")
 
         lines.extend(["", "## Planned Changes", ""])
@@ -158,7 +155,6 @@ class ImplementationPlan:
             lines.append(f"### {component}")
             lines.append("")
             for c in changes:
-                icon = {"NEW": "+", "MODIFY": "~", "DELETE": "-", "CONFIG": "#"}
                 lines.append(f"- `[{c.change_type.value}]` **{c.file_path}**")
                 lines.append(f"  {c.description}")
                 if c.dependencies:

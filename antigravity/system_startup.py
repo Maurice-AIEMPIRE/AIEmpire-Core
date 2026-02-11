@@ -18,9 +18,8 @@ import os
 import sys
 import time
 from pathlib import Path
-from typing import Dict, List
 
-from antigravity.state_recovery import StateCheckpoint, check_recovery_status
+from antigravity.state_recovery import check_recovery_status
 from antigravity.resource_aware import get_executor
 from antigravity.unified_router import UnifiedRouter
 from antigravity.config import PROJECT_ROOT
@@ -76,7 +75,7 @@ class SystemStartup:
             self.warn(
                 f"Found {recovery_status['recoverable_tasks']} recoverable tasks"
             )
-            print(f"  → Run: python antigravity/state_recovery.py --recover")
+            print("  → Run: python antigravity/state_recovery.py --recover")
 
         self.pass_check(
             f"Recovery system ready ({recovery_status['total_checkpoints']} checkpoints)"

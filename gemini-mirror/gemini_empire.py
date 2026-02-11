@@ -22,7 +22,6 @@ import asyncio
 import json
 import logging
 import sys
-from datetime import datetime
 from pathlib import Path
 
 MIRROR_DIR = Path(__file__).parent
@@ -31,7 +30,6 @@ sys.path.insert(0, str(MIRROR_DIR))
 from config import (
     STATE_DIR,
     OUTPUT_DIR,
-    MEMORY_DIR,
     MIRROR_STATE_FILE,
     VISION_STATE_FILE,
     SYNC_STATE_FILE,
@@ -180,7 +178,7 @@ def show_full_status():
 
 async def run_workflow(step: str = None):
     """Fuehrt den Mirror-Workflow aus."""
-    from mirror_orchestrator import run_full_loop, run_single_step, show_status
+    from mirror_orchestrator import run_full_loop, run_single_step
 
     if step:
         await run_single_step(step)
@@ -318,7 +316,7 @@ async def run_full():
     logger.info("\n=== Phase 5: VISION QUESTIONS ===")
     from vision_interrogator import VisionInterrogator
     vi = VisionInterrogator()
-    questions = await vi.generate_daily_questions(count=3)
+    await vi.generate_daily_questions(count=3)
 
     # 6. Final Sync
     logger.info("\n=== Phase 6: FINAL SYNC ===")

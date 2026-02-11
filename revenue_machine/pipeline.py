@@ -17,12 +17,11 @@ Technology Stack:
 """
 
 import os
-import json
 import asyncio
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Dict, List, Optional
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass
 from enum import Enum
 import aiohttp
 import hashlib
@@ -792,12 +791,12 @@ class RevenuePipeline:
             logger.info(f"\n📤 STEP 3: Publishing {len(all_content)} content pieces...")
 
             for content in all_content:
-                pub_results = await self.publisher.publish(content)
+                await self.publisher.publish(content)
                 cycle_stats["content_published"] += 1
                 self.content_published += 1
 
             # STEP 4: Setup ad campaigns
-            logger.info(f"\n📢 STEP 4: Setting up ad campaigns...")
+            logger.info("\n📢 STEP 4: Setting up ad campaigns...")
 
             for content in all_content:
                 ad_result = await self.ad_manager.setup_campaign(content)
@@ -822,7 +821,7 @@ class RevenuePipeline:
 
         # Print summary
         logger.info("\n" + "="*60)
-        logger.info(f"✅ CYCLE COMPLETE - Summary")
+        logger.info("✅ CYCLE COMPLETE - Summary")
         logger.info("="*60)
         logger.info(f"  News Scanned: {cycle_stats['news_scanned']}")
         logger.info(f"  Content Generated: {cycle_stats['content_generated']}")

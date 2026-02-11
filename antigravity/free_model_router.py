@@ -19,9 +19,8 @@ Maurice's Kosten-Ziel: €0 wenn möglich, <€50/Monat maximum für Upgrades
 """
 
 import os
-import json
 import logging
-from typing import Optional, Dict, List
+from typing import Optional, Dict
 from enum import Enum
 import asyncio
 import aiohttp
@@ -164,7 +163,7 @@ class FreeModelRouter:
                 )
                 if result:
                     self.usage["openrouter"] += len(result.split())
-                    logger.debug(f"✅ OpenRouter succeeded")
+                    logger.debug("✅ OpenRouter succeeded")
                     return result
 
             # Try Together.ai (more generous free tier)
@@ -177,7 +176,7 @@ class FreeModelRouter:
                 )
                 if result:
                     self.usage["together"] += len(result.split())
-                    logger.debug(f"✅ Together.ai succeeded")
+                    logger.debug("✅ Together.ai succeeded")
                     return result
 
         except Exception as e:
@@ -196,7 +195,7 @@ class FreeModelRouter:
                 )
                 result = response.content[0].text
                 self.usage["claude"] += len(result.split())
-                logger.info(f"✅ Claude succeeded (cost: ~€0.02)")
+                logger.info("✅ Claude succeeded (cost: ~€0.02)")
                 return result
             except Exception as e:
                 logger.error(f"Claude failed: {e}")

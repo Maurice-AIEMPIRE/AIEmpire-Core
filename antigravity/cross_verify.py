@@ -137,7 +137,7 @@ class VerificationGate:
 
             # Step 4: If rejected, try to fix with feedback
             if attempt < self.max_attempts - 1:
-                fix_prompt = (
+                (
                     f"The QA review found issues with your output.\n\n"
                     f"ORIGINAL TASK: {prompt}\n\n"
                     f"QA FEEDBACK: {result.qa_feedback}\n\n"

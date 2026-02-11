@@ -386,7 +386,7 @@ def main():
                 for r in repairs:
                     print(f"    FIX: {r}")
             else:
-                print(f"    OK")
+                print("    OK")
         except Exception as e:
             log(f"Check '{name}' failed: {e}", "ERROR")
             all_issues.append({"check": name, "error": str(e)})

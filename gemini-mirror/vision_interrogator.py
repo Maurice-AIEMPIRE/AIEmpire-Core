@@ -26,7 +26,7 @@ import asyncio
 import json
 import logging
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -570,7 +570,7 @@ Antworte als JSON:
 
         pending = self.get_pending_questions()
         if pending:
-            print(f"\n  Offene Fragen:")
+            print("\n  Offene Fragen:")
             for q in pending[:5]:
                 print(f"    [{q.get('id', '?')}] {q.get('question', '')[:80]}")
         print()

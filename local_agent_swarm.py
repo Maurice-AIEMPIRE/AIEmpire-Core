@@ -5,11 +5,10 @@ Maximum Power Edition: 1000+ Agents
 """
 
 import asyncio
-import json
 import time
 import psutil
-from typing import List, Dict, Any, Optional
-from dataclasses import dataclass, asdict
+from typing import List, Dict, Any
+from dataclasses import dataclass
 from enum import Enum
 import sys
 
@@ -149,9 +148,9 @@ class LocalAgentSwarm:
             )
 
         print(f"✓ {len(self.agents)} agents initialized")
-        print(f"  Coordinator: 1")
-        print(f"  Managers: 10")
-        print(f"  Specialists: 60")
+        print("  Coordinator: 1")
+        print("  Managers: 10")
+        print("  Specialists: 60")
         print(f"  Workers: {worker_count}")
 
     async def worker_loop(self, worker_id: int):

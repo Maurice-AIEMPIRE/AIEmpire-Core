@@ -13,7 +13,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict
 
-MOONSHOT_API_KEY = "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF"
+import os
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 MAX_CONCURRENT = 50  # Reduced to avoid rate limits
 TOTAL_AGENTS = 100000
 BUDGET_USD = 15.0

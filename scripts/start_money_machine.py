@@ -75,7 +75,7 @@ class SystemChecker:
                 logger.debug(f"Python {version} OK")
                 return True
             return False
-        except:
+        except Exception:
             return False
 
     @staticmethod
@@ -90,7 +90,7 @@ class SystemChecker:
                     if resp.status == 200:
                         logger.debug("Ollama running at http://localhost:11434")
                         return True
-        except:
+        except Exception:
             logger.warning("Ollama not running - start with: ollama serve")
         return False
 
@@ -102,7 +102,7 @@ class SystemChecker:
             r.ping()
             logger.debug("Redis OK")
             return True
-        except:
+        except Exception:
             logger.warning("Redis not running - optional but recommended")
             return False
 
@@ -119,7 +119,7 @@ class SystemChecker:
             conn.close()
             logger.debug("PostgreSQL OK")
             return True
-        except:
+        except Exception:
             logger.warning("PostgreSQL not running - optional but recommended")
             return False
 
@@ -136,7 +136,7 @@ class SystemChecker:
             if project and project != "(unset)":
                 logger.debug(f"GCloud project: {project}")
                 return True
-        except:
+        except Exception:
             pass
         logger.warning("GCloud not configured - run: gcloud auth login")
         return False
@@ -354,7 +354,7 @@ class SystemStarter:
                 process.terminate()
                 process.wait(timeout=5)
                 logger.info(f"  ✅ {name} stopped")
-            except:
+            except Exception:
                 process.kill()
                 logger.warning(f"  ⚠️  {name} force-killed")
 

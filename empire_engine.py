@@ -55,7 +55,6 @@ Author: Maurice Pfeifer — Elektrotechnikmeister + AI Architect
 import json
 import os
 import sys
-import time
 from datetime import datetime
 from pathlib import Path
 
@@ -448,7 +447,7 @@ def run_autonomous_cycle():
         try:
             result = func()
             results[name] = {"status": "ok", "data": result}
-            print(f"    Abgeschlossen")
+            print("    Abgeschlossen")
         except Exception as e:
             results[name] = {"status": "error", "error": str(e)}
             print(f"    Fehler: {e}")

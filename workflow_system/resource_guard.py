@@ -122,16 +122,22 @@ def _get_ram_percent() -> float:
             )
             page_size = 16384
             free_pages = inactive_pages = 0
-            for l in out.splitlines():
-                if "page size of" in l:
-                    try: page_size = int(l.split()[-2])
-                    except: pass
-                if "Pages free:" in l:
-                    try: free_pages = int(l.split()[-1].rstrip("."))
-                    except: pass
-                if "Pages inactive:" in l:
-                    try: inactive_pages = int(l.split()[-1].rstrip("."))
-                    except: pass
+            for line in out.splitlines():
+                if "page size of" in line:
+                    try:
+                        page_size = int(line.split()[-2])
+                    except (ValueError, IndexError):
+                        pass
+                if "Pages free:" in line:
+                    try:
+                        free_pages = int(line.split()[-1].rstrip("."))
+                    except (ValueError, IndexError):
+                        pass
+                if "Pages inactive:" in line:
+                    try:
+                        inactive_pages = int(line.split()[-1].rstrip("."))
+                    except (ValueError, IndexError):
+                        pass
             free_bytes = (free_pages + inactive_pages) * page_size
             total_bytes = os.sysconf("SC_PAGE_SIZE") * os.sysconf("SC_PHYS_PAGES")
             if total_bytes > 0:
@@ -615,7 +621,7 @@ def main():
   Recommendations:""")
         for rec in recovery.get("recommendations", []):
             print(f"    - {rec}")
-        print(f"╚══════════════════════════════════════════════════════════╝")
+        print("╚══════════════════════════════════════════════════════════╝")
 
     print(f"""
 ╔══════════════════════════════════════════════════════════╗

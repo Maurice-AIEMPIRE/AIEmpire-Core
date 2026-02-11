@@ -5,11 +5,10 @@ Master control for 1000+ agents
 """
 
 import asyncio
-import json
 import time
 import psutil
 import sys
-from local_agent_swarm import LocalAgentSwarm, AgentRole
+from local_agent_swarm import LocalAgentSwarm
 
 async def main():
     print("="*70)
@@ -110,10 +109,10 @@ async def main():
     print("="*70)
     print(f"  Total Execution:    {total_time:.2f}s")
     print(f"  Tasks/Minute:       {(stats['tasks_completed']/total_time)*60:.0f}")
-    print(f"  Quality vs Cloud:   85%")
-    print(f"  Cost/Month:         €3 (electricity)")
-    print(f"  Cloud Equivalent:   €500+/month")
-    print(f"  Savings:            €497/month 💰")
+    print("  Quality vs Cloud:   85%")
+    print("  Cost/Month:         €3 (electricity)")
+    print("  Cloud Equivalent:   €500+/month")
+    print("  Savings:            €497/month 💰")
 
     print("\n" + "="*70)
     print("  ✅ EXECUTION COMPLETE")

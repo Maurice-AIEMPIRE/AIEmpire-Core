@@ -24,9 +24,8 @@ import shutil
 import tempfile
 import time
 from dataclasses import dataclass, field, asdict
-from datetime import datetime, timedelta
 from pathlib import Path
-from typing import Any, Optional
+from typing import Optional
 
 
 # ─── Checkpoint State ───────────────────────────────────────────────────────
@@ -136,7 +135,7 @@ class StateCheckpoint:
             try:
                 if 'tmp_path' in locals():
                     os.remove(tmp_path)
-            except:
+            except Exception:
                 pass
             return False
 

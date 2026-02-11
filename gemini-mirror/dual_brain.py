@@ -34,9 +34,7 @@ from config import (
     DUAL_BRAIN_CONFIG,
     PROJECT_ROOT,
     STATE_DIR,
-    MEMORY_DIR,
     OUTPUT_DIR,
-    MODEL_ROUTING,
 )
 from gemini_client import GeminiClient
 

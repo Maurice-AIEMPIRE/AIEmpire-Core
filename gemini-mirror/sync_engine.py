@@ -27,7 +27,7 @@ import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 
 MIRROR_DIR = Path(__file__).parent
 sys.path.insert(0, str(MIRROR_DIR))
@@ -143,7 +143,7 @@ class SyncEngine:
         self.state["sync_history"] = self.state["sync_history"][-100:]
         self._save_sync_state(self.state)
 
-        logger.info(f"\n=== SYNC ABGESCHLOSSEN ===")
+        logger.info("\n=== SYNC ABGESCHLOSSEN ===")
         logger.info(f"Paare synchronisiert: {results['pairs_synced']}")
         logger.info(f"Konflikte geloest: {results['conflicts']}")
         logger.info(f"Fehler: {len(results['errors'])}")
