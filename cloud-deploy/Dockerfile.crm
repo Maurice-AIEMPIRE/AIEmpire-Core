@@ -1,0 +1,22 @@
+# ═══════════════════════════════════════════════════════════
+# Dockerfile: CRM (Express.js, Port 3500)
+# ═══════════════════════════════════════════════════════════
+FROM node:20-slim AS base
+
+WORKDIR /app
+
+# Copy package files
+COPY crm/package*.json ./
+
+# Install dependencies
+RUN npm ci --production 2>/dev/null || npm install --production
+
+# Copy application
+COPY crm/ ./
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:3500/health || exit 1
+
+EXPOSE 3500
+
+CMD ["node", "server.js"]

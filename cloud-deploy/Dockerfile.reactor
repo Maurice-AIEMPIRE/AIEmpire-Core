@@ -1,0 +1,28 @@
+# ═══════════════════════════════════════════════════════════
+# Dockerfile: Atomic Reactor (FastAPI Task Runner, Port 8888)
+# ═══════════════════════════════════════════════════════════
+FROM python:3.11-slim AS base
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl gcc && \
+    rm -rf /var/lib/apt/lists/*
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt 2>/dev/null || \
+    pip install --no-cache-dir \
+    fastapi uvicorn[standard] aiohttp httpx \
+    pyyaml redis asyncpg aiofiles \
+    pydantic python-dotenv
+
+COPY atomic_reactor/ ./atomic_reactor/
+COPY antigravity/ ./antigravity/
+COPY workflow_system/ ./workflow_system/
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=15s --retries=3 \
+    CMD curl -f http://localhost:8888/health || exit 1
+
+EXPOSE 8888
+
+CMD ["python", "-m", "uvicorn", "atomic_reactor.main:app", "--host", "0.0.0.0", "--port", "8888"]
