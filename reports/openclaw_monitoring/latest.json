@@ -1,0 +1,512 @@
+{
+  "generated_at_utc": "2026-02-11T12:50:20.475174+00:00",
+  "window_hours": 24,
+  "cutoff_utc": "2026-02-10T12:50:20.475174+00:00",
+  "configured_jobs": 9,
+  "runs_24h": [
+    {
+      "job_id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
+      "ts": "2026-02-11T02:21:51.813000+00:00",
+      "status": "error",
+      "duration_ms": 78,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
+      "ts": "2026-02-11T02:21:51.856000+00:00",
+      "status": "error",
+      "duration_ms": 41,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
+      "ts": "2026-02-11T02:21:51.891000+00:00",
+      "status": "error",
+      "duration_ms": 34,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
+      "ts": "2026-02-11T02:21:51.996000+00:00",
+      "status": "error",
+      "duration_ms": 104,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "d29640ec-a644-492d-a54c-0ff97c360984",
+      "ts": "2026-02-11T02:21:52.031000+00:00",
+      "status": "error",
+      "duration_ms": 34,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "976b5f3a-9e7d-404e-ba4d-d66540ee635b",
+      "ts": "2026-02-11T02:21:52.071000+00:00",
+      "status": "error",
+      "duration_ms": 39,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "d2eece4d-693b-4747-a970-4fc74b40e403",
+      "ts": "2026-02-11T02:21:52.108000+00:00",
+      "status": "error",
+      "duration_ms": 37,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "a114b9e7-92d0-4709-bc71-6e2d0280bd3b",
+      "ts": "2026-02-11T02:21:52.195000+00:00",
+      "status": "error",
+      "duration_ms": 86,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "db3808e0-aa51-4699-b5ad-2f640282421f",
+      "ts": "2026-02-11T02:21:52.239000+00:00",
+      "status": "error",
+      "duration_ms": 43,
+      "error": "FailoverError: No API key found for provider \"anthropic\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir."
+    },
+    {
+      "job_id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
+      "ts": "2026-02-11T07:00:00.595000+00:00",
+      "status": "error",
+      "duration_ms": 366,
+      "error": "Error: All models failed (3): openai/gpt-4o-mini: No API key found for provider \"openai\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth) | openai/gpt-4.1-mini: No API key found for provider \"openai\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth) | openrouter/openai/gpt-4o-mini: No API key found for provider \"openrouter\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth)"
+    },
+    {
+      "job_id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
+      "ts": "2026-02-11T08:00:00.483000+00:00",
+      "status": "error",
+      "duration_ms": 290,
+      "error": "Error: All models failed (3): openai/gpt-4o-mini: No API key found for provider \"openai\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth) | openai/gpt-4.1-mini: No API key found for provider \"openai\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth) | openrouter/openai/gpt-4o-mini: No API key found for provider \"openrouter\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth)"
+    },
+    {
+      "job_id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
+      "ts": "2026-02-11T09:00:00.501000+00:00",
+      "status": "error",
+      "duration_ms": 311,
+      "error": "Error: All models failed (3): openai/gpt-4o-mini: No API key found for provider \"openai\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth) | openai/gpt-4.1-mini: No API key found for provider \"openai\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth) | openrouter/openai/gpt-4o-mini: No API key found for provider \"openrouter\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth)"
+    },
+    {
+      "job_id": "d29640ec-a644-492d-a54c-0ff97c360984",
+      "ts": "2026-02-11T11:00:00.578000+00:00",
+      "status": "error",
+      "duration_ms": 265,
+      "error": "Error: All models failed (3): openai/gpt-4o-mini: No API key found for provider \"openai\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth) | openai/gpt-4.1-mini: No API key found for provider \"openai\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth) | openrouter/openai/gpt-4o-mini: No API key found for provider \"openrouter\". Auth store: /Users/maurice/.openclaw/agents/main/agent/auth-profiles.json (agentDir: /Users/maurice/.openclaw/agents/main/agent). Configure auth for this agent (openclaw agents add <id>) or copy auth-profiles.json from the main agentDir. (auth)"
+    },
+    {
+      "job_id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
+      "ts": "2026-02-11T12:08:54.119000+00:00",
+      "status": "error",
+      "duration_ms": 146,
+      "error": "Error: All models failed (4): openrouter/qwen/qwen3-next-80b-a3b-instruct:free: Provider openrouter is in cooldown (all profiles unavailable) (rate_limit) | openrouter/qwen/qwen3-coder:free: Provider openrouter is in cooldown (all profiles unavailable) (rate_limit) | openrouter/meta-llama/llama-3.3-70b-instruct:free: Provider openrouter is in cooldown (all profiles unavailable) (rate_limit) | openrouter/mistralai/mistral-small-3.1-24b-instruct:free: Provider openrouter is in cooldown (all profiles unavailable) (rate_limit)"
+    },
+    {
+      "job_id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
+      "ts": "2026-02-11T12:10:10.432000+00:00",
+      "status": "error",
+      "duration_ms": 89,
+      "error": "Error: All models failed (4): openrouter/qwen/qwen3-next-80b-a3b-instruct:free: Provider openrouter is in cooldown (all profiles unavailable) (rate_limit) | openrouter/qwen/qwen3-coder:free: Provider openrouter is in cooldown (all profiles unavailable) (rate_limit) | openrouter/meta-llama/llama-3.3-70b-instruct:free: Provider openrouter is in cooldown (all profiles unavailable) (rate_limit) | openrouter/mistralai/mistral-small-3.1-24b-instruct:free: Provider openrouter is in cooldown (all profiles unavailable) (rate_limit)"
+    },
+    {
+      "job_id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
+      "ts": "2026-02-11T12:32:32.379000+00:00",
+      "status": "error",
+      "duration_ms": 24527,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
+      "ts": "2026-02-11T12:33:54.239000+00:00",
+      "status": "error",
+      "duration_ms": 76657,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
+      "ts": "2026-02-11T12:34:20.263000+00:00",
+      "status": "error",
+      "duration_ms": 22611,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
+      "ts": "2026-02-11T12:34:52.891000+00:00",
+      "status": "error",
+      "duration_ms": 29721,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "d29640ec-a644-492d-a54c-0ff97c360984",
+      "ts": "2026-02-11T12:35:29.907000+00:00",
+      "status": "error",
+      "duration_ms": 33369,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "976b5f3a-9e7d-404e-ba4d-d66540ee635b",
+      "ts": "2026-02-11T12:36:16.409000+00:00",
+      "status": "error",
+      "duration_ms": 43669,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "d2eece4d-693b-4747-a970-4fc74b40e403",
+      "ts": "2026-02-11T12:37:27.031000+00:00",
+      "status": "error",
+      "duration_ms": 67102,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "a114b9e7-92d0-4709-bc71-6e2d0280bd3b",
+      "ts": "2026-02-11T12:37:56.679000+00:00",
+      "status": "error",
+      "duration_ms": 26032,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "db3808e0-aa51-4699-b5ad-2f640282421f",
+      "ts": "2026-02-11T12:38:40.445000+00:00",
+      "status": "error",
+      "duration_ms": 40438,
+      "error": "cron delivery target is missing"
+    },
+    {
+      "job_id": "db3808e0-aa51-4699-b5ad-2f640282421f",
+      "ts": "2026-02-11T12:40:39.997000+00:00",
+      "status": "ok",
+      "duration_ms": 60320,
+      "error": null
+    },
+    {
+      "job_id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
+      "ts": "2026-02-11T12:41:35.188000+00:00",
+      "status": "ok",
+      "duration_ms": 26682,
+      "error": null
+    },
+    {
+      "job_id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
+      "ts": "2026-02-11T12:42:42.467000+00:00",
+      "status": "ok",
+      "duration_ms": 44046,
+      "error": null
+    },
+    {
+      "job_id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
+      "ts": "2026-02-11T12:43:11.867000+00:00",
+      "status": "ok",
+      "duration_ms": 25223,
+      "error": null
+    },
+    {
+      "job_id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
+      "ts": "2026-02-11T12:43:40.731000+00:00",
+      "status": "ok",
+      "duration_ms": 24622,
+      "error": null
+    },
+    {
+      "job_id": "d29640ec-a644-492d-a54c-0ff97c360984",
+      "ts": "2026-02-11T12:44:14.881000+00:00",
+      "status": "ok",
+      "duration_ms": 30122,
+      "error": null
+    },
+    {
+      "job_id": "976b5f3a-9e7d-404e-ba4d-d66540ee635b",
+      "ts": "2026-02-11T12:44:45.613000+00:00",
+      "status": "ok",
+      "duration_ms": 26101,
+      "error": null
+    },
+    {
+      "job_id": "d2eece4d-693b-4747-a970-4fc74b40e403",
+      "ts": "2026-02-11T12:45:11.472000+00:00",
+      "status": "ok",
+      "duration_ms": 22579,
+      "error": null
+    },
+    {
+      "job_id": "a114b9e7-92d0-4709-bc71-6e2d0280bd3b",
+      "ts": "2026-02-11T12:45:41.977000+00:00",
+      "status": "ok",
+      "duration_ms": 25115,
+      "error": null
+    }
+  ],
+  "gateway_model_usage": {
+    "anthropic/claude-opus-4-6": 4,
+    "openai/gpt-4o-mini": 5,
+    "openrouter/qwen/qwen3-next-80b-a3b-instruct:free": 11
+  },
+  "gateway_error_categories": {
+    "auth_missing": 40,
+    "rate_limit": 26,
+    "billing": 2
+  },
+  "jobs": [
+    {
+      "id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
+      "agentId": "research",
+      "name": "Daily trends scan (TikTok/YouTube/X)",
+      "description": "Scan trends and extract product content angles for TikTok, YouTube, X.",
+      "enabled": true,
+      "createdAtMs": 1770301384454,
+      "updatedAtMs": 1770813668497,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Scan today\u2019s trends on TikTok, YouTube, and X relevant to our product niche. Output: 10 trend bullets, 10 hooks, 5 product angles, and 3 content series ideas. Keep it concise and actionable.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1770879600000,
+        "lastRunAtMs": 1770813668497,
+        "lastStatus": "ok",
+        "lastDurationMs": 26682
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
+      "agentId": "content",
+      "name": "Daily short-form scripts",
+      "description": "Draft short-form scripts for TikTok/YouTube/X from trend inputs.",
+      "enabled": true,
+      "createdAtMs": 1770301399604,
+      "updatedAtMs": 1770813718401,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Create 3 short-form scripts (<=45s) and 5 tweet/X post drafts based on yesterday\u2019s trend scan. Include: hook, body beats, CTA. Format as a ready-to-post checklist.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1770883200000,
+        "lastRunAtMs": 1770813718401,
+        "lastStatus": "ok",
+        "lastDurationMs": 44046
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
+      "agentId": "product",
+      "name": "Daily offer packaging",
+      "description": "Refine product offer, CTA, and landing copy snippets.",
+      "enabled": true,
+      "createdAtMs": 1770301401253,
+      "updatedAtMs": 1770813766625,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 10 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Refine product offer for today\u2019s content. Output: 1 primary CTA, 2 alternate CTAs, 3 headline variants, 3 subhead variants, and 5 bullets focusing on value + proof.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1770886800000,
+        "lastRunAtMs": 1770813766625,
+        "lastStatus": "ok",
+        "lastDurationMs": 25223
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
+      "agentId": "finance",
+      "name": "Weekly revenue pipeline review",
+      "description": "Weekly revenue checklist and next actions.",
+      "enabled": true,
+      "createdAtMs": 1770301402829,
+      "updatedAtMs": 1770813796098,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 11 * * 1"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Weekly revenue review. Summarize: content output, engagement, funnel status, sales blockers, and top 5 actions for next week. Use concise bullets.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1771236000000,
+        "lastRunAtMs": 1770813796098,
+        "lastStatus": "ok",
+        "lastDurationMs": 24622
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "d29640ec-a644-492d-a54c-0ff97c360984",
+      "agentId": "content",
+      "name": "Daily content calendar (TikTok/YouTube/X)",
+      "description": "Plan daily posting slots, topics, and CTAs for TikTok, YouTube, and X.",
+      "enabled": true,
+      "createdAtMs": 1770301906646,
+      "updatedAtMs": 1770813824689,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 12 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Build today\u2019s content calendar for TikTok, YouTube, and X. Output: 3 posting slots with topic, hook, CTA, and target audience. Keep it concise.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1770894000000,
+        "lastRunAtMs": 1770813824689,
+        "lastStatus": "ok",
+        "lastDurationMs": 30122
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "976b5f3a-9e7d-404e-ba4d-d66540ee635b",
+      "agentId": "content",
+      "name": "Daily YouTube long-form outline",
+      "description": "Create a long-form YouTube outline based on top trend/offer.",
+      "enabled": true,
+      "createdAtMs": 1770301908162,
+      "updatedAtMs": 1770813859499,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 14 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Draft a 6\u201310 minute YouTube video outline based on the top trend/offer. Include: title options, hook, 5\u20137 beats, CTA, and thumbnail text ideas.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1770814800000,
+        "lastRunAtMs": 1770813859499,
+        "lastStatus": "ok",
+        "lastDurationMs": 26101
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "d2eece4d-693b-4747-a970-4fc74b40e403",
+      "agentId": "community",
+      "name": "Daily engagement playbook",
+      "description": "Generate engagement replies and community prompts for TikTok/YouTube/X.",
+      "enabled": true,
+      "createdAtMs": 1770301909991,
+      "updatedAtMs": 1770813888887,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 17 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Create an engagement playbook for today: 10 reply templates, 5 community prompts, and 5 DMs ideas tailored to TikTok, YouTube, and X.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1770825600000,
+        "lastRunAtMs": 1770813888887,
+        "lastStatus": "ok",
+        "lastDurationMs": 22579
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "a114b9e7-92d0-4709-bc71-6e2d0280bd3b",
+      "agentId": "ops",
+      "name": "Weekly batch production plan",
+      "description": "Plan weekly batch filming/writing for TikTok/YouTube/X.",
+      "enabled": true,
+      "createdAtMs": 1770301911538,
+      "updatedAtMs": 1770813915440,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 15 * * 1"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Weekly batch production plan: list 10 short-form video ideas, 3 long-form ideas, filming order, and a 2-hour production schedule.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1771250400000,
+        "lastRunAtMs": 1770813915440,
+        "lastStatus": "ok",
+        "lastDurationMs": 25115
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    },
+    {
+      "id": "db3808e0-aa51-4699-b5ad-2f640282421f",
+      "agentId": "analytics",
+      "name": "Daily KPI snapshot",
+      "description": "Create a daily KPI checklist to track views, CTR, and conversions.",
+      "enabled": true,
+      "createdAtMs": 1770301913015,
+      "updatedAtMs": 1770813579665,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 19 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Daily KPI snapshot template for TikTok/YouTube/X: metrics to log, target ranges, and a 5-bullet daily optimization plan.",
+        "model": "sonnet"
+      },
+      "state": {
+        "nextRunAtMs": 1770832800000,
+        "lastRunAtMs": 1770813579665,
+        "lastStatus": "ok",
+        "lastDurationMs": 60320
+      },
+      "delivery": {
+        "mode": "none"
+      }
+    }
+  ]
+}
