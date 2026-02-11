@@ -901,7 +901,7 @@ HTML_TEMPLATE = """<!doctype html>
       const idx = lower.indexOf(wakeLower);
       if (idx === -1) return null;
       let cmd = transcript.slice(idx + WAKE_WORD.length).trim();
-      cmd = cmd.replace(/^[,.:;\-]+/, "").trim();
+      cmd = cmd.replace(/^[,.:;-]+/, "").trim();
       return cmd;
     }
 
