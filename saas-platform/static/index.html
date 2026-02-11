@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AIEmpire Cloud — AI Business Automation Platform. Automatisiere dein Business mit KI-Agenten, Workflows und Dual-Brain Technologie.">
+    <title>AIEmpire Cloud — AI Business Automation Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a2e;
+            --text-primary: #f0f0f5;
+            --text-secondary: #8888aa;
+            --accent: #6c5ce7;
+            --accent-glow: rgba(108, 92, 231, 0.3);
+            --success: #00d2a0;
+            --gold: #ffd700;
+            --gradient-1: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            --gradient-2: linear-gradient(135deg, #00d2a0, #00b894);
+            --gradient-3: linear-gradient(135deg, #fd79a8, #e84393);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* ─── Hero ──────────────────────────── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(108, 92, 231, 0.15), transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(0, 210, 160, 0.1), transparent 50%),
+                var(--bg-primary);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236c5ce7' fill-opacity='0.03'%3E%3Cpath d='m36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: var(--accent-glow);
+            border: 1px solid rgba(108, 92, 231, 0.3);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #a29bfe;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        h1 span {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            background: rgba(108, 92, 231, 0.1);
+        }
+
+        /* ─── Features ─────────────────────── */
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(108, 92, 231, 0.3);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ─── Pricing ─────────────────────── */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--bg-secondary);
+        }
+
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .price-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow);
+            transform: scale(1.05);
+        }
+
+        .price-card h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 1rem 0;
+        }
+
+        .price span { font-size: 1rem; color: var(--text-secondary); }
+
+        .price-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .price-features li::before {
+            content: '\2713 ';
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* ─── Architecture ─────────────────── */
+        .arch {
+            padding: 6rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .arch pre {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: left;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--success);
+        }
+
+        /* ─── Footer ──────────────────────── */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        @media (max-width: 768px) {
+            .cta-group { flex-direction: column; }
+            .price-card.featured { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="badge">Open Source AI Automation</div>
+        <h1>Dein Business.<br><span>100% KI-automatisiert.</span></h1>
+        <p>AIEmpire Cloud gibt dir ein komplettes Team aus KI-Agenten die dein Business 24/7 automatisieren — Workflows, Content, Leads, Revenue. Alles in der Cloud, kein lokaler Rechner noetig.</p>
+        <div class="cta-group">
+            <a href="/signup" class="btn btn-primary">Kostenlos starten</a>
+            <a href="/docs" class="btn btn-secondary">API Docs</a>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <h2>Was du bekommst</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>5-Step Compound Loop</h3>
+                <p>AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER. Dein Business wird systematisch analysiert und optimiert — automatisch, alle 6 Stunden.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧠</div>
+                <h3>Dual-Brain Technologie</h3>
+                <p>Zwei KI-Gehirne (Main + Mirror) verstaerken sich gegenseitig. Review → Amplify → Compete. Ergebnisse die ein einzelnes Modell nie erreichen wuerde.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👁️</div>
+                <h3>Autonome Cowork Agents</h3>
+                <p>Observe-Plan-Act-Reflect Daemon der alle 30 Minuten dein System beobachtet und eigenstaendig Verbesserungen umsetzt.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Revenue Machine</h3>
+                <p>X/Twitter Content Generation, Lead Scoring, CRM mit BANT-Framework — automatische Kundengewinnung und Conversion.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🔗</div>
+                <h3>n8n Workflow Engine</h3>
+                <p>Visual Workflow Builder fuer komplexe Automatisierungen. Gemini Sync, Vision Interrogator, Brain Pulse — alles integriert.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Enterprise Security</h3>
+                <p>Isolierte Tenant-Instanzen, TLS/mTLS, Secret Manager, VPC Networking. Deine Daten bleiben deine Daten.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <h2>Preise</h2>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3>Free Trial</h3>
+                <div class="price">0€ <span>/14 Tage</span></div>
+                <ul class="price-features">
+                    <li>1 Agent Team</li>
+                    <li>500 API Calls</li>
+                    <li>1 GB Storage</li>
+                    <li>Community Support</li>
+                </ul>
+                <a href="/signup?plan=free" class="btn btn-secondary" style="width:100%">Testen</a>
+            </div>
+            <div class="price-card">
+                <h3>Starter</h3>
+                <div class="price">49€ <span>/Monat</span></div>
+                <ul class="price-features">
+                    <li>1 Agent Team</li>
+                    <li>5.000 API Calls</li>
+                    <li>5 GB Storage</li>
+                    <li>Email Support</li>
+                    <li>5-Step Workflow</li>
+                </ul>
+                <a href="/signup?plan=starter" class="btn btn-secondary" style="width:100%">Starten</a>
+            </div>
+            <div class="price-card featured">
+                <h3>Pro</h3>
+                <div class="price">149€ <span>/Monat</span></div>
+                <ul class="price-features">
+                    <li>5 Agent Teams</li>
+                    <li>50.000 API Calls</li>
+                    <li>25 GB Storage</li>
+                    <li>Dual-Brain Mirror</li>
+                    <li>Custom Agents</li>
+                    <li>Priority Support</li>
+                </ul>
+                <a href="/signup?plan=pro" class="btn btn-primary" style="width:100%">Beliebteste Wahl</a>
+            </div>
+            <div class="price-card">
+                <h3>Enterprise</h3>
+                <div class="price">499€ <span>/Monat</span></div>
+                <ul class="price-features">
+                    <li>Unlimited Agents</li>
+                    <li>Unlimited API Calls</li>
+                    <li>100 GB Storage</li>
+                    <li>Dedicated Support</li>
+                    <li>Custom Domain</li>
+                    <li>SLA 99.9%</li>
+                </ul>
+                <a href="/signup?plan=enterprise" class="btn btn-secondary" style="width:100%">Kontakt</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="arch">
+        <h2>Architektur</h2>
+        <pre>
+┌─────────────────────────────────────────────────────┐
+│              AIEMPIRE CLOUD (Control Plane)          │
+│  ┌──────────┐  ┌──────────┐  ┌────────────────┐    │
+│  │ API GW   │  │ Billing  │  │ Admin Dashboard│    │
+│  │ (JWT+    │  │ (Stripe) │  │ (Metrics)      │    │
+│  │  Route)  │  │          │  │                │    │
+│  └────┬─────┘  └──────────┘  └────────────────┘    │
+└───────┼─────────────────────────────────────────────┘
+        │ Isolierte Tenant-Instanzen
+┌───────┼─────────────────────────────────────────────┐
+│  ┌────▼─────┐  ┌──────────┐  ┌──────────┐          │
+│  │ Dein     │  │ Kunde B  │  │ Kunde C  │  ...     │
+│  │ Empire   │  │ Empire   │  │ Empire   │          │
+│  │ ┌──────┐ │  │ ┌──────┐ │  │ ┌──────┐ │          │
+│  │ │Agents│ │  │ │Agents│ │  │ │Agents│ │          │
+│  │ │Brain │ │  │ │Brain │ │  │ │Brain │ │          │
+│  │ │Mirror│ │  │ │Mirror│ │  │ │Mirror│ │          │
+│  │ └──────┘ │  │ └──────┘ │  │ └──────┘ │          │
+│  └──────────┘  └──────────┘  └──────────┘          │
+└─────────────────────────────────────────────────────┘
+  Ollama (95% Free) → Gemini (Mirror) → Claude (1%)
+        </pre>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>AIEmpire Cloud — Built by Maurice Pfeifer</p>
+        <p style="margin-top:0.5rem;font-size:0.85rem">Elektrotechnikmeister × KI-Automation × 16 Jahre BMA-Expertise</p>
+    </footer>
+</body>
+</html>

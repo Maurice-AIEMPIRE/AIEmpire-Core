@@ -1,0 +1,33 @@
+# ═══════════════════════════════════════════════════════════
+# Dockerfile: SaaS Platform API (Port 8000)
+# ═══════════════════════════════════════════════════════════
+FROM python:3.11-slim
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends curl && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir \
+    fastapi uvicorn[standard] \
+    aiohttp httpx \
+    asyncpg redis \
+    pydantic python-dotenv \
+    PyJWT stripe
+
+# Copy platform code
+COPY saas-platform/ ./saas-platform/
+
+# Copy shared modules
+COPY antigravity/ ./antigravity/
+COPY gemini-mirror/ ./gemini-mirror/
+COPY workflow_system/ ./workflow_system/
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:8000/health || exit 1
+
+EXPOSE 8000
+
+WORKDIR /app/saas-platform
+
+CMD ["python", "-m", "uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
