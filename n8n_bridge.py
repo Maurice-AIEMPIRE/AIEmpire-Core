@@ -61,8 +61,8 @@ def run_bridge():
 
     processed_leads = set()
     # Initial scan of leads
-    if LEADS_DIR.exists():
-        for f in LEADS_DIR.glob("*.md"):
+    if WATCH_DIR.exists():
+        for f in WATCH_DIR.glob("*.md"):
             processed_leads.add(str(f))
 
     while True:
