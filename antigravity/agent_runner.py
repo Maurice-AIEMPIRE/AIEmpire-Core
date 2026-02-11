@@ -149,16 +149,24 @@ def run_agent(
 
     except Exception as e:
         duration = time.time() - start
-        console.print(f"  [red]✗[/red] Error: {e}")
+        error_msg = str(e)
+        console.print(f"  [red]✗[/red] Error: {error_msg}")
+
+        # Return error as content so user sees it (not empty string)
+        user_msg = f"Agent {agent.name} konnte nicht antworten: {error_msg}"
+        if "connect" in error_msg.lower() or "ollama" in error_msg.lower():
+            user_msg += "\n\nLoesung: ollama serve starten oder GEMINI_API_KEY in .env setzen"
+            user_msg += "\nDiagnose: python antigravity/setup_check.py"
+
         agent_result = AgentResult(
             agent_name=agent.name,
             role=agent.role,
             model=agent.model,
             success=False,
-            content="",
+            content=user_msg,
             duration_seconds=duration,
             branch=branch,
-            error=str(e),
+            error=error_msg,
         )
 
     # Switch back to main

@@ -13,6 +13,20 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Optional
 
+# Auto-load .env file before reading API keys
+_env_path = Path(__file__).parent / ".env"
+if _env_path.exists() and not os.getenv("GEMINI_API_KEY"):
+    for _line in _env_path.read_text().splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            if _line.startswith("export "):
+                _line = _line[7:]
+            _key, _, _val = _line.partition("=")
+            _key = _key.strip()
+            _val = _val.strip().strip('"').strip("'")
+            if _val and not os.environ.get(_key):
+                os.environ[_key] = _val
+
 # API Keys
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
@@ -225,6 +239,18 @@ class ChatManager:
         model_config = self.supported_models[model]
         
         if not model_config["available"]:
+            # Check if ANY model is available
+            any_available = any(m["available"] for m in self.supported_models.values())
+            if not any_available:
+                return {
+                    "error": (
+                        "Kein AI Provider verfuegbar!\n\n"
+                        "Loesungen:\n"
+                        "  1. GEMINI_API_KEY in .env setzen (kostenlos: https://aistudio.google.com/apikey)\n"
+                        "  2. ollama serve starten (lokal, kostenlos)\n"
+                        "  3. python antigravity/setup_check.py (Diagnose)"
+                    )
+                }
             return {"error": f"Model {model} is not available (missing API key)"}
         
         # Prepare messages

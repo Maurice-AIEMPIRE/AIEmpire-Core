@@ -5,10 +5,26 @@ Verteilt Tasks an spezialisierte lokale Modelle
 
 import asyncio
 import json
+import os
 import subprocess
 import sys
+from pathlib import Path
 from antigravity.config import AGENTS
 from typing import Any, Optional
+
+# Auto-load .env
+_env_path = Path(__file__).parent.parent / ".env"
+if _env_path.exists() and not os.getenv("GEMINI_API_KEY"):
+    for _line in _env_path.read_text().splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            if _line.startswith("export "):
+                _line = _line[7:]
+            _key, _, _val = _line.partition("=")
+            _key = _key.strip()
+            _val = _val.strip().strip('"').strip("'")
+            if _val and not os.environ.get(_key):
+                os.environ[_key] = _val
 
 
 class GodmodeRouter:
@@ -69,6 +85,35 @@ Context: {json.dumps(context or {}, indent=2)}
         print(f"\n🤖 {agent.name} ({agent.model}) is working on task...")
         print(f"📋 Task: {prompt[:100]}...")
 
+        # Check if Ollama is reachable before trying
+        ollama_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        try:
+            check = await asyncio.to_thread(
+                subprocess.run,
+                ["curl", "-sf", f"{ollama_url}/api/tags"],
+                capture_output=True, timeout=3,
+            )
+            ollama_ok = check.returncode == 0
+        except Exception:
+            ollama_ok = False
+
+        if not ollama_ok:
+            error_msg = (
+                f"Ollama ist nicht erreichbar ({ollama_url})!\n\n"
+                "Loesungen:\n"
+                "  1. ollama serve   (Ollama starten)\n"
+                "  2. GEMINI_API_KEY in .env setzen (Cloud-Alternative)\n"
+                "  3. python antigravity/setup_check.py   (Diagnose)\n"
+            )
+            return {
+                "agent": agent.name,
+                "model": agent.model,
+                "branch": branch_name,
+                "output": error_msg,
+                "error": error_msg,
+                "success": False,
+            }
+
         # Call Ollama via subprocess (run in thread to avoid blocking event loop)
         try:
             result = await asyncio.to_thread(
@@ -83,17 +128,35 @@ Context: {json.dumps(context or {}, indent=2)}
                 "agent": agent.name,
                 "model": agent.model,
                 "branch": branch_name,
-                "output": "",
+                "output": f"Timeout: {agent.model} hat laenger als 300s gebraucht",
                 "error": f"Timeout: {agent.model} took >300s",
                 "success": False,
             }
+        except FileNotFoundError:
+            error_msg = (
+                "ollama CLI nicht gefunden!\n\n"
+                "Installation: curl -fsSL https://ollama.ai/install.sh | sh\n"
+                "Oder GEMINI_API_KEY in .env setzen fuer Cloud-Modus"
+            )
+            return {
+                "agent": agent.name,
+                "model": agent.model,
+                "branch": branch_name,
+                "output": error_msg,
+                "error": "ollama not installed",
+                "success": False,
+            }
+
+        output = result.stdout or result.stderr
+        if not output and result.returncode != 0:
+            output = f"Agent {agent.name} gab keine Antwort (Exit Code: {result.returncode})"
 
         return {
             "agent": agent.name,
             "model": agent.model,
             "branch": branch_name,
-            "output": result.stdout,
-            "error": result.stderr,
+            "output": output,
+            "error": result.stderr if result.returncode != 0 else "",
             "success": result.returncode == 0,
         }
 

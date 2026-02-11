@@ -42,6 +42,17 @@ async def chat_endpoint(request: ChatRequest):
             use_local=request.use_local
         )
         return response
+    except ValueError as e:
+        # Missing provider — return clear setup instructions
+        detail = (
+            f"{str(e)}\n\n"
+            "Loesungen:\n"
+            "  1. ollama serve   (Lokales Ollama starten)\n"
+            "  2. MOONSHOT_API_KEY in .env setzen\n"
+            "  3. python antigravity/setup_check.py   (Diagnose)"
+        )
+        logger.error(f"No provider: {str(e)}")
+        raise HTTPException(status_code=503, detail=detail)
     except Exception as e:
         logger.error(f"Chat error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
