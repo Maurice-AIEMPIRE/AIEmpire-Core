@@ -285,3 +285,61 @@ python3 -m automation.mission_control voice --audio path/to/command.m4a --dispat
 Voice-Outputs:
 - `automation/runs/voice_<run_id>/voice_event.json`
 - `automation/runs/voice_<run_id>/*.transcript.txt`
+
+## Stability Layer (neu)
+
+Ziel: OpenClaw dauerhaft stabil halten (Healthchecks, Self-Heal, Snapshots).
+
+### 1) Einmalige Installation
+
+```bash
+automation/scripts/install_openclaw_stability.sh
+```
+
+Installiert zwei LaunchAgents:
+- `com.ai-empire.openclaw-self-heal` (alle 5 Minuten)
+- `com.ai-empire.openclaw-snapshot` (stuendlich)
+
+Runtime-Pfad (Launchd-safe):
+- `~/Library/Application Support/ai-empire/stability-runtime/`
+
+### 2) Manuelle Checks
+
+```bash
+# Health Snapshot erzeugen
+automation/scripts/openclaw_healthcheck.sh
+
+# Self-Healing Lauf
+automation/scripts/openclaw_self_heal.sh
+
+# Konfig-/State Snapshot
+automation/scripts/openclaw_snapshot.sh
+```
+
+### 3) Outputs und Logs
+
+- Health Summary: `00_SYSTEM/stability/last_healthcheck.json`
+- Self-Heal Report: `00_SYSTEM/stability/last_self_heal.json`
+- Health Log: `00_SYSTEM/stability/healthcheck.log`
+- Heal Log: `00_SYSTEM/stability/self_heal.log`
+- Snapshots: `ai-vault/backups/openclaw/<timestamp>/`
+
+Unter LaunchAgent:
+- Health Summary: `~/Library/Application Support/ai-empire/stability-runtime/00_SYSTEM/stability/last_healthcheck.json`
+- Self-Heal Report: `~/Library/Application Support/ai-empire/stability-runtime/00_SYSTEM/stability/last_self_heal.json`
+
+### 4) LaunchAgent Betrieb
+
+```bash
+# Status
+launchctl print gui/$(id -u)/com.ai-empire.openclaw-self-heal
+launchctl print gui/$(id -u)/com.ai-empire.openclaw-snapshot
+
+# Stop
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.ai-empire.openclaw-self-heal.plist
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.ai-empire.openclaw-snapshot.plist
+
+# Start
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ai-empire.openclaw-self-heal.plist
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.ai-empire.openclaw-snapshot.plist
+```

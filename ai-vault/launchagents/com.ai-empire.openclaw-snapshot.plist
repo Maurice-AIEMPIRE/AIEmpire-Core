@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ai-empire.openclaw-snapshot</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>__ROOT_DIR__/automation/scripts/openclaw_snapshot.sh</string>
+  </array>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StartInterval</key>
+  <integer>3600</integer>
+
+  <key>StandardOutPath</key>
+  <string>__ROOT_DIR__/00_SYSTEM/stability/launchd_openclaw_snapshot.out.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>__ROOT_DIR__/00_SYSTEM/stability/launchd_openclaw_snapshot.err.log</string>
+</dict>
+</plist>
+
