@@ -1,0 +1,32 @@
+[
+  {
+    "id": "pat_0001",
+    "pattern": "Cost-First Model Routing",
+    "context": "Immer billigstes Modell zuerst (Ollama > Kimi > Claude > Gemini)",
+    "frequency": 5,
+    "source": "claude_primary",
+    "discovered": "2026-02-11T02:04:13.920885",
+    "last_seen": "2026-02-11T02:04:13.920886",
+    "applied_count": 0
+  },
+  {
+    "id": "pat_0002",
+    "pattern": "JSON-structured AI output",
+    "context": "Alle AI Agents liefern strukturiertes JSON zurueck",
+    "frequency": 10,
+    "source": "claude_primary",
+    "discovered": "2026-02-11T02:04:13.921329",
+    "last_seen": "2026-02-11T02:04:13.921330",
+    "applied_count": 0
+  },
+  {
+    "id": "pat_0003",
+    "pattern": "Async-first Architecture",
+    "context": "asyncio/aiohttp fuer alle I/O Operationen",
+    "frequency": 8,
+    "source": "claude_primary",
+    "discovered": "2026-02-11T02:04:13.921833",
+    "last_seen": "2026-02-11T02:04:13.921834",
+    "applied_count": 0
+  }
+]

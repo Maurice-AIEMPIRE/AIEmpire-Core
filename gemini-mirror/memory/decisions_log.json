@@ -1,0 +1,29 @@
+[
+  {
+    "id": "dec_0001",
+    "decision": "Dual-Brain Architecture",
+    "reasoning": "Claude als Primary Brain (Mac), Gemini als Mirror Brain (Cloud) - beide verbessern sich gegenseitig",
+    "alternatives": [],
+    "source": "claude_primary",
+    "timestamp": "2026-02-11T02:04:13.919507",
+    "outcome": null
+  },
+  {
+    "id": "dec_0002",
+    "decision": "Product Factory statt einzelne Produkte",
+    "reasoning": "7-Step Pipeline automatisiert den gesamten Weg von Idee bis Revenue",
+    "alternatives": [],
+    "source": "claude_primary",
+    "timestamp": "2026-02-11T02:04:13.920172",
+    "outcome": null
+  },
+  {
+    "id": "dec_0003",
+    "decision": "3 Signature Product Lines",
+    "reasoning": "AI Ops Handwerk + Legal Warroom + Content Factory - verschiedene Preispunkte und Zielgruppen",
+    "alternatives": [],
+    "source": "claude_primary",
+    "timestamp": "2026-02-11T02:04:13.920582",
+    "outcome": null
+  }
+]

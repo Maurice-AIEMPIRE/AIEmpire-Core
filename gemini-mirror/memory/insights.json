@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ins_0001",
+    "insight": "Revenue = 0 ist der kritischste Blocker - alles andere ist sekundaer",
+    "category": "business",
+    "impact": "critical",
+    "source": "claude_primary",
+    "timestamp": "2026-02-11T02:04:13.922148",
+    "acted_on": false
+  },
+  {
+    "id": "ins_0002",
+    "insight": "BMA + AI Nische ist extrem wertvoll weil niemand sonst beides kann",
+    "category": "business",
+    "impact": "high",
+    "source": "claude_primary",
+    "timestamp": "2026-02-11T02:04:13.922621",
+    "acted_on": false
+  },
+  {
+    "id": "ins_0003",
+    "insight": "Mac hat nur 3.8GB RAM - Ollama muss mit quantized models laufen",
+    "category": "technical",
+    "impact": "medium",
+    "source": "claude_primary",
+    "timestamp": "2026-02-11T02:04:13.923015",
+    "acted_on": false
+  }
+]

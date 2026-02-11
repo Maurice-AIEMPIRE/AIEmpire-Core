@@ -1,0 +1,227 @@
+{
+  "created": "2026-02-11T02:04:13.907710",
+  "version": 1,
+  "categories": {
+    "business": {
+      "unique_niche": {
+        "id": "6a7d7fc7",
+        "key": "unique_niche",
+        "value": "BMA + AI Kombination - kein Wettbewerber hat beides",
+        "source": "claude_primary",
+        "confidence": 0.95,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.910964",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "revenue_channels": {
+        "id": "1a9b1085",
+        "key": "revenue_channels",
+        "value": "Gumroad (27-149 EUR), Fiverr (30-5000 EUR), BMA+AI Consulting (2000-10000 EUR)",
+        "source": "claude_primary",
+        "confidence": 0.9,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.911604",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "current_revenue": {
+        "id": "1935dd74",
+        "key": "current_revenue",
+        "value": "0 EUR - alle Channels muessen aktiviert werden",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.912204",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "model_stack": {
+        "id": "c1940e0c",
+        "key": "model_stack",
+        "value": "Ollama (95% free) > Kimi K2.5 (4%) > Claude (1%) > Gemini (Mirror)",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.912739",
+        "accessed_count": 0,
+        "last_accessed": null
+      }
+    },
+    "technical": {
+      "infra_workflow": {
+        "id": "15e3e3e8",
+        "key": "infra_workflow",
+        "value": "5-Step Compound Loop: AUDIT > ARCHITECT > ANALYST > REFINERY > COMPOUNDER",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.913364",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "infra_cowork": {
+        "id": "d5274b47",
+        "key": "infra_cowork",
+        "value": "Autonomous Observe-Plan-Act-Reflect daemon (30min intervals)",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.914074",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "infra_swarm": {
+        "id": "1ac89f44",
+        "key": "infra_swarm",
+        "value": "Kimi 500K Agent Swarm mit Claude Orchestration",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.914730",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "infra_crm": {
+        "id": "ffe82b28",
+        "key": "infra_crm",
+        "value": "Express.js CRM mit SQLite, BANT Scoring, Port 3500",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.915448",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "infra_docker": {
+        "id": "a863d7c5",
+        "key": "infra_docker",
+        "value": "Ollama (11434) + ChromaDB (8000) + Redis (6379)",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.916118",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "mac_ram": {
+        "id": "7aa1b1e8",
+        "key": "mac_ram",
+        "value": "3.8GB RAM System - Ollama braucht quantized models (phi:q4)",
+        "source": "claude_primary",
+        "confidence": 0.9,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.916831",
+        "accessed_count": 0,
+        "last_accessed": null
+      }
+    },
+    "market": {},
+    "personal": {
+      "name": {
+        "id": "767db1ec",
+        "key": "name",
+        "value": "Maurice Pfeifer",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.907753",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "alter": {
+        "id": "3accd807",
+        "key": "alter",
+        "value": "37 Jahre",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.908426",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "beruf": {
+        "id": "e4538312",
+        "key": "beruf",
+        "value": "Elektrotechnikmeister",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.909058",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "expertise": {
+        "id": "c072c8ae",
+        "key": "expertise",
+        "value": "16 Jahre BMA-Expertise (Brandmeldeanlagen)",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.909642",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "ziel": {
+        "id": "c6f6f7e8",
+        "key": "ziel",
+        "value": "100 Mio EUR in 1-3 Jahren, alles automatisiert mit AI",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.910346",
+        "accessed_count": 0,
+        "last_accessed": null
+      }
+    },
+    "products": {},
+    "contacts": {},
+    "legal": {},
+    "bma": {
+      "kernkompetenz": {
+        "id": "dc848e9a",
+        "key": "kernkompetenz",
+        "value": "Brandmeldeanlagen - Planung, Installation, Wartung, Abnahme",
+        "source": "claude_primary",
+        "confidence": 1.0,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.917526",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "zielgruppe": {
+        "id": "c26b8cc2",
+        "key": "zielgruppe",
+        "value": "Handwerksmeister, kleine Betriebe, Projektleiter, technische Dienstleister",
+        "source": "claude_primary",
+        "confidence": 0.9,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.918319",
+        "accessed_count": 0,
+        "last_accessed": null
+      },
+      "unique_angle": {
+        "id": "5cd5078a",
+        "key": "unique_angle",
+        "value": "Elektrotechnikmeister + AI = automatisierte BMA-Workflows, Checklisten, Dokumentation",
+        "source": "claude_primary",
+        "confidence": 0.9,
+        "tags": [],
+        "created": "2026-02-11T02:04:13.918992",
+        "accessed_count": 0,
+        "last_accessed": null
+      }
+    },
+    "automation": {},
+    "content": {}
+  },
+  "total_entries": 18,
+  "sources": {
+    "claude_primary": 18,
+    "gemini_mirror": 0,
+    "user_input": 0,
+    "cowork_engine": 0,
+    "kimi_swarm": 0
+  },
+  "updated": "2026-02-11T02:04:13.918997"
+}

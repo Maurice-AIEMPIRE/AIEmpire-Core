@@ -1,0 +1,89 @@
+{
+  "created": "2026-02-11T02:05:19.026651",
+  "total_questions_asked": 5,
+  "total_answers_received": 0,
+  "last_question_date": "2026-02-11",
+  "unanswered_questions": [
+    {
+      "id": "q_2026-02-11_001",
+      "category": "vision_clarity",
+      "question_de": "Wenn du in 12 Monaten zurueckschaust - was MUSS passiert sein damit du sagst 'Das Jahr war ein voller Erfolg'?",
+      "why_this_question": "Kategorie vision_clarity am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Vision & Zielklarheit"
+    },
+    {
+      "id": "q_2026-02-11_002",
+      "category": "priority_ranking",
+      "question_de": "Du kannst diese Woche NUR an EINEM Projekt arbeiten. Welches waere es und warum?",
+      "why_this_question": "Kategorie priority_ranking am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Prioritaeten"
+    },
+    {
+      "id": "q_2026-02-11_003",
+      "category": "resource_allocation",
+      "question_de": "Du hast 1000 EUR Budget fuer die naechsten 7 Tage. Wofuer gibst du es aus?",
+      "why_this_question": "Kategorie resource_allocation am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Ressourcen & Investitionen"
+    },
+    {
+      "id": "q_2026-02-11_004",
+      "category": "risk_tolerance",
+      "question_de": "Wuerdest du lieber 50K EUR sicher verdienen oder eine 30% Chance auf 500K EUR?",
+      "why_this_question": "Kategorie risk_tolerance am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Risikobereitschaft"
+    },
+    {
+      "id": "q_2026-02-11_005",
+      "category": "product_vision",
+      "question_de": "Wenn du JETZT ein Produkt launchen muesstest - was waere es und fuer wen?",
+      "why_this_question": "Kategorie product_vision am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Produkt-Vision"
+    }
+  ],
+  "question_queue": [
+    {
+      "id": "q_2026-02-11_001",
+      "category": "vision_clarity",
+      "question_de": "Wenn du in 12 Monaten zurueckschaust - was MUSS passiert sein damit du sagst 'Das Jahr war ein voller Erfolg'?",
+      "why_this_question": "Kategorie vision_clarity am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Vision & Zielklarheit"
+    },
+    {
+      "id": "q_2026-02-11_002",
+      "category": "priority_ranking",
+      "question_de": "Du kannst diese Woche NUR an EINEM Projekt arbeiten. Welches waere es und warum?",
+      "why_this_question": "Kategorie priority_ranking am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Prioritaeten"
+    },
+    {
+      "id": "q_2026-02-11_003",
+      "category": "resource_allocation",
+      "question_de": "Du hast 1000 EUR Budget fuer die naechsten 7 Tage. Wofuer gibst du es aus?",
+      "why_this_question": "Kategorie resource_allocation am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Ressourcen & Investitionen"
+    },
+    {
+      "id": "q_2026-02-11_004",
+      "category": "risk_tolerance",
+      "question_de": "Wuerdest du lieber 50K EUR sicher verdienen oder eine 30% Chance auf 500K EUR?",
+      "why_this_question": "Kategorie risk_tolerance am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Risikobereitschaft"
+    },
+    {
+      "id": "q_2026-02-11_005",
+      "category": "product_vision",
+      "question_de": "Wenn du JETZT ein Produkt launchen muesstest - was waere es und fuer wen?",
+      "why_this_question": "Kategorie product_vision am wenigsten abgedeckt",
+      "expected_insight": "Besseres Verstaendnis von Produkt-Vision"
+    }
+  ],
+  "categories_covered": {
+    "vision_clarity": 1,
+    "priority_ranking": 1,
+    "resource_allocation": 1,
+    "risk_tolerance": 1,
+    "product_vision": 1
+  },
+  "confidence_scores": {},
+  "updated": "2026-02-11T02:05:19.026678"
+}
