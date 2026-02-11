@@ -8,6 +8,7 @@ ai-vault/empire.env
 automation/runs/
 ai-vault/*.log
 ai-vault/reports/
+reports/openclaw_monitoring/
 
 # Python cache artifacts
 **/__pycache__/

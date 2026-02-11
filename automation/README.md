@@ -94,6 +94,18 @@ export TELEGRAM_CHAT_ID="..."
 python3 -m automation.report --send
 ```
 
+## OpenClaw 24h Monitor
+
+Generate a local 24h operations report for OpenClaw (jobs, error rate, model usage, durations):
+
+```bash
+automation/scripts/run_openclaw_24h_monitor.sh
+```
+
+Outputs:
+- `reports/openclaw_monitoring/latest.md`
+- `reports/openclaw_monitoring/latest.json`
+
 ## TikTok API (neu)
 
 TikTok ist als eigenes CLI-Modul integriert:
@@ -190,6 +202,18 @@ Beispiele liegen in:
 Daily Content Sprint (Host-Fallback ohne Codex-Automations-Host):
 - Runtime-Script: `~/Library/Application Support/ai-empire/automation/run_daily_content_sprint.sh`
 - Outputs: `~/Library/Application Support/ai-empire/daily_sprints/`
+- Config: `~/Library/Application Support/ai-empire/daily_content_sprint.env`
+
+Install/Update in einem Schritt:
+```bash
+automation/scripts/install_daily_content_sprint.sh
+```
+
+Config-Template:
+```bash
+cp automation/config/daily_content_sprint.env.example \
+  ~/Library/Application\ Support/ai-empire/daily_content_sprint.env
+```
 
 Hinweis: Lege Secrets in `ai-vault/empire.env` (siehe `ai-vault/empire.env.example`).
 
