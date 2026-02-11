@@ -379,7 +379,18 @@ def run_parallel_chat(
                 error=f"Unexpected error: {exc}",
             )
 
-    max_workers = min(max(1, len(jobs)), 12)
+    env_max_workers = 0
+    try:
+        env_raw = os.getenv("MISSION_MAX_WORKERS", "").strip()
+        if env_raw:
+            env_max_workers = int(env_raw)
+    except Exception:
+        env_max_workers = 0
+
+    if env_max_workers > 0:
+        max_workers = min(max(1, env_max_workers), len(jobs))
+    else:
+        max_workers = min(max(1, len(jobs)), 12)
     with ThreadPoolExecutor(max_workers=max_workers) as pool:
         futures = [pool.submit(_worker, agent_id, spec) for agent_id, spec in jobs]
         for future in as_completed(futures):
