@@ -31,7 +31,7 @@ class VoiceMonitor:
         except (ImportError, OSError) as e:
             print(f"⚠️  No microphone available: {e}")
             print("💡 Running in dashboard-only mode")
-            self.has_microphone = False)
+            self.has_microphone = False
 
     def setup_tmux_dashboard(self):
         """Setup 6-window tmux dashboard"""
