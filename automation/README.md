@@ -180,6 +180,35 @@ Danach:
 - Mic-Input: `Mic Start` im UI
 - Backend: `automation/free_network_server.py`
 
+## Jarvis Profile (neu)
+
+Wake-Word gesteuertes Voice-Control fuer Desktop + Handy mit Audio-Doctor und Automation-Routing:
+
+```bash
+automation/scripts/run_jarvis_live.sh
+```
+
+Dann:
+- Desktop: `http://127.0.0.1:8877`
+- Handy im selben WLAN: `http://<LAN-IP>:8877`
+
+Audio-Check (DJI-Mic vs Output-Device):
+
+```bash
+python3 -m automation.jarvis --profile automation/config/jarvis_profile.json doctor
+```
+
+Audio-Profil anwenden (optional, macOS):
+
+```bash
+brew install switchaudio-osx
+python3 -m automation.jarvis --profile automation/config/jarvis_profile.json audio-apply
+```
+
+Details:
+- `automation/JARVIS_PROFILE.md`
+- Profil: `automation/config/jarvis_profile.json`
+
 ## Scheduling (LaunchAgent)
 
 Beispiele liegen in:
