@@ -16,9 +16,8 @@ rich>=13.0.0
 # HTTP client (used by all API clients)
 httpx>=0.25.0
 
-# Google Gemini & Cloud
-google-generativeai>=0.8.0
-google-cloud-aiplatform>=1.40.0
+# Web framework multipart support
+python-multipart>=0.0.6
 
 # Development tools
 ruff>=0.1.0
@@ -28,5 +27,15 @@ pytest>=7.0.0
 fastapi>=0.100.0
 uvicorn>=0.23.0
 
+# Templates
+jinja2>=3.0.0
+
+# Anthropic Claude
+anthropic>=0.30.0
+
 # Environment variable loading
 python-dotenv>=1.0.0
+
+# Trading and automation
+ccxt>=4.0.0
+schedule>=1.2.0

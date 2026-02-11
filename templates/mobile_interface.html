@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Empire Interface</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        .model-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .model-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .model-btn.active {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.05);
+        }
+
+        .chat-container {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .message.user {
+            background: rgba(255, 255, 255, 0.2);
+            text-align: right;
+        }
+
+        .message.ai {
+            background: rgba(0, 255, 0, 0.2);
+        }
+
+        .input-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .message-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .send-btn {
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            background: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .send-btn:hover {
+            background: #45a049;
+        }
+
+        .code-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .code-output {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .model-selector {
+                flex-direction: column;
+            }
+
+            .input-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 Mobile Empire Interface</h1>
+
+        <div class="model-selector">
+            <button class="model-btn active" onclick="selectModel('gemini')">Gemini</button>
+            <button class="model-btn" onclick="selectModel('claude')">Claude Haiku</button>
+            <button class="model-btn" onclick="selectModel('grok')">Grok Fastmode</button>
+        </div>
+
+        <div class="chat-container">
+            <div class="messages" id="messages">
+                <div class="message ai">
+                    <strong>System:</strong> Willkommen bei der Mobile Empire Interface! Wähle ein Modell und starte mit deiner Programmierung.
+                </div>
+            </div>
+
+            <div class="input-container">
+                <input type="text" class="message-input" id="messageInput" placeholder="Gib deine Anfrage ein...">
+                <button class="send-btn" onclick="sendMessage()">Senden</button>
+            </div>
+        </div>
+
+        <div class="code-section">
+            <h3>💻 Code Generator</h3>
+            <div class="input-container">
+                <input type="text" class="message-input" id="codePrompt" placeholder="Beschreibe den gewünschten Code...">
+                <select id="languageSelect" style="padding: 15px; border-radius: 10px; border: none;">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="java">Java</option>
+                    <option value="cpp">C++</option>
+                </select>
+                <button class="send-btn" onclick="generateCode()">Generieren</button>
+            </div>
+            <div class="code-output" id="codeOutput">Generierter Code erscheint hier...</div>
+        </div>
+
+        <div class="status" id="status">
+            Lade Status...
+        </div>
+    </div>
+
+    <script>
+        let selectedModel = 'gemini';
+
+        function selectModel(model) {
+            selectedModel = model;
+            document.querySelectorAll('.model-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            input.value = '';
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `message=${encodeURIComponent(message)}&model=${selectedModel}`
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    addMessage(`❌ Fehler: ${data.error}`, 'ai');
+                } else {
+                    addMessage(`${data.model}: ${data.response}`, 'ai');
+                }
+            } catch (error) {
+                addMessage(`❌ Netzwerkfehler: ${error.message}`, 'ai');
+            }
+        }
+
+        async function generateCode() {
+            const prompt = document.getElementById('codePrompt').value.trim();
+            const language = document.getElementById('languageSelect').value;
+
+            if (!prompt) return;
+
+            document.getElementById('codeOutput').textContent = 'Generiere Code...';
+
+            try {
+                const response = await fetch('/api/code', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `prompt=${encodeURIComponent(prompt)}&language=${language}`
+                });
+
+                const data = await response.json();
+
+                if (data.error) {
+                    document.getElementById('codeOutput').textContent = `❌ Fehler: ${data.error}`;
+                } else {
+                    document.getElementById('codeOutput').textContent = data.code;
+                }
+            } catch (error) {
+                document.getElementById('codeOutput').textContent = `❌ Netzwerkfehler: ${error.message}`;
+            }
+        }
+
+        function addMessage(text, type) {
+            const messages = document.getElementById('messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.innerHTML = `<strong>${type === 'user' ? 'Du' : 'AI'}:</strong> ${text}`;
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        async function loadStatus() {
+            try {
+                const response = await fetch('/api/status');
+                const status = await response.json();
+
+                let statusText = 'Status: ';
+                if (status.gemini) statusText += '✅ Gemini ';
+                else statusText += '❌ Gemini ';
+
+                if (status.claude) statusText += '✅ Claude ';
+                else statusText += '❌ Claude ';
+
+                if (status.grok) statusText += '✅ Grok ';
+                else statusText += '❌ Grok ';
+
+                document.getElementById('status').textContent = statusText;
+            } catch (error) {
+                document.getElementById('status').textContent = '❌ Status konnte nicht geladen werden';
+            }
+        }
+
+        // Enter key support
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        document.getElementById('codePrompt').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') generateCode();
+        });
+
+        // Load initial status
+        loadStatus();
+    </script>
+</body>
+</html>

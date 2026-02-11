@@ -1,165 +1,56 @@
-# Automate Skill - AIEmpire-Core
+---
+name: automate
+description: >-
+  Automation operator for AIEmpire-Core. Use when planning, creating, updating, or debugging repository automations:
+  GitHub Actions workflows, @bot issue-command flows, mission-control scans, OpenClaw cron jobs in openclaw-config/jobs.json,
+  n8n workflow JSON files, workflow-system orchestration loops, atomic_reactor task execution, and local service
+  start/stop/status scripts. Trigger for schedule changes, pipeline failures, automation reliability work, cost-aware
+  model routing, and recurring content or revenue operations.
+---
 
-## Purpose
+# Automate
 
-Automate repetitive tasks within the AI Empire ecosystem. This skill handles creating, scheduling, and managing automated workflows across all system components.
+Operate AIEmpire-Core automations with reproducible changes and lightweight validation.
+Load only the reference file that matches the current task to keep context small.
 
-## Capabilities
+## Select the execution layer
 
-### 1. GitHub Actions Automation
+1. Use `.github/workflows/` for repository events, cron schedules, issue bot behavior, and artifact or report publishing.
+2. Use `openclaw-config/jobs.json` for local OpenClaw cron turns routed to specific agents.
+3. Use `n8n-workflows/*.json` for external integrations and no-code orchestration.
+4. Use `workflow-system/` (`orchestrator.py`, `cowork.py`) for iterative planning and refinement loops.
+5. Use `atomic_reactor/tasks/*.yaml` plus `atomic_reactor/run_tasks.py` for batch LLM task execution.
+6. Use `scripts/start_all_services.sh`, `scripts/check_status.sh`, and `scripts/stop_all_services.sh` for local runtime operations.
 
-Create or modify workflows in `.github/workflows/`:
+## Run the preflight first
 
-```yaml
-# Standard workflow template
-name: [Workflow Name]
-on:
-  schedule:
-    - cron: '[schedule]'
-  workflow_dispatch:
-
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: [Step]
-        run: |
-          [commands]
-```
-
-**Existing Workflows:**
-
-| Workflow | Schedule | Purpose |
-|----------|----------|---------|
-| `auto-content-generation.yml` | Every 4h | Generate X/Twitter content |
-| `claude-health-check.yml` | Every 30min | Monitor Claude API status |
-| `issue-command-bot.yml` | On issue comment | Process @bot commands |
-| `revenue-tracking.yml` | Daily 9 AM | Revenue report |
-| `x-auto-poster.yml` | Daily 7 AM | Post to X/Twitter |
-| `weekly-review.yml` | Weekly | System review |
-| `gold-nugget-extractor.yml` | On trigger | Extract insights |
-| `daily-content-engine.yml` | Daily | Full content pipeline |
-| `deploy-mobile.yml` | On push | Deploy mobile PWA |
-
-### 2. Atomic Reactor Tasks
-
-Define new automated tasks in `atomic-reactor/tasks/`:
-
-```yaml
-# Task template
-name: [task-name]
-description: [what it does]
-schedule: [cron or trigger]
-model: [ollama|kimi|claude]
-priority: [1-5]
-steps:
-  - action: [action-type]
-    params:
-      key: value
-```
-
-### 3. OpenClaw Cron Jobs
-
-Modify or add cron jobs via `openclaw-config/jobs.json`:
-
-```json
-{
-  "name": "[job-name]",
-  "schedule": "*/30 * * * *",
-  "skill": "[skill-name]",
-  "model": "kimi-k2.5",
-  "enabled": true
-}
-```
-
-### 4. Workflow System Automation
-
-Leverage the 5-step compound loop:
+Run:
 
 ```bash
-# Automate a full cycle
-python workflow-system/orchestrator.py
-
-# Schedule the cowork daemon
-python workflow-system/cowork.py --daemon --interval 1800
-
-# Focus on specific area
-python workflow-system/cowork.py --daemon --focus revenue
+.github/skills/automate/scripts/preflight_automation.sh
 ```
 
-### 5. N8N Workflows
+Use output to confirm missing commands, missing paths, unset environment variables, and service port state before editing automations.
 
-Connect external services via `n8n-workflows/n8n_connector.py`.
+## Follow this change workflow
 
-## Automation Patterns
+1. Identify the source of truth with `references/repo-map.md`.
+2. Confirm current behavior in `references/workflow-catalog.md` before modifying schedules or command logic.
+3. Implement the smallest safe change.
+4. Validate with the matching command from `references/ops-runbook.md`.
+5. If workflow behavior changed, update comments, labels, and status messages in the same file so operator intent stays explicit.
+6. Keep generated artifacts and reports out of commits unless the task explicitly requires them.
 
-### Pattern: Content Pipeline
+## Enforce operating rules
 
-```
-Trigger: Cron (daily 7 AM)
-Steps:
-  1. Trend scan (Ollama) → trending topics
-  2. Content generation (Kimi) → 10 posts
-  3. Quality filter (Ollama) → top 5
-  4. Schedule posting (GitHub Action)
-  5. Track engagement (CRM)
-```
+1. Prefer existing directories and conventions; do not create parallel automation stacks.
+2. Keep path usage consistent with real repository names (`atomic_reactor`, not `atomic-reactor`).
+3. Treat API keys and tokens as environment-only values; never write secrets into files.
+4. Prefer cheap or local execution paths first, then escalate model cost only when quality or context limits require it.
+5. Include failure handling for automation changes (timeouts, retries, or explicit fallback paths).
 
-### Pattern: Lead Qualification
+## Use references on demand
 
-```
-Trigger: New lead in CRM
-Steps:
-  1. Enrich lead data (web scrape)
-  2. BANT scoring (Ollama)
-  3. If score > 7: route to Sales Agent
-  4. If score 4-7: add to nurture sequence
-  5. If score < 4: add to content funnel
-```
-
-### Pattern: Revenue Tracking
-
-```
-Trigger: Cron (daily 9 AM)
-Steps:
-  1. Pull Gumroad sales
-  2. Pull Fiverr earnings
-  3. Aggregate totals
-  4. Compare to targets
-  5. Generate report → docs/kpi/
-  6. Alert if below target
-```
-
-## Cost Rules
-
-| Model | Use For | Cost |
-|-------|---------|------|
-| Ollama (local) | 95% of tasks - routine, bulk, filtering | FREE |
-| Kimi K2.5 | Volume content, swarm tasks | ~0.001 EUR/call |
-| Claude Haiku | Quick quality checks | ~0.01 EUR/call |
-| Claude Sonnet | Code review, strategy | ~0.05 EUR/call |
-| Claude Opus | Critical decisions only | ~0.15 EUR/call |
-
-**Budget limit:** 100 EUR/month total. Always default to Ollama first.
-
-## Resource Guard Integration
-
-Before creating compute-heavy automations, check thresholds:
-
-| Level | CPU | RAM | Action |
-|-------|-----|-----|--------|
-| NORMAL | < 70% | < 75% | Full concurrency |
-| WARN | > 70% | > 75% | Reduce to 200 concurrent |
-| CRITICAL | > 85% | > 85% | Reduce to 50, outsource to Kimi |
-| EMERGENCY | > 95% | > 92% | Pause all agents |
-
-## Creating New Automations
-
-1. Define the trigger (cron, webhook, event, manual)
-2. Choose the execution layer (GitHub Actions, Atomic Reactor, OpenClaw, n8n)
-3. Select models by cost (Ollama first)
-4. Set resource limits
-5. Add error handling and fallback
-6. Test with `--test` flag before full deployment
-7. Monitor via KPI snapshots in `docs/kpi/`
+- Read `references/repo-map.md` for directory ownership and file-level authority.
+- Read `references/workflow-catalog.md` for current GitHub workflow triggers and outputs.
+- Read `references/ops-runbook.md` for command-level validation and troubleshooting.
