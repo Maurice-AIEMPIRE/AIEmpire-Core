@@ -1,0 +1,79 @@
+name: Mission Control Daily Scan
+
+'on':
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install aiohttp pyyaml
+
+      - name: Setup GitHub CLI
+        run: |
+          gh --version || echo "GitHub CLI not available"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run Mission Control Scan
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPO: ${{ github.repository }}
+        run: |
+          python3 mission_control.py
+
+      - name: Upload Dashboard
+        uses: actions/upload-artifact@v3
+        with:
+          name: mission-control-dashboard
+          path: MISSION_CONTROL.md
+          retention-days: 30
+
+      - name: Upload JSON Data
+        uses: actions/upload-artifact@v3
+        with:
+          name: mission-control-data
+          path: mission_control_data.json
+          retention-days: 90
+
+      - name: Create Issue with Results
+        if: github.event_name == 'schedule'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          TITLE="📊 Mission Control Daily Report - $DATE"
+          BODY=$(cat MISSION_CONTROL.md)
+          gh issue create \
+            --title "$TITLE" \
+            --body "$BODY" \
+            --label "mission-control,automated,daily-report"
+
+      - name: Comment on Trigger Issue
+        if: github.event_name == 'issue_comment' || github.event_name == 'issues'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          if [ -n "$ISSUE_NUMBER" ]; then
+            BODY=$(cat MISSION_CONTROL.md)
+            gh issue comment $ISSUE_NUMBER --body "$BODY"
+          fi

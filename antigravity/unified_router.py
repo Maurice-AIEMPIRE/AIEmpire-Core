@@ -111,10 +111,15 @@ class UnifiedRouter:
         if not self.config.offline_mode:
             try:
                 client = self._get_gemini_client()
-                available = await asyncio.to_thread(client.health_check)
-                self.providers["gemini"].available = available
-                self.providers["gemini"].last_check = time.time()
-                results["gemini"] = available
+                if not client.available:
+                    # No API key or project configured
+                    self.providers["gemini"].available = False
+                    results["gemini"] = False
+                else:
+                    available = await asyncio.to_thread(client.health_check)
+                    self.providers["gemini"].available = available
+                    self.providers["gemini"].last_check = time.time()
+                    results["gemini"] = available
             except Exception:
                 self.providers["gemini"].available = False
                 results["gemini"] = False

@@ -58,19 +58,19 @@ class SyncEngine:
         self.sync_pairs = [
             {
                 "name": "workflow_state",
-                "main": PROJECT_ROOT / "workflow-system" / "state" / "current_state.json",
+                "main": PROJECT_ROOT / "workflow_system" / "state" / "current_state.json",
                 "mirror": STATE_DIR / "mirror_state.json",
                 "strategy": "merge_context",
             },
             {
                 "name": "pattern_library",
-                "main": PROJECT_ROOT / "workflow-system" / "state" / "pattern_library.json",
+                "main": PROJECT_ROOT / "workflow_system" / "state" / "pattern_library.json",
                 "mirror": MEMORY_DIR / "cross_patterns.json",
                 "strategy": "merge_append",
             },
             {
                 "name": "cowork_state",
-                "main": PROJECT_ROOT / "workflow-system" / "state" / "cowork_state.json",
+                "main": PROJECT_ROOT / "workflow_system" / "state" / "cowork_state.json",
                 "mirror": STATE_DIR / "mirror_cowork_state.json",
                 "strategy": "merge_actions",
             },
@@ -279,7 +279,7 @@ class SyncEngine:
         logger.info("  Cross-Pollination...")
 
         # Main-Output lesen
-        main_output_dir = PROJECT_ROOT / "workflow-system" / "output"
+        main_output_dir = PROJECT_ROOT / "workflow_system" / "output"
         mirror_output_dir = MIRROR_DIR / "output"
 
         main_insights = self._extract_insights(main_output_dir, "main")

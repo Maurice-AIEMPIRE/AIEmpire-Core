@@ -58,7 +58,9 @@ class GeminiClient:
         self.project = project
         self.region = region
         self.timeout = timeout
+        # Only use Vertex if project is set; only use direct API if key is set
         self.use_vertex = use_vertex and bool(project)
+        self.available = bool(api_key) or self.use_vertex
 
         if self.use_vertex:
             self.base_url = (
@@ -171,6 +173,13 @@ class GeminiClient:
         Returns:
             dict with keys: content, model, usage, raw_response
         """
+        if not self.available:
+            raise ConnectionError(
+                "Gemini API not configured. Set GEMINI_API_KEY env var, "
+                "or set GOOGLE_CLOUD_PROJECT for Vertex AI. "
+                "Get a free key at: https://aistudio.google.com/apikey"
+            )
+
         model = self._get_model_name(agent)
         url = self._build_url(model, stream=False)
         payload = self._build_payload(agent, user_message, context)
@@ -309,7 +318,7 @@ class GeminiClient:
     def health_check(self) -> bool:
         """Check if Gemini API is accessible."""
         try:
-            if not self.api_key and not self.use_vertex:
+            if not self.available:
                 return False
 
             if self.use_vertex:

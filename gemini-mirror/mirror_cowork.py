@@ -49,22 +49,22 @@ FOCUS_AREAS = {
     "revenue": {
         "description": "Einnahmen generieren und monetarisieren",
         "priority_keywords": ["revenue", "gumroad", "fiverr", "consulting", "money"],
-        "scan_dirs": ["gold-nuggets", "x-lead-machine"],
+        "scan_dirs": ["gold-nuggets", "x_lead_machine"],
     },
     "content": {
         "description": "Content erstellen und verbreiten",
         "priority_keywords": ["content", "twitter", "post", "thread", "viral"],
-        "scan_dirs": ["x-lead-machine"],
+        "scan_dirs": ["x_lead_machine"],
     },
     "automation": {
         "description": "Mehr automatisieren, weniger manuell",
         "priority_keywords": ["automate", "cron", "workflow", "pipeline"],
-        "scan_dirs": ["workflow-system", "atomic-reactor", "openclaw-config"],
+        "scan_dirs": ["workflow_system", "atomic_reactor", "openclaw-config"],
     },
     "product": {
         "description": "Produkte entwickeln und verbessern",
         "priority_keywords": ["product", "feature", "release", "gumroad"],
-        "scan_dirs": ["atomic-reactor"],
+        "scan_dirs": ["atomic_reactor"],
     },
     "mirror": {
         "description": "Gemini-Mirror System verbessern",
@@ -238,10 +238,10 @@ class MirrorCowork:
 
         # Scan-Ziele
         scan_targets = {
-            "workflow_outputs": PROJECT_ROOT / "workflow-system" / "output",
+            "workflow_outputs": PROJECT_ROOT / "workflow_system" / "output",
             "mirror_outputs": OUTPUT_DIR,
-            "swarm_outputs": PROJECT_ROOT / "kimi-swarm",
-            "lead_machine": PROJECT_ROOT / "x-lead-machine",
+            "swarm_outputs": PROJECT_ROOT / "kimi_swarm",
+            "lead_machine": PROJECT_ROOT / "x_lead_machine",
             "gold_nuggets": PROJECT_ROOT / "gold-nuggets",
             "mirror_state": STATE_DIR,
             "mirror_memory": MEMORY_DIR,
@@ -260,7 +260,7 @@ class MirrorCowork:
                 observations["files"][name] = {"count": 0, "recent": [], "newest_age_hours": 999}
 
         # System Health
-        main_state_file = PROJECT_ROOT / "workflow-system" / "state" / "current_state.json"
+        main_state_file = PROJECT_ROOT / "workflow_system" / "state" / "current_state.json"
         if main_state_file.exists():
             try:
                 main_state = json.loads(main_state_file.read_text())
@@ -303,7 +303,7 @@ class MirrorCowork:
         vision_context = self._load_vision_context()
 
         # Main Status
-        main_cowork_file = PROJECT_ROOT / "workflow-system" / "state" / "cowork_state.json"
+        main_cowork_file = PROJECT_ROOT / "workflow_system" / "state" / "cowork_state.json"
         main_status = "{}"
         if main_cowork_file.exists():
             try:

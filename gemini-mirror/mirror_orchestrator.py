@@ -327,7 +327,7 @@ def get_context_for_step(step_name: str) -> Dict:
 
     # Main-System Patterns laden (wenn vorhanden)
     main_patterns = []
-    main_pattern_file = PROJECT_ROOT / "workflow-system" / "state" / "pattern_library.json"
+    main_pattern_file = PROJECT_ROOT / "workflow_system" / "state" / "pattern_library.json"
     if main_pattern_file.exists():
         try:
             main_patterns = json.loads(main_pattern_file.read_text())

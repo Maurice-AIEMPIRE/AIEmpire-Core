@@ -18,52 +18,55 @@ REVENUE: Gumroad + Fiverr + Consulting
 ```
 
 ## Key Directories
-- `workflow-system/` - Opus 4.6 5-Step Compound Loop (AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER)
-- `workflow-system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
-- `workflow-system/resource_guard.py` - CPU/RAM/Disk Monitoring + Auto-Throttling
+- `workflow_system/` - Opus 4.6 5-Step Compound Loop (AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER)
+- `workflow_system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
+- `workflow_system/resource_guard.py` - CPU/RAM/Disk Monitoring + Auto-Throttling
 - `gemini-mirror/` - **Gemini Dual-Brain Mirror System** (see below)
-- `kimi-swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
-- `atomic-reactor/` - YAML-based task definitions + async runner
-- `x-lead-machine/` - Content generation + viral replies + lead gen
+- `kimi_swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
+- `atomic_reactor/` - YAML-based task definitions + async runner
+- `x_lead_machine/` - Content generation + viral replies + lead gen
+- `brain_system/` - 7 autonomous brain agents + orchestrator
+- `empire_api/` - FastAPI Empire API (Port 3333)
 - `crm/` - Express.js CRM with BANT scoring
 - `openclaw-config/` - OpenClaw agent configs, cron jobs, model routing
 - `systems/` - Docker compose, lead agent prompts
 - `gold-nuggets/` - Business intelligence documents
+- `docs/` - VISION, ARCHITECTURE, SECURITY, DEPLOYMENT guides
 
 ## Workflow System Usage
 ```bash
 # Full 5-step loop
-python workflow-system/orchestrator.py
+python workflow_system/orchestrator.py
 
 # Single step
-python workflow-system/orchestrator.py --step audit
+python workflow_system/orchestrator.py --step audit
 
 # New weekly cycle
-python workflow-system/orchestrator.py --new-cycle
+python workflow_system/orchestrator.py --new-cycle
 
 # Check status
-python workflow-system/orchestrator.py --status
+python workflow_system/orchestrator.py --status
 ```
 
 ## Cowork Engine (Autonomer Background Agent)
 ```bash
 # Ein Zyklus (Observe → Plan → Act → Reflect)
-python workflow-system/cowork.py
+python workflow_system/cowork.py
 
 # Daemon-Modus (alle 30 Min)
-python workflow-system/cowork.py --daemon
+python workflow_system/cowork.py --daemon
 
 # Fokus + Intervall anpassen
-python workflow-system/cowork.py --daemon --interval 900 --focus revenue
+python workflow_system/cowork.py --daemon --interval 900 --focus revenue
 
 # Fokus-Bereiche: revenue | content | automation | product
-python workflow-system/cowork.py --status
+python workflow_system/cowork.py --status
 ```
 
 ## Resource Guard (Ueberlastungsschutz)
 ```bash
 # Status anzeigen
-python workflow-system/resource_guard.py
+python workflow_system/resource_guard.py
 
 # Integriert in Orchestrator + Cowork - stoppt automatisch bei:
 # CPU > 95% oder RAM > 92% → EMERGENCY (alle Agents pausiert)
@@ -74,20 +77,20 @@ python workflow-system/resource_guard.py
 ## Empire Control Center (Unified CLI)
 ```bash
 # Gesamtstatus aller Systeme
-python workflow-system/empire.py status
+python workflow_system/empire.py status
 
 # Workflow ausfuehren
-python workflow-system/empire.py workflow
-python workflow-system/empire.py workflow --step audit
+python workflow_system/empire.py workflow
+python workflow_system/empire.py workflow --step audit
 
 # Cowork starten
-python workflow-system/empire.py cowork --daemon --focus revenue
+python workflow_system/empire.py cowork --daemon --focus revenue
 
 # Neuer Wochen-Zyklus
-python workflow-system/empire.py cycle
+python workflow_system/empire.py cycle
 
 # Alles nacheinander (Workflow + Cowork)
-python workflow-system/empire.py full
+python workflow_system/empire.py full
 ```
 
 ## Session-Start Hook

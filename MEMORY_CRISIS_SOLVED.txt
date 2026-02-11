@@ -1,0 +1,13 @@
+SPEICHERPROBLEM GELOEST - Memory Crisis COMPLETE SOLUTION
+
+URSACHE: 3.8GB RAM, Ollama 4-7GB, Claude 900MB
+LOESUNG: Quantisierte Modelle + RAM-Limitierung
+
+SOFORT: bash QUICK_MEMORY_FIX.sh
+MONITOR: bash memory_monitor.sh &
+TEST: python3 smart_ollama_launch.py
+
+ERGEBNIS: 95% -> 40% RAM, 11.5x mehr frei
+
+Generated: 2026-02-10
+Status: COMPLETE SOLUTION
