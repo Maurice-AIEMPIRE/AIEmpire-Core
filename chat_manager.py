@@ -487,14 +487,14 @@ class ChatManager:
                     "HTTP-Referer": "https://github.com/mauricepfeifer-ctrl/AIEmpire-Core",
                     "X-Title": "AI Empire Core"
                 }
-                
+
                 payload = {
                     "model": model_id,
                     "messages": messages,
                     "temperature": 0.7,
                     "max_tokens": 4096
                 }
-                
+
                 async with session.post(
                     "https://openrouter.ai/api/v1/chat/completions",
                     headers=headers,
@@ -505,10 +505,10 @@ class ChatManager:
                         choice = data.get("choices", [{}])[0]
                         if not choice:
                             return {"error": "No choices in OpenRouter response"}
-                        
+
                         answer = choice.get("message", {}).get("content", "")
                         usage = data.get("usage", {})
-                        
+
                         return {
                             "success": True,
                             "answer": answer,
@@ -522,9 +522,54 @@ class ChatManager:
                     else:
                         error_text = await resp.text()
                         return {"error": f"OpenRouter API error ({resp.status}): {error_text}"}
-        
+
         except Exception as e:
             return {"error": f"OpenRouter request failed: {e}"}
+
+    async def _ask_antigravity(self, agent_key: str, messages: List[Dict]) -> Dict:
+        """Ask Antigravity local specialized coding agents."""
+        try:
+            # Import Antigravity router
+            import sys
+            from pathlib import Path
+            sys.path.insert(0, str(Path(__file__).parent / "antigravity"))
+            from antigravity.godmode_router import GodmodeRouter
+
+            router = GodmodeRouter()
+
+            # Combine conversation into a single prompt
+            # Antigravity agents work best with a clear task description
+            prompt_parts = []
+            for msg in messages:
+                role = msg.get("role", "user")
+                content = msg.get("content", "")
+                if role == "user":
+                    prompt_parts.append(content)
+                elif role == "assistant":
+                    prompt_parts.append(f"Context: {content}")
+
+            prompt = "\n\n".join(prompt_parts)
+
+            # Execute task via Antigravity
+            result = await router.execute_task(
+                agent_key,
+                prompt,
+                {"source": "chat", "task_id": datetime.now().strftime("%Y%m%d_%H%M%S")}
+            )
+
+            if result.get("success"):
+                return {
+                    "success": True,
+                    "answer": result.get("output", ""),
+                    "model": f"{agent_key} ({result.get('model', 'local')})",
+                    "branch": result.get("branch", ""),
+                    "local": True
+                }
+            else:
+                return {"error": result.get("error", "Unknown error")}
+
+        except Exception as e:
+            return {"error": f"Antigravity request failed: {e}"}
 
     def switch_model(self, model_name: str) -> Dict:
         """Switch to a different model."""
