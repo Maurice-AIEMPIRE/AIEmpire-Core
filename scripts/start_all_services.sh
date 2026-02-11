@@ -42,7 +42,19 @@ print_section() {
 
 check_port() {
     local port=$1
-    netstat -tuln 2>/dev/null | grep ":$port " &>/dev/null
+    # macOS-friendly check first
+    if command -v lsof >/dev/null 2>&1; then
+        lsof -nP -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1
+        return $?
+    fi
+
+    # Fallback for Linux/other environments
+    if command -v netstat >/dev/null 2>&1; then
+        netstat -an 2>/dev/null | grep -E "[\.\:]$port .*LISTEN" >/dev/null 2>&1
+        return $?
+    fi
+
+    return 1
 }
 
 check_command() {
@@ -64,7 +76,13 @@ start_service() {
     fi
 
     if [ -n "$brew_name" ]; then
-        if ! check_command "$brew_name"; then
+        if ! check_command brew; then
+            echo -e "${YELLOW}⚠️  Homebrew not installed${NC}"
+            SERVICE_STATUS[$service]="NOT_INSTALLED"
+            return 1
+        fi
+
+        if ! brew list "$brew_name" >/dev/null 2>&1; then
             echo -e "${YELLOW}⚠️  Not installed${NC}"
             SERVICE_STATUS[$service]="NOT_INSTALLED"
             return 1

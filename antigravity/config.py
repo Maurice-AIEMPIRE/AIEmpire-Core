@@ -7,6 +7,7 @@ Auto-loads .env file for reliable config after system restarts/crashes.
 
 import os
 import subprocess
+import warnings
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -42,10 +43,12 @@ OLLAMA_API_V1 = f"{OLLAMA_BASE_URL}/v1"  # OpenAI-compatible endpoint
 # ─── Google Gemini Connection ───────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
-def _gcloud_project():
+
+def _gcloud_config_value(key: str) -> str:
+    """Best-effort read of a gcloud config value ('' if unset/unavailable)."""
     try:
         out = subprocess.check_output(
-            ["gcloud", "config", "get-value", "project"],
+            ["gcloud", "config", "get-value", key],
             stderr=subprocess.DEVNULL, text=True, timeout=5
         ).strip()
         return out if out and out != "(unset)" else ""
@@ -56,19 +59,32 @@ GOOGLE_CLOUD_PROJECT = (
     os.getenv("GOOGLE_CLOUD_PROJECT")
     or os.getenv("GCLOUD_PROJECT")
     or os.getenv("PROJECT_ID")
-    or _gcloud_project()
-)
+    or os.getenv("CLOUDSDK_CORE_PROJECT")
+    or _gcloud_config_value("project")
+    or ""
+).strip()
 if not GOOGLE_CLOUD_PROJECT:
     # Soft fallback instead of hard crash - allows offline mode to work
-    import warnings
     warnings.warn(
         "Missing GCP project id. Set GOOGLE_CLOUD_PROJECT in .env or run: "
         "gcloud config set project <id>. Gemini/Vertex AI will be disabled."
     )
     GOOGLE_CLOUD_PROJECT = ""
 
-GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west4")
-VERTEX_AI_ENABLED = os.getenv("VERTEX_AI_ENABLED", "false").lower() == "true"
+GOOGLE_CLOUD_REGION = (
+    os.getenv("GOOGLE_CLOUD_REGION")
+    or _gcloud_config_value("compute/region")
+    or "europe-west4"
+).strip()
+_vertex_requested = os.getenv("VERTEX_AI_ENABLED", "false").lower() in (
+    "1", "true", "yes"
+)
+VERTEX_AI_ENABLED = _vertex_requested and bool(GOOGLE_CLOUD_PROJECT)
+if _vertex_requested and not VERTEX_AI_ENABLED:
+    warnings.warn(
+        "VERTEX_AI_ENABLED=true but GOOGLE_CLOUD_PROJECT is empty. "
+        "Falling back to non-Vertex mode."
+    )
 OFFLINE_MODE = os.getenv("OFFLINE_MODE", "false").lower() in ("1", "true", "yes")
 
 # ─── Model Selection (optimized for 16GB RAM) ──────────────────────

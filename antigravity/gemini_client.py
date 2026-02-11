@@ -28,19 +28,11 @@ from antigravity.config import (
     GEMINI_FLASH_THINKING,
     GOOGLE_CLOUD_PROJECT,
     GOOGLE_CLOUD_REGION,
+    VERTEX_AI_ENABLED,
 )
 
 # Endpoints
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
-
-# Build Vertex AI base URL only if project is configured
-if GOOGLE_CLOUD_PROJECT:
-    VERTEX_AI_BASE = (
-        f"https://{GOOGLE_CLOUD_REGION}-aiplatform.googleapis.com/v1/projects"
-        f"/{GOOGLE_CLOUD_PROJECT}/locations/{GOOGLE_CLOUD_REGION}/publishers/google"
-    )
-else:
-    VERTEX_AI_BASE = ""  # Vertex AI disabled without project ID
 
 
 class GeminiClient:
@@ -58,19 +50,35 @@ class GeminiClient:
         project: str = GOOGLE_CLOUD_PROJECT,
         region: str = GOOGLE_CLOUD_REGION,
         timeout: float = 120.0,
-        use_vertex: bool = False,
+        use_vertex: bool = VERTEX_AI_ENABLED,
     ):
-        self.api_key = api_key
-        self.project = project
-        self.region = region
+        self.api_key = (api_key or "").strip()
+        self.project = (project or "").strip()
+        self.region = (region or "").strip()
         self.timeout = timeout
-        # Vertex AI requires a valid project ID — refuse to enable without one
-        self.use_vertex = use_vertex and bool(project) and project.strip() != ""
+
+        if use_vertex and not self.project:
+            # If Vertex is desired but project is unset, fall back to direct API
+            # only if an API key is configured. Otherwise fail fast with a
+            # clear actionable error.
+            if not self.api_key:
+                raise ValueError(
+                    "Vertex AI is enabled but no Google Cloud project is configured. "
+                    "Set GOOGLE_CLOUD_PROJECT (or run: gcloud config set project <id>) "
+                    "or set GEMINI_API_KEY to use the direct API."
+                )
+            use_vertex = False
+
+        self.use_vertex = (
+            use_vertex
+            and bool(self.project)
+            and bool(self.region)
+        )
 
         if self.use_vertex:
             self.base_url = (
-                f"https://{region}-aiplatform.googleapis.com/v1/projects"
-                f"/{project}/locations/{region}/publishers/google/models"
+                f"https://{self.region}-aiplatform.googleapis.com/v1/projects"
+                f"/{self.project}/locations/{self.region}/publishers/google/models"
             )
         else:
             self.base_url = GEMINI_API_BASE
@@ -295,6 +303,9 @@ class GeminiClient:
     def list_models(self) -> list[dict[str, Any]]:
         """List available Gemini models."""
         try:
+            if self.use_vertex and not self.project:
+                return []
+
             if self.use_vertex:
                 # Vertex AI model listing
                 url = (

@@ -16,11 +16,21 @@ NC='\033[0m'
 # Function to check if port is listening
 check_port() {
     local port=$1
-    if netstat -tuln 2>/dev/null | grep ":$port " &>/dev/null; then
-        return 0
-    else
-        return 1
+    # macOS-friendly check first
+    if command -v lsof >/dev/null 2>&1; then
+        if lsof -nP -iTCP:"$port" -sTCP:LISTEN >/dev/null 2>&1; then
+            return 0
+        fi
     fi
+
+    # Fallback for Linux/other environments
+    if command -v netstat >/dev/null 2>&1; then
+        if netstat -an 2>/dev/null | grep -E "[\.\:]$port .*LISTEN" >/dev/null 2>&1; then
+            return 0
+        fi
+    fi
+
+    return 1
 }
 
 # Function to get process info
@@ -89,7 +99,12 @@ echo ""
 
 # Summary
 echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-UP_COUNT=$(netstat -tuln 2>/dev/null | grep -E ":(11434|6379|5432|2375|5678|18789|3500|8888) " | wc -l)
+UP_COUNT=0
+for p in 11434 6379 5432 2375 5678 18789 3500 8888; do
+    if check_port "$p"; then
+        UP_COUNT=$((UP_COUNT + 1))
+    fi
+done
 echo -e "${CYAN}Summary:${NC} $UP_COUNT/8 services running"
 echo ""
 

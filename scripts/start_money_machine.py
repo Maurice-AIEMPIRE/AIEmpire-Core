@@ -237,9 +237,16 @@ class SystemStarter:
         try:
             # Health check first
             from antigravity.gemini_client import GeminiClient
-            client = GeminiClient(use_vertex=True)
+            prefer_vertex = os.getenv("VERTEX_AI_ENABLED", "false").lower() in (
+                "1", "true", "yes"
+            )
+            client = GeminiClient(use_vertex=prefer_vertex)
+
             if client.health_check():
-                logger.info("   ✅ Antigravity ready (Vertex AI)")
+                if client.use_vertex:
+                    logger.info("   ✅ Antigravity ready (Vertex AI)")
+                else:
+                    logger.info("   ✅ Antigravity ready (Gemini direct API)")
             else:
                 logger.info("   ✅ Antigravity ready (Ollama fallback)")
 

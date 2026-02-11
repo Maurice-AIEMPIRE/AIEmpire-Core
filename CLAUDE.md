@@ -6,33 +6,40 @@ Ziel: 100 Mio EUR in 1-3 Jahren, alles automatisiert mit AI.
 
 ## Architecture
 ```
-CONTROL:     Claude Code + GitHub
-ENGINE:      empire_engine.py (Unified Revenue Machine)
-ANTIGRAVITY: 26 Module (Router, Cross-Verify, Knowledge, Planning, Sync)
+BOOT:        empire_boot.py (Unified System Controller — START HERE)
+ENGINE:      empire_engine.py (Revenue Machine)
+CHAIN:       antigravity/provider_chain.py (Ollama→Kimi→Gemini→OpenRouter)
+AGENTS:      antigravity/agent_orchestrator.py (Scanner, Producer, Architect, Fixer, QA)
+ANTIGRAVITY: 26+ Module (Router, Cross-Verify, Knowledge, Planning, Sync, Chain)
 BRIDGE:      antigravity/empire_bridge.py (verbindet ALLES)
-AGENTS:      OpenClaw (Port 18789, 9 Cron Jobs)
-MODELS:      Ollama (95% free) → Kimi K2.5 (4%) → Claude (1%)
-DATA:        Redis + PostgreSQL + ChromaDB
-TASKS:       Atomic Reactor (FastAPI, Port 8888)
+MODELS:      Ollama (95% free, lokal) → Kimi (4% free tier) → Gemini (1%)
+DATA:        Redis + PostgreSQL + Knowledge Store (JSONL)
 SWARM:       Kimi 50K-500K Agents
 SALES:       X/Twitter Lead Machine + CRM (Port 3500)
 REVENUE:     Gumroad + Fiverr + Consulting + Community
 PROTECTION:  Resource Guard v2 + Auto-Repair + Bombproof Startup
+TEST:        test_freeware.py (Testet ALLES kostenlos mit Ollama)
 ```
 
 ## Quick Start
 ```bash
-# Dashboard anzeigen (Status + Revenue + Quick Wins)
+# NEUER Haupteinstieg — zeigt Status, startet Services, repariert
+python3 empire_boot.py
+
+# Freeware testen (100% kostenlos mit Ollama)
+python3 test_freeware.py
+
+# AI fragen (routet automatisch zum besten Provider)
+python3 empire_boot.py ask "Was sind AI Trends heute?"
+
+# Agent Swarm starten (autonom)
+python3 -m antigravity.agent_orchestrator auto
+
+# Revenue Dashboard
 python3 empire_engine.py
 
-# System reparieren (offline, mit Ollama)
-python3 scripts/auto_repair.py
-
-# Bombproof Startup (nach Crash/Reboot)
-./scripts/bombproof_startup.sh
-
-# Setup (installiert alle Open-Source Tools)
-./scripts/setup_optimal_dev.sh
+# System reparieren
+python3 empire_boot.py repair
 ```
 
 ## Key Directories
