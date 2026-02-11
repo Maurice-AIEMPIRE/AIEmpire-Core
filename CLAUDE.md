@@ -17,12 +17,16 @@ REVENUE: Gumroad + Fiverr + Consulting
 ```
 
 ## Key Directories
-- `workflow-system/` - Opus 4.6 5-Step Compound Loop (AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER)
-- `workflow-system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
-- `workflow-system/resource_guard.py` - CPU/RAM/Disk Monitoring + Auto-Throttling
-- `kimi-swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
-- `atomic-reactor/` - YAML-based task definitions + async runner
-- `x-lead-machine/` - Content generation + viral replies + lead gen
+- `workflow_system/` - Opus 4.6 5-Step Compound Loop (AUDIT → ARCHITECT → ANALYST → REFINERY → COMPOUNDER)
+- `workflow_system/cowork.py` - Autonomous Cowork Engine (Observe-Plan-Act-Reflect daemon)
+- `workflow_system/resource_guard.py` - Resource Guard v2 (Crash-Proof, Predictive, Preemptive)
+- `antigravity/` - 4 Godmode Programmer Agents + Unified Router + Cross-Verification
+- `antigravity/cross_verify.py` - Agent-Verification-System (agents verify each other)
+- `antigravity/sync_engine.py` - Crash-safe state sync with atomic writes
+- `antigravity/config.py` - Central config with auto .env loading
+- `kimi_swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
+- `atomic_reactor/` - YAML-based task definitions + async runner
+- `x_lead_machine/` - Content generation + viral replies + lead gen
 - `crm/` - Express.js CRM with BANT scoring
 - `openclaw-config/` - OpenClaw agent configs, cron jobs, model routing
 - `systems/` - Docker compose, lead agent prompts
@@ -58,15 +62,41 @@ python workflow-system/cowork.py --daemon --interval 900 --focus revenue
 python workflow-system/cowork.py --status
 ```
 
-## Resource Guard (Ueberlastungsschutz)
+## Resource Guard v2 (Crash-Proof Protection)
 ```bash
-# Status anzeigen
-python workflow-system/resource_guard.py
+# Status anzeigen (inkl. Crash Detection)
+python workflow_system/resource_guard.py
 
-# Integriert in Orchestrator + Cowork - stoppt automatisch bei:
-# CPU > 95% oder RAM > 92% → EMERGENCY (alle Agents pausiert)
-# CPU > 85% oder RAM > 85% → CRITICAL (Concurrency: 50, Outsource-Modus)
-# CPU > 70% oder RAM > 75% → WARN (Concurrency: 200, leichte Verzoegerung)
+# Crash Recovery Check
+python workflow_system/resource_guard.py --recover
+
+# Preemptive Launch Check (vor Model-Start)
+python workflow_system/resource_guard.py --can-launch 14b
+
+# Thresholds:
+# CPU > 95% oder RAM > 92% → EMERGENCY (Agents pausiert + Ollama Models gestoppt)
+# CPU > 85% oder RAM > 85% → CRITICAL (Concurrency: 50, Outsource)
+# CPU > 70% oder RAM > 75% → WARN (Concurrency: 200, Delay)
+# Trend steigend + >60% → PREDICTIVE WARN (drosselt bevor Limit erreicht)
+
+# v2 Features:
+# - Crash Detection: erkennt unsauberes Shutdown → SAFE MODE
+# - Preemptive Checks: guard.can_launch("14b") vor Model-Start
+# - Predictive Throttling: erkennt steigende Trends
+# - Signal Handling: SIGTERM/SIGINT → sauberes Shutdown
+# - Emergency Actions: stoppt Ollama Models automatisch bei RAM-Krise
+```
+
+## Cross-Agent Verification (Qualitaetssicherung)
+```bash
+# Prinzip: "Agents verify each other" — nie ein Agent bewertet eigene Arbeit
+# Fresh Context: Verifier sieht NUR Aufgabe + Output, nicht den Prozess
+# Konsensus: Mehrere Agents muessen uebereinstimmen bei kritischen Tasks
+
+# In Code:
+# from antigravity.cross_verify import VerificationGate
+# gate = VerificationGate(router)
+# result = await gate.execute_verified(prompt, agent_key="coder")
 ```
 
 ## Empire Control Center (Unified CLI)

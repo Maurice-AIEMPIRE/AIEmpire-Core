@@ -1,0 +1,2 @@
+{"event": "crash_recovery", "crash_detected": true, "repairs": [], "timestamp": "2026-02-11T01:06:54.247068", "previous_pid": 4818, "crash_time": "2026-02-11T01:06:54.244951"}
+{"event": "clean_shutdown", "timestamp": "2026-02-11T01:06:54.253664"}
