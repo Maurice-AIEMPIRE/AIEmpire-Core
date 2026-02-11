@@ -1,0 +1,107 @@
+{
+  "revenue_targets": [
+    {
+      "phase": "first_90_days",
+      "month_start": 1,
+      "month_end": 3,
+      "monthly_min_eur": 5000,
+      "monthly_stretch_eur": 7000
+    },
+    {
+      "phase": "scale_after_90_days",
+      "month_start": 4,
+      "month_end": 24,
+      "monthly_min_eur": 10000,
+      "monthly_stretch_eur": 15000
+    }
+  ],
+  "sales_assumptions": {
+    "default_avg_deal_eur": 2500,
+    "default_close_rate": 0.2,
+    "default_meeting_rate": 0.3
+  },
+  "offer_stack": [
+    {
+      "name": "Content Sprint 14 Tage",
+      "price_eur": 1500,
+      "promise": "30 Assets + 3 CTA Varianten + DM Scripts"
+    },
+    {
+      "name": "Growth System 30 Tage",
+      "price_eur": 3000,
+      "promise": "Content + Offer + Outreach Automationen"
+    },
+    {
+      "name": "Mastermind Retainer",
+      "price_eur": 5000,
+      "promise": "Woechentliche Orchestrierung und KPI Steuerung"
+    }
+  ],
+  "think_and_grow_rich_execution": [
+    {
+      "principle": "Definiteness of Purpose",
+      "daily_action": "Schreibe jeden Morgen ein klares Tagesziel mit EUR Zahl.",
+      "weekly_control": "Mindestens ein messbares Ziel wurde erreicht."
+    },
+    {
+      "principle": "Faith",
+      "daily_action": "Lies deine Ziele laut vor und fuehre danach den ersten Sales Block aus.",
+      "weekly_control": "Keine Nulltage ohne Outreach."
+    },
+    {
+      "principle": "Autosuggestion",
+      "daily_action": "Nutze dieselbe Identitaetsformel vor jedem Call.",
+      "weekly_control": "Call Conversion verbessert sich oder bleibt stabil."
+    },
+    {
+      "principle": "Specialized Knowledge",
+      "daily_action": "Lerne taeglich ein Engpass-Thema und setze es sofort in einem Asset um.",
+      "weekly_control": "Ein neues Skill-Asset ist live."
+    },
+    {
+      "principle": "Imagination",
+      "daily_action": "Teste taeglich einen neuen Offer-Angle oder Hook.",
+      "weekly_control": "Mindestens ein Angle erzeugt messbar mehr Antworten."
+    },
+    {
+      "principle": "Organized Planning",
+      "daily_action": "Plane den Tag in Bloecken: Build, Sell, Close.",
+      "weekly_control": "Der Plan wurde an mindestens 5 Tagen ausgefuehrt."
+    },
+    {
+      "principle": "Decision",
+      "daily_action": "Treffe Entscheidungen am selben Tag und dokumentiere sie.",
+      "weekly_control": "Offene Entscheidungen < 5."
+    },
+    {
+      "principle": "Persistence",
+      "daily_action": "Fuehre Outreach auch ohne perfekte Stimmung durch.",
+      "weekly_control": "Outreach-Streak >= 6 Tage."
+    },
+    {
+      "principle": "Mastermind",
+      "daily_action": "Nutze multi-chat fuer Gegenthese, Risiko und Plan-B.",
+      "weekly_control": "Pro Woche mindestens 3 Mastermind-Runs."
+    },
+    {
+      "principle": "Transmutation",
+      "daily_action": "Lenke Energie in Output: 1 Offer, 1 Sales Asset, 1 Follow-up.",
+      "weekly_control": "Woechentliche Output-Mindestmenge erreicht."
+    },
+    {
+      "principle": "Subconscious Mind",
+      "daily_action": "Abends 3 Learnings und 1 Korrektur notieren.",
+      "weekly_control": "Keine Woche ohne Review."
+    },
+    {
+      "principle": "Brain",
+      "daily_action": "Sammle Feedback aus Calls und passe Skripte sofort an.",
+      "weekly_control": "Script-Version wurde mindestens einmal verbessert."
+    },
+    {
+      "principle": "Sixth Sense",
+      "daily_action": "Pruefe Bauchgefuehl gegen Daten, dann entscheide.",
+      "weekly_control": "Entscheidungen basieren auf Daten + Erfahrung."
+    }
+  ]
+}

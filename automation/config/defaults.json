@@ -1,6 +1,7 @@
 {
   "niche": "AI agents for content creation",
   "style": "Deutsch. Direkt. Kurze Saetze. -> Pfeile fuer Struktur. Konkrete Zahlen. 0-2 Emojis max (🚀🔥💰⚡🎯) nur am Ende. Keine Floskeln.",
+  "creative_mode": "comedy_ai_cartoons_dark_humor_comic",
   "targets": {
     "threads": 50,
     "tweets": 300,

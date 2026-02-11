@@ -1,16 +1,25 @@
 from __future__ import annotations
 
+import datetime as dt
 import re
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
 from automation.core.runner import RunResult, Runner
-from automation.utils.files import backup_file, ensure_dir, read_text, timestamp_id, write_text
+from automation.utils.files import backup_file, ensure_dir, read_text, timestamp_id, write_json, write_text
 
 
 ROOT = Path(__file__).resolve().parents[2]
 PROMPTS_DIR = ROOT / "content_factory" / "prompts"
 DELIVERABLES_DIR = ROOT / "content_factory" / "deliverables"
+X_TEMPLATES_DIR = DELIVERABLES_DIR / "x_templates"
+NUMBERED_LINE_RE = re.compile(r"^\s*(\d+)[\).]\s*(.+?)\s*$")
+CREATIVE_LANES = [
+    "comedy_ai",
+    "ai_cartoon",
+    "comic_caricature",
+    "dark_humor_ai",
+]
 
 
 def render_prompt(template_path: Path, variables: Dict[str, str], extra_input: Optional[str] = None) -> str:
@@ -61,6 +70,117 @@ def chunk(items: List[str], size: int) -> Iterable[List[str]]:
 
 def format_numbered(items: List[str]) -> str:
     return "\n".join(f"{idx + 1}) {item}" for idx, item in enumerate(items))
+
+
+def extract_numbered_posts(text: str) -> List[str]:
+    posts: List[str] = []
+    seen = set()
+    for line in text.splitlines():
+        match = NUMBERED_LINE_RE.match(line)
+        if not match:
+            continue
+        post = match.group(2).strip()
+        if not post:
+            continue
+        normalized = re.sub(r"\s+", " ", post).strip().lower()
+        if normalized in seen:
+            continue
+        seen.add(normalized)
+        posts.append(post)
+    return posts
+
+
+def build_visual_prompt(post: str, lane: str) -> str:
+    base = re.sub(r"\s+", " ", post).strip()
+    if len(base) > 180:
+        base = base[:177].rstrip() + "..."
+    if lane == "comedy_ai":
+        prefix = "Single-panel comedy scene about daily AI workflow chaos."
+    elif lane == "ai_cartoon":
+        prefix = "AI cartoon scene with clear visual metaphor and playful contrast."
+    elif lane == "comic_caricature":
+        prefix = "Satirical comic caricature with exaggerated office-tech characters."
+    else:
+        prefix = "Dark-humor AI comic with ironic tension, no hate and no violence."
+    return (
+        f"{prefix} Core idea: {base}. Style: clean line art, high contrast, "
+        "editorial look, no text overlay."
+    )
+
+
+def build_templates_markdown(payload: Dict[str, object]) -> str:
+    templates = payload.get("templates", [])
+    lines: List[str] = [
+        "# X Template Pack",
+        "",
+        f"- run_id: {payload.get('run_id', '')}",
+        f"- created_at: {payload.get('created_at', '')}",
+        f"- creative_mode: {payload.get('creative_mode', '')}",
+        f"- niche: {payload.get('niche', '')}",
+        f"- count: {payload.get('template_count', 0)}",
+        "",
+    ]
+    if not isinstance(templates, list) or not templates:
+        lines.append("No numbered X posts were extracted from this run.")
+        lines.append("")
+        return "\n".join(lines)
+
+    for item in templates:
+        if not isinstance(item, dict):
+            continue
+        lines.append(f"## {item.get('id', '')}")
+        lines.append(f"- lane: {item.get('lane', '')}")
+        lines.append(f"- status: {item.get('status', '')}")
+        lines.append(f"- post: {item.get('post', '')}")
+        lines.append(f"- visual_prompt: {item.get('visual_prompt', '')}")
+        lines.append("")
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def write_x_templates(
+    runner: Runner,
+    variables: Dict[str, str],
+    generated_text: str,
+) -> Optional[str]:
+    posts = extract_numbered_posts(generated_text)
+    created_at = dt.datetime.now().replace(microsecond=0).isoformat()
+    creative_mode = variables.get("KREATIV_MODUS", "comedy_ai_cartoons_dark_humor_comic")
+
+    templates = []
+    for idx, post in enumerate(posts, start=1):
+        lane = CREATIVE_LANES[(idx - 1) % len(CREATIVE_LANES)]
+        templates.append(
+            {
+                "id": f"x_template_{idx:03d}",
+                "post": post,
+                "lane": lane,
+                "visual_prompt": build_visual_prompt(post, lane),
+                "status": "pending_review",
+            }
+        )
+
+    payload: Dict[str, object] = {
+        "run_id": runner.run_id,
+        "created_at": created_at,
+        "creative_mode": creative_mode,
+        "niche": variables.get("NISCHE", ""),
+        "style": variables.get("STIL", ""),
+        "template_count": len(templates),
+        "templates": templates,
+    }
+
+    ensure_dir(X_TEMPLATES_DIR)
+    json_path = X_TEMPLATES_DIR / f"x_templates_{runner.run_id}.json"
+    md_path = X_TEMPLATES_DIR / f"x_templates_{runner.run_id}.md"
+    latest_json_path = X_TEMPLATES_DIR / "latest.json"
+    latest_md_path = X_TEMPLATES_DIR / "latest.md"
+
+    write_json(json_path, payload)
+    write_json(latest_json_path, payload)
+    markdown = build_templates_markdown(payload)
+    write_text(md_path, markdown)
+    write_text(latest_md_path, markdown)
+    return str(md_path)
 
 
 def gather_ideation(
@@ -160,7 +280,9 @@ def run_tweets(runner: Runner, variables: Dict[str, str], count: int) -> str:
         batch_size=10,
         refiner=True,
     )
-    return write_deliverable(runner, "tweets_300.md", output)
+    deliverable_path = write_deliverable(runner, "tweets_300.md", output)
+    write_x_templates(runner, variables, output)
+    return deliverable_path
 
 
 def run_premium_prompts(runner: Runner, variables: Dict[str, str], count: int) -> str:

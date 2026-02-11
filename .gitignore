@@ -9,3 +9,6 @@ automation/runs/
 ai-vault/*.log
 ai-vault/reports/
 
+# Python cache artifacts
+**/__pycache__/
+*.pyc

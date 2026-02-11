@@ -45,6 +45,11 @@ def main() -> int:
     parser.add_argument("--execute", action="store_true", help="Execute LLM calls (otherwise dry-run)")
     parser.add_argument("--niche", default=None)
     parser.add_argument("--style", default=None)
+    parser.add_argument(
+        "--creative-mode",
+        default=None,
+        help="Creative direction for X posts (e.g. comedy_ai_cartoons_dark_humor_comic)",
+    )
     parser.add_argument("--targets", default=None, help="Override targets: threads=50,tweets=300,premium_prompts=400")
     parser.add_argument("--scale", type=float, default=1.0, help="Scale target counts (e.g. 0.2)")
     parser.add_argument("--router-config", default=None)
@@ -60,11 +65,16 @@ def main() -> int:
 
     niche = args.niche or system_cfg.get("niche", "AI agents for content creation")
     style = args.style or system_cfg.get("style", "direct, clear, no emojis")
+    creative_mode = args.creative_mode or system_cfg.get(
+        "creative_mode",
+        "comedy_ai_cartoons_dark_humor_comic",
+    )
     outputs = system_cfg.get("outputs", ["threads_50.md", "tweets_300.md", "premium_prompts_400.md"])
 
     variables = {
         "NISCHE": niche,
         "STIL": style,
+        "KREATIV_MODUS": creative_mode,
         "OUTPUTS": ", ".join(outputs),
     }
 
