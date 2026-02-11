@@ -5,6 +5,7 @@ Smoke Test - Verifies Godmode Programmer System is working
 
 import subprocess
 import sys
+import os
 from pathlib import Path
 
 
@@ -86,7 +87,7 @@ def _test_models():
         return False
 
     output = result.stdout
-    required_models = ["qwen2.5-coder:7b", "qwen2.5-coder:14b", "deepseek-r1:7b"]
+    required_models = ["qwen2.5-coder:7b", "qwen2.5-coder:14b", "deepseek-r1:8b"]
 
     all_found = True
     for model in required_models:
@@ -112,7 +113,8 @@ def _test_router():
     print_success(f"Router found: {router_path}")
 
     # Test router help
-    result = run_command("python3 antigravity/godmode_router.py", check=False)
+    PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    result = run_command(f"cd {PROJECT_ROOT} && PYTHONPATH=. python3 antigravity/godmode_router.py", check=False)
     if result and "Godmode Router" in result.stdout:
         print_success("Router is executable")
     else:

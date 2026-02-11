@@ -6,7 +6,7 @@ Used by all 4 Godmode Programmer agents to communicate with local models.
 """
 
 import json
-from antigravity.config import OLLAMA_API_V1, AgentConfig, M4_RUNTIME_OPTS
+from antigravity.config import OLLAMA_BASE_URL, AgentConfig, M4_RUNTIME_OPTS
 from typing import Optional
 
 import httpx
@@ -15,7 +15,7 @@ import httpx
 class OllamaClient:
     """Client for Ollama's OpenAI-compatible /v1/chat/completions endpoint."""
 
-    def __init__(self, base_url: str = OLLAMA_API_V1, timeout: float = 300.0):
+    def __init__(self, base_url: str = OLLAMA_BASE_URL, timeout: float = 300.0):
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
 
@@ -45,18 +45,19 @@ class OllamaClient:
 
         messages.append({"role": "user", "content": user_message})
 
+        # Convert to prompt for /api/generate
+        prompt = "\n".join([f"{m['role'].upper()}: {m['content']}" for m in messages])
+
         payload = {
             "model": agent.model,
-            "messages": messages,
-            "temperature": agent.temperature,
-            "max_tokens": agent.max_tokens,
+            "prompt": prompt,
             "stream": False,
         }
 
         try:
             with httpx.Client(timeout=self.timeout) as client:
                 response = client.post(
-                    f"{self.base_url}/chat/completions",
+                    f"{self.base_url}/api/generate",
                     json=payload,
                 )
                 response.raise_for_status()
@@ -74,7 +75,7 @@ class OllamaClient:
             raise RuntimeError(f"Ollama API error {e.response.status_code}: {e.response.text[:200]}")
 
         try:
-            content = data["choices"][0]["message"]["content"]
+            content = data["response"]
         except (KeyError, IndexError) as e:
             data_str = str(data)
             raise ValueError(f"Unexpected Ollama response format: {data_str[:300]}") from e
@@ -85,9 +86,9 @@ class OllamaClient:
             "content": content,
             "model": data.get("model", agent.model),
             "usage": {
-                "prompt_tokens": usage.get("prompt_tokens", 0),
-                "completion_tokens": usage.get("completion_tokens", 0),
-                "total_tokens": usage.get("total_tokens", 0),
+                "prompt_tokens": usage.get("prompt_eval_count", 0),
+                "completion_tokens": usage.get("eval_count", 0),
+                "total_tokens": usage.get("prompt_eval_count", 0) + usage.get("eval_count", 0),
             },
             "raw_response": data,
         }

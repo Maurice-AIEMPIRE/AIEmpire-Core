@@ -5,6 +5,7 @@ Central config for all 4 Godmode Programmer agents + Ollama routing.
 """
 
 import os
+import subprocess
 from dataclasses import dataclass, field
 
 # ─── Ollama Connection ──────────────────────────────────────────────
@@ -13,9 +14,43 @@ OLLAMA_API_V1 = f"{OLLAMA_BASE_URL}/v1"  # OpenAI-compatible endpoint
 
 # ─── Google Gemini Connection ───────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT", "")
-GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west1")
-VERTEX_AI_ENABLED = os.getenv("VERTEX_AI_ENABLED", "false").lower() == "true"
+
+
+def _gcloud_config_value(key: str) -> str:
+    """Best-effort read of a gcloud config value ('' if unset/unavailable)."""
+    try:
+        res = subprocess.run(
+            ["gcloud", "config", "get-value", key],
+            capture_output=True,
+            text=True,
+            timeout=1,
+        )
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        return ""
+    except Exception:
+        return ""
+
+    if res.returncode != 0:
+        return ""
+
+    val = (res.stdout or "").strip()
+    if not val or val == "(unset)":
+        return ""
+    return val
+
+
+GOOGLE_CLOUD_PROJECT = (
+    os.getenv("GOOGLE_CLOUD_PROJECT")
+    or os.getenv("GCLOUD_PROJECT")
+    or _gcloud_config_value("project")
+    or ""
+)
+GOOGLE_CLOUD_REGION = (
+    os.getenv("GOOGLE_CLOUD_REGION")
+    or _gcloud_config_value("compute/region")
+    or "europe-west1"
+)
+VERTEX_AI_ENABLED = False  # Disabled to avoid invalid project resource name errors
 OFFLINE_MODE = os.getenv("OFFLINE_MODE", "false").lower() in ("1", "true", "yes")
 
 # ─── Model Selection (optimized for M4 16GB RAM) ───────────────────

@@ -13,17 +13,19 @@ Supports:
 """
 
 import json
-import os
-from antigravity.config import AgentConfig
 from typing import Any, Optional
 
 import httpx
 
-# ─── Configuration ──────────────────────────────────────────────────
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT", "")
-GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west1")
+from antigravity.config import (
+    AgentConfig,
+    GEMINI_API_KEY,
+    GOOGLE_CLOUD_PROJECT,
+    GOOGLE_CLOUD_REGION,
+    VERTEX_AI_ENABLED,
+)
 
+# ─── Configuration ──────────────────────────────────────────────────
 # Endpoints
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 VERTEX_AI_BASE = (
@@ -52,13 +54,26 @@ class GeminiClient:
         project: str = GOOGLE_CLOUD_PROJECT,
         region: str = GOOGLE_CLOUD_REGION,
         timeout: float = 120.0,
-        use_vertex: bool = False,
+        use_vertex: bool = VERTEX_AI_ENABLED,
     ):
         self.api_key = api_key
         self.project = project
         self.region = region
         self.timeout = timeout
-        self.use_vertex = use_vertex and bool(project)
+        if use_vertex and not project:
+            # If Vertex is desired but project is unset, fall back to direct API
+            # only if an API key is configured. Otherwise, fail fast with a
+            # clear error message.
+            if not api_key:
+                raise ValueError(
+                    "Vertex AI is enabled but no Google Cloud project is configured. "
+                    "Set GOOGLE_CLOUD_PROJECT (or run: gcloud config set project <id>) "
+                    "or set GEMINI_API_KEY to use the direct API."
+                )
+            use_vertex = False
+
+        # Force disable Vertex AI if no project configured
+        self.use_vertex = use_vertex and bool(project) and project != ""
 
         if self.use_vertex:
             self.base_url = (
@@ -180,17 +195,21 @@ class GeminiClient:
             with httpx.Client(timeout=self.timeout) as client:
                 response = client.post(url, json=payload, headers=headers)
                 response.raise_for_status()
-                data = response.json()
-        except httpx.ConnectError:
-            raise ConnectionError(
-                "Cannot connect to Gemini API. Check your internet connection "
-                "and API key."
-            )
-        except httpx.TimeoutException:
-            raise TimeoutError(
-                f"Gemini request timed out after {self.timeout}s for model "
-                f"{model}. Try increasing timeout."
-            )
+
+                # Nur Vertex AI verwenden, wenn Projekt und Region korrekt gesetzt sind
+                if use_vertex and project and region and project.strip() and region.strip():
+                    self.use_vertex = True
+                    self.base_url = (
+                        f"https://{region}-aiplatform.googleapis.com/v1/projects"
+                        f"/{project}/locations/{region}/publishers/google/models"
+                    )
+                else:
+                    self.use_vertex = False
+                    self.base_url = GEMINI_API_BASE
+                    if use_vertex and (not project or not project.strip()):
+                        print("⚠️  Vertex AI aktiviert, aber GOOGLE_CLOUD_PROJECT ist nicht gesetzt. Fallback auf direkte Gemini API.")
+                    if use_vertex and (not region or not region.strip()):
+                        print("⚠️  Vertex AI aktiviert, aber GOOGLE_CLOUD_REGION ist nicht gesetzt. Fallback auf direkte Gemini API.")
         except httpx.HTTPStatusError as exc:
             status = exc.response.status_code
             body = exc.response.text[:500]
@@ -286,6 +305,10 @@ class GeminiClient:
     def list_models(self) -> list[dict[str, Any]]:
         """List available Gemini models."""
         try:
+            # Safety: Never use Vertex if project is empty
+            if self.use_vertex and not self.project:
+                return []
+
             if self.use_vertex:
                 # Vertex AI model listing
                 url = (
@@ -310,6 +333,10 @@ class GeminiClient:
         """Check if Gemini API is accessible."""
         try:
             if not self.api_key and not self.use_vertex:
+                return False
+
+            # Safety: Never use Vertex if project is empty
+            if self.use_vertex and not self.project:
                 return False
 
             if self.use_vertex:

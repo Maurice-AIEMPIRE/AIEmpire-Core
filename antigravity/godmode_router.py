@@ -7,8 +7,23 @@ import asyncio
 import json
 import subprocess
 import sys
-from antigravity.config import AGENTS
+import os
 from typing import Any, Optional
+
+try:
+    from antigravity.config import AGENTS
+except ImportError:
+    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+    from config import AGENTS
+
+def _import_ollama_client():
+    try:
+        from antigravity.ollama_client import get_client
+        return get_client
+    except ImportError:
+        sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+        from ollama_client import get_client
+        return get_client
 
 
 class GodmodeRouter:
@@ -35,7 +50,7 @@ class GodmodeRouter:
     async def execute_task(
         self, agent_key: str, prompt: str, context: Optional[dict[str, str]] = None
     ) -> dict[str, Any]:
-        """Execute task with specific agent"""
+        get_client = _import_ollama_client()
         from antigravity.ollama_client import get_client
         
         agent = self.agents[agent_key]
@@ -51,7 +66,7 @@ class GodmodeRouter:
             # Create branch (ignore if exists)
             await asyncio.to_thread(
                 subprocess.run,
-                ["git", "checkout", "-b", branch_name],
+                ["git", "checkout", "-B", branch_name],
                 capture_output=True,
             )
 
@@ -83,6 +98,7 @@ class GodmodeRouter:
             }
             
         except Exception as e:
+            print(f"❌ Agent execution error: {e}")
             return {
                 "agent": agent.name,
                 "model": agent.model,
@@ -131,10 +147,10 @@ Examples:
   python godmode_router.py qa "Review antigravity/core.py for bugs"
 
 Agents:
-  - Architect (qwen2.5-coder:14b): Structure, APIs, Refactoring
+  - Architect (qwen2.5-coder:7b): Structure, APIs, Refactoring
   - Fixer (qwen2.5-coder:7b): Bugs, Tracebacks, Imports
   - Coder (qwen2.5-coder:7b): Feature Implementation
-  - QA (deepseek-r1:7b): Tests, Lint, Review
+  - QA (deepseek-r1:8b): Tests, Lint, Review
 """)
         sys.exit(1)
 

@@ -18,6 +18,7 @@ MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 
 # Gemini Config
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta"
@@ -85,9 +86,56 @@ class ChatManager:
                 "api": "gemini",
                 "model_id": "gemini-2.0-flash-thinking",
                 "available": bool(GEMINI_API_KEY)
+            },
+            "openrouter-gpt4o": {
+                "name": "GPT-4o via OpenRouter",
+                "api": "openrouter",
+                "model_id": "openai/gpt-4o",
+                "available": bool(OPENROUTER_API_KEY)
+            },
+            "openrouter-claude-sonnet": {
+                "name": "Claude 3.5 Sonnet via OpenRouter",
+                "api": "openrouter",
+                "model_id": "anthropic/claude-3.5-sonnet",
+                "available": bool(OPENROUTER_API_KEY)
+            },
+            "openrouter-gemini-flash": {
+                "name": "Gemini 2.0 Flash via OpenRouter",
+                "api": "openrouter",
+                "model_id": "google/gemini-2.0-flash-exp:free",
+                "available": bool(OPENROUTER_API_KEY)
+            },
+            # Antigravity Agents - Local specialized coding agents
+            "antigravity-architect": {
+                "name": "Antigravity Architect (Local)",
+                "api": "antigravity",
+                "model_id": "architect",
+                "available": True,
+                "description": "Repo structure, API design, refactoring, architecture docs"
+            },
+            "antigravity-fixer": {
+                "name": "Antigravity Fixer (Local)",
+                "api": "antigravity",
+                "model_id": "fixer",
+                "available": True,
+                "description": "Bug fixes, import errors, tracebacks, debugging"
+            },
+            "antigravity-coder": {
+                "name": "Antigravity Coder (Local)",
+                "api": "antigravity",
+                "model_id": "coder",
+                "available": True,
+                "description": "Feature implementation, prototyping, code generation"
+            },
+            "antigravity-qa": {
+                "name": "Antigravity QA (Local)",
+                "api": "antigravity",
+                "model_id": "qa",
+                "available": True,
+                "description": "Code review, testing, lint checks, quality assurance"
             }
         }
-        self.current_model = "gemini-flash"  # Default to Gemini Flash (fast + cheap)
+        self.current_model = "ollama-qwen"  # Default to Ollama Qwen (always available locally)
         self.conversation_history = []
     
     async def upload_chat(self, chat_data: str, format: str = "json") -> Dict:
@@ -247,9 +295,13 @@ class ChatManager:
                 response = await self._ask_gemini(model_config["model_id"], messages)
             elif model_config["api"] == "ollama":
                 response = await self._ask_ollama(model_config["model_id"], messages)
+            elif model_config["api"] == "openrouter":
+                response = await self._ask_openrouter(model_config["model_id"], messages)
+            elif model_config["api"] == "antigravity":
+                response = await self._ask_antigravity(model_config["model_id"], messages)
             else:
                 return {"error": f"Unknown API: {model_config['api']}"}
-            
+
             # Add to history
             if response.get("success"):
                 self.conversation_history.append({
@@ -424,6 +476,55 @@ class ChatManager:
 
         except Exception as e:
             return {"error": f"Gemini request failed: {e}"}
+
+    async def _ask_openrouter(self, model_id: str, messages: List[Dict]) -> Dict:
+        """Ask via OpenRouter API (OpenAI-compatible)."""
+        try:
+            async with aiohttp.ClientSession() as session:
+                headers = {
+                    "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://github.com/mauricepfeifer-ctrl/AIEmpire-Core",
+                    "X-Title": "AI Empire Core"
+                }
+                
+                payload = {
+                    "model": model_id,
+                    "messages": messages,
+                    "temperature": 0.7,
+                    "max_tokens": 4096
+                }
+                
+                async with session.post(
+                    "https://openrouter.ai/api/v1/chat/completions",
+                    headers=headers,
+                    json=payload
+                ) as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        choice = data.get("choices", [{}])[0]
+                        if not choice:
+                            return {"error": "No choices in OpenRouter response"}
+                        
+                        answer = choice.get("message", {}).get("content", "")
+                        usage = data.get("usage", {})
+                        
+                        return {
+                            "success": True,
+                            "answer": answer,
+                            "model": model_id,
+                            "usage": {
+                                "prompt_tokens": usage.get("prompt_tokens", 0),
+                                "completion_tokens": usage.get("completion_tokens", 0),
+                                "total_tokens": usage.get("total_tokens", 0)
+                            }
+                        }
+                    else:
+                        error_text = await resp.text()
+                        return {"error": f"OpenRouter API error ({resp.status}): {error_text}"}
+        
+        except Exception as e:
+            return {"error": f"OpenRouter request failed: {e}"}
 
     def switch_model(self, model_name: str) -> Dict:
         """Switch to a different model."""
