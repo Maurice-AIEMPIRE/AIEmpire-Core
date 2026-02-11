@@ -1,71 +1,88 @@
-#!/bin/bash
-# Aggressive Memory Cleanup for Emergency Situations
-# Use when system RAM is critically low (>90%)
+#!/usr/bin/env bash
+# Aggressive memory cleanup (cross-platform-ish)
+# Use when RAM is critically low.
+
+set -u
 
 echo "=========================================="
 echo "AGGRESSIVE MEMORY CLEANUP"
 echo "=========================================="
 
-# Get current memory usage
-FREE=$(free | awk 'NR==2 {print $4}')
-TOTAL=$(free | awk 'NR==2 {print $2}')
-PERCENT=$((($TOTAL - $FREE) * 100 / $TOTAL))
+mem_percent() {
+  if command -v python3 >/dev/null 2>&1; then
+    python3 - <<'PY' 2>/dev/null && return 0
+try:
+    import psutil
+except Exception:
+    raise SystemExit(1)
+vm = psutil.virtual_memory()
+print(int(vm.percent))
+PY
+  fi
+  if command -v free >/dev/null 2>&1; then
+    free | awk 'NR==2 {printf "%.0f", $3/$2*100}'
+    return 0
+  fi
+  echo "0"
+}
 
-echo "Current RAM: $PERCENT% used"
+PERCENT=$(mem_percent || echo "0")
+echo "Current RAM: ${PERCENT}% used"
 
-if [ $PERCENT -lt 80 ]; then
-    echo "System RAM usage is OK ($PERCENT%)"
-    exit 0
+if [ "${PERCENT}" -lt 80 ]; then
+  echo "System RAM usage is OK (${PERCENT}%). Exiting."
+  exit 0
 fi
 
 echo ""
-echo "WARNING: System RAM usage critical ($PERCENT%)"
+echo "WARNING: System RAM usage critical (${PERCENT}%)"
 echo "Running aggressive cleanup..."
 echo ""
 
-# 1. Stop background services that aren't critical
-echo "1. Stopping non-critical services..."
-systemctl stop node-red 2>/dev/null
-systemctl stop docker 2>/dev/null
-pkill -f "redis" 2>/dev/null
-pkill -f "ollama" 2>/dev/null
-pkill -f "jupyter" 2>/dev/null
-pkill -f "npm" 2>/dev/null
+echo "1. Stopping non-critical processes/services..."
+# Linux services (ignore failures on macOS)
+command -v systemctl >/dev/null 2>&1 && systemctl stop docker 2>/dev/null || true
+command -v systemctl >/dev/null 2>&1 && systemctl stop node-red 2>/dev/null || true
 
-# 2. Clear caches
-echo "2. Clearing system caches..."
-sync && echo 3 > /proc/sys/vm/drop_caches 2>/dev/null
-pip cache purge 2>/dev/null
-python -c "import compileall; compileall.compile_dir('.')" 2>/dev/null
+# Generic kills
+pkill -f "docker" 2>/dev/null || true
+pkill -f "ollama" 2>/dev/null || true
+pkill -f "jupyter" 2>/dev/null || true
+pkill -f "redis" 2>/dev/null || true
+pkill -f "npm" 2>/dev/null || true
+pkill -f "node" 2>/dev/null || true
 
-# 3. Remove temp files
+echo "2. Clearing caches..."
+# macOS (if available). Avoid sudo prompts; if it fails, ignore.
+command -v purge >/dev/null 2>&1 && purge 2>/dev/null || true
+
+# Linux page cache (if available)
+if [ -w /proc/sys/vm/drop_caches ]; then
+  sync 2>/dev/null || true
+  echo 3 > /proc/sys/vm/drop_caches 2>/dev/null || true
+fi
+
+# Tool caches
+pip cache purge 2>/dev/null || true
+
 echo "3. Removing temporary files..."
-rm -rf /tmp/* 2>/dev/null
-rm -rf ~/.cache/* 2>/dev/null
-rm -rf ~/.npm/_cacache 2>/dev/null
+rm -rf /tmp/* 2>/dev/null || true
+rm -rf ~/.cache/* 2>/dev/null || true
+rm -rf ~/.npm/_cacache 2>/dev/null || true
 
-# 4. Kill Python processes using >5% memory
-echo "4. Killing high-memory processes..."
-ps aux | awk '$3 > 5 {print $2}' | grep -v "^1$\|^$$" | xargs -r kill -9 2>/dev/null
+echo "4. Killing high-memory processes (best-effort)..."
+# Kill processes using >5% CPU as a crude proxy when tools differ.
+pids=$(ps aux 2>/dev/null | awk '$3 > 5 {print $2}' | grep -v "^1$" || true)
+if [ -n "${pids:-}" ]; then
+  echo "$pids" | xargs kill -9 2>/dev/null || true
+fi
 
-# 5. Compress log files
-echo "5. Compressing old log files..."
-find /var/log -name "*.log" -type f -exec gzip {} \; 2>/dev/null
-
-# 6. Check final status
 echo ""
 echo "=========================================="
-FREE2=$(free | awk 'NR==2 {print $4}')
-PERCENT2=$((($TOTAL - $FREE2) * 100 / $TOTAL))
-echo "RAM after cleanup: $PERCENT2% used"
-echo "Freed: $((($FREE2 - $FREE) / 1024)) MB"
-echo "=========================================="
-
-if [ $PERCENT2 -gt 80 ]; then
-    echo "WARNING: Still high after cleanup!"
-    echo "Recommended: Restart system"
-    exit 1
-else
-    echo "SUCCESS: Memory cleared!"
-    exit 0
+echo "Memory after cleanup:"
+if command -v free >/dev/null 2>&1; then
+  free -h
+elif command -v vm_stat >/dev/null 2>&1; then
+  vm_stat
 fi
+echo "=========================================="
