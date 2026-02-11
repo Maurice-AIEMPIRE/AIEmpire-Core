@@ -11,7 +11,7 @@ AGENTS:  OpenClaw (Port 18789, 9 Cron Jobs)
 MODELS:  Ollama (95% free) → Kimi K2.5 (4%) → Claude (1%)
 DATA:    Redis + PostgreSQL + ChromaDB
 TASKS:   Atomic Reactor (FastAPI, Port 8888)
-SWARM:   Kimi 50K-500K Agents
+SWARM:   Open Swarm (Ollama, $0) + Kimi Legacy (API)
 SALES:   X/Twitter Lead Machine + CRM (Port 3500)
 REVENUE: Gumroad + Fiverr + Consulting
 ```
@@ -27,7 +27,8 @@ REVENUE: Gumroad + Fiverr + Consulting
 - `workflow-system/content_machine.py` - GELDMASCHINE: 1000x Content fuer X + TikTok ($0 mit Ollama)
 - `workflow-system/tiktok_factory.py` - TikTok Script Factory (45s Format, Batch-Generierung)
 - `workflow-system/x_posting_engine.py` - X/Twitter Posting Pipeline (Posts, Threads, Replies, DMs)
-- `kimi-swarm/` - 100K/500K Kimi agent swarm with Claude orchestration
+- `workflow-system/open_swarm.py` - OPEN SWARM: Kostenloser Agent-Schwarm mit Ollama ($0, Sprint-System)
+- `kimi-swarm/` - Legacy: 100K/500K Kimi agent swarm (braucht Moonshot API Key)
 - `atomic-reactor/` - YAML-based task definitions + async runner
 - `x-lead-machine/` - Content generation + viral replies + lead gen
 - `crm/` - Express.js CRM with BANT scoring
@@ -122,6 +123,37 @@ python workflow-system/ollama_engine.py  # Test
 # Auto-Boost: Platz 1-3 → 2-3x Tasks
 # Auto-Demote: Platz 8-10 → 0.5x Tasks
 python workflow-system/agent_manager.py  # Demo
+```
+
+## Open Swarm (Kostenloser Agent-Schwarm)
+```bash
+# Sprint starten (default: revenue, 50 Tasks)
+python workflow-system/open_swarm.py --sprint revenue --tasks 50
+
+# Content-Sprint (100 Posts/Scripts generieren)
+python workflow-system/open_swarm.py --sprint content --tasks 100
+
+# Lead-Sprint (B2B Leads recherchieren)
+python workflow-system/open_swarm.py --sprint leads --tasks 30
+
+# Intelligence-Sprint (Markt-/Wettbewerbsanalyse)
+python workflow-system/open_swarm.py --sprint intel --tasks 20
+
+# Product-Sprint (Produkt-Ideen + Optimierungen)
+python workflow-system/open_swarm.py --sprint products --tasks 30
+
+# Test-Modus (5 Tasks, schneller Check)
+python workflow-system/open_swarm.py --test
+
+# Daemon: Automatische Sprints alle 60 Min
+python workflow-system/open_swarm.py --daemon --interval 3600
+
+# Status anzeigen
+python workflow-system/open_swarm.py --status
+
+# Sprint-Typen: revenue | content | leads | intel | products
+# Kosten: $0.00 - komplett kostenlos mit Ollama!
+# Ersetzt: Kimi Moonshot API ($0.0005/task)
 ```
 
 ## Content Machine (Geldmaschine)

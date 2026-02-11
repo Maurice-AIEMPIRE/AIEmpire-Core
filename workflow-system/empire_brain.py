@@ -12,7 +12,8 @@ Architecture:
     ├── AgentManager     (Revenue-Ranking)
     ├── KnowledgeHarvester (Wissens-Basis)
     ├── ResourceGuard    (System-Schutz)
-    └── KimiSwarmBridge  (50K-500K Agents)
+    ├── OpenSwarm        (Kostenloser Agent-Schwarm, $0)
+    └── KimiSwarmBridge  (Legacy, braucht API Key)
 
 Usage:
     python empire_brain.py                # Status + Analyse
@@ -42,6 +43,13 @@ try:
     from content_machine import ContentMachine
 except Exception:
     ContentMachine = None
+
+try:
+    from open_swarm import OpenSwarm, SPRINT_TYPES, SPRINT_STATE_FILE
+except Exception:
+    OpenSwarm = None
+    SPRINT_TYPES = None
+    SPRINT_STATE_FILE = None
 
 PROJECT_ROOT = Path(__file__).parent.parent
 STATE_DIR = Path(__file__).parent / "state"
@@ -120,11 +128,31 @@ class EmpireBrain:
             "ram": guard_status.get("ram_percent", 0),
         }
 
-        # 5. Kimi Swarm
+        # 5. Kimi Swarm (Legacy)
         results["kimi_swarm"] = {
             "status": "available" if MOONSHOT_API_KEY else "no_api_key",
             "api_key_set": bool(MOONSHOT_API_KEY),
         }
+
+        # 5b. Open Swarm (Kostenlos, Ollama-basiert)
+        if OpenSwarm and SPRINT_STATE_FILE:
+            swarm_state = {}
+            if SPRINT_STATE_FILE.exists():
+                try:
+                    swarm_state = json.loads(SPRINT_STATE_FILE.read_text())
+                except (json.JSONDecodeError, OSError):
+                    pass
+            results["open_swarm"] = {
+                "status": "active",
+                "total_sprints": swarm_state.get("total_sprints", 0),
+                "total_tasks": swarm_state.get("total_tasks", 0),
+                "total_tokens": swarm_state.get("total_tokens", 0),
+                "cost": "$0.00 (GRATIS)",
+                "last_sprint": swarm_state.get("last_sprint", "nie"),
+                "sprint_types": list(SPRINT_TYPES.keys()) if SPRINT_TYPES else [],
+            }
+        else:
+            results["open_swarm"] = {"status": "not_loaded"}
 
         # 6. Content Machine
         if self.content:
@@ -375,11 +403,21 @@ Beruecksichtige:
         print(f"        Level: {r['status']} | CPU: {r['cpu']}% | RAM: {r['ram']}%")
         print()
 
-        # Kimi Swarm
+        # Open Swarm (Kostenlos!)
+        os_data = systems.get("open_swarm", {})
+        os_icon = "ON " if os_data.get("status") == "active" else "OFF"
+        print(f"  [{os_icon}] OPEN SWARM (Ollama, $0)")
+        print(f"        Sprints: {os_data.get('total_sprints', 0)} | Tasks: {os_data.get('total_tasks', 0)}")
+        print(f"        Tokens: {os_data.get('total_tokens', 0):,} | Kosten: {os_data.get('cost', '$0.00')}")
+        if os_data.get("sprint_types"):
+            print(f"        Sprint-Typen: {', '.join(os_data['sprint_types'])}")
+        print()
+
+        # Kimi Swarm (Legacy)
         ks = systems["kimi_swarm"]
         kimi_icon = "ON " if ks["api_key_set"] else "OFF"
-        print(f"  [{kimi_icon}] KIMI SWARM BRIDGE")
-        print(f"        API Key: {'Set' if ks['api_key_set'] else 'NOT SET (set MOONSHOT_API_KEY)'}")
+        print(f"  [{kimi_icon}] KIMI SWARM (Legacy, API Key)")
+        print(f"        API Key: {'Set' if ks['api_key_set'] else 'NOT SET - nutze Open Swarm stattdessen!'}")
         print()
 
         # Content Machine

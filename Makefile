@@ -30,7 +30,8 @@ from x_posting_engine import XPostingEngine; \
 from product_factory import ProductFactory; \
 from agent_registry import AgentRegistry; \
 from empire_brain import EmpireBrain; \
-print('  All imports OK (10 modules)') \
+from open_swarm import OpenSwarm, SPRINT_TYPES, TASK_TYPES; \
+print('  All imports OK (11 modules)') \
 "
 
 # ── Lint (Syntax Check) ─────────────────────────────────────
@@ -46,6 +47,7 @@ lint:
 	@$(PYTHON) -m py_compile $(WF)/agent_registry.py && echo "  agent_registry.py OK"
 	@$(PYTHON) -m py_compile $(WF)/knowledge_harvester.py && echo "  knowledge_harvester.py OK"
 	@$(PYTHON) -m py_compile $(WF)/resource_guard.py && echo "  resource_guard.py OK"
+	@$(PYTHON) -m py_compile $(WF)/open_swarm.py && echo "  open_swarm.py OK"
 	@echo "  All syntax checks passed"
 
 # ── Status ───────────────────────────────────────────────────
@@ -80,6 +82,10 @@ print('  ProductFactory: OK'); \
 from agent_registry import AgentRegistry; \
 ar = AgentRegistry(); \
 print('  AgentRegistry: OK'); \
+from open_swarm import OpenSwarm, SPRINT_TYPES, TASK_TYPES; \
+assert len(SPRINT_TYPES) >= 5, 'Not enough sprint types'; \
+assert len(TASK_TYPES) >= 6, 'Not enough task types'; \
+print('  OpenSwarm: OK'); \
 print('  ALL TESTS PASSED'); \
 "
 
@@ -105,6 +111,25 @@ products:
 agents:
 	@$(PYTHON) $(WF)/agent_registry.py --seed
 
+# ── Open Swarm (Kostenlos!) ─────────────────────────────────
+swarm:
+	@$(PYTHON) $(WF)/open_swarm.py --sprint revenue --tasks 50
+
+swarm-content:
+	@$(PYTHON) $(WF)/open_swarm.py --sprint content --tasks 100
+
+swarm-leads:
+	@$(PYTHON) $(WF)/open_swarm.py --sprint leads --tasks 30
+
+swarm-test:
+	@$(PYTHON) $(WF)/open_swarm.py --test
+
+swarm-status:
+	@$(PYTHON) $(WF)/open_swarm.py --status
+
+swarm-daemon:
+	@$(PYTHON) $(WF)/open_swarm.py --daemon --interval 3600
+
 # ── Install Dependencies ────────────────────────────────────
 install:
 	@$(PIP) install -e .
@@ -124,6 +149,14 @@ help:
 	@echo "    make content   - Generate weekly content plan"
 	@echo "    make tiktok    - Generate 10 TikTok scripts"
 	@echo "    make xposts    - Generate 20 X posts"
+	@echo ""
+	@echo "  Swarm (GRATIS!):"
+	@echo "    make swarm         - Revenue sprint (50 tasks)"
+	@echo "    make swarm-content - Content sprint (100 tasks)"
+	@echo "    make swarm-leads   - Lead sprint (30 tasks)"
+	@echo "    make swarm-test    - Quick test (5 tasks)"
+	@echo "    make swarm-status  - Show swarm stats"
+	@echo "    make swarm-daemon  - Auto-sprints every hour"
 	@echo ""
 	@echo "  Business:"
 	@echo "    make products  - Run product factory pipeline"
