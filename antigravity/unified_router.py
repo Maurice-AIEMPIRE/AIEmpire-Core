@@ -17,7 +17,22 @@ import subprocess
 import sys
 import time
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Any, Optional
+
+# Auto-load .env file if it exists and env vars are empty
+_env_path = Path(__file__).parent.parent / ".env"
+if _env_path.exists() and not os.getenv("GEMINI_API_KEY"):
+    for _line in _env_path.read_text().splitlines():
+        _line = _line.strip()
+        if _line and not _line.startswith("#") and "=" in _line:
+            if _line.startswith("export "):
+                _line = _line[7:]
+            _key, _, _val = _line.partition("=")
+            _key = _key.strip()
+            _val = _val.strip().strip('"').strip("'")
+            if _val and not os.environ.get(_key):
+                os.environ[_key] = _val
 
 from antigravity.config import AGENTS, AgentConfig
 
@@ -263,8 +278,24 @@ class UnifiedRouter:
                 print(f"❌ {error_msg}")
                 break
 
+        # Clear error: tell user exactly what's wrong
+        no_provider_msg = (
+            "KEIN AI PROVIDER VERFUEGBAR!\n\n"
+            "Alle 3 Provider sind offline:\n"
+        )
+        for err in errors:
+            no_provider_msg += f"  - {err}\n"
+        no_provider_msg += (
+            "\nSchnellste Loesung (30 Sek):\n"
+            "  1. https://aistudio.google.com/apikey → Key erstellen\n"
+            "  2. echo 'export GEMINI_API_KEY=dein-key' >> .env\n"
+            "  3. source .env\n\n"
+            "Oder: python antigravity/setup_check.py"
+        )
+        print(f"\n{'='*60}\n{no_provider_msg}\n{'='*60}\n")
+
         return {
-            "content": "",
+            "content": no_provider_msg,
             "model": "",
             "provider": "none",
             "usage": {},
