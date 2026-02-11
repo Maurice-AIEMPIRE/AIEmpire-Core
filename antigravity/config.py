@@ -44,13 +44,15 @@ GOOGLE_CLOUD_PROJECT = (
     or os.getenv("GCLOUD_PROJECT")
     or _gcloud_config_value("project")
     or ""
-)
+).strip()
 GOOGLE_CLOUD_REGION = (
     os.getenv("GOOGLE_CLOUD_REGION")
     or _gcloud_config_value("compute/region")
     or "europe-west1"
-)
-VERTEX_AI_ENABLED = False  # Disabled to avoid invalid project resource name errors
+).strip()
+# IMPORTANT: Vertex AI is DISABLED by default to prevent "Invalid project resource name" errors
+# when GOOGLE_CLOUD_PROJECT is empty. Only enable if you have a valid GCP project configured.
+VERTEX_AI_ENABLED = False
 OFFLINE_MODE = os.getenv("OFFLINE_MODE", "false").lower() in ("1", "true", "yes")
 
 # ─── Model Selection (optimized for M4 16GB RAM) ───────────────────

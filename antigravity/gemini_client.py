@@ -73,7 +73,12 @@ class GeminiClient:
             use_vertex = False
 
         # Force disable Vertex AI if no project configured
-        self.use_vertex = use_vertex and bool(project) and project != ""
+        self.use_vertex = (
+            use_vertex
+            and bool(project)
+            and project.strip() != ""
+            and region.strip() != ""
+        )
 
         if self.use_vertex:
             self.base_url = (
@@ -195,21 +200,7 @@ class GeminiClient:
             with httpx.Client(timeout=self.timeout) as client:
                 response = client.post(url, json=payload, headers=headers)
                 response.raise_for_status()
-
-                # Nur Vertex AI verwenden, wenn Projekt und Region korrekt gesetzt sind
-                if use_vertex and project and region and project.strip() and region.strip():
-                    self.use_vertex = True
-                    self.base_url = (
-                        f"https://{region}-aiplatform.googleapis.com/v1/projects"
-                        f"/{project}/locations/{region}/publishers/google/models"
-                    )
-                else:
-                    self.use_vertex = False
-                    self.base_url = GEMINI_API_BASE
-                    if use_vertex and (not project or not project.strip()):
-                        print("⚠️  Vertex AI aktiviert, aber GOOGLE_CLOUD_PROJECT ist nicht gesetzt. Fallback auf direkte Gemini API.")
-                    if use_vertex and (not region or not region.strip()):
-                        print("⚠️  Vertex AI aktiviert, aber GOOGLE_CLOUD_REGION ist nicht gesetzt. Fallback auf direkte Gemini API.")
+                data = response.json()
         except httpx.HTTPStatusError as exc:
             status = exc.response.status_code
             body = exc.response.text[:500]
