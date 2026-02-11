@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>MISSION_MAX_WORKERS</key>
+		<string>3</string>
+		<key>OLLAMA_API_KEY</key>
+		<string>local</string>
+	</dict>
+	<key>Label</key>
+	<string>com.ai-empire.legion50</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>/bin/bash</string>
+		<string>/Users/maurice/Library/Application Support/ai-empire/legion-runtime/automation/scripts/run_legion_50.sh</string>
+		<string>--execute</string>
+	</array>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>StandardErrorPath</key>
+	<string>/Users/maurice/Library/Application Support/ai-empire/legion-runtime/ai-vault/logs/legion50.err.log</string>
+	<key>StandardOutPath</key>
+	<string>/Users/maurice/Library/Application Support/ai-empire/legion-runtime/ai-vault/logs/legion50.out.log</string>
+	<key>StartCalendarInterval</key>
+	<dict>
+		<key>Hour</key>
+		<integer>10</integer>
+		<key>Minute</key>
+		<integer>15</integer>
+	</dict>
+</dict>
+</plist>
