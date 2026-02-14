@@ -20,3 +20,11 @@ node_modules/
 .DS_Store
 chat_history/
 .claude/worktrees/
+
+# Large media files
+*.m4a
+*.mp3
+*.wav
+*.mp4
+*.zip
+01_RAW/audio/
