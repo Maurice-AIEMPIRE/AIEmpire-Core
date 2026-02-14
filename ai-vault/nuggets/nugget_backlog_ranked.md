@@ -1,6 +1,6 @@
 # Nugget Backlog (Ranked)
 
-Updated: 2026-02-14T10:34:10Z
+Updated: 2026-02-14T10:37:56Z
 
 Allowed asset types: hook, angle, offer, process, metric, story
 
