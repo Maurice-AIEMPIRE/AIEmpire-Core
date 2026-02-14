@@ -14,10 +14,10 @@ Tools / Productivity
 Automates planning, rendering and posting of educational AI/business short videos for creators and teams.
 
 ### Terms of Service URL
-https://ai-empire.app/terms
+https://maurice-aiempire.github.io/ai-empire-shorts-legal-site/terms.html
 
 ### Privacy Policy URL
-https://ai-empire.app/privacy
+https://maurice-aiempire.github.io/ai-empire-shorts-legal-site/privacy.html
 
 ### Platforms
 - Web
