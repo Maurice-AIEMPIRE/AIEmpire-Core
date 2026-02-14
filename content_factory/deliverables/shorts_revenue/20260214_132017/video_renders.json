@@ -1,0 +1,64 @@
+{
+  "provider": "sora",
+  "sora_enabled": true,
+  "execute": true,
+  "model": "sora-2",
+  "render_limit": 6,
+  "rendered_count": 6,
+  "items": [
+    {
+      "slot": 1,
+      "title": "AI News in 30 seconds | 35s Breakdown",
+      "status": "rendered",
+      "error": "openai_api_key_missing",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_132017/videos/01_ai-news-in-30-seconds-35s-breakdown.mp4",
+      "operation_name": "local_ffmpeg_drawtext",
+      "provider": "local_ffmpeg"
+    },
+    {
+      "slot": 2,
+      "title": "Motivation and self-discipline | 35s Breakdown",
+      "status": "rendered",
+      "error": "openai_api_key_missing",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_132017/videos/02_motivation-and-self-discipline-35s-breakdown.mp4",
+      "operation_name": "local_ffmpeg_drawtext",
+      "provider": "local_ffmpeg"
+    },
+    {
+      "slot": 3,
+      "title": "Insane productivity hacks | 35s Breakdown",
+      "status": "rendered",
+      "error": "openai_api_key_missing",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_132017/videos/03_insane-productivity-hacks-35s-breakdown.mp4",
+      "operation_name": "local_ffmpeg_drawtext",
+      "provider": "local_ffmpeg"
+    },
+    {
+      "slot": 4,
+      "title": "Money mindset myths | 35s Breakdown",
+      "status": "rendered",
+      "error": "openai_api_key_missing",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_132017/videos/04_money-mindset-myths-35s-breakdown.mp4",
+      "operation_name": "local_ffmpeg_drawtext",
+      "provider": "local_ffmpeg"
+    },
+    {
+      "slot": 5,
+      "title": "Story-driven mini lessons | 35s Breakdown",
+      "status": "rendered",
+      "error": "openai_api_key_missing",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_132017/videos/05_story-driven-mini-lessons-35s-breakdown.mp4",
+      "operation_name": "local_ffmpeg_drawtext",
+      "provider": "local_ffmpeg"
+    },
+    {
+      "slot": 6,
+      "title": "Fun facts that sound fake but true | 35s Breakdown",
+      "status": "rendered",
+      "error": "openai_api_key_missing",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_132017/videos/06_fun-facts-that-sound-fake-but-true-35s-breakdown.mp4",
+      "operation_name": "local_ffmpeg_drawtext",
+      "provider": "local_ffmpeg"
+    }
+  ]
+}
