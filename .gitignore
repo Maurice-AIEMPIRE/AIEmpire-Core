@@ -9,6 +9,7 @@ automation/runs/
 ai-vault/*.log
 ai-vault/reports/
 external/imports/chatgpt_exports/
+00_SYSTEM/auto_commit*.log
 
 # Python cache artifacts
 **/__pycache__/

@@ -24,7 +24,9 @@ if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   exit 0
 fi
 
-mkdir -p "$ROOT_DIR/00_SYSTEM"
+AUTO_COMMIT_LOG_DIR="$ROOT_DIR/automation/runs/auto_commit"
+AUTO_COMMIT_LOG_FILE="$AUTO_COMMIT_LOG_DIR/auto_commit.log"
+mkdir -p "$AUTO_COMMIT_LOG_DIR"
 LOCK_DIR="$ROOT_DIR/.git/auto_commit_runtime.lock"
 if ! mkdir "$LOCK_DIR" 2>/dev/null; then
   echo "[auto-commit] skipped: another auto-commit is already running"
@@ -85,4 +87,4 @@ if [ "$AUTO_COMMIT_PUSH" = "1" ]; then
   fi
 fi
 
-echo "[$(date '+%Y-%m-%d %H:%M:%S')] Auto-commit executed ($WORKFLOW)" >> "$ROOT_DIR/00_SYSTEM/auto_commit.log"
+echo "[$(date '+%Y-%m-%d %H:%M:%S')] Auto-commit executed ($WORKFLOW)" >> "$AUTO_COMMIT_LOG_FILE"
