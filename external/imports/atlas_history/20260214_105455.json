@@ -1,0 +1,625 @@
+{
+  "captured_at": "2026-02-14T09:56:59Z",
+  "app_name": "ChatGPT Atlas",
+  "tabs": [],
+  "history_today": [
+    {
+      "id": 956,
+      "url": "https://www.youtube.com/shorts/UP1Ova4bHIU",
+      "title": "This is What Happens When A Hockey Season Ends 🤯 - YouTube",
+      "last_visited_at": "2026-02-14 10:25:19"
+    },
+    {
+      "id": 869,
+      "url": "https://studio.youtube.com/channel/UC-hlwY5cp34YiOsjVu0SPKA",
+      "title": "Kanal-Dashboard - YouTube Studio",
+      "last_visited_at": "2026-02-14 10:25:10"
+    },
+    {
+      "id": 866,
+      "url": "https://ai1337empire.app.n8n.cloud/home/workflows",
+      "title": "Workflows - n8n",
+      "last_visited_at": "2026-02-14 04:02:50"
+    },
+    {
+      "id": 772,
+      "url": "https://ollama.com/settings",
+      "title": "Usage · Settings",
+      "last_visited_at": "2026-02-14 04:02:50"
+    },
+    {
+      "id": 955,
+      "url": "https://www.youtube.com/shorts/yaLC8SFahIw",
+      "title": "Everyone needs a friend like him 🫡 #lockedinai #jobinterviewquestions #interviewmemes #jobsearch - YouTube",
+      "last_visited_at": "2026-02-14 03:56:50"
+    },
+    {
+      "id": 729,
+      "url": "https://www.youtube.com/watch?v=gqYyZuO34x0",
+      "title": "How To Use Claude Code FREE Forever (Ollama Setup) - YouTube",
+      "last_visited_at": "2026-02-14 03:56:50"
+    },
+    {
+      "id": 28,
+      "url": "https://x.com/home",
+      "title": "(2) Startseite / X",
+      "last_visited_at": "2026-02-14 03:55:57"
+    },
+    {
+      "id": 954,
+      "url": "https://dashboard.stripe.com/acct_1Syqf8HX0Q2kzNnL/account/onboarding/products-or-services",
+      "title": "Konto aktivieren – maurice pfeifer – Stripe",
+      "last_visited_at": "2026-02-14 03:55:08"
+    },
+    {
+      "id": 952,
+      "url": "https://dashboard.stripe.com/acct_1Syqf8HX0Q2kzNnL/account/onboarding/business",
+      "title": "Konto aktivieren – maurice pfeifer – Stripe",
+      "last_visited_at": "2026-02-14 03:55:05"
+    },
+    {
+      "id": 953,
+      "url": "https://dashboard.stripe.com/acct_1Syqf8HX0Q2kzNnL/account/onboarding/business-structure",
+      "title": "Konto aktivieren – maurice pfeifer – Stripe",
+      "last_visited_at": "2026-02-14 03:54:54"
+    },
+    {
+      "id": 951,
+      "url": "https://dashboard.stripe.com/acct_1Syqf8HX0Q2kzNnL/account/onboarding",
+      "title": "Dashboard – maurice pfeifer – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:53:36"
+    },
+    {
+      "id": 950,
+      "url": "https://docs.stripe.com/keys",
+      "title": "API-Schlüssel | Stripe-Dokumentation",
+      "last_visited_at": "2026-02-14 03:53:15"
+    },
+    {
+      "id": 949,
+      "url": "https://stripe.com/docs/keys",
+      "title": "API-Schlüssel | Stripe-Dokumentation",
+      "last_visited_at": "2026-02-14 03:53:15"
+    },
+    {
+      "id": 948,
+      "url": "https://dashboard.stripe.com/acct_1Sxqz6GkAbj1Ife1/test/apikeys",
+      "title": "Entwickler – Neues Unternehmen – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:52:53"
+    },
+    {
+      "id": 947,
+      "url": "https://dashboard.stripe.com/acct_1Sxqz6GkAbj1Ife1/test/connect/onboarding",
+      "title": "Dashboard – Neues Unternehmen – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:52:35"
+    },
+    {
+      "id": 946,
+      "url": "https://dashboard.stripe.com/acct_1Sxqz6GkAbj1Ife1/test/connect",
+      "title": "Connect – Neues Unternehmen – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:52:35"
+    },
+    {
+      "id": 945,
+      "url": "https://dashboard.stripe.com/acct_1Sxqz6GkAbj1Ife1/test/dashboard",
+      "title": "Home – Neues Unternehmen – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:52:23"
+    },
+    {
+      "id": 944,
+      "url": "https://dashboard.stripe.com/acct_1Sxqz6GkAbj1Ife1/test",
+      "title": "Dashboard",
+      "last_visited_at": "2026-02-14 03:52:20"
+    },
+    {
+      "id": 943,
+      "url": "https://dashboard.stripe.com/acct_1Sxqz6GkAbj1Ife1/",
+      "title": "Dashboard",
+      "last_visited_at": "2026-02-14 03:52:18"
+    },
+    {
+      "id": 938,
+      "url": "https://dashboard.stripe.com/sessions/handoff/login",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:52:16"
+    },
+    {
+      "id": 942,
+      "url": "https://support.stripe.com/handoff?token=sctb_TyVz0aoQjkdzUCc6twTduJw5OxI8bCZ&redir=https%3A%2F%2Fdashboard.stripe.com%2Fsessions%2Fhandoff_complete",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:52:16"
+    },
+    {
+      "id": 941,
+      "url": "https://access.stripe.com/handoff?token=sctb_TyVzNYWr3U8G34o6FZ67KsPIjQvdBtb&redir=https%3A%2F%2Fdashboard.stripe.com%2Fsessions%2Fhandoff_complete",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:52:16"
+    },
+    {
+      "id": 940,
+      "url": "https://support-conversations.stripe.com/handoff?token=sctb_TyVzYuCtoyGH2XkQ4YuRKiEZC39gjx0&redir=https%3A%2F%2Fdashboard.stripe.com%2Fsessions%2Fhandoff_complete",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:52:16"
+    },
+    {
+      "id": 939,
+      "url": "https://connect.stripe.com/handoff?token=sctb_TyVzmwZMsr6kMcMAivJYddbmfQJsRVY&redir=https%3A%2F%2Fdashboard.stripe.com%2Fsessions%2Fhandoff_complete",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:52:15"
+    },
+    {
+      "id": 937,
+      "url": "https://dashboard.stripe.com/acct_1Syqf8HX0Q2kzNnL/test/sandboxes_redirect?redirect=%2F",
+      "title": "Dashboard – maurice pfeifer – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:52:12"
+    },
+    {
+      "id": 936,
+      "url": "https://dashboard.stripe.com/acct_1Syqf8HX0Q2kzNnL/sandboxes_redirect?redirect=%2F",
+      "title": "Dashboard – maurice pfeifer – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:52:12"
+    },
+    {
+      "id": 935,
+      "url": "https://dashboard.stripe.com/sandboxes_redirect?redirect=%2F",
+      "title": "Dashboard – maurice pfeifer – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:52:07"
+    },
+    {
+      "id": 923,
+      "url": "https://dashboard.stripe.com/login",
+      "title": "Dashboard – maurice pfeifer – Stripe [Test]",
+      "last_visited_at": "2026-02-14 03:52:07"
+    },
+    {
+      "id": 932,
+      "url": "https://accounts.google.com/signin/oauth/consent?as=S-1006242823%3A1771037518646221&authuser=0&client_id=76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com&flowName=GeneralOAuthFlow&part=AJi8hAMHAZdPHIStHAUI1ZkwKfXs2RhPid10WxP_4Pv7h7xKE5gJGxqq2ZTzpfSKDb2DtVXsUAaCaMUju10ErFNRdQIh4X4vGXEdtas1UDwWpCFqI7vEMBc0DFpHiiSooFwp-bMiNg_REDgv2UE2uh-4hDUIRdftJpgd_6EmJLvAPJBnIqE-xJy2ziKyWqCyKD8u30r97hsjL4lE-G1W__pYErts6dhf2f31vGuTusGXeIQn5EvDdn04N4fWjgM3z52pvxg2qBvu0kK4K1piLYzzDhI851-j6jlvC04boFftqHVmcBvw3kJPAc3Hpdg7_5zNl5DobEJjqc6VMUzwZdiwFHsFp-INWGn_SjWJ4qlVXEvH7xP18xJSuG9FxvPkhBdeEO5p_2CofxG4Xc0vGqk53_67Vx4Eo7TW4cT1uqg9p5CtuRHP9vMwkhjeqAyFNOxzfZdCA40T_54yMT2okSp-q4uK2QHy3mIv6l3AgYHc0XXJOnUBYJd9L_y9DcU8sQvbtVEHtsfavSMgnVY-6JuchCrnBLgmSnp_DfPIXtSWlC6lZWf5g8JBTPn7FntUTtqLLauKcwhx_raINEgAYr7T7m3IyClQ_zSVMe2i5lYS03bhBCSCpPt7HcPNm_TksqSYQYd3tKIgQDxkJ1MEXlLGi2J8t63XvbgK2g0G3d0A2tShBOB-1u1tmHw4IZpLkIfRQhClh4Y8H2clJe00grouGgeatabltt6M9RELtETWpseHncwhVXZEHIWADYvt9AB9cteZ0-XXHSqN5JnBf763xhw6ghxNDaC5FW9QVZ3PiTzxTxPVDZDYg-VtBhYzIw-WvSAfT3Md_ux3EZmw7leKmoat2_VhYb5friB1b8LctWIdmm0E3tXXzgQBygJZ578SVVMHm5z3NFbSvX6BNNM58hLf894EgQzRt6AqfF2HqWI74GQA2PkrhPHYWtBEQ6osiXQwyO0eyX8J2BPdwuboHxySXA39eId0CrAaCgd6bVO1v0Y3Vvs&rapt=AEjHL4NrjaXd8WPM9hW05bGxO4kK23qzlkIy0yLOYN-fssDx2w8Ibi73bI2T4iiCXXiim94QUyjfRkVgP_ofWfuPpkAfngh-Hfm8EIe6WImRDWhFoSnnJ1s&xsrf=AHRwiMCo9qomYVCKFR7OstUG4Yrz%3A1771037520884",
+      "title": "Stripe-Anmeldung | Melden Sie sich beim Stripe-Dashboard an.",
+      "last_visited_at": "2026-02-14 03:52:04"
+    },
+    {
+      "id": 933,
+      "url": "https://dashboard.stripe.com/login/oauth/google/callback?state=merchant%3D%3Bsource%3Dmain_login%3Bhas_platform_authenticator%3Dtrue%3Bio_blackbox%3D0400JapG4txqVP4Nf94lis1ztpwBRqjzGjeHc8cuWfc1lkjHuPXzNXzFq8MatmJ8q01ND2MrzOwD3v1SInpRYxSxo9Sm1I42%252F9tVZ9t8ggZBpSuDL3VrZiYBBsWDK0uYkCSnFpGdpVdVZ9NIwoY8ye2u0nVLKa5eUqvJ5dzgojLfFGuxbdvTZvRNMGLy8XpHNJyxVrXXzVSF1sVuOSV7aDiUO3sdUywEcm1Kr8BUasnqUFuLLTx8TmYiVXSw7PtSQtUR3qs%252B07R991OumniGoe%252BNpxZkFqaUZegb%252BKaePAdj0dC1DOkZ9ybRxHxfYV3WeA0UYsMZmVY5fSNj7HKua%252FeLJjfPafZJpaoVoOXUWxljyPBhr%252BEUEFUSupVPfVKB9sZJg6fuk8tH7E094PGE4fVvaDCkmv40I5%252BzJnQKyLuUcvSkUjUywAeZj12osE7hkR%252BvX6t2xsBNqMCRc%252FyvFnPvRs9vl%252BF0%252FPl0uxSLL4Efm6fVSi9QfH7TElhmmdjnWu%252F%252FdOIYgHC%252F3QY1fZwSVtWNySwAqo7XEZwLdYgf2acO%252FaHvUSbJ%252BLtz3R3%252B1lLYqHZEJ0m%252FDYvZ9PHi7TdmM0w%252B8X1Ie6zXGYh5KULPxBs5mS%252FzDTpjshbacoR5ffwnRIn2L3ETP5ARH4QEMUscz7kbcnG9B%252BSIx5AnCkrOClWCgeJFdjt7zz29T9QeGwCeB4LeMV2HeXfsIpcDBtLIFcHscyJsCOKU4KoWK0D%252FtjrO3AVLh7h%252FQYTtLdTmdzZ3vy10blUrdgWkJJT58QAB3NffQB3%252BDd6SKNckEBjYgek9rRzkrullwmRWlN%252F7HinDpb16xsYSmrsKhFi8VDdLGBfK9PH%252FLgnAtMTg3G%252FgqjChOr03telzNCPGYqMiBzzLDN5JljAlWwXHcT%252FnzMar%252BFnRmjKx4PQbX9OHEQi%252BwlGoZ8X2ykV3stOnGIhVvv90tH9p6rTbgZhOFvr5nhtpr1rQNrxUN0sYF8r08f8uCcC0xOD%252BDPTu5VIg0D89F9mQry%252Bg3nJI0yBRkM9auODchk2WrH2LOmVQKLUdYeTcLtcejyA7A7B3zfroGYEYDfmfBwBYRhc3f5urJ1YLXJ1OaRXpIgfJ%252Fzck%252BQECRFofiVW6UDyBGA35nwcAWEYXN3%252BbqydWC1ydTmkV6SIHyf83JPkBAkRaH4lVulA8gRgN%252BZ8HAFhGFzd%252Fm6snVviELfRqJ4LL%252BhDkHWbPd8EF6I5OGxfdT88TZLweT1BkHlbIJZBejmoAkMwIHAvsaQ%253D%253D%3Blogin_flow%3Dlogin%3Bsearch_params%3D&code=4%2F0AfrIepDRKH95WUEDK0H0ocKXkDYJnAvLLVZJX0dSespiTBqtjW8LeoJmFPhtx-3-bzKbIg&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent",
+      "title": "Stripe-Anmeldung | Melden Sie sich beim Stripe-Dashboard an.",
+      "last_visited_at": "2026-02-14 03:52:04"
+    },
+    {
+      "id": 934,
+      "url": "https://dashboard.stripe.com/login?force_login=true",
+      "title": "Stripe-Anmeldung | Melden Sie sich beim Stripe-Dashboard an.",
+      "last_visited_at": "2026-02-14 03:52:04"
+    },
+    {
+      "id": 929,
+      "url": "https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://accounts.google.com/signin/oauth/consent?authuser%3D0%26part%3DAJi8hAN0UzlBe6hdTF7V5PedNkV3w1hmiacVUBC4ShuUjeyQsoaPa15P-TrzzIbQPH3EtdT-VdTEMamqb5noZnWWbHTr2mvPJvpwx25Y_VEeYGOUcmPRZuu00njV5wgw8jSivQJcLvjcGNsKukTYnEhHRVXNBsgCxA7UwKItKrVpVpvwOXqMCkqryCzA7zWQic5qP3srmSHZE9RJm_nXk8PmMSy5ggLURBo2yb9C--lmPmIQge4v_XpfYStd69Il4A7KFKDjj5yyWnH3_hCsLvre2YUWhzQFUhn7I8dBbPrMZcCm3ZcLYiR7KAbm14A8wJy1jjpewxNLH1Zj6p1cJq8KbCvQ_D-uNdY1PObBL8r66I3a8fk7mMCYGNXGi57JzxUoiigaNtiFbS_M5n7R2XAUiblj9fl6pzPMp046io4dBvUpVDhzYFvLcUINIhXWSzMJnEg0WR3LRkLbEq3nqUt6bDXXLIPZGVTraQ6vuak1jCalBhsQdaU%26flowName%3DGeneralOAuthFlow%26as%3DS-1006242823%253A1771037518646221%26client_id%3D76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%26pli%3D1&rart=ANgoxce87Y7cQxMb6492C0ZzB47RLcH7-OBRyaAmKWz0aTs6xLkBqH3GWAkVosunM3bff0sKSWvqAMQwCJG_08q3YI7lhCuZE-ZQU1Zf91pETIact9hsF3k&dsh=S-400622152:1771037520462188&ifkv=ASfE1-pv09k1CXN8vJcA3yKGoOeU8ZY7Mk4Z4lpUN4h4rM9h9NfEJIdFDUY68PeAQcTMfFjIz4krxw",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:52:00"
+    },
+    {
+      "id": 926,
+      "url": "https://accounts.google.com/ServiceLogin?access_type=offline&app_domain=https%3A%2F%2Fdashboard.stripe.com&authuser=0&client_id=76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com&code_challenge=-Ko9093t5nJOBN9F6UHAjnOxoJlnAA4hk1y28BwxH7c&code_challenge_method=S256&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAN0UzlBe6hdTF7V5PedNkV3w1hmiacVUBC4ShuUjeyQsoaPa15P-TrzzIbQPH3EtdT-VdTEMamqb5noZnWWbHTr2mvPJvpwx25Y_VEeYGOUcmPRZuu00njV5wgw8jSivQJcLvjcGNsKukTYnEhHRVXNBsgCxA7UwKItKrVpVpvwOXqMCkqryCzA7zWQic5qP3srmSHZE9RJm_nXk8PmMSy5ggLURBo2yb9C--lmPmIQge4v_XpfYStd69Il4A7KFKDjj5yyWnH3_hCsLvre2YUWhzQFUhn7I8dBbPrMZcCm3ZcLYiR7KAbm14A8wJy1jjpewxNLH1Zj6p1cJq8KbCvQ_D-uNdY1PObBL8r66I3a8fk7mMCYGNXGi57JzxUoiigaNtiFbS_M5n7R2XAUiblj9fl6pzPMp046io4dBvUpVDhzYFvLcUINIhXWSzMJnEg0WR3LRkLbEq3nqUt6bDXXLIPZGVTraQ6vuak1jCalBhsQdaU%26flowName%3DGeneralOAuthFlow%26as%3DS-1006242823%253A1771037518646221%26client_id%3D76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&dsh=S-1006242823%3A1771037518646221&flowName=GeneralOAuthFlow&o2v=2&opparams=%253F&passive=true&prompt=consent&redirect_uri=https%3A%2F%2Fdashboard.stripe.com%2Flogin%2Foauth%2Fgoogle%2Fcallback&response_type=code&sacu=1&scope=openid%20email%20profile&service=lso&state=merchant%3D%3Bsource%3Dmain_login%3Bhas_platform_authenticator%3Dtrue%3Bio_blackbox%3D0400JapG4txqVP4Nf94lis1ztpwBRqjzGjeHc8cuWfc1lkjHuPXzNXzFq8MatmJ8q01ND2MrzOwD3v1SInpRYxSxo9Sm1I42%252F9tVZ9t8ggZBpSuDL3VrZiYBBsWDK0uYkCSnFpGdpVdVZ9NIwoY8ye2u0nVLKa5eUqvJ5dzgojLfFGuxbdvTZvRNMGLy8XpHNJyxVrXXzVSF1sVuOSV7aDiUO3sdUywEcm1Kr8BUasnqUFuLLTx8TmYiVXSw7PtSQtUR3qs%252B07R991OumniGoe%252BNpxZkFqaUZegb%252BKaePAdj0dC1DOkZ9ybRxHxfYV3WeA0UYsMZmVY5fSNj7HKua%252FeLJjfPafZJpaoVoOXUWxljyPBhr%252BEUEFUSupVPfVKB9sZJg6fuk8tH7E094PGE4fVvaDCkmv40I5%252BzJnQKyLuUcvSkUjUywAeZj12osE7hkR%252BvX6t2xsBNqMCRc%252FyvFnPvRs9vl%252BF0%252FPl0uxSLL4Efm6fVSi9QfH7TElhmmdjnWu%252F%252FdOIYgHC%252F3QY1fZwSVtWNySwAqo7XEZwLdYgf2acO%252FaHvUSbJ%252BLtz3R3%252B1lLYqHZEJ0m%252FDYvZ9PHi7TdmM0w%252B8X1Ie6zXGYh5KULPxBs5mS%252FzDTpjshbacoR5ffwnRIn2L3ETP5ARH4QEMUscz7kbcnG9B%252BSIx5AnCkrOClWCgeJFdjt7zz29T9QeGwCeB4LeMV2HeXfsIpcDBtLIFcHscyJsCOKU4KoWK0D%252FtjrO3AVLh7h%252FQYTtLdTmdzZ3vy10blUrdgWkJJT58QAB3NffQB3%252BDd6SKNckEBjYgek9rRzkrullwmRWlN%252F7HinDpb16xsYSmrsKhFi8VDdLGBfK9PH%252FLgnAtMTg3G%252FgqjChOr03telzNCPGYqMiBzzLDN5JljAlWwXHcT%252FnzMar%252BFnRmjKx4PQbX9OHEQi%252BwlGoZ8X2ykV3stOnGIhVvv90tH9p6rTbgZhOFvr5nhtpr1rQNrxUN0sYF8r08f8uCcC0xOD%252BDPTu5VIg0D89F9mQry%252Bg3nJI0yBRkM9auODchk2WrH2LOmVQKLUdYeTcLtcejyA7A7B3zfroGYEYDfmfBwBYRhc3f5urJ1YLXJ1OaRXpIgfJ%252Fzck%252BQECRFofiVW6UDyBGA35nwcAWEYXN3%252BbqydWC1ydTmkV6SIHyf83JPkBAkRaH4lVulA8gRgN%252BZ8HAFhGFzd%252Fm6snVviELfRqJ4LL%252BhDkHWbPd8EF6I5OGxfdT88TZLweT1BkHlbIJZBejmoAkMwIHAvsaQ%253D%253D%3Blogin_flow%3Dlogin%3Bsearch_params%3D",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:52:00"
+    },
+    {
+      "id": 928,
+      "url": "https://accounts.google.com/ServiceLogin?rart=ANgoxce87Y7cQxMb6492C0ZzB47RLcH7-OBRyaAmKWz0aTs6xLkBqH3GWAkVosunM3bff0sKSWvqAMQwCJG_08q3YI7lhCuZE-ZQU1Zf91pETIact9hsF3k&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3D0%26part%3DAJi8hAN0UzlBe6hdTF7V5PedNkV3w1hmiacVUBC4ShuUjeyQsoaPa15P-TrzzIbQPH3EtdT-VdTEMamqb5noZnWWbHTr2mvPJvpwx25Y_VEeYGOUcmPRZuu00njV5wgw8jSivQJcLvjcGNsKukTYnEhHRVXNBsgCxA7UwKItKrVpVpvwOXqMCkqryCzA7zWQic5qP3srmSHZE9RJm_nXk8PmMSy5ggLURBo2yb9C--lmPmIQge4v_XpfYStd69Il4A7KFKDjj5yyWnH3_hCsLvre2YUWhzQFUhn7I8dBbPrMZcCm3ZcLYiR7KAbm14A8wJy1jjpewxNLH1Zj6p1cJq8KbCvQ_D-uNdY1PObBL8r66I3a8fk7mMCYGNXGi57JzxUoiigaNtiFbS_M5n7R2XAUiblj9fl6pzPMp046io4dBvUpVDhzYFvLcUINIhXWSzMJnEg0WR3LRkLbEq3nqUt6bDXXLIPZGVTraQ6vuak1jCalBhsQdaU%26flowName%3DGeneralOAuthFlow%26as%3DS-1006242823%253A1771037518646221%26client_id%3D76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%26pli%3D1&authuser=0",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:52:00"
+    },
+    {
+      "id": 930,
+      "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAN0UzlBe6hdTF7V5PedNkV3w1hmiacVUBC4ShuUjeyQsoaPa15P-TrzzIbQPH3EtdT-VdTEMamqb5noZnWWbHTr2mvPJvpwx25Y_VEeYGOUcmPRZuu00njV5wgw8jSivQJcLvjcGNsKukTYnEhHRVXNBsgCxA7UwKItKrVpVpvwOXqMCkqryCzA7zWQic5qP3srmSHZE9RJm_nXk8PmMSy5ggLURBo2yb9C--lmPmIQge4v_XpfYStd69Il4A7KFKDjj5yyWnH3_hCsLvre2YUWhzQFUhn7I8dBbPrMZcCm3ZcLYiR7KAbm14A8wJy1jjpewxNLH1Zj6p1cJq8KbCvQ_D-uNdY1PObBL8r66I3a8fk7mMCYGNXGi57JzxUoiigaNtiFbS_M5n7R2XAUiblj9fl6pzPMp046io4dBvUpVDhzYFvLcUINIhXWSzMJnEg0WR3LRkLbEq3nqUt6bDXXLIPZGVTraQ6vuak1jCalBhsQdaU&flowName=GeneralOAuthFlow&as=S-1006242823%3A1771037518646221&client_id=76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com&requestPath=%2Fsignin%2Foauth%2Fconsent&pli=1&rapt=AEjHL4NrjaXd8WPM9hW05bGxO4kK23qzlkIy0yLOYN-fssDx2w8Ibi73bI2T4iiCXXiim94QUyjfRkVgP_ofWfuPpkAfngh-Hfm8EIe6WImRDWhFoSnnJ1s",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:52:00"
+    },
+    {
+      "id": 927,
+      "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAN0UzlBe6hdTF7V5PedNkV3w1hmiacVUBC4ShuUjeyQsoaPa15P-TrzzIbQPH3EtdT-VdTEMamqb5noZnWWbHTr2mvPJvpwx25Y_VEeYGOUcmPRZuu00njV5wgw8jSivQJcLvjcGNsKukTYnEhHRVXNBsgCxA7UwKItKrVpVpvwOXqMCkqryCzA7zWQic5qP3srmSHZE9RJm_nXk8PmMSy5ggLURBo2yb9C--lmPmIQge4v_XpfYStd69Il4A7KFKDjj5yyWnH3_hCsLvre2YUWhzQFUhn7I8dBbPrMZcCm3ZcLYiR7KAbm14A8wJy1jjpewxNLH1Zj6p1cJq8KbCvQ_D-uNdY1PObBL8r66I3a8fk7mMCYGNXGi57JzxUoiigaNtiFbS_M5n7R2XAUiblj9fl6pzPMp046io4dBvUpVDhzYFvLcUINIhXWSzMJnEg0WR3LRkLbEq3nqUt6bDXXLIPZGVTraQ6vuak1jCalBhsQdaU&flowName=GeneralOAuthFlow&as=S-1006242823:1771037518646221&client_id=76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com&requestPath=/signin/oauth/consent&pli=1#",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:52:00"
+    },
+    {
+      "id": 931,
+      "url": "https://accounts.google.com/signin/oauth/id?authuser=0&part=AJi8hAOaPfouRErYR5dqM1sPbLSghZL86CVwD7Quwdpp8e0bUbsMeiWNY81-dB2gQEkaW6rfC0TfaGMh9ezq46Y3bshMqRE8GZ0TeP7N9Q_1m4Z6wd0mksbgzl2d5cKQfn_oFQP5hQryVaz8115Eb4g3W2piN1PWNEeFSfnWjzmzitTTlYVz5xqIqohA6fMMgfxhhiivE9l3ktQaOp1d2kGuTd957YVagRx6x1LlPZsRRL33FknkZD-NJBg9JTnOX6QHYqiSiROBAHAggmRN4PXLklRo6Pl4WTMUK8-OkP6ItgeMxOEM-1AgaUDq6AAm62GRt8TFq5pIYc2DeE2aHm56ttZy9Z4Uvj3JS6Eowu5pPFPoXqWY4v3Tx6V9dU9nfc8JE9Z3tgma9mMasK6kUE8ylljVwpo6PJp9-aYhNj68jyi692k86v3JxZ6IemrU7kV40ZX1Xaw6PeVHdL_3VLAOAP6CoYym590qGYaAbh9rGeK3mJqVw5ahLbI24t8YQ48SxzBL9AkrhTM5yop8LRNWkvLNg9smlgM-Ah8McnYiGysCNYn-z5yMexyM0dnCF_xHPBHI88clYs4CNpBQ_OwVUprL71uLIBH_wDA49S2AhIfYKJLvzksa4fXDUQm8oyUDGjzDH64vIV78yeyM3_PkIhgM8xG0JoGeWhQkGj3J5Y5g1NzE7Uo58VJYs_ao-onZjPFQquXCSoWXtbJzu4byLaMSrUl80Wcniyq_Ie4o_fSicM-j09QPuRaPay5IQcipZBSeyjrVZ91kvULr-thKwv-4o0T7dEogw3YDRiorw-q6Jgx21Zr0CyxuJDklYkNoTdmMIgTd413934f8_6qItKoj7Yxspu8GKjzv24yPn5WTmUoOqYpxtkh6STwHAbvJdaubuP4HRTc0B67DZSNIwlkPDSjPrsi4L0EEPVXdY3HV0TZ_AJPkM_ciEAsRB7ORL0lGmddztE6SGCKfbxnQ3q7hsd7O6V3yHuvd41lJEFpvIq8_Ul0&flowName=GeneralOAuthFlow&as=S-1006242823%3A1771037518646221&client_id=76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com&rapt=AEjHL4NrjaXd8WPM9hW05bGxO4kK23qzlkIy0yLOYN-fssDx2w8Ibi73bI2T4iiCXXiim94QUyjfRkVgP_ofWfuPpkAfngh-Hfm8EIe6WImRDWhFoSnnJ1s&requestPath=%2Fsignin%2Foauth%2Fconsent#",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:52:00"
+    },
+    {
+      "id": 924,
+      "url": "https://accounts.google.com/o/oauth2/v2/auth?client_id=76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fdashboard.stripe.com%2Flogin%2Foauth%2Fgoogle%2Fcallback&response_type=code&scope=openid+email+profile&access_type=offline&code_challenge=-Ko9093t5nJOBN9F6UHAjnOxoJlnAA4hk1y28BwxH7c&code_challenge_method=S256&state=merchant%3D%3Bsource%3Dmain_login%3Bhas_platform_authenticator%3Dtrue%3Bio_blackbox%3D0400JapG4txqVP4Nf94lis1ztpwBRqjzGjeHc8cuWfc1lkjHuPXzNXzFq8MatmJ8q01ND2MrzOwD3v1SInpRYxSxo9Sm1I42%252F9tVZ9t8ggZBpSuDL3VrZiYBBsWDK0uYkCSnFpGdpVdVZ9NIwoY8ye2u0nVLKa5eUqvJ5dzgojLfFGuxbdvTZvRNMGLy8XpHNJyxVrXXzVSF1sVuOSV7aDiUO3sdUywEcm1Kr8BUasnqUFuLLTx8TmYiVXSw7PtSQtUR3qs%252B07R991OumniGoe%252BNpxZkFqaUZegb%252BKaePAdj0dC1DOkZ9ybRxHxfYV3WeA0UYsMZmVY5fSNj7HKua%252FeLJjfPafZJpaoVoOXUWxljyPBhr%252BEUEFUSupVPfVKB9sZJg6fuk8tH7E094PGE4fVvaDCkmv40I5%252BzJnQKyLuUcvSkUjUywAeZj12osE7hkR%252BvX6t2xsBNqMCRc%252FyvFnPvRs9vl%252BF0%252FPl0uxSLL4Efm6fVSi9QfH7TElhmmdjnWu%252F%252FdOIYgHC%252F3QY1fZwSVtWNySwAqo7XEZwLdYgf2acO%252FaHvUSbJ%252BLtz3R3%252B1lLYqHZEJ0m%252FDYvZ9PHi7TdmM0w%252B8X1Ie6zXGYh5KULPxBs5mS%252FzDTpjshbacoR5ffwnRIn2L3ETP5ARH4QEMUscz7kbcnG9B%252BSIx5AnCkrOClWCgeJFdjt7zz29T9QeGwCeB4LeMV2HeXfsIpcDBtLIFcHscyJsCOKU4KoWK0D%252FtjrO3AVLh7h%252FQYTtLdTmdzZ3vy10blUrdgWkJJT58QAB3NffQB3%252BDd6SKNckEBjYgek9rRzkrullwmRWlN%252F7HinDpb16xsYSmrsKhFi8VDdLGBfK9PH%252FLgnAtMTg3G%252FgqjChOr03telzNCPGYqMiBzzLDN5JljAlWwXHcT%252FnzMar%252BFnRmjKx4PQbX9OHEQi%252BwlGoZ8X2ykV3stOnGIhVvv90tH9p6rTbgZhOFvr5nhtpr1rQNrxUN0sYF8r08f8uCcC0xOD%252BDPTu5VIg0D89F9mQry%252Bg3nJI0yBRkM9auODchk2WrH2LOmVQKLUdYeTcLtcejyA7A7B3zfroGYEYDfmfBwBYRhc3f5urJ1YLXJ1OaRXpIgfJ%252Fzck%252BQECRFofiVW6UDyBGA35nwcAWEYXN3%252BbqydWC1ydTmkV6SIHyf83JPkBAkRaH4lVulA8gRgN%252BZ8HAFhGFzd%252Fm6snVviELfRqJ4LL%252BhDkHWbPd8EF6I5OGxfdT88TZLweT1BkHlbIJZBejmoAkMwIHAvsaQ%253D%253D%3Blogin_flow%3Dlogin%3Bsearch_params%3D&login_hint&prompt=consent",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:51:58"
+    },
+    {
+      "id": 925,
+      "url": "https://accounts.google.com/v3/signin/accountchooser?access_type=offline&client_id=76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com&code_challenge=-Ko9093t5nJOBN9F6UHAjnOxoJlnAA4hk1y28BwxH7c&code_challenge_method=S256&prompt=consent&redirect_uri=https%3A%2F%2Fdashboard.stripe.com%2Flogin%2Foauth%2Fgoogle%2Fcallback&response_type=code&scope=openid+email+profile&state=merchant%3D%3Bsource%3Dmain_login%3Bhas_platform_authenticator%3Dtrue%3Bio_blackbox%3D0400JapG4txqVP4Nf94lis1ztpwBRqjzGjeHc8cuWfc1lkjHuPXzNXzFq8MatmJ8q01ND2MrzOwD3v1SInpRYxSxo9Sm1I42%252F9tVZ9t8ggZBpSuDL3VrZiYBBsWDK0uYkCSnFpGdpVdVZ9NIwoY8ye2u0nVLKa5eUqvJ5dzgojLfFGuxbdvTZvRNMGLy8XpHNJyxVrXXzVSF1sVuOSV7aDiUO3sdUywEcm1Kr8BUasnqUFuLLTx8TmYiVXSw7PtSQtUR3qs%252B07R991OumniGoe%252BNpxZkFqaUZegb%252BKaePAdj0dC1DOkZ9ybRxHxfYV3WeA0UYsMZmVY5fSNj7HKua%252FeLJjfPafZJpaoVoOXUWxljyPBhr%252BEUEFUSupVPfVKB9sZJg6fuk8tH7E094PGE4fVvaDCkmv40I5%252BzJnQKyLuUcvSkUjUywAeZj12osE7hkR%252BvX6t2xsBNqMCRc%252FyvFnPvRs9vl%252BF0%252FPl0uxSLL4Efm6fVSi9QfH7TElhmmdjnWu%252F%252FdOIYgHC%252F3QY1fZwSVtWNySwAqo7XEZwLdYgf2acO%252FaHvUSbJ%252BLtz3R3%252B1lLYqHZEJ0m%252FDYvZ9PHi7TdmM0w%252B8X1Ie6zXGYh5KULPxBs5mS%252FzDTpjshbacoR5ffwnRIn2L3ETP5ARH4QEMUscz7kbcnG9B%252BSIx5AnCkrOClWCgeJFdjt7zz29T9QeGwCeB4LeMV2HeXfsIpcDBtLIFcHscyJsCOKU4KoWK0D%252FtjrO3AVLh7h%252FQYTtLdTmdzZ3vy10blUrdgWkJJT58QAB3NffQB3%252BDd6SKNckEBjYgek9rRzkrullwmRWlN%252F7HinDpb16xsYSmrsKhFi8VDdLGBfK9PH%252FLgnAtMTg3G%252FgqjChOr03telzNCPGYqMiBzzLDN5JljAlWwXHcT%252FnzMar%252BFnRmjKx4PQbX9OHEQi%252BwlGoZ8X2ykV3stOnGIhVvv90tH9p6rTbgZhOFvr5nhtpr1rQNrxUN0sYF8r08f8uCcC0xOD%252BDPTu5VIg0D89F9mQry%252Bg3nJI0yBRkM9auODchk2WrH2LOmVQKLUdYeTcLtcejyA7A7B3zfroGYEYDfmfBwBYRhc3f5urJ1YLXJ1OaRXpIgfJ%252Fzck%252BQECRFofiVW6UDyBGA35nwcAWEYXN3%252BbqydWC1ydTmkV6SIHyf83JPkBAkRaH4lVulA8gRgN%252BZ8HAFhGFzd%252Fm6snVviELfRqJ4LL%252BhDkHWbPd8EF6I5OGxfdT88TZLweT1BkHlbIJZBejmoAkMwIHAvsaQ%253D%253D%3Blogin_flow%3Dlogin%3Bsearch_params%3D&dsh=S-1006242823%3A1771037518646221&o2v=2&service=lso&flowName=GeneralOAuthFlow&opparams=%253F&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAN0UzlBe6hdTF7V5PedNkV3w1hmiacVUBC4ShuUjeyQsoaPa15P-TrzzIbQPH3EtdT-VdTEMamqb5noZnWWbHTr2mvPJvpwx25Y_VEeYGOUcmPRZuu00njV5wgw8jSivQJcLvjcGNsKukTYnEhHRVXNBsgCxA7UwKItKrVpVpvwOXqMCkqryCzA7zWQic5qP3srmSHZE9RJm_nXk8PmMSy5ggLURBo2yb9C--lmPmIQge4v_XpfYStd69Il4A7KFKDjj5yyWnH3_hCsLvre2YUWhzQFUhn7I8dBbPrMZcCm3ZcLYiR7KAbm14A8wJy1jjpewxNLH1Zj6p1cJq8KbCvQ_D-uNdY1PObBL8r66I3a8fk7mMCYGNXGi57JzxUoiigaNtiFbS_M5n7R2XAUiblj9fl6pzPMp046io4dBvUpVDhzYFvLcUINIhXWSzMJnEg0WR3LRkLbEq3nqUt6bDXXLIPZGVTraQ6vuak1jCalBhsQdaU%26flowName%3DGeneralOAuthFlow%26as%3DS-1006242823%253A1771037518646221%26client_id%3D76947576630-mmnmnaikmn72ov4fc6imrtoo5pnqj5jp.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&app_domain=https%3A%2F%2Fdashboard.stripe.com",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:51:58"
+    },
+    {
+      "id": 921,
+      "url": "https://stripe.com/",
+      "title": "Online-Bezahldienst und Zahlungsdienstleister | Stripe",
+      "last_visited_at": "2026-02-14 03:51:49"
+    },
+    {
+      "id": 922,
+      "url": "https://stripe.com/de",
+      "title": "Online-Bezahldienst und Zahlungsdienstleister | Stripe",
+      "last_visited_at": "2026-02-14 03:51:49"
+    },
+    {
+      "id": 920,
+      "url": "https://gemini.google.com/app/0e5838ef9ce4697a",
+      "title": "Google Gemini",
+      "last_visited_at": "2026-02-14 03:50:35"
+    },
+    {
+      "id": 919,
+      "url": "https://x.com/search?q=youtube%20shorts%20automation&src=typed_query&f=top",
+      "title": "(2) youtube shorts automation - Suche / X",
+      "last_visited_at": "2026-02-14 03:47:13"
+    },
+    {
+      "id": 918,
+      "url": "https://x.com/search?q=youtube%20shorts&src=typed_query",
+      "title": "(2) youtube shorts - Suche / X",
+      "last_visited_at": "2026-02-14 03:47:13"
+    },
+    {
+      "id": 834,
+      "url": "https://gemini.google.com/app/ab5626544f81d0b1",
+      "title": "Google Gemini",
+      "last_visited_at": "2026-02-14 03:44:59"
+    },
+    {
+      "id": 852,
+      "url": "https://mauricepfeifer6.gumroad.com/l/luuhu?_gl=1*1q7qpqo*_ga*MTg0MjU2NjgzMS4xNzcwODI5MTUy*_ga_6LJN6D94N6*czE3NzA5Mjc5ODckbzIkZzEkdDE3NzA5Mjk3NjUkajU5JGwwJGgw",
+      "title": "AI Prompt Vault - 127 Premium KI Prompts",
+      "last_visited_at": "2026-02-14 03:05:14"
+    },
+    {
+      "id": 4,
+      "url": "https://antigravity.google/support",
+      "title": "Google Antigravity Support",
+      "last_visited_at": "2026-02-14 03:03:04"
+    },
+    {
+      "id": 917,
+      "url": "http://127.0.0.1:62496/callback?code=307d872b-594c-81d7-a4ec-00027500d0a1%3AGRGEaHBmEfMA8YIH%3AJ2Iq8ANUmM92WRYjpMIAJ2qJ8zUH9BhM&state=z0CWqfA1D7fgL6ch6c1qiw",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:02:52"
+    },
+    {
+      "id": 916,
+      "url": "https://mcp.notion.com/callback?code=03f7a812-ad91-49cf-93e6-ea61f9508639&state=eyJyZXNwb25zZVR5cGUiOiJjb2RlIiwiY2xpZW50SWQiOiJuREdhNmFlMVhjZXpMSGtnIiwicmVkaXJlY3RVcmkiOiJodHRwOi8vMTI3LjAuMC4xOjYyNDk2L2NhbGxiYWNrIiwic2NvcGUiOltdLCJzdGF0ZSI6InowQ1dxZkExRDdmZ0w2Y2g2YzFxaXciLCJjb2RlQ2hhbGxlbmdlIjoiRUlJYlJEejlqZTZoWGRvb28tVWxLODNZdktqem9jbEtscXE2NjFZUFI4WSIsImNvZGVDaGFsbGVuZ2VNZXRob2QiOiJTMjU2IiwibWNwX3N0YXRlX2tleSI6Im1jcF84ZTg4MThlZGY3Zjk0YTVkYjFhZDdiOWZjYmEyZGUyNiIsIm1jcF9zdGF0ZV92YWwiOiIzNDA2YjAzMS01MjE5LTRlMjMtODUzMy00OTAwMTgwNGVlMWEiLCJtY3BfdGltZSI6MTc3MTAzNDUxMTQ0NH0%3D",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:02:52"
+    },
+    {
+      "id": 899,
+      "url": "https://www.notion.so/install-integration?response_type=code&client_id=1f8d872b-594c-80a4-b2f4-00370af2b13f&redirect_uri=https%3A%2F%2Fmcp.notion.com%2Fcallback&state=eyJyZXNwb25zZVR5cGUiOiJjb2RlIiwiY2xpZW50SWQiOiJuREdhNmFlMVhjZXpMSGtnIiwicmVkaXJlY3RVcmkiOiJodHRwOi8vMTI3LjAuMC4xOjYyNDk2L2NhbGxiYWNrIiwic2NvcGUiOltdLCJzdGF0ZSI6InowQ1dxZkExRDdmZ0w2Y2g2YzFxaXciLCJjb2RlQ2hhbGxlbmdlIjoiRUlJYlJEejlqZTZoWGRvb28tVWxLODNZdktqem9jbEtscXE2NjFZUFI4WSIsImNvZGVDaGFsbGVuZ2VNZXRob2QiOiJTMjU2IiwibWNwX3N0YXRlX2tleSI6Im1jcF84ZTg4MThlZGY3Zjk0YTVkYjFhZDdiOWZjYmEyZGUyNiIsIm1jcF9zdGF0ZV92YWwiOiIzNDA2YjAzMS01MjE5LTRlMjMtODUzMy00OTAwMTgwNGVlMWEiLCJtY3BfdGltZSI6MTc3MTAzNDUxMTQ0NH0%3D&owner=user",
+      "title": "Notion",
+      "last_visited_at": "2026-02-14 03:02:45"
+    },
+    {
+      "id": 915,
+      "url": "https://www.notion.so/onboarding",
+      "title": "Onboarding | Notion",
+      "last_visited_at": "2026-02-14 03:02:06"
+    },
+    {
+      "id": 914,
+      "url": "https://www.notion.so/",
+      "title": "Notion",
+      "last_visited_at": "2026-02-14 03:02:06"
+    },
+    {
+      "id": 913,
+      "url": "https://www.notion.so/oauth2callback?state=eyJjYWxsYmFja1R5cGUiOiJwb3B1cCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmxvZ2luX3dpdGhfZ29vZ2xlOldZNDlkN2FZbkxuaXRLSjFLM0VYMDQ5NWpfMEtOaGdFX3hHY2NMU2dkaFcwclNvNl8zQ1FibzNXek96a1NtTzh4bGhOUnBYWnhHYi1jSlRRS3lKTEMyalNVZlc1Y0tCQlBLaVhCT0NjZlh1WDBSWGFGb1h0UW1yVWF3VkF5LUhDZGNrbCJ9&code=4%2F0ASc3gC2mkm1doKeOpMAachMf1qS1smRHYvSL-Zm5Al0h49GKtsJhEvzxd5qffH2o8QIAQA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent",
+      "title": "Notion",
+      "last_visited_at": "2026-02-14 03:02:04"
+    },
+    {
+      "id": 911,
+      "url": "https://accounts.google.com/signin/oauth/consent?as=S-1089321652%3A1771034518463873&authuser=0&client_id=905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com&flowName=GeneralOAuthFlow&part=AJi8hAN-sKpFe8pj1VYbxqhvSMfNjFq243Uxl4hLppVsvxgBYL5Fr961yiPWHRc6M73v4ouf3xiR-juCG09YGNGz053hsM73x0ozCr6k-xJ7E44sLst2YGEUWttQxsn8H8du715MwIKktNHGu6go8Y7FJq-bKJwE48CH5WOOeO3P61T5Jw_7CGpMywmxlWR7Y9NJzLM5ndIoZ9zmyhFVJpPiZe7mUujy_EghyeUGuO-FyQd8Q5yXwMzEqDCVlKXS6u1wmSrjgO47GyWcuLOcgNGzSFHMrmNhrEwHiYljKWiNJBLrsYmNhU-ehVlIJ0K7i_5l-mEZ-zhCtseIrJg61IRUpgfLQQ1FJVMIYQHTMGqukiJ6x0qI4XR4QgIFooPKXH18CZ5H1gu0TrKZJO6JvWSCrvaW_a8VOj1deTp6pdiGHW1dAVrb2YajpaQC9uLT4tfcH50NuqXO3IiaLombpWObCYmOSMU9je2q_Ofkw3nsK31fp66m9EGP1qOpL12oEGDz9ILngwOQUOu_G5IVMRj91t9Z-9cBgoByO3wpGsG04o77VE0ZwOL3XFCB4RZDqwpWAdJRvFBFNTbkgKHUIqCMP7B3L4u04ZDdmHJXaTVJHGxT8aBJCcbGVxtPp-ey9aer-hsXj5971x_ZZHFFusGa4q4IIEAa5Mk19N_sephBtBF4YH52K5toM4znn-GQA6i7ldNhB5TLwbT5Ehct7jyx7oIjKbgn3Xow5dWZgeAd_vA_c3d_RLJJVz-I1Hi8BVu8HcFdhmVOuaDoT8oLDHskHaGDNbImo7kZRBM9V2Le004IjA7FGP1IHJqtrvO32NOujFJvkuExG7HUz7l88WRn50MJfUoacQ&rapt=AEjHL4PhiugypH1ZeQkfAht8_hJnEsiGj01Li7VXgrQyALO-8yJiUBu0hqgGXj5u49p5w7Ky2_x9BU1wB4dZ1G-9gA4wQWPDwHaKKdZC3KIIy5LL1PQZr4s&xsrf=AHRwiMCbzUnEJXoVaX24WC2J3tho%3A1771034521398",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:02:03"
+    },
+    {
+      "id": 912,
+      "url": "https://www.notion.so/googlepopupcallback?state=eyJjYWxsYmFja1R5cGUiOiJwb3B1cCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmxvZ2luX3dpdGhfZ29vZ2xlOldZNDlkN2FZbkxuaXRLSjFLM0VYMDQ5NWpfMEtOaGdFX3hHY2NMU2dkaFcwclNvNl8zQ1FibzNXek96a1NtTzh4bGhOUnBYWnhHYi1jSlRRS3lKTEMyalNVZlc1Y0tCQlBLaVhCT0NjZlh1WDBSWGFGb1h0UW1yVWF3VkF5LUhDZGNrbCJ9&code=4%2F0ASc3gC2mkm1doKeOpMAachMf1qS1smRHYvSL-Zm5Al0h49GKtsJhEvzxd5qffH2o8QIAQA&scope=email+profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+openid&authuser=0&prompt=consent",
+      "title": "",
+      "last_visited_at": "2026-02-14 03:02:03"
+    },
+    {
+      "id": 910,
+      "url": "https://accounts.google.com/signin/oauth/id?authuser=0&part=AJi8hAPal1VWfUkV4EQEq20Lh0kYaG2pfioqBjLgisWsI5fvziI1QtgJ-xJYJrJbjhgUu3dDQpViW1-HFf-uzySn3-A7onKzBvlXAdhj_EZr-X_nFCfzxHlQhwbi0Lc6lM2uqkcC-uvN0zIQXfiFruS_8OHvyLtxzvHexh2wDUI78VkN6etlfoc7x7Ks3OXjqCZD4sJ9iVBYjs4T6hfNIfp1RooTAqI_JPxf9sQmlKt9yj5jlpSnA8UwBOy1rkIPQCf5_xdlzcXpB2-7LQ3vZzGJfJu7IEBWVot1ATyhBCL92Bnt4iRixSlCqjrywvnkdtqMrqYobTUOqnTJ5pC5Q0HsnkHS3yFJHPwPqA2oXGFHoDWSc3IwgO5r-HSoocUno6WoHTMXf1A-s3jJAVYwdLOqS5u5HoJf0pPCapuya-Ws981jzvMEE85onSBHW6jor_NjFrlYIFT3_sEWa_p9vS5NWryrLH2QQbsRkMNuiJGOgPPE7nIzMottUvxXwiDhGVqE3Hlb-2AhWIVatqQWFLBm8rK2yZWMv0DEjqHhZOQW8LQ3BdomjSIwZlInZ-0_DqT7HojyiSRXDrb6Lu14FW98Tou0IlD7HmG8IZ9L-VXLUdWiJ-1L_ylFeJERwveLZLS_2tn7tcWjHkLuwAbmQnYu8p5yvi1coW0uiOc6Dxq4ydRMcDb2BxzA4YrHyBcD70SEgjqjYzTS_T3kV4PRS-lrLIVKhd12PLabm8GsX6yTlWS3M3ZnGPruroB-K4w14-uuXhGx9ndlskJp-3ukVjq2hyHjcAnVYMj99Pt0j9CmD_UtZpVBO5Kb5Rs_zBHper28VPTBH_tk0yIDfh-qRpsONhnb4jr8ZA&flowName=GeneralOAuthFlow&as=S-1089321652%3A1771034518463873&client_id=905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com&rapt=AEjHL4PhiugypH1ZeQkfAht8_hJnEsiGj01Li7VXgrQyALO-8yJiUBu0hqgGXj5u49p5w7Ky2_x9BU1wB4dZ1G-9gA4wQWPDwHaKKdZC3KIIy5LL1PQZr4s&requestPath=%2Fsignin%2Foauth%2Fconsent#",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:02:03"
+    },
+    {
+      "id": 908,
+      "url": "https://accounts.google.com/InteractiveLogin?authuser=0&continue=https://accounts.google.com/signin/oauth/consent?authuser%3D0%26part%3DAJi8hAPxRZQsCtFPCFt4tIAc79M45mhgI5F8nZ_071detvRfF4ojnoMjZe7pSDH2RQHtVsMNAL2Zmr1o9GsUWDPDrbuCu5O24JwqCHGyEqKQxBjcfA8094Fi1F14rontnv20XzPecnTeq8AgZYgJlGypnjv3Vq9j94JNoDHK-8mQspyajZNQMc_CqB2nxNAOYI6vsC0Qizo0udw6xvh6siwvrtxG0g732zWPk4XlBqZ811o2pBdkphbKM_1Om04XfhW4dPMsBYXcTRgZldNPQxvMXaFg8l3k9YDmxlIWV7LqIXjoioqRoFbVxyzSRoGNAoI9QnLeVz7z5IzCCc9G38tLAw1qaTisVMBFt2NbAg5nCWuWp3NK880GyZJnab0BIFuf4psiE3K_c3wPNcxuo5jfmKJTBXMBAilSxx-KTt3DDM2r3hWxat4bJRowJHmtwtEAKm42m5ai4Ma78nv4oR4wvZW2imj7Rg%26flowName%3DGeneralOAuthFlow%26as%3DS-1089321652%253A1771034518463873%26client_id%3D905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%26pli%3D1&rart=ANgoxceqXDDv8cnHlIuiNT4AO7F_1bwNziLN23s8kpktVqoxgHP42eo2KZ7Vj0IXI4V1t0wZA5qqGaCmhBOtDzoCu176So3PMCYYFU19OTw5nWOhjqVRmPk&dsh=S1697133872:1771034520794759&ifkv=AXbMIuBRsR7nLGN_ihD9CrFaIJYRsLHabDbm2gQbu5w-mH-ZL7QmXsRS5JZcGvZXG8DU6vK_W8_9_g",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:02:01"
+    },
+    {
+      "id": 905,
+      "url": "https://accounts.google.com/ServiceLogin?access_type=offline&app_domain=https%3A%2F%2Fwww.notion.so&authuser=0&client_id=905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPxRZQsCtFPCFt4tIAc79M45mhgI5F8nZ_071detvRfF4ojnoMjZe7pSDH2RQHtVsMNAL2Zmr1o9GsUWDPDrbuCu5O24JwqCHGyEqKQxBjcfA8094Fi1F14rontnv20XzPecnTeq8AgZYgJlGypnjv3Vq9j94JNoDHK-8mQspyajZNQMc_CqB2nxNAOYI6vsC0Qizo0udw6xvh6siwvrtxG0g732zWPk4XlBqZ811o2pBdkphbKM_1Om04XfhW4dPMsBYXcTRgZldNPQxvMXaFg8l3k9YDmxlIWV7LqIXjoioqRoFbVxyzSRoGNAoI9QnLeVz7z5IzCCc9G38tLAw1qaTisVMBFt2NbAg5nCWuWp3NK880GyZJnab0BIFuf4psiE3K_c3wPNcxuo5jfmKJTBXMBAilSxx-KTt3DDM2r3hWxat4bJRowJHmtwtEAKm42m5ai4Ma78nv4oR4wvZW2imj7Rg%26flowName%3DGeneralOAuthFlow%26as%3DS-1089321652%253A1771034518463873%26client_id%3D905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&dsh=S-1089321652%3A1771034518463873&flowName=GeneralOAuthFlow&o2v=2&opparams=%253F&passive=true&prompt=select_account&redirect_uri=https%3A%2F%2Fwww.notion.so%2Fgooglepopupcallback&response_type=code&sacu=1&scope=profile%20email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&service=lso&state=eyJjYWxsYmFja1R5cGUiOiJwb3B1cCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmxvZ2luX3dpdGhfZ29vZ2xlOldZNDlkN2FZbkxuaXRLSjFLM0VYMDQ5NWpfMEtOaGdFX3hHY2NMU2dkaFcwclNvNl8zQ1FibzNXek96a1NtTzh4bGhOUnBYWnhHYi1jSlRRS3lKTEMyalNVZlc1Y0tCQlBLaVhCT0NjZlh1WDBSWGFGb1h0UW1yVWF3VkF5LUhDZGNrbCJ9",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:02:01"
+    },
+    {
+      "id": 907,
+      "url": "https://accounts.google.com/ServiceLogin?rart=ANgoxceqXDDv8cnHlIuiNT4AO7F_1bwNziLN23s8kpktVqoxgHP42eo2KZ7Vj0IXI4V1t0wZA5qqGaCmhBOtDzoCu176So3PMCYYFU19OTw5nWOhjqVRmPk&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3D0%26part%3DAJi8hAPxRZQsCtFPCFt4tIAc79M45mhgI5F8nZ_071detvRfF4ojnoMjZe7pSDH2RQHtVsMNAL2Zmr1o9GsUWDPDrbuCu5O24JwqCHGyEqKQxBjcfA8094Fi1F14rontnv20XzPecnTeq8AgZYgJlGypnjv3Vq9j94JNoDHK-8mQspyajZNQMc_CqB2nxNAOYI6vsC0Qizo0udw6xvh6siwvrtxG0g732zWPk4XlBqZ811o2pBdkphbKM_1Om04XfhW4dPMsBYXcTRgZldNPQxvMXaFg8l3k9YDmxlIWV7LqIXjoioqRoFbVxyzSRoGNAoI9QnLeVz7z5IzCCc9G38tLAw1qaTisVMBFt2NbAg5nCWuWp3NK880GyZJnab0BIFuf4psiE3K_c3wPNcxuo5jfmKJTBXMBAilSxx-KTt3DDM2r3hWxat4bJRowJHmtwtEAKm42m5ai4Ma78nv4oR4wvZW2imj7Rg%26flowName%3DGeneralOAuthFlow%26as%3DS-1089321652%253A1771034518463873%26client_id%3D905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%26pli%3D1&authuser=0",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:02:01"
+    },
+    {
+      "id": 909,
+      "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAPxRZQsCtFPCFt4tIAc79M45mhgI5F8nZ_071detvRfF4ojnoMjZe7pSDH2RQHtVsMNAL2Zmr1o9GsUWDPDrbuCu5O24JwqCHGyEqKQxBjcfA8094Fi1F14rontnv20XzPecnTeq8AgZYgJlGypnjv3Vq9j94JNoDHK-8mQspyajZNQMc_CqB2nxNAOYI6vsC0Qizo0udw6xvh6siwvrtxG0g732zWPk4XlBqZ811o2pBdkphbKM_1Om04XfhW4dPMsBYXcTRgZldNPQxvMXaFg8l3k9YDmxlIWV7LqIXjoioqRoFbVxyzSRoGNAoI9QnLeVz7z5IzCCc9G38tLAw1qaTisVMBFt2NbAg5nCWuWp3NK880GyZJnab0BIFuf4psiE3K_c3wPNcxuo5jfmKJTBXMBAilSxx-KTt3DDM2r3hWxat4bJRowJHmtwtEAKm42m5ai4Ma78nv4oR4wvZW2imj7Rg&flowName=GeneralOAuthFlow&as=S-1089321652%3A1771034518463873&client_id=905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com&requestPath=%2Fsignin%2Foauth%2Fconsent&pli=1&rapt=AEjHL4PhiugypH1ZeQkfAht8_hJnEsiGj01Li7VXgrQyALO-8yJiUBu0hqgGXj5u49p5w7Ky2_x9BU1wB4dZ1G-9gA4wQWPDwHaKKdZC3KIIy5LL1PQZr4s",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:02:01"
+    },
+    {
+      "id": 906,
+      "url": "https://accounts.google.com/signin/oauth/consent?authuser=0&part=AJi8hAPxRZQsCtFPCFt4tIAc79M45mhgI5F8nZ_071detvRfF4ojnoMjZe7pSDH2RQHtVsMNAL2Zmr1o9GsUWDPDrbuCu5O24JwqCHGyEqKQxBjcfA8094Fi1F14rontnv20XzPecnTeq8AgZYgJlGypnjv3Vq9j94JNoDHK-8mQspyajZNQMc_CqB2nxNAOYI6vsC0Qizo0udw6xvh6siwvrtxG0g732zWPk4XlBqZ811o2pBdkphbKM_1Om04XfhW4dPMsBYXcTRgZldNPQxvMXaFg8l3k9YDmxlIWV7LqIXjoioqRoFbVxyzSRoGNAoI9QnLeVz7z5IzCCc9G38tLAw1qaTisVMBFt2NbAg5nCWuWp3NK880GyZJnab0BIFuf4psiE3K_c3wPNcxuo5jfmKJTBXMBAilSxx-KTt3DDM2r3hWxat4bJRowJHmtwtEAKm42m5ai4Ma78nv4oR4wvZW2imj7Rg&flowName=GeneralOAuthFlow&as=S-1089321652:1771034518463873&client_id=905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com&requestPath=/signin/oauth/consent&pli=1#",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:02:01"
+    },
+    {
+      "id": 903,
+      "url": "https://accounts.google.com/o/oauth2/v2/auth?access_type=offline&scope=profile%20email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&state=eyJjYWxsYmFja1R5cGUiOiJwb3B1cCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmxvZ2luX3dpdGhfZ29vZ2xlOldZNDlkN2FZbkxuaXRLSjFLM0VYMDQ5NWpfMEtOaGdFX3hHY2NMU2dkaFcwclNvNl8zQ1FibzNXek96a1NtTzh4bGhOUnBYWnhHYi1jSlRRS3lKTEMyalNVZlc1Y0tCQlBLaVhCT0NjZlh1WDBSWGFGb1h0UW1yVWF3VkF5LUhDZGNrbCJ9&prompt=select_account&response_type=code&client_id=905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.notion.so%2Fgooglepopupcallback",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:01:58"
+    },
+    {
+      "id": 904,
+      "url": "https://accounts.google.com/v3/signin/accountchooser?access_type=offline&client_id=905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com&prompt=select_account&redirect_uri=https%3A%2F%2Fwww.notion.so%2Fgooglepopupcallback&response_type=code&scope=profile+email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&state=eyJjYWxsYmFja1R5cGUiOiJwb3B1cCIsImVuY3J5cHRlZFRva2VuIjoidjAyOmxvZ2luX3dpdGhfZ29vZ2xlOldZNDlkN2FZbkxuaXRLSjFLM0VYMDQ5NWpfMEtOaGdFX3hHY2NMU2dkaFcwclNvNl8zQ1FibzNXek96a1NtTzh4bGhOUnBYWnhHYi1jSlRRS3lKTEMyalNVZlc1Y0tCQlBLaVhCT0NjZlh1WDBSWGFGb1h0UW1yVWF3VkF5LUhDZGNrbCJ9&dsh=S-1089321652%3A1771034518463873&o2v=2&service=lso&flowName=GeneralOAuthFlow&opparams=%253F&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAPxRZQsCtFPCFt4tIAc79M45mhgI5F8nZ_071detvRfF4ojnoMjZe7pSDH2RQHtVsMNAL2Zmr1o9GsUWDPDrbuCu5O24JwqCHGyEqKQxBjcfA8094Fi1F14rontnv20XzPecnTeq8AgZYgJlGypnjv3Vq9j94JNoDHK-8mQspyajZNQMc_CqB2nxNAOYI6vsC0Qizo0udw6xvh6siwvrtxG0g732zWPk4XlBqZ811o2pBdkphbKM_1Om04XfhW4dPMsBYXcTRgZldNPQxvMXaFg8l3k9YDmxlIWV7LqIXjoioqRoFbVxyzSRoGNAoI9QnLeVz7z5IzCCc9G38tLAw1qaTisVMBFt2NbAg5nCWuWp3NK880GyZJnab0BIFuf4psiE3K_c3wPNcxuo5jfmKJTBXMBAilSxx-KTt3DDM2r3hWxat4bJRowJHmtwtEAKm42m5ai4Ma78nv4oR4wvZW2imj7Rg%26flowName%3DGeneralOAuthFlow%26as%3DS-1089321652%253A1771034518463873%26client_id%3D905154081809-858sm3f0qnalqd9d44d9gecjtrdji9tf.apps.googleusercontent.com%26requestPath%3D%252Fsignin%252Foauth%252Fconsent%23&app_domain=https%3A%2F%2Fwww.notion.so",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:01:58"
+    },
+    {
+      "id": 902,
+      "url": "https://www.notion.so/googlepopupredirect?callbackType=popup&redirectToAuth=true&requestId=36309fb2-c9e8-4719-a1ed-bcba0353090f",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:01:58"
+    },
+    {
+      "id": 901,
+      "url": "https://www.notion.so/verifyNoPopupBlockerHtmlAndRedirect?redirectUri=https%3A%2F%2Fwww.notion.so%2Fgooglepopupredirect%3FcallbackType%3Dpopup%26redirectToAuth%3Dtrue%26requestId%3D36309fb2-c9e8-4719-a1ed-bcba0353090f",
+      "title": "Anmelden – Google Konten",
+      "last_visited_at": "2026-02-14 03:01:58"
+    },
+    {
+      "id": 900,
+      "url": "https://www.notion.so/login",
+      "title": "Notion - Anmelden",
+      "last_visited_at": "2026-02-14 03:01:53"
+    },
+    {
+      "id": 898,
+      "url": "https://api.notion.com/v1/oauth/authorize?client_id=1f8d872b-594c-80a4-b2f4-00370af2b13f&redirect_uri=https%3A%2F%2Fmcp.notion.com%2Fcallback&response_type=code&owner=user&state=eyJyZXNwb25zZVR5cGUiOiJjb2RlIiwiY2xpZW50SWQiOiJuREdhNmFlMVhjZXpMSGtnIiwicmVkaXJlY3RVcmkiOiJodHRwOi8vMTI3LjAuMC4xOjYyNDk2L2NhbGxiYWNrIiwic2NvcGUiOltdLCJzdGF0ZSI6InowQ1dxZkExRDdmZ0w2Y2g2YzFxaXciLCJjb2RlQ2hhbGxlbmdlIjoiRUlJYlJEejlqZTZoWGRvb28tVWxLODNZdktqem9jbEtscXE2NjFZUFI4WSIsImNvZGVDaGFsbGVuZ2VNZXRob2QiOiJTMjU2IiwibWNwX3N0YXRlX2tleSI6Im1jcF84ZTg4MThlZGY3Zjk0YTVkYjFhZDdiOWZjYmEyZGUyNiIsIm1jcF9zdGF0ZV92YWwiOiIzNDA2YjAzMS01MjE5LTRlMjMtODUzMy00OTAwMTgwNGVlMWEiLCJtY3BfdGltZSI6MTc3MTAzNDUxMTQ0NH0%3D",
+      "title": "Notion",
+      "last_visited_at": "2026-02-14 03:01:52"
+    },
+    {
+      "id": 897,
+      "url": "https://mcp.notion.com/authorize?response_type=code&client_id=nDGa6ae1XcezLHkg&state=z0CWqfA1D7fgL6ch6c1qiw&code_challenge=EIIbRDz9je6hXdooo-UlK83YvKjzoclKlqq661YPR8Y&code_challenge_method=S256&redirect_uri=http%3A%2F%2F127.0.0.1%3A62496%2Fcallback",
+      "title": "Notion",
+      "last_visited_at": "2026-02-14 03:01:52"
+    },
+    {
+      "id": 896,
+      "url": "https://chatgpt.com/de-DE/pricing/",
+      "title": "ChatGPT-Pläne | Free, Go, Plus, Pro, Business und Enterprise",
+      "last_visited_at": "2026-02-14 02:33:24"
+    },
+    {
+      "id": 895,
+      "url": "https://chatgpt.com/pricing/",
+      "title": "ChatGPT-Pläne | Free, Go, Plus, Pro, Business und Enterprise",
+      "last_visited_at": "2026-02-14 02:33:24"
+    },
+    {
+      "id": 893,
+      "url": "http://localhost:1455/auth/callback?code=ac_tV9LiSwuGJkpSLosGDb-Rj8Lh2IBh20EUCI5SOoS7sE.ern0o3dH4Hatvi5pDyDxiL5FrBxcwGdwSqJ1HS7yzjM&scope=openid+profile+email+offline_access&state=eELEmwJv9rp1Vo8CnQiUka666ElielMvng4MpqqqidU",
+      "title": "Sign into Codex",
+      "last_visited_at": "2026-02-14 02:29:29"
+    },
+    {
+      "id": 894,
+      "url": "http://localhost:1455/success?id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImIxZGQzZjhmLTlhYWQtNDdmZS1iMGU3LWVkYjAwOTc3N2Q2YiIsInR5cCI6IkpXVCJ9.eyJhdF9oYXNoIjoiWlBhTXpxdXRLa3ZKLUJXbkc5a09sdyIsImF1ZCI6WyJhcHBfRU1vYW1FRVo3M2YwQ2tYYVhwN2hyYW5uIl0sImF1dGhfcHJvdmlkZXIiOiJhcHBsZSIsImF1dGhfdGltZSI6MTc3MTAzMjU2NCwiZW1haWwiOiJ0NzlicGN5NTU4QHByaXZhdGVyZWxheS5hcHBsZWlkLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJleHAiOjE3NzEwMzYxNjUsImh0dHBzOi8vYXBpLm9wZW5haS5jb20vYXV0aCI6eyJjaGF0Z3B0X2FjY291bnRfaWQiOiI3NDg4OTljMy0wNzdkLTQwZWQtOTY3Ny1hODE5MjQyNTA4MGEiLCJjaGF0Z3B0X3BsYW5fdHlwZSI6ImZyZWUiLCJjaGF0Z3B0X3N1YnNjcmlwdGlvbl9hY3RpdmVfc3RhcnQiOm51bGwsImNoYXRncHRfc3Vic2NyaXB0aW9uX2FjdGl2ZV91bnRpbCI6bnVsbCwiY2hhdGdwdF9zdWJzY3JpcHRpb25fbGFzdF9jaGVja2VkIjoiMjAyNi0wMi0xNFQwMToyOToyNC4yMzQyMTIrMDA6MDAiLCJjaGF0Z3B0X3VzZXJfaWQiOiJ1c2VyLUk4OUdiMlA1eFBKSVlaalZ3Zlh0OXJiciIsImdyb3VwcyI6W10sIm9yZ2FuaXphdGlvbnMiOlt7ImlkIjoib3JnLVFYZHRheUgyYjNUb2U1VzJIOXNPYU1TaSIsImlzX2RlZmF1bHQiOnRydWUsInJvbGUiOiJvd25lciIsInRpdGxlIjoiUGVyc29uYWwifV0sInVzZXJfaWQiOiJ1c2VyLUk4OUdiMlA1eFBKSVlaalZ3Zlh0OXJiciJ9LCJpYXQiOjE3NzEwMzI1NjUsImlzcyI6Imh0dHBzOi8vYXV0aC5vcGVuYWkuY29tIiwianRpIjoiZjA0YmUyNGYtMTZjZS00ZTcxLThmODQtYmRhNzM4NzJiN2U3IiwicmF0IjoxNzcxMDMyNTM1LCJzaWQiOiIxZTZkMmQzNi04YTU0LTRiMjMtYmU1ZS1hOTQwYThkMDIwOWQiLCJzdWIiOiJhcHBsZXwwMDA5NDUuYWM0ODcwZTE2NjE1NGFjOWE4ZWQxN2NhN2VhODQyNjkuMTkzMSJ9.mjAfNHj0okX-l8lLgNqm-d70zLPXi3z3ITRgSyLTqVusDpcHX560xl630OqkmduDUYC0W-j75HbC2HM3uDuvlquuMLI8keGJHW_z65Bnh5ikBdWry_cUBtvILzSWfEt2Y6h5Vn5UrSyCwSATIpkB28pRcg2rzLLUWhZaOfmHt2m86vmsF9YsvXeDgKwhyehUMJtGHuyRseHQHvQi9K1x1zFMGxG1p57bOoILOvr9UXGMfSXaL8nPSdbwPG2UsjCgichhC40Y3BQebyK_W5C8XHXYomaaV_EIJ97CyzhwtSKvWgEL66Ohu854Jx7EQmN-O67eenln4s-Q6K_3Zu2HidVzWKOJ86fZydQalDProDXdm5ynH3MlstXjwH0UfGRbHHBsk86yNmVq1J3xRHmQAMDPa2PnkXnjwginTbYj5v8_QGjZTz0QY3bSC7a2OASdGRDCJowdiLtzNvrXjbZwkGkLqwiiPZi88CdZMlOQewgAzNcNBGbeBinL6wFUBXoy6f8qciq08PrGE8oU4isuB3K9bHGg7bfRhdqmIQniqSDUHsRAeYL5QmCEEfNp8zf4qqnVssZxDb7V1Ofn_lpIzGSS9IWgrbMNcXWF3DbIXSEtKf9G5Qbw7g6pHshvFa35fwxbnwJGE6A71u5OmrsBlf7j618tfjcCdONVUDvWP98&needs_setup=false&org_id=&project_id=&plan_type=free&platform_url=https%3A%2F%2Fplatform.openai.com",
+      "title": "Sign into Codex",
+      "last_visited_at": "2026-02-14 02:29:29"
+    },
+    {
+      "id": 891,
+      "url": "https://auth.openai.com/api/accounts/consent?consent_challenge=jvfpJvX_4jcLEDohdITdP7t8LQdmq8njVeH5k9j0vxNxLDFIle0PXX8tV-hnjI--9G4ozGXtxzoWGoweXD26CZrSZ60KvW0oi31Mn49Ygwkbi9w1Ft7U2xqVF-lUqA9383OdiTn9vw8p2ZVOEFeix7zzL5o_wwirFXpGJR2I7IhA5NCAVcrA7exJiP0b-CtEIzv_cujrUr1WJ4KSJ_u6J6Vffm39jvMUd0oo2OAX7VmHZxGcCuOWVP-XKVYvI8pVXfKt562o6rD5CEC9YPZ41BpquvRff7vpuFnej4YBXJYZE1w-di71CwAT9QT6X_kAnIOOFjoyZv5EGt_KjHjOs3SxgmGofNb72tyhAQdydvESwSvY2k4SvjxUYijUzIWkfbYVi5UTlyiacNMKCxTYsKvP2hTQsSpvisv2uUP_o--qP9v1Z6fflsPyoOEv1k2OolNKBgv2_PSzM9wMCCvbXI2vv08xIQMcEdzw0ub-pljAbERKLb-4Xqhd7AQhLXTPN0gBBJV6JNlPUMbeo3mjC_VCPXuRLx3a1VIYjKdrg_yh6UkT_FRj-WLRWJcV_dvQa9Jj67J89sONKWSnMwTeipOTN5IERAQNlbfSaGpPB092gLcYM8A1bGv0GmkeDQVYiI4ngOlHXxEEJz1tuWmkiUdeota12HT1LqpyXcgNjPTPno32dglsN2lhS57TxxofVWZupxokdSL7X9ijt4QVFVWY1aGnSDSCmc_TWM4salbrcOQvqPjL-hmC0-wyZml3Xxw0iRaUxnPG2y5gt90UHP4BHjBESCQ-VpEA5Z6BsGR3KAjoidGdu42IXV4QuJu3utXCUNxg8KFwdf-2NuAeM0OrNNRQxgGYmoSNmcIKgMCy2lLIXAwvb6ZYjBpZ7YcH6OlcbGxj6223PbPdaYNXlPsHz_xVvhlfPkS4rex9Ndh7frowFfyVgbZeeKQ-kS_5O89x7l2wsZ6OZvQi3FlELrYTWBigRHsqqvJUXPgNXz4cDg3jZW7T6m_yJhJPtmJ0xhEehNfdvAvtic6jgIQkpwyef-FpPgas_CllpWL3fFTXrN9vZZodajUZ6xJzIlLKzMpJQRjDeRLtUyzSurU6Uuamp_LEa5c1Vv1BrrXHagedaHPG2NdpKOUHHFDQ40A3amd9BjoAhKkknBP3qUrLqpLDTs1hbvnO0l0JOsrYGjKPBJIfGKBflHHx7Bcv1zjyLOTiNc74QeEie3g1AY6TAZpsh3oRSPvMXQ4oBpstjd-kzchLuwzMw3dMt5Tern3c1EbWqrvWVv4XBu56zJwPhAQhD9oeELgrIumFcDgBuAq1GdDOyaoKvskrjgtifhCo-0wzCVZhgI6mSKaVOee9DWYODgWXXdU0fz-oR59TTDQyWhUO-CVbfPt5WAd2Yxj347kxxXfxOzYhsNr9P55m7kJt_hLIj2k3C8Ggs30H5d7r3t2FaDOlS8B7107XPLmrn8bFO4CupP1uUtn9VZ5x09rmtw5hHwDP30QZ_oWMCzcTHQCzhuEcBCw-Rkc_msOdbCjBMcIf5BNrMIXUw5fQkxt_jQ6Jk17VdbFvWk7_Cn_8FT6441Mo9FhfEwlMB_NLookmR9ME5wlMSkanc1UNujRcv7qAUhlclso3jov8rj9BdW0Vj6PvLMwj5nl47MpdNRlErcf7JkNlPRUwTyXoEuOCq8zVt3mrEzuwvI_hkQ-ayyWDnvS3-g0XmWfgchoV4Et7GLObHEnNUw_w_-pfHmV7ILSKWFirGK6XJA02Ik3tNHsWczS3O8fir86a1X2w3DAZ1lBEpItUrbJjf0_U05DzDY9cEpoa3Uzs2nw2xtCVJWx28PTXWECdYq_1umo3O0syX6IJKchN7Mfp1cdNLJDhNpIJQ3dZWxsA8HdXWZqS1_xaIH13IN0MRwZk9BoRTUoDkP4t6XF0Ms08Ggt37S8SKg9BtHax2BG5mGlxB8U90hbOWnmx1I0R936b7tYz_E88XtEw2DxYYxEyiw7G2R-8PVjIaZEg8NqxBNrjxmXOPXWJ2n3UX_IUbLJq_-bg0L9EqfRdgJt9Q0bbqW_7gTlSm-QxW3FNKZ4NgFlT-4io4oHtfKJeOA%3D%3D",
+      "title": "Sign into Codex",
+      "last_visited_at": "2026-02-14 02:29:29"
+    },
+    {
+      "id": 892,
+      "url": "https://auth.openai.com/api/oauth/oauth2/auth?client_id=app_EMoamEEZ73f0CkXaXp7hrann&code_challenge=Sywf7zDom7VHT-X8ioqMqD5FaFmY9u7LAxu_GlRiLzg&code_challenge_method=S256&codex_cli_simplified_flow=true&consent_verifier=euOctgYBKAHXlqSfrpwVW-MHkok-J0QJxW_n5ZTKUsODglnQCCDtNpNE_AE5FkYmXadna17DF73gID_vIM0Gs6LwyLaGB7qmekeI13Wfd2yT7hMzP9RZk5fSKQtURcebAnvCZ67iHp-G22vzgib-wtJgfDTDH3nnfFGtC1xaLtU-_MMD8bf-8-Sjtjn6q5M6Z4WAlN1TJfsXUcnZ4q1-RFXu64D_Wyxra1vyLfOrsjVuVtSJLglts3uogmsVcmD5tpubEXb1zpwBBoeS-3nu-Glnz38EJsnQMvsfOM4FT-_yS_6dbyfiV5jTC1xWcmPsa4B9-6Dhuv9tquwK1ZzkHCS19qxLIuVMsg-cZ4MwMfTjJg079XYFtTK_JojMH-E6GxUr4v01xb0qmq859ANRe1MEOsxXODDzEFjP_9hgv-lXGvm4dptRZZ-dNzi2PgOv5L8aa-W73_zcnTn1HsNdF2Cpid0NB2deyBfRHLnDArPUflv31P0dNnZABgumfldV6orJUC14cYbXpvupWAGX615-mKFX-JHTQW-1lvllgZjkxLpxNkrVQ6pYbVFHy0w15ND7MfELp2P7dfLzxrkuFksZkNDIac-vXLiy3lmsPk9hmmykXO45LhJq-ARaE72xytuzxTZCxDBNjfY20jtua45WpJwHM0LUI0PNjNuSsyu5I8syaQJoqywjvRTjAjBsJ8iPRd0GPFpDN2LvdsrG-3F_gZxRT_9538-NK_sS9RZqs_6W4HYxwU12JbvA2g-M2HqXR0EwogrcR2L3Pz8uGu1_xkywnuDMYR-ZOmYR4VtUr6lzQNv1LfDU6WuI9eyLTx38sLGGgHMBV1IpAZ4Vq1Bv953zzPiLwGua1cu8vf6rWpv7v3Kfr-cZy1CfxRQqHP1vicJm-R0rqhlVQllejFOi8ZLrtXXV-h-4VAsjIlVqfX8V6lSu3ti0x4Kotz2hn3JiHpUuKp1O7iXYG86E1XY359WjtY1YMFKIY26x3fKXxL8Wb-qAlsDsTF0xCYyAktqEB9PA20QMq_c8k6wXEdIW98vzm89sEd16XO0Wzmhigw5Dhqs-9I4IHFVporLls5eshYiGIVHQML0Q0wxeqn64nMA6xR_JoUwfHAYa5Jrs6nGwz1nq8v4Pxw_t_lCP8F_mc_rqMqXGWoHj5RdAYlHgORB_hyDZxvK5AUVnWyzM4tLEUBJRE8aL5Q149q6wyuK3jvJ93FvWExNUTsgwLc3c_ABjmGI7c9Q_jJPUQXj6sGLgYl7fM--NXWW4R_nZK6Tj8O8kVptBFfSTF09yXijum85KIpXDaERQdYW83tFimAjoNH9Ify2XA2hrSWOgTaB34Hv92NN3tWYgfU_cbLlz6YnzPIda2JobixmZLuLBbbRwjn5B2FaGGFWaeymhTdA7zPEEpJihCKrnVtgjI_mlOeVw_7OOt364RTieInw0wrvQAFaLxIRoTsZ137r188nNLfXs3BDIRn2bjUMmhvLwhAPYHBBSbf4H5KOO9AVVDT6k7WcXnTmVSYutOJH2wQNk-nYKCC4wkqPPb2VzCrWTYU2IPKN8UEUiR33Eh8OyuFMAX4GcTp7ZNJSmyrqkL7gbSc1WTrSQIPri09rZ_PRBS8X19xBIKalS10nGK3osLqZp4sTJiGgQWPqC7AXJz9cxXKm9Djknd3HCClhg0qbDtdVfJ0w4XO_1x5jr4cCZz4NvuNhsmPqCCYUkZGWuVxwypUqq_RjrzIalQ9q8VNaqvxp0vHq2OJqWNXGGKRVlnRFrTPMJELAarye1KEuFZB_UeQ2jTBT1NV0FEXhJJUJQHqodHIV6r-un46ulYJ8vxUHtXPmOSXUrFj7GeSFgnfgLOoIdB3nZiR4wFFY3CUsiNg6ipmCN8s4V-VjF0BnS1xYynkdNMetNmcNitncBn9cg_IsAwBOvjcOx63D-gY_NmO3CuUjovEk0BnEAwEY7ftPGZr542q8k__RkFvO5bYRhtv4-xFjIk24p-4o78XFteq9l8K-khBSTyRbyLSx34yBLVhzGNdaX2Y0myo2cY3zq90aPnaBnsQ8HSKMbe81XqPaXb_WfYXEE4eO0FYSuQ8f4R3dVlUDUVy43_Bje_Wh7Td0xVEKuAcx23fgR61vvwm7qpknSCD8Kl3xKEHO1B-mMbYvORN_8QYW-RRe62rZZDL-mj2ZvVOc-0ittPlRxnMHv6G7Fqpk%3D&id_token_add_organizations=true&originator=Codex+Desktop&redirect_uri=http%3A%2F%2Flocalhost%3A1455%2Fauth%2Fcallback&response_type=code&scope=openid+profile+email+offline_access&state=eELEmwJv9rp1Vo8CnQiUka666ElielMvng4MpqqqidU",
+      "title": "Sign into Codex",
+      "last_visited_at": "2026-02-14 02:29:29"
+    },
+    {
+      "id": 890,
+      "url": "https://auth.openai.com/api/oauth/oauth2/auth?client_id=app_EMoamEEZ73f0CkXaXp7hrann&code_challenge=Sywf7zDom7VHT-X8ioqMqD5FaFmY9u7LAxu_GlRiLzg&code_challenge_method=S256&codex_cli_simplified_flow=true&id_token_add_organizations=true&login_verifier=WbJXui0W0v4e_lGItu6rFjDndScSmH3umNW8khWQ8gCrvWG3dcesXBnkX9viKPvKhcC5UVNqWPG5CW6xL3bUya34xrKYj6aHhyzdAnFsbosXWcJnuc3fSyfAHTAuRoqPxRVlAVZHMpqD9oflulhMkLCMz-ldJwmzW8Y6vzYfzVhlr8RAV4a-kACW2iWLaf5xi8-U0xnxFKMqsmhkEE8ysxKIwo8vSD-ilpxH8o1IZb6vuGSwmNUUf1kSHq9UDFPX-sNoFZBvhnSWpDZjQAdY7a0nygmvaUQa3dZslRsp_dhzCOe1fvYPLrEkbjmrrL5kKCRMVCLCQgVHzK7NNrnIA8GYsA8Xa9r-qla4bDtS2ovqekctG_i45cJzR956Tka4C8vcnpdHzj5KWUU4GTKX04QtMc8fbPlRvg807kjCWxkPOj9tp3ViukfHeCY2D1NS56WD1KxLQwYQtey8imvFwal2WMR3YHq8r_xqx-ufTpWrAzpB1bzwrnluAD6PvX5D9yOsTYj6l87q7s6510FRdQ5pfLVKXv7fkUwYO98YfB-au7HJx6LLb5wCFE-jq_xbjCS8YtmOpp622z_vdw37D4x1GP2y4eB2qeZzWnY_BfPSTP0IWRbHD7JF17u0R3DcXb3dMMv_k_ffaETZu8no9a5q8zIZ1upOUg1riz8PPgn6CFa_cNClO5qQxZh9YkZaqDwZAVqZdg4a0SrRIlMq--gHgnbr7-tM_B12ZyebCmUfNO303SUn_nyOT-t_vFEs1WU02lt1f5SSl15FoU-SZiJQPFooYPXJoFLrJjhT_zalU3QDzA3B-3nXytBI713lEwJ7nI-bbVtCBd0HaYutogBqcbHtdChFoaGKHd2Uq_PzCOKY_jjB87-CovyOUz9oHF1pL5enLxe9WpzqHFk3V5XKTrvum2dRj1GFwHdM3AJq17G92p11KY1AxZtAtOzq-yFXL6T8Ty29XCrS9Ta-slqo31hqgWt2E_Yf4bTx6u73F8usU17Uy4T5x_9WVxz2J9Tmb982Kxg2uqEbDUFn_bEcwdXBS1mIc97uQolx06S10o9IOaj0jII_YPm6c-7O1G9vl25Ru4pGFl1OH_-Cek6O2FbDUsVbeTmQS-YSzyL7MAok3_bzmuCsccrhbxYjKJ1I8OgZdh4GBe9VAQPNN2O--HsJv-XIjYHhUxLsj2FFNsqtW9s6jQbiIzD6qAHVC7Fz81TSQfYfWbminwkOz8qOAYLU5W5zslHuYIn3yCd1XN9tNtHJwRn5ncpnZZuJVHd_PO4fz3s3WG4v0W3wyrwtBa95WOkO-1_rrsqjP_ifWNsGkLm-1XIER7tTpJHaqZqq1aMXFNdRuOOXncfBV1X-4q5Gcm4xJPIxqUPYtC87Kqr4B9P-CCZyD_FqWmHa6L4YuQg7f3yn6NkmNxZBIqhvxaFE-RHQbyd7jS6pLS5FjGoArtjxF6J6vi0Kbe2B1LoSZzZt7h-43Ly_hfAKsC_p4VXbjAIxVTgd96iXqvkiBYWNfk671FjXdvkUvxg0g3wLa4BqZmqL4T2uiM0azgUeSo1kMHbn8KYKNuKwRGIYWOxXNw4j61BSemfhjwZQrMslPUj70F3jv-ZEQLQdx9qY3tI9vWBPDjcjMZAz1dkPUrnYQEbY7wmlerIyW8jm45rnIvjT5XZZu3ygF3A8zlowOAbSqBunw8k0_YdfPuUwXuDnCtBvxD2mHhLkk02AWwvA2krXQgf264d-lwmQ5aF09g9c3ANnFY694zGozAgiZ2d204NhCYLx7NRd2xs6VWL33wo16aQy3EIgyerMKT825G0q4hBmfhv86gdgKOjKiUjKvSZF9FYFFQFlSkjQd55InNAtmJN8MafsqbJUK571uggYFHJDhxHuHpXLY2NreKioyid-JekD_al3IdKQwti6oXxx6e2gX50m8RToN9nfCs6sWmysJsx0c0XUJ27gpGhRNN0CGRbMLZmO9sEF_FtsbjTB4qxKXozHAVUZ8l117zZknnESQm22zbIyWZcVPNhD&originator=Codex+Desktop&redirect_uri=http%3A%2F%2Flocalhost%3A1455%2Fauth%2Fcallback&response_type=code&scope=openid+profile+email+offline_access&state=eELEmwJv9rp1Vo8CnQiUka666ElielMvng4MpqqqidU",
+      "title": "Sign into Codex",
+      "last_visited_at": "2026-02-14 02:29:29"
+    },
+    {
+      "id": 889,
+      "url": "https://auth.openai.com/api/accounts/callback/apple?state=a8fcd349-504b-4dd0-875a-302434704767&code=cfcf437bcd06b48ae828dd5b2309bf682.0.szuv.nLfevLt2wHnd4EBYxSVUyQ",
+      "title": "Melde dich mit ChatGPT bei Codex an – OpenAI",
+      "last_visited_at": "2026-02-14 02:29:15"
+    },
+    {
+      "id": 505,
+      "url": "https://auth.openai.com/sign-in-with-chatgpt/codex/consent",
+      "title": "Melde dich mit ChatGPT bei Codex an – OpenAI",
+      "last_visited_at": "2026-02-14 02:29:15"
+    },
+    {
+      "id": 888,
+      "url": "https://appleid.apple.com/auth/authorize?response_type=code&client_id=com.openai.chat.sia&redirect_uri=https%3A%2F%2Fauth.openai.com%2Fapi%2Faccounts%2Fcallback%2Fapple&scope=openid+name+email&state=a8fcd349-504b-4dd0-875a-302434704767&audience=com.openai.chat.sia&nonce=lhD611agZBSceXaqIBC1&response_mode=form_post",
+      "title": "Bei Apple Account anmelden",
+      "last_visited_at": "2026-02-14 02:29:01"
+    },
+    {
+      "id": 887,
+      "url": "https://auth.openai.com/api/accounts/login?login_challenge=PVgxWJIyNyRT9BrYqfkRhy9HRKbtg1ThcvBhGtqupyLQC56QzIw_6jGfZAwWjr7TG1APGXZrR1VIYjVGTBpndo8LPExTqLj4bMYTWEoERRX7vz-6aNDiox0vF40bEgHpqXPt3swiQgp8we1oML39Idu0BEkVLko2ndO5l0dG-4ADzXuvp4VbUJgPX-VRkN62-e1PwhlnpABT-yLUZpy6bneQYW9cg-1qXI9JV57IauI7IKPDdGolXlgk-iXV9lJty46Dy2UNHNYL4_TQN8kF6OwX6zOoC0-ej-q6iJqC3iyfYtS3-r6IsPRyiVAYPm81rDsmKQK4pe_gwAUJrKgioMW59uOhiMvjKXe5Bd2MkHh0z5gpLVi8XEzUKYzZG-ACNh0pZAwsUyNos6J9s4CGJOY7ZAEpXylLXXOkVyC1wWx4QquyMnRTNSGeXvptVboDq8PqKudKkUp7FqLI3Jux6o2pF4dUDQ_HmvdDHbkj5pfElD89tCuMqYea6eISC45NMq_Y_kX6E54xjUDbQDwW-G-L102Y2y5rzcxnzMj-08ZNAoj_tRJS9eIOWrVEDOQP-iAwfPDjGtRpvIpVJ06aVVLaISn9kYrpiXtujjkGOLW0tUhkJ_-iKZwVV8d2RMfTVwgApP6cp1WgWesr1Q0Q2ak4Aj7s9l2dE00Z8R8GpifvoW0pz1C5S1YQ8ZUlMLcoMl9V8gxcT3oBkRLgGc4lMS8xM2zv2Jy766Dy2ZnGFz7EG_UjmtELS6g_CwyN_Upbfdv4OGILjioNJZ_Sj8bL2TWhT6vqbpUayCDGViiq9BDCObu3uXnVncA7hUGglqSIep40-leXPSdH_s9tb3w9Bm0d22N7QeW30Hg526KU_gASXxvl9EbrTIzx_1py-QKTrhSTSUuFPAjlQm366RWgKRYNokNtgsIWa5TnqdT_PVQv8fa0uVoCkNvKLSHjbF1gDkq6VDqHdGdjj2XKGZH6IQbHAvIWuPZuAHEPl_d6wf0QHxFWmOi6xrY6zH1aTZYoUmPuhrKBgrwcbRdp-T7KrYYr2ZIcjlLHAbkkLonCMqSicKBiizzWpLiJvGfLFS4DWSQlcjk29RzZBdg0Wveljzbntt6hBc7l-NBaleNiqvQL0H7AU-T4jRuQq9_vxbkCwalPP5p3XF0Bf2bqjWwegyg7mQYuC75jFT6MuwwRsPbJEBH0njF3MVc1yL3_ydcXLruoYesHkWGrlp7d_gDqrUfcfMv5rwbtZptCcyR50oajYwLcNcQ-uFBQ827SlJMzHoeacIJTv3mtLnM2ie8g7MJzF9pMynT7jEYknqyvDpI-9BTrliRxq0IT2Db1B6wLzpLoDOwzgve3oZd7To2lsOhr1JpvgMv3yOD9RcWTlLPo37wcQNA-vseOmnoeabxhd1Irebe8aP7UjBz1D2SNS92VEbRgYw%3D%3D",
+      "title": "Willkommen zurück – OpenAI",
+      "last_visited_at": "2026-02-14 02:28:56"
+    },
+    {
+      "id": 886,
+      "url": "https://auth.openai.com/api/oauth/oauth2/auth?client_id=app_EMoamEEZ73f0CkXaXp7hrann&code_challenge=Sywf7zDom7VHT-X8ioqMqD5FaFmY9u7LAxu_GlRiLzg&code_challenge_method=S256&codex_cli_simplified_flow=true&id_token_add_organizations=true&originator=Codex+Desktop&redirect_uri=http%3A%2F%2Flocalhost%3A1455%2Fauth%2Fcallback&response_type=code&scope=openid+profile+email+offline_access&state=eELEmwJv9rp1Vo8CnQiUka666ElielMvng4MpqqqidU",
+      "title": "Willkommen zurück – OpenAI",
+      "last_visited_at": "2026-02-14 02:28:56"
+    },
+    {
+      "id": 502,
+      "url": "https://auth.openai.com/log-in",
+      "title": "Willkommen zurück – OpenAI",
+      "last_visited_at": "2026-02-14 02:28:56"
+    },
+    {
+      "id": 885,
+      "url": "https://auth.openai.com/oauth/authorize?response_type=code&client_id=app_EMoamEEZ73f0CkXaXp7hrann&redirect_uri=http%3A%2F%2Flocalhost%3A1455%2Fauth%2Fcallback&scope=openid%20profile%20email%20offline_access&code_challenge=Sywf7zDom7VHT-X8ioqMqD5FaFmY9u7LAxu_GlRiLzg&code_challenge_method=S256&id_token_add_organizations=true&codex_cli_simplified_flow=true&state=eELEmwJv9rp1Vo8CnQiUka666ElielMvng4MpqqqidU&originator=Codex%20Desktop",
+      "title": "Willkommen zurück – OpenAI",
+      "last_visited_at": "2026-02-14 02:28:56"
+    },
+    {
+      "id": 870,
+      "url": "https://chatgpt.com/codex/settings/general",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:27:23"
+    },
+    {
+      "id": 877,
+      "url": "https://chatgpt.com/codex/settings/general#settings",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:27:12"
+    },
+    {
+      "id": 882,
+      "url": "https://chatgpt.com/codex/settings/general#settings/Security",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:27:10"
+    },
+    {
+      "id": 883,
+      "url": "https://chatgpt.com/codex/settings/general#settings/ParentalControls",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:27:09"
+    },
+    {
+      "id": 884,
+      "url": "https://chatgpt.com/codex/settings/general#settings/Account",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:27:09"
+    },
+    {
+      "id": 881,
+      "url": "https://chatgpt.com/codex/settings/general#settings/DataControls",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:52"
+    },
+    {
+      "id": 880,
+      "url": "https://chatgpt.com/codex/settings/general#settings/Connectors",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:51"
+    },
+    {
+      "id": 879,
+      "url": "https://chatgpt.com/codex/settings/general#settings/Personalization",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:50"
+    },
+    {
+      "id": 878,
+      "url": "https://chatgpt.com/codex/settings/general#settings/Notifications",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:49"
+    },
+    {
+      "id": 872,
+      "url": "https://chatgpt.com/codex/settings/environments",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:38"
+    },
+    {
+      "id": 876,
+      "url": "https://chatgpt.com/codex/settings/code-review",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:27"
+    },
+    {
+      "id": 583,
+      "url": "https://chatgpt.com/codex/settings/connectors",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:25"
+    },
+    {
+      "id": 871,
+      "url": "https://chatgpt.com/codex/settings/usage",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:25"
+    },
+    {
+      "id": 875,
+      "url": "https://chatgpt.com/codex/settings/data",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:24"
+    },
+    {
+      "id": 378,
+      "url": "https://chatgpt.com/codex",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:26:21"
+    },
+    {
+      "id": 874,
+      "url": "https://github.com/settings/installations/109464726",
+      "title": "Confirm access",
+      "last_visited_at": "2026-02-14 02:26:06"
+    },
+    {
+      "id": 432,
+      "url": "https://github.com/apps/chatgpt-codex-connector/installations/select_target",
+      "title": "Installing ChatGPT Codex Connector",
+      "last_visited_at": "2026-02-14 02:26:03"
+    },
+    {
+      "id": 873,
+      "url": "https://chatgpt.com/codex/settings/environment/create",
+      "title": "Codex",
+      "last_visited_at": "2026-02-14 02:25:53"
+    },
+    {
+      "id": 779,
+      "url": "https://www.skool.com/applied-ai-mastermind-9612/about",
+      "title": "Applied AI Mastermind",
+      "last_visited_at": "2026-02-14 01:55:23"
+    },
+    {
+      "id": 868,
+      "url": "https://studio.youtube.com/",
+      "title": "YouTube Creator Studio",
+      "last_visited_at": "2026-02-14 01:54:55"
+    },
+    {
+      "id": 804,
+      "url": "https://www.youtube.com/feed/subscriptions",
+      "title": "Abos - YouTube",
+      "last_visited_at": "2026-02-14 01:54:21"
+    }
+  ]
+}
