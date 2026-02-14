@@ -40,6 +40,31 @@ class PublisherConfig:
     notify_subscribers: bool = True
 
 
+def _has_youtube_publish_auth(cfg: PublisherConfig) -> bool:
+    has_access = bool(str(cfg.access_token or "").strip())
+    has_refresh_flow = bool(
+        str(cfg.client_id or "").strip()
+        and str(cfg.client_secret or "").strip()
+        and str(cfg.refresh_token or "").strip()
+    )
+    return has_access or has_refresh_flow
+
+
+def _is_transient_publish_auth_error(message: str) -> bool:
+    text = str(message or "").strip().lower()
+    if not text:
+        return False
+    markers = (
+        "missing youtube_access_token",
+        "token refresh failed",
+        "token refresh connection error",
+        "upload failed after token refresh",
+        "youtube upload connection error",
+        "youtube upload http 401",
+    )
+    return any(marker in text for marker in markers)
+
+
 def _now_iso() -> str:
     return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
@@ -480,6 +505,17 @@ def process_queue(
     )
 
     now = dt.datetime.now(dt.timezone.utc)
+    auth_ready = _has_youtube_publish_auth(cfg)
+    recovered_rows = 0
+    for row in rows:
+        state = str(row.get(state_col) or "").strip().lower()
+        if state != "error":
+            continue
+        if _is_transient_publish_auth_error(str(row.get("publish_error") or "")):
+            row[state_col] = "ready"
+            row["publish_error"] = ""
+            recovered_rows += 1
+
     history = _collect_publish_history(workflow)
     effective_mode, guard_details = _evaluate_publish_mode(
         workflow=workflow,
@@ -490,6 +526,8 @@ def process_queue(
     )
 
     blocked_reason = ""
+    if not dry_run and not auth_ready:
+        blocked_reason = "missing_youtube_auth:need_access_token_or_refresh_credentials"
     day_limit = max(1, int(max_posts_per_day))
     spacing_minutes = max(0, int(min_spacing_min))
     history_24h = []
@@ -580,6 +618,8 @@ def process_queue(
         "queue_file": str(queue),
         "mode": mode,
         "effective_mode": effective_mode,
+        "auth_ready": auth_ready,
+        "recovered_rows": recovered_rows,
         "max_posts_per_day": day_limit,
         "min_spacing_min": spacing_minutes,
         "blocked_reason": blocked_reason,

@@ -204,6 +204,27 @@ automation/scripts/stop_shorts_revenue_daemon.sh
 Hinweis: Der Daemon uebernimmt `SAFETY_GUARD`, `SAFETY_COOLDOWN_MIN` und `AUTOPILOT_NICE`
 automatisch in den Hintergrundprozess.
 
+Full Autonomy Manager (neu, alles zentral starten):
+
+```bash
+# Start: Shorts-Autopilot + Ops-Loop (Ingest/Income/Stripe/Handoff)
+automation/scripts/full_autonomy.sh start 24 30
+
+# Sofortiger Publish-Versuch (ohne auf naechsten Zyklus zu warten)
+automation/scripts/full_autonomy.sh post-now
+
+# Status / Stop / Restart
+automation/scripts/full_autonomy.sh status
+automation/scripts/full_autonomy.sh stop
+automation/scripts/full_autonomy.sh restart 24 30
+```
+
+Ops-Loop Tasks (automatisch):
+- ChatGPT Export Ingest alle 6h
+- Telegram Income Stream alle 1h
+- Stripe Sync alle 2h (wenn Key gesetzt)
+- Thread-Handoff alle 2h
+
 YouTube Auto-Publish:
 - `AUTO_PUBLISH_YOUTUBE=1` aktiviert automatische Uploads aus der Queue.
 - `AUTO_PUBLISH_MODE=public|unlisted|private`
