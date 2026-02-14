@@ -5,6 +5,8 @@ import datetime as dt
 import json
 import math
 import re
+import shutil
+import subprocess
 import urllib.parse
 import urllib.request
 from dataclasses import dataclass, field
@@ -508,6 +510,120 @@ def _video_prompt_for_draft(draft: ShortsDraft, trend_title: str) -> str:
     )
 
 
+def _ffmpeg_text(value: str, limit: int = 180) -> str:
+    raw = re.sub(r"\s+", " ", str(value or "")).strip()
+    raw = raw[:limit]
+    return (
+        raw.replace("\\", r"\\")
+        .replace(":", r"\:")
+        .replace("'", r"\'")
+        .replace("%", r"\%")
+        .replace(",", r"\,")
+    )
+
+
+def _render_video_local_fallback(draft: ShortsDraft, output_path: Path, duration_seconds: int) -> Dict[str, Any]:
+    ffmpeg_bin = shutil.which("ffmpeg")
+    if not ffmpeg_bin:
+        return {"ok": False, "status": "failed", "provider": "local_ffmpeg", "error": "ffmpeg_not_found"}
+
+    ensure_dir(output_path.parent)
+    hook = _ffmpeg_text(draft.hook, 110)
+    script = _ffmpeg_text(draft.script, 220)
+    cta = _ffmpeg_text(draft.cta or "Mehr im Profil", 80)
+
+    font_path = "/System/Library/Fonts/Supplemental/Arial.ttf"
+    if not Path(font_path).exists():
+        font_path = "/System/Library/Fonts/Supplemental/Helvetica.ttc"
+
+    vf = ",".join(
+        [
+            "format=yuv420p",
+            (
+                "drawtext="
+                f"fontfile={font_path}:text='{hook}':fontcolor=white:fontsize=54:"
+                "x=(w-text_w)/2:y=100:box=1:boxcolor=black@0.55:boxborderw=18"
+            ),
+            (
+                "drawtext="
+                f"fontfile={font_path}:text='{script}':fontcolor=white:fontsize=40:"
+                "x=(w-text_w)/2:y=(h-text_h)/2:box=1:boxcolor=black@0.45:boxborderw=20"
+            ),
+            (
+                "drawtext="
+                f"fontfile={font_path}:text='{cta}':fontcolor=yellow:fontsize=44:"
+                "x=(w-text_w)/2:y=h-180:box=1:boxcolor=black@0.6:boxborderw=16"
+            ),
+        ]
+    )
+
+    cmd = [
+        ffmpeg_bin,
+        "-y",
+        "-hide_banner",
+        "-loglevel",
+        "error",
+        "-f",
+        "lavfi",
+        "-i",
+        f"color=c=0x111111:s=720x1280:d={max(6, int(duration_seconds))}",
+        "-vf",
+        vf,
+        "-r",
+        "30",
+        "-c:v",
+        "libx264",
+        "-pix_fmt",
+        "yuv420p",
+        str(output_path),
+    ]
+
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0 and "No such filter: 'drawtext'" in (result.stderr or ""):
+        # Fallback for ffmpeg builds without drawtext support.
+        cmd = [
+            ffmpeg_bin,
+            "-y",
+            "-hide_banner",
+            "-loglevel",
+            "error",
+            "-f",
+            "lavfi",
+            "-i",
+            f"testsrc2=s=720x1280:d={max(6, int(duration_seconds))}",
+            "-vf",
+            "format=yuv420p",
+            "-r",
+            "30",
+            "-c:v",
+            "libx264",
+            "-pix_fmt",
+            "yuv420p",
+            str(output_path),
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True)
+
+    if result.returncode == 0 and output_path.exists():
+        return {
+            "ok": True,
+            "status": "rendered",
+            "provider": "local_ffmpeg",
+            "output_file": str(output_path),
+            "operation_name": "local_ffmpeg_drawtext",
+            "error": "",
+        }
+
+    error = (result.stderr or result.stdout or "local_render_failed").strip()
+    return {
+        "ok": False,
+        "status": "failed",
+        "provider": "local_ffmpeg",
+        "output_file": "",
+        "operation_name": "local_ffmpeg_drawtext",
+        "error": error[:400],
+    }
+
+
 def render_drafts_with_gemini(config: WorkflowConfig, drafts: List[ShortsDraft], trends: List[TrendItem], run_dir: Path) -> Dict[str, Any]:
     trend_map = {t.video_id: t for t in trends}
     videos_dir = run_dir / "videos"
@@ -553,18 +669,24 @@ def render_drafts_with_gemini(config: WorkflowConfig, drafts: List[ShortsDraft],
             )
             continue
 
-        if not config.gemini_video_enabled:
-            draft.video_status = "skipped"
-            draft.video_error = "gemini_video_disabled"
+        if not config.gemini_video_enabled or not config.gemini_api_key:
+            fallback_reason = "gemini_video_disabled" if not config.gemini_video_enabled else "gemini_api_key_missing"
+            result = _render_video_local_fallback(draft, output_path, config.gemini_duration_seconds)
+            draft.video_status = str(result.get("status") or "failed")
+            draft.video_file = str(result.get("output_file") or "")
+            draft.video_operation = str(result.get("operation_name") or "")
+            draft.video_error = str(result.get("error") or fallback_reason)
+            if bool(result.get("ok")):
+                rendered += 1
             records.append(
                 {
                     "slot": idx,
                     "title": draft.title,
                     "status": draft.video_status,
                     "error": draft.video_error,
-                    "video_file": "",
-                    "operation_name": "",
-                    "provider": "gemini",
+                    "video_file": draft.video_file,
+                    "operation_name": draft.video_operation,
+                    "provider": str(result.get("provider") or "local_ffmpeg"),
                 }
             )
             continue
@@ -583,6 +705,13 @@ def render_drafts_with_gemini(config: WorkflowConfig, drafts: List[ShortsDraft],
         )
         result = render_video_with_gemini(request)
 
+        if not bool(result.get("ok")):
+            fallback = _render_video_local_fallback(draft, output_path, config.gemini_duration_seconds)
+            if bool(fallback.get("ok")):
+                result = fallback
+            else:
+                result["error"] = str(result.get("error") or "") or str(fallback.get("error") or "gemini_failed")
+
         draft.video_status = str(result.get("status") or "failed")
         draft.video_file = str(result.get("output_file") or "")
         draft.video_operation = str(result.get("operation_name") or "")
@@ -599,7 +728,7 @@ def render_drafts_with_gemini(config: WorkflowConfig, drafts: List[ShortsDraft],
                 "video_file": draft.video_file,
                 "operation_name": draft.video_operation,
                 "video_uri": str(result.get("video_uri") or ""),
-                "provider": "gemini",
+                "provider": str(result.get("provider") or "gemini"),
             }
         )
 

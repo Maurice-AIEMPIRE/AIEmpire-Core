@@ -113,8 +113,7 @@ def render_video_with_gemini(req: GeminiVideoRequest) -> Dict[str, Any]:
     parameters: Dict[str, Any] = {
         "aspectRatio": req.aspect_ratio,
         "resolution": req.resolution,
-        "durationSeconds": str(max(4, min(8, int(req.duration_seconds)))),
-        "numberOfVideos": 1,
+        "durationSeconds": int(max(4, min(8, int(req.duration_seconds)))),
     }
     negative = req.negative_prompt.strip()
     if negative:
@@ -126,13 +125,23 @@ def render_video_with_gemini(req: GeminiVideoRequest) -> Dict[str, Any]:
         "parameters": parameters,
     }
 
-    started = _http_json(
-        "POST",
-        start_url,
-        api_key=req.api_key,
-        payload=start_payload,
-        timeout=req.request_timeout_seconds,
-    )
+    try:
+        started = _http_json(
+            "POST",
+            start_url,
+            api_key=req.api_key,
+            payload=start_payload,
+            timeout=req.request_timeout_seconds,
+        )
+    except GeminiVideoError as exc:
+        return {
+            "ok": False,
+            "status": "failed",
+            "error": str(exc),
+            "output_file": str(req.output_path),
+            "operation_name": "",
+            "video_uri": "",
+        }
     operation_name = str(started.get("name") or "").strip()
     if not operation_name:
         return {
@@ -148,12 +157,23 @@ def render_video_with_gemini(req: GeminiVideoRequest) -> Dict[str, Any]:
     operation_url = req.base_url.rstrip("/") + "/" + operation_name
     final_payload: Dict[str, Any] = {}
     for _ in range(max(1, req.max_poll_attempts)):
-        polled = _http_json(
-            "GET",
-            operation_url,
-            api_key=req.api_key,
-            timeout=req.request_timeout_seconds,
-        )
+        try:
+            polled = _http_json(
+                "GET",
+                operation_url,
+                api_key=req.api_key,
+                timeout=req.request_timeout_seconds,
+            )
+        except GeminiVideoError as exc:
+            return {
+                "ok": False,
+                "status": "failed",
+                "error": str(exc),
+                "output_file": str(req.output_path),
+                "operation_name": operation_name,
+                "video_uri": "",
+                "raw": final_payload,
+            }
         final_payload = polled
         if bool(polled.get("done")):
             break
@@ -193,7 +213,18 @@ def render_video_with_gemini(req: GeminiVideoRequest) -> Dict[str, Any]:
             "raw": final_payload,
         }
 
-    _download_to_file(video_uri, req.api_key, req.output_path)
+    try:
+        _download_to_file(video_uri, req.api_key, req.output_path)
+    except GeminiVideoError as exc:
+        return {
+            "ok": False,
+            "status": "failed",
+            "error": str(exc),
+            "output_file": str(req.output_path),
+            "operation_name": operation_name,
+            "video_uri": video_uri,
+            "raw": final_payload,
+        }
 
     return {
         "ok": True,

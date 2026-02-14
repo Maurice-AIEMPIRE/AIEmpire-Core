@@ -16,7 +16,7 @@
       "source_video_id": "fallback_1",
       "slug": "ai-news-in-30-seconds-35s-breakdown",
       "description": "Hook: Stop scrolling: AI News in 30 seconds in 30 seconds.\n\nLink im Profil: AI Prompt Vault. Schreib 'VAULT' fuer den direkten Zugang.\n\n#shorts #motivation #mindset #ai",
-      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_103429/videos/01_ai-news-in-30-seconds-35s-breakdown.mp4",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_121724/videos/01_ai-news-in-30-seconds-35s-breakdown.mp4",
       "video_status": "rendered",
       "video_operation": "local_ffmpeg_drawtext",
       "video_error": ""
@@ -36,7 +36,7 @@
       "source_video_id": "fallback_2",
       "slug": "motivation-and-self-discipline-35s-breakdown",
       "description": "Hook: Stop scrolling: Motivation and self-discipline in 30 seconds.\n\nLink im Profil: AI Prompt Vault. Schreib 'VAULT' fuer den direkten Zugang.\n\n#shorts #motivation #mindset #ai",
-      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_103429/videos/02_motivation-and-self-discipline-35s-breakdown.mp4",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_121724/videos/02_motivation-and-self-discipline-35s-breakdown.mp4",
       "video_status": "rendered",
       "video_operation": "local_ffmpeg_drawtext",
       "video_error": ""
@@ -56,10 +56,10 @@
       "source_video_id": "fallback_3",
       "slug": "insane-productivity-hacks-35s-breakdown",
       "description": "Hook: Stop scrolling: Insane productivity hacks in 30 seconds.\n\nLink im Profil: AI Prompt Vault. Schreib 'VAULT' fuer den direkten Zugang.\n\n#shorts #motivation #mindset #ai",
-      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_103429/videos/03_insane-productivity-hacks-35s-breakdown.mp4",
-      "video_status": "rendered",
-      "video_operation": "local_ffmpeg_drawtext",
-      "video_error": ""
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
     },
     {
       "title": "Money mindset myths | 35s Breakdown",
@@ -76,10 +76,10 @@
       "source_video_id": "fallback_4",
       "slug": "money-mindset-myths-35s-breakdown",
       "description": "Hook: Stop scrolling: Money mindset myths in 30 seconds.\n\nLink im Profil: AI Prompt Vault. Schreib 'VAULT' fuer den direkten Zugang.\n\n#shorts #motivation #mindset #ai",
-      "video_file": "/Users/maurice/Documents/New project/content_factory/deliverables/shorts_revenue/20260214_103429/videos/04_short-4.mp4",
-      "video_status": "rendered",
-      "video_operation": "local_ffmpeg_drawtext",
-      "video_error": ""
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
     },
     {
       "title": "Story-driven mini lessons | 35s Breakdown",
@@ -96,10 +96,10 @@
       "source_video_id": "fallback_5",
       "slug": "story-driven-mini-lessons-35s-breakdown",
       "description": "Hook: Stop scrolling: Story-driven mini lessons in 30 seconds.\n\nKommentiere mit EINEM Wort: JA oder NEIN?\n\n#shorts #motivation #mindset #ai",
-      "video_file": "/Users/maurice/Documents/New project/content_factory/deliverables/shorts_revenue/20260214_103429/videos/05_short-5.mp4",
-      "video_status": "rendered",
-      "video_operation": "local_ffmpeg_drawtext",
-      "video_error": ""
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
     },
     {
       "title": "Fun facts that sound fake but true | 35s Breakdown",
@@ -116,10 +116,10 @@
       "source_video_id": "fallback_6",
       "slug": "fun-facts-that-sound-fake-but-true-35s-breakdown",
       "description": "Hook: Stop scrolling: Fun facts that sound fake but true in 30 seconds.\n\nKommentiere mit EINEM Wort: JA oder NEIN?\n\n#shorts #motivation #mindset #ai",
-      "video_file": "/Users/maurice/Documents/New project/content_factory/deliverables/shorts_revenue/20260214_103429/videos/06_short-6.mp4",
-      "video_status": "rendered",
-      "video_operation": "local_ffmpeg_drawtext",
-      "video_error": ""
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
     }
   ]
 }
