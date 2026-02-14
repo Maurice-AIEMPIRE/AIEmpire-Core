@@ -197,6 +197,13 @@ YouTube Auto-Publish:
 - Python CLI: `python3 -m automation.youtube_publish --workflow shorts_revenue --mode public --max-posts 1 --max-posts-per-day 6 --min-spacing-min 120`
 - KPI Kill-Switch: Wenn letzte 6 public Uploads schwach sind (`avg_vph < 50` oder `avg_like_rate < 0.02`), wird automatisch 12h auf `unlisted` runtergeschaltet.
 
+Auto-Commit (neu, standardmaessig aktiv im Autopilot):
+- `AUTO_COMMIT_ENABLED=1` fuehrt nach jedem Zyklus automatisch einen Git-Commit aus.
+- `AUTO_COMMIT_PUSH=1` pusht zusaetzlich automatisch (default `0`).
+- `AUTO_COMMIT_PUSH_REMOTE=origin` und optional `AUTO_COMMIT_PUSH_BRANCH=<branch>`.
+- `AUTO_COMMIT_MESSAGE_PREFIX` fuer Commit-Prefix.
+- Wrapper: `automation/scripts/run_auto_commit.sh <workflow> <run_idx> <run_total>`
+
 Erforderliche ENV fuer Upload:
 - `YOUTUBE_CLIENT_ID`
 - `YOUTUBE_CLIENT_SECRET`

@@ -25,6 +25,8 @@ AUTOPILOT_NICE="${AUTOPILOT_NICE:-10}"
 ATLAS_SNAPSHOT_ENABLED="${ATLAS_SNAPSHOT_ENABLED:-1}"
 DEGRADE_MAINTENANCE_ON_BLOCK="${DEGRADE_MAINTENANCE_ON_BLOCK:-1}"
 TELEGRAM_INCOME_STREAM="${TELEGRAM_INCOME_STREAM:-1}"
+AUTO_COMMIT_ENABLED="${AUTO_COMMIT_ENABLED:-1}"
+AUTO_COMMIT_PUSH="${AUTO_COMMIT_PUSH:-0}"
 
 if ! [[ "$HOURS" =~ ^[0-9]+$ ]]; then
   echo "ERROR: HOURS must be an integer" >&2
@@ -63,6 +65,9 @@ for ((i=1; i<=RUNS; i++)); do
       if [ "$DEGRADE_MAINTENANCE_ON_BLOCK" = "1" ]; then
         echo "[shorts-revenue] run=$i degrade_mode=on maintenance=ingest+merge+strategy_refresh" | tee -a "$SESSION_LOG"
         nice -n "$AUTOPILOT_NICE" python3 automation/scripts/run_degrade_maintenance.py | tee -a "$SESSION_LOG" || true
+      fi
+      if [ "$AUTO_COMMIT_ENABLED" = "1" ]; then
+        automation/scripts/run_auto_commit.sh shorts_revenue "$i" "$RUNS" | tee -a "$SESSION_LOG" || true
       fi
       if [ "$i" -lt "$RUNS" ]; then
         sleep "$((SAFETY_COOLDOWN_MIN * 60))"
@@ -107,6 +112,10 @@ for ((i=1; i<=RUNS; i++)); do
 
   if [ "$TELEGRAM_INCOME_STREAM" = "1" ] && [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
     automation/scripts/run_income_stream_report.sh send | tee -a "$SESSION_LOG" || true
+  fi
+
+  if [ "$AUTO_COMMIT_ENABLED" = "1" ]; then
+    automation/scripts/run_auto_commit.sh shorts_revenue "$i" "$RUNS" | tee -a "$SESSION_LOG" || true
   fi
 
   if [ "$i" -lt "$RUNS" ]; then
