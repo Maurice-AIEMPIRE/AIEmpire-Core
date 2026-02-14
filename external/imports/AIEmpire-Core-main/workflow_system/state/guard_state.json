@@ -1,0 +1,14 @@
+{
+  "level": "normal",
+  "crash_count": 0,
+  "last_crash": "",
+  "safe_mode": false,
+  "clean_shutdown": true,
+  "timestamp": "2026-02-11T01:06:54.365714",
+  "last_sample": {
+    "cpu_percent": 0.0,
+    "ram_percent": 20.8,
+    "disk_percent": 74.9,
+    "timestamp": 1770772014.3657048
+  }
+}

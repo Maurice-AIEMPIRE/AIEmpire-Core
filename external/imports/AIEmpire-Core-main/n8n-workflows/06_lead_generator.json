@@ -1,0 +1,214 @@
+{
+  "name": "06 Lead Generator - Daily Research",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 9,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "f6a7b8c9-6666-4fff-b666-000000000001",
+      "name": "Daily 09:00 Berlin",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "niches",
+              "name": "niches",
+              "value": "BMA (Brandmeldeanlagen / Fire Alarm Systems), AI Consulting for SMBs, Workflow Automation for Entrepreneurs",
+              "type": "string"
+            },
+            {
+              "id": "date",
+              "name": "date",
+              "value": "={{ $now.format('yyyy-MM-dd') }}",
+              "type": "string"
+            },
+            {
+              "id": "target-market",
+              "name": "target_market",
+              "value": "German-speaking market (DACH region), English-speaking entrepreneurs globally",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "id": "f6a7b8c9-6666-4fff-b666-000000000002",
+      "name": "Set Target Niches",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:11434/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ \"model\": \"qwen2.5-coder:7b\", \"prompt\": \"You are a lead generation expert for a tech entrepreneur. Generate 5 specific, actionable lead opportunities for today (\" + $json.date + \").\\n\\nTarget Niches:\\n1. BMA (Brandmeldeanlagen / Fire Alarm Systems) - AI-powered maintenance, compliance automation, IoT monitoring\\n2. AI Consulting - Helping SMBs integrate AI tools, workflow automation, chatbots\\n3. Workflow Automation - n8n, Make, Zapier consulting for entrepreneurs\\n\\nTarget Markets: \" + $json.target_market + \"\\n\\nFor each lead, provide:\\n- Company Type / Profile (be specific about industry segment)\\n- Pain Point (what problem they face that we solve)\\n- Approach Strategy (cold email, LinkedIn, referral, content hook)\\n- Outreach Message Draft (2-3 sentences, personalized hook)\\n- Estimated Deal Size (EUR range)\\n- Priority Score (1-10)\\n\\nFocus on companies that would benefit from AI automation and have budget. Think BMA companies with 50+ employees, consulting firms, agencies, SaaS startups.\\n\\nOutput as structured JSON array.\", \"stream\": false, \"options\": { \"temperature\": 0.8, \"num_predict\": 2048 } }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "f6a7b8c9-6666-4fff-b666-000000000003",
+      "name": "Generate Leads via Ollama",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [700, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "raw-response",
+              "name": "raw_response",
+              "value": "={{ $json.response }}",
+              "type": "string"
+            },
+            {
+              "id": "generation-date",
+              "name": "generation_date",
+              "value": "={{ $('Set Target Niches').item.json.date }}",
+              "type": "string"
+            },
+            {
+              "id": "niches-used",
+              "name": "niches",
+              "value": "={{ $('Set Target Niches').item.json.niches }}",
+              "type": "string"
+            },
+            {
+              "id": "model-used",
+              "name": "model",
+              "value": "={{ $json.model }}",
+              "type": "string"
+            },
+            {
+              "id": "gen-time-ms",
+              "name": "generation_time_ms",
+              "value": "={{ Math.round(($json.total_duration || 0) / 1000000) }}",
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "id": "f6a7b8c9-6666-4fff-b666-000000000004",
+      "name": "Format Lead Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [940, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:11434/api/generate",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ \"model\": \"qwen2.5-coder:7b\", \"prompt\": \"You are an outreach strategist. Based on these lead ideas, create 3 ready-to-send outreach messages (cold email or LinkedIn DM).\\n\\nLead Research:\\n\" + $json.raw_response + \"\\n\\nFor each message provide:\\n1. Subject Line (for email) or Hook (for LinkedIn)\\n2. Full Message (personalized, 3-5 sentences max)\\n3. Call to Action\\n4. Best Time to Send\\n5. Follow-up Strategy\\n\\nTone: Professional but human, confident, value-first. Reference specific pain points. Use German for DACH leads, English for international.\\n\\nOutput as structured text with clear separation between messages.\", \"stream\": false, \"options\": { \"temperature\": 0.7, \"num_predict\": 1500 } }) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "f6a7b8c9-6666-4fff-b666-000000000005",
+      "name": "Generate Outreach Messages",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1180, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const leadData = $('Format Lead Data').first().json;\nconst outreach = $input.first().json;\nconst date = leadData.generation_date;\n\nconst report = {\n  date: date,\n  niches: leadData.niches,\n  lead_research: leadData.raw_response,\n  outreach_messages: outreach.response,\n  model: leadData.model,\n  generation_time_ms: leadData.generation_time_ms,\n  created_at: new Date().toISOString()\n};\n\n// Save daily report\nconst fs = require('fs');\nconst dir = '/Users/maurice/.openclaw/workspace/ai-empire/04_OUTPUT/LEADS/';\nconst dailyFile = dir + 'leads_' + date + '.json';\nconst logFile = dir + 'leads_log.jsonl';\n\ntry {\n  fs.mkdirSync(dir, { recursive: true });\n  fs.writeFileSync(dailyFile, JSON.stringify(report, null, 2));\n  fs.appendFileSync(logFile, JSON.stringify({ date: date, file: dailyFile, niches: leadData.niches }) + '\\n');\n} catch(e) {\n  return [{ json: { error: e.message, report: report } }];\n}\n\nreturn [{ json: {\n  success: true,\n  date: date,\n  saved_to: dailyFile,\n  lead_count: '5 leads generated',\n  outreach_count: '3 messages drafted',\n  summary: 'Daily lead generation complete. Review leads at: ' + dailyFile\n}}];"
+      },
+      "id": "f6a7b8c9-6666-4fff-b666-000000000006",
+      "name": "Save Daily Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1420, 300]
+    }
+  ],
+  "connections": {
+    "Daily 09:00 Berlin": {
+      "main": [
+        [
+          {
+            "node": "Set Target Niches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Target Niches": {
+      "main": [
+        [
+          {
+            "node": "Generate Leads via Ollama",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Leads via Ollama": {
+      "main": [
+        [
+          {
+            "node": "Format Lead Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Lead Data": {
+      "main": [
+        [
+          {
+            "node": "Generate Outreach Messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Outreach Messages": {
+      "main": [
+        [
+          {
+            "node": "Save Daily Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Berlin"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "leads",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    },
+    {
+      "name": "ai-empire",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    }
+  ]
+}

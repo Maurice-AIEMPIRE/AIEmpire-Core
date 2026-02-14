@@ -1,0 +1,151 @@
+# ATOMIC TASK REACTOR - Maurice's AI Empire
+# Maximum Kimi Power + Claude Agents + ChatGPT Auto
+version: '3.8'
+
+services:
+  # ═══════════════════════════════════════════
+  # CORE: Redis Queue
+  # ═══════════════════════════════════════════
+  queue:
+    image: redis:7-alpine
+    container_name: reactor-queue
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # REACTOR CORE: Task Orchestrator
+  # ═══════════════════════════════════════════
+  reactor-core:
+    build: ./reactor-core
+    container_name: reactor-core
+    environment:
+      - REDIS_URL=redis://queue:6379
+      - MOONSHOT_API_KEY=${MOONSHOT_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - MAX_KIMI_AGENTS=50000
+      - MAX_CLAUDE_AGENTS=20
+      - KIMI_BUDGET_USD=15
+    volumes:
+      - ./workspace:/workspace
+      - ./tasks:/tasks
+      - ./reports:/reports
+    ports:
+      - "8888:8888"
+    depends_on:
+      - queue
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # KIMI WORKER SWARM (50.000 logical agents)
+  # ═══════════════════════════════════════════
+  worker-kimi:
+    build: ./workers/kimi
+    container_name: worker-kimi
+    environment:
+      - REDIS_URL=redis://queue:6379
+      - MOONSHOT_API_KEY=${MOONSHOT_API_KEY}
+      - CONCURRENT_AGENTS=500
+      - MAX_LOGICAL_AGENTS=50000
+      - API_ENDPOINT=https://api.moonshot.ai/v1
+    volumes:
+      - ./workspace:/workspace
+      - ./reports:/reports
+    depends_on:
+      - queue
+    deploy:
+      replicas: 10
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # CLAUDE WORKER (20 agents)
+  # ═══════════════════════════════════════════
+  worker-claude:
+    build: ./workers/claude
+    container_name: worker-claude
+    environment:
+      - REDIS_URL=redis://queue:6379
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - MAX_AGENTS=20
+    volumes:
+      - ./workspace:/workspace
+      - ./reports:/reports
+    depends_on:
+      - queue
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # CHATGPT AUTO (Free Tier Exploitation)
+  # ═══════════════════════════════════════════
+  worker-chatgpt:
+    build: ./workers/chatgpt
+    container_name: worker-chatgpt
+    environment:
+      - REDIS_URL=redis://queue:6379
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - USE_FREE_TIER=true
+      - BROWSER_AUTOMATION=true
+    volumes:
+      - ./workspace:/workspace
+      - ./reports:/reports
+    depends_on:
+      - queue
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # OLLAMA LOCAL (FREE - Tier 1)
+  # ═══════════════════════════════════════════
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    deploy:
+      resources:
+        limits:
+          memory: 8G
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # SANDBOX: Build/Test Environment
+  # ═══════════════════════════════════════════
+  sandbox:
+    build: ./sandbox
+    container_name: reactor-sandbox
+    volumes:
+      - ./workspace:/workspace:rw
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+
+  # ═══════════════════════════════════════════
+  # CRM: AI Empire Dashboard
+  # ═══════════════════════════════════════════
+  crm:
+    build:
+      context: /Users/maurice/.openclaw/workspace/ai-empire-crm
+      dockerfile: Dockerfile
+    container_name: ai-empire-crm
+    ports:
+      - "3500:3500"
+    volumes:
+      - crm_data:/app/data
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+volumes:
+  redis_data:
+  ollama_models:
+  crm_data:
+
+networks:
+  default:
+    name: atomic-reactor-network

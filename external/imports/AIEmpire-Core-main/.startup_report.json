@@ -1,0 +1,19 @@
+{
+  "timestamp": 1770772870.209368,
+  "duration_seconds": 0.19292688369750977,
+  "checks_passed": [
+    "Recovery system ready (0 checkpoints)",
+    "Resources OK: 2187MB free, max 3 concurrent agents",
+    "State directory: 0 checkpoints",
+    "Agent configuration: 4 agents ready",
+    "Knowledge store: Ready (0 items)",
+    "Environment variables: All required vars set"
+  ],
+  "checks_failed": [],
+  "warnings": [
+    "Gemini API: Unavailable (will use Ollama fallback)",
+    "Ollama: No models loaded (start with: ollama serve)",
+    "Gemini API (optional): Not set (will use fallback)"
+  ],
+  "success": true
+}

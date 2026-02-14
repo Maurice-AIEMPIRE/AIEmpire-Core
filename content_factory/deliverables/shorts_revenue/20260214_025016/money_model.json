@@ -1,0 +1,19 @@
+{
+  "assumptions": {
+    "target_eur_24h": 500.0,
+    "average_order_value": 27.0,
+    "profile_click_rate": 0.01,
+    "landing_conversion_rate": 0.02
+  },
+  "projection": {
+    "projected_views_24h": 1000.0,
+    "projected_clicks": 10.0,
+    "projected_sales": 0.2,
+    "projected_revenue_eur": 5.4
+  },
+  "required_for_target": {
+    "needed_sales": 18.52,
+    "needed_clicks": 925.93,
+    "needed_views": 92592.59
+  }
+}

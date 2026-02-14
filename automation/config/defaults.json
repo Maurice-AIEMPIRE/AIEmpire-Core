@@ -13,5 +13,36 @@
     "premium_prompts_400.md",
     "monetization_strategy.md"
   ],
-  "intake_dir": "claude_intake"
+  "intake_dir": "claude_intake",
+  "youtube": {
+    "channel_id": "",
+    "region": "US",
+    "language": "de",
+    "lookback_hours": 24,
+    "drafts_per_run": 6,
+    "min_views_per_hour_target": 300,
+    "queries": [
+      "ai news shorts",
+      "motivation shorts",
+      "funny shorts",
+      "productivity shorts"
+    ]
+  },
+  "revenue": {
+    "target_eur_24h": 500,
+    "average_order_value": 27,
+    "profile_click_rate": 0.01,
+    "landing_conversion_rate": 0.02
+  },
+  "gemini_video": {
+    "enabled": true,
+    "model": "veo-3.1-fast-generate-preview",
+    "aspect_ratio": "9:16",
+    "resolution": "720p",
+    "duration_seconds": 8,
+    "negative_prompt": "logo, watermark, subtitles, text overlays, nudity, violence, hate symbols",
+    "max_renders_per_run": 3,
+    "poll_interval_seconds": 10,
+    "max_poll_attempts": 90
+  }
 }

@@ -1,0 +1,34 @@
+id: T-005
+title: "BMA + AI Service Konzept"
+type: strategy
+priority: high
+model: kimi
+
+objective: |
+  Design an AI service specifically for the BMA (Brandmeldeanlagen) industry.
+  Maurice has 16 years experience - leverage this expertise.
+
+acceptance:
+  - Service concept defined
+  - Pricing structure
+  - Unique selling proposition
+  - Go-to-market plan
+
+prompts:
+  - |
+    Design an AI service for the German BMA (fire alarm systems) industry:
+
+    Context:
+    - BMA = Brandmeldeanlagen (fire detection/alarm systems)
+    - Target: Electrical contractors, facility managers
+    - Pain points: Documentation, compliance, project calculation
+
+    Create:
+    1. Service name
+    2. Core offering (what AI does)
+    3. Pricing (setup + monthly)
+    4. Unique value proposition
+    5. First 3 customers to approach
+    6. Marketing message (1 sentence)
+
+    Return as structured JSON

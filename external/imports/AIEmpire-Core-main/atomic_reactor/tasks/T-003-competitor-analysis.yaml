@@ -1,0 +1,27 @@
+id: T-003
+title: "AI Automation Competitor Analysis"
+type: research
+priority: medium
+model: kimi
+
+objective: |
+  Analyze top AI automation consultants/agencies.
+  Find their pricing, services, marketing strategies.
+
+acceptance:
+  - 10 competitors analyzed
+  - Pricing models documented
+  - Service offerings listed
+  - Marketing strategies noted
+
+prompts:
+  - |
+    Analyze AI automation agencies/consultants:
+    Find: Name, Pricing ($X/month or project), Services offered, Marketing channels
+
+    Look for agencies offering:
+    - AI workflow automation
+    - Claude/GPT integration
+    - Business process automation
+
+    Return top 10 as JSON with: name, pricing, services[], marketing[]

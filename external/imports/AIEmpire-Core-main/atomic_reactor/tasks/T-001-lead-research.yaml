@@ -1,0 +1,21 @@
+id: T-001
+title: "X/Twitter Lead Research"
+type: research
+priority: high
+model: kimi
+
+objective: |
+  Find 50 potential leads on X/Twitter who need AI automation help.
+  Look for tweets containing buyer signals like "need help", "looking for", "struggling with"
+
+acceptance:
+  - 50 leads with username, tweet, lead score
+  - Lead score 1-10 based on buying intent
+  - Saved to CRM
+
+prompts:
+  - |
+    Search X/Twitter for people who need AI automation:
+    Keywords: "need AI automation", "looking for automation help", "manual process frustrating"
+    Return: username, tweet_text, lead_score (1-10), reason
+    Format: JSON array

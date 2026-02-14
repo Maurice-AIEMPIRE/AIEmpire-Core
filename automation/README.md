@@ -9,6 +9,11 @@ Dieses Modul liefert einen simplen Router + Content-Workflows auf Basis der best
 ```bash
 export MOONSHOT_API_KEY="..."     # Kimi (günstig, stark für Research)
 export OPENAI_API_KEY="..."       # ChatGPT/Codex
+export GEMINI_API_KEY="..."       # Gemini/Veo Video-Rendering
+
+# Optional fuer YouTube Trend-/Performance-Daten
+export YOUTUBE_API_KEY="..."
+export YOUTUBE_CHANNEL_ID="..."
 
 # Optional (falls du OpenRouter nutzen willst)
 export OPENROUTER_API_KEY="..."
@@ -30,12 +35,22 @@ python3 -m automation run --workflow full --execute
 
 ## Parameter
 
-- `--workflow`: `full | threads | tweets | prompts | monetization`
+- `--workflow`: `full | threads | tweets | prompts | monetization | youtube_shorts | shorts_revenue`
 - `--execute`: fuehrt echte LLM-Calls aus (sonst Dry-Run)
 - `--targets`: z.B. `threads=20,tweets=60,premium_prompts=80`
 - `--scale`: skaliert alle Targets (z.B. `0.2`)
 - `--niche`, `--style`: ueberschreiben Defaults
 - `--creative-mode`: Kreativprofil fuer X-Posts (z.B. `comedy_ai_cartoons_dark_humor_comic`)
+- `--workflow youtube_shorts`: baut Shorts-Drafts + Feedback-Plan
+- `--youtube-channel-id`, `--youtube-region`, `--youtube-language`
+- `--youtube-lookback-hours`, `--youtube-drafts`, `--youtube-min-vph`
+- `--youtube-queries`: komma-separierte Such-Queries
+- `--revenue-target-eur`, `--average-order-value`
+- `--profile-click-rate`, `--landing-conversion-rate`
+- `--gemini-video-enabled`: `true|false`
+- `--gemini-model`, `--gemini-aspect-ratio`, `--gemini-resolution`
+- `--gemini-duration-seconds`, `--gemini-negative-prompt`
+- `--gemini-max-renders`, `--gemini-poll-interval-seconds`, `--gemini-max-poll-attempts`
 
 ## Router anpassen
 
@@ -59,6 +74,97 @@ Run-Logs:
 
 Dry-Run Outputs:
 - `automation/runs/dryrun_<run_id>/`
+
+## YouTube Shorts Autopilot (neu)
+
+Kostenarm via lokalem Router (`automation/config/router_local.json` als Default fuer `youtube_shorts`):
+
+```bash
+# Dry-Run: generiert Trends, Drafts, Publish Queue, Feedback-Plan
+python3 -m automation run --workflow youtube_shorts
+
+# Live-Run (lokales Modell + optionale YouTube API Abfragen)
+python3 -m automation run --workflow youtube_shorts --execute
+```
+
+Outputs:
+- `content_factory/deliverables/youtube_shorts/<run_id>/trends.json`
+- `content_factory/deliverables/youtube_shorts/<run_id>/drafts.json`
+- `content_factory/deliverables/youtube_shorts/<run_id>/video_renders.json`
+- `content_factory/deliverables/youtube_shorts/<run_id>/videos/*.mp4`
+- `content_factory/deliverables/youtube_shorts/<run_id>/publish_queue.csv`
+- `content_factory/deliverables/youtube_shorts/<run_id>/metrics.json`
+- `content_factory/deliverables/youtube_shorts/<run_id>/feedback_plan.md`
+- `content_factory/deliverables/youtube_shorts/latest.json`
+
+10h Dauerlauf (ohne Nachfragen):
+
+```bash
+# 10 Stunden, alle 30 Minuten, standardmaessig Dry-Run
+automation/scripts/run_youtube_autopilot.sh 10 30
+
+# Mit echten LLM-Aufrufen
+EXECUTE_MODE=1 automation/scripts/run_youtube_autopilot.sh 10 30
+```
+
+## Shorts Revenue Engine (YouTube + TikTok parallel)
+
+```bash
+# Dry-Run
+python3 -m automation run --workflow shorts_revenue
+
+# Live-Run (lokales Modell, APIs wenn verfuegbar)
+python3 -m automation run --workflow shorts_revenue --execute
+```
+
+Outputs:
+- `content_factory/deliverables/shorts_revenue/<run_id>/trends.json`
+- `content_factory/deliverables/shorts_revenue/<run_id>/drafts.json`
+- `content_factory/deliverables/shorts_revenue/<run_id>/video_renders.json`
+- `content_factory/deliverables/shorts_revenue/<run_id>/videos/*.mp4`
+- `content_factory/deliverables/shorts_revenue/<run_id>/youtube_publish_queue.csv`
+- `content_factory/deliverables/shorts_revenue/<run_id>/tiktok_publish_queue.csv`
+- `content_factory/deliverables/shorts_revenue/<run_id>/youtube_metrics.json`
+- `content_factory/deliverables/shorts_revenue/<run_id>/tiktok_metrics.json`
+- `content_factory/deliverables/shorts_revenue/<run_id>/money_model.json`
+- `content_factory/deliverables/shorts_revenue/<run_id>/execution_brief.md`
+
+YouTube Studio/API-ready:
+- Beide Queue-CSVs enthalten `video_file`, `video_status`, `video_operation`, `video_error`.
+- Damit kannst du direkt in YouTube Studio final gegenchecken und via API/Upload-Tool automatisiert publizieren.
+
+Optional Cloud-Sync (Google Drive / iCloud):
+
+```bash
+# Run-Artefakte in Cloud spiegeln
+automation/scripts/sync_shorts_assets.sh youtube_shorts
+automation/scripts/sync_shorts_assets.sh shorts_revenue
+```
+
+ENV fuer Sync:
+- `GOOGLE_DRIVE_SHORTS_DIR`
+- `ICLOUD_SHORTS_DIR`
+- `SYNC_SHORTS_ASSETS=1` (aktiviert Auto-Sync nach jedem Autopilot-Run)
+
+Dauerlauf:
+
+```bash
+# 10 Stunden, alle 30 Minuten
+automation/scripts/run_shorts_revenue_autopilot.sh 10 30
+```
+
+Daemon-Steuerung (empfohlen in deinem eigenen Terminal):
+
+```bash
+# Starten
+automation/scripts/start_shorts_revenue_daemon.sh 10 30
+
+# Status
+automation/scripts/status_shorts_revenue_daemon.sh
+
+# Stoppen
+automation/scripts/stop_shorts_revenue_daemon.sh
+```
 
 
 ## Notes Ingest

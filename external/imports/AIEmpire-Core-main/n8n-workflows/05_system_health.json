@@ -1,0 +1,325 @@
+{
+  "name": "05 System Health Dashboard",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000001",
+      "name": "Every 5 Minutes",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 400]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://localhost:11434/api/tags",
+        "options": {
+          "timeout": 5000,
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000002",
+      "name": "Ollama Health",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 200],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://localhost:8080/health",
+        "options": {
+          "timeout": 5000,
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000003",
+      "name": "OpenClaw Health",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 380],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "http://localhost:5678/healthz",
+        "options": {
+          "timeout": 5000,
+          "allowUnauthorizedCerts": true
+        }
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000004",
+      "name": "n8n Health",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [500, 560],
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "command": "redis-cli ping 2>/dev/null || echo 'REDIS_DOWN'"
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000005",
+      "name": "Redis Ping",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [500, 740]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000006",
+      "name": "Merge Ollama+OpenClaw",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [740, 290]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000007",
+      "name": "Merge n8n+Redis",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [740, 650]
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "combineBy": "combineAll",
+        "options": {}
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000008",
+      "name": "Merge All Results",
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [960, 470]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst now = new Date().toISOString();\n\nlet ollamaOk = false;\nlet openclawOk = false;\nlet n8nOk = false;\nlet redisOk = false;\nlet ollamaModels = [];\n\nfor (const item of items) {\n  const d = item.json;\n  // Ollama returns { models: [...] }\n  if (d.models && Array.isArray(d.models)) {\n    ollamaOk = true;\n    ollamaModels = d.models.map(m => m.name || m.model || 'unknown');\n  }\n  // OpenClaw returns some health object\n  if (d.status === 'ok' || d.status === 'healthy' || d.health || (typeof d === 'object' && d.uptime)) {\n    openclawOk = true;\n  }\n  // n8n healthz returns { status: 'ok' }\n  if (d.status === 'ok' && !d.models && !d.uptime) {\n    n8nOk = true;\n  }\n  // Redis ping\n  if (d.stdout && d.stdout.trim() === 'PONG') {\n    redisOk = true;\n  }\n}\n\nconst services = [\n  { name: 'Ollama', url: 'localhost:11434', status: ollamaOk ? 'UP' : 'DOWN', models: ollamaModels },\n  { name: 'OpenClaw API', url: 'localhost:8080', status: openclawOk ? 'UP' : 'DOWN' },\n  { name: 'n8n', url: 'localhost:5678', status: n8nOk ? 'UP' : 'DOWN' },\n  { name: 'Redis', url: 'localhost:6379', status: redisOk ? 'UP' : 'DOWN' }\n];\n\nconst allUp = services.every(s => s.status === 'UP');\nconst downServices = services.filter(s => s.status === 'DOWN').map(s => s.name);\n\nreturn [{ json: {\n  checked_at: now,\n  overall_status: allUp ? 'ALL_HEALTHY' : 'DEGRADED',\n  services: services,\n  down_services: downServices,\n  services_up: services.filter(s => s.status === 'UP').length,\n  services_total: services.length\n}}];"
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000009",
+      "name": "Build Health Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1180, 470]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-degraded",
+              "leftValue": "={{ $json.overall_status }}",
+              "rightValue": "DEGRADED",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        }
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000010",
+      "name": "Any Service Down?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [1400, 470]
+    },
+    {
+      "parameters": {
+        "jsCode": "const report = $input.first().json;\n\nconst alert = {\n  alert_type: 'SERVICE_DOWN',\n  timestamp: report.checked_at,\n  down_services: report.down_services,\n  message: `ALERT: ${report.down_services.join(', ')} DOWN! ${report.services_up}/${report.services_total} services running.`,\n  services: report.services\n};\n\n// Log alert to file\nconst fs = require('fs');\nconst dir = '/Users/maurice/.openclaw/workspace/ai-empire/00_SYSTEM/';\nconst path = dir + 'health_alerts.jsonl';\n\ntry {\n  fs.mkdirSync(dir, { recursive: true });\n  fs.appendFileSync(path, JSON.stringify(alert) + '\\n');\n} catch(e) {\n  alert.log_error = e.message;\n}\n\nreturn [{ json: alert }];"
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000011",
+      "name": "Alert - Service Down",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1620, 370]
+    },
+    {
+      "parameters": {
+        "jsCode": "const report = $input.first().json;\n\nconst logEntry = {\n  status: 'ALL_HEALTHY',\n  timestamp: report.checked_at,\n  services_up: report.services_up\n};\n\n// Append to health log\nconst fs = require('fs');\nconst dir = '/Users/maurice/.openclaw/workspace/ai-empire/00_SYSTEM/';\nconst path = dir + 'health_log.jsonl';\n\ntry {\n  fs.mkdirSync(dir, { recursive: true });\n  fs.appendFileSync(path, JSON.stringify(logEntry) + '\\n');\n} catch(e) {\n  logEntry.log_error = e.message;\n}\n\nreturn [{ json: logEntry }];"
+      },
+      "id": "e5f6a7b8-5555-4eee-b555-000000000012",
+      "name": "Log Healthy Status",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1620, 570]
+    }
+  ],
+  "connections": {
+    "Every 5 Minutes": {
+      "main": [
+        [
+          {
+            "node": "Ollama Health",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "OpenClaw Health",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "n8n Health",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Redis Ping",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Health": {
+      "main": [
+        [
+          {
+            "node": "Merge Ollama+OpenClaw",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenClaw Health": {
+      "main": [
+        [
+          {
+            "node": "Merge Ollama+OpenClaw",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "n8n Health": {
+      "main": [
+        [
+          {
+            "node": "Merge n8n+Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis Ping": {
+      "main": [
+        [
+          {
+            "node": "Merge n8n+Redis",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge Ollama+OpenClaw": {
+      "main": [
+        [
+          {
+            "node": "Merge All Results",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge n8n+Redis": {
+      "main": [
+        [
+          {
+            "node": "Merge All Results",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge All Results": {
+      "main": [
+        [
+          {
+            "node": "Build Health Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Health Report": {
+      "main": [
+        [
+          {
+            "node": "Any Service Down?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Any Service Down?": {
+      "main": [
+        [
+          {
+            "node": "Alert - Service Down",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Healthy Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Europe/Berlin"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "monitoring",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    },
+    {
+      "name": "ai-empire",
+      "createdAt": "2026-02-08T00:00:00.000Z",
+      "updatedAt": "2026-02-08T00:00:00.000Z"
+    }
+  ]
+}

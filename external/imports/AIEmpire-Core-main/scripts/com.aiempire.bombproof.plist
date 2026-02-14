@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!--
+    AIEmpire-Core — Bombproof Auto-Start LaunchAgent
+    =================================================
+    Runs bombproof_startup.sh on every login/boot.
+
+    INSTALLATION:
+    1. Copy to ~/Library/LaunchAgents/:
+       cp scripts/com.aiempire.bombproof.plist ~/Library/LaunchAgents/
+
+    2. Load it:
+       launchctl load ~/Library/LaunchAgents/com.aiempire.bombproof.plist
+
+    3. Test it:
+       launchctl start com.aiempire.bombproof
+
+    UNINSTALL:
+       launchctl unload ~/Library/LaunchAgents/com.aiempire.bombproof.plist
+       rm ~/Library/LaunchAgents/com.aiempire.bombproof.plist
+-->
+<dict>
+    <key>Label</key>
+    <string>com.aiempire.bombproof</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>-c</string>
+        <!-- IMPORTANT: Change this path to match YOUR project location -->
+        <string>cd ~/AIEmpire-Core && ./scripts/bombproof_startup.sh >> /tmp/aiempire_startup.log 2>&1</string>
+    </array>
+
+    <!-- Run at login -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Also run after crash (restart if it exits non-zero) -->
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+
+    <!-- Don't start too fast after failure -->
+    <key>ThrottleInterval</key>
+    <integer>300</integer>
+
+    <!-- Environment -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>/Users/maurice</string>
+    </dict>
+
+    <!-- Logging -->
+    <key>StandardOutPath</key>
+    <string>/tmp/aiempire_startup_stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/aiempire_startup_stderr.log</string>
+
+    <!-- Resource limits -->
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <!-- Nice priority (don't slow down boot) -->
+    <key>Nice</key>
+    <integer>10</integer>
+</dict>
+</plist>

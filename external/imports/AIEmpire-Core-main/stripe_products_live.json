@@ -1,0 +1,100 @@
+[
+  {
+    "name": "BMA Profi-Checklisten Pack",
+    "product_id": "prod_TwwLqD2T6SS0QS",
+    "price_id": "price_1Sz2ShGkAbj1Ife1nVvhOykq",
+    "price_eur": 27.0,
+    "payment_url": "https://buy.stripe.com/test_aFa7sL866gUA5JA5DTbMQ00"
+  },
+  {
+    "name": "BMA Video-Schulungspaket",
+    "product_id": "prod_TwwLtaorB4IOJJ",
+    "price_id": "price_1Sz2SkGkAbj1Ife19Jp0VYvh",
+    "price_eur": 47.0,
+    "payment_url": "https://buy.stripe.com/test_00wcN5aeecEk6NE1nDbMQ01"
+  },
+  {
+    "name": "BMA Troubleshooting-Kompass",
+    "product_id": "prod_TwwLC7VjUqkhX1",
+    "price_id": "price_1Sz2SmGkAbj1Ife1raZahfi8",
+    "price_eur": 37.0,
+    "payment_url": "https://buy.stripe.com/test_dRm14neuu33Kgoe7M1bMQ02"
+  },
+  {
+    "name": "AI Agent Blueprint - Starter",
+    "product_id": "prod_TwwLMTERKli10N",
+    "price_id": "price_1Sz2SpGkAbj1Ife1OUOkARvl",
+    "price_eur": 47.0,
+    "payment_url": "https://buy.stripe.com/test_28EeVd4TU7k0dc2eapbMQ03"
+  },
+  {
+    "name": "AI Side Hustle Playbook",
+    "product_id": "prod_TwwL60ZsGozzHP",
+    "price_id": "price_1Sz2SrGkAbj1Ife1X1hp6yJf",
+    "price_eur": 97.0,
+    "payment_url": "https://buy.stripe.com/test_5kQ3cvdqq5bS3Bs0jzbMQ04"
+  },
+  {
+    "name": "AI Automation Setup - Basic",
+    "product_id": "prod_TwwLAvq7IYcoHL",
+    "price_id": "price_1Sz2SuGkAbj1Ife16Vy4jFSN",
+    "price_eur": 30.0,
+    "payment_url": "https://buy.stripe.com/test_dRm3cv72247O1tk8Q5bMQ05"
+  },
+  {
+    "name": "AI Automation Setup - Standard",
+    "product_id": "prod_TwwLuPvwxXn069",
+    "price_id": "price_1Sz2SxGkAbj1Ife1FBrcdaxV",
+    "price_eur": 150.0,
+    "payment_url": "https://buy.stripe.com/test_28E00j1HI8o46NE4zPbMQ06"
+  },
+  {
+    "name": "AI Automation Setup - Premium",
+    "product_id": "prod_TwwLUU6LYgzZF2",
+    "price_id": "price_1Sz2SzGkAbj1Ife11RMtW5J4",
+    "price_eur": 500.0,
+    "payment_url": "https://buy.stripe.com/test_3cI14n7228o4dc2d6lbMQ07"
+  },
+  {
+    "name": "BMA Expert Consulting - Basic",
+    "product_id": "prod_TwwLYKHjjX5bXr",
+    "price_id": "price_1Sz2T2GkAbj1Ife1EDHBuKH7",
+    "price_eur": 200.0,
+    "payment_url": "https://buy.stripe.com/test_fZu6oHeuu7k07RI8Q5bMQ08"
+  },
+  {
+    "name": "BMA Expert Consulting - Standard",
+    "product_id": "prod_TwwLkzIDQjaDlc",
+    "price_id": "price_1Sz2T5GkAbj1Ife1xF5xRdrH",
+    "price_eur": 750.0,
+    "payment_url": "https://buy.stripe.com/test_9B68wPcmm1ZGfka3vLbMQ09"
+  },
+  {
+    "name": "BMA Expert Consulting - Premium",
+    "product_id": "prod_TwwLlYiD3O5IZ3",
+    "price_id": "price_1Sz2T7GkAbj1Ife1D3xv5z9f",
+    "price_eur": 2000.0,
+    "payment_url": "https://buy.stripe.com/test_dRm3cv3PQ6fW9ZQd6lbMQ0a"
+  },
+  {
+    "name": "Custom AI Agent - Basic",
+    "product_id": "prod_TwwLYtuaZGioIm",
+    "price_id": "price_1Sz2TAGkAbj1Ife1nZF93dNW",
+    "price_eur": 500.0,
+    "payment_url": "https://buy.stripe.com/test_fZu14n0DEdIo2xo0jzbMQ0b"
+  },
+  {
+    "name": "Custom AI Agent - Standard",
+    "product_id": "prod_TwwL4pHjjrE6YX",
+    "price_id": "price_1Sz2TDGkAbj1Ife1xBX6NL7I",
+    "price_eur": 2000.0,
+    "payment_url": "https://buy.stripe.com/test_cNiaEXaee5bSgoe4zPbMQ0c"
+  },
+  {
+    "name": "Custom AI Agent - Premium",
+    "product_id": "prod_TwwLjAIwKRqkYg",
+    "price_id": "price_1Sz2TFGkAbj1Ife1kbcnamEX",
+    "price_eur": 5000.0,
+    "payment_url": "https://buy.stripe.com/test_5kQ7sL2LMfQw4Fw0jzbMQ0d"
+  }
+]

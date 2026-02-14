@@ -1,0 +1,36 @@
+id: T-004
+title: "Generate Product Ideas from 30 Automations"
+type: analysis
+priority: high
+model: kimi
+
+objective: |
+  Based on Miles Deutscher's 30 automation ideas, generate 5 product concepts.
+  Each product should be buildable in < 1 week with AI.
+
+acceptance:
+  - 5 product concepts
+  - MVP scope defined
+  - Pricing suggestion
+  - Target customer identified
+
+prompts:
+  - |
+    From these automation ideas, create 5 product concepts:
+
+    Ideas:
+    1. Personal CRM with AI follow-up reminders
+    2. Competitor monitoring with weekly AI reports
+    3. Meeting prep AI (context before every call)
+    4. Contract reader (explain legal docs simply)
+    5. Content multiplier (1 piece → 10 formats)
+
+    For each product:
+    - Name
+    - One-line description
+    - MVP features (3-5)
+    - Target customer
+    - Pricing (monthly)
+    - Build time estimate
+
+    Return as JSON array

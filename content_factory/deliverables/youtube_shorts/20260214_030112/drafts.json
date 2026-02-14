@@ -1,0 +1,126 @@
+{
+  "run_id": "20260214_030112",
+  "count": 6,
+  "items": [
+    {
+      "title": "AI News in 30 seconds | 35s Breakdown",
+      "hook": "Stop scrolling: AI News in 30 seconds in 30 seconds.",
+      "script": "Hook: Stop scrolling: AI News in 30 seconds in 30 seconds.\nMain: Kurzer Kontext zu 'AI News in 30 seconds', 3 klare Punkte, 1 konkreter Nutzen fuer heute.\nClose: Sag in 1 Satz, was die Zuschauer als naechstes tun sollen.",
+      "cta": "Schreib 'MEHR' in die Kommentare fuer den naechsten Teil.",
+      "hashtags": [
+        "#shorts",
+        "#motivation",
+        "#mindset",
+        "#ai"
+      ],
+      "tone": "inspiriert + direkt",
+      "source_video_id": "fallback_1",
+      "safety_notes": "safe",
+      "slug": "ai-news-in-30-seconds-35s-breakdown",
+      "video_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/youtube_shorts/20260214_030112/videos/01_ai-news-in-30-seconds-35s-breakdown.mp4",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "GEMINI_API_KEY missing"
+    },
+    {
+      "title": "Motivation and self-discipline | 35s Breakdown",
+      "hook": "Stop scrolling: Motivation and self-discipline in 30 seconds.",
+      "script": "Hook: Stop scrolling: Motivation and self-discipline in 30 seconds.\nMain: Kurzer Kontext zu 'Motivation and self-discipline', 3 klare Punkte, 1 konkreter Nutzen fuer heute.\nClose: Sag in 1 Satz, was die Zuschauer als naechstes tun sollen.",
+      "cta": "Schreib 'MEHR' in die Kommentare fuer den naechsten Teil.",
+      "hashtags": [
+        "#shorts",
+        "#motivation",
+        "#mindset",
+        "#ai"
+      ],
+      "tone": "inspiriert + direkt",
+      "source_video_id": "fallback_2",
+      "safety_notes": "safe",
+      "slug": "motivation-and-self-discipline-35s-breakdown",
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
+    },
+    {
+      "title": "Insane productivity hacks | 35s Breakdown",
+      "hook": "Stop scrolling: Insane productivity hacks in 30 seconds.",
+      "script": "Hook: Stop scrolling: Insane productivity hacks in 30 seconds.\nMain: Kurzer Kontext zu 'Insane productivity hacks', 3 klare Punkte, 1 konkreter Nutzen fuer heute.\nClose: Sag in 1 Satz, was die Zuschauer als naechstes tun sollen.",
+      "cta": "Schreib 'MEHR' in die Kommentare fuer den naechsten Teil.",
+      "hashtags": [
+        "#shorts",
+        "#motivation",
+        "#mindset",
+        "#ai"
+      ],
+      "tone": "inspiriert + direkt",
+      "source_video_id": "fallback_3",
+      "safety_notes": "safe",
+      "slug": "insane-productivity-hacks-35s-breakdown",
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
+    },
+    {
+      "title": "Money mindset myths | 35s Breakdown",
+      "hook": "Stop scrolling: Money mindset myths in 30 seconds.",
+      "script": "Hook: Stop scrolling: Money mindset myths in 30 seconds.\nMain: Kurzer Kontext zu 'Money mindset myths', 3 klare Punkte, 1 konkreter Nutzen fuer heute.\nClose: Sag in 1 Satz, was die Zuschauer als naechstes tun sollen.",
+      "cta": "Schreib 'MEHR' in die Kommentare fuer den naechsten Teil.",
+      "hashtags": [
+        "#shorts",
+        "#motivation",
+        "#mindset",
+        "#ai"
+      ],
+      "tone": "inspiriert + direkt",
+      "source_video_id": "fallback_4",
+      "safety_notes": "safe",
+      "slug": "money-mindset-myths-35s-breakdown",
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
+    },
+    {
+      "title": "Story-driven mini lessons | 35s Breakdown",
+      "hook": "Stop scrolling: Story-driven mini lessons in 30 seconds.",
+      "script": "Hook: Stop scrolling: Story-driven mini lessons in 30 seconds.\nMain: Kurzer Kontext zu 'Story-driven mini lessons', 3 klare Punkte, 1 konkreter Nutzen fuer heute.\nClose: Sag in 1 Satz, was die Zuschauer als naechstes tun sollen.",
+      "cta": "Schreib 'MEHR' in die Kommentare fuer den naechsten Teil.",
+      "hashtags": [
+        "#shorts",
+        "#motivation",
+        "#mindset",
+        "#ai"
+      ],
+      "tone": "inspiriert + direkt",
+      "source_video_id": "fallback_5",
+      "safety_notes": "safe",
+      "slug": "story-driven-mini-lessons-35s-breakdown",
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
+    },
+    {
+      "title": "Fun facts that sound fake but true | 35s Breakdown",
+      "hook": "Stop scrolling: Fun facts that sound fake but true in 30 seconds.",
+      "script": "Hook: Stop scrolling: Fun facts that sound fake but true in 30 seconds.\nMain: Kurzer Kontext zu 'Fun facts that sound fake but true', 3 klare Punkte, 1 konkreter Nutzen fuer heute.\nClose: Sag in 1 Satz, was die Zuschauer als naechstes tun sollen.",
+      "cta": "Schreib 'MEHR' in die Kommentare fuer den naechsten Teil.",
+      "hashtags": [
+        "#shorts",
+        "#motivation",
+        "#mindset",
+        "#ai"
+      ],
+      "tone": "inspiriert + direkt",
+      "source_video_id": "fallback_6",
+      "safety_notes": "safe",
+      "slug": "fun-facts-that-sound-fake-but-true-35s-breakdown",
+      "video_file": "",
+      "video_status": "skipped",
+      "video_operation": "",
+      "video_error": "render_limit_reached"
+    }
+  ]
+}

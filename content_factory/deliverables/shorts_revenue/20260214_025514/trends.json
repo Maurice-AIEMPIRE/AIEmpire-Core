@@ -1,0 +1,59 @@
+{
+  "count": 6,
+  "items": [
+    {
+      "video_id": "fallback_1",
+      "title": "AI News in 30 seconds",
+      "channel": "fallback",
+      "views": 950,
+      "likes": 113,
+      "comments": 24,
+      "virality_score": 880
+    },
+    {
+      "video_id": "fallback_2",
+      "title": "Motivation and self-discipline",
+      "channel": "fallback",
+      "views": 900,
+      "likes": 106,
+      "comments": 23,
+      "virality_score": 860
+    },
+    {
+      "video_id": "fallback_3",
+      "title": "Insane productivity hacks",
+      "channel": "fallback",
+      "views": 850,
+      "likes": 99,
+      "comments": 22,
+      "virality_score": 840
+    },
+    {
+      "video_id": "fallback_4",
+      "title": "Money mindset myths",
+      "channel": "fallback",
+      "views": 800,
+      "likes": 92,
+      "comments": 21,
+      "virality_score": 820
+    },
+    {
+      "video_id": "fallback_5",
+      "title": "Story-driven mini lessons",
+      "channel": "fallback",
+      "views": 750,
+      "likes": 85,
+      "comments": 20,
+      "virality_score": 800
+    },
+    {
+      "video_id": "fallback_6",
+      "title": "Fun facts that sound fake but true",
+      "channel": "fallback",
+      "views": 700,
+      "likes": 78,
+      "comments": 19,
+      "virality_score": 780
+    }
+  ]
+}

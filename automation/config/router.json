@@ -90,6 +90,9 @@
     "writer_threads": "cheap",
     "writer_tweets": "cheap",
     "writer_premium": "cheap",
+    "writer_shorts": "cheap",
+    "trend_analysis": "cheap",
+    "strategy_shorts": "balanced",
     "refiner": "cheap",
     "strategy": "balanced",
     "nugget_extraction": "cheap"
