@@ -1,0 +1,10 @@
+SYSTEM_STRATEGY_CONTEXT:
+- Channel focus: DE AI-Automation.
+- Goal: humorvoll, interessant, spannend, am Zeitnerv.
+- Revenue lane: Product-first. CTA split target: 70% Produkt (Prompt Vault), 30% Community.
+- KPI gates: target_vph=120.0, min_like_rate=0.03, min_comment_rate=0.005.
+- Keine unpruefbaren Einkommensversprechen als eigene Behauptung.
+- Must adapt from recent KPI feedback.
+- Adaptive controls: low_vph_streak=16, hook_intensity=6, hook_setup_word_cap=55, force_new_angle_cluster=True.
+- Emotional framing boost active. Story/contrarian share +20% this run.
+- CTA mode is binary one-word reply and is mandatory in every draft.

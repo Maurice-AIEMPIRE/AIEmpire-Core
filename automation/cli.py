@@ -86,22 +86,23 @@ def main() -> int:
     parser.add_argument("--average-order-value", type=float, default=None)
     parser.add_argument("--profile-click-rate", type=float, default=None)
     parser.add_argument("--landing-conversion-rate", type=float, default=None)
-    parser.add_argument("--gemini-video-enabled", default=None, help="true|false")
-    parser.add_argument("--gemini-model", default=None)
-    parser.add_argument("--gemini-aspect-ratio", default=None)
-    parser.add_argument("--gemini-resolution", default=None)
-    parser.add_argument("--gemini-duration-seconds", type=int, default=None)
-    parser.add_argument("--gemini-negative-prompt", default=None)
-    parser.add_argument("--gemini-max-renders", type=int, default=None)
-    parser.add_argument("--gemini-poll-interval-seconds", type=int, default=None)
-    parser.add_argument("--gemini-max-poll-attempts", type=int, default=None)
+    parser.add_argument("--video-provider", default=None, help="sora|local")
+    parser.add_argument("--video-duration-seconds", type=int, default=None)
+    parser.add_argument("--video-max-renders", type=int, default=None)
+    parser.add_argument("--sora-video-enabled", default=None, help="true|false")
+    parser.add_argument("--sora-model", default=None)
+    parser.add_argument("--sora-size", default=None)
+    parser.add_argument("--sora-poll-interval-seconds", type=int, default=None)
+    parser.add_argument("--sora-timeout-seconds", type=int, default=None)
+    parser.add_argument("--sora-cli-path", default=None)
 
     args = parser.parse_args()
 
     system_cfg = load_system_config()
     youtube_cfg = system_cfg.get("youtube", {})
     revenue_cfg = system_cfg.get("revenue", {})
-    gemini_cfg = system_cfg.get("gemini_video", {})
+    sora_cfg = system_cfg.get("sora_video", {})
+    video_cfg = system_cfg.get("video_renderer", {})
     targets = system_cfg.get("targets", {})
     override_targets = parse_targets(args.targets or "")
     targets.update(override_targets)
@@ -142,11 +143,11 @@ def main() -> int:
     elif args.workflow == "monetization":
         run_monetization(runner, variables)
     elif args.workflow == "youtube_shorts":
-        gemini_enabled_raw = args.gemini_video_enabled
-        if gemini_enabled_raw is None:
-            gemini_enabled = bool(gemini_cfg.get("enabled", True))
+        sora_enabled_raw = args.sora_video_enabled
+        if sora_enabled_raw is None:
+            sora_enabled = bool(sora_cfg.get("enabled", True))
         else:
-            gemini_enabled = str(gemini_enabled_raw).strip().lower() in {"1", "true", "yes", "on"}
+            sora_enabled = str(sora_enabled_raw).strip().lower() in {"1", "true", "yes", "on"}
         run_youtube_shorts(
             runner,
             execute=args.execute,
@@ -157,24 +158,24 @@ def main() -> int:
             drafts_per_run=int(args.youtube_drafts or youtube_cfg.get("drafts_per_run", 6)),
             min_views_per_hour_target=float(args.youtube_min_vph or youtube_cfg.get("min_views_per_hour_target", 300)),
             queries=parse_list(args.youtube_queries or "") or list(youtube_cfg.get("queries", [])),
-            gemini_video_enabled=gemini_enabled,
-            gemini_model=args.gemini_model or gemini_cfg.get("model", "veo-3.1-fast-generate-preview"),
-            gemini_aspect_ratio=args.gemini_aspect_ratio or gemini_cfg.get("aspect_ratio", "9:16"),
-            gemini_resolution=args.gemini_resolution or gemini_cfg.get("resolution", "720p"),
-            gemini_duration_seconds=int(args.gemini_duration_seconds or gemini_cfg.get("duration_seconds", 8)),
-            gemini_negative_prompt=args.gemini_negative_prompt or gemini_cfg.get("negative_prompt", ""),
-            gemini_max_renders_per_run=int(args.gemini_max_renders or gemini_cfg.get("max_renders_per_run", 3)),
-            gemini_poll_interval_seconds=int(
-                args.gemini_poll_interval_seconds or gemini_cfg.get("poll_interval_seconds", 10)
+            video_provider=args.video_provider or video_cfg.get("provider", "sora"),
+            video_duration_seconds=int(args.video_duration_seconds or video_cfg.get("duration_seconds", 8)),
+            max_renders_per_run=int(args.video_max_renders or video_cfg.get("max_renders_per_run", 3)),
+            sora_video_enabled=sora_enabled,
+            sora_model=args.sora_model or sora_cfg.get("model", "sora-2"),
+            sora_size=args.sora_size or sora_cfg.get("size", "720x1280"),
+            sora_poll_interval_seconds=int(
+                args.sora_poll_interval_seconds or sora_cfg.get("poll_interval_seconds", 10)
             ),
-            gemini_max_poll_attempts=int(args.gemini_max_poll_attempts or gemini_cfg.get("max_poll_attempts", 90)),
+            sora_timeout_seconds=int(args.sora_timeout_seconds or sora_cfg.get("timeout_seconds", 900)),
+            sora_cli_path=args.sora_cli_path or sora_cfg.get("cli_path", ""),
         )
     elif args.workflow == "shorts_revenue":
-        gemini_enabled_raw = args.gemini_video_enabled
-        if gemini_enabled_raw is None:
-            gemini_enabled = bool(gemini_cfg.get("enabled", True))
+        sora_enabled_raw = args.sora_video_enabled
+        if sora_enabled_raw is None:
+            sora_enabled = bool(sora_cfg.get("enabled", True))
         else:
-            gemini_enabled = str(gemini_enabled_raw).strip().lower() in {"1", "true", "yes", "on"}
+            sora_enabled = str(sora_enabled_raw).strip().lower() in {"1", "true", "yes", "on"}
         run_shorts_revenue(
             runner,
             execute=args.execute,
@@ -189,17 +190,17 @@ def main() -> int:
             average_order_value=float(args.average_order_value or revenue_cfg.get("average_order_value", 27)),
             profile_click_rate=float(args.profile_click_rate or revenue_cfg.get("profile_click_rate", 0.01)),
             landing_conversion_rate=float(args.landing_conversion_rate or revenue_cfg.get("landing_conversion_rate", 0.02)),
-            gemini_video_enabled=gemini_enabled,
-            gemini_model=args.gemini_model or gemini_cfg.get("model", "veo-3.1-fast-generate-preview"),
-            gemini_aspect_ratio=args.gemini_aspect_ratio or gemini_cfg.get("aspect_ratio", "9:16"),
-            gemini_resolution=args.gemini_resolution or gemini_cfg.get("resolution", "720p"),
-            gemini_duration_seconds=int(args.gemini_duration_seconds or gemini_cfg.get("duration_seconds", 8)),
-            gemini_negative_prompt=args.gemini_negative_prompt or gemini_cfg.get("negative_prompt", ""),
-            gemini_max_renders_per_run=int(args.gemini_max_renders or gemini_cfg.get("max_renders_per_run", 3)),
-            gemini_poll_interval_seconds=int(
-                args.gemini_poll_interval_seconds or gemini_cfg.get("poll_interval_seconds", 10)
+            video_provider=args.video_provider or video_cfg.get("provider", "sora"),
+            video_duration_seconds=int(args.video_duration_seconds or video_cfg.get("duration_seconds", 8)),
+            max_renders_per_run=int(args.video_max_renders or video_cfg.get("max_renders_per_run", 3)),
+            sora_video_enabled=sora_enabled,
+            sora_model=args.sora_model or sora_cfg.get("model", "sora-2"),
+            sora_size=args.sora_size or sora_cfg.get("size", "720x1280"),
+            sora_poll_interval_seconds=int(
+                args.sora_poll_interval_seconds or sora_cfg.get("poll_interval_seconds", 10)
             ),
-            gemini_max_poll_attempts=int(args.gemini_max_poll_attempts or gemini_cfg.get("max_poll_attempts", 90)),
+            sora_timeout_seconds=int(args.sora_timeout_seconds or sora_cfg.get("timeout_seconds", 900)),
+            sora_cli_path=args.sora_cli_path or sora_cfg.get("cli_path", ""),
         )
     else:
         run_full(runner, variables, targets)

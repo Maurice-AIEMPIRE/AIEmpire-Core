@@ -14,8 +14,8 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from automation.core.runner import Runner
-from automation.gemini_video import GeminiVideoRequest, render_video_with_gemini
 from automation.n8n_events import post_n8n_event
+from automation.sora_video import SoraVideoRequest, render_video_with_sora
 from automation.utils.files import ensure_dir, env_or_default, slugify, timestamp_id, write_json, write_text
 from automation.workflows.shorts_strategy_state import (
     build_strategy_prompt_context,
@@ -95,16 +95,16 @@ class WorkflowConfig:
     min_views_per_hour_target: float = 120.0
     queries: List[str] = field(default_factory=list)
     banned_terms: List[str] = field(default_factory=lambda: DEFAULT_BANNED_TERMS.copy())
-    gemini_api_key: str = ""
-    gemini_video_enabled: bool = True
-    gemini_model: str = "veo-3.1-fast-generate-preview"
-    gemini_aspect_ratio: str = "9:16"
-    gemini_resolution: str = "720p"
-    gemini_duration_seconds: int = 8
-    gemini_negative_prompt: str = ""
-    gemini_max_renders_per_run: int = 3
-    gemini_poll_interval_seconds: int = 10
-    gemini_max_poll_attempts: int = 90
+    video_provider: str = "sora"
+    video_duration_seconds: int = 8
+    max_renders_per_run: int = 3
+    sora_api_key: str = ""
+    sora_video_enabled: bool = True
+    sora_model: str = "sora-2"
+    sora_size: str = "720x1280"
+    sora_poll_interval_seconds: int = 10
+    sora_timeout_seconds: int = 900
+    sora_cli_path: str = ""
 
 
 def _iso_utc_hours_ago(hours: int) -> str:
@@ -624,16 +624,20 @@ def _render_video_local_fallback(draft: ShortsDraft, output_path: Path, duration
     }
 
 
-def render_drafts_with_gemini(config: WorkflowConfig, drafts: List[ShortsDraft], trends: List[TrendItem], run_dir: Path) -> Dict[str, Any]:
+def render_drafts_videos(config: WorkflowConfig, drafts: List[ShortsDraft], trends: List[TrendItem], run_dir: Path) -> Dict[str, Any]:
     trend_map = {t.video_id: t for t in trends}
     videos_dir = run_dir / "videos"
     ensure_dir(videos_dir)
+
+    requested_provider = (config.video_provider or "sora").strip().lower()
+    if requested_provider not in {"sora", "local"}:
+        requested_provider = "sora"
 
     rendered = 0
     records: List[Dict[str, Any]] = []
 
     for idx, draft in enumerate(drafts, start=1):
-        if idx > max(0, config.gemini_max_renders_per_run):
+        if idx > max(0, config.max_renders_per_run):
             draft.video_status = "skipped"
             draft.video_error = "render_limit_reached"
             records.append(
@@ -664,14 +668,16 @@ def render_drafts_with_gemini(config: WorkflowConfig, drafts: List[ShortsDraft],
                     "error": "",
                     "video_file": draft.video_file,
                     "operation_name": "",
-                    "provider": "gemini",
+                    "provider": requested_provider,
                 }
             )
             continue
 
-        if not config.gemini_video_enabled or not config.gemini_api_key:
-            fallback_reason = "gemini_video_disabled" if not config.gemini_video_enabled else "gemini_api_key_missing"
-            result = _render_video_local_fallback(draft, output_path, config.gemini_duration_seconds)
+        if requested_provider == "local":
+            result = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
+        elif not config.sora_video_enabled or not config.sora_api_key:
+            fallback_reason = "sora_video_disabled" if not config.sora_video_enabled else "openai_api_key_missing"
+            result = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
             draft.video_status = str(result.get("status") or "failed")
             draft.video_file = str(result.get("output_file") or "")
             draft.video_operation = str(result.get("operation_name") or "")
@@ -690,27 +696,26 @@ def render_drafts_with_gemini(config: WorkflowConfig, drafts: List[ShortsDraft],
                 }
             )
             continue
-
-        request = GeminiVideoRequest(
-            prompt=prompt,
-            output_path=output_path,
-            api_key=config.gemini_api_key,
-            model=config.gemini_model,
-            aspect_ratio=config.gemini_aspect_ratio,
-            resolution=config.gemini_resolution,
-            duration_seconds=config.gemini_duration_seconds,
-            negative_prompt=config.gemini_negative_prompt,
-            poll_interval_seconds=config.gemini_poll_interval_seconds,
-            max_poll_attempts=config.gemini_max_poll_attempts,
-        )
-        result = render_video_with_gemini(request)
-
-        if not bool(result.get("ok")):
-            fallback = _render_video_local_fallback(draft, output_path, config.gemini_duration_seconds)
-            if bool(fallback.get("ok")):
-                result = fallback
-            else:
-                result["error"] = str(result.get("error") or "") or str(fallback.get("error") or "gemini_failed")
+        else:
+            request = SoraVideoRequest(
+                prompt=prompt,
+                output_path=output_path,
+                api_key=config.sora_api_key,
+                model=config.sora_model,
+                size=config.sora_size,
+                seconds=config.video_duration_seconds,
+                poll_interval_seconds=config.sora_poll_interval_seconds,
+                timeout_seconds=config.sora_timeout_seconds,
+                cli_path=config.sora_cli_path,
+                no_augment=False,
+            )
+            result = render_video_with_sora(request)
+            if not bool(result.get("ok")):
+                fallback = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
+                if bool(fallback.get("ok")):
+                    result = fallback
+                else:
+                    result["error"] = str(result.get("error") or "") or str(fallback.get("error") or "sora_failed")
 
         draft.video_status = str(result.get("status") or "failed")
         draft.video_file = str(result.get("output_file") or "")
@@ -728,16 +733,16 @@ def render_drafts_with_gemini(config: WorkflowConfig, drafts: List[ShortsDraft],
                 "video_file": draft.video_file,
                 "operation_name": draft.video_operation,
                 "video_uri": str(result.get("video_uri") or ""),
-                "provider": str(result.get("provider") or "gemini"),
+                "provider": str(result.get("provider") or requested_provider),
             }
         )
 
     return {
-        "provider": "gemini",
-        "enabled": bool(config.gemini_video_enabled),
+        "provider": requested_provider,
+        "sora_enabled": bool(config.sora_video_enabled),
         "execute": bool(config.execute),
-        "model": config.gemini_model,
-        "render_limit": int(max(0, config.gemini_max_renders_per_run)),
+        "model": config.sora_model if requested_provider == "sora" else "local_ffmpeg",
+        "render_limit": int(max(0, config.max_renders_per_run)),
         "rendered_count": rendered,
         "items": records,
     }
@@ -944,15 +949,15 @@ def run_youtube_shorts(
     drafts_per_run: int,
     min_views_per_hour_target: float,
     queries: Optional[List[str]] = None,
-    gemini_video_enabled: bool = True,
-    gemini_model: str = "veo-3.1-fast-generate-preview",
-    gemini_aspect_ratio: str = "9:16",
-    gemini_resolution: str = "720p",
-    gemini_duration_seconds: int = 8,
-    gemini_negative_prompt: str = "",
-    gemini_max_renders_per_run: int = 3,
-    gemini_poll_interval_seconds: int = 10,
-    gemini_max_poll_attempts: int = 90,
+    video_provider: str = "sora",
+    video_duration_seconds: int = 8,
+    max_renders_per_run: int = 3,
+    sora_video_enabled: bool = True,
+    sora_model: str = "sora-2",
+    sora_size: str = "720x1280",
+    sora_poll_interval_seconds: int = 10,
+    sora_timeout_seconds: int = 900,
+    sora_cli_path: str = "",
 ) -> str:
     run_id = runner.run_id or timestamp_id()
     run_dir = DELIVERABLES_DIR / run_id
@@ -969,16 +974,16 @@ def run_youtube_shorts(
         drafts_per_run=max(1, drafts_per_run),
         min_views_per_hour_target=max(1.0, float(min_views_per_hour_target)),
         queries=[q.strip() for q in (queries or []) if q.strip()],
-        gemini_api_key=env_or_default("GEMINI_API_KEY", "") or "",
-        gemini_video_enabled=bool(gemini_video_enabled),
-        gemini_model=(gemini_model or "veo-3.1-fast-generate-preview").strip() or "veo-3.1-fast-generate-preview",
-        gemini_aspect_ratio=(gemini_aspect_ratio or "9:16").strip() or "9:16",
-        gemini_resolution=(gemini_resolution or "720p").strip() or "720p",
-        gemini_duration_seconds=max(4, min(8, int(gemini_duration_seconds))),
-        gemini_negative_prompt=(gemini_negative_prompt or "").strip(),
-        gemini_max_renders_per_run=max(0, int(gemini_max_renders_per_run)),
-        gemini_poll_interval_seconds=max(1, int(gemini_poll_interval_seconds)),
-        gemini_max_poll_attempts=max(1, int(gemini_max_poll_attempts)),
+        video_provider=(video_provider or env_or_default("VIDEO_PROVIDER", "sora") or "sora").strip().lower(),
+        video_duration_seconds=max(4, min(12, int(video_duration_seconds))),
+        max_renders_per_run=max(0, int(max_renders_per_run)),
+        sora_api_key=env_or_default("OPENAI_API_KEY", "") or "",
+        sora_video_enabled=bool(sora_video_enabled),
+        sora_model=(sora_model or env_or_default("SORA_MODEL", "sora-2") or "sora-2").strip() or "sora-2",
+        sora_size=(sora_size or env_or_default("SORA_SIZE", "720x1280") or "720x1280").strip() or "720x1280",
+        sora_poll_interval_seconds=max(1, int(sora_poll_interval_seconds)),
+        sora_timeout_seconds=max(60, int(sora_timeout_seconds)),
+        sora_cli_path=(sora_cli_path or env_or_default("SORA_CLI", "") or "").strip(),
     )
 
     strategy_state = load_strategy_state()
@@ -993,7 +998,7 @@ def run_youtube_shorts(
         strategy_context=strategy_context,
         strategy_state=strategy_state,
     )
-    video_renders = render_drafts_with_gemini(cfg, drafts, trends, run_dir)
+    video_renders = render_drafts_videos(cfg, drafts, trends, run_dir)
     metrics = collect_channel_shorts_metrics(cfg)
     feedback_plan = build_feedback_plan(cfg, metrics, drafts)
 
@@ -1062,8 +1067,9 @@ def run_youtube_shorts(
         "channel_id": cfg.channel_id,
         "trend_count": len(trends_payload),
         "draft_count": len(drafts_payload),
-        "gemini_video_enabled": bool(cfg.gemini_video_enabled),
-        "gemini_video_renders": int(video_renders.get("rendered_count") or 0),
+        "video_provider": cfg.video_provider,
+        "sora_video_enabled": bool(cfg.sora_video_enabled),
+        "video_renders": int(video_renders.get("rendered_count") or 0),
         "strategy_state_path": str(strategy_state_path),
         "strategy_changes": strategy_changes,
         "winning_patterns": winning_patterns,

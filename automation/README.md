@@ -47,10 +47,11 @@ python3 -m automation run --workflow full --execute
 - `--youtube-queries`: komma-separierte Such-Queries
 - `--revenue-target-eur`, `--average-order-value`
 - `--profile-click-rate`, `--landing-conversion-rate`
-- `--gemini-video-enabled`: `true|false`
-- `--gemini-model`, `--gemini-aspect-ratio`, `--gemini-resolution`
-- `--gemini-duration-seconds`, `--gemini-negative-prompt`
-- `--gemini-max-renders`, `--gemini-poll-interval-seconds`, `--gemini-max-poll-attempts`
+- `--video-provider`: `sora|local`
+- `--video-duration-seconds`, `--video-max-renders`
+- `--sora-video-enabled`: `true|false`
+- `--sora-model`, `--sora-size`
+- `--sora-poll-interval-seconds`, `--sora-timeout-seconds`, `--sora-cli-path`
 
 ## Router anpassen
 

@@ -11,24 +11,36 @@
       {
         "provider": "ollama",
         "model": "phi4-mini:latest",
-        "max_output_tokens": 350,
+        "max_output_tokens": 420,
         "temperature": 0.5
       }
     ],
     "balanced": [
       {
         "provider": "ollama",
-        "model": "qwen2.5-coder:7b",
-        "max_output_tokens": 450,
+        "model": "qwen2.5-coder:14b",
+        "max_output_tokens": 650,
         "temperature": 0.6
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen3-coder:480b-cloud",
+        "max_output_tokens": 800,
+        "temperature": 0.55
       }
     ],
     "premium": [
       {
         "provider": "ollama",
-        "model": "deepseek-r1:8b",
-        "max_output_tokens": 550,
-        "temperature": 0.6
+        "model": "deepseek-v3.1:671b-cloud",
+        "max_output_tokens": 1100,
+        "temperature": 0.55
+      },
+      {
+        "provider": "ollama",
+        "model": "kimi-k2.5:cloud",
+        "max_output_tokens": 950,
+        "temperature": 0.5
       }
     ]
   },

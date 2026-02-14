@@ -25,7 +25,7 @@ from automation.workflows.youtube_shorts import (
     collect_channel_shorts_metrics,
     fetch_trends_from_youtube,
     generate_shorts_drafts,
-    render_drafts_with_gemini,
+    render_drafts_videos,
 )
 
 
@@ -413,15 +413,15 @@ def run_shorts_revenue(
     average_order_value: float = 27.0,
     profile_click_rate: float = 0.01,
     landing_conversion_rate: float = 0.02,
-    gemini_video_enabled: bool = True,
-    gemini_model: str = "veo-3.1-fast-generate-preview",
-    gemini_aspect_ratio: str = "9:16",
-    gemini_resolution: str = "720p",
-    gemini_duration_seconds: int = 8,
-    gemini_negative_prompt: str = "",
-    gemini_max_renders_per_run: int = 3,
-    gemini_poll_interval_seconds: int = 10,
-    gemini_max_poll_attempts: int = 90,
+    video_provider: str = "sora",
+    video_duration_seconds: int = 8,
+    max_renders_per_run: int = 3,
+    sora_video_enabled: bool = True,
+    sora_model: str = "sora-2",
+    sora_size: str = "720x1280",
+    sora_poll_interval_seconds: int = 10,
+    sora_timeout_seconds: int = 900,
+    sora_cli_path: str = "",
 ) -> str:
     run_id = runner.run_id or timestamp_id()
     run_dir = DELIVERABLES_DIR / run_id
@@ -438,16 +438,16 @@ def run_shorts_revenue(
         drafts_per_run=max(1, drafts_per_run),
         min_views_per_hour_target=max(1.0, float(min_views_per_hour_target)),
         queries=[q.strip() for q in (queries or []) if q.strip()],
-        gemini_api_key=env_or_default("GEMINI_API_KEY", "") or "",
-        gemini_video_enabled=bool(gemini_video_enabled),
-        gemini_model=(gemini_model or "veo-3.1-fast-generate-preview").strip() or "veo-3.1-fast-generate-preview",
-        gemini_aspect_ratio=(gemini_aspect_ratio or "9:16").strip() or "9:16",
-        gemini_resolution=(gemini_resolution or "720p").strip() or "720p",
-        gemini_duration_seconds=max(4, min(8, int(gemini_duration_seconds))),
-        gemini_negative_prompt=(gemini_negative_prompt or "").strip(),
-        gemini_max_renders_per_run=max(0, int(gemini_max_renders_per_run)),
-        gemini_poll_interval_seconds=max(1, int(gemini_poll_interval_seconds)),
-        gemini_max_poll_attempts=max(1, int(gemini_max_poll_attempts)),
+        video_provider=(video_provider or env_or_default("VIDEO_PROVIDER", "sora") or "sora").strip().lower(),
+        video_duration_seconds=max(4, min(12, int(video_duration_seconds))),
+        max_renders_per_run=max(0, int(max_renders_per_run)),
+        sora_api_key=env_or_default("OPENAI_API_KEY", "") or "",
+        sora_video_enabled=bool(sora_video_enabled),
+        sora_model=(sora_model or env_or_default("SORA_MODEL", "sora-2") or "sora-2").strip() or "sora-2",
+        sora_size=(sora_size or env_or_default("SORA_SIZE", "720x1280") or "720x1280").strip() or "720x1280",
+        sora_poll_interval_seconds=max(1, int(sora_poll_interval_seconds)),
+        sora_timeout_seconds=max(60, int(sora_timeout_seconds)),
+        sora_cli_path=(sora_cli_path or env_or_default("SORA_CLI", "") or "").strip(),
     )
 
     strategy_state = load_strategy_state()
@@ -463,7 +463,7 @@ def run_shorts_revenue(
         strategy_state=strategy_state,
     )
     shorts_drafts = _apply_product_first_policy(shorts_drafts)
-    video_renders = render_drafts_with_gemini(cfg, shorts_drafts, trends, run_dir)
+    video_renders = render_drafts_videos(cfg, shorts_drafts, trends, run_dir)
     yt_metrics = collect_channel_shorts_metrics(cfg)
     tiktok_metrics = _collect_tiktok_metrics()
 
@@ -557,8 +557,9 @@ def run_shorts_revenue(
         "draft_count": len(drafts_payload),
         "used_youtube_api": bool(cfg.youtube_api_key),
         "used_tiktok_api": bool(tiktok_metrics.get("available")),
-        "gemini_video_enabled": bool(cfg.gemini_video_enabled),
-        "gemini_video_renders": int(video_renders.get("rendered_count") or 0),
+        "video_provider": cfg.video_provider,
+        "sora_video_enabled": bool(cfg.sora_video_enabled),
+        "video_renders": int(video_renders.get("rendered_count") or 0),
         "money_projection_eur_24h": (money_model.get("projection") or {}).get("projected_revenue_eur", 0),
         "real_revenue_eur": ((real_revenue.get("totals") or {}).get("net_eur") if isinstance(real_revenue, dict) else 0),
         "strategy_state_path": str(strategy_state_path),
