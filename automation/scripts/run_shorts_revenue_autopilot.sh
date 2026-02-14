@@ -4,6 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
 
+set -a
 if [ -f "$ROOT_DIR/ai-vault/empire.env" ]; then
   # shellcheck disable=SC1090
   source "$ROOT_DIR/ai-vault/empire.env"
@@ -12,6 +13,7 @@ if [ -f "$HOME/.openclaw/.env" ]; then
   # shellcheck disable=SC1090
   source "$HOME/.openclaw/.env"
 fi
+set +a
 export OLLAMA_API_KEY="${OLLAMA_API_KEY:-local}"
 export OLLAMA_PRIMARY_MODEL="${OLLAMA_PRIMARY_MODEL:-minimax-m2.5:cloud}"
 

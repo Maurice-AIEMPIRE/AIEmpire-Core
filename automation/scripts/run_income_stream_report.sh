@@ -4,6 +4,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
 
+set -a
 if [ -f "$ROOT_DIR/ai-vault/empire.env" ]; then
   # shellcheck disable=SC1090
   source "$ROOT_DIR/ai-vault/empire.env"
@@ -12,6 +13,7 @@ if [ -f "$HOME/.openclaw/.env" ]; then
   # shellcheck disable=SC1090
   source "$HOME/.openclaw/.env"
 fi
+set +a
 
 LOOKBACK_HOURS="${STRIPE_LOOKBACK_HOURS:-24}"
 MAX_RECORDS="${STRIPE_MAX_RECORDS:-200}"
