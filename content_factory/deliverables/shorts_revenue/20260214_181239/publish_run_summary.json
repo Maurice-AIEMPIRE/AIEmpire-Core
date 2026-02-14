@@ -1,0 +1,24 @@
+{
+  "workflow": "shorts_revenue",
+  "run_id": "20260214_181239",
+  "queue_file": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_181239/youtube_publish_queue.csv",
+  "mode": "public",
+  "effective_mode": "public",
+  "auth_ready": false,
+  "recovered_rows": 0,
+  "max_posts_per_day": 6,
+  "min_spacing_min": 120,
+  "blocked_reason": "missing_youtube_auth:need_access_token_or_refresh_credentials",
+  "guard": {
+    "requested_mode": "public",
+    "effective_mode": "public",
+    "guard_active": false,
+    "guard_reason": "",
+    "guard_active_until": "",
+    "kpi_snapshot": {}
+  },
+  "dry_run": false,
+  "published_count": 0,
+  "error_count": 0,
+  "timestamp": "2026-02-14T17:15:03Z"
+}
