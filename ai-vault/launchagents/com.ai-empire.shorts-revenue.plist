@@ -7,15 +7,15 @@
   <key>ProgramArguments</key>
   <array>
     <string>/bin/bash</string>
-    <string>/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/automation/scripts/run_shorts_revenue_once.sh</string>
+    <string>/Users/maurice/Documents/New project/automation/scripts/run_shorts_revenue_once.sh</string>
   </array>
   <key>StartInterval</key>
   <integer>1800</integer>
   <key>RunAtLoad</key>
   <true/>
   <key>StandardOutPath</key>
-  <string>/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/shorts_revenue.out.log</string>
+  <string>/Users/maurice/Documents/New project/ai-vault/shorts_revenue.out.log</string>
   <key>StandardErrorPath</key>
-  <string>/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/shorts_revenue.err.log</string>
+  <string>/Users/maurice/Documents/New project/ai-vault/shorts_revenue.err.log</string>
 </dict>
 </plist>

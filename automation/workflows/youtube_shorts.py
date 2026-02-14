@@ -13,7 +13,15 @@ from typing import Any, Dict, List, Optional
 
 from automation.core.runner import Runner
 from automation.gemini_video import GeminiVideoRequest, render_video_with_gemini
+from automation.n8n_events import post_n8n_event
 from automation.utils.files import ensure_dir, env_or_default, slugify, timestamp_id, write_json, write_text
+from automation.workflows.shorts_strategy_state import (
+    build_strategy_prompt_context,
+    load_strategy_state,
+    load_top_nuggets,
+    save_strategy_state,
+    update_strategy_from_metrics,
+)
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -82,7 +90,7 @@ class WorkflowConfig:
     language: str = "de"
     lookback_hours: int = 24
     drafts_per_run: int = 6
-    min_views_per_hour_target: float = 300.0
+    min_views_per_hour_target: float = 120.0
     queries: List[str] = field(default_factory=list)
     banned_terms: List[str] = field(default_factory=lambda: DEFAULT_BANNED_TERMS.copy())
     gemini_api_key: str = ""
@@ -358,7 +366,48 @@ def _drafts_from_fallback(trends: List[TrendItem], draft_count: int) -> List[Sho
     return out
 
 
-def generate_shorts_drafts(runner: Runner, config: WorkflowConfig, trends: List[TrendItem]) -> List[ShortsDraft]:
+def _trim_to_words(text: str, max_words: int) -> str:
+    words = [w for w in re.split(r"\s+", str(text or "").strip()) if w]
+    if max_words <= 0 or len(words) <= max_words:
+        return " ".join(words)
+    return " ".join(words[:max_words]).strip()
+
+
+def _apply_adaptive_rules(draft: ShortsDraft, strategy_state: Dict[str, Any]) -> None:
+    adaptive = strategy_state.get("adaptive") if isinstance(strategy_state.get("adaptive"), dict) else {}
+    low_streak = int(adaptive.get("low_vph_streak") or 0)
+    cta_binary_required = bool(adaptive.get("cta_binary_required"))
+    emotional_boost = bool(adaptive.get("emotional_framing_boost"))
+    hook_intensity = int(adaptive.get("hook_intensity") or 1)
+    cap = int(adaptive.get("script_hook_setup_word_cap") or 120)
+    force_new_angle = bool(adaptive.get("force_new_angle_cluster"))
+
+    if low_streak >= 2:
+        draft.hook = _safe_trim(f"Stop! {draft.hook}", 120)
+        draft.script = _trim_to_words(draft.script, max_words=max(30, min(cap, 120)))
+
+    if emotional_boost and "wahrheit" not in draft.hook.lower():
+        draft.hook = _safe_trim(f"Die harte Wahrheit: {draft.hook}", 120)
+
+    if cta_binary_required:
+        draft.cta = "Kommentiere nur EIN Wort: JA oder NEIN?"
+
+    if hook_intensity >= 4 and not draft.hook.strip().endswith("?"):
+        draft.hook = _safe_trim(draft.hook + " Wirklich?", 120)
+
+    if force_new_angle:
+        # Marker for downstream analysis that this draft belongs to a forced new-angle cluster.
+        if "#newangle" not in [t.lower() for t in draft.hashtags]:
+            draft.hashtags.insert(0, "#newangle")
+
+
+def generate_shorts_drafts(
+    runner: Runner,
+    config: WorkflowConfig,
+    trends: List[TrendItem],
+    strategy_context: str = "",
+    strategy_state: Optional[Dict[str, Any]] = None,
+) -> List[ShortsDraft]:
     if not trends:
         return []
 
@@ -374,11 +423,14 @@ def generate_shorts_drafts(runner: Runner, config: WorkflowConfig, trends: List[
         "- Keine rassistischen, diskriminierenden oder hetzerischen Inhalte.\n"
         "- Keine 1:1 Kopie von Vorlagen, nur Struktur adaptieren.\n"
         "- Fokus: humorvoll, inspirierend, spannend, hoher emotionaler Impact.\n"
+        "- Keine unpruefbaren Einkommensversprechen (kein 'garantierter Verdienst', kein 'sicher reich werden').\n"
         "- Dauer je Short: 25-45 Sekunden.\n"
         "- Gib AUSSCHLIESSLICH JSON-Liste zurueck, ohne Markdown.\n"
         "Schema je Element:\n"
         "{\"title\":\"...\",\"hook\":\"...\",\"script\":\"...\",\"cta\":\"...\",\"hashtags\":[\"#shorts\"],\"tone\":\"...\",\"source_video_id\":\"...\"}\n"
         f"Anzahl: {config.drafts_per_run}\n"
+        + (strategy_context.strip() + "\n" if strategy_context.strip() else "")
+        + "\n"
         "Trend-Inputs:\n"
         + "\n".join(trend_lines)
     )
@@ -432,6 +484,10 @@ def generate_shorts_drafts(runner: Runner, config: WorkflowConfig, trends: List[
 
     if not drafts:
         return _drafts_from_fallback(trends, config.drafts_per_run)
+
+    if isinstance(strategy_state, dict):
+        for draft in drafts:
+            _apply_adaptive_rules(draft, strategy_state)
 
     return drafts[: config.drafts_per_run]
 
@@ -796,8 +852,18 @@ def run_youtube_shorts(
         gemini_max_poll_attempts=max(1, int(gemini_max_poll_attempts)),
     )
 
+    strategy_state = load_strategy_state()
+    top_nuggets = load_top_nuggets(limit=8)
+    strategy_context = build_strategy_prompt_context(strategy_state, top_nuggets)
+
     trends = fetch_trends_from_youtube(cfg)
-    drafts = generate_shorts_drafts(runner, cfg, trends)
+    drafts = generate_shorts_drafts(
+        runner,
+        cfg,
+        trends,
+        strategy_context=strategy_context,
+        strategy_state=strategy_state,
+    )
     video_renders = render_drafts_with_gemini(cfg, drafts, trends, run_dir)
     metrics = collect_channel_shorts_metrics(cfg)
     feedback_plan = build_feedback_plan(cfg, metrics, drafts)
@@ -838,11 +904,25 @@ def run_youtube_shorts(
         for d in drafts
     ]
 
+    summary_metrics = metrics.get("summary") or {}
+    strategy_state, strategy_changes, winning_patterns, killed_patterns, next_test_matrix = update_strategy_from_metrics(
+        strategy_state,
+        run_id=run_id,
+        target_vph=cfg.min_views_per_hour_target,
+        avg_vph=float(summary_metrics.get("avg_views_per_hour") or 0.0),
+        avg_like_rate=float(summary_metrics.get("avg_like_rate") or 0.0),
+        avg_comment_rate=float(summary_metrics.get("avg_comment_rate") or 0.0),
+        drafts_payload=drafts_payload,
+    )
+    strategy_state_path = save_strategy_state(strategy_state)
+
     write_json(run_dir / "trends.json", {"run_id": run_id, "count": len(trends_payload), "items": trends_payload})
     write_json(run_dir / "drafts.json", {"run_id": run_id, "count": len(drafts_payload), "items": drafts_payload})
     write_json(run_dir / "video_renders.json", video_renders)
     write_json(run_dir / "metrics.json", metrics)
     write_text(run_dir / "feedback_plan.md", feedback_plan)
+    write_text(run_dir / "strategy_context.txt", strategy_context + "\n")
+    write_json(run_dir / "strategy_top_nuggets.json", {"count": len(top_nuggets), "items": top_nuggets})
     _write_publish_queue(run_dir / "publish_queue.csv", drafts, trends)
 
     summary = {
@@ -855,11 +935,31 @@ def run_youtube_shorts(
         "draft_count": len(drafts_payload),
         "gemini_video_enabled": bool(cfg.gemini_video_enabled),
         "gemini_video_renders": int(video_renders.get("rendered_count") or 0),
+        "strategy_state_path": str(strategy_state_path),
+        "strategy_changes": strategy_changes,
+        "winning_patterns": winning_patterns,
+        "killed_patterns": killed_patterns,
+        "next_test_matrix": next_test_matrix,
         "deliverables_dir": str(run_dir),
     }
     write_json(run_dir / "run_summary.json", summary)
 
     latest = DELIVERABLES_DIR / "latest.json"
     write_json(latest, summary)
+    post_n8n_event(
+        event_type="youtube_shorts_run",
+        source="automation.workflows.youtube_shorts",
+        payload={
+            "run_id": run_id,
+            "execute": bool(execute),
+            "trend_count": len(trends_payload),
+            "draft_count": len(drafts_payload),
+            "strategy_changes": strategy_changes,
+            "winning_patterns": winning_patterns,
+            "killed_patterns": killed_patterns,
+            "next_test_matrix": next_test_matrix,
+            "deliverables_dir": str(run_dir),
+        },
+    )
 
     return str(run_dir)

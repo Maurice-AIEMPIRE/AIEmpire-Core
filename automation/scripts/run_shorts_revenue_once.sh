@@ -24,6 +24,12 @@ LOG_FILE="$LOG_DIR/shorts_revenue_once_${RUN_TS}.log"
   python3 -m automation run --workflow shorts_revenue --execute
   RC=$?
   set -e
+  if [ "${AUTO_PUBLISH_YOUTUBE:-0}" = "1" ] && [ "$RC" -eq 0 ]; then
+    automation/scripts/auto_publish_youtube_queue.sh shorts_revenue || true
+  fi
+  if [ "${TELEGRAM_INCOME_STREAM:-1}" = "1" ] && [ "$RC" -eq 0 ] && [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
+    automation/scripts/run_income_stream_report.sh send || true
+  fi
   echo "[shorts-revenue-once] exit_code=$RC ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
   exit "$RC"
 } 2>&1 | tee -a "$LOG_FILE"

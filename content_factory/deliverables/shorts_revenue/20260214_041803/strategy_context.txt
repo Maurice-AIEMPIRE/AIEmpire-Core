@@ -1,0 +1,17 @@
+SYSTEM_STRATEGY_CONTEXT:
+- Channel focus: DE AI-Automation.
+- Goal: humorvoll, interessant, spannend, am Zeitnerv.
+- Revenue lane: Product-first. CTA split target: 70% Produkt (Prompt Vault), 30% Community.
+- KPI gates: target_vph=120.0, min_like_rate=0.03, min_comment_rate=0.005.
+- Keine unpruefbaren Einkommensversprechen als eigene Behauptung.
+- Must adapt from recent KPI feedback.
+- Adaptive controls: low_vph_streak=2, hook_intensity=2, hook_setup_word_cap=55, force_new_angle_cluster=True.
+- Emotional framing boost active. Story/contrarian share +20% this run.
+- CTA mode is binary one-word reply and is mandatory in every draft.
+- Winning patterns (reuse structure, do not copy text):
+  1) topic_cluster=motivation | hook_template=Stop scrolling: AI News in 30 seconds in | avg_vph=0.0
+  2) topic_cluster=motivation | hook_template=Stop scrolling: Motivation and self-discipline in 30 seconds. | avg_vph=0.0
+  3) topic_cluster=motivation | hook_template=Stop scrolling: Insane productivity hacks in 30 seconds. | avg_vph=0.0
+  4) topic_cluster=motivation | hook_template=Stop scrolling: Money mindset myths in 30 seconds. | avg_vph=0.0
+  5) topic_cluster=motivation | hook_template=Stop scrolling: Story-driven mini lessons in 30 seconds. | avg_vph=0.0
+- Enforce at least 2 new angle clusters not present in winning patterns.

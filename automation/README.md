@@ -105,7 +105,22 @@ automation/scripts/run_youtube_autopilot.sh 10 30
 
 # Mit echten LLM-Aufrufen
 EXECUTE_MODE=1 automation/scripts/run_youtube_autopilot.sh 10 30
+
+# Live-Auto-Publish aktivieren (direkt nach jedem erfolgreichen Run)
+AUTO_PUBLISH_YOUTUBE=1 AUTO_PUBLISH_MODE=public EXECUTE_MODE=1 automation/scripts/run_youtube_autopilot.sh 10 30
 ```
+
+Thermal-/Load-Schutz (empfohlen fuer lange Laeufe):
+
+- Vor jedem Zyklus prueft `automation/scripts/system_safety_guard.sh` automatisch:
+  - CPU load/core
+  - `pmset` CPU speed limit (Thermal Throttling)
+  - freien Memory-Anteil
+- Bei Ueberlast wird der Run sauber uebersprungen und Cooldown erzwungen.
+- Steuerung via ENV:
+  - `SAFETY_GUARD=1`
+  - `SAFETY_COOLDOWN_MIN=20`
+  - `AUTOPILOT_NICE=10`
 
 ## Shorts Revenue Engine (YouTube + TikTok parallel)
 
@@ -151,6 +166,9 @@ Dauerlauf:
 ```bash
 # 10 Stunden, alle 30 Minuten
 automation/scripts/run_shorts_revenue_autopilot.sh 10 30
+
+# Mit Live-Auto-Publish
+AUTO_PUBLISH_YOUTUBE=1 AUTO_PUBLISH_MODE=public EXECUTE_MODE=1 automation/scripts/run_shorts_revenue_autopilot.sh 10 30
 ```
 
 Daemon-Steuerung (empfohlen in deinem eigenen Terminal):
@@ -165,6 +183,25 @@ automation/scripts/status_shorts_revenue_daemon.sh
 # Stoppen
 automation/scripts/stop_shorts_revenue_daemon.sh
 ```
+
+Hinweis: Der Daemon uebernimmt `SAFETY_GUARD`, `SAFETY_COOLDOWN_MIN` und `AUTOPILOT_NICE`
+automatisch in den Hintergrundprozess.
+
+YouTube Auto-Publish:
+- `AUTO_PUBLISH_YOUTUBE=1` aktiviert automatische Uploads aus der Queue.
+- `AUTO_PUBLISH_MODE=public|unlisted|private`
+- `AUTO_PUBLISH_MAX_PER_RUN=<int>` (Default: 1)
+- `AUTO_PUBLISH_MAX_PER_DAY=<int>` (Default: 6)
+- `AUTO_PUBLISH_MIN_SPACING_MIN=<int>` (Default: 120)
+- Script: `automation/scripts/auto_publish_youtube_queue.sh [shorts_revenue|youtube_shorts]`
+- Python CLI: `python3 -m automation.youtube_publish --workflow shorts_revenue --mode public --max-posts 1 --max-posts-per-day 6 --min-spacing-min 120`
+- KPI Kill-Switch: Wenn letzte 6 public Uploads schwach sind (`avg_vph < 50` oder `avg_like_rate < 0.02`), wird automatisch 12h auf `unlisted` runtergeschaltet.
+
+Erforderliche ENV fuer Upload:
+- `YOUTUBE_CLIENT_ID`
+- `YOUTUBE_CLIENT_SECRET`
+- `YOUTUBE_REFRESH_TOKEN`
+- optional `YOUTUBE_ACCESS_TOKEN` (falls bereits vorhanden)
 
 
 ## Notes Ingest
@@ -181,11 +218,70 @@ Ordner-Intake (z.B. `claude_intake/`):
 python3 -m automation.ingest --source folder --path claude_intake --execute
 ```
 
+ChatGPT Data Export (ZIP oder bereits entpacktes Verzeichnis):
+
+```bash
+# Entpackte Exporte im Standardordner (claude_intake/chat_exports)
+python3 -m automation.ingest --source chatgpt_export --execute
+
+# Mit konkretem ZIP
+python3 -m automation.ingest --source chatgpt_export --export-zip /pfad/export.zip --execute
+
+# Optional: nur neuere Konversationen und Limit
+python3 -m automation.ingest --source chatgpt_export --since-date 2026-01-01 --conversation-limit 200 --execute
+
+# X-Feed Textdump Ingest (rohe X-Suchseite als txt/md)
+python3 -m automation.ingest --source x_feed_text --path claude_intake/x_feeds --execute
+```
+
+Auto-Discovery Reihenfolge fuer `chatgpt_export`:
+1. `--export-zip`
+2. `CHATGPT_EXPORT_ZIP` (Env)
+3. neueste ZIP in `~/Downloads` (`*chatgpt*export*.zip`, `*conversations*.zip`, `*openai*.zip`)
+4. neueste ZIP in `claude_intake/chat_exports`
+5. `--export-dir` bzw. Standardordner
+
+Neue Optionen:
+- `--source chatgpt_export`
+- `--source x_feed_text`
+- `--export-zip <path>`
+- `--export-dir <path>`
+- `--conversation-limit <int>`
+- `--since-date YYYY-MM-DD`
+- `--skip-merge` (optional, falls Nugget-Merge nicht laufen soll)
+
 Outputs:
 - `ai-vault/nuggets/nuggets_<run_id>.json`
 - `ai-vault/nuggets/nuggets_<run_id>.md`
+- `ai-vault/nuggets/nugget_registry.json`
+- `ai-vault/nuggets/nugget_backlog_ranked.md`
+- `external/imports/chatgpt_exports/<run_id>/normalized_messages.jsonl`
+- `external/imports/chatgpt_exports/<run_id>/manifest.json`
+- `external/imports/x_feed_text/<run_id>/x_feed_text_normalized.jsonl`
+
+6h Auto-Ingest fuer Chat-Exporte:
+
+```bash
+automation/scripts/run_chat_export_ingest.sh
+```
+
+LaunchAgent:
+- `ai-vault/launchagents/com.ai-empire.chat-export-ingest.plist`
 
 Hinweis: Beim ersten Apple-Notes-Lauf fragt macOS nach Automation-/Notes-Berechtigungen.
+
+## Thread Handoff / Chronik
+
+Kontextlimit-sicherer Wechsel in neue Threads:
+
+```bash
+python3 automation/scripts/write_thread_handoff.py
+python3 automation/scripts/write_thread_handoff.py --note "Warum ich diese Prioritaet setze"
+```
+
+Outputs:
+- `00_SYSTEM/thread_handoffs/handoff_<timestamp>.md`
+- `00_SYSTEM/project_chronik.md` (wird automatisch fortgeschrieben)
 
 
 ## Status Report (Telegram)
@@ -198,6 +294,67 @@ python3 -m automation.report
 export TELEGRAM_BOT_TOKEN="..."
 export TELEGRAM_CHAT_ID="..."
 python3 -m automation.report --send
+```
+
+Income-Stream Telegram (echte Stripe-Einnahmen + Publish + KPI):
+
+```bash
+# einmalig/adhoc
+automation/scripts/run_income_stream_report.sh send
+
+# nur lokal schreiben (ohne Telegram)
+automation/scripts/run_income_stream_report.sh nosend
+```
+
+## n8n Integration (optional, empfohlen)
+
+Das System kann Live-Events als JSON an n8n senden (fail-open):
+- `shorts_revenue_run`
+- `youtube_shorts_run`
+- `youtube_publish_result`
+- `stripe_revenue_sync`
+- `stripe_webhook_received`
+- `income_stream_report`
+- `x_trend_scout_run`
+
+ENV:
+- `N8N_EVENTS_ENABLED=1`
+- `N8N_EVENT_WEBHOOK_URL=https://.../webhook/...`
+- `N8N_EVENT_TOKEN=...` (optional Bearer)
+- `N8N_EVENT_TIMEOUT_SEC=8`
+
+Hinweis:
+- Wenn n8n nicht erreichbar ist, laufen alle Kern-Workflows weiter (kein Hard-Fail).
+
+Stripe Sync CLI:
+
+```bash
+python3 -m automation.stripe_sync --lookback-hours 24 --max-records 200
+# oder:
+automation/scripts/run_stripe_sync.sh 24 200
+```
+
+Wichtige ENV:
+- `STRIPE_SECRET_KEY`
+- `STRIPE_WEBHOOK_SECRET`
+- `STRIPE_PROMPT_VAULT_URL` (optional: wird fuer Produkt-CTA in Shorts genutzt)
+
+Stripe Checkout Session (Live-Link erzeugen):
+
+```bash
+python3 -m automation.stripe_checkout \
+  --price-id price_xxx \
+  --success-url "https://deine-domain/success" \
+  --cancel-url "https://deine-domain/cancel" \
+  --metadata "product=prompt_vault,channel=youtube_shorts"
+```
+
+Stripe Webhook Receiver (lokal):
+
+```bash
+python3 -m automation.stripe_webhook_server --host 127.0.0.1 --port 8788
+# oder:
+automation/scripts/run_stripe_webhook_server.sh
 ```
 
 ## TikTok API (neu)
@@ -320,6 +477,8 @@ Details:
 Beispiele liegen in:
 - `ai-vault/launchagents/com.ai-empire.notes-ingest.plist`
 - `ai-vault/launchagents/com.ai-empire.telegram-report.plist`
+- `ai-vault/launchagents/com.ai-empire.chat-export-ingest.plist`
+- `ai-vault/launchagents/com.ai-empire.income-stream.plist`
 - `ai-vault/launchagents/com.ai-empire.daily-content-sprint.plist`
 
 Daily Content Sprint (Host-Fallback ohne Codex-Automations-Host):

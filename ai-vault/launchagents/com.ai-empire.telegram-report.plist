@@ -6,7 +6,7 @@
   <string>com.ai-empire.telegram-report</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/automation/scripts/run_telegram_report.sh</string>
+    <string>/Users/maurice/Documents/New project/automation/scripts/run_telegram_report.sh</string>
   </array>
   <key>StartCalendarInterval</key>
   <dict>
@@ -18,8 +18,8 @@
   <key>RunAtLoad</key>
   <true/>
   <key>StandardOutPath</key>
-  <string>/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/telegram_report.out.log</string>
+  <string>/Users/maurice/Documents/New project/ai-vault/telegram_report.out.log</string>
   <key>StandardErrorPath</key>
-  <string>/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/telegram_report.err.log</string>
+  <string>/Users/maurice/Documents/New project/ai-vault/telegram_report.err.log</string>
 </dict>
 </plist>

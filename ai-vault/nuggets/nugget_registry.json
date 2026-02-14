@@ -1,0 +1,19 @@
+{
+  "updated_at": "2026-02-14T03:19:26Z",
+  "weights": {
+    "impact": 0.4,
+    "novelty": 0.25,
+    "execution_ease": 0.2,
+    "time_relevance": 0.15
+  },
+  "allowed_asset_types": [
+    "angle",
+    "hook",
+    "metric",
+    "offer",
+    "process",
+    "story"
+  ],
+  "count": 0,
+  "items": []
+}

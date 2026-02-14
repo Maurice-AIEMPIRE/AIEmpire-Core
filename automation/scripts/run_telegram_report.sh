@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO_DIR="/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project"
+REPO_DIR="/Users/maurice/Documents/New project"
 ENV_FILE="$REPO_DIR/ai-vault/empire.env"
 
 # Shared secrets live in OpenClaw's env.
@@ -22,3 +22,4 @@ if [ -f "$ENV_FILE" ]; then
 fi
 
 /usr/bin/env python3 -m automation.report --send
+/bin/bash "$REPO_DIR/automation/scripts/run_income_stream_report.sh" send || true

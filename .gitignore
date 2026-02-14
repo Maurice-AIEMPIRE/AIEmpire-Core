@@ -8,6 +8,7 @@ ai-vault/empire.env
 automation/runs/
 ai-vault/*.log
 ai-vault/reports/
+external/imports/chatgpt_exports/
 
 # Python cache artifacts
 **/__pycache__/

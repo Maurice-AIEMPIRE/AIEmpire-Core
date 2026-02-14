@@ -16,9 +16,17 @@ fi
 
 HOURS="${1:-10}"
 INTERVAL_MIN="${2:-30}"
-EXECUTE_MODE="${EXECUTE_MODE:-0}"
+EXECUTE_MODE="${EXECUTE_MODE:-1}"
 CHANNEL_ID="${YOUTUBE_CHANNEL_ID:-}"
 SYNC_SHORTS_ASSETS="${SYNC_SHORTS_ASSETS:-0}"
+AUTO_PUBLISH_YOUTUBE="${AUTO_PUBLISH_YOUTUBE:-1}"
+X_SCOUT_ENABLED="${X_SCOUT_ENABLED:-1}"
+SAFETY_GUARD="${SAFETY_GUARD:-1}"
+SAFETY_COOLDOWN_MIN="${SAFETY_COOLDOWN_MIN:-20}"
+AUTOPILOT_NICE="${AUTOPILOT_NICE:-10}"
+ATLAS_SNAPSHOT_ENABLED="${ATLAS_SNAPSHOT_ENABLED:-1}"
+DEGRADE_MAINTENANCE_ON_BLOCK="${DEGRADE_MAINTENANCE_ON_BLOCK:-1}"
+TELEGRAM_INCOME_STREAM="${TELEGRAM_INCOME_STREAM:-1}"
 
 if ! [[ "$HOURS" =~ ^[0-9]+$ ]]; then
   echo "ERROR: HOURS must be an integer" >&2
@@ -47,7 +55,33 @@ FAIL_COUNT=0
 for ((i=1; i<=RUNS; i++)); do
   echo "[youtube-autopilot] run=$i/$RUNS ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee -a "$SESSION_LOG"
 
-  CMD=(python3 -m automation run --workflow youtube_shorts)
+  if [ "$SAFETY_GUARD" = "1" ]; then
+    set +e
+    automation/scripts/system_safety_guard.sh | tee -a "$SESSION_LOG"
+    GRC=${PIPESTATUS[0]}
+    set -e
+    if [ "$GRC" -ne 0 ]; then
+      echo "[youtube-autopilot] run=$i status=skipped reason=safety_guard exit_code=$GRC" | tee -a "$SESSION_LOG"
+      if [ "$DEGRADE_MAINTENANCE_ON_BLOCK" = "1" ]; then
+        echo "[youtube-autopilot] run=$i degrade_mode=on maintenance=ingest+merge+strategy_refresh" | tee -a "$SESSION_LOG"
+        nice -n "$AUTOPILOT_NICE" python3 automation/scripts/run_degrade_maintenance.py | tee -a "$SESSION_LOG" || true
+      fi
+      if [ "$i" -lt "$RUNS" ]; then
+        sleep "$((SAFETY_COOLDOWN_MIN * 60))"
+      fi
+      continue
+    fi
+  fi
+
+  if [ "$ATLAS_SNAPSHOT_ENABLED" = "1" ]; then
+    automation/scripts/collect_atlas_history_snapshot.sh | tee -a "$SESSION_LOG" || true
+  fi
+
+  if [ "$X_SCOUT_ENABLED" = "1" ]; then
+    nice -n "$AUTOPILOT_NICE" python3 automation/scripts/run_x_trend_scout.py | tee -a "$SESSION_LOG" || true
+  fi
+
+  CMD=(nice -n "$AUTOPILOT_NICE" python3 -m automation run --workflow youtube_shorts)
 
   if [ "$EXECUTE_MODE" = "1" ]; then
     CMD+=(--execute)
@@ -72,6 +106,14 @@ for ((i=1; i<=RUNS; i++)); do
 
   if [ "$SYNC_SHORTS_ASSETS" = "1" ]; then
     automation/scripts/sync_shorts_assets.sh youtube_shorts | tee -a "$SESSION_LOG" || true
+  fi
+
+  if [ "$AUTO_PUBLISH_YOUTUBE" = "1" ] && [ "$RC" -eq 0 ]; then
+    automation/scripts/auto_publish_youtube_queue.sh youtube_shorts | tee -a "$SESSION_LOG" || true
+  fi
+
+  if [ "$TELEGRAM_INCOME_STREAM" = "1" ] && [ -n "${TELEGRAM_BOT_TOKEN:-}" ] && [ -n "${TELEGRAM_CHAT_ID:-}" ]; then
+    automation/scripts/run_income_stream_report.sh send | tee -a "$SESSION_LOG" || true
   fi
 
   if [ "$i" -lt "$RUNS" ]; then

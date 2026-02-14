@@ -1,0 +1,41 @@
+{
+  "updated_at": "2026-02-14T02:41:11Z",
+  "tasks": [
+    {
+      "id": "tsk_65dfac1d0d",
+      "title": "Wire x_trend_scout into scheduled run",
+      "details": "Run scout from export/API and merge nuggets",
+      "cmd": "",
+      "priority": 4,
+      "status": "done",
+      "created_at": "2026-02-14T02:39:18Z",
+      "claimed_by": "claude_b",
+      "claimed_at": "2026-02-14T02:40:50Z",
+      "done_at": "2026-02-14T02:41:11Z",
+      "note": "x_trend_scout wired into autopilot and nugget merge"
+    },
+    {
+      "id": "tsk_7a4198896f",
+      "title": "Add YouTube OAuth tokens to empire.env and enable auto-publish",
+      "details": "Set AUTO_PUBLISH_YOUTUBE=1 AUTO_PUBLISH_MODE=public and verify first publish",
+      "cmd": "",
+      "priority": 5,
+      "status": "failed",
+      "created_at": "2026-02-14T02:39:18Z",
+      "claimed_by": "claude_a",
+      "claimed_at": "2026-02-14T02:40:50Z",
+      "done_at": "2026-02-14T02:41:11Z",
+      "note": "framework built; missing YouTube OAuth credentials in empire.env"
+    }
+  ],
+  "agents": {
+    "claude_a": {
+      "last_seen": "2026-02-14T02:41:11Z",
+      "status": "failed:tsk_7a4198896f"
+    },
+    "claude_b": {
+      "last_seen": "2026-02-14T02:41:11Z",
+      "status": "done:tsk_65dfac1d0d"
+    }
+  }
+}

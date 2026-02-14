@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ai-empire.income-stream</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/maurice/Documents/New project/automation/scripts/run_income_stream_report.sh</string>
+    <string>send</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>3600</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/maurice/Documents/New project/ai-vault/income_stream.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/maurice/Documents/New project/ai-vault/income_stream.err.log</string>
+</dict>
+</plist>

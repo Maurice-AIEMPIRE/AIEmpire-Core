@@ -1,0 +1,140 @@
+{
+  "run_id": "20260214_041803",
+  "timestamp": "2026-02-14T03:18:03.067610Z",
+  "execute": true,
+  "deliverables_dir": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_041803",
+  "draft_count": 6,
+  "used_youtube_api": false,
+  "used_tiktok_api": false,
+  "gemini_video_enabled": true,
+  "gemini_video_renders": 0,
+  "money_projection_eur_24h": 5.4,
+  "real_revenue_eur": null,
+  "strategy_state_path": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/strategy_state.json",
+  "strategy_changes": [
+    {
+      "pattern_key": "motivation::Stop scrolling: AI News in 30 seconds in",
+      "from": "active",
+      "to": "killed",
+      "avg_vph": 0.0,
+      "win_count": 0,
+      "fail_count": 3
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Motivation and self-discipline in 30 seconds.",
+      "from": "active",
+      "to": "killed",
+      "avg_vph": 0.0,
+      "win_count": 0,
+      "fail_count": 3
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Insane productivity hacks in 30 seconds.",
+      "from": "active",
+      "to": "killed",
+      "avg_vph": 0.0,
+      "win_count": 0,
+      "fail_count": 3
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Money mindset myths in 30 seconds.",
+      "from": "active",
+      "to": "killed",
+      "avg_vph": 0.0,
+      "win_count": 0,
+      "fail_count": 3
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Story-driven mini lessons in 30 seconds.",
+      "from": "active",
+      "to": "killed",
+      "avg_vph": 0.0,
+      "win_count": 0,
+      "fail_count": 3
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Fun facts that sound fake but",
+      "from": "active",
+      "to": "killed",
+      "avg_vph": 0.0,
+      "win_count": 0,
+      "fail_count": 3
+    },
+    {
+      "adaptive_change": "hook_intensity_up",
+      "from": 2,
+      "to": 3,
+      "reason": "avg_vph_below_target_2_runs"
+    },
+    {
+      "adaptive_change": "script_shortening_enforced",
+      "to_word_cap": 55,
+      "reason": "avg_vph_below_target_2_runs"
+    },
+    {
+      "adaptive_change": "emotional_framing_up",
+      "story_contrarian_boost_pct": 20,
+      "reason": "avg_like_rate_below_0.03"
+    },
+    {
+      "adaptive_change": "cta_binary_mode_enabled",
+      "reason": "avg_comment_rate_below_0.005"
+    }
+  ],
+  "winning_patterns": [],
+  "killed_patterns": [
+    {
+      "pattern_key": "motivation::Stop scrolling: AI News in 30 seconds in",
+      "topic_cluster": "motivation",
+      "hook_template": "Stop scrolling: AI News in 30 seconds in",
+      "avg_vph": 0.0
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Motivation and self-discipline in 30 seconds.",
+      "topic_cluster": "motivation",
+      "hook_template": "Stop scrolling: Motivation and self-discipline in 30 seconds.",
+      "avg_vph": 0.0
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Insane productivity hacks in 30 seconds.",
+      "topic_cluster": "motivation",
+      "hook_template": "Stop scrolling: Insane productivity hacks in 30 seconds.",
+      "avg_vph": 0.0
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Money mindset myths in 30 seconds.",
+      "topic_cluster": "motivation",
+      "hook_template": "Stop scrolling: Money mindset myths in 30 seconds.",
+      "avg_vph": 0.0
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Story-driven mini lessons in 30 seconds.",
+      "topic_cluster": "motivation",
+      "hook_template": "Stop scrolling: Story-driven mini lessons in 30 seconds.",
+      "avg_vph": 0.0
+    },
+    {
+      "pattern_key": "motivation::Stop scrolling: Fun facts that sound fake but",
+      "topic_cluster": "motivation",
+      "hook_template": "Stop scrolling: Fun facts that sound fake but",
+      "avg_vph": 0.0
+    }
+  ],
+  "next_test_matrix": [
+    {
+      "test": "hook_pattern_interrupt",
+      "enabled": true,
+      "target": "avg_vph"
+    },
+    {
+      "test": "story_contrarian_mix_plus_20pct",
+      "enabled": true,
+      "target": "like_rate"
+    },
+    {
+      "test": "binary_one_word_cta",
+      "enabled": true,
+      "target": "comment_rate"
+    }
+  ]
+}

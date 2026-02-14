@@ -9,6 +9,9 @@ from automation.core.router import Router
 from automation.core.runner import Runner
 from automation.utils.files import timestamp_id
 from automation.workflows.notes_ingest import export_notes_applescript, ingest_notes, load_notes_from_folder
+from automation.workflows.chatgpt_export_ingest import ingest_chatgpt_export
+from automation.workflows.nugget_merge import merge_nuggets_registry
+from automation.workflows.x_feed_text_ingest import ingest_x_feed_text
 
 
 
@@ -26,7 +29,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Ingest notes and extract gold nuggets")
-    parser.add_argument("--source", choices=["notes", "folder"], default="folder")
+    parser.add_argument("--source", choices=["notes", "folder", "chatgpt_export", "x_feed_text"], default="folder")
     parser.add_argument("--path", default=None, help="Folder path for source=folder")
     parser.add_argument("--limit", type=int, default=0, help="Limit number of notes")
     parser.add_argument("--since-days", type=int, default=0, help="Only notes modified in the last N days (notes source)")
@@ -35,6 +38,11 @@ def main() -> int:
     parser.add_argument("--max-chars", type=int, default=12000, help="Max chars per note body")
     parser.add_argument("--router-config", default=None)
     parser.add_argument("--run-id", default=None)
+    parser.add_argument("--export-zip", type=Path, default=None, help="Path to ChatGPT export ZIP")
+    parser.add_argument("--export-dir", type=Path, default=None, help="Path to extracted ChatGPT export directory")
+    parser.add_argument("--conversation-limit", type=int, default=0, help="Max conversations to ingest from ChatGPT export")
+    parser.add_argument("--since-date", type=str, default=None, help="Only ingest since YYYY-MM-DD")
+    parser.add_argument("--skip-merge", action="store_true", help="Skip nugget registry merge and backlog generation")
 
     args = parser.parse_args()
 
@@ -49,6 +57,23 @@ def main() -> int:
 
     if args.source == "notes":
         notes = export_notes_applescript(limit=args.limit, since_days=args.since_days)
+        folder = None
+    elif args.source == "chatgpt_export":
+        notes, _ = ingest_chatgpt_export(
+            run_id=run_id,
+            export_zip=args.export_zip,
+            export_dir=args.export_dir,
+            conversation_limit=args.conversation_limit,
+            since_date=args.since_date,
+        )
+        folder = None
+    elif args.source == "x_feed_text":
+        x_source = Path(args.path).expanduser().resolve() if args.path else None
+        notes, _ = ingest_x_feed_text(
+            run_id=run_id,
+            source_dir=x_source,
+            file_limit=args.limit,
+        )
         folder = None
     else:
         folder = Path(args.path) if args.path else Path(system_cfg.get("intake_dir", ROOT / "claude_intake"))
@@ -73,6 +98,10 @@ def main() -> int:
 
     print(f"OK: Nuggets JSON -> {json_path}")
     print(f"OK: Nuggets MD   -> {md_path}")
+    if not args.skip_merge:
+        registry_path, backlog_path, count = merge_nuggets_registry()
+        print(f"OK: Registry     -> {registry_path} ({count} items)")
+        print(f"OK: Backlog      -> {backlog_path}")
     return 0
 
 

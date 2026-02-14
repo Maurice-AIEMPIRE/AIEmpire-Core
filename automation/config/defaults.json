@@ -20,7 +20,7 @@
     "language": "de",
     "lookback_hours": 24,
     "drafts_per_run": 6,
-    "min_views_per_hour_target": 300,
+    "min_views_per_hour_target": 120,
     "queries": [
       "ai news shorts",
       "motivation shorts",

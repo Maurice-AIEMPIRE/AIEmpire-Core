@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ai-empire.chat-export-ingest</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/maurice/Documents/New project/automation/scripts/run_chat_export_ingest.sh</string>
+  </array>
+  <key>StartInterval</key>
+  <integer>21600</integer>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>/Users/maurice/Documents/New project/ai-vault/chat_export_ingest.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/maurice/Documents/New project/ai-vault/chat_export_ingest.err.log</string>
+</dict>
+</plist>

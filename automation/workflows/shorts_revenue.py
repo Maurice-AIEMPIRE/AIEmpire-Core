@@ -2,13 +2,23 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
+import json
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from automation.core.runner import Runner
+from automation.n8n_events import post_n8n_event
 from automation.tiktok import DEFAULT_VIDEO_FIELDS, list_videos
 from automation.utils.files import ensure_dir, env_or_default, slugify, timestamp_id, write_json, write_text
+from automation.workflows.shorts_strategy_state import (
+    build_strategy_prompt_context,
+    load_strategy_state,
+    load_top_nuggets,
+    save_strategy_state,
+    update_strategy_from_metrics,
+)
 from automation.workflows.youtube_shorts import (
     WorkflowConfig,
     build_feedback_plan,
@@ -137,6 +147,45 @@ def _collect_tiktok_metrics() -> Dict[str, Any]:
 def _render_offer_description(script: str, cta: str, hashtags: List[str]) -> str:
     summary = script.strip().split("\n")[0][:220]
     return f"{summary}\n\n{cta}\n\n{' '.join(hashtags[:6])}".strip()
+
+
+def _sanitize_unverifiable_income_claims(text: str) -> str:
+    raw = str(text or "")
+    patterns = [
+        r"garantiert[^.!\n]*",
+        r"sicher reich[^.!\n]*",
+        r"nie wieder broke[^.!\n]*",
+        r"\b\d+\s*€\s*pro\s*tag\b",
+        r"\b\d+\s*€\s*in\s*24h\b",
+    ]
+    sanitized = raw
+    for pattern in patterns:
+        sanitized = re.sub(pattern, "realistische Ergebnisse variieren je nach Umsetzung", sanitized, flags=re.IGNORECASE)
+    return sanitized
+
+
+def _apply_product_first_policy(drafts: List["ShortsDraft"]) -> List["ShortsDraft"]:
+    checkout_url = (
+        str(env_or_default("STRIPE_PROMPT_VAULT_URL", "") or "").strip()
+        or str(env_or_default("PROMPT_VAULT_URL", "") or "").strip()
+    )
+    if checkout_url:
+        product_cta = f"Direkt zum AI Prompt Vault: {checkout_url}"
+    else:
+        product_cta = "Link im Profil: AI Prompt Vault. Schreib 'VAULT' fuer den direkten Zugang."
+    community_cta = "Kommentiere mit EINEM Wort: JA oder NEIN?"
+    if not drafts:
+        return drafts
+    product_slots = max(1, int(round(len(drafts) * 0.7)))
+    for idx, draft in enumerate(drafts):
+        draft.title = _sanitize_unverifiable_income_claims(draft.title)
+        draft.hook = _sanitize_unverifiable_income_claims(draft.hook)
+        draft.script = _sanitize_unverifiable_income_claims(draft.script)
+        if idx < product_slots:
+            draft.cta = product_cta
+        else:
+            draft.cta = community_cta
+    return drafts
 
 
 def _write_youtube_queue(path: Path, drafts: List[Dict[str, Any]]) -> None:
@@ -274,20 +323,52 @@ def _money_model(
     }
 
 
+def _load_real_revenue_snapshot() -> Dict[str, Any]:
+    latest = ROOT / "content_factory" / "deliverables" / "revenue" / "stripe" / "latest.json"
+    if not latest.exists():
+        return {"available": False}
+    try:
+        payload = json.loads(latest.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {"available": False}
+    run_path = Path(str(payload.get("path") or ""))
+    if run_path.exists():
+        try:
+            snapshot = json.loads(run_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            return {"available": False}
+        totals = snapshot.get("totals") if isinstance(snapshot, dict) else {}
+        return {
+            "available": True,
+            "captured_at": snapshot.get("captured_at"),
+            "totals": totals if isinstance(totals, dict) else {},
+        }
+    return {
+        "available": True,
+        "captured_at": payload.get("captured_at"),
+        "totals": payload.get("totals") if isinstance(payload.get("totals"), dict) else {},
+    }
+
+
 def _write_execution_brief(
     path: Path,
     *,
     money_model: Dict[str, Any],
+    real_revenue: Dict[str, Any],
     youtube_feedback: str,
     tiktok_metrics: Dict[str, Any],
 ) -> None:
     proj = money_model.get("projection") or {}
     req = money_model.get("required_for_target") or {}
+    real_totals = (real_revenue.get("totals") if isinstance(real_revenue, dict) else {}) or {}
 
     lines = [
         "# Shorts Revenue Execution Brief",
         "",
         "## 24h Revenue Reality",
+        f"- REAL Stripe net (lookback): EUR {real_totals.get('net_eur', 0)}",
+        f"- REAL Stripe gross (lookback): EUR {real_totals.get('gross_eur', 0)}",
+        f"- REAL Stripe successful payments: {real_totals.get('charges_paid', 0)}",
         f"- Projected revenue (current metrics): EUR {proj.get('projected_revenue_eur', 0)}",
         f"- Required views for target: {req.get('needed_views', 0)}",
         "- Priority: direct product conversion over ad revenue in first 24h.",
@@ -369,8 +450,19 @@ def run_shorts_revenue(
         gemini_max_poll_attempts=max(1, int(gemini_max_poll_attempts)),
     )
 
+    strategy_state = load_strategy_state()
+    top_nuggets = load_top_nuggets(limit=8)
+    strategy_context = build_strategy_prompt_context(strategy_state, top_nuggets)
+
     trends = fetch_trends_from_youtube(cfg)
-    shorts_drafts = generate_shorts_drafts(runner, cfg, trends)
+    shorts_drafts = generate_shorts_drafts(
+        runner,
+        cfg,
+        trends,
+        strategy_context=strategy_context,
+        strategy_state=strategy_state,
+    )
+    shorts_drafts = _apply_product_first_policy(shorts_drafts)
     video_renders = render_drafts_with_gemini(cfg, shorts_drafts, trends, run_dir)
     yt_metrics = collect_channel_shorts_metrics(cfg)
     tiktok_metrics = _collect_tiktok_metrics()
@@ -395,6 +487,18 @@ def run_shorts_revenue(
             }
         )
 
+    yt_summary = yt_metrics.get("summary") or {}
+    strategy_state, strategy_changes, winning_patterns, killed_patterns, next_test_matrix = update_strategy_from_metrics(
+        strategy_state,
+        run_id=run_id,
+        target_vph=cfg.min_views_per_hour_target,
+        avg_vph=float(yt_summary.get("avg_views_per_hour") or 0.0),
+        avg_like_rate=float(yt_summary.get("avg_like_rate") or 0.0),
+        avg_comment_rate=float(yt_summary.get("avg_comment_rate") or 0.0),
+        drafts_payload=drafts_payload,
+    )
+    strategy_state_path = save_strategy_state(strategy_state)
+
     youtube_feedback = build_feedback_plan(cfg, yt_metrics, shorts_drafts)
 
     assumptions = RevenueAssumptions(
@@ -404,6 +508,7 @@ def run_shorts_revenue(
         landing_conversion_rate=_safe_float(landing_conversion_rate, 0.02),
     )
     money_model = _money_model(assumptions, yt_metrics, tiktok_metrics, len(drafts_payload))
+    real_revenue = _load_real_revenue_snapshot()
 
     _write_youtube_queue(run_dir / "youtube_publish_queue.csv", drafts_payload)
     _write_tiktok_queue(run_dir / "tiktok_publish_queue.csv", drafts_payload)
@@ -431,11 +536,15 @@ def run_shorts_revenue(
     write_json(run_dir / "youtube_metrics.json", yt_metrics)
     write_json(run_dir / "tiktok_metrics.json", tiktok_metrics)
     write_json(run_dir / "money_model.json", money_model)
+    write_json(run_dir / "real_revenue_snapshot.json", real_revenue)
     write_text(run_dir / "youtube_feedback_plan.md", youtube_feedback)
+    write_text(run_dir / "strategy_context.txt", strategy_context + "\n")
+    write_json(run_dir / "strategy_top_nuggets.json", {"count": len(top_nuggets), "items": top_nuggets})
 
     _write_execution_brief(
         run_dir / "execution_brief.md",
         money_model=money_model,
+        real_revenue=real_revenue,
         youtube_feedback=youtube_feedback,
         tiktok_metrics=tiktok_metrics,
     )
@@ -451,7 +560,29 @@ def run_shorts_revenue(
         "gemini_video_enabled": bool(cfg.gemini_video_enabled),
         "gemini_video_renders": int(video_renders.get("rendered_count") or 0),
         "money_projection_eur_24h": (money_model.get("projection") or {}).get("projected_revenue_eur", 0),
+        "real_revenue_eur": ((real_revenue.get("totals") or {}).get("net_eur") if isinstance(real_revenue, dict) else 0),
+        "strategy_state_path": str(strategy_state_path),
+        "strategy_changes": strategy_changes,
+        "winning_patterns": winning_patterns,
+        "killed_patterns": killed_patterns,
+        "next_test_matrix": next_test_matrix,
     }
     write_json(run_dir / "run_summary.json", summary)
     write_json(DELIVERABLES_DIR / "latest.json", summary)
+    post_n8n_event(
+        event_type="shorts_revenue_run",
+        source="automation.workflows.shorts_revenue",
+        payload={
+            "run_id": run_id,
+            "execute": bool(execute),
+            "draft_count": len(drafts_payload),
+            "money_projection_eur_24h": summary.get("money_projection_eur_24h"),
+            "real_revenue_eur": summary.get("real_revenue_eur"),
+            "strategy_changes": strategy_changes,
+            "winning_patterns": winning_patterns,
+            "killed_patterns": killed_patterns,
+            "next_test_matrix": next_test_matrix,
+            "deliverables_dir": str(run_dir),
+        },
+    )
     return str(run_dir)
