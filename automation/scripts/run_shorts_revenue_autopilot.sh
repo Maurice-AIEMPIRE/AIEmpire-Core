@@ -12,6 +12,8 @@ if [ -f "$HOME/.openclaw/.env" ]; then
   # shellcheck disable=SC1090
   source "$HOME/.openclaw/.env"
 fi
+export OLLAMA_API_KEY="${OLLAMA_API_KEY:-local}"
+export OLLAMA_PRIMARY_MODEL="${OLLAMA_PRIMARY_MODEL:-minimax-m2.5:cloud}"
 
 HOURS="${1:-10}"
 INTERVAL_MIN="${2:-30}"

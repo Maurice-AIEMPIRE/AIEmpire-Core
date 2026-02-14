@@ -18,7 +18,7 @@
   },
   "assistant": {
     "provider": "ollama",
-    "model": "llama3.1:8b",
+    "model": "minimax-m2.5:cloud",
     "ollama_url": "http://127.0.0.1:11434",
     "system_prompt": "Du bist Jarvis fuer Maurice. Antworte knapp, direkt, umsetzbar. Bei operativen Befehlen gib zuerst das Ergebnis, dann maximal 3 naechste Schritte."
   },

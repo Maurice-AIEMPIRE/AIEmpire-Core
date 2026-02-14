@@ -15,9 +15,22 @@ LOG_FILE="$OUT_DIR/self_heal.log"
 REPORT_FILE="$OUT_DIR/last_self_heal.json"
 SUMMARY_JSON="$OUT_DIR/last_healthcheck.json"
 
-TARGET_PRIMARY_MODEL="${TARGET_PRIMARY_MODEL:-openai/gpt-5.2}"
-TARGET_FB_1="${TARGET_FB_1:-openai/gpt-5.2-codex}"
-TARGET_FB_2="${TARGET_FB_2:-openai/gpt-5-mini}"
+TARGET_PRIMARY_MODEL="${TARGET_PRIMARY_MODEL:-${OLLAMA_PRIMARY_MODEL:-minimax-m2.5:cloud}}"
+TARGET_FB_1="${TARGET_FB_1:-${OLLAMA_FALLBACK_MODEL_1:-qwen3-coder:480b-cloud}}"
+TARGET_FB_2="${TARGET_FB_2:-${OLLAMA_FALLBACK_MODEL_2:-deepseek-v3.1:671b-cloud}}"
+
+normalize_model_name() {
+  local raw="$1"
+  if [[ "$raw" == */* ]]; then
+    printf '%s' "$raw"
+  else
+    printf 'anthropic/%s' "$raw"
+  fi
+}
+
+TARGET_PRIMARY_MODEL="$(normalize_model_name "$TARGET_PRIMARY_MODEL")"
+TARGET_FB_1="$(normalize_model_name "$TARGET_FB_1")"
+TARGET_FB_2="$(normalize_model_name "$TARGET_FB_2")"
 
 timestamp_utc() {
   date -u +"%Y-%m-%dT%H:%M:%SZ"

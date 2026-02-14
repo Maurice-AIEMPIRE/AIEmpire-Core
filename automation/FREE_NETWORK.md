@@ -4,7 +4,7 @@
 
 Kostenloses lokales Netzwerk mit:
 1. Mic-Button im Browser
-2. Llama-Chat ueber lokale Ollama-Modelle
+2. Ollama-Chat ueber lokale/Cloud-Modelle
 3. Kein Cloud-Zwang fuer den Chat-Flow
 
 ## Start
@@ -28,7 +28,7 @@ automation/scripts/run_free_network_live.sh
 ## Modell wechseln
 
 ```bash
-FREE_NETWORK_MODEL="phi4-mini:latest" automation/scripts/run_free_network_live.sh
+FREE_NETWORK_MODEL="minimax-m2.5:cloud" automation/scripts/run_free_network_live.sh
 ```
 
 ## Stoppen

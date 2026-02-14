@@ -386,10 +386,13 @@ def build_handler(model: str, ollama_url: str) -> type[BaseHTTPRequestHandler]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Local free AI network server (mic + llama via Ollama)")
+    parser = argparse.ArgumentParser(description="Local free AI network server (mic + chat via Ollama)")
     parser.add_argument("--host", default="127.0.0.1")
     parser.add_argument("--port", type=int, default=8765)
-    parser.add_argument("--model", default="llama3.1:8b")
+    parser.add_argument(
+        "--model",
+        default=os.getenv("FREE_NETWORK_MODEL", os.getenv("OLLAMA_PRIMARY_MODEL", "minimax-m2.5:cloud")),
+    )
     parser.add_argument("--ollama-url", default="http://127.0.0.1:11434")
     args = parser.parse_args()
 

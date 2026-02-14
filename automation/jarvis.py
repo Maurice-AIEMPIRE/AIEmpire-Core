@@ -20,6 +20,10 @@ from typing import Any, Dict, List, Optional
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PROFILE_PATH = ROOT / "automation" / "config" / "jarvis_profile.json"
+DEFAULT_OLLAMA_MODEL = os.getenv(
+    "JARVIS_MODEL_DEFAULT",
+    os.getenv("OLLAMA_PRIMARY_MODEL", "minimax-m2.5:cloud"),
+)
 
 
 def default_profile() -> Dict[str, Any]:
@@ -35,7 +39,7 @@ def default_profile() -> Dict[str, Any]:
         },
         "assistant": {
             "provider": "ollama",
-            "model": "llama3.1:8b",
+            "model": DEFAULT_OLLAMA_MODEL,
             "ollama_url": "http://127.0.0.1:11434",
             "system_prompt": (
                 "Du bist Jarvis fuer Maurice. Antworte knapp, direkt, umsetzbar. "
@@ -606,7 +610,7 @@ def dispatch_command(command: str, profile: Dict[str, Any], execute: bool = Fals
             "reply": "Nur provider=ollama wird aktuell unterstuetzt.",
         }
 
-    model = str(assistant.get("model", "llama3.1:8b"))
+    model = str(assistant.get("model", DEFAULT_OLLAMA_MODEL))
     ollama_url = str(assistant.get("ollama_url", "http://127.0.0.1:11434"))
     system_prompt = str(assistant.get("system_prompt", "")).strip()
     payload: Dict[str, Any] = {
@@ -1100,7 +1104,7 @@ class JarvisRuntime:
             "execute": self.execute,
             "token_required": bool(self._token_required()),
             "assistant_provider": assistant.get("provider", "ollama"),
-            "assistant_model": assistant.get("model", "llama3.1:8b"),
+            "assistant_model": assistant.get("model", DEFAULT_OLLAMA_MODEL),
             "time_unix": int(time.time()),
         }
 
@@ -1127,7 +1131,10 @@ class JarvisRuntime:
         assistant = self.profile.get("assistant", {}) if isinstance(self.profile.get("assistant"), dict) else {}
         html = HTML_TEMPLATE
         html = html.replace("__WAKE_WORD__", json.dumps(str(self.profile.get("wake_word", "jarvis")), ensure_ascii=False))
-        html = html.replace("__MODEL_NAME__", json.dumps(str(assistant.get("model", "llama3.1:8b")), ensure_ascii=False))
+        html = html.replace(
+            "__MODEL_NAME__",
+            json.dumps(str(assistant.get("model", DEFAULT_OLLAMA_MODEL)), ensure_ascii=False),
+        )
         html = html.replace("__LANGUAGE__", json.dumps(str(self.profile.get("language", "de-DE")), ensure_ascii=False))
         html = html.replace("__TOKEN_REQUIRED__", "true" if bool(self._token_required()) else "false")
         return html

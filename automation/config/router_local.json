@@ -10,6 +10,12 @@
     "cheap": [
       {
         "provider": "ollama",
+        "model": "minimax-m2.5:cloud",
+        "max_output_tokens": 520,
+        "temperature": 0.45
+      },
+      {
+        "provider": "ollama",
         "model": "phi4-mini:latest",
         "max_output_tokens": 420,
         "temperature": 0.5
@@ -18,18 +24,30 @@
     "balanced": [
       {
         "provider": "ollama",
-        "model": "qwen2.5-coder:14b",
-        "max_output_tokens": 650,
-        "temperature": 0.6
+        "model": "minimax-m2.5:cloud",
+        "max_output_tokens": 900,
+        "temperature": 0.5
       },
       {
         "provider": "ollama",
         "model": "qwen3-coder:480b-cloud",
         "max_output_tokens": 800,
         "temperature": 0.55
+      },
+      {
+        "provider": "ollama",
+        "model": "qwen2.5-coder:14b",
+        "max_output_tokens": 650,
+        "temperature": 0.6
       }
     ],
     "premium": [
+      {
+        "provider": "ollama",
+        "model": "minimax-m2.5:cloud",
+        "max_output_tokens": 1300,
+        "temperature": 0.45
+      },
       {
         "provider": "ollama",
         "model": "deepseek-v3.1:671b-cloud",

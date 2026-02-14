@@ -5,7 +5,7 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
 
-MODEL="${FREE_NETWORK_MODEL:-llama3.1:8b}"
+MODEL="${FREE_NETWORK_MODEL:-${OLLAMA_PRIMARY_MODEL:-minimax-m2.5:cloud}}"
 HOST="${FREE_NETWORK_HOST:-127.0.0.1}"
 PORT="${FREE_NETWORK_PORT:-8765}"
 URL="http://${HOST}:${PORT}"

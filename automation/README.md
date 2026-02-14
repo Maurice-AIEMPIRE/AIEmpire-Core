@@ -58,6 +58,22 @@ python3 -m automation run --workflow full --execute
 Modelle und Provider liegen in `automation/config/router.json`.
 Die Defaults sind so gesetzt, dass OpenRouter als Standard-Router fungiert.
 
+## Ollama Minimax Setup (neu)
+
+Setzt `minimax-m2.5:cloud` als Primarmodell und konfiguriert die Integrationen
+`claude`, `codex`, `opencode`, `openclaw`:
+
+```bash
+automation/scripts/integrate_ollama_minimax.sh
+```
+
+Direkt starten:
+
+```bash
+automation/scripts/integrate_ollama_minimax.sh --launch codex
+automation/scripts/integrate_ollama_minimax.sh --launch openclaw
+```
+
 ## Outputs
 
 Outputs landen in:

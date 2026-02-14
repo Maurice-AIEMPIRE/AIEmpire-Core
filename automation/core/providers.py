@@ -30,6 +30,8 @@ class OpenAICompatProvider:
 
     def _build_headers(self) -> Dict[str, str]:
         api_key = env_or_default(self.config.api_key_env)
+        if not api_key and self.config.name.lower() == "ollama":
+            api_key = "local"
         if not api_key:
             raise ProviderError(
                 f"Missing API key env: {self.config.api_key_env} for provider {self.config.name}"
