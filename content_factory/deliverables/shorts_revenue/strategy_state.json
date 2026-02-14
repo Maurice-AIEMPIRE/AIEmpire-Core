@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-02-14T12:21:40Z",
+  "updated_at": "2026-02-14T12:43:44Z",
   "patterns": [
     {
       "key": "motivation::Stop scrolling: AI News in 30 seconds in",
       "topic_cluster": "motivation",
       "hook_template": "Stop scrolling: AI News in 30 seconds in",
       "win_count": 0,
-      "fail_count": 28,
+      "fail_count": 30,
       "avg_vph": 0.0,
-      "last_used_at": "2026-02-14T12:21:40Z",
+      "last_used_at": "2026-02-14T12:43:44Z",
       "status": "killed"
     },
     {
@@ -16,9 +16,9 @@
       "topic_cluster": "motivation",
       "hook_template": "Stop scrolling: Motivation and self-discipline in 30 seconds.",
       "win_count": 0,
-      "fail_count": 28,
+      "fail_count": 30,
       "avg_vph": 0.0,
-      "last_used_at": "2026-02-14T12:21:40Z",
+      "last_used_at": "2026-02-14T12:43:44Z",
       "status": "killed"
     },
     {
@@ -26,9 +26,9 @@
       "topic_cluster": "motivation",
       "hook_template": "Stop scrolling: Insane productivity hacks in 30 seconds.",
       "win_count": 0,
-      "fail_count": 28,
+      "fail_count": 30,
       "avg_vph": 0.0,
-      "last_used_at": "2026-02-14T12:21:40Z",
+      "last_used_at": "2026-02-14T12:43:44Z",
       "status": "killed"
     },
     {
@@ -36,9 +36,9 @@
       "topic_cluster": "motivation",
       "hook_template": "Stop scrolling: Money mindset myths in 30 seconds.",
       "win_count": 0,
-      "fail_count": 28,
+      "fail_count": 30,
       "avg_vph": 0.0,
-      "last_used_at": "2026-02-14T12:21:40Z",
+      "last_used_at": "2026-02-14T12:43:44Z",
       "status": "killed"
     },
     {
@@ -46,9 +46,9 @@
       "topic_cluster": "motivation",
       "hook_template": "Stop scrolling: Story-driven mini lessons in 30 seconds.",
       "win_count": 0,
-      "fail_count": 28,
+      "fail_count": 30,
       "avg_vph": 0.0,
-      "last_used_at": "2026-02-14T12:21:40Z",
+      "last_used_at": "2026-02-14T12:43:44Z",
       "status": "killed"
     },
     {
@@ -56,9 +56,9 @@
       "topic_cluster": "motivation",
       "hook_template": "Stop scrolling: Fun facts that sound fake but",
       "win_count": 0,
-      "fail_count": 28,
+      "fail_count": 30,
       "avg_vph": 0.0,
-      "last_used_at": "2026-02-14T12:21:40Z",
+      "last_used_at": "2026-02-14T12:43:44Z",
       "status": "killed"
     }
   ],
@@ -2301,6 +2301,166 @@
           "target": "comment_rate"
         }
       ]
+    },
+    {
+      "run_id": "20260214_132118:refresh",
+      "timestamp": "2026-02-14T12:43:44Z",
+      "target_vph": 120.0,
+      "avg_vph": 0.0,
+      "avg_like_rate": 0.0,
+      "avg_comment_rate": 0.0,
+      "strategy_changes": [
+        {
+          "adaptive_change": "script_shortening_enforced",
+          "to_word_cap": 55,
+          "reason": "avg_vph_below_target_2_runs"
+        },
+        {
+          "adaptive_change": "emotional_framing_up",
+          "story_contrarian_boost_pct": 20,
+          "reason": "avg_like_rate_below_0.03"
+        },
+        {
+          "adaptive_change": "cta_binary_mode_enabled",
+          "reason": "avg_comment_rate_below_0.005"
+        }
+      ],
+      "winning_patterns": [],
+      "killed_patterns": [
+        {
+          "pattern_key": "motivation::Stop scrolling: AI News in 30 seconds in",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: AI News in 30 seconds in",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Motivation and self-discipline in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Motivation and self-discipline in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Insane productivity hacks in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Insane productivity hacks in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Money mindset myths in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Money mindset myths in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Story-driven mini lessons in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Story-driven mini lessons in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Fun facts that sound fake but",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Fun facts that sound fake but",
+          "avg_vph": 0.0
+        }
+      ],
+      "next_test_matrix": [
+        {
+          "test": "hook_pattern_interrupt",
+          "enabled": true,
+          "target": "avg_vph"
+        },
+        {
+          "test": "story_contrarian_mix_plus_20pct",
+          "enabled": true,
+          "target": "like_rate"
+        },
+        {
+          "test": "binary_one_word_cta",
+          "enabled": true,
+          "target": "comment_rate"
+        }
+      ]
+    },
+    {
+      "run_id": "20260214_030240:refresh",
+      "timestamp": "2026-02-14T12:43:44Z",
+      "target_vph": 120.0,
+      "avg_vph": 0.0,
+      "avg_like_rate": 0.0,
+      "avg_comment_rate": 0.0,
+      "strategy_changes": [
+        {
+          "adaptive_change": "script_shortening_enforced",
+          "to_word_cap": 55,
+          "reason": "avg_vph_below_target_2_runs"
+        },
+        {
+          "adaptive_change": "emotional_framing_up",
+          "story_contrarian_boost_pct": 20,
+          "reason": "avg_like_rate_below_0.03"
+        },
+        {
+          "adaptive_change": "cta_binary_mode_enabled",
+          "reason": "avg_comment_rate_below_0.005"
+        }
+      ],
+      "winning_patterns": [],
+      "killed_patterns": [
+        {
+          "pattern_key": "motivation::Stop scrolling: AI News in 30 seconds in",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: AI News in 30 seconds in",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Motivation and self-discipline in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Motivation and self-discipline in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Insane productivity hacks in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Insane productivity hacks in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Money mindset myths in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Money mindset myths in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Story-driven mini lessons in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Story-driven mini lessons in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Fun facts that sound fake but",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Fun facts that sound fake but",
+          "avg_vph": 0.0
+        }
+      ],
+      "next_test_matrix": [
+        {
+          "test": "hook_pattern_interrupt",
+          "enabled": true,
+          "target": "avg_vph"
+        },
+        {
+          "test": "story_contrarian_mix_plus_20pct",
+          "enabled": true,
+          "target": "like_rate"
+        },
+        {
+          "test": "binary_one_word_cta",
+          "enabled": true,
+          "target": "comment_rate"
+        }
+      ]
     }
   ],
   "kpi_gates": {
@@ -2309,7 +2469,7 @@
     "min_comment_rate": 0.005
   },
   "adaptive": {
-    "low_vph_streak": 28,
+    "low_vph_streak": 30,
     "hook_intensity": 6,
     "script_hook_setup_word_cap": 55,
     "force_new_angle_cluster": true,
