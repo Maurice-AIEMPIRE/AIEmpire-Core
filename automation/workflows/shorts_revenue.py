@@ -448,6 +448,8 @@ def run_shorts_revenue(
         sora_poll_interval_seconds=max(1, int(sora_poll_interval_seconds)),
         sora_timeout_seconds=max(60, int(sora_timeout_seconds)),
         sora_cli_path=(sora_cli_path or env_or_default("SORA_CLI", "") or "").strip(),
+        pexels_api_key=(env_or_default("PEXELS_API_KEY", "") or "").strip(),
+        edge_tts_voice=(env_or_default("EDGE_TTS_VOICE", "de-DE-KillianNeural") or "de-DE-KillianNeural").strip(),
     )
 
     strategy_state = load_strategy_state()

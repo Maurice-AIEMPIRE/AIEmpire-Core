@@ -104,6 +104,20 @@ python3 -m automation run --workflow youtube_shorts
 python3 -m automation run --workflow youtube_shorts --execute
 ```
 
+Faceless Local Render (kostenfrei, kein Kamera-Setup):
+
+```bash
+# Einmalig Dependencies installieren
+automation/scripts/install_faceless_video_deps.sh
+
+# Pexels + Voice konfigurieren
+export PEXELS_API_KEY="..."
+export EDGE_TTS_VOICE="de-DE-KillianNeural"
+
+# Lokale Video-Erstellung (edge-tts + Pexels + moviepy)
+python3 -m automation run --workflow shorts_revenue --execute --video-provider local --video-max-renders 6
+```
+
 Outputs:
 - `content_factory/deliverables/youtube_shorts/<run_id>/trends.json`
 - `content_factory/deliverables/youtube_shorts/<run_id>/drafts.json`
@@ -247,6 +261,13 @@ Erforderliche ENV fuer Upload:
 - `YOUTUBE_CLIENT_SECRET`
 - `YOUTUBE_REFRESH_TOKEN`
 - optional `YOUTUBE_ACCESS_TOKEN` (falls bereits vorhanden)
+
+YouTube OAuth Helper (einmalig, Browser-Login):
+
+```bash
+# client_secret.json im Projekt-Root ablegen
+python3 automation/scripts/youtube_auth.py
+```
 
 
 ## Notes Ingest

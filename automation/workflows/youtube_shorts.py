@@ -17,6 +17,7 @@ from automation.core.runner import Runner
 from automation.n8n_events import post_n8n_event
 from automation.sora_video import SoraVideoRequest, render_video_with_sora
 from automation.utils.files import ensure_dir, env_or_default, slugify, timestamp_id, write_json, write_text
+from automation.workflows.video_creator import render_faceless_video_local
 from automation.workflows.shorts_strategy_state import (
     build_strategy_prompt_context,
     load_strategy_state,
@@ -105,6 +106,8 @@ class WorkflowConfig:
     sora_poll_interval_seconds: int = 10
     sora_timeout_seconds: int = 900
     sora_cli_path: str = ""
+    pexels_api_key: str = ""
+    edge_tts_voice: str = "de-DE-KillianNeural"
 
 
 def _iso_utc_hours_ago(hours: int) -> str:
@@ -624,6 +627,34 @@ def _render_video_local_fallback(draft: ShortsDraft, output_path: Path, duration
     }
 
 
+def _render_video_local_faceless(
+    config: WorkflowConfig,
+    draft: ShortsDraft,
+    output_path: Path,
+    trend_title: str,
+) -> Dict[str, Any]:
+    # Use the full short text for narration + subtitle generation.
+    narration_text = "\n".join(
+        [
+            str(draft.hook or "").strip(),
+            str(draft.script or "").strip(),
+            str(draft.cta or "").strip(),
+        ]
+    ).strip()
+
+    result = render_faceless_video_local(
+        title=str(draft.title or trend_title or "AI Short"),
+        narration_text=narration_text,
+        subtitle_text=str(draft.hook or draft.title or "").strip(),
+        output_path=output_path,
+        duration_seconds=int(config.video_duration_seconds),
+        pexels_query=str(trend_title or draft.title or "ai technology"),
+        pexels_api_key=str(config.pexels_api_key or "").strip(),
+        edge_tts_voice=str(config.edge_tts_voice or "de-DE-KillianNeural").strip(),
+    )
+    return result
+
+
 def render_drafts_videos(config: WorkflowConfig, drafts: List[ShortsDraft], trends: List[TrendItem], run_dir: Path) -> Dict[str, Any]:
     trend_map = {t.video_id: t for t in trends}
     videos_dir = run_dir / "videos"
@@ -674,28 +705,29 @@ def render_drafts_videos(config: WorkflowConfig, drafts: List[ShortsDraft], tren
             continue
 
         if requested_provider == "local":
-            result = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
+            result = _render_video_local_faceless(config, draft, output_path, trend_title)
+            if not bool(result.get("ok")):
+                ffmpeg_fallback = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
+                if bool(ffmpeg_fallback.get("ok")):
+                    result = ffmpeg_fallback
+                else:
+                    result["error"] = (
+                        f"{result.get('error') or 'local_faceless_failed'} | "
+                        f"{ffmpeg_fallback.get('error') or 'local_ffmpeg_failed'}"
+                    )[:900]
         elif not config.sora_video_enabled or not config.sora_api_key:
             fallback_reason = "sora_video_disabled" if not config.sora_video_enabled else "openai_api_key_missing"
-            result = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
-            draft.video_status = str(result.get("status") or "failed")
-            draft.video_file = str(result.get("output_file") or "")
-            draft.video_operation = str(result.get("operation_name") or "")
-            draft.video_error = str(result.get("error") or fallback_reason)
-            if bool(result.get("ok")):
-                rendered += 1
-            records.append(
-                {
-                    "slot": idx,
-                    "title": draft.title,
-                    "status": draft.video_status,
-                    "error": draft.video_error,
-                    "video_file": draft.video_file,
-                    "operation_name": draft.video_operation,
-                    "provider": str(result.get("provider") or "local_ffmpeg"),
-                }
-            )
-            continue
+            result = _render_video_local_faceless(config, draft, output_path, trend_title)
+            if not bool(result.get("ok")):
+                ffmpeg_fallback = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
+                if bool(ffmpeg_fallback.get("ok")):
+                    result = ffmpeg_fallback
+                else:
+                    result["error"] = (
+                        f"{fallback_reason} | "
+                        f"{result.get('error') or 'local_faceless_failed'} | "
+                        f"{ffmpeg_fallback.get('error') or 'local_ffmpeg_failed'}"
+                    )[:900]
         else:
             request = SoraVideoRequest(
                 prompt=prompt,
@@ -711,11 +743,19 @@ def render_drafts_videos(config: WorkflowConfig, drafts: List[ShortsDraft], tren
             )
             result = render_video_with_sora(request)
             if not bool(result.get("ok")):
-                fallback = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
+                fallback = _render_video_local_faceless(config, draft, output_path, trend_title)
                 if bool(fallback.get("ok")):
                     result = fallback
                 else:
-                    result["error"] = str(result.get("error") or "") or str(fallback.get("error") or "sora_failed")
+                    ffmpeg_fallback = _render_video_local_fallback(draft, output_path, config.video_duration_seconds)
+                    if bool(ffmpeg_fallback.get("ok")):
+                        result = ffmpeg_fallback
+                    else:
+                        result["error"] = (
+                            f"{result.get('error') or 'sora_failed'} | "
+                            f"{fallback.get('error') or 'local_faceless_failed'} | "
+                            f"{ffmpeg_fallback.get('error') or 'local_ffmpeg_failed'}"
+                        )[:900]
 
         draft.video_status = str(result.get("status") or "failed")
         draft.video_file = str(result.get("output_file") or "")
@@ -984,6 +1024,8 @@ def run_youtube_shorts(
         sora_poll_interval_seconds=max(1, int(sora_poll_interval_seconds)),
         sora_timeout_seconds=max(60, int(sora_timeout_seconds)),
         sora_cli_path=(sora_cli_path or env_or_default("SORA_CLI", "") or "").strip(),
+        pexels_api_key=(env_or_default("PEXELS_API_KEY", "") or "").strip(),
+        edge_tts_voice=(env_or_default("EDGE_TTS_VOICE", "de-DE-KillianNeural") or "de-DE-KillianNeural").strip(),
     )
 
     strategy_state = load_strategy_state()
