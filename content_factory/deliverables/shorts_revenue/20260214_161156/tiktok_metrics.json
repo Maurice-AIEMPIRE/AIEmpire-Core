@@ -1,0 +1,11 @@
+{
+  "available": false,
+  "reason": "TIKTOK_ACCESS_TOKEN missing",
+  "summary": {
+    "count": 0,
+    "avg_views": 0,
+    "avg_like_rate": 0,
+    "avg_comment_rate": 0
+  },
+  "videos": []
+}

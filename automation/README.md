@@ -233,6 +233,35 @@ automation/scripts/full_autonomy.sh stop
 automation/scripts/full_autonomy.sh restart 24 30
 ```
 
+Max-Agents Scrum Sprint (24h, neu):
+
+```bash
+# Start: 24h Sprint, 10 Worker, interne Publish-Policy (kein Public Upload)
+automation/scripts/run_max_agents_sprint.sh start --hours 24 --workers 10 --publish internal-only
+
+# Status / Pause / Resume / Finish
+automation/scripts/run_max_agents_sprint.sh status
+automation/scripts/run_max_agents_sprint.sh pause
+automation/scripts/run_max_agents_sprint.sh resume
+automation/scripts/run_max_agents_sprint.sh finish
+
+# Optional: wenn bereits ai_empire_ops/ai_empire_shorts laufen und du bewusst parallel fahren willst
+automation/scripts/run_max_agents_sprint.sh start --hours 24 --workers 10 --publish internal-only --force
+```
+
+Sprint-Orchestrierung:
+- Script: `automation/scripts/run_max_agents_sprint.sh`
+- Sprint-Board (Single Source of Truth): `00_SYSTEM/sprints/2026-02-14_max_agents_sprint.md`
+- Standard-Runtime-Guardrails:
+  - `MISSION_MAX_WORKERS=10`
+  - `SAFETY_GUARD=1`
+  - `AUTO_COMMIT_ENABLED=1`
+  - `AUTO_COMMIT_PUSH=0`
+  - `--publish internal-only` setzt `AUTO_PUBLISH_MODE=private` und `AUTO_PUBLISH_DRY_RUN=1`
+- Worktree-Hygiene bei Start:
+  - nur stale/verwaiste Entries via `git worktree prune --verbose`
+  - Snapshots unter `automation/runs/max_agents_sprint/`
+
 Ops-Loop Tasks (automatisch):
 - ChatGPT Export Ingest alle 6h
 - Telegram Income Stream alle 1h
