@@ -1,0 +1,1 @@
+/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/premium_prompts_400.md

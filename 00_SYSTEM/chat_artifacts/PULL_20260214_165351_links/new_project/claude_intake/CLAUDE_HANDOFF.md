@@ -1,0 +1,1 @@
+/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/claude_intake/CLAUDE_HANDOFF.md

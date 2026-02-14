@@ -1,0 +1,1 @@
+/Users/maurice/Downloads/AIEmpire-Core-main/docs/CLAUDE_GODMODE_DELIVERY_V1.md

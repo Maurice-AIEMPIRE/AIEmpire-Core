@@ -1,0 +1,1 @@
+/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/external/imports/AIEmpire-Core-main/openclaw-config/LEAD_AGENT_PROMPT.md

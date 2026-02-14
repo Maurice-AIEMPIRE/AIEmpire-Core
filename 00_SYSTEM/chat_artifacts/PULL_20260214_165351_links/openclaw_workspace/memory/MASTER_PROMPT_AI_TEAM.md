@@ -1,0 +1,1 @@
+/Users/maurice/.openclaw/workspace/ai-empire/memory/MASTER_PROMPT_AI_TEAM.md

@@ -1,0 +1,1 @@
+/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/external/imports/AIEmpire-Core-main/gold-nuggets/GOLD_ELITE_SYSTEM_PROMPT_2026-02-08.md
