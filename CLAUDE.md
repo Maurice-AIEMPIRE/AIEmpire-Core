@@ -29,6 +29,10 @@ REVENUE: Gumroad + Fiverr + Consulting
 - `workflow-system/x_posting_engine.py` - X/Twitter Posting Pipeline (Posts, Threads, Replies, DMs)
 - `workflow-system/open_swarm.py` - OPEN SWARM: Kostenloser Agent-Schwarm mit Ollama ($0, Sprint-System)
 - `workflow-system/cloud_swarm.py` - CLOUD SWARM: Free Tier Cloud AI (Groq, Gemini, Cerebras, HuggingFace, $0)
+- `shorts_machine/` - SHORTS MACHINE: Faceless YouTube Shorts Automation (Pipeline + Hook Generator)
+- `shorts_machine/pipeline.py` - Full Pipeline: Trend Mine → Script → Video → Upload → Optimize
+- `shorts_machine/hook_generator.py` - Larry-Style virale Hook Templates (6 Typen, A/B Testing)
+- `channels/` - Channel Packs mit Skills, Memory, Assets pro YouTube Channel
 - `kimi-swarm/` - Legacy: 100K/500K Kimi agent swarm (braucht Moonshot API Key)
 - `atomic-reactor/` - YAML-based task definitions + async runner
 - `x-lead-machine/` - Content generation + viral replies + lead gen
@@ -279,6 +283,38 @@ python workflow-system/agent_registry.py --health
 python workflow-system/agent_registry.py --report
 ```
 
+## Shorts Machine (YouTube Shorts Automation)
+```bash
+# Status anzeigen
+python shorts_machine/pipeline.py --status
+
+# 100 Short-Ideen minen + scoren
+python shorts_machine/pipeline.py --mine 100
+
+# 30 Scripts schreiben
+python shorts_machine/pipeline.py --scripts 30
+
+# Full Pipeline (10 Shorts: Mine → Script → Video → Queue)
+python shorts_machine/pipeline.py --pipeline 10
+
+# Nische waehlen: ai_automation, money_business, brandschutz_fails
+python shorts_machine/pipeline.py --nische brandschutz_fails --pipeline 10
+
+# Optimizer (Winner-Analyse + Hook Performance)
+python shorts_machine/pipeline.py --optimize
+
+# Hook Generator (Larry-Style virale Hooks)
+python shorts_machine/hook_generator.py --generate 10
+python shorts_machine/hook_generator.py --variants "AI Automation"
+python shorts_machine/hook_generator.py --stats
+
+# Channel Pack: channels/<channel_id>/
+#   CLAUDE.md    → Branding + Regeln
+#   INDEX.md     → Formate, Hooks, Assets
+#   skills/*.md  → SOPs (Hook, Script, Visual, Upload)
+#   memory/      → Performance Logs (append-only, self-learning)
+```
+
 ## QA Gate (make check)
 ```bash
 make check    # Import + Lint + Status Checks
@@ -310,6 +346,11 @@ Use for parallel tasks: research + implementation + testing.
 
 ## Revenue Channels (via Product Factory)
 6. Product Factory (Blueprints 27-49 EUR, SOPs 49-99 EUR, Automation Packs 99-149 EUR)
+
+## Revenue Channels (via Shorts Machine)
+7. YouTube Shorts AdSense (ab 1000 Subs + 10M Views)
+8. Affiliate via Shorts (Link in Bio, Pinned Comments)
+9. Lead Magnets via Shorts CTA → E-Mail Liste → Upsell
 
 ## Current Blockers
 - Revenue = 0 EUR (channels need activation)
