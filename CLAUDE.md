@@ -11,7 +11,7 @@ AGENTS:  OpenClaw (Port 18789, 9 Cron Jobs)
 MODELS:  Ollama (95% free) → Kimi K2.5 (4%) → Claude (1%)
 DATA:    Redis + PostgreSQL + ChromaDB
 TASKS:   Atomic Reactor (FastAPI, Port 8888)
-SWARM:   Open Swarm (Ollama, $0) + Kimi Legacy (API)
+SWARM:   Open Swarm (Ollama, $0) + Cloud Swarm (Free Tier) + Kimi Legacy (API)
 SALES:   X/Twitter Lead Machine + CRM (Port 3500)
 REVENUE: Gumroad + Fiverr + Consulting
 ```
@@ -28,6 +28,7 @@ REVENUE: Gumroad + Fiverr + Consulting
 - `workflow-system/tiktok_factory.py` - TikTok Script Factory (45s Format, Batch-Generierung)
 - `workflow-system/x_posting_engine.py` - X/Twitter Posting Pipeline (Posts, Threads, Replies, DMs)
 - `workflow-system/open_swarm.py` - OPEN SWARM: Kostenloser Agent-Schwarm mit Ollama ($0, Sprint-System)
+- `workflow-system/cloud_swarm.py` - CLOUD SWARM: Free Tier Cloud AI (Groq, Gemini, Cerebras, HuggingFace, $0)
 - `kimi-swarm/` - Legacy: 100K/500K Kimi agent swarm (braucht Moonshot API Key)
 - `atomic-reactor/` - YAML-based task definitions + async runner
 - `x-lead-machine/` - Content generation + viral replies + lead gen
@@ -154,6 +155,34 @@ python workflow-system/open_swarm.py --status
 # Sprint-Typen: revenue | content | leads | intel | products
 # Kosten: $0.00 - komplett kostenlos mit Ollama!
 # Ersetzt: Kimi Moonshot API ($0.0005/task)
+```
+
+## Cloud Swarm (Free Tier Cloud AI Power)
+```bash
+# Cloud Sprint starten (nutzt Groq, Gemini, Cerebras, etc.)
+python workflow-system/cloud_swarm.py --sprint revenue --tasks 100
+
+# Maximale Power (alle Provider parallel)
+python workflow-system/cloud_swarm.py --sprint content --tasks 200 --max-power
+
+# Nur bestimmte Provider
+python workflow-system/cloud_swarm.py --providers groq,cerebras --tasks 50
+
+# Provider Health Check
+python workflow-system/cloud_swarm.py --health
+
+# Status
+python workflow-system/cloud_swarm.py --status
+
+# Test (10 Tasks)
+python workflow-system/cloud_swarm.py --test
+
+# Daemon (automatische Sprints)
+python workflow-system/cloud_swarm.py --daemon --interval 1800
+
+# Provider: Groq, Cerebras, SambaNova, HuggingFace, Google Gemini, OpenRouter
+# Kosten: $0.00 - nur Free Tiers!
+# API Keys: export GROQ_API_KEY='...' etc.
 ```
 
 ## Content Machine (Geldmaschine)

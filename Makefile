@@ -31,7 +31,8 @@ from product_factory import ProductFactory; \
 from agent_registry import AgentRegistry; \
 from empire_brain import EmpireBrain; \
 from open_swarm import OpenSwarm, SPRINT_TYPES, TASK_TYPES; \
-print('  All imports OK (11 modules)') \
+from cloud_swarm import CloudSwarm, CLOUD_PROVIDERS, CLOUD_TASK_TYPES; \
+print('  All imports OK (12 modules)') \
 "
 
 # ── Lint (Syntax Check) ─────────────────────────────────────
@@ -48,6 +49,7 @@ lint:
 	@$(PYTHON) -m py_compile $(WF)/knowledge_harvester.py && echo "  knowledge_harvester.py OK"
 	@$(PYTHON) -m py_compile $(WF)/resource_guard.py && echo "  resource_guard.py OK"
 	@$(PYTHON) -m py_compile $(WF)/open_swarm.py && echo "  open_swarm.py OK"
+	@$(PYTHON) -m py_compile $(WF)/cloud_swarm.py && echo "  cloud_swarm.py OK"
 	@echo "  All syntax checks passed"
 
 # ── Status ───────────────────────────────────────────────────
@@ -86,6 +88,10 @@ from open_swarm import OpenSwarm, SPRINT_TYPES, TASK_TYPES; \
 assert len(SPRINT_TYPES) >= 5, 'Not enough sprint types'; \
 assert len(TASK_TYPES) >= 6, 'Not enough task types'; \
 print('  OpenSwarm: OK'); \
+from cloud_swarm import CloudSwarm, CLOUD_PROVIDERS, CLOUD_TASK_TYPES; \
+assert len(CLOUD_PROVIDERS) >= 6, 'Not enough cloud providers'; \
+assert len(CLOUD_TASK_TYPES) >= 6, 'Not enough cloud task types'; \
+print('  CloudSwarm: OK'); \
 print('  ALL TESTS PASSED'); \
 "
 
@@ -130,6 +136,25 @@ swarm-status:
 swarm-daemon:
 	@$(PYTHON) $(WF)/open_swarm.py --daemon --interval 3600
 
+# ── Cloud Swarm (Free Tier Cloud AI!) ─────────────────────
+cloud:
+	@$(PYTHON) $(WF)/cloud_swarm.py --sprint revenue --tasks 100
+
+cloud-content:
+	@$(PYTHON) $(WF)/cloud_swarm.py --sprint content --tasks 200 --max-power
+
+cloud-test:
+	@$(PYTHON) $(WF)/cloud_swarm.py --test
+
+cloud-health:
+	@$(PYTHON) $(WF)/cloud_swarm.py --health
+
+cloud-status:
+	@$(PYTHON) $(WF)/cloud_swarm.py --status
+
+cloud-daemon:
+	@$(PYTHON) $(WF)/cloud_swarm.py --daemon --interval 1800
+
 # ── Install Dependencies ────────────────────────────────────
 install:
 	@$(PIP) install -e .
@@ -150,7 +175,15 @@ help:
 	@echo "    make tiktok    - Generate 10 TikTok scripts"
 	@echo "    make xposts    - Generate 20 X posts"
 	@echo ""
-	@echo "  Swarm (GRATIS!):"
+	@echo "  Cloud Swarm (Free Tier):"
+	@echo "    make cloud         - Revenue cloud sprint (100 tasks)"
+	@echo "    make cloud-content - Content cloud sprint (200 tasks)"
+	@echo "    make cloud-test    - Quick cloud test (10 tasks)"
+	@echo "    make cloud-health  - Test all cloud providers"
+	@echo "    make cloud-status  - Show cloud stats"
+	@echo "    make cloud-daemon  - Auto cloud sprints every 30min"
+	@echo ""
+	@echo "  Swarm (Ollama Lokal):"
 	@echo "    make swarm         - Revenue sprint (50 tasks)"
 	@echo "    make swarm-content - Content sprint (100 tasks)"
 	@echo "    make swarm-leads   - Lead sprint (30 tasks)"

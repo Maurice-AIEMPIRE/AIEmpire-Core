@@ -12,8 +12,9 @@ Architecture:
     ├── AgentManager     (Revenue-Ranking)
     ├── KnowledgeHarvester (Wissens-Basis)
     ├── ResourceGuard    (System-Schutz)
-    ├── OpenSwarm        (Kostenloser Agent-Schwarm, $0)
-    └── KimiSwarmBridge  (Legacy, braucht API Key)
+    ├── OpenSwarm        (Kostenloser Agent-Schwarm, Ollama, $0)
+    ├── CloudSwarm       (Free Tier Cloud AI Power, $0)
+    └── KimiSwarmBridge  (Legacy, braucht Moonshot API Key)
 
 Usage:
     python empire_brain.py                # Status + Analyse
@@ -50,6 +51,13 @@ except Exception:
     OpenSwarm = None
     SPRINT_TYPES = None
     SPRINT_STATE_FILE = None
+
+try:
+    from cloud_swarm import CloudSwarm, CLOUD_PROVIDERS, CLOUD_STATE_FILE
+except Exception:
+    CloudSwarm = None
+    CLOUD_PROVIDERS = None
+    CLOUD_STATE_FILE = None
 
 PROJECT_ROOT = Path(__file__).parent.parent
 STATE_DIR = Path(__file__).parent / "state"
@@ -153,6 +161,27 @@ class EmpireBrain:
             }
         else:
             results["open_swarm"] = {"status": "not_loaded"}
+
+        # 5c. Cloud Swarm (Kostenlose Cloud-Power)
+        if CloudSwarm and CLOUD_STATE_FILE and CLOUD_PROVIDERS:
+            cloud_state = {}
+            if CLOUD_STATE_FILE.exists():
+                try:
+                    cloud_state = json.loads(CLOUD_STATE_FILE.read_text())
+                except (json.JSONDecodeError, OSError):
+                    pass
+            active_providers = sum(1 for c in CLOUD_PROVIDERS.values()
+                                   if os.getenv(c.api_key_env, ""))
+            results["cloud_swarm"] = {
+                "status": "active" if active_providers > 0 else "no_keys",
+                "active_providers": active_providers,
+                "total_providers": len(CLOUD_PROVIDERS),
+                "total_sprints": cloud_state.get("total_sprints", 0),
+                "total_tasks": cloud_state.get("total_tasks", 0),
+                "cost": "$0.00 (Free Tier)",
+            }
+        else:
+            results["cloud_swarm"] = {"status": "not_loaded"}
 
         # 6. Content Machine
         if self.content:
@@ -411,6 +440,15 @@ Beruecksichtige:
         print(f"        Tokens: {os_data.get('total_tokens', 0):,} | Kosten: {os_data.get('cost', '$0.00')}")
         if os_data.get("sprint_types"):
             print(f"        Sprint-Typen: {', '.join(os_data['sprint_types'])}")
+        print()
+
+        # Cloud Swarm (Kostenlose Cloud-Power!)
+        cs_data = systems.get("cloud_swarm", {})
+        cs_icon = "ON " if cs_data.get("status") == "active" else "OFF"
+        print(f"  [{cs_icon}] CLOUD SWARM (Free Tier Cloud AI)")
+        print(f"        Provider: {cs_data.get('active_providers', 0)}/{cs_data.get('total_providers', 0)} aktiv")
+        print(f"        Sprints: {cs_data.get('total_sprints', 0)} | Tasks: {cs_data.get('total_tasks', 0)}")
+        print(f"        Kosten: {cs_data.get('cost', '$0.00')}")
         print()
 
         # Kimi Swarm (Legacy)
