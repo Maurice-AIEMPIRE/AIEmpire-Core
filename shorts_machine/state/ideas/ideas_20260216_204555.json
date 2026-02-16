@@ -1,0 +1,240 @@
+[
+  {
+    "topic": "So findest du AI Kunden auf LinkedIn",
+    "angle": "Akquise",
+    "hook_template": "IMPOSSIBLE_THEN_PROOF",
+    "hook_text": "Das sollte ohne Budget kein Business sein. Hier ist der Beweis.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "screen_mockup",
+    "trend_score": 9,
+    "novelty_score": 8,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 14.4
+  },
+  {
+    "topic": "AI Automation fuer Anfaenger erklaert",
+    "angle": "Einstieg",
+    "hook_template": "SECRET_REVEAL",
+    "hook_text": "Die Freelancer die ... haben, machen alle AI kann 90% der Arbeit uebernehmen.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "slideshow",
+    "trend_score": 9,
+    "novelty_score": 8,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 14.4
+  },
+  {
+    "topic": "Freelancer vs. AI Agent: Wer gewinnt?",
+    "angle": "Battle",
+    "hook_template": "SECRET_REVEAL",
+    "hook_text": "Die Handwerker die ... haben, machen alle ein einziges Tool reicht.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "screen_mockup",
+    "trend_score": 8,
+    "novelty_score": 7,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 11.2
+  },
+  {
+    "topic": "AI Agent der fuer dich arbeitet",
+    "angle": "Demo",
+    "hook_template": "SECRET_REVEAL",
+    "hook_text": "Das verraet dir niemand ueber Content Marketing.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "kinetic_text",
+    "trend_score": 6,
+    "novelty_score": 9,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 10.8
+  },
+  {
+    "topic": "Wie ich mein Business mit AI automatisiert habe",
+    "angle": "Story",
+    "hook_template": "MISTAKE_WARNING",
+    "hook_text": "Der groesste Fehler bei Content Strategie: keine Automation nutzt.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "kinetic_text",
+    "trend_score": 7,
+    "novelty_score": 6,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 8.4
+  },
+  {
+    "topic": "AI vs. manuell: Der echte Vergleich",
+    "angle": "Vergleich",
+    "hook_template": "CONTRARIAN_TAKE",
+    "hook_text": "Alle reden ueber Freelancer verdienen wenig. Keiner checkt AI macht dich 10x produktiver.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "narrated_steps",
+    "trend_score": 7,
+    "novelty_score": 6,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 8.4
+  },
+  {
+    "topic": "3 Fehler beim AI Business Start",
+    "angle": "Fehler",
+    "hook_template": "SECRET_REVEAL",
+    "hook_text": "Das verraet dir niemand ueber Skalierung.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "narrated_steps",
+    "trend_score": 5,
+    "novelty_score": 8,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 8.0
+  },
+  {
+    "topic": "ChatGPT Fehler die dich Geld kosten",
+    "angle": "Warnung",
+    "hook_template": "CONTRARIAN_TAKE",
+    "hook_text": "Hot Take: AI macht dich 10x produktiver. Und ja, ich meine das ernst.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "narrated_steps",
+    "trend_score": 8,
+    "novelty_score": 5,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 8.0
+  },
+  {
+    "topic": "Von 0 auf automatisiert in 7 Tagen",
+    "angle": "Timeline",
+    "hook_template": "CONTRARIAN_TAKE",
+    "hook_text": "Unpopular Opinion: AI nimmt dir deinen Job weg ist komplett falsch.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "kinetic_text",
+    "trend_score": 6,
+    "novelty_score": 6,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 7.2
+  },
+  {
+    "topic": "Ollama: Kostenlose AI auf deinem Laptop",
+    "angle": "Tool",
+    "hook_template": "IMPOSSIBLE_THEN_PROOF",
+    "hook_text": "Das sollte man braucht ein Team sein. Hier ist der Beweis.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "screen_mockup",
+    "trend_score": 6,
+    "novelty_score": 6,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 7.2
+  },
+  {
+    "topic": "Mein 100 EUR/Tag AI Workflow",
+    "angle": "Revenue",
+    "hook_template": "MISTAKE_WARNING",
+    "hook_text": "STOP! Wenn du ohne System arbeitest, verlierst du dein ganzes Business.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "narrated_steps",
+    "trend_score": 9,
+    "novelty_score": 4,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 7.2
+  },
+  {
+    "topic": "Was AI in 2026 wirklich kann",
+    "angle": "Zukunft",
+    "hook_template": "STEP_BY_STEP",
+    "hook_text": "3 Schritte zu erstellst du viralen Content (kostenlos):",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "screen_mockup",
+    "trend_score": 5,
+    "novelty_score": 6,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 6.0
+  },
+  {
+    "topic": "3 AI Tools die 90% der Arbeit erledigen",
+    "angle": "Tool-Stack",
+    "hook_template": "CONTRARIAN_TAKE",
+    "hook_text": "Hot Take: AI macht dich 10x produktiver. Und ja, ich meine das ernst.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "screen_mockup",
+    "trend_score": 7,
+    "novelty_score": 4,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 5.6
+  },
+  {
+    "topic": "Warum AI-Automation die Zukunft ist",
+    "angle": "Take",
+    "hook_template": "SECRET_REVEAL",
+    "hook_text": "Ich hab ... gebraucht um das zu verstehen: der Markt ist riesig.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "narrated_steps",
+    "trend_score": 6,
+    "novelty_score": 4,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 4.8
+  }
+]

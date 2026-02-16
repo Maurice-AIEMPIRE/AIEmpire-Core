@@ -1,0 +1,189 @@
+[
+  {
+    "topic": "Was AI in 2026 wirklich kann",
+    "angle": "Zukunft",
+    "hook_template": "STEP_BY_STEP",
+    "hook_text": "Wie ich generierst du 100 Leads/Tag - 3 Schritte, jeder kann das:",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "screen_mockup",
+    "trend_score": 9,
+    "novelty_score": 9,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 16.2
+  },
+  {
+    "topic": "Mein 100 EUR/Tag AI Workflow",
+    "angle": "Revenue",
+    "hook_template": "MISTAKE_WARNING",
+    "hook_text": "Ich hab ... verloren weil ich keine Automation nutzt. Mach das nicht.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "kinetic_text",
+    "trend_score": 7,
+    "novelty_score": 9,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 12.6
+  },
+  {
+    "topic": "AI vs. manuell: Der echte Vergleich",
+    "angle": "Vergleich",
+    "hook_template": "STEP_BY_STEP",
+    "hook_text": "baust du passive Einnahmen auf? 3 Schritte. Fertig.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "screen_mockup",
+    "trend_score": 9,
+    "novelty_score": 6,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 10.8
+  },
+  {
+    "topic": "So findest du AI Kunden auf LinkedIn",
+    "angle": "Akquise",
+    "hook_template": "STEP_BY_STEP",
+    "hook_text": "Wie ich baust du passive Einnahmen auf - 3 Schritte, jeder kann das:",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "kinetic_text",
+    "trend_score": 5,
+    "novelty_score": 9,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 9.0
+  },
+  {
+    "topic": "Ollama: Kostenlose AI auf deinem Laptop",
+    "angle": "Tool",
+    "hook_template": "SECRET_REVEAL",
+    "hook_text": "Die Selbststaendigen die ... haben, machen alle ein einziges Tool reicht.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "narrated_steps",
+    "trend_score": 9,
+    "novelty_score": 4,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 7.2
+  },
+  {
+    "topic": "Freelancer vs. AI Agent: Wer gewinnt?",
+    "angle": "Battle",
+    "hook_template": "OTHER_PERSON_CONFLICT_REVEAL",
+    "hook_text": "Mein Kunde meinte, der Markt ist gesaettigt... dann hab ich ihm den Kontoauszug gezeigt.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "slideshow",
+    "trend_score": 9,
+    "novelty_score": 4,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 7.2
+  },
+  {
+    "topic": "3 Fehler beim AI Business Start",
+    "angle": "Fehler",
+    "hook_template": "CONTRARIAN_TAKE",
+    "hook_text": "Alle reden ueber du brauchst Social Media Praesenz. Keiner checkt ein System schlaegt 1000 Posts.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "slideshow",
+    "trend_score": 5,
+    "novelty_score": 7,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 7.0
+  },
+  {
+    "topic": "Warum AI-Automation die Zukunft ist",
+    "angle": "Take",
+    "hook_template": "MISTAKE_WARNING",
+    "hook_text": "Der groesste Fehler bei Freelancing: keinen Funnel hast.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "slideshow",
+    "trend_score": 7,
+    "novelty_score": 4,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 5.6
+  },
+  {
+    "topic": "AI Automation fuer Anfaenger erklaert",
+    "angle": "Einstieg",
+    "hook_template": "SECRET_REVEAL",
+    "hook_text": "Die Freelancer die ... haben, machen alle ein einziges Tool reicht.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "kinetic_text",
+    "trend_score": 7,
+    "novelty_score": 4,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 5.6
+  },
+  {
+    "topic": "3 AI Tools die 90% der Arbeit erledigen",
+    "angle": "Tool-Stack",
+    "hook_template": "MISTAKE_WARNING",
+    "hook_text": "STOP! Wenn du alles manuell machst, verlierst du alle deine Leads.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "kinetic_text",
+    "trend_score": 5,
+    "novelty_score": 5,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 5.0
+  },
+  {
+    "topic": "AI Agent der fuer dich arbeitet",
+    "angle": "Demo",
+    "hook_template": "STEP_BY_STEP",
+    "hook_text": "verdienst du mit AI Geld? 5 Schritte. Fertig.",
+    "keywords": [
+      "AI",
+      "automation",
+      "agent"
+    ],
+    "format": "screen_mockup",
+    "trend_score": 6,
+    "novelty_score": 4,
+    "source": "template",
+    "nische": "ai_automation",
+    "score": 4.8
+  }
+]

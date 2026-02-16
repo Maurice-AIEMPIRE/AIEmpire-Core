@@ -1,0 +1,20 @@
+{
+  "id": "script_20260216_204611_7569",
+  "topic": "Mein 100 EUR/Tag AI Workflow",
+  "nische": "ai_automation",
+  "hook": "Ich hab ... verloren weil ich keine Automation nutzt. Mach das nicht.",
+  "hook_template": "MISTAKE_WARNING",
+  "script": "Ich hab ... verloren weil ich keine Automation nutzt. Mach das nicht.\nDie meisten machen es falsch.\nHier sind die 3 Schritte:\nErstens: Das richtige System waehlen.\nZweitens: Automatisieren statt manuell.\nDrittens: Messen und optimieren.\nKommentiere 'GRATIS-GUIDE' und ich schicke dir die komplette Anleitung!",
+  "duration_sec": 17,
+  "format": "kinetic_text",
+  "cta_keyword": "GRATIS-GUIDE",
+  "pinned_comment": "Kommentiere 'GRATIS-GUIDE' und ich schicke dir den Link!",
+  "description": "Mein 100 EUR/Tag AI Workflow | Kommentiere GRATIS-GUIDE fuer mehr!",
+  "title_variants": [
+    "Mein 100 EUR/Tag AI Workflow",
+    "Mein 100 EUR/Tag AI Workflow (das wusste ich nicht!)",
+    "Mein 100 EUR/Tag AI Workflow #shorts"
+  ],
+  "affiliate": "Prompt Pack",
+  "timestamp": "2026-02-16T20:46:11.729022"
+}

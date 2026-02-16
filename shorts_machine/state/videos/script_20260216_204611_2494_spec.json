@@ -1,0 +1,71 @@
+{
+  "id": "script_20260216_204611_2494",
+  "format": "screen_mockup",
+  "resolution": "1080x1920",
+  "fps": 30,
+  "total_duration_sec": 17,
+  "scenes": [
+    {
+      "scene_id": 0,
+      "text": "Wie ich generierst du 100 Leads/Tag - 3 Schritte, jeder kann das:",
+      "duration_sec": 2,
+      "start_sec": 0,
+      "style": "bold_center"
+    },
+    {
+      "scene_id": 1,
+      "text": "Die meisten machen es falsch.",
+      "duration_sec": 2,
+      "start_sec": 2,
+      "style": "standard"
+    },
+    {
+      "scene_id": 2,
+      "text": "Hier sind die 3 Schritte:",
+      "duration_sec": 2,
+      "start_sec": 4,
+      "style": "standard"
+    },
+    {
+      "scene_id": 3,
+      "text": "Erstens: Das richtige System waehlen.",
+      "duration_sec": 2,
+      "start_sec": 6,
+      "style": "standard"
+    },
+    {
+      "scene_id": 4,
+      "text": "Zweitens: Automatisieren statt manuell.",
+      "duration_sec": 2,
+      "start_sec": 8,
+      "style": "standard"
+    },
+    {
+      "scene_id": 5,
+      "text": "Drittens: Messen und optimieren.",
+      "duration_sec": 2,
+      "start_sec": 10,
+      "style": "standard"
+    },
+    {
+      "scene_id": 6,
+      "text": "Kommentiere 'AI-TOOL' und ich schicke dir die komplette Anleitung!",
+      "duration_sec": 2,
+      "start_sec": 12,
+      "style": "standard"
+    }
+  ],
+  "background": "solid_dark",
+  "font": "Arial-Bold",
+  "font_size": 72,
+  "text_color": "#FFFFFF",
+  "accent_color": "#FFD700",
+  "safe_zone": {
+    "top": 200,
+    "bottom": 300
+  },
+  "output_file": "/home/user/AIEmpire-Core/shorts_machine/state/videos/script_20260216_204611_2494.mp4",
+  "thumbnail_file": "/home/user/AIEmpire-Core/shorts_machine/state/videos/script_20260216_204611_2494_thumb.png",
+  "ffmpeg_available": false,
+  "timestamp": "2026-02-16T20:46:11.739696"
+}
