@@ -1,0 +1,315 @@
+{
+  "generated_at": "2026-02-18T21:51:57+00:00",
+  "sources": {
+    "inventory": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/00_SYSTEM/infra/SYSTEM_INVENTORY_2026-02-18.json",
+    "runtime_map": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/00_SYSTEM/infra/RUNTIME_CANONICAL_MAP_2026-02-18.json",
+    "daily_kpi": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/00_SYSTEM/revenue_system/kpi/daily_kpi_2026-02-18.json",
+    "chat_artifact_index": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/00_SYSTEM/chat_artifacts/MASTER_CHAT_ARTIFACTS_INDEX.md"
+  },
+  "summary": {
+    "health_score": 16,
+    "jobs_total": 20,
+    "jobs_running": 3,
+    "jobs_healthy": 3,
+    "jobs_exit_78": 2,
+    "runtime_blockers": 9,
+    "revenue_blockers": 6,
+    "endpoints_total": 6,
+    "endpoints_up": 2,
+    "endpoints_down": [
+      "n8n_health",
+      "empire_api",
+      "store_ui",
+      "openclaw_api"
+    ],
+    "real_revenue_eur": 0.0,
+    "projected_revenue_eur_24h": 5.4,
+    "shorts_published_this_run": 0,
+    "chat_artifacts_total": 403,
+    "chat_artifacts_revenue_relevant": 104,
+    "daily_kpi": {
+      "date": "2026-02-18",
+      "leads": 0,
+      "replies": 0,
+      "calls": 0,
+      "offers": 0,
+      "closes": 0,
+      "cash_eur": 0.0,
+      "published_shorts": 0,
+      "runtime_incidents": 1,
+      "sources": {
+        "stripe": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/revenue/stripe/latest.json",
+        "shorts": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/latest.json",
+        "preflight": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/automation/runs/preflight/latest.json"
+      }
+    }
+  },
+  "canonical_runtime_status": [
+    {
+      "function_group": "orchestrator",
+      "canonical_label": "com.ai-empire.autonomy",
+      "fallback_label": "com.ai-empire.master-chat-controller",
+      "owner": "new_project",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.autonomy",
+      "state": "not_loaded",
+      "last_exit_code": null,
+      "health": "degraded"
+    },
+    {
+      "function_group": "watchdog",
+      "canonical_label": "com.ai-empire.watchdog",
+      "fallback_label": null,
+      "owner": "new_project",
+      "schedule_window": "always",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.watchdog",
+      "state": "not_loaded",
+      "last_exit_code": null,
+      "health": "degraded"
+    },
+    {
+      "function_group": "openclaw_gateway",
+      "canonical_label": "ai.openclaw.gateway",
+      "fallback_label": "com.aiempire.guardian",
+      "owner": "openclaw_workspace",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/ai.openclaw.gateway",
+      "state": "error_ex_config",
+      "last_exit_code": "78: EX_CONFIG",
+      "health": "degraded"
+    },
+    {
+      "function_group": "telegram_router",
+      "canonical_label": "com.ai-empire.telegram-router",
+      "fallback_label": "com.empire.telegrambot",
+      "owner": "new_project",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.telegram-router",
+      "state": "not_loaded",
+      "last_exit_code": null,
+      "health": "degraded"
+    },
+    {
+      "function_group": "youtube_autopilot",
+      "canonical_label": "ai-empire.youtube-automation.godmode",
+      "fallback_label": "com.empire.youtube.producer",
+      "owner": "new_project",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/ai-empire.youtube-automation.godmode",
+      "state": "not_loaded",
+      "last_exit_code": null,
+      "health": "degraded"
+    },
+    {
+      "function_group": "n8n",
+      "canonical_label": "com.ai-empire.n8n",
+      "fallback_label": null,
+      "owner": "new_project",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.n8n",
+      "state": "running",
+      "last_exit_code": "(never exited)",
+      "health": "healthy"
+    },
+    {
+      "function_group": "snapshot",
+      "canonical_label": "com.ai-empire.snapshot",
+      "fallback_label": "com.ai-empire.openclaw-snapshot",
+      "owner": "new_project",
+      "schedule_window": "23:00-08:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.snapshot",
+      "state": "not_loaded",
+      "last_exit_code": null,
+      "health": "degraded"
+    },
+    {
+      "function_group": "infra_audit",
+      "canonical_label": "com.ai-empire.infra-audit-daily",
+      "fallback_label": null,
+      "owner": "new_project",
+      "schedule_window": "23:00-08:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.infra-audit-daily",
+      "state": "not_loaded",
+      "last_exit_code": null,
+      "health": "degraded"
+    }
+  ],
+  "active_duplicate_groups": [],
+  "top_gaps": [
+    {
+      "id": "credentials::stripe",
+      "priority": "P0",
+      "type": "credentials",
+      "summary": "Required credentials incomplete for stripe",
+      "evidence": {
+        "required_keys": [
+          "STRIPE_SECRET_KEY"
+        ],
+        "status": {
+          "STRIPE_SECRET_KEY": "missing"
+        },
+        "all_present": false,
+        "present_count": 0,
+        "missing_count": 1
+      }
+    },
+    {
+      "id": "credentials::youtube",
+      "priority": "P0",
+      "type": "credentials",
+      "summary": "Required credentials incomplete for youtube",
+      "evidence": {
+        "required_keys": [
+          "YOUTUBE_CLIENT_ID",
+          "YOUTUBE_CLIENT_SECRET",
+          "YOUTUBE_REFRESH_TOKEN",
+          "YOUTUBE_ACCESS_TOKEN",
+          "YOUTUBE_API_KEY"
+        ],
+        "status": {
+          "YOUTUBE_CLIENT_ID": "missing",
+          "YOUTUBE_CLIENT_SECRET": "missing",
+          "YOUTUBE_REFRESH_TOKEN": "missing",
+          "YOUTUBE_ACCESS_TOKEN": "missing",
+          "YOUTUBE_API_KEY": "present"
+        },
+        "all_present": false,
+        "present_count": 1,
+        "missing_count": 4
+      }
+    },
+    {
+      "id": "real_revenue_zero_or_unknown",
+      "priority": "P0",
+      "type": "revenue",
+      "summary": "No real Stripe cashflow recorded in latest income stream report",
+      "evidence": {
+        "latest_report": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/reports/income_stream_20260214_181506.txt",
+        "real_revenue_eur": 0.0,
+        "real_gross_eur": 0.0,
+        "successful_payments": 0,
+        "projected_revenue_eur_24h": 5.4,
+        "shorts_published_this_run": 0,
+        "error": null
+      }
+    },
+    {
+      "id": "stripe_source_of_truth_missing",
+      "priority": "P0",
+      "type": "revenue",
+      "summary": "Stripe latest revenue artifact missing",
+      "evidence": {
+        "path": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/revenue/stripe/latest.json"
+      }
+    },
+    {
+      "id": "job_exit_78::ai.openclaw.gateway",
+      "priority": "P0",
+      "type": "runtime",
+      "summary": "LaunchAgent exits with EX_CONFIG (78): ai.openclaw.gateway",
+      "evidence": {
+        "label": "ai.openclaw.gateway",
+        "last_exit_code": "78: EX_CONFIG",
+        "source_plist": "/Users/maurice/Library/LaunchAgents/ai.openclaw.gateway.plist"
+      }
+    },
+    {
+      "id": "job_exit_78::com.aiempire.guardian",
+      "priority": "P0",
+      "type": "runtime",
+      "summary": "LaunchAgent exits with EX_CONFIG (78): com.aiempire.guardian",
+      "evidence": {
+        "label": "com.aiempire.guardian",
+        "last_exit_code": "78: EX_CONFIG",
+        "source_plist": "/Users/maurice/Library/LaunchAgents/com.aiempire.guardian.plist"
+      }
+    },
+    {
+      "id": "job_not_loaded::ai-empire.youtube-automation.godmode",
+      "priority": "P0",
+      "type": "runtime",
+      "summary": "Critical LaunchAgent is not loaded: ai-empire.youtube-automation.godmode",
+      "evidence": {
+        "label": "ai-empire.youtube-automation.godmode",
+        "source_plist": null
+      }
+    },
+    {
+      "id": "job_not_loaded::com.ai-empire.autonomy",
+      "priority": "P0",
+      "type": "runtime",
+      "summary": "Critical LaunchAgent is not loaded: com.ai-empire.autonomy",
+      "evidence": {
+        "label": "com.ai-empire.autonomy",
+        "source_plist": null
+      }
+    },
+    {
+      "id": "job_not_loaded::com.ai-empire.master-chat-controller",
+      "priority": "P0",
+      "type": "runtime",
+      "summary": "Critical LaunchAgent is not loaded: com.ai-empire.master-chat-controller",
+      "evidence": {
+        "label": "com.ai-empire.master-chat-controller",
+        "source_plist": null
+      }
+    },
+    {
+      "id": "job_not_loaded::com.ai-empire.snapshot",
+      "priority": "P0",
+      "type": "runtime",
+      "summary": "Critical LaunchAgent is not loaded: com.ai-empire.snapshot",
+      "evidence": {
+        "label": "com.ai-empire.snapshot",
+        "source_plist": null
+      }
+    }
+  ],
+  "actions": [
+    {
+      "priority": "P0_RUNTIME_BREAK",
+      "action": "Restore all critical local endpoints before heavy automation.",
+      "owner": "Ops",
+      "eta": "today",
+      "impact": "Stops crash/degrade loops and re-enables execution.",
+      "risk": "High if skipped.",
+      "verification_command": "python3 automation/scripts/preflight_gate.py"
+    },
+    {
+      "priority": "P0_RUNTIME_BREAK",
+      "action": "Repair canonical jobs with non-zero exits and validate log/workdir paths.",
+      "owner": "Ops",
+      "eta": "today",
+      "impact": "Moves critical jobs to stable `running/healthy`.",
+      "risk": "High if skipped.",
+      "verification_command": "python3 automation/scripts/audit_infra_runtime.py --mode snapshot --redact-secrets true"
+    },
+    {
+      "priority": "P1_REVENUE_BLOCKER",
+      "action": "Set Stripe key and run sync to create real-cash source-of-truth JSON.",
+      "owner": "Revenue Ops",
+      "eta": "today",
+      "impact": "Switches from projection-only to real revenue tracking.",
+      "risk": "High if skipped.",
+      "verification_command": "automation/scripts/run_stripe_sync.sh"
+    },
+    {
+      "priority": "P1_REVENUE_BLOCKER",
+      "action": "Run daily service-outbound block (LinkedIn + email) with fixed quotas.",
+      "owner": "Sales",
+      "eta": "daily",
+      "impact": "Unlocks 70% service-cashflow lane.",
+      "risk": "High if skipped.",
+      "verification_command": "python3 automation/scripts/write_daily_kpi.py"
+    },
+    {
+      "priority": "P2_QUALITY_DRIFT",
+      "action": "Run daily monster construct audit and use degrade mode outside 08:00-23:00.",
+      "owner": "Ops",
+      "eta": "daily",
+      "impact": "Stabilizes compute and reduces machine crash risk.",
+      "risk": "Medium if skipped.",
+      "verification_command": "automation/scripts/run_monster_construct.sh"
+    }
+  ]
+}

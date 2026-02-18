@@ -1,6 +1,6 @@
 # MASTER_CHAT_ARTIFACTS_INDEX
 
-- Generated at: 2026-02-18T22:37:47+01:00
+- Generated at: 2026-02-18T22:51:57+01:00
 - Pull source: `/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/00_SYSTEM/chat_artifacts/PULL_20260218_215409_links`
 - Manifest: `/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/00_SYSTEM/chat_artifacts/PULL_20260218_215409_links/MANIFEST.tsv`
 - Output: `/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/00_SYSTEM/chat_artifacts/MASTER_CHAT_ARTIFACTS_INDEX.md`

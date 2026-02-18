@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-18T21:37:57+00:00",
+  "generated_at": "2026-02-18T21:51:56+00:00",
   "hosts": {
     "hostname": "MinivonMaurice.fritz.box",
     "username": "maurice",
@@ -384,7 +384,7 @@
         "stdout_parent_exists": true,
         "stderr_parent_exists": true
       },
-      "runs": 397,
+      "runs": 474,
       "pid": null
     },
     {
@@ -408,7 +408,7 @@
         "stdout_parent_exists": true,
         "stderr_parent_exists": false
       },
-      "runs": 1055,
+      "runs": 1081,
       "pid": null
     },
     {
@@ -641,10 +641,18 @@
         "scan_error": null
       },
       "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/automation/.env": {
-        "exists": null,
-        "keys_detected": 0,
-        "present_keys": [],
-        "scan_error": "Command '['python3', '-c', \"import json,re,sys\\nfrom pathlib import Path\\np=Path(sys.argv[1]).expanduser()\\nres={'exists':False,'is_file':False,'keys':[],'error':None}\\ntry:\\n  res['exists']=p.exists()\\n  if res['exists'] and p.is_file():\\n    res['is_file']=True\\n    txt=p.read_text(encoding='utf-8', errors='ignore')\\n    ks=[]\\n    for line in txt.splitlines():\\n      s=line.strip()\\n      if not s or s.startswith('#') or '=' not in s:\\n        continue\\n      name=s.split('=',1)[0].strip()\\n      if re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', name):\\n        ks.append(name)\\n    res['keys']=sorted(set(ks))\\nexcept Exception as e:\\n  res['error']=str(e)\\nprint(json.dumps(res))\\n\", '/Users/maurice/Documents/Dokumente\\xa0– Mac mini von Maurice/New project/automation/.env']' timed out after 4 seconds"
+        "exists": true,
+        "keys_detected": 7,
+        "present_keys": [
+          "TIKTOK_ACCESS_TOKEN",
+          "TIKTOK_API_STRICT",
+          "TIKTOK_CLIENT_KEY",
+          "TIKTOK_CLIENT_SECRET",
+          "TIKTOK_REDIRECT_URI",
+          "TIKTOK_REFRESH_TOKEN",
+          "TIKTOK_SCOPES"
+        ],
+        "scan_error": null
       },
       "/Users/maurice/.openclaw/.env": {
         "exists": true,
@@ -756,14 +764,14 @@
           "TIKTOK_REFRESH_TOKEN"
         ],
         "status": {
-          "TIKTOK_CLIENT_KEY": "missing",
-          "TIKTOK_CLIENT_SECRET": "missing",
-          "TIKTOK_ACCESS_TOKEN": "missing",
-          "TIKTOK_REFRESH_TOKEN": "missing"
+          "TIKTOK_CLIENT_KEY": "present",
+          "TIKTOK_CLIENT_SECRET": "present",
+          "TIKTOK_ACCESS_TOKEN": "present",
+          "TIKTOK_REFRESH_TOKEN": "present"
         },
-        "all_present": false,
-        "present_count": 0,
-        "missing_count": 4
+        "all_present": true,
+        "present_count": 4,
+        "missing_count": 0
       }
     },
     "policy": "values never persisted; present/missing only"
@@ -872,10 +880,10 @@
     "stripe_latest_exists": false
   },
   "revenue": {
-    "real_revenue_eur": null,
-    "projected_revenue_eur_24h": null,
+    "real_revenue_eur": 0.0,
+    "projected_revenue_eur_24h": 5.4,
     "publish_counts": {
-      "shorts_published_this_run": null
+      "shorts_published_this_run": 0
     },
     "api_usage_flags": {
       "shorts_used_youtube_api": false,
@@ -883,8 +891,13 @@
       "youtube_shorts_used_api": false
     },
     "income_stream_report": {
-      "latest_report": null,
-      "error": "Command '['python3', '-c', \"import json,re,sys\\nfrom pathlib import Path\\nd=Path(sys.argv[1]).expanduser()\\nres={'latest_report':None,'real_revenue_eur':None,'real_gross_eur':None,'successful_payments':None,'projected_revenue_eur_24h':None,'shorts_published_this_run':None,'error':None}\\ntry:\\n  if d.exists() and d.is_dir():\\n    files=sorted(d.glob('income_stream_*.txt'))\\n    if files:\\n      p=files[-1]\\n      t=p.read_text(encoding='utf-8', errors='ignore')\\n      res['latest_report']=str(p)\\n      net=re.search(r'Net revenue \\\\(lookback\\\\): EUR\\\\s*([0-9.]+)', t)\\n      gross=re.search(r'Gross revenue \\\\(lookback\\\\): EUR\\\\s*([0-9.]+)', t)\\n      paid=re.search(r'Successful payments:\\\\s*([0-9]+)', t)\\n      proj=re.search(r'projected revenue 24h:\\\\s*EUR\\\\s*([0-9.]+)', t)\\n      ytpub=re.search(r'shorts_revenue published this run:\\\\s*([0-9]+)', t)\\n      if net: res['real_revenue_eur']=float(net.group(1))\\n      if gross: res['real_gross_eur']=float(gross.group(1))\\n      if paid: res['successful_payments']=int(paid.group(1))\\n      if proj: res['projected_revenue_eur_24h']=float(proj.group(1))\\n      if ytpub: res['shorts_published_this_run']=int(ytpub.group(1))\\nexcept Exception as e:\\n  res['error']=str(e)\\nprint(json.dumps(res))\\n\", '/Users/maurice/Documents/Dokumente\\xa0– Mac mini von Maurice/New project/ai-vault/reports']' timed out after 5 seconds"
+      "latest_report": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/reports/income_stream_20260214_181506.txt",
+      "real_revenue_eur": 0.0,
+      "real_gross_eur": 0.0,
+      "successful_payments": 0,
+      "projected_revenue_eur_24h": 5.4,
+      "shorts_published_this_run": 0,
+      "error": null
     }
   },
   "gaps": [
@@ -1061,29 +1074,6 @@
       }
     },
     {
-      "id": "credentials::tiktok",
-      "priority": "P1",
-      "type": "credentials",
-      "summary": "Required credentials incomplete for tiktok",
-      "evidence": {
-        "required_keys": [
-          "TIKTOK_CLIENT_KEY",
-          "TIKTOK_CLIENT_SECRET",
-          "TIKTOK_ACCESS_TOKEN",
-          "TIKTOK_REFRESH_TOKEN"
-        ],
-        "status": {
-          "TIKTOK_CLIENT_KEY": "missing",
-          "TIKTOK_CLIENT_SECRET": "missing",
-          "TIKTOK_ACCESS_TOKEN": "missing",
-          "TIKTOK_REFRESH_TOKEN": "missing"
-        },
-        "all_present": false,
-        "present_count": 0,
-        "missing_count": 4
-      }
-    },
-    {
       "id": "stripe_source_of_truth_missing",
       "priority": "P0",
       "type": "revenue",
@@ -1098,8 +1088,13 @@
       "type": "revenue",
       "summary": "No real Stripe cashflow recorded in latest income stream report",
       "evidence": {
-        "latest_report": null,
-        "error": "Command '['python3', '-c', \"import json,re,sys\\nfrom pathlib import Path\\nd=Path(sys.argv[1]).expanduser()\\nres={'latest_report':None,'real_revenue_eur':None,'real_gross_eur':None,'successful_payments':None,'projected_revenue_eur_24h':None,'shorts_published_this_run':None,'error':None}\\ntry:\\n  if d.exists() and d.is_dir():\\n    files=sorted(d.glob('income_stream_*.txt'))\\n    if files:\\n      p=files[-1]\\n      t=p.read_text(encoding='utf-8', errors='ignore')\\n      res['latest_report']=str(p)\\n      net=re.search(r'Net revenue \\\\(lookback\\\\): EUR\\\\s*([0-9.]+)', t)\\n      gross=re.search(r'Gross revenue \\\\(lookback\\\\): EUR\\\\s*([0-9.]+)', t)\\n      paid=re.search(r'Successful payments:\\\\s*([0-9]+)', t)\\n      proj=re.search(r'projected revenue 24h:\\\\s*EUR\\\\s*([0-9.]+)', t)\\n      ytpub=re.search(r'shorts_revenue published this run:\\\\s*([0-9]+)', t)\\n      if net: res['real_revenue_eur']=float(net.group(1))\\n      if gross: res['real_gross_eur']=float(gross.group(1))\\n      if paid: res['successful_payments']=int(paid.group(1))\\n      if proj: res['projected_revenue_eur_24h']=float(proj.group(1))\\n      if ytpub: res['shorts_published_this_run']=int(ytpub.group(1))\\nexcept Exception as e:\\n  res['error']=str(e)\\nprint(json.dumps(res))\\n\", '/Users/maurice/Documents/Dokumente\\xa0– Mac mini von Maurice/New project/ai-vault/reports']' timed out after 5 seconds"
+        "latest_report": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/reports/income_stream_20260214_181506.txt",
+        "real_revenue_eur": 0.0,
+        "real_gross_eur": 0.0,
+        "successful_payments": 0,
+        "projected_revenue_eur_24h": 5.4,
+        "shorts_published_this_run": 0,
+        "error": null
       }
     },
     {
@@ -1108,8 +1103,13 @@
       "type": "distribution",
       "summary": "Latest income report shows zero Shorts publishes",
       "evidence": {
-        "latest_report": null,
-        "error": "Command '['python3', '-c', \"import json,re,sys\\nfrom pathlib import Path\\nd=Path(sys.argv[1]).expanduser()\\nres={'latest_report':None,'real_revenue_eur':None,'real_gross_eur':None,'successful_payments':None,'projected_revenue_eur_24h':None,'shorts_published_this_run':None,'error':None}\\ntry:\\n  if d.exists() and d.is_dir():\\n    files=sorted(d.glob('income_stream_*.txt'))\\n    if files:\\n      p=files[-1]\\n      t=p.read_text(encoding='utf-8', errors='ignore')\\n      res['latest_report']=str(p)\\n      net=re.search(r'Net revenue \\\\(lookback\\\\): EUR\\\\s*([0-9.]+)', t)\\n      gross=re.search(r'Gross revenue \\\\(lookback\\\\): EUR\\\\s*([0-9.]+)', t)\\n      paid=re.search(r'Successful payments:\\\\s*([0-9]+)', t)\\n      proj=re.search(r'projected revenue 24h:\\\\s*EUR\\\\s*([0-9.]+)', t)\\n      ytpub=re.search(r'shorts_revenue published this run:\\\\s*([0-9]+)', t)\\n      if net: res['real_revenue_eur']=float(net.group(1))\\n      if gross: res['real_gross_eur']=float(gross.group(1))\\n      if paid: res['successful_payments']=int(paid.group(1))\\n      if proj: res['projected_revenue_eur_24h']=float(proj.group(1))\\n      if ytpub: res['shorts_published_this_run']=int(ytpub.group(1))\\nexcept Exception as e:\\n  res['error']=str(e)\\nprint(json.dumps(res))\\n\", '/Users/maurice/Documents/Dokumente\\xa0– Mac mini von Maurice/New project/ai-vault/reports']' timed out after 5 seconds"
+        "latest_report": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/reports/income_stream_20260214_181506.txt",
+        "real_revenue_eur": 0.0,
+        "real_gross_eur": 0.0,
+        "successful_payments": 0,
+        "projected_revenue_eur_24h": 5.4,
+        "shorts_published_this_run": 0,
+        "error": null
       }
     }
   ],
@@ -1196,29 +1196,6 @@
       }
     },
     {
-      "id": "credentials::tiktok",
-      "priority": "P1",
-      "type": "credentials",
-      "summary": "Required credentials incomplete for tiktok",
-      "evidence": {
-        "required_keys": [
-          "TIKTOK_CLIENT_KEY",
-          "TIKTOK_CLIENT_SECRET",
-          "TIKTOK_ACCESS_TOKEN",
-          "TIKTOK_REFRESH_TOKEN"
-        ],
-        "status": {
-          "TIKTOK_CLIENT_KEY": "missing",
-          "TIKTOK_CLIENT_SECRET": "missing",
-          "TIKTOK_ACCESS_TOKEN": "missing",
-          "TIKTOK_REFRESH_TOKEN": "missing"
-        },
-        "all_present": false,
-        "present_count": 0,
-        "missing_count": 4
-      }
-    },
-    {
       "id": "stripe_source_of_truth_missing",
       "priority": "P0",
       "type": "revenue",
@@ -1233,8 +1210,13 @@
       "type": "revenue",
       "summary": "No real Stripe cashflow recorded in latest income stream report",
       "evidence": {
-        "latest_report": null,
-        "error": "Command '['python3', '-c', \"import json,re,sys\\nfrom pathlib import Path\\nd=Path(sys.argv[1]).expanduser()\\nres={'latest_report':None,'real_revenue_eur':None,'real_gross_eur':None,'successful_payments':None,'projected_revenue_eur_24h':None,'shorts_published_this_run':None,'error':None}\\ntry:\\n  if d.exists() and d.is_dir():\\n    files=sorted(d.glob('income_stream_*.txt'))\\n    if files:\\n      p=files[-1]\\n      t=p.read_text(encoding='utf-8', errors='ignore')\\n      res['latest_report']=str(p)\\n      net=re.search(r'Net revenue \\\\(lookback\\\\): EUR\\\\s*([0-9.]+)', t)\\n      gross=re.search(r'Gross revenue \\\\(lookback\\\\): EUR\\\\s*([0-9.]+)', t)\\n      paid=re.search(r'Successful payments:\\\\s*([0-9]+)', t)\\n      proj=re.search(r'projected revenue 24h:\\\\s*EUR\\\\s*([0-9.]+)', t)\\n      ytpub=re.search(r'shorts_revenue published this run:\\\\s*([0-9]+)', t)\\n      if net: res['real_revenue_eur']=float(net.group(1))\\n      if gross: res['real_gross_eur']=float(gross.group(1))\\n      if paid: res['successful_payments']=int(paid.group(1))\\n      if proj: res['projected_revenue_eur_24h']=float(proj.group(1))\\n      if ytpub: res['shorts_published_this_run']=int(ytpub.group(1))\\nexcept Exception as e:\\n  res['error']=str(e)\\nprint(json.dumps(res))\\n\", '/Users/maurice/Documents/Dokumente\\xa0– Mac mini von Maurice/New project/ai-vault/reports']' timed out after 5 seconds"
+        "latest_report": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/reports/income_stream_20260214_181506.txt",
+        "real_revenue_eur": 0.0,
+        "real_gross_eur": 0.0,
+        "successful_payments": 0,
+        "projected_revenue_eur_24h": 5.4,
+        "shorts_published_this_run": 0,
+        "error": null
       }
     }
   ],
