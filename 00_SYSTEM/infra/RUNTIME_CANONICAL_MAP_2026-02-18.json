@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-02-18T22:07:41+01:00",
+  "timezone": "Europe/Berlin",
+  "policy": "one-active-runtime-per-function-group",
+  "entries": [
+    {
+      "function_group": "orchestrator",
+      "canonical_label": "com.ai-empire.autonomy",
+      "fallback_label": "com.ai-empire.master-chat-controller",
+      "owner": "new_project",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.autonomy"
+    },
+    {
+      "function_group": "watchdog",
+      "canonical_label": "com.ai-empire.watchdog",
+      "fallback_label": null,
+      "owner": "new_project",
+      "schedule_window": "always",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.watchdog"
+    },
+    {
+      "function_group": "openclaw_gateway",
+      "canonical_label": "ai.openclaw.gateway",
+      "fallback_label": "com.aiempire.guardian",
+      "owner": "openclaw_workspace",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/ai.openclaw.gateway"
+    },
+    {
+      "function_group": "telegram_router",
+      "canonical_label": "com.ai-empire.telegram-router",
+      "fallback_label": "com.empire.telegrambot",
+      "owner": "new_project",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.telegram-router"
+    },
+    {
+      "function_group": "youtube_autopilot",
+      "canonical_label": "ai-empire.youtube-automation.godmode",
+      "fallback_label": "com.empire.youtube.producer",
+      "owner": "new_project",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/ai-empire.youtube-automation.godmode"
+    },
+    {
+      "function_group": "n8n",
+      "canonical_label": "com.ai-empire.n8n",
+      "fallback_label": null,
+      "owner": "new_project",
+      "schedule_window": "08:00-23:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.n8n"
+    },
+    {
+      "function_group": "snapshot",
+      "canonical_label": "com.ai-empire.snapshot",
+      "fallback_label": "com.ai-empire.openclaw-snapshot",
+      "owner": "new_project",
+      "schedule_window": "23:00-08:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.snapshot"
+    },
+    {
+      "function_group": "infra_audit",
+      "canonical_label": "com.ai-empire.infra-audit-daily",
+      "fallback_label": null,
+      "owner": "new_project",
+      "schedule_window": "23:00-08:00",
+      "verification_command": "launchctl print gui/$(id -u)/com.ai-empire.infra-audit-daily"
+    }
+  ]
+}

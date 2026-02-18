@@ -1,0 +1,1 @@
+/Users/maurice/.openclaw/workspace/ai-empire/04_OUTPUT/AUTOMATION_FACTORY/scripts/weekly_summary.sh

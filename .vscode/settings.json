@@ -1,0 +1,25 @@
+{
+  "search.followSymlinks": false,
+  "search.exclude": {
+    "**/00_SYSTEM/chat_artifacts/**": true,
+    "**/automation/runs/**": true,
+    "**/content_factory/deliverables/backup_*/**": true,
+    "**/content_factory/deliverables/exports/**": true
+  },
+  "files.watcherExclude": {
+    "**/00_SYSTEM/chat_artifacts/**": true,
+    "**/automation/runs/**": true,
+    "**/content_factory/deliverables/backup_*/**": true,
+    "**/content_factory/deliverables/exports/**": true
+  },
+  "files.exclude": {
+    "**/00_SYSTEM/chat_artifacts/PULL_*/downloads_backup_tree": true,
+    "**/00_SYSTEM/chat_artifacts/PULL_*/downloads_backup_raw": true
+  },
+  "python.analysis.exclude": [
+    "**/00_SYSTEM/chat_artifacts/**",
+    "**/automation/runs/**",
+    "**/content_factory/deliverables/backup_*/**",
+    "**/content_factory/deliverables/exports/**"
+  ]
+}

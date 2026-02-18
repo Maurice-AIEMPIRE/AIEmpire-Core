@@ -24,6 +24,7 @@ SYNC_SHORTS_ASSETS="${SYNC_SHORTS_ASSETS:-0}"
 AUTO_PUBLISH_YOUTUBE="${AUTO_PUBLISH_YOUTUBE:-1}"
 X_SCOUT_ENABLED="${X_SCOUT_ENABLED:-1}"
 SAFETY_GUARD="${SAFETY_GUARD:-1}"
+PREFLIGHT_GATE="${PREFLIGHT_GATE:-1}"
 SAFETY_COOLDOWN_MIN="${SAFETY_COOLDOWN_MIN:-20}"
 AUTOPILOT_NICE="${AUTOPILOT_NICE:-10}"
 ATLAS_SNAPSHOT_ENABLED="${ATLAS_SNAPSHOT_ENABLED:-1}"
@@ -66,6 +67,27 @@ for ((i=1; i<=RUNS; i++)); do
     set -e
     if [ "$GRC" -ne 0 ]; then
       echo "[shorts-revenue] run=$i status=skipped reason=safety_guard exit_code=$GRC" | tee -a "$SESSION_LOG"
+      if [ "$DEGRADE_MAINTENANCE_ON_BLOCK" = "1" ]; then
+        echo "[shorts-revenue] run=$i degrade_mode=on maintenance=ingest+merge+strategy_refresh" | tee -a "$SESSION_LOG"
+        nice -n "$AUTOPILOT_NICE" python3 automation/scripts/run_degrade_maintenance.py | tee -a "$SESSION_LOG" || true
+      fi
+      if [ "$AUTO_COMMIT_ENABLED" = "1" ]; then
+        automation/scripts/run_auto_commit.sh shorts_revenue "$i" "$RUNS" | tee -a "$SESSION_LOG" || true
+      fi
+      if [ "$i" -lt "$RUNS" ]; then
+        sleep "$((SAFETY_COOLDOWN_MIN * 60))"
+      fi
+      continue
+    fi
+  fi
+
+  if [ "$PREFLIGHT_GATE" = "1" ]; then
+    set +e
+    python3 automation/scripts/preflight_gate.py >> "$SESSION_LOG" 2>&1
+    PFG_RC=$?
+    set -e
+    if [ "$PFG_RC" -ne 0 ]; then
+      echo "[shorts-revenue] run=$i status=skipped reason=preflight_gate exit_code=$PFG_RC" | tee -a "$SESSION_LOG"
       if [ "$DEGRADE_MAINTENANCE_ON_BLOCK" = "1" ]; then
         echo "[shorts-revenue] run=$i degrade_mode=on maintenance=ingest+merge+strategy_refresh" | tee -a "$SESSION_LOG"
         nice -n "$AUTOPILOT_NICE" python3 automation/scripts/run_degrade_maintenance.py | tee -a "$SESSION_LOG" || true

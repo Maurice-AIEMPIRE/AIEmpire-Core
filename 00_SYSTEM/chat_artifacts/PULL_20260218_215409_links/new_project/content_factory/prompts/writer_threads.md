@@ -1,0 +1,1 @@
+/Users/maurice/Documents/New project/content_factory/prompts/writer_threads.md

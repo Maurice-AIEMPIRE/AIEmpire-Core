@@ -1,0 +1,883 @@
+{
+  "generated_at": "2026-02-15T06:49:19+00:00",
+  "hosts": {
+    "hostname": "MinivonMaurice.fritz.box",
+    "username": "maurice",
+    "uid": 501,
+    "timezone": "CET",
+    "project_root": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project"
+  },
+  "runtimes": {
+    "process_matches": [
+      "4091 /Applications/Ollama.app/Contents/Resources/ollama serve",
+      "51606 openclaw-gateway OSLogRateLimit=64 OPENCLAW_GATEWAY_TOKEN=<redacted> OPENCLAW_GATEWAY_PORT=18789 OPENCLAW_SYSTEMD_UNIT=openclaw-gateway.service",
+      "59380 /bin/bash /Users/maurice/Library/Application Support/ai-empire/stability-runtime/automation/scripts/openclaw_self_heal.sh",
+      "59386 bash /Users/maurice/Library/Application Support/ai-empire/stability-runtime/automation/scripts/openclaw_healthcheck.sh",
+      "59392 openclaw SHELL=/bin/zsh TMPDIR=/var/folders/f8/0v3s0f8n1ll1273sws_tjbg80000gn/T/ USER=maurice SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yLmBCFQaEB/Listeners GOOGLE_CLOUD_PROJECT=ai-empire-486415",
+      "59393 openclaw SHELL=/bin/zsh TMPDIR=/var/folders/f8/0v3s0f8n1ll1273sws_tjbg80000gn/T/ USER=maurice SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.yLmBCFQaEB/Listeners GOOGLE_CLOUD_PROJECT=ai-empire-486415 PATH=/opt/homebrew/opt/node@22/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/opt/node@22/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+    ],
+    "docker": {
+      "available": true,
+      "entries": []
+    },
+    "icloud_clusters": [
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI_EMPIRE_STORAGE",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 9
+      },
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI_Empire_Revenue",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 8
+      },
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI_Empire_Backup",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 35
+      },
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI_EMPIRE_BACKUP",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 35
+      },
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI-Empire-Backup",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 9
+      },
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI_Empire_Backups",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 7
+      },
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI_Empire_TikTok",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 7
+      },
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI_Empire_Swarm",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 2
+      },
+      {
+        "path": "/Users/maurice/Library/Mobile Documents/com~apple~CloudDocs/AI_Empire_Monster",
+        "exists": true,
+        "size_human": null,
+        "top_level_entries": 2
+      }
+    ]
+  },
+  "jobs": [
+    {
+      "label": "com.ai-empire.watchdog",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.watchdog.plist",
+      "loaded_state": "not running",
+      "last_exit_code": "0",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.watchdog.out.log",
+      "stderr_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.watchdog.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 3,
+      "pid": null
+    },
+    {
+      "label": "com.ai-empire.snapshot",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.snapshot.plist",
+      "loaded_state": "not running",
+      "last_exit_code": "0",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.snapshot.out.log",
+      "stderr_path": null,
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": false
+      },
+      "runs": 1,
+      "pid": null
+    },
+    {
+      "label": "com.ai-empire.autonomy",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.autonomy.plist",
+      "loaded_state": "not running",
+      "last_exit_code": "0",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.autonomy.out.log",
+      "stderr_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.autonomy.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 1,
+      "pid": null
+    },
+    {
+      "label": "com.ai-empire.n8n",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.n8n.plist",
+      "loaded_state": "running",
+      "last_exit_code": "(never exited)",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.n8n.out.log",
+      "stderr_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.n8n.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 1,
+      "pid": 21413
+    },
+    {
+      "label": "com.ai-empire.legion50",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.legion50.plist",
+      "loaded_state": "not running",
+      "last_exit_code": "(never exited)",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Application Support/ai-empire/legion-runtime/ai-vault/logs/legion50.out.log",
+      "stderr_path": "/Users/maurice/Library/Application Support/ai-empire/legion-runtime/ai-vault/logs/legion50.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 0,
+      "pid": null
+    },
+    {
+      "label": "com.ai-empire.openclaw-self-heal",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.openclaw-self-heal.plist",
+      "loaded_state": "running",
+      "last_exit_code": "0",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Application Support/ai-empire/stability-runtime/00_SYSTEM/stability/launchd_openclaw_self_heal.out.log",
+      "stderr_path": "/Users/maurice/Library/Application Support/ai-empire/stability-runtime/00_SYSTEM/stability/launchd_openclaw_self_heal.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 2,
+      "pid": 59380
+    },
+    {
+      "label": "com.ai-empire.openclaw-snapshot",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.openclaw-snapshot.plist",
+      "loaded_state": "not running",
+      "last_exit_code": "0",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Application Support/ai-empire/stability-runtime/00_SYSTEM/stability/launchd_openclaw_snapshot.out.log",
+      "stderr_path": "/Users/maurice/Library/Application Support/ai-empire/stability-runtime/00_SYSTEM/stability/launchd_openclaw_snapshot.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 1,
+      "pid": null
+    },
+    {
+      "label": "com.ai-empire.telegram-router",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.telegram-router.plist",
+      "loaded_state": "running",
+      "last_exit_code": "(never exited)",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.telegram-router.out.log",
+      "stderr_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.telegram-router.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 1,
+      "pid": 20979
+    },
+    {
+      "label": "com.ai-empire.master-chat-controller",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.master-chat-controller.plist",
+      "loaded_state": "running",
+      "last_exit_code": "(never exited)",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.master-chat-controller.out.log",
+      "stderr_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.master-chat-controller.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 1,
+      "pid": 20903
+    },
+    {
+      "label": "ai-empire.youtube-automation.godmode",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/ai-empire.youtube-automation.godmode.plist",
+      "loaded_state": "running",
+      "last_exit_code": "(never exited)",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/ai-empire.youtube-automation.godmode.out.log",
+      "stderr_path": "/Users/maurice/Library/Logs/ai-empire/ai-empire.youtube-automation.godmode.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 1,
+      "pid": 21367
+    },
+    {
+      "label": "com.empire.youtube.producer",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.empire.youtube.producer.plist",
+      "loaded_state": "not running",
+      "last_exit_code": "0",
+      "program": "/bin/bash",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/com.empire.youtube.producer.out.log",
+      "stderr_path": "/Users/maurice/Library/Logs/ai-empire/com.empire.youtube.producer.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 1,
+      "pid": null
+    },
+    {
+      "label": "ai.openclaw.gateway",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/ai.openclaw.gateway.plist",
+      "loaded_state": "running",
+      "last_exit_code": "0",
+      "program": "/opt/homebrew/Cellar/node@22/22.22.0/bin/node",
+      "stdout_path": "/tmp/openclaw/gateway.launchd.out.log",
+      "stderr_path": "/tmp/openclaw/gateway.launchd.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 2,
+      "pid": 51606
+    },
+    {
+      "label": "com.aiempire.guardian",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.aiempire.guardian.plist",
+      "loaded_state": "not-loaded",
+      "last_exit_code": null,
+      "program": null,
+      "stdout_path": null,
+      "stderr_path": null,
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": false,
+        "stdout_parent_exists": false,
+        "stderr_parent_exists": false
+      },
+      "runs": null,
+      "pid": null,
+      "notes": "Bad request.\nCould not find service \"com.aiempire.guardian\" in domain for user gui: 501"
+    },
+    {
+      "label": "com.ai-empire.daily-content-sprint",
+      "source_plist": null,
+      "loaded_state": "not-loaded",
+      "last_exit_code": null,
+      "program": null,
+      "stdout_path": null,
+      "stderr_path": null,
+      "exists_flags": {
+        "source_plist_exists": false,
+        "program_exists": false,
+        "stdout_parent_exists": false,
+        "stderr_parent_exists": false
+      },
+      "runs": null,
+      "pid": null,
+      "notes": "Bad request.\nCould not find service \"com.ai-empire.daily-content-sprint\" in domain for user gui: 501"
+    },
+    {
+      "label": "com.ai-empire.chat-export-ingest",
+      "source_plist": null,
+      "loaded_state": "not-loaded",
+      "last_exit_code": null,
+      "program": null,
+      "stdout_path": null,
+      "stderr_path": null,
+      "exists_flags": {
+        "source_plist_exists": false,
+        "program_exists": false,
+        "stdout_parent_exists": false,
+        "stderr_parent_exists": false
+      },
+      "runs": null,
+      "pid": null,
+      "notes": "Bad request.\nCould not find service \"com.ai-empire.chat-export-ingest\" in domain for user gui: 501"
+    },
+    {
+      "label": "com.ai-empire.shorts-revenue",
+      "source_plist": null,
+      "loaded_state": "not-loaded",
+      "last_exit_code": null,
+      "program": null,
+      "stdout_path": null,
+      "stderr_path": null,
+      "exists_flags": {
+        "source_plist_exists": false,
+        "program_exists": false,
+        "stdout_parent_exists": false,
+        "stderr_parent_exists": false
+      },
+      "runs": null,
+      "pid": null,
+      "notes": "Bad request.\nCould not find service \"com.ai-empire.shorts-revenue\" in domain for user gui: 501"
+    },
+    {
+      "label": "com.ai-empire.income-stream",
+      "source_plist": null,
+      "loaded_state": "not-loaded",
+      "last_exit_code": null,
+      "program": null,
+      "stdout_path": null,
+      "stderr_path": null,
+      "exists_flags": {
+        "source_plist_exists": false,
+        "program_exists": false,
+        "stdout_parent_exists": false,
+        "stderr_parent_exists": false
+      },
+      "runs": null,
+      "pid": null,
+      "notes": "Bad request.\nCould not find service \"com.ai-empire.income-stream\" in domain for user gui: 501"
+    },
+    {
+      "label": "com.ai-empire.telegram-report",
+      "source_plist": null,
+      "loaded_state": "not-loaded",
+      "last_exit_code": null,
+      "program": null,
+      "stdout_path": null,
+      "stderr_path": null,
+      "exists_flags": {
+        "source_plist_exists": false,
+        "program_exists": false,
+        "stdout_parent_exists": false,
+        "stderr_parent_exists": false
+      },
+      "runs": null,
+      "pid": null,
+      "notes": "Bad request.\nCould not find service \"com.ai-empire.telegram-report\" in domain for user gui: 501"
+    },
+    {
+      "label": "com.ai-empire.infra-audit-daily",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.infra-audit-daily.plist",
+      "loaded_state": "not running",
+      "last_exit_code": "(never exited)",
+      "program": "/usr/bin/python3",
+      "stdout_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.infra-audit-daily.out.log",
+      "stderr_path": "/Users/maurice/Library/Logs/ai-empire/com.ai-empire.infra-audit-daily.err.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 0,
+      "pid": null
+    },
+    {
+      "label": "com.ai-empire.icloud-sync",
+      "source_plist": "/Users/maurice/Library/LaunchAgents/com.ai-empire.icloud-sync.plist",
+      "loaded_state": "not running",
+      "last_exit_code": "126",
+      "program": "/bin/bash",
+      "stdout_path": "/tmp/icloud-sync.log",
+      "stderr_path": "/tmp/icloud-sync-error.log",
+      "exists_flags": {
+        "source_plist_exists": true,
+        "program_exists": true,
+        "stdout_parent_exists": true,
+        "stderr_parent_exists": true
+      },
+      "runs": 1,
+      "pid": null
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "n8n_health",
+      "url": "http://localhost:5678/healthz",
+      "status_code": 0,
+      "ok": false,
+      "error": "url_error:[Errno 61] Connection refused"
+    },
+    {
+      "name": "ollama_tags",
+      "url": "http://localhost:11434/api/tags",
+      "status_code": 200,
+      "ok": true,
+      "error": null,
+      "preview": "<redacted>"
+    },
+    {
+      "name": "openclaw_gateway",
+      "url": "http://localhost:18789/",
+      "status_code": 200,
+      "ok": true,
+      "error": null,
+      "preview": "<redacted>"
+    },
+    {
+      "name": "empire_api",
+      "url": "http://localhost:3333",
+      "status_code": 0,
+      "ok": false,
+      "error": "url_error:[Errno 61] Connection refused"
+    },
+    {
+      "name": "store_ui",
+      "url": "http://localhost:5001",
+      "status_code": 0,
+      "ok": false,
+      "error": "url_error:[Errno 61] Connection refused"
+    },
+    {
+      "name": "openclaw_api",
+      "url": "http://localhost:8080/health",
+      "status_code": 0,
+      "ok": false,
+      "error": "url_error:[Errno 61] Connection refused"
+    }
+  ],
+  "credentials": {
+    "files": {
+      "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/.env": {
+        "exists": false,
+        "keys_detected": 0,
+        "present_keys": [],
+        "scan_error": null
+      },
+      "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/automation/.env": {
+        "exists": true,
+        "keys_detected": 7,
+        "present_keys": [
+          "TIKTOK_ACCESS_TOKEN",
+          "TIKTOK_API_STRICT",
+          "TIKTOK_CLIENT_KEY",
+          "TIKTOK_CLIENT_SECRET",
+          "TIKTOK_REDIRECT_URI",
+          "TIKTOK_REFRESH_TOKEN",
+          "TIKTOK_SCOPES"
+        ],
+        "scan_error": null
+      },
+      "/Users/maurice/.openclaw/.env": {
+        "exists": false,
+        "keys_detected": 0,
+        "present_keys": [],
+        "scan_error": null
+      },
+      "/Users/maurice/.openclaw/workspace/ai-empire/.env": {
+        "exists": true,
+        "keys_detected": 12,
+        "present_keys": [
+          "ANTHROPIC_API_KEY",
+          "DISCORD_WEBHOOK_URL",
+          "ELEVENLABS_API_KEY",
+          "GUMROAD_ACCESS_TOKEN",
+          "HEYGEN_API_KEY",
+          "KIMI_N8N_API_KEY",
+          "MOONSHOT_API_KEY",
+          "OPENAI_API_KEY",
+          "POSTGRES_PASSWORD",
+          "REDIS_PASSWORD",
+          "TIKTOK_API_KEY",
+          "YOUTUBE_API_KEY"
+        ],
+        "scan_error": null
+      },
+      "/Users/maurice/Library/Application Support/ai-empire/automation/.env": {
+        "exists": false,
+        "keys_detected": 0,
+        "present_keys": [],
+        "scan_error": null
+      },
+      "/Users/maurice/Library/Application Support/ai-empire/legion-runtime/automation/.env": {
+        "exists": false,
+        "keys_detected": 0,
+        "present_keys": [],
+        "scan_error": null
+      },
+      "/Users/maurice/.zshrc": {
+        "exists": true,
+        "keys_detected": 0,
+        "present_keys": [],
+        "scan_error": null
+      }
+    },
+    "groups": {
+      "youtube": {
+        "required_keys": [
+          "YOUTUBE_CLIENT_ID",
+          "YOUTUBE_CLIENT_SECRET",
+          "YOUTUBE_REFRESH_TOKEN",
+          "YOUTUBE_ACCESS_TOKEN",
+          "YOUTUBE_API_KEY"
+        ],
+        "status": {
+          "YOUTUBE_CLIENT_ID": "missing",
+          "YOUTUBE_CLIENT_SECRET": "missing",
+          "YOUTUBE_REFRESH_TOKEN": "missing",
+          "YOUTUBE_ACCESS_TOKEN": "missing",
+          "YOUTUBE_API_KEY": "present"
+        },
+        "all_present": false,
+        "present_count": 1,
+        "missing_count": 4
+      },
+      "stripe": {
+        "required_keys": [
+          "STRIPE_SECRET_KEY"
+        ],
+        "status": {
+          "STRIPE_SECRET_KEY": "missing"
+        },
+        "all_present": false,
+        "present_count": 0,
+        "missing_count": 1
+      },
+      "telegram": {
+        "required_keys": [
+          "TELEGRAM_BOT_TOKEN",
+          "TELEGRAM_CHAT_ID"
+        ],
+        "status": {
+          "TELEGRAM_BOT_TOKEN": "missing",
+          "TELEGRAM_CHAT_ID": "missing"
+        },
+        "all_present": false,
+        "present_count": 0,
+        "missing_count": 2
+      },
+      "n8n": {
+        "required_keys": [
+          "N8N_API_KEY",
+          "KIMI_N8N_API_KEY"
+        ],
+        "status": {
+          "N8N_API_KEY": "missing",
+          "KIMI_N8N_API_KEY": "present"
+        },
+        "all_present": false,
+        "present_count": 1,
+        "missing_count": 1
+      },
+      "gumroad": {
+        "required_keys": [
+          "GUMROAD_ACCESS_TOKEN"
+        ],
+        "status": {
+          "GUMROAD_ACCESS_TOKEN": "present"
+        },
+        "all_present": true,
+        "present_count": 1,
+        "missing_count": 0
+      },
+      "tiktok": {
+        "required_keys": [
+          "TIKTOK_CLIENT_KEY",
+          "TIKTOK_CLIENT_SECRET",
+          "TIKTOK_ACCESS_TOKEN",
+          "TIKTOK_REFRESH_TOKEN"
+        ],
+        "status": {
+          "TIKTOK_CLIENT_KEY": "present",
+          "TIKTOK_CLIENT_SECRET": "present",
+          "TIKTOK_ACCESS_TOKEN": "present",
+          "TIKTOK_REFRESH_TOKEN": "present"
+        },
+        "all_present": true,
+        "present_count": 4,
+        "missing_count": 0
+      }
+    },
+    "policy": "values never persisted; present/missing only"
+  },
+  "pipelines": {
+    "youtube_shorts_latest": {
+      "run_id": "20260214_030240",
+      "timestamp": "2026-02-14T02:02:40.207199Z",
+      "execute": false,
+      "used_youtube_api": false,
+      "channel_id": "",
+      "trend_count": 6,
+      "draft_count": 6,
+      "gemini_video_enabled": true,
+      "gemini_video_renders": 0,
+      "deliverables_dir": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/youtube_shorts/20260214_030240"
+    },
+    "shorts_revenue_latest": {
+      "run_id": "20260214_181124",
+      "timestamp": "2026-02-14T17:15:04.094930Z",
+      "execute": true,
+      "deliverables_dir": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/20260214_181124",
+      "draft_count": 6,
+      "used_youtube_api": false,
+      "used_tiktok_api": false,
+      "video_provider": "sora",
+      "sora_video_enabled": true,
+      "video_renders": 2,
+      "money_projection_eur_24h": 5.4,
+      "real_revenue_eur": null,
+      "strategy_state_path": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/strategy_state.json",
+      "strategy_changes": [
+        {
+          "adaptive_change": "script_shortening_enforced",
+          "to_word_cap": 55,
+          "reason": "avg_vph_below_target_2_runs"
+        },
+        {
+          "adaptive_change": "emotional_framing_up",
+          "story_contrarian_boost_pct": 20,
+          "reason": "avg_like_rate_below_0.03"
+        },
+        {
+          "adaptive_change": "cta_binary_mode_enabled",
+          "reason": "avg_comment_rate_below_0.005"
+        }
+      ],
+      "winning_patterns": [],
+      "killed_patterns": [
+        {
+          "pattern_key": "motivation::Stop scrolling: AI News in 30 seconds in",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: AI News in 30 seconds in",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Motivation and self-discipline in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Motivation and self-discipline in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Insane productivity hacks in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Insane productivity hacks in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Money mindset myths in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Money mindset myths in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Story-driven mini lessons in 30 seconds.",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Story-driven mini lessons in 30 seconds.",
+          "avg_vph": 0.0
+        },
+        {
+          "pattern_key": "motivation::Stop scrolling: Fun facts that sound fake but",
+          "topic_cluster": "motivation",
+          "hook_template": "Stop scrolling: Fun facts that sound fake but",
+          "avg_vph": 0.0
+        }
+      ],
+      "next_test_matrix": [
+        {
+          "test": "hook_pattern_interrupt",
+          "enabled": true,
+          "target": "avg_vph"
+        },
+        {
+          "test": "story_contrarian_mix_plus_20pct",
+          "enabled": true,
+          "target": "like_rate"
+        },
+        {
+          "test": "binary_one_word_cta",
+          "enabled": true,
+          "target": "comment_rate"
+        }
+      ]
+    },
+    "stripe_latest": null,
+    "stripe_latest_exists": false
+  },
+  "revenue": {
+    "real_revenue_eur": 0.0,
+    "projected_revenue_eur_24h": 5.4,
+    "publish_counts": {
+      "shorts_published_this_run": 0
+    },
+    "api_usage_flags": {
+      "shorts_used_youtube_api": false,
+      "shorts_used_tiktok_api": false,
+      "youtube_shorts_used_api": false
+    },
+    "income_stream_report": {
+      "latest_report": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/reports/income_stream_20260214_181506.txt",
+      "real_revenue_eur": 0.0,
+      "real_gross_eur": 0.0,
+      "successful_payments": 0,
+      "projected_revenue_eur_24h": 5.4,
+      "shorts_published_this_run": 0,
+      "error": null
+    }
+  },
+  "gaps": [
+    {
+      "id": "credentials::youtube",
+      "priority": "P0",
+      "type": "credentials",
+      "summary": "Required credentials incomplete for youtube",
+      "evidence": {
+        "required_keys": [
+          "YOUTUBE_CLIENT_ID",
+          "YOUTUBE_CLIENT_SECRET",
+          "YOUTUBE_REFRESH_TOKEN",
+          "YOUTUBE_ACCESS_TOKEN",
+          "YOUTUBE_API_KEY"
+        ],
+        "status": {
+          "YOUTUBE_CLIENT_ID": "missing",
+          "YOUTUBE_CLIENT_SECRET": "missing",
+          "YOUTUBE_REFRESH_TOKEN": "missing",
+          "YOUTUBE_ACCESS_TOKEN": "missing",
+          "YOUTUBE_API_KEY": "present"
+        },
+        "all_present": false,
+        "present_count": 1,
+        "missing_count": 4
+      }
+    },
+    {
+      "id": "credentials::stripe",
+      "priority": "P0",
+      "type": "credentials",
+      "summary": "Required credentials incomplete for stripe",
+      "evidence": {
+        "required_keys": [
+          "STRIPE_SECRET_KEY"
+        ],
+        "status": {
+          "STRIPE_SECRET_KEY": "missing"
+        },
+        "all_present": false,
+        "present_count": 0,
+        "missing_count": 1
+      }
+    },
+    {
+      "id": "credentials::telegram",
+      "priority": "P1",
+      "type": "credentials",
+      "summary": "Required credentials incomplete for telegram",
+      "evidence": {
+        "required_keys": [
+          "TELEGRAM_BOT_TOKEN",
+          "TELEGRAM_CHAT_ID"
+        ],
+        "status": {
+          "TELEGRAM_BOT_TOKEN": "missing",
+          "TELEGRAM_CHAT_ID": "missing"
+        },
+        "all_present": false,
+        "present_count": 0,
+        "missing_count": 2
+      }
+    },
+    {
+      "id": "credentials::n8n",
+      "priority": "P1",
+      "type": "credentials",
+      "summary": "Required credentials incomplete for n8n",
+      "evidence": {
+        "required_keys": [
+          "N8N_API_KEY",
+          "KIMI_N8N_API_KEY"
+        ],
+        "status": {
+          "N8N_API_KEY": "missing",
+          "KIMI_N8N_API_KEY": "present"
+        },
+        "all_present": false,
+        "present_count": 1,
+        "missing_count": 1
+      }
+    },
+    {
+      "id": "stripe_source_of_truth_missing",
+      "priority": "P0",
+      "type": "revenue",
+      "summary": "Stripe latest revenue artifact missing",
+      "evidence": {
+        "path": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/revenue/stripe/latest.json"
+      }
+    },
+    {
+      "id": "real_revenue_zero_or_unknown",
+      "priority": "P0",
+      "type": "revenue",
+      "summary": "No real Stripe cashflow recorded in latest income stream report",
+      "evidence": {
+        "latest_report": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/reports/income_stream_20260214_181506.txt",
+        "real_revenue_eur": 0.0,
+        "real_gross_eur": 0.0,
+        "successful_payments": 0,
+        "projected_revenue_eur_24h": 5.4,
+        "shorts_published_this_run": 0,
+        "error": null
+      }
+    },
+    {
+      "id": "shorts_publish_zero",
+      "priority": "P1",
+      "type": "distribution",
+      "summary": "Latest income report shows zero Shorts publishes",
+      "evidence": {
+        "latest_report": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/ai-vault/reports/income_stream_20260214_181506.txt",
+        "real_revenue_eur": 0.0,
+        "real_gross_eur": 0.0,
+        "successful_payments": 0,
+        "projected_revenue_eur_24h": 5.4,
+        "shorts_published_this_run": 0,
+        "error": null
+      }
+    }
+  ],
+  "recommendations": [
+    "Complete YouTube OAuth env set (client id/secret/refresh token) before enabling public auto-publish.",
+    "Set STRIPE_SECRET_KEY and run scheduled stripe sync to establish real cash source-of-truth.",
+    "Tune safety guard thresholds and cadence to avoid full skip loops in shorts autopilot.",
+    "Set N8N_API_KEY for workflow API validation and lifecycle checks."
+  ],
+  "meta": {
+    "redact_secrets": true,
+    "schema_version": "2026-02-14"
+  }
+}

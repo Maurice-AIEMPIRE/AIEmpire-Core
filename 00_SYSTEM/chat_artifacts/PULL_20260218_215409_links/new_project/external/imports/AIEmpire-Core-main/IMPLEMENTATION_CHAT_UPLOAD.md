@@ -1,0 +1,1 @@
+/Users/maurice/Documents/New project/external/imports/AIEmpire-Core-main/IMPLEMENTATION_CHAT_UPLOAD.md

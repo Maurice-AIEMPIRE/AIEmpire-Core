@@ -1,0 +1,1 @@
+/Users/maurice/Downloads/AIEmpire-Core-main/systems/LEAD_AGENT_PROMPT.md

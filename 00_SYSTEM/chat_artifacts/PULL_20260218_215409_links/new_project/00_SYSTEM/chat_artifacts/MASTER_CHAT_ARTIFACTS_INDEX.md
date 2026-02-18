@@ -1,0 +1,1 @@
+/Users/maurice/Documents/New project/00_SYSTEM/chat_artifacts/MASTER_CHAT_ARTIFACTS_INDEX.md

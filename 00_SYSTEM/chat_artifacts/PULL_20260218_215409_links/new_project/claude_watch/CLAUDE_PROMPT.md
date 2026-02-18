@@ -1,0 +1,1 @@
+/Users/maurice/Documents/New project/claude_watch/CLAUDE_PROMPT.md

@@ -1,0 +1,1 @@
+/Users/maurice/.openclaw/workspace/ai-empire/ULTRA_OLLAMA_PROMPT.md

@@ -1,0 +1,1 @@
+/Users/maurice/Documents/New project/automation/scripts/run_chat_export_ingest.sh

@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[2]
 UID = os.getuid()
 DEBUG = os.getenv("AUDIT_DEBUG", "0").strip() == "1"
 
-DEFAULT_OUTPUT = ROOT / "00_SYSTEM/infra/SYSTEM_INVENTORY_2026-02-14.json"
+DEFAULT_OUTPUT = ROOT / "00_SYSTEM/infra/SYSTEM_INVENTORY_2026-02-18.json"
 
 ENV_FILES = [
     ROOT / ".env",
@@ -121,6 +121,41 @@ CRITICAL_LABELS = [
     "com.ai-empire.snapshot",
 ]
 
+FUNCTION_GROUP_RULES: dict[str, str] = {
+    "watchdog": "watchdog",
+    "autonomy": "orchestrator",
+    "master-chat-controller": "orchestrator",
+    "telegram-router": "telegram_router",
+    "telegram-report": "telegram_router",
+    "youtube-automation.godmode": "youtube_autopilot",
+    "youtube.producer": "youtube_autopilot",
+    "youtube-shorts": "youtube_autopilot",
+    "n8n": "n8n",
+    "snapshot": "snapshot",
+    "openclaw": "openclaw_gateway",
+    "infra-audit": "infra_audit",
+}
+
+CANONICAL_LABELS: dict[str, str] = {
+    "orchestrator": "com.ai-empire.autonomy",
+    "watchdog": "com.ai-empire.watchdog",
+    "openclaw_gateway": "ai.openclaw.gateway",
+    "telegram_router": "com.ai-empire.telegram-router",
+    "youtube_autopilot": "ai-empire.youtube-automation.godmode",
+    "n8n": "com.ai-empire.n8n",
+    "snapshot": "com.ai-empire.snapshot",
+    "infra_audit": "com.ai-empire.infra-audit-daily",
+}
+
+GROUP_ENDPOINT_DEPS: dict[str, list[str]] = {
+    "openclaw_gateway": ["http://localhost:18789/", "http://localhost:8080/health"],
+    "n8n": ["http://localhost:5678/healthz"],
+    "youtube_autopilot": ["http://localhost:11434/api/tags"],
+}
+
+HEAVY_GROUPS = {"orchestrator", "youtube_autopilot", "openclaw_gateway"}
+DEFAULT_WINDOW_POLICY = "08:00-23:00"
+
 
 @dataclass
 class CmdResult:
@@ -183,6 +218,47 @@ def maybe_command_exists(program: str | None) -> bool:
     return shutil.which(program) is not None
 
 
+def infer_function_group(label: str) -> str:
+    lowered = label.lower()
+    for token, group in FUNCTION_GROUP_RULES.items():
+        if token in lowered:
+            return group
+    return "other"
+
+
+def window_policy_for_group(group: str) -> str:
+    if group in HEAVY_GROUPS:
+        return DEFAULT_WINDOW_POLICY
+    return "always"
+
+
+def owner_stack_for_job(source_plist: str | None) -> str:
+    source = (source_plist or "").lower()
+    if "openclaw" in source:
+        return "openclaw_workspace"
+    if "new project" in source:
+        return "new_project"
+    if "ai_agents" in source:
+        return "ai_agents"
+    return "unknown"
+
+
+def classify_job_state(loaded_state: str | None, last_exit_code: str | None) -> str:
+    ls = (loaded_state or "").lower()
+    ec = str(last_exit_code or "")
+    if "running" in ls:
+        return "running"
+    if "not-loaded" in ls:
+        return "not_loaded"
+    if "78" in ec:
+        return "error_ex_config"
+    if ec and ec not in {"0", "(never exited)"}:
+        return "error_nonzero_exit"
+    if ls:
+        return ls
+    return "unknown"
+
+
 def collect_labels() -> list[str]:
     res = run(["launchctl", "list"])
     labels: list[str] = []
@@ -209,8 +285,16 @@ def collect_job(label: str) -> dict[str, Any]:
     if raw.code != 0:
         guessed_plist = Path.home() / "Library/LaunchAgents" / f"{label}.plist"
         source_plist = str(guessed_plist) if guessed_plist.exists() else None
+        function_group = infer_function_group(label)
         return {
             "label": label,
+            "function_group": function_group,
+            "canonical": CANONICAL_LABELS.get(function_group) == label,
+            "disabled_reason": "launchctl_print_failed",
+            "depends_on_endpoints": GROUP_ENDPOINT_DEPS.get(function_group, []),
+            "window_policy": window_policy_for_group(function_group),
+            "owner_stack": owner_stack_for_job(source_plist),
+            "state": "not_loaded",
             "source_plist": source_plist,
             "loaded_state": "not-loaded",
             "last_exit_code": None,
@@ -236,9 +320,17 @@ def collect_job(label: str) -> dict[str, Any]:
     stderr_path = parse_kv(raw.out, "stderr path")
     runs = parse_kv(raw.out, "runs")
     pid = parse_kv(raw.out, "pid")
+    function_group = infer_function_group(label)
 
     return {
         "label": label,
+        "function_group": function_group,
+        "canonical": CANONICAL_LABELS.get(function_group) == label,
+        "disabled_reason": None,
+        "depends_on_endpoints": GROUP_ENDPOINT_DEPS.get(function_group, []),
+        "window_policy": window_policy_for_group(function_group),
+        "owner_stack": owner_stack_for_job(source_plist),
+        "state": classify_job_state(loaded_state, last_exit_code),
         "source_plist": source_plist,
         "loaded_state": loaded_state,
         "last_exit_code": last_exit_code,
@@ -630,6 +722,32 @@ def build_recommendations(gaps: list[dict[str, Any]]) -> list[str]:
     return recs
 
 
+def derive_blockers(gaps: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    revenue = [g for g in gaps if g.get("type") in {"revenue", "credentials"}]
+    runtime = [g for g in gaps if g.get("type") == "runtime"]
+    return revenue, runtime
+
+
+def calculate_health_score(jobs: list[dict[str, Any]], endpoints: list[dict[str, Any]], gaps: list[dict[str, Any]]) -> int:
+    total_jobs = len(jobs) or 1
+    running_or_ok = 0
+    for j in jobs:
+        state = str(j.get("state") or "")
+        ec = str(j.get("last_exit_code") or "")
+        if state == "running" or ec in {"0", "(never exited)"}:
+            running_or_ok += 1
+
+    endpoint_total = len(endpoints) or 1
+    endpoint_ok = sum(1 for e in endpoints if e.get("ok"))
+    p0_count = sum(1 for g in gaps if g.get("priority") == "P0")
+
+    score = 100
+    score -= int((1 - (running_or_ok / total_jobs)) * 40)
+    score -= int((1 - (endpoint_ok / endpoint_total)) * 30)
+    score -= min(30, p0_count * 5)
+    return max(0, min(100, score))
+
+
 def collect_snapshot(redact_secrets: bool) -> dict[str, Any]:
     debug("collect_jobs")
     jobs = collect_jobs()
@@ -661,6 +779,7 @@ def collect_snapshot(redact_secrets: bool) -> dict[str, Any]:
     gaps = build_gaps(jobs, creds, pipelines, revenue)
     debug("build_payload")
 
+    revenue_blockers, runtime_blockers = derive_blockers(gaps)
     payload: dict[str, Any] = {
         "generated_at": utc_now(),
         "hosts": {
@@ -696,10 +815,13 @@ def collect_snapshot(redact_secrets: bool) -> dict[str, Any]:
             "income_stream_report": revenue,
         },
         "gaps": gaps,
+        "health_score": calculate_health_score(jobs, endpoints, gaps),
+        "revenue_blockers": revenue_blockers,
+        "runtime_blockers": runtime_blockers,
         "recommendations": build_recommendations(gaps),
         "meta": {
             "redact_secrets": redact_secrets,
-            "schema_version": "2026-02-14",
+            "schema_version": "2026-02-18",
         },
     }
     return payload
@@ -717,6 +839,9 @@ def validate_snapshot(data: dict[str, Any]) -> list[str]:
         "pipelines",
         "revenue",
         "gaps",
+        "health_score",
+        "revenue_blockers",
+        "runtime_blockers",
         "recommendations",
     }
     for k in required_top:
@@ -737,6 +862,11 @@ def validate_snapshot(data: dict[str, Any]) -> list[str]:
         "stdout_path",
         "stderr_path",
         "exists_flags",
+        "function_group",
+        "canonical",
+        "disabled_reason",
+        "depends_on_endpoints",
+        "window_policy",
     }
     for idx, job in enumerate(jobs):
         if not isinstance(job, dict):

@@ -1,0 +1,1 @@
+/Users/maurice/Downloads/AIEmpire-Core-main/docs/CHAT_UPLOAD_GUIDE.md

@@ -1,0 +1,1 @@
+/Users/maurice/Documents/New project/external/imports/AIEmpire-Core-main/openclaw-config/LEAD_AGENT_PROMPT.md

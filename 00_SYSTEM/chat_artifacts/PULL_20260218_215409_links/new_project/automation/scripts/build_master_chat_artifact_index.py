@@ -1,0 +1,1 @@
+/Users/maurice/Documents/New project/automation/scripts/build_master_chat_artifact_index.py

@@ -1,0 +1,16 @@
+{
+  "date": "2026-02-18",
+  "leads": 0,
+  "replies": 0,
+  "calls": 0,
+  "offers": 0,
+  "closes": 0,
+  "cash_eur": 0.0,
+  "published_shorts": 0,
+  "runtime_incidents": 1,
+  "sources": {
+    "stripe": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/revenue/stripe/latest.json",
+    "shorts": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/content_factory/deliverables/shorts_revenue/latest.json",
+    "preflight": "/Users/maurice/Documents/Dokumente – Mac mini von Maurice/New project/automation/runs/preflight/latest.json"
+  }
+}

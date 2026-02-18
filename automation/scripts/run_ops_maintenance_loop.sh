@@ -20,6 +20,8 @@ CHAT_EXPORT_INTERVAL_SEC="${CHAT_EXPORT_INTERVAL_SEC:-21600}"   # 6h
 INCOME_INTERVAL_SEC="${INCOME_INTERVAL_SEC:-3600}"               # 1h
 STRIPE_SYNC_INTERVAL_SEC="${STRIPE_SYNC_INTERVAL_SEC:-7200}"     # 2h
 HANDOFF_INTERVAL_SEC="${HANDOFF_INTERVAL_SEC:-7200}"             # 2h
+PREFLIGHT_INTERVAL_SEC="${PREFLIGHT_INTERVAL_SEC:-900}"          # 15m
+DAILY_KPI_INTERVAL_SEC="${DAILY_KPI_INTERVAL_SEC:-86400}"        # 24h
 
 STATE_DIR="$ROOT_DIR/automation/runs/ops_state"
 LOG_DIR="$ROOT_DIR/automation/runs/ops"
@@ -78,6 +80,18 @@ while true; do
       echo "[ops-loop] task=stripe_sync skipped reason=stripe_key_missing" | tee -a "$LOG_FILE"
     fi
     mark_done "stripe_sync"
+  fi
+
+  if is_due "preflight_gate" "$PREFLIGHT_INTERVAL_SEC"; then
+    echo "[ops-loop] task=preflight_gate ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee -a "$LOG_FILE"
+    python3 automation/scripts/preflight_gate.py >> "$LOG_FILE" 2>&1 || true
+    mark_done "preflight_gate"
+  fi
+
+  if is_due "daily_kpi" "$DAILY_KPI_INTERVAL_SEC"; then
+    echo "[ops-loop] task=daily_kpi ts=$(date -u +%Y-%m-%dT%H:%M:%SZ)" | tee -a "$LOG_FILE"
+    python3 automation/scripts/write_daily_kpi.py >> "$LOG_FILE" 2>&1 || true
+    mark_done "daily_kpi"
   fi
 
   if is_due "handoff" "$HANDOFF_INTERVAL_SEC"; then
