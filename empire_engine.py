@@ -47,6 +47,9 @@ Usage:
   python3 empire_engine.py leads              # Process leads
   python3 empire_engine.py revenue            # Revenue report
   python3 empire_engine.py auto               # Full autonomous cycle
+  python3 empire_engine.py godmode [task]     # 4-Role AI Router (Fixer/Coder/QA)
+  python3 empire_engine.py mirror             # Mirror System (Mac <-> Gemini)
+  python3 empire_engine.py repair             # Auto-Repair (self-healing)
   python3 empire_engine.py setup              # First-time setup wizard
 
 Author: Maurice Pfeifer — Elektrotechnikmeister + AI Architect
@@ -347,6 +350,10 @@ def show_dashboard():
         "Planning Mode": (PROJECT_ROOT / "antigravity" / "planning_mode.py").exists(),
         "Auto-Repair": (PROJECT_ROOT / "scripts" / "auto_repair.py").exists(),
         "BMA Academy": (PROJECT_ROOT / "BMA_ACADEMY").exists() or (PROJECT_ROOT / "products").exists(),
+        "Mirror System": (PROJECT_ROOT / "mirror-system" / "sync" / "sync_manager.py").exists(),
+        "Godmode Router": (PROJECT_ROOT / "godmode" / "router.py").exists(),
+        "Config Module": (PROJECT_ROOT / "config" / "env_config.py").exists(),
+        "Warroom": (PROJECT_ROOT / "warroom" / "00_command" / "status.md").exists(),
     }
 
     up = sum(1 for v in checks.values() if v)
@@ -398,6 +405,8 @@ def show_dashboard():
         "leads": "Leads verarbeiten + CRM updaten",
         "revenue": "Revenue Report anzeigen",
         "auto": "Voller autonomer Zyklus",
+        "godmode": "Godmode 4-Role Router starten",
+        "mirror": "Mirror System (Mac<->Gemini) starten",
         "setup": "Ersteinrichtung (Accounts + APIs)",
         "repair": "System reparieren (Auto-Heal)",
     }
@@ -506,6 +515,15 @@ def main():
     elif command == "setup":
         print("  Running Setup...")
         os.system(f"bash {PROJECT_ROOT / 'scripts' / 'setup_optimal_dev.sh'}")
+
+    elif command == "godmode":
+        task = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "--status"
+        print("  Godmode Router (4-Role: Architect / Fixer / Coder / QA)...")
+        os.system(f"python3 {PROJECT_ROOT / 'godmode' / 'router.py'} {task}")
+
+    elif command == "mirror":
+        print("  Mirror System (Mac <-> Gemini Dual-Brain)...")
+        os.system(f"python3 {PROJECT_ROOT / 'mirror-system' / 'sync' / 'sync_manager.py'}")
 
     else:
         show_dashboard()

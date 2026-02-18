@@ -144,7 +144,7 @@ def collect_task_log() -> list:
     tasks = []
 
     # Workflow state
-    state_file = PROJECT_ROOT / "workflow-system" / "state" / "current_state.json"
+    state_file = PROJECT_ROOT / "workflow_system" / "state" / "current_state.json"
     if state_file.exists():
         try:
             state = json.loads(state_file.read_text())
@@ -159,7 +159,7 @@ def collect_task_log() -> list:
             pass
 
     # Cowork state
-    cowork_file = PROJECT_ROOT / "workflow-system" / "state" / "cowork_state.json"
+    cowork_file = PROJECT_ROOT / "workflow_system" / "state" / "cowork_state.json"
     if cowork_file.exists():
         try:
             cowork = json.loads(cowork_file.read_text())
@@ -227,7 +227,7 @@ def collect_open_tasks() -> list:
                 tasks.append({"source": "chatgpt_tasks", "task": line.strip()[6:100]})
 
     # Cowork pending recommendations
-    cowork_file = PROJECT_ROOT / "workflow-system" / "state" / "cowork_state.json"
+    cowork_file = PROJECT_ROOT / "workflow_system" / "state" / "cowork_state.json"
     if cowork_file.exists():
         try:
             cowork = json.loads(cowork_file.read_text())
@@ -244,7 +244,7 @@ def collect_error_patterns() -> list:
     errors = []
 
     # Check workflow output for errors
-    output_dir = PROJECT_ROOT / "workflow-system" / "output"
+    output_dir = PROJECT_ROOT / "workflow_system" / "output"
     if output_dir.exists():
         for f in sorted(output_dir.glob("*.json"), key=lambda x: x.stat().st_mtime)[-5:]:
             try:

@@ -23,9 +23,9 @@ AUDIT-KONTEXT (Step 1):
 {audit_summary}
 
 BESTEHENDER CODE IM REPO:
-- atomic-reactor/run_tasks.py: Async task execution mit Kimi API
-- kimi-swarm/swarm_500k.py: 500K Agent Swarm mit Claude Orchestration
-- x-lead-machine/: Content + Lead Generation (4 Python Module)
+- atomic_reactor/run_tasks.py: Async task execution mit Kimi API
+- kimi_swarm/swarm_500k.py: 500K Agent Swarm mit Claude Orchestration
+- x_lead_machine/: Content + Lead Generation (4 Python Module)
 - crm/server.js: Express.js CRM mit SQLite + Socket.io
 - openclaw-config/: 9 Cron Jobs, Kimi K2.5 Model Config
 

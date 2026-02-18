@@ -33,8 +33,8 @@ app.add_middleware(
 # ── Paths ──
 EMPIRE_ROOT = Path(__file__).parent.parent
 GOLD_NUGGETS_DIR = EMPIRE_ROOT / "gold-nuggets"
-BRAIN_DIR = EMPIRE_ROOT / "brain-system" / "brains"
-TASKS_DIR = EMPIRE_ROOT / "atomic-reactor" / "tasks"
+BRAIN_DIR = EMPIRE_ROOT / "brain_system" / "brains"
+TASKS_DIR = EMPIRE_ROOT / "atomic_reactor" / "tasks"
 DOCS_DIR = EMPIRE_ROOT / "docs"
 MOBILE_DIR = EMPIRE_ROOT / "mobile-command-center"
 
@@ -640,17 +640,20 @@ async def system_info():
             "javascript": total_js,
         },
         "subsystems": [
-            "brain-system",
-            "workflow-system",
-            "kimi-swarm",
-            "x-lead-machine",
+            "brain_system",
+            "workflow_system",
+            "kimi_swarm",
+            "x_lead_machine",
             "crm",
-            "atomic-reactor",
+            "atomic_reactor",
             "n8n-workflows",
             "openclaw-config",
             "gold-nuggets",
             "BMA_ACADEMY",
             "mobile-command-center",
+            "mirror-system",
+            "godmode",
+            "warroom",
         ],
     }
 

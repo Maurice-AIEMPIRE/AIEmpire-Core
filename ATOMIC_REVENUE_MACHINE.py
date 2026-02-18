@@ -16,8 +16,6 @@ Status: Maurice needs 2 actions to unlock EUR 35-85K Month 1 potential
 
 import json
 import subprocess
-import time
-import asyncio
 import os
 from datetime import datetime
 from pathlib import Path
@@ -94,7 +92,7 @@ class AtomicRevenueMachine:
                     health[name] = "online" if result.returncode == 0 else "api_pending"
                 else:
                     health[name] = "online"  # Verified running above
-            except:
+            except Exception:
                 health[name] = "offline"
 
         return health

@@ -18,7 +18,6 @@ import argparse
 import json
 import os
 import subprocess
-import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -258,10 +257,10 @@ def run_session(questions: list, session_type: str):
     generate_task_orders(state)
 
     print(f"\n{'='*60}")
-    print(f"  Session gespeichert.")
+    print("  Session gespeichert.")
     print(f"  Streak: {state['meta']['streak_days']} Tage")
-    print(f"  → vision_state.json aktualisiert")
-    print(f"  → task_orders.md generiert")
+    print("  → vision_state.json aktualisiert")
+    print("  → task_orders.md generiert")
     print(f"{'='*60}\n")
 
 

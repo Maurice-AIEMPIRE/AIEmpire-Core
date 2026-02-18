@@ -75,7 +75,7 @@ BRAINS = {
 # SYNAPSE (Inter-Brain Communication)
 # ============================================
 
-DB_PATH = os.path.expanduser("~/.openclaw/brain-system/synapses.db")
+DB_PATH = os.path.expanduser("~/.openclaw/brain_system/synapses.db")
 
 
 def init_synapse_db():

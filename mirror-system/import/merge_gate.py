@@ -22,7 +22,6 @@ import argparse
 import json
 import re
 import subprocess
-import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -304,7 +303,7 @@ def list_branches():
         return
 
     print(f"\n  {'='*60}")
-    print(f"  MIRROR BRANCHES")
+    print("  MIRROR BRANCHES")
     print(f"  {'='*60}")
     for branch in branches:
         stats = get_diff_stats(branch)

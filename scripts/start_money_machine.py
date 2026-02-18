@@ -330,9 +330,9 @@ class SystemStarter:
 └─────────────────────────────────────────────────────────────┘
 
 ┌─ Quick Commands ──────────────────────────────────────────────┐
-│ • Status:        python workflow-system/empire.py status      │
+│ • Status:        python workflow_system/empire.py status      │
 │ • Revenue:       python revenue_machine/pipeline.py           │
-│ • Optimize:      python workflow-system/cowork.py --daemon    │
+│ • Optimize:      python workflow_system/cowork.py --daemon    │
 │ • Test:          pytest tests/                                │
 │ • View CRM:      open http://localhost:3500                   │
 │ • Dashboard:     open http://localhost:8080                   │

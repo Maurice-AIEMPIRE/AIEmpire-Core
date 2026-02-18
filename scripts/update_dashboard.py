@@ -16,7 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).parent.parent
-sys.path.insert(0, str(ROOT_DIR / "workflow-system"))
+sys.path.insert(0, str(ROOT_DIR / "workflow_system"))
 
 DASHBOARD_FILE = ROOT_DIR / "AI_EMPIRE_BIG_PICTURE.html"
 
@@ -71,7 +71,7 @@ def get_system_health():
 
 def get_workflow_state():
     """Read workflow cycle info."""
-    p = ROOT_DIR / "workflow-system" / "state" / "current_state.json"
+    p = ROOT_DIR / "workflow_system" / "state" / "current_state.json"
     if p.exists():
         try:
             s = json.loads(p.read_text())

@@ -22,7 +22,6 @@ Usage (in Cloud):
 import argparse
 import json
 import os
-import subprocess
 import zipfile
 from datetime import datetime
 from pathlib import Path
@@ -113,7 +112,7 @@ def analyze_export(export_path: str):
     print(f"  Report: {report_file}")
 
     # Print summary
-    print(f"\n  ANALYSIS SUMMARY:")
+    print("\n  ANALYSIS SUMMARY:")
     print(f"  Components: {len(components)}")
     for key, value in report.get("analysis", {}).items():
         print(f"  {key}: {value}")

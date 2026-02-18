@@ -209,7 +209,7 @@ System has automatically switched to GitHub-based control.
         # Import X automation
         import sys
 
-        sys.path.append(str(Path(__file__).parent / "x-lead-machine"))
+        sys.path.append(str(Path(__file__).parent / "x_lead_machine"))
 
         try:
             from x_automation import XLeadMachine

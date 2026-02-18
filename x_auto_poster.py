@@ -46,7 +46,7 @@ class XAutoPoster:
         """Generate daily content for X."""
         import sys
 
-        sys.path.append(str(Path(__file__).parent / "x-lead-machine"))
+        sys.path.append(str(Path(__file__).parent / "x_lead_machine"))
 
         from x_automation import XLeadMachine
 

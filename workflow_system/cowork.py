@@ -48,7 +48,7 @@ FOCUS_AREAS = {
         "description": "Revenue generation and monetization",
         "scan_dirs": [
             "gold-nuggets",
-            "kimi-swarm/output_500k",
+            "kimi_swarm/output_500k",
             "REVENUE_STRATEGY_50K_AGENTS.md",
         ],
         "priority_keywords": [
@@ -62,17 +62,17 @@ FOCUS_AREAS = {
     },
     "content": {
         "description": "Content pipeline and social media",
-        "scan_dirs": ["x-lead-machine", "workflow-system/output"],
+        "scan_dirs": ["x_lead_machine", "workflow_system/output"],
         "priority_keywords": ["content", "post", "viral", "twitter", "engagement"],
     },
     "automation": {
         "description": "System automation and efficiency",
-        "scan_dirs": ["atomic-reactor", "openclaw-config", "workflow-system"],
+        "scan_dirs": ["atomic_reactor", "openclaw-config", "workflow_system"],
         "priority_keywords": ["automation", "cron", "task", "workflow", "pipeline"],
     },
     "product": {
         "description": "Digital product development",
-        "scan_dirs": ["gold-nuggets", "workflow-system/output"],
+        "scan_dirs": ["gold-nuggets", "workflow_system/output"],
         "priority_keywords": ["product", "guide", "template", "gumroad", "ebook"],
     },
 }
@@ -114,11 +114,11 @@ def observe_project() -> Dict:
 
     # Scan key directories for recent activity
     scan_targets = [
-        ("workflow-system/output", "workflow_outputs"),
-        ("workflow-system/state", "workflow_state"),
-        ("kimi-swarm/output_500k", "swarm_outputs"),
-        ("atomic-reactor/reports", "reactor_reports"),
-        ("x-lead-machine", "lead_machine"),
+        ("workflow_system/output", "workflow_outputs"),
+        ("workflow_system/state", "workflow_state"),
+        ("kimi_swarm/output_500k", "swarm_outputs"),
+        ("atomic_reactor/reports", "reactor_reports"),
+        ("x_lead_machine", "lead_machine"),
         ("gold-nuggets", "gold_nuggets"),
     ]
 
@@ -260,9 +260,9 @@ AKTION:
 
 PROJEKT-KONTEXT:
 - Verzeichnis: /home/user/AIEmpire-Core
-- Workflow System: workflow-system/orchestrator.py (5-step loop)
-- Kimi Swarm: kimi-swarm/swarm_500k.py (50K-500K agents)
-- Content: x-lead-machine/ (Posts, Replies, Lead Gen)
+- Workflow System: workflow_system/orchestrator.py (5-step loop)
+- Kimi Swarm: kimi_swarm/swarm_500k.py (50K-500K agents)
+- Content: x_lead_machine/ (Posts, Replies, Lead Gen)
 - CRM: crm/server.js (Express.js + SQLite)
 - Produkte: Gumroad (1 aktiv: AI Prompt Vault 27 EUR)
 

@@ -115,8 +115,8 @@ def show_full_status():
     output_dirs = {
         "Workflow outputs": WORKFLOW_DIR / "output",
         "Cowork outputs": WORKFLOW_DIR / "cowork_output",
-        "Swarm outputs": EMPIRE_ROOT / "kimi-swarm" / "output_500k",
-        "Reactor reports": EMPIRE_ROOT / "atomic-reactor" / "reports",
+        "Swarm outputs": EMPIRE_ROOT / "kimi_swarm" / "output_500k",
+        "Reactor reports": EMPIRE_ROOT / "atomic_reactor" / "reports",
     }
 
     print("  OUTPUT INVENTORY:")
@@ -158,7 +158,7 @@ def show_full_status():
                 vs = json.loads(vision_file.read_text())
                 sessions = vs.get("sessions_completed", 0)
                 streak = vs.get("meta", {}).get("streak_days", 0)
-                print(f"  MIRROR SYSTEM:")
+                print("  MIRROR SYSTEM:")
                 print(f"    DIP Sessions:  {sessions}")
                 print(f"    Streak:        {streak} days")
                 focus = vs.get("vision", {}).get("daily_focus")
