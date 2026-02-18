@@ -1,0 +1,1757 @@
+{
+  "_meta": {
+    "generated": "2026-02-10",
+    "repo": "AIEmpire-Core",
+    "branch": "agent/qa/cli-qa",
+    "total_files": 242,
+    "category_counts": {
+      "ENGINEERING": 83,
+      "SALES": 14,
+      "MARKETING": 15,
+      "DATA": 32,
+      "DOCS": 67,
+      "CONFIG": 31,
+      "LEGAL": 0,
+      "UNKNOWN": 0
+    },
+    "excluded": [".git/", ".venv/", "kimi-swarm/venv/", "__pycache__/", "._* (macOS metadata)", ".claude/worktrees/", ".ruff_cache/", ".pytest_cache/", "node_modules/"]
+  },
+  "ENGINEERING": [
+    {
+      "path": "workflow-system/orchestrator.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Opus 4.6 5-Step Compound Loop orchestrator (AUDIT-ARCHITECT-ANALYST-REFINERY-COMPOUNDER)"
+    },
+    {
+      "path": "workflow-system/cowork.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Autonomous Cowork Engine daemon (Observe-Plan-Act-Reflect loop)"
+    },
+    {
+      "path": "workflow-system/empire.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Empire Control Center unified CLI for all systems"
+    },
+    {
+      "path": "workflow-system/resource_guard.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "CPU/RAM/Disk monitoring with auto-throttling and emergency stop"
+    },
+    {
+      "path": "workflow-system/state/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Workflow state module init"
+    },
+    {
+      "path": "workflow-system/state/context.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Workflow state context management"
+    },
+    {
+      "path": "workflow-system/steps/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Workflow steps module init"
+    },
+    {
+      "path": "workflow-system/steps/step1_audit.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Step 1: System audit and health check"
+    },
+    {
+      "path": "workflow-system/steps/step2_architect.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Step 2: Architecture planning and design"
+    },
+    {
+      "path": "workflow-system/steps/step3_analyst.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Step 3: Data analysis and insights"
+    },
+    {
+      "path": "workflow-system/steps/step4_refinery.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Step 4: Output refinement and quality control"
+    },
+    {
+      "path": "workflow-system/steps/step5_compounder.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Step 5: Compound results and generate deliverables"
+    },
+    {
+      "path": "workflow-system/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Workflow system package init"
+    },
+    {
+      "path": "workflow-system/session_start.sh",
+      "category": "ENGINEERING",
+      "type": "shell",
+      "size_bytes": 0,
+      "description": "Session start hook script for Claude Code auto-status"
+    },
+    {
+      "path": "kimi-swarm/universal_swarm.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Universal Kimi swarm agent with multi-provider support"
+    },
+    {
+      "path": "kimi-swarm/swarm_100k.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "100K agent Kimi swarm orchestrator"
+    },
+    {
+      "path": "kimi-swarm/swarm_500k.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "500K agent Kimi swarm orchestrator (scaled version)"
+    },
+    {
+      "path": "kimi-swarm/github_scanner_100k.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "GitHub repository scanner for 100K agent deployment"
+    },
+    {
+      "path": "kimi-swarm/test_swarm_500k.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Test suite for 500K swarm functionality"
+    },
+    {
+      "path": "kimi-swarm/demo_max_agents.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Demo script for maximum agent spawning capability"
+    },
+    {
+      "path": "kimi-swarm/USAGE_EXAMPLES.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Usage examples and code samples for Kimi swarm API"
+    },
+    {
+      "path": "kimi-swarm/config.yaml",
+      "category": "ENGINEERING",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Kimi swarm configuration (endpoints, limits, model routing)"
+    },
+    {
+      "path": "atomic-reactor/run_tasks.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Atomic Reactor YAML-based async task runner (FastAPI port 8888)"
+    },
+    {
+      "path": "atomic-reactor/docker-compose.yaml",
+      "category": "ENGINEERING",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Docker Compose for Atomic Reactor services"
+    },
+    {
+      "path": "atomic-reactor/tasks/T-001-lead-research.yaml",
+      "category": "ENGINEERING",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Task definition: Automated lead research pipeline"
+    },
+    {
+      "path": "atomic-reactor/tasks/T-002-content-week.yaml",
+      "category": "ENGINEERING",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Task definition: Weekly content generation pipeline"
+    },
+    {
+      "path": "atomic-reactor/tasks/T-003-competitor-analysis.yaml",
+      "category": "ENGINEERING",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Task definition: Competitor analysis automation"
+    },
+    {
+      "path": "atomic-reactor/tasks/T-004-product-ideas.yaml",
+      "category": "ENGINEERING",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Task definition: AI-generated product idea pipeline"
+    },
+    {
+      "path": "atomic-reactor/tasks/T-005-bma-ai-service.yaml",
+      "category": "ENGINEERING",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Task definition: BMA + AI consulting service automation"
+    },
+    {
+      "path": "brain-system/orchestrator.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Brain system orchestrator routing across 8 brain modules"
+    },
+    {
+      "path": "brain-system/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Brain system package init"
+    },
+    {
+      "path": "systems/kimi_bridge/kimi_client.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Kimi API client for Moonshot AI (api.moonshot.ai/v1)"
+    },
+    {
+      "path": "systems/kimi_bridge/server.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Kimi Bridge FastAPI server for local routing"
+    },
+    {
+      "path": "systems/kimi_bridge/test_bridge.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Test suite for Kimi Bridge connectivity and routing"
+    },
+    {
+      "path": "systems/kimi_bridge/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Kimi Bridge package init"
+    },
+    {
+      "path": "systems/stripe_payments/stripe_products.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Stripe payment product catalog and checkout integration"
+    },
+    {
+      "path": "systems/stripe_payments/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Stripe payments package init"
+    },
+    {
+      "path": "systems/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Systems package init"
+    },
+    {
+      "path": "systems/docker-compose.yaml",
+      "category": "ENGINEERING",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Docker Compose for core systems (Redis, PostgreSQL, etc.)"
+    },
+    {
+      "path": "crm/server.js",
+      "category": "ENGINEERING",
+      "type": "javascript",
+      "size_bytes": 0,
+      "description": "Express.js CRM server with BANT lead scoring (port 3500)"
+    },
+    {
+      "path": "crm/import-data.js",
+      "category": "ENGINEERING",
+      "type": "javascript",
+      "size_bytes": 0,
+      "description": "CRM data import utility for bulk lead ingestion"
+    },
+    {
+      "path": "crm/reset-leads.js",
+      "category": "ENGINEERING",
+      "type": "javascript",
+      "size_bytes": 0,
+      "description": "CRM lead database reset utility"
+    },
+    {
+      "path": "crm/package.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "CRM Node.js package manifest and dependencies"
+    },
+    {
+      "path": "empire-api/server.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "AI Empire Control API - central FastAPI server for iPhone/Mac access"
+    },
+    {
+      "path": "empire-api/requirements.txt",
+      "category": "ENGINEERING",
+      "type": "config",
+      "size_bytes": 0,
+      "description": "Python dependencies for empire-api module"
+    },
+    {
+      "path": "chat_manager.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Chat upload and multi-model support manager"
+    },
+    {
+      "path": "claude_failover_system.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Automatic failover to GitHub-based control when API limits hit"
+    },
+    {
+      "path": "x_auto_poster.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "X/Twitter automated posting with scheduling"
+    },
+    {
+      "path": "empire_launch.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Master entry point for Godmode Programmer system"
+    },
+    {
+      "path": "godmode/router.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Godmode 4-role local AI router via Ollama models"
+    },
+    {
+      "path": "godmode/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Godmode package init"
+    },
+    {
+      "path": "godmode/config.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Godmode Programmer configuration and role definitions"
+    },
+    {
+      "path": "antigravity/__init__.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Antigravity system package init"
+    },
+    {
+      "path": "antigravity/config.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Antigravity configuration and settings"
+    },
+    {
+      "path": "antigravity/agent_runner.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Agent runner for antigravity swarm execution"
+    },
+    {
+      "path": "antigravity/swarm_run.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Swarm execution orchestrator for antigravity agents"
+    },
+    {
+      "path": "antigravity/cluster_issues.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Issue clustering and deduplication for antigravity"
+    },
+    {
+      "path": "antigravity/pr_bot.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Pull request bot for automated PR creation"
+    },
+    {
+      "path": "antigravity/smoke_test.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Smoke test runner for system validation"
+    },
+    {
+      "path": "antigravity/ollama_client.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Ollama local model client wrapper"
+    },
+    {
+      "path": "antigravity/godmode_router.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Godmode routing logic for antigravity"
+    },
+    {
+      "path": "antigravity/merge_gate.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Merge gate for PR quality checks before auto-merge"
+    },
+    {
+      "path": "antigravity/merge_queue.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Merge queue manager for sequential PR merging"
+    },
+    {
+      "path": "antigravity/structure_builder.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Codebase structure map generator (JSON + HTML)"
+    },
+    {
+      "path": "antigravity/collect_reports.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Report collector aggregating results from all agents"
+    },
+    {
+      "path": "antigravity/scripts/collect_reports.sh",
+      "category": "ENGINEERING",
+      "type": "shell",
+      "size_bytes": 0,
+      "description": "Shell script to trigger report collection"
+    },
+    {
+      "path": "n8n-workflows/n8n_connector.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Python connector for n8n workflow automation platform"
+    },
+    {
+      "path": "n8n-workflows/01_content_engine.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "n8n workflow: Content generation engine"
+    },
+    {
+      "path": "n8n-workflows/02_ollama_brain.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "n8n workflow: Ollama local AI brain routing"
+    },
+    {
+      "path": "n8n-workflows/03_kimi_router.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "n8n workflow: Kimi API request router"
+    },
+    {
+      "path": "n8n-workflows/04_github_monitor.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "n8n workflow: GitHub repository monitoring"
+    },
+    {
+      "path": "n8n-workflows/05_system_health.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "n8n workflow: System health monitoring"
+    },
+    {
+      "path": "n8n-workflows/06_lead_generator.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "n8n workflow: Lead generation pipeline"
+    },
+    {
+      "path": "scripts/start_all_services.sh",
+      "category": "ENGINEERING",
+      "type": "shell",
+      "size_bytes": 0,
+      "description": "Master script to start all Empire services"
+    },
+    {
+      "path": "scripts/check_status.sh",
+      "category": "ENGINEERING",
+      "type": "shell",
+      "size_bytes": 0,
+      "description": "System status checker for all running services"
+    },
+    {
+      "path": "scripts/stop_all_services.sh",
+      "category": "ENGINEERING",
+      "type": "shell",
+      "size_bytes": 0,
+      "description": "Master script to stop all Empire services"
+    },
+    {
+      "path": "scripts/fix_webkit_backdrop.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "WebKit backdrop-filter CSS compatibility fixer"
+    },
+    {
+      "path": "scripts/email-archiver/email_archiver.py",
+      "category": "ENGINEERING",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Email archiving automation script"
+    },
+    {
+      "path": "mobile-command-center/index.html",
+      "category": "ENGINEERING",
+      "type": "html",
+      "size_bytes": 0,
+      "description": "Mobile command center PWA main page (iPhone accessible)"
+    },
+    {
+      "path": "mobile-command-center/app.jsx",
+      "category": "ENGINEERING",
+      "type": "other",
+      "size_bytes": 0,
+      "description": "Mobile command center React JSX application"
+    },
+    {
+      "path": "mobile-command-center/sw.js",
+      "category": "ENGINEERING",
+      "type": "javascript",
+      "size_bytes": 0,
+      "description": "Service worker for PWA offline support"
+    },
+    {
+      "path": "mobile-command-center/manifest.json",
+      "category": "ENGINEERING",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "PWA manifest for mobile command center"
+    },
+    {
+      "path": "mobile-command-center/icon-192.png",
+      "category": "ENGINEERING",
+      "type": "other",
+      "size_bytes": 0,
+      "description": "PWA icon 192x192 pixels"
+    },
+    {
+      "path": "mobile-command-center/icon-512.png",
+      "category": "ENGINEERING",
+      "type": "other",
+      "size_bytes": 0,
+      "description": "PWA icon 512x512 pixels"
+    }
+  ],
+  "SALES": [
+    {
+      "path": "x-lead-machine/post_generator.py",
+      "category": "SALES",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "AI-powered X/Twitter post content generator"
+    },
+    {
+      "path": "x-lead-machine/x_automation.py",
+      "category": "SALES",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "X/Twitter automation engine (posting, replies, scheduling)"
+    },
+    {
+      "path": "x-lead-machine/generate_week.py",
+      "category": "SALES",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Weekly content batch generator for X/Twitter"
+    },
+    {
+      "path": "x-lead-machine/viral_reply_generator.py",
+      "category": "SALES",
+      "type": "python",
+      "size_bytes": 0,
+      "description": "Viral reply generator targeting high-engagement threads"
+    },
+    {
+      "path": "x-lead-machine/n8n_workflow.json",
+      "category": "SALES",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "n8n workflow integration for X lead machine"
+    },
+    {
+      "path": "x-lead-machine/READY_TO_POST.md",
+      "category": "SALES",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Queue of ready-to-post X/Twitter content"
+    },
+    {
+      "path": "x-lead-machine/EXTRA_POSTS.md",
+      "category": "SALES",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Additional post content reservoir for X"
+    },
+    {
+      "path": "x-lead-machine/week_content_20260208.md",
+      "category": "SALES",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Generated weekly content plan for week of 2026-02-08"
+    },
+    {
+      "path": "x-lead-machine/trending_now.md",
+      "category": "SALES",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Current trending topics for X engagement"
+    },
+    {
+      "path": "x-lead-machine/X_API_SETUP.md",
+      "category": "SALES",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "X/Twitter API credentials setup guide"
+    },
+    {
+      "path": "x-lead-machine/GOLD_30_AUTOMATIONS.md",
+      "category": "SALES",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "30 automation ideas for X/Twitter monetization"
+    },
+    {
+      "path": "x-lead-machine/README.md",
+      "category": "SALES",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "X Lead Machine documentation and usage guide"
+    },
+    {
+      "path": "stripe_products_live.json",
+      "category": "SALES",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Live Stripe product catalog (BMA packs, AI templates, etc.)"
+    },
+    {
+      "path": "systems/LEAD_AGENT_PROMPT.md",
+      "category": "SALES",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Lead generation agent system prompt"
+    }
+  ],
+  "MARKETING": [
+    {
+      "path": "docs/CONTENT_LAUNCH_PLAN.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Content launch strategy and timeline"
+    },
+    {
+      "path": "docs/FIVERR_GIGS.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Fiverr gig listings and descriptions for AI services"
+    },
+    {
+      "path": "docs/GUMROAD_PRODUCTS_READY.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gumroad digital product listings ready to publish"
+    },
+    {
+      "path": "docs/GUMROAD_BMA_PACK.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "BMA Profi-Checklisten Pack product page content"
+    },
+    {
+      "path": "docs/GUMROAD_TOP10_BLUEPRINT.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Top 10 AI Blueprint product page content for Gumroad"
+    },
+    {
+      "path": "docs/TIKTOK_SCRIPTS.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "TikTok video scripts for AI/BMA content"
+    },
+    {
+      "path": "docs/VERMARKTUNGSKONZEPT_TOP10.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Marketing concept for Top 10 AI product (German)"
+    },
+    {
+      "path": "gold-nuggets/GOLD_VIDEO_CONTENT_PIPELINE_2026-02-08.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Video content production pipeline strategy"
+    },
+    {
+      "path": "REVENUE_STRATEGY_50K_AGENTS.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Revenue strategy document for 50K agent swarm deployment"
+    },
+    {
+      "path": "EMPIRE_BLUEPRINT.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "High-level AI Empire business blueprint and vision"
+    },
+    {
+      "path": "BMA_ACADEMY/00_META/README.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "BMA Academy product overview and goals"
+    },
+    {
+      "path": "BMA_ACADEMY/00_META/STRUCTURE.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "BMA Academy course structure and modules"
+    },
+    {
+      "path": "BMA_ACADEMY/00_META/ROADMAP.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "BMA Academy development roadmap"
+    },
+    {
+      "path": "BMA_ACADEMY/00_META/AGENTS_CONFIG.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Agent configuration for BMA Academy content generation"
+    },
+    {
+      "path": "gold-nuggets/MONETIZATION_REPORT_2026-02-08.md",
+      "category": "MARKETING",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Monetization analysis report with revenue projections"
+    }
+  ],
+  "DATA": [
+    {
+      "path": "kimi-swarm/github_scan_20260208_030607.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "GitHub repository scan results from 2026-02-08 03:06"
+    },
+    {
+      "path": "output_universal/task_000000.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Universal swarm task output result 0"
+    },
+    {
+      "path": "output_universal/task_000001.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Universal swarm task output result 1"
+    },
+    {
+      "path": "output_universal/task_000002.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Universal swarm task output result 2"
+    },
+    {
+      "path": "output_universal/task_000003.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Universal swarm task output result 3"
+    },
+    {
+      "path": "output_universal/task_000004.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Universal swarm task output result 4"
+    },
+    {
+      "path": "antigravity/_reports/ruff.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Ruff linter report output (JSON)"
+    },
+    {
+      "path": "antigravity/_reports/full_report.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Full antigravity system report aggregation"
+    },
+    {
+      "path": "antigravity/STRUCTURE_MAP.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Codebase structure map in JSON format"
+    },
+    {
+      "path": "antigravity/STRUCTURE_MAP.html",
+      "category": "DATA",
+      "type": "html",
+      "size_bytes": 0,
+      "description": "Visual codebase structure map (HTML renderable)"
+    },
+    {
+      "path": "antigravity/ISSUES.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Antigravity discovered issues database"
+    },
+    {
+      "path": "antigravity/ISSUES_KANBAN.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Kanban board view of antigravity issues"
+    },
+    {
+      "path": "godmode/ISSUES.json",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Godmode discovered issues database"
+    },
+    {
+      "path": "godmode/logs/2026-02-10_fixer.jsonl",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Godmode fixer agent log for 2026-02-10"
+    },
+    {
+      "path": "godmode/logs/2026-02-10_qa.jsonl",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Godmode QA agent log for 2026-02-10"
+    },
+    {
+      "path": "godmode/logs/2026-02-10_summary.jsonl",
+      "category": "DATA",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Godmode daily summary log for 2026-02-10"
+    },
+    {
+      "path": "docs/kpi/2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "KPI tracking data for 2026-02-08"
+    },
+    {
+      "path": "docs/kpi/2026-02-09.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "KPI tracking data for 2026-02-09"
+    },
+    {
+      "path": "docs/reviews/weekly-2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Weekly review report for week of 2026-02-08"
+    },
+    {
+      "path": "gold-nuggets/GOLD_VISION_SCAN_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Vision scan results and system state analysis"
+    }
+  ],
+  "DOCS": [
+    {
+      "path": "README.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Repository root README with project overview"
+    },
+    {
+      "path": "CLAUDE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Claude Code project context and instructions"
+    },
+    {
+      "path": "SETUP_GUIDE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "System setup guide for development environment"
+    },
+    {
+      "path": "MAC_SETUP_GUIDE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "macOS-specific setup instructions"
+    },
+    {
+      "path": "QUICK_REFERENCE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Quick reference card for common operations"
+    },
+    {
+      "path": "AUTOPILOT.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Autopilot mode documentation for autonomous operation"
+    },
+    {
+      "path": "COPILOT_BRIEFING.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "GitHub Copilot integration briefing and context"
+    },
+    {
+      "path": "HANDOFF_PROTOCOL.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Session handoff protocol between AI agents"
+    },
+    {
+      "path": "IMPLEMENTATION_SUMMARY.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Summary of all implemented features and systems"
+    },
+    {
+      "path": "IMPLEMENTATION_PLAN.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Implementation plan for upcoming features"
+    },
+    {
+      "path": "IMPLEMENTATION_COMPLETE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Record of completed implementation milestones"
+    },
+    {
+      "path": "IMPLEMENTATION_CHAT_UPLOAD.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Chat upload feature implementation documentation"
+    },
+    {
+      "path": "COMPLETE_STRUCTURE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Complete system structure documentation"
+    },
+    {
+      "path": "DOCUMENTATION_INDEX.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Master index of all documentation files"
+    },
+    {
+      "path": "GITHUB_CONTROL_SYSTEM.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "GitHub-based control system architecture docs"
+    },
+    {
+      "path": "ORCHESTRATOR.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Orchestrator system documentation and usage"
+    },
+    {
+      "path": "RUN.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Run instructions for all Empire services"
+    },
+    {
+      "path": "STRUCTURE_VISUAL.txt",
+      "category": "DOCS",
+      "type": "other",
+      "size_bytes": 0,
+      "description": "ASCII art visual representation of system structure"
+    },
+    {
+      "path": "MOBILE_ACCESS_GUIDE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Guide for accessing Empire from mobile devices"
+    },
+    {
+      "path": "MOBILE_DOCUMENTATION_INDEX.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Index of all mobile-related documentation"
+    },
+    {
+      "path": "MOBILE_FAQ.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "FAQ for mobile command center usage"
+    },
+    {
+      "path": "MOBILE_NOTIFICATIONS_SETUP.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Push notification setup for mobile monitoring"
+    },
+    {
+      "path": "MOBILE_QUICK_REFERENCE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Mobile quick reference card"
+    },
+    {
+      "path": "MOBILE_QUICK_START.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Mobile command center quick start guide"
+    },
+    {
+      "path": "MOBILE_SETUP_CHECKLIST.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Checklist for mobile setup verification"
+    },
+    {
+      "path": "MOBILE_WORKFLOW_DIAGRAM.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Workflow diagram for mobile operations"
+    },
+    {
+      "path": "AI_EMPIRE_DASHBOARD.html",
+      "category": "DOCS",
+      "type": "html",
+      "size_bytes": 0,
+      "description": "AI Empire interactive dashboard (German, HTML single-page)"
+    },
+    {
+      "path": "AI_EMPIRE_BIG_PICTURE.html",
+      "category": "DOCS",
+      "type": "html",
+      "size_bytes": 0,
+      "description": "AI Empire big picture overview dashboard (HTML)"
+    },
+    {
+      "path": "party_dashboard.html",
+      "category": "DOCS",
+      "type": "html",
+      "size_bytes": 0,
+      "description": "Celebration dashboard for milestones (HTML)"
+    },
+    {
+      "path": "docs/SYSTEM_ARCHITECTURE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Full system architecture documentation"
+    },
+    {
+      "path": "docs/BUSINESSPLAN_IST_2026-02-08.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Current state business plan as of 2026-02-08"
+    },
+    {
+      "path": "docs/OPENCLAW_SYSTEM_STATUS.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "OpenClaw system status and health report"
+    },
+    {
+      "path": "docs/CHATGPT_TASKS.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Tasks delegated to ChatGPT for execution"
+    },
+    {
+      "path": "docs/CHAT_QUICK_REFERENCE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Chat interface quick reference guide"
+    },
+    {
+      "path": "docs/CHAT_UPLOAD_GUIDE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Guide for chat file upload functionality"
+    },
+    {
+      "path": "docs/CODEBASE_AUDIT_2026-02-09.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Codebase audit results from 2026-02-09"
+    },
+    {
+      "path": "brain-system/ARCHITECTURE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain system 8-module architecture documentation"
+    },
+    {
+      "path": "brain-system/brains/00_brainstem.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain module: Brainstem (core survival functions)"
+    },
+    {
+      "path": "brain-system/brains/01_neocortex.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain module: Neocortex (higher-order reasoning)"
+    },
+    {
+      "path": "brain-system/brains/02_prefrontal.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain module: Prefrontal cortex (planning, decisions)"
+    },
+    {
+      "path": "brain-system/brains/03_temporal.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain module: Temporal lobe (memory, patterns)"
+    },
+    {
+      "path": "brain-system/brains/04_parietal.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain module: Parietal lobe (spatial awareness, integration)"
+    },
+    {
+      "path": "brain-system/brains/05_limbic.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain module: Limbic system (emotion, motivation)"
+    },
+    {
+      "path": "brain-system/brains/06_cerebellum.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain module: Cerebellum (coordination, automation)"
+    },
+    {
+      "path": "brain-system/brains/07_hippocampus.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Brain module: Hippocampus (long-term memory)"
+    },
+    {
+      "path": "kimi-swarm/CLAUDE_ORCHESTRATOR_CONFIG.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Claude orchestrator configuration for Kimi swarm"
+    },
+    {
+      "path": "kimi-swarm/IMPLEMENTATION_SUMMARY.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Kimi swarm implementation summary"
+    },
+    {
+      "path": "kimi-swarm/IMPLEMENTATION_SUMMARY_MAX_AGENTS.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Max agent spawning implementation summary"
+    },
+    {
+      "path": "kimi-swarm/MAX_AGENT_SPAWNING.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Maximum agent spawning architecture documentation"
+    },
+    {
+      "path": "kimi-swarm/README_500K_SWARM.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "README for 500K swarm system"
+    },
+    {
+      "path": "kimi-swarm/SECURITY.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Security guidelines for Kimi swarm API keys and access"
+    },
+    {
+      "path": "n8n-workflows/README.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "n8n workflow automation documentation"
+    },
+    {
+      "path": "scripts/README.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Scripts directory documentation"
+    },
+    {
+      "path": "scripts/email-archiver/README.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Email archiver tool documentation"
+    },
+    {
+      "path": "workflow-system/AGENT_TEAMS_GUIDE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Guide for using experimental Agent Teams feature"
+    },
+    {
+      "path": "antigravity/README.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Antigravity system overview and usage"
+    },
+    {
+      "path": "antigravity/QUICK_START.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Antigravity quick start guide"
+    },
+    {
+      "path": "antigravity/LAUNCH_MANUAL.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Antigravity launch manual with all commands"
+    },
+    {
+      "path": "antigravity/MASTER_COMMANDS.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Master command reference for antigravity"
+    },
+    {
+      "path": "antigravity/ANTIGRAVITY_DASHBOARD.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Antigravity dashboard status and metrics"
+    },
+    {
+      "path": "antigravity/SYSTEM_READY.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "System readiness confirmation checklist"
+    },
+    {
+      "path": "antigravity/CLAUDE_OFFLINE_SETUP.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Offline mode setup with local Ollama models"
+    },
+    {
+      "path": "antigravity/CLAUDE_OLLAMA_CONFIG.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Claude + Ollama integration configuration"
+    },
+    {
+      "path": "godmode/LAUNCH_MANUAL.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Godmode Programmer launch manual"
+    },
+    {
+      "path": "warroom/00_nucleus/CLAUDE.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "War Room nucleus Claude instructions"
+    },
+    {
+      "path": "warroom/00_nucleus/warroom_rules.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "War Room operating rules and protocols"
+    },
+    {
+      "path": "warroom/00_nucleus/routing_matrix.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "War Room task routing matrix"
+    },
+    {
+      "path": "warroom/00_command/mission_brief.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "War Room mission briefing document"
+    },
+    {
+      "path": "warroom/00_command/rules_of_engagement.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "War Room rules of engagement for agents"
+    },
+    {
+      "path": "system-prompts/elite-operator.md",
+      "category": "DOCS",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Elite operator system prompt template"
+    }
+  ],
+  "CONFIG": [
+    {
+      "path": ".env.example",
+      "category": "CONFIG",
+      "type": "config",
+      "size_bytes": 0,
+      "description": "Environment variables template (API keys, ports, secrets)"
+    },
+    {
+      "path": ".gitignore",
+      "category": "CONFIG",
+      "type": "config",
+      "size_bytes": 0,
+      "description": "Git ignore rules for the repository"
+    },
+    {
+      "path": "requirements.txt",
+      "category": "CONFIG",
+      "type": "config",
+      "size_bytes": 0,
+      "description": "Python package dependencies (rich, httpx, fastapi, etc.)"
+    },
+    {
+      "path": "agents.json",
+      "category": "CONFIG",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "Agent definitions and output format configuration"
+    },
+    {
+      "path": "openclaw-config/docker-compose.yaml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "Docker Compose for OpenClaw platform services"
+    },
+    {
+      "path": "openclaw-config/jobs.json",
+      "category": "CONFIG",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "OpenClaw scheduled job definitions (9 cron jobs)"
+    },
+    {
+      "path": "openclaw-config/models.json",
+      "category": "CONFIG",
+      "type": "json",
+      "size_bytes": 0,
+      "description": "OpenClaw AI model routing configuration"
+    },
+    {
+      "path": "openclaw-config/AGENTS.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "OpenClaw agent personality and capability definitions"
+    },
+    {
+      "path": "openclaw-config/BOOTSTRAP.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "OpenClaw system bootstrap procedure"
+    },
+    {
+      "path": "openclaw-config/HEARTBEAT.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "OpenClaw heartbeat monitoring configuration"
+    },
+    {
+      "path": "openclaw-config/IDENTITY.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "OpenClaw system identity and persona"
+    },
+    {
+      "path": "openclaw-config/LEAD_AGENT_PROMPT.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Lead agent prompt template for OpenClaw"
+    },
+    {
+      "path": "openclaw-config/SOUL.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "OpenClaw soul/personality core definition"
+    },
+    {
+      "path": "openclaw-config/TOOLS.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "OpenClaw available tools and capabilities"
+    },
+    {
+      "path": "openclaw-config/USER.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "OpenClaw user profile (Maurice) for personalization"
+    },
+    {
+      "path": ".github/workflows/auto-content-generation.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Automated content generation workflow"
+    },
+    {
+      "path": ".github/workflows/auto-process-issues.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Auto-process new issues workflow"
+    },
+    {
+      "path": ".github/workflows/claude-health-check.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Claude system health check workflow"
+    },
+    {
+      "path": ".github/workflows/daily-content-engine.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Daily content engine cron workflow"
+    },
+    {
+      "path": ".github/workflows/gold-nugget-extractor.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Gold nugget extraction and archival"
+    },
+    {
+      "path": ".github/workflows/issue-command-bot.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Issue command bot for slash commands"
+    },
+    {
+      "path": ".github/workflows/revenue-tracking.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Revenue tracking and reporting"
+    },
+    {
+      "path": ".github/workflows/weekly-review.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Weekly automated review workflow"
+    },
+    {
+      "path": ".github/workflows/x-auto-poster.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: X/Twitter auto-posting workflow"
+    },
+    {
+      "path": ".github/workflows/deploy-mobile.yml",
+      "category": "CONFIG",
+      "type": "yaml",
+      "size_bytes": 0,
+      "description": "GitHub Actions: Mobile command center deployment"
+    },
+    {
+      "path": ".github/instructions/copilot-instructions.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "GitHub Copilot custom instructions for this repo"
+    },
+    {
+      "path": ".github/agents/Plan.agent.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "GitHub Copilot Plan agent definition"
+    },
+    {
+      "path": ".github/prompts/init.prompt.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "GitHub Copilot init prompt template"
+    },
+    {
+      "path": ".github/prompts/plan.prompt.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "GitHub Copilot plan prompt template"
+    },
+    {
+      "path": ".github/prompts/savePrompt.prompt.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "GitHub Copilot save prompt template"
+    },
+    {
+      "path": ".github/skills/automate/SKILL.md",
+      "category": "CONFIG",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "GitHub Copilot automate skill definition"
+    }
+  ],
+  "UNKNOWN": [],
+  "LEGAL": [],
+  "DATA_GOLD_NUGGETS": [
+    {
+      "path": "gold-nuggets/GITHUB_GOLD_NUGGETS.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nuggets extracted from GitHub repositories"
+    },
+    {
+      "path": "gold-nuggets/GOLD_AI_EMPIRE_APP_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: AI Empire app insights"
+    },
+    {
+      "path": "gold-nuggets/GOLD_AI_FRAMEWORKS_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: AI framework comparison and analysis"
+    },
+    {
+      "path": "gold-nuggets/GOLD_DEXTER_FINANCE_AI_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: Dexter Finance AI project insights"
+    },
+    {
+      "path": "gold-nuggets/GOLD_ELITE_SYSTEM_PROMPT_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: Elite system prompt engineering techniques"
+    },
+    {
+      "path": "gold-nuggets/GOLD_KIMI_AGENT_SWARM_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: Kimi agent swarm architecture insights"
+    },
+    {
+      "path": "gold-nuggets/GOLD_KIMI_SWARM_20260208.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: Kimi swarm deployment learnings"
+    },
+    {
+      "path": "gold-nuggets/GOLD_NOTEBOOKLM_OPENCLAW_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: NotebookLM + OpenClaw integration ideas"
+    },
+    {
+      "path": "gold-nuggets/GOLD_OPENCLAW_ECOSYSTEM_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: OpenClaw ecosystem expansion strategy"
+    },
+    {
+      "path": "gold-nuggets/GOLD_OPENCLAW_MASTERPLAN_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: OpenClaw masterplan and roadmap"
+    },
+    {
+      "path": "gold-nuggets/GOLD_REDPLANET_MEMORY_AGENT_2026-02-08.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nugget: RedPlanet memory agent architecture"
+    },
+    {
+      "path": "gold-nuggets/INDEX.md",
+      "category": "DATA",
+      "type": "markdown",
+      "size_bytes": 0,
+      "description": "Gold nuggets master index"
+    }
+  ]
+}

@@ -4,11 +4,7 @@ n8n WORKFLOW EXECUTOR - Automated Orchestration
 Runs all 6 revenue-generating workflows on schedule
 """
 
-import json
-import subprocess
 import os
-from datetime import datetime
-from pathlib import Path
 
 API_KEY = os.getenv("N8N_API_KEY", "NEEDS_SETUP")
 
@@ -69,8 +65,7 @@ class WorkflowExecutor:
             print("   LOCATION: http://localhost:5678/admin/api")
             print("   EXPORT: Add to ~/.zshrc -> N8N_API_KEY=<key>")
             print("\n   Once done, all 6 workflows will auto-run and generate:")
-            total_revenue = sum([w["revenue"] for w in WORKFLOWS.values()])
-            print(f"   💰 EUR 28-48K/MONTH (100% automated)")
+            print("   💰 EUR 28-48K/MONTH (100% automated)")
         else:
             print("\n✅ API KEY CONFIGURED")
             print("   All workflows are active and scheduled")
@@ -96,7 +91,7 @@ class WorkflowExecutor:
                     if len(nums) == 2:
                         total_revenue_min += nums[0] * 1000
                         total_revenue_max += nums[1] * 1000
-                except:
+                except Exception:
                     pass
 
         print("\n" + "="*80)

@@ -223,7 +223,7 @@ class DualBrain:
         logger.info("=== REVIEW: Main-System Output ===")
 
         # Main-Output laden
-        main_output_dir = PROJECT_ROOT / "workflow-system" / "output"
+        main_output_dir = PROJECT_ROOT / "workflow_system" / "output"
         main_result = self._load_latest_output(main_output_dir)
 
         if not main_result:
@@ -437,7 +437,7 @@ class DualBrain:
             return None
 
     def _load_main_state(self) -> Dict:
-        main_file = PROJECT_ROOT / "workflow-system" / "state" / "current_state.json"
+        main_file = PROJECT_ROOT / "workflow_system" / "state" / "current_state.json"
         if main_file.exists():
             try:
                 return json.loads(main_file.read_text())
@@ -446,7 +446,7 @@ class DualBrain:
         return {}
 
     def _load_main_cowork(self) -> Dict:
-        cowork_file = PROJECT_ROOT / "workflow-system" / "state" / "cowork_state.json"
+        cowork_file = PROJECT_ROOT / "workflow_system" / "state" / "cowork_state.json"
         if cowork_file.exists():
             try:
                 return json.loads(cowork_file.read_text())
@@ -471,7 +471,7 @@ class DualBrain:
     def _gather_main_insights(self) -> List[Dict]:
         """Sammelt Insights vom Main-System."""
         insights = []
-        main_output_dir = PROJECT_ROOT / "workflow-system" / "output"
+        main_output_dir = PROJECT_ROOT / "workflow_system" / "output"
         if main_output_dir.exists():
             for f in sorted(main_output_dir.glob("*.json"), key=lambda x: x.stat().st_mtime, reverse=True)[:5]:
                 try:

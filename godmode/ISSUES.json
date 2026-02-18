@@ -1,0 +1,456 @@
+{
+  "collected_at": "2026-02-10T01:34:16.909170",
+  "total": 50,
+  "issues": [
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 8,
+      "message": "Import block is un-sorted or un-formatted",
+      "code": "I001",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 8,
+      "message": "`json` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 12,
+      "message": "`pathlib.Path` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 17,
+      "message": "`rich.syntax.Syntax` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 72,
+      "message": "Line too long (90 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 79,
+      "message": "Line too long (90 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 115,
+      "message": "f-string without any placeholders",
+      "code": "F541",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 137,
+      "message": "Line too long (109 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/agent_runner.py",
+      "line": 222,
+      "message": "Line too long (120 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/collect_reports.py",
+      "line": 13,
+      "message": "`os` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/collect_reports.py",
+      "line": 22,
+      "message": "Import block is un-sorted or un-formatted",
+      "code": "I001",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/collect_reports.py",
+      "line": 70,
+      "message": "Line too long (98 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/collect_reports.py",
+      "line": 83,
+      "message": "Line too long (102 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/collect_reports.py",
+      "line": 140,
+      "message": "Line too long (93 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/collect_reports.py",
+      "line": 149,
+      "message": "Ambiguous variable name: `l`",
+      "code": "E741",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/config.py",
+      "line": 9,
+      "message": "`typing.Optional` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/config.py",
+      "line": 65,
+      "message": "Line too long (99 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/godmode_router.py",
+      "line": 6,
+      "message": "Import block is un-sorted or un-formatted",
+      "code": "I001",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/godmode_router.py",
+      "line": 8,
+      "message": "`typing.Literal` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/godmode_router.py",
+      "line": 12,
+      "message": "`pathlib.Path` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/godmode_router.py",
+      "line": 58,
+      "message": "Line too long (110 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/godmode_router.py",
+      "line": 60,
+      "message": "Line too long (107 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/godmode_router.py",
+      "line": 62,
+      "message": "Line too long (102 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/godmode_router.py",
+      "line": 78,
+      "message": "Line too long (90 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/godmode_router.py",
+      "line": 182,
+      "message": "f-string without any placeholders",
+      "code": "F541",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 5,
+      "message": "Import block is un-sorted or un-formatted",
+      "code": "I001",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 45,
+      "message": "Line too long (93 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 63,
+      "message": "Line too long (101 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 109,
+      "message": "f-string without any placeholders",
+      "code": "F541",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 118,
+      "message": "f-string without any placeholders",
+      "code": "F541",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 125,
+      "message": "f-string without any placeholders",
+      "code": "F541",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 129,
+      "message": "f-string without any placeholders",
+      "code": "F541",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 160,
+      "message": "f-string without any placeholders",
+      "code": "F541",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 180,
+      "message": "Line too long (107 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/merge_gate.py",
+      "line": 192,
+      "message": "f-string without any placeholders",
+      "code": "F541",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/ollama_client.py",
+      "line": 8,
+      "message": "Import block is un-sorted or un-formatted",
+      "code": "I001",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 27,
+      "message": "Import block is un-sorted or un-formatted",
+      "code": "I001",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 30,
+      "message": "`rich.live.Live` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 33,
+      "message": "`antigravity.config.ALL_AGENTS` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 36,
+      "message": "`antigravity.ollama_client.OllamaClient` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 83,
+      "message": "Line too long (94 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 137,
+      "message": "Line too long (90 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 157,
+      "message": "Line too long (96 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 197,
+      "message": "Line too long (93 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 221,
+      "message": "Local variable `merge_result` is assigned to but never used",
+      "code": "F841",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/antigravity/swarm_run.py",
+      "line": 335,
+      "message": "`antigravity.config.OLLAMA_BASE_URL` imported but unused",
+      "code": "F401",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/atomic-reactor/run_tasks.py",
+      "line": 7,
+      "message": "Import block is un-sorted or un-formatted",
+      "code": "I001",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/atomic-reactor/run_tasks.py",
+      "line": 15,
+      "message": "Line too long (103 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/atomic-reactor/run_tasks.py",
+      "line": 21,
+      "message": "Line too long (95 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    },
+    {
+      "type": "lint",
+      "severity": "warning",
+      "file": "/Users/maurice/AIEmpire-Core/atomic-reactor/run_tasks.py",
+      "line": 33,
+      "message": "Line too long (115 > 88)",
+      "code": "E501",
+      "owner": "fixer"
+    }
+  ]
+}

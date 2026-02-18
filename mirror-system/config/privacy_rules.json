@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "privacy_levels": {
+    "P0_PUBLIC": {
+      "description": "Code, Marketing, Produkt-Beschreibungen",
+      "cloud_allowed": true,
+      "examples": ["*.py", "marketing/*", "products/*/description.md", "README.md"]
+    },
+    "P1_INTERNAL": {
+      "description": "Logs, Metriken, Task-Listen",
+      "cloud_allowed": true,
+      "redaction_required": true,
+      "examples": ["logs/*.jsonl", "runs/*", "task_orders.md"]
+    },
+    "P2_CONFIDENTIAL": {
+      "description": "Strategien, Finanzzahlen",
+      "cloud_allowed": "summaries_only",
+      "examples": ["gold-nuggets/*", "REVENUE_*", "vision_state.json"]
+    },
+    "P3_RESTRICTED": {
+      "description": "Legal, Private Vault, Mandatsunterlagen",
+      "cloud_allowed": false,
+      "examples": [".private-vault/*", "*.env", "*.key", "*.pem", "legal/*"]
+    }
+  },
+  "redaction_rules": {
+    "always_remove": [
+      "MOONSHOT_API_KEY",
+      "ANTHROPIC_API_KEY",
+      "GITHUB_TOKEN",
+      "TWITTER_API_KEY",
+      "TWITTER_API_SECRET",
+      "TWITTER_ACCESS_TOKEN",
+      "TWITTER_ACCESS_SECRET",
+      "TELEGRAM_BOT_TOKEN",
+      "STRIPE_SECRET_KEY",
+      "GUMROAD_ACCESS_TOKEN"
+    ],
+    "patterns_to_redact": [
+      "sk-[a-zA-Z0-9]{20,}",
+      "ghp_[a-zA-Z0-9]{36}",
+      "xai-[a-zA-Z0-9]+",
+      "[0-9]{4}[- ]?[0-9]{4}[- ]?[0-9]{4}[- ]?[0-9]{4}",
+      "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}"
+    ],
+    "paths_never_export": [
+      ".private-vault/",
+      ".env",
+      "*.key",
+      "*.pem",
+      "warroom/legal/",
+      "stripe_products_live.json"
+    ]
+  }
+}

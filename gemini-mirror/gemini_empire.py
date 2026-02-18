@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Gemini Empire - Unified CLI fuer das gesamte Gemini Mirror System.
-Spiegelt workflow-system/empire.py fuer die Gemini-Seite.
+Spiegelt workflow_system/empire.py fuer die Gemini-Seite.
 
 Befehle:
   status       - Gesamtstatus aller Mirror-Systeme

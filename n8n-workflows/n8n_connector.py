@@ -10,14 +10,14 @@ Usage:
     python3 n8n_connector.py --import-all   # Import all workflows
 """
 
-import os
-import sys
 import json
+import os
 import subprocess
-import urllib.request
+import sys
 import urllib.error
-from pathlib import Path
+import urllib.request
 from datetime import datetime
+from pathlib import Path
 
 # Config
 N8N_URL = "http://localhost:5678"
@@ -45,7 +45,9 @@ def check_redis():
     try:
         result = subprocess.run(
             ["redis-cli", "-h", REDIS_HOST, "-p", str(REDIS_PORT), "ping"],
-            capture_output=True, text=True, timeout=5
+            capture_output=True,
+            text=True,
+            timeout=5,
         )
         if "PONG" in result.stdout:
             return {"name": "Redis", "status": "UP", "response": "PONG"}
@@ -87,10 +89,7 @@ def n8n_api(method, endpoint, data=None):
         sys.exit(1)
 
     url = f"{N8N_URL}/api/v1{endpoint}"
-    headers = {
-        "X-N8N-API-KEY": API_KEY,
-        "Content-Type": "application/json"
-    }
+    headers = {"X-N8N-API-KEY": API_KEY, "Content-Type": "application/json"}
 
     if data:
         req = urllib.request.Request(url, json.dumps(data).encode(), headers, method=method)

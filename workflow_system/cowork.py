@@ -19,9 +19,8 @@ Usage:
   python cowork.py --status          # Show cowork state
 """
 
-import asyncio
-import aiohttp
 import argparse
+import asyncio
 import json
 import os
 import time
@@ -29,6 +28,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional
 
+import aiohttp
 from resource_guard import ResourceGuard
 
 # Project paths
@@ -46,22 +46,33 @@ MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
 FOCUS_AREAS = {
     "revenue": {
         "description": "Revenue generation and monetization",
-        "scan_dirs": ["gold-nuggets", "kimi-swarm/output_500k", "REVENUE_STRATEGY_50K_AGENTS.md"],
-        "priority_keywords": ["revenue", "monetization", "gumroad", "fiverr", "sales", "lead"],
+        "scan_dirs": [
+            "gold-nuggets",
+            "kimi_swarm/output_500k",
+            "REVENUE_STRATEGY_50K_AGENTS.md",
+        ],
+        "priority_keywords": [
+            "revenue",
+            "monetization",
+            "gumroad",
+            "fiverr",
+            "sales",
+            "lead",
+        ],
     },
     "content": {
         "description": "Content pipeline and social media",
-        "scan_dirs": ["x-lead-machine", "workflow-system/output"],
+        "scan_dirs": ["x_lead_machine", "workflow_system/output"],
         "priority_keywords": ["content", "post", "viral", "twitter", "engagement"],
     },
     "automation": {
         "description": "System automation and efficiency",
-        "scan_dirs": ["atomic-reactor", "openclaw-config", "workflow-system"],
+        "scan_dirs": ["atomic_reactor", "openclaw-config", "workflow_system"],
         "priority_keywords": ["automation", "cron", "task", "workflow", "pipeline"],
     },
     "product": {
         "description": "Digital product development",
-        "scan_dirs": ["gold-nuggets", "workflow-system/output"],
+        "scan_dirs": ["gold-nuggets", "workflow_system/output"],
         "priority_keywords": ["product", "guide", "template", "gumroad", "ebook"],
     },
 }
@@ -89,6 +100,7 @@ def save_cowork_state(state: Dict) -> None:
 
 # ── OBSERVE ──────────────────────────────────────────────
 
+
 def observe_project() -> Dict:
     """Scan the project and build a situational awareness snapshot."""
     observations = {
@@ -102,11 +114,11 @@ def observe_project() -> Dict:
 
     # Scan key directories for recent activity
     scan_targets = [
-        ("workflow-system/output", "workflow_outputs"),
-        ("workflow-system/state", "workflow_state"),
-        ("kimi-swarm/output_500k", "swarm_outputs"),
-        ("atomic-reactor/reports", "reactor_reports"),
-        ("x-lead-machine", "lead_machine"),
+        ("workflow_system/output", "workflow_outputs"),
+        ("workflow_system/state", "workflow_state"),
+        ("kimi_swarm/output_500k", "swarm_outputs"),
+        ("atomic_reactor/reports", "reactor_reports"),
+        ("x_lead_machine", "lead_machine"),
         ("gold-nuggets", "gold_nuggets"),
     ]
 
@@ -114,7 +126,11 @@ def observe_project() -> Dict:
         target = PROJECT_ROOT / rel_path
         if target.exists():
             if target.is_dir():
-                files = sorted(target.glob("*"), key=lambda f: f.stat().st_mtime if f.exists() else 0, reverse=True)
+                files = sorted(
+                    target.glob("*"),
+                    key=lambda f: f.stat().st_mtime if f.exists() else 0,
+                    reverse=True,
+                )
                 observations["files"][key] = {
                     "count": len(files),
                     "recent": [f.name for f in files[:5]],
@@ -212,7 +228,9 @@ async def plan_next_action(observations: Dict, state: Dict) -> Dict:
     focus_info = FOCUS_AREAS.get(focus, FOCUS_AREAS["revenue"])
 
     recent_actions = state.get("actions_taken", [])[-5:]
-    actions_str = json.dumps(recent_actions, indent=2, ensure_ascii=False) if recent_actions else "Keine bisherigen Aktionen"
+    actions_str = (
+        json.dumps(recent_actions, indent=2, ensure_ascii=False) if recent_actions else "Keine bisherigen Aktionen"
+    )
 
     blockers = observations.get("blockers", [])
     blockers_str = "\n".join(f"- {b}" for b in blockers) if blockers else "Keine Blocker erkannt"
@@ -242,9 +260,9 @@ AKTION:
 
 PROJEKT-KONTEXT:
 - Verzeichnis: /home/user/AIEmpire-Core
-- Workflow System: workflow-system/orchestrator.py (5-step loop)
-- Kimi Swarm: kimi-swarm/swarm_500k.py (50K-500K agents)
-- Content: x-lead-machine/ (Posts, Replies, Lead Gen)
+- Workflow System: workflow_system/orchestrator.py (5-step loop)
+- Kimi Swarm: kimi_swarm/swarm_500k.py (50K-500K agents)
+- Content: x_lead_machine/ (Posts, Replies, Lead Gen)
 - CRM: crm/server.js (Express.js + SQLite)
 - Produkte: Gumroad (1 aktiv: AI Prompt Vault 27 EUR)
 
@@ -351,6 +369,7 @@ def _summarize(obs: Dict) -> Dict:
 
 # ── MAIN LOOP ────────────────────────────────────────────
 
+
 async def run_cycle(focus: Optional[str] = None, guard: Optional[ResourceGuard] = None) -> Dict:
     """Run one complete Observe-Plan-Act-Reflect cycle."""
     if guard is None:
@@ -368,12 +387,12 @@ async def run_cycle(focus: Optional[str] = None, guard: Optional[ResourceGuard] 
         guard_status = guard.format_status()
 
     print(f"""
-{'='*60}
+{"=" * 60}
   COWORK ENGINE - Cycle #{cycle_num}
-  Focus: {state.get('active_focus', 'revenue')}
-  Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+  Focus: {state.get("active_focus", "revenue")}
+  Time: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}
   Guard: {guard_status}
-{'='*60}
+{"=" * 60}
 """)
 
     # Resource guard before each phase
@@ -381,7 +400,11 @@ async def run_cycle(focus: Optional[str] = None, guard: Optional[ResourceGuard] 
         if gs.paused:
             print("  GUARD: System overloaded. Cycle deferred.")
             save_cowork_state(state)
-            return {"cycle": cycle_num, "status": "deferred_by_guard", "guard": guard.get_status()}
+            return {
+                "cycle": cycle_num,
+                "status": "deferred_by_guard",
+                "guard": guard.get_status(),
+            }
 
     # 1. OBSERVE
     print("  [1/4] OBSERVE - Scanning project state...")
@@ -426,13 +449,15 @@ async def run_cycle(focus: Optional[str] = None, guard: Optional[ResourceGuard] 
     print(f"         Learned: {reflection.get('what_worked', 'N/A')[:60]}")
 
     # Update state
-    state["actions_taken"].append({
-        "cycle": cycle_num,
-        "timestamp": datetime.now().isoformat(),
-        "action": action_title,
-        "score": score,
-        "focus": state.get("active_focus"),
-    })
+    state["actions_taken"].append(
+        {
+            "cycle": cycle_num,
+            "timestamp": datetime.now().isoformat(),
+            "action": action_title,
+            "score": score,
+            "focus": state.get("active_focus"),
+        }
+    )
 
     # Keep only last 50 actions
     if len(state["actions_taken"]) > 50:
@@ -469,14 +494,14 @@ async def run_cycle(focus: Optional[str] = None, guard: Optional[ResourceGuard] 
     cycle_file.write_text(json.dumps(cycle_data, indent=2, ensure_ascii=False))
 
     print(f"""
-{'='*60}
+{"=" * 60}
   CYCLE #{cycle_num} COMPLETE
   Score: {score}/10
   Output: {cycle_file.name}
-  Next focus: {state.get('active_focus')}
+  Next focus: {state.get("active_focus")}
   Guard: {guard.format_status()}
-  Manual step: {action_result.get('next_manual_step', 'None')}
-{'='*60}
+  Manual step: {action_result.get("next_manual_step", "None")}
+{"=" * 60}
 """)
 
     return cycle_data
@@ -489,7 +514,7 @@ async def run_daemon(interval: int = 1800, focus: Optional[str] = None):
     print(f"""
 ╔══════════════════════════════════════════════════════════╗
 ║          COWORK ENGINE - DAEMON MODE                    ║
-║          Interval: {interval}s ({interval//60} min)                          ║
+║          Interval: {interval}s ({interval // 60} min)                          ║
 ║          Resource Guard: ACTIVE                         ║
 ║          Press Ctrl+C to stop                           ║
 ╚══════════════════════════════════════════════════════════╝
@@ -507,7 +532,7 @@ async def run_daemon(interval: int = 1800, focus: Optional[str] = None):
                 print("  Recovered. Starting cycle.")
 
             await run_cycle(focus=focus, guard=guard)
-            print(f"\n  Next cycle in {interval}s ({interval//60} min)...\n")
+            print(f"\n  Next cycle in {interval}s ({interval // 60} min)...\n")
             await asyncio.sleep(interval)
         except KeyboardInterrupt:
             print("\n  Daemon stopped by user.")
@@ -526,11 +551,11 @@ def show_status():
 ╔══════════════════════════════════════════════════════════╗
 ║              COWORK ENGINE STATUS                       ║
 ╠══════════════════════════════════════════════════════════╣
-  Total cycles:     {state.get('total_cycles', 0)}
-  Active focus:     {state.get('active_focus', 'N/A')}
-  Actions taken:    {len(state.get('actions_taken', []))}
-  Patterns found:   {len(state.get('patterns_discovered', []))}
-  Last updated:     {state.get('updated', 'Never')}
+  Total cycles:     {state.get("total_cycles", 0)}
+  Active focus:     {state.get("active_focus", "N/A")}
+  Actions taken:    {len(state.get("actions_taken", []))}
+  Patterns found:   {len(state.get("patterns_discovered", []))}
+  Last updated:     {state.get("updated", "Never")}
 ╚══════════════════════════════════════════════════════════╝
     """)
 
@@ -554,6 +579,7 @@ def show_status():
 
 
 # ── HELPERS ──────────────────────────────────────────────
+
 
 async def _call_kimi(system: str, user: str) -> str:
     if not MOONSHOT_API_KEY:
@@ -602,10 +628,16 @@ def _parse_json(raw: str, step_name: str) -> Dict:
 
 # ── CLI ──────────────────────────────────────────────────
 
+
 async def main():
     parser = argparse.ArgumentParser(description="Cowork Engine - Autonomous Background Agent")
     parser.add_argument("--daemon", action="store_true", help="Run continuously")
-    parser.add_argument("--interval", type=int, default=1800, help="Daemon interval in seconds (default: 1800)")
+    parser.add_argument(
+        "--interval",
+        type=int,
+        default=1800,
+        help="Daemon interval in seconds (default: 1800)",
+    )
     parser.add_argument("--focus", choices=list(FOCUS_AREAS.keys()), help="Focus area")
     parser.add_argument("--status", action="store_true", help="Show cowork state")
     args = parser.parse_args()

@@ -70,8 +70,8 @@ SYNC_CONFIG = {
         "gemini-mirror/state/",
         "gemini-mirror/output/",
         "gemini-mirror/memory/",
-        "workflow-system/state/",
-        "workflow-system/output/",
+        "workflow_system/state/",
+        "workflow_system/output/",
     ],
 }
 

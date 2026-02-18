@@ -17,38 +17,45 @@ Usage:
   python orchestrator.py --status           # Show current state
 """
 
-import asyncio
-import aiohttp
 import argparse
+import asyncio
 import json
-import os
 import sys
 import time
 from datetime import datetime
 from pathlib import Path
 
-# Add parent to path for imports
+import aiohttp
+
+# Add parent and project root to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from state.context import (
-    load_state, append_step_result,
-    get_context_for_step, advance_cycle, add_pattern,
-    load_pattern_library,
-)
-from steps import step1_audit, step2_architect, step3_analyst, step4_refinery, step5_compounder
 from resource_guard import ResourceGuard
-
-# API Configuration - uses same keys as existing kimi-swarm
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+from state.context import (
+    add_pattern,
+    advance_cycle,
+    append_step_result,
+    get_context_for_step,
+    load_pattern_library,
+    load_state,
+)
+from steps import (
+    step1_audit,
+    step2_architect,
+    step3_analyst,
+    step4_refinery,
+    step5_compounder,
+)
+from antigravity.config import MOONSHOT_API_KEY
 
 # Model selection: Kimi for bulk, Claude for critical steps
 MODEL_CONFIG = {
-    "audit":     {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "architect": {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "analyst":   {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "refinery":  {"provider": "kimi",   "model": "moonshot-v1-32k"},
-    "compounder":{"provider": "kimi",   "model": "moonshot-v1-32k"},
+    "audit": {"provider": "kimi", "model": "moonshot-v1-32k"},
+    "architect": {"provider": "kimi", "model": "moonshot-v1-32k"},
+    "analyst": {"provider": "kimi", "model": "moonshot-v1-32k"},
+    "refinery": {"provider": "kimi", "model": "moonshot-v1-32k"},
+    "compounder": {"provider": "kimi", "model": "moonshot-v1-32k"},
 }
 
 OUTPUT_DIR = Path(__file__).parent / "output"
@@ -91,7 +98,9 @@ async def call_model(step_name: str, system_prompt: str, user_prompt: str) -> st
 
     async with aiohttp.ClientSession() as session:
         async with session.post(
-            url, headers=headers, json=payload,
+            url,
+            headers=headers,
+            json=payload,
             timeout=aiohttp.ClientTimeout(total=120),
         ) as resp:
             if resp.status == 200:
@@ -113,11 +122,11 @@ async def run_step(step_name: str, context: dict = None) -> dict:
     if context is None:
         context = get_context_for_step(step_name)
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"  STEP: {step_name.upper()}")
     print(f"  Cycle: #{context.get('cycle', 0)}")
     print(f"  Time: {datetime.now().strftime('%H:%M:%S')}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
     prompt = step_module.build_prompt(context)
     print(f"  Prompt length: {len(prompt)} chars")
@@ -144,12 +153,12 @@ async def run_refinery_loop(context: dict = None) -> dict:
     if context is None:
         context = get_context_for_step("refinery")
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("  STEP: REFINERY (Convergence Loop)")
     print(f"  Max iterations: {step4_refinery.MAX_ITERATIONS}")
     print(f"  Target score: {step4_refinery.TARGET_SCORE}")
     print(f"  Convergence threshold: {step4_refinery.CONVERGENCE_THRESHOLD}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
     previous_score = 0.0
     previous_result = None
@@ -158,7 +167,8 @@ async def run_refinery_loop(context: dict = None) -> dict:
         print(f"\n  --- Iteration {i}/{step4_refinery.MAX_ITERATIONS} ---")
 
         prompt = step4_refinery.build_prompt(
-            context, iteration=i,
+            context,
+            iteration=i,
             previous_score=previous_score,
             previous_result=previous_result,
         )
@@ -248,19 +258,25 @@ async def run_full_loop() -> dict:
 ║                    LOOP COMPLETE                        ║
 ╠══════════════════════════════════════════════════════════╣
 ║  Steps completed: 5/5                                   ║
-║  Duration: {elapsed:.0f}s{' ' * (46 - len(f'{elapsed:.0f}s'))}║
-║  New patterns: {len(step5_compounder.extract_patterns(results.get('compounder', {})))}{' ' * (43 - len(str(len(step5_compounder.extract_patterns(results.get('compounder', {}))))))}║
+║  Duration: {elapsed:.0f}s{" " * (46 - len(f"{elapsed:.0f}s"))}║
+║  New patterns: {len(step5_compounder.extract_patterns(results.get("compounder", {})))}{" " * (43 - len(str(len(step5_compounder.extract_patterns(results.get("compounder", {}))))))}║
 ╚══════════════════════════════════════════════════════════╝
     """)
 
     # Save full loop result
     loop_file = OUTPUT_DIR / f"full_loop_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
-    loop_file.write_text(json.dumps({
-        "cycle": state.get("cycle", 0),
-        "duration_sec": elapsed,
-        "steps": {k: v.get("summary", "") for k, v in results.items()},
-        "completed_at": datetime.now().isoformat(),
-    }, indent=2, ensure_ascii=False))
+    loop_file.write_text(
+        json.dumps(
+            {
+                "cycle": state.get("cycle", 0),
+                "duration_sec": elapsed,
+                "steps": {k: v.get("summary", "") for k, v in results.items()},
+                "completed_at": datetime.now().isoformat(),
+            },
+            indent=2,
+            ensure_ascii=False,
+        )
+    )
 
     return results
 
@@ -274,12 +290,12 @@ def show_status():
 ╔══════════════════════════════════════════════════════════╗
 ║             WORKFLOW SYSTEM STATUS                       ║
 ╠══════════════════════════════════════════════════════════╣
-  Cycle:          #{state.get('cycle', 0)}
-  Created:        {state.get('created', 'N/A')}
-  Last updated:   {state.get('updated', 'N/A')}
-  Steps done:     {len(state.get('steps_completed', []))}
+  Cycle:          #{state.get("cycle", 0)}
+  Created:        {state.get("created", "N/A")}
+  Last updated:   {state.get("updated", "N/A")}
+  Steps done:     {len(state.get("steps_completed", []))}
   Patterns:       {len(patterns)}
-  Improvements:   {len(state.get('improvements', []))}
+  Improvements:   {len(state.get("improvements", []))}
 ╚══════════════════════════════════════════════════════════╝
     """)
 
@@ -295,21 +311,14 @@ def show_status():
 
 
 async def main():
-    parser = argparse.ArgumentParser(
-        description="Opus 4.6 Workflow System - 5-Step Compound Loop"
-    )
+    parser = argparse.ArgumentParser(description="Opus 4.6 Workflow System - 5-Step Compound Loop")
+    parser.add_argument("--step", choices=STEP_ORDER, help="Run a single step (default: run all 5)")
     parser.add_argument(
-        "--step", choices=STEP_ORDER,
-        help="Run a single step (default: run all 5)"
+        "--new-cycle",
+        action="store_true",
+        help="Start a new weekly cycle (archives current state)",
     )
-    parser.add_argument(
-        "--new-cycle", action="store_true",
-        help="Start a new weekly cycle (archives current state)"
-    )
-    parser.add_argument(
-        "--status", action="store_true",
-        help="Show current workflow state"
-    )
+    parser.add_argument("--status", action="store_true", help="Show current workflow state")
     args = parser.parse_args()
 
     if args.status:

@@ -42,6 +42,13 @@ OLLAMA_API_V1 = f"{OLLAMA_BASE_URL}/v1"  # OpenAI-compatible endpoint
 # ─── Google Gemini Connection ───────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
+# ─── Anthropic / Claude Connection ──────────────────────────────────
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+
+# ─── Kimi / Moonshot Connection ──────────────────────────────────────
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+KIMI_API_KEY = MOONSHOT_API_KEY  # alias
+
 def _gcloud_project():
     try:
         out = subprocess.check_output(

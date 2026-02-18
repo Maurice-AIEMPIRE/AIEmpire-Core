@@ -5,24 +5,49 @@ Scannt GitHub nach den besten AI-Repos und Gold Nuggets
 """
 
 import asyncio
-import aiohttp
 import json
 import os
 from datetime import datetime
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF")
+import aiohttp
+
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 MAX_CONCURRENT = 100
 
 # GitHub Topics to scan
 GITHUB_TOPICS = [
-    "ai-agents", "llm", "langchain", "autogpt", "claude",
-    "gpt-4", "automation", "chatgpt", "openai", "anthropic",
-    "rag", "vector-database", "embeddings", "fine-tuning",
-    "prompt-engineering", "ai-automation", "no-code-ai",
-    "crewai", "autogen", "langraph", "llama", "ollama",
-    "mistral", "agent-framework", "mcp", "model-context-protocol",
-    "ai-tools", "ai-workflow", "business-automation",
-    "saas", "indie-hacker", "build-in-public"
+    "ai-agents",
+    "llm",
+    "langchain",
+    "autogpt",
+    "claude",
+    "gpt-4",
+    "automation",
+    "chatgpt",
+    "openai",
+    "anthropic",
+    "rag",
+    "vector-database",
+    "embeddings",
+    "fine-tuning",
+    "prompt-engineering",
+    "ai-automation",
+    "no-code-ai",
+    "crewai",
+    "autogen",
+    "langraph",
+    "llama",
+    "ollama",
+    "mistral",
+    "agent-framework",
+    "mcp",
+    "model-context-protocol",
+    "ai-tools",
+    "ai-workflow",
+    "business-automation",
+    "saas",
+    "indie-hacker",
+    "build-in-public",
 ]
 
 # Search queries for gold nuggets
@@ -39,6 +64,7 @@ GOLD_QUERIES = [
     "content automation",
 ]
 
+
 class GitHubScanner:
     def __init__(self):
         self.results = []
@@ -47,7 +73,7 @@ class GitHubScanner:
             "repos_scanned": 0,
             "nuggets_found": 0,
             "tokens_used": 0,
-            "cost_usd": 0.0
+            "cost_usd": 0.0,
         }
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT)
 
@@ -73,15 +99,15 @@ Return as JSON: {{problem, monetization, readiness, rating, action, reason}}"""
                         "https://api.moonshot.ai/v1/chat/completions",
                         headers={
                             "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
                         },
                         json={
                             "model": "moonshot-v1-8k",
                             "messages": [{"role": "user", "content": prompt}],
                             "temperature": 0.5,
-                            "max_tokens": 500
+                            "max_tokens": 500,
                         },
-                        timeout=aiohttp.ClientTimeout(total=30)
+                        timeout=aiohttp.ClientTimeout(total=30),
                     ) as resp:
                         if resp.status == 200:
                             data = await resp.json()
@@ -102,7 +128,7 @@ Return as JSON: {{problem, monetization, readiness, rating, action, reason}}"""
                 async with session.get(
                     f"https://api.github.com/search/repositories?q={query}&sort=stars&per_page=10",
                     headers={"Accept": "application/vnd.github.v3+json"},
-                    timeout=aiohttp.ClientTimeout(total=30)
+                    timeout=aiohttp.ClientTimeout(total=30),
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -121,31 +147,35 @@ Return as JSON: {{problem, monetization, readiness, rating, action, reason}}"""
 
             for repo in repos[:5]:  # Top 5 per topic
                 repo_info = f"""
-Repo: {repo['full_name']}
-Stars: {repo['stargazers_count']}
-Description: {repo['description']}
-Language: {repo['language']}
-URL: {repo['html_url']}
+Repo: {repo["full_name"]}
+Stars: {repo["stargazers_count"]}
+Description: {repo["description"]}
+Language: {repo["language"]}
+URL: {repo["html_url"]}
 """
                 result = await self.analyze_repo(repo_info)
                 if result["status"] == "success":
-                    self.results.append({
-                        "repo": repo["full_name"],
-                        "stars": repo["stargazers_count"],
-                        "url": repo["html_url"],
-                        "analysis": result["analysis"]
-                    })
+                    self.results.append(
+                        {
+                            "repo": repo["full_name"],
+                            "stars": repo["stargazers_count"],
+                            "url": repo["html_url"],
+                            "analysis": result["analysis"],
+                        }
+                    )
 
                     # Check if it's a gold nugget
                     try:
                         analysis = json.loads(result["analysis"])
                         if analysis.get("rating", 0) >= 7:
-                            self.gold_nuggets.append({
-                                "repo": repo["full_name"],
-                                "rating": analysis.get("rating"),
-                                "action": analysis.get("action"),
-                                "reason": analysis.get("reason")
-                            })
+                            self.gold_nuggets.append(
+                                {
+                                    "repo": repo["full_name"],
+                                    "rating": analysis.get("rating"),
+                                    "action": analysis.get("action"),
+                                    "reason": analysis.get("reason"),
+                                }
+                            )
                             self.stats["nuggets_found"] += 1
                             print(f"    💰 GOLD: {repo['full_name']} (Rating: {analysis.get('rating')})")
                     except Exception:
@@ -165,11 +195,15 @@ URL: {repo['html_url']}
         # Save results
         output_file = f"github_scan_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         with open(output_file, "w") as f:
-            json.dump({
-                "stats": self.stats,
-                "gold_nuggets": self.gold_nuggets,
-                "all_results": self.results
-            }, f, indent=2)
+            json.dump(
+                {
+                    "stats": self.stats,
+                    "gold_nuggets": self.gold_nuggets,
+                    "all_results": self.results,
+                },
+                f,
+                indent=2,
+            )
 
         # Save gold nuggets separately
         if self.gold_nuggets:

@@ -1,0 +1,25 @@
+[project]
+name = "aiempire-core"
+version = "1.0.0"
+description = "AI Empire Core - Multi-Agent System with Local Ollama Models"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 120
+exclude = [".claude/*", "__pycache__", ".venv", ".ruff_cache", "kimi-swarm/venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]  # Long lines in HTML templates - not fixable
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["antigravity", "systems", "kimi-swarm"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::pytest.PytestReturnNotNoneWarning",
+]

@@ -24,6 +24,7 @@ from typing import Optional, Dict
 from enum import Enum
 import asyncio
 import aiohttp
+from antigravity.config import GEMINI_API_KEY, ANTHROPIC_API_KEY, OLLAMA_BASE_URL
 
 logger = logging.getLogger(__name__)
 
@@ -90,11 +91,11 @@ class FreeModelRouter:
     """Routes requests to cheapest/fastest available model"""
 
     def __init__(self):
-        self.ollama_base = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        self.ollama_base = OLLAMA_BASE_URL
         self.openrouter_key = os.getenv("OPENROUTER_API_KEY", "")
         self.together_key = os.getenv("TOGETHER_API_KEY", "")
-        self.claude_key = os.getenv("CLAUDE_API_KEY", "")
-        self.gemini_key = os.getenv("GEMINI_API_KEY", "")
+        self.claude_key = ANTHROPIC_API_KEY
+        self.gemini_key = GEMINI_API_KEY
 
         self.usage = {
             "ollama": 0,

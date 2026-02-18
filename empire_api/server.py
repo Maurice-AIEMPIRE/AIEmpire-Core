@@ -3,19 +3,21 @@ AI EMPIRE CONTROL API
 Central nervous system connecting all Empire subsystems.
 Runs on your Mac, accessible from iPhone over local network.
 """
-import os
+
 import json
+import os
 import subprocess
-import httpx
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+from typing import Optional
+
+import httpx
+import uvicorn
 from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
-from typing import Optional
-import uvicorn
 
 app = FastAPI(title="AI Empire Control API", version="1.0.0")
 
@@ -31,8 +33,8 @@ app.add_middleware(
 # ── Paths ──
 EMPIRE_ROOT = Path(__file__).parent.parent
 GOLD_NUGGETS_DIR = EMPIRE_ROOT / "gold-nuggets"
-BRAIN_DIR = EMPIRE_ROOT / "brain-system" / "brains"
-TASKS_DIR = EMPIRE_ROOT / "atomic-reactor" / "tasks"
+BRAIN_DIR = EMPIRE_ROOT / "brain_system" / "brains"
+TASKS_DIR = EMPIRE_ROOT / "atomic_reactor" / "tasks"
 DOCS_DIR = EMPIRE_ROOT / "docs"
 MOBILE_DIR = EMPIRE_ROOT / "mobile-command-center"
 
@@ -44,29 +46,35 @@ GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
 # ── WebSocket connections ──
 active_connections: list[WebSocket] = []
 
+
 # ── Models ──
 class ActionRequest(BaseModel):
     action: str
     params: Optional[dict] = {}
 
+
 class TaskUpdate(BaseModel):
     task_id: str
     status: str  # pending, in_progress, completed
+
 
 class NoteCreate(BaseModel):
     title: str
     content: str
     category: str = "general"
 
+
 # ── Serve Mobile App ──
 if MOBILE_DIR.exists():
     app.mount("/app", StaticFiles(directory=str(MOBILE_DIR), html=True), name="mobile")
+
 
 @app.get("/")
 async def root():
     if (MOBILE_DIR / "index.html").exists():
         return FileResponse(str(MOBILE_DIR / "index.html"))
     return {"status": "AI Empire Control API", "version": "1.0.0"}
+
 
 # ══════════════════════════════════════
 # SYSTEM STATUS
@@ -81,7 +89,10 @@ async def health_check():
         async with httpx.AsyncClient(timeout=3) as c:
             r = await c.get("http://localhost:11434/api/tags")
             models = r.json().get("models", [])
-            checks["ollama"] = {"status": "active", "models": [m["name"] for m in models]}
+            checks["ollama"] = {
+                "status": "active",
+                "models": [m["name"] for m in models],
+            }
     except Exception:
         checks["ollama"] = {"status": "offline", "models": []}
 
@@ -121,12 +132,19 @@ async def health_check():
             async with httpx.AsyncClient(timeout=5) as c:
                 r = await c.get(
                     f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/actions/runs?per_page=5",
-                    headers={"Authorization": f"token {GITHUB_TOKEN}"}
+                    headers={"Authorization": f"token {GITHUB_TOKEN}"},
                 )
                 runs = r.json().get("workflow_runs", [])
                 checks["github_actions"] = {
                     "status": "active",
-                    "recent_runs": [{"name": r["name"], "status": r["status"], "conclusion": r.get("conclusion")} for r in runs]
+                    "recent_runs": [
+                        {
+                            "name": r["name"],
+                            "status": r["status"],
+                            "conclusion": r.get("conclusion"),
+                        }
+                        for r in runs
+                    ],
                 }
         except Exception:
             checks["github_actions"] = {"status": "unknown"}
@@ -145,8 +163,9 @@ async def health_check():
         "overall": "healthy" if active >= 4 else "degraded" if active >= 2 else "critical",
         "active_services": active,
         "total_services": total,
-        "services": checks
+        "services": checks,
     }
+
 
 # ══════════════════════════════════════
 # GOLD NUGGETS
@@ -159,23 +178,30 @@ async def get_nuggets():
         for f in sorted(GOLD_NUGGETS_DIR.glob("GOLD_*.md")):
             content = f.read_text(encoding="utf-8", errors="ignore")
             title = content.split("\n")[0].replace("#", "").strip() if content else f.stem
-            nuggets.append({
-                "id": f.stem,
-                "title": title,
-                "file": f.name,
-                "size": f.stat().st_size,
-                "modified": datetime.fromtimestamp(f.stat().st_mtime).isoformat(),
-                "preview": content[:300] if content else ""
-            })
+            nuggets.append(
+                {
+                    "id": f.stem,
+                    "title": title,
+                    "file": f.name,
+                    "size": f.stat().st_size,
+                    "modified": datetime.fromtimestamp(f.stat().st_mtime).isoformat(),
+                    "preview": content[:300] if content else "",
+                }
+            )
     return {"count": len(nuggets), "nuggets": nuggets}
+
 
 @app.get("/api/nuggets/{nugget_id}")
 async def get_nugget(nugget_id: str):
     """Get single nugget content"""
     for f in GOLD_NUGGETS_DIR.glob("*.md"):
         if f.stem == nugget_id:
-            return {"id": f.stem, "content": f.read_text(encoding="utf-8", errors="ignore")}
+            return {
+                "id": f.stem,
+                "content": f.read_text(encoding="utf-8", errors="ignore"),
+            }
     raise HTTPException(404, "Nugget not found")
+
 
 # ══════════════════════════════════════
 # BRAIN SYSTEM
@@ -185,21 +211,65 @@ async def get_brains():
     """Get all brain modules"""
     brains = []
     brain_meta = {
-        "00_brainstem": {"name": "Brainstem", "role": "Der Wächter", "model": "Bash Scripts", "icon": "🛡"},
-        "01_neocortex": {"name": "Neocortex", "role": "Der Visionär", "model": "Kimi K2.5", "icon": "🔭"},
-        "02_prefrontal": {"name": "Prefrontal", "role": "Der CEO", "model": "Claude", "icon": "👑"},
-        "03_temporal": {"name": "Temporal", "role": "Der Mund", "model": "Kimi K2.5", "icon": "📢"},
-        "04_parietal": {"name": "Parietal", "role": "Die Zahlen", "model": "Ollama", "icon": "📊"},
-        "05_limbic": {"name": "Limbic", "role": "Der Antrieb", "model": "Ollama", "icon": "🔥"},
-        "06_cerebellum": {"name": "Cerebellum", "role": "Die Hände", "model": "Ollama", "icon": "🔨"},
-        "07_hippocampus": {"name": "Hippocampus", "role": "Das Gedächtnis", "model": "SQLite", "icon": "💾"},
+        "00_brainstem": {
+            "name": "Brainstem",
+            "role": "Der Wächter",
+            "model": "Bash Scripts",
+            "icon": "🛡",
+        },
+        "01_neocortex": {
+            "name": "Neocortex",
+            "role": "Der Visionär",
+            "model": "Kimi K2.5",
+            "icon": "🔭",
+        },
+        "02_prefrontal": {
+            "name": "Prefrontal",
+            "role": "Der CEO",
+            "model": "Claude",
+            "icon": "👑",
+        },
+        "03_temporal": {
+            "name": "Temporal",
+            "role": "Der Mund",
+            "model": "Kimi K2.5",
+            "icon": "📢",
+        },
+        "04_parietal": {
+            "name": "Parietal",
+            "role": "Die Zahlen",
+            "model": "Ollama",
+            "icon": "📊",
+        },
+        "05_limbic": {
+            "name": "Limbic",
+            "role": "Der Antrieb",
+            "model": "Ollama",
+            "icon": "🔥",
+        },
+        "06_cerebellum": {
+            "name": "Cerebellum",
+            "role": "Die Hände",
+            "model": "Ollama",
+            "icon": "🔨",
+        },
+        "07_hippocampus": {
+            "name": "Hippocampus",
+            "role": "Das Gedächtnis",
+            "model": "SQLite",
+            "icon": "💾",
+        },
     }
     if BRAIN_DIR.exists():
         for f in sorted(BRAIN_DIR.glob("*.md")):
-            meta = brain_meta.get(f.stem, {"name": f.stem, "role": "Unknown", "model": "Unknown", "icon": "🧠"})
+            meta = brain_meta.get(
+                f.stem,
+                {"name": f.stem, "role": "Unknown", "model": "Unknown", "icon": "🧠"},
+            )
             content = f.read_text(encoding="utf-8", errors="ignore")
             brains.append({**meta, "id": f.stem, "file": f.name, "preview": content[:200]})
     return {"count": len(brains), "brains": brains}
+
 
 # ══════════════════════════════════════
 # TASKS (Atomic Reactor)
@@ -213,6 +283,7 @@ async def get_tasks():
             content = f.read_text(encoding="utf-8", errors="ignore")
             tasks.append({"id": f.stem, "file": f.name, "content": content})
     return {"count": len(tasks), "tasks": tasks}
+
 
 # ══════════════════════════════════════
 # ACTIONS — trigger things from iPhone
@@ -230,11 +301,14 @@ async def trigger_action(req: ActionRequest):
         # Trigger content generation via Ollama
         try:
             async with httpx.AsyncClient(timeout=30) as c:
-                r = await c.post("http://localhost:11434/api/generate", json={
-                    "model": "qwen2.5-coder:7b",
-                    "prompt": "Generate a viral tweet about AI automation for entrepreneurs. Max 280 chars. Just the tweet, no explanation.",
-                    "stream": False
-                })
+                r = await c.post(
+                    "http://localhost:11434/api/generate",
+                    json={
+                        "model": "qwen2.5-coder:7b",
+                        "prompt": "Generate a viral tweet about AI automation for entrepreneurs. Max 280 chars. Just the tweet, no explanation.",
+                        "stream": False,
+                    },
+                )
                 result["content"] = r.json().get("response", "")
                 result["status"] = "success"
         except Exception as e:
@@ -243,8 +317,11 @@ async def trigger_action(req: ActionRequest):
 
     elif action == "start_crm":
         try:
-            subprocess.Popen(["node", str(EMPIRE_ROOT / "crm" / "server.js")],
-                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            subprocess.Popen(
+                ["node", str(EMPIRE_ROOT / "crm" / "server.js")],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
             result["status"] = "started"
         except Exception as e:
             result["status"] = "error"
@@ -261,7 +338,11 @@ async def trigger_action(req: ActionRequest):
 
     elif action == "start_postgresql":
         try:
-            r = subprocess.run(["brew", "services", "start", "postgresql@16"], capture_output=True, text=True)
+            r = subprocess.run(
+                ["brew", "services", "start", "postgresql@16"],
+                capture_output=True,
+                text=True,
+            )
             result["status"] = "success"
             result["output"] = r.stdout
         except Exception as e:
@@ -270,7 +351,12 @@ async def trigger_action(req: ActionRequest):
 
     elif action == "git_status":
         try:
-            r = subprocess.run(["git", "status", "--short"], capture_output=True, text=True, cwd=str(EMPIRE_ROOT))
+            r = subprocess.run(
+                ["git", "status", "--short"],
+                capture_output=True,
+                text=True,
+                cwd=str(EMPIRE_ROOT),
+            )
             result["status"] = "success"
             result["output"] = r.stdout
         except Exception as e:
@@ -280,9 +366,21 @@ async def trigger_action(req: ActionRequest):
     elif action == "git_push":
         try:
             subprocess.run(["git", "add", "-A"], cwd=str(EMPIRE_ROOT))
-            subprocess.run(["git", "commit", "-m", f"[Mobile] Auto-commit {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
-                         cwd=str(EMPIRE_ROOT))
-            r = subprocess.run(["git", "push", "origin", "main"], capture_output=True, text=True, cwd=str(EMPIRE_ROOT))
+            subprocess.run(
+                [
+                    "git",
+                    "commit",
+                    "-m",
+                    f"[Mobile] Auto-commit {datetime.now().strftime('%Y-%m-%d %H:%M')}",
+                ],
+                cwd=str(EMPIRE_ROOT),
+            )
+            r = subprocess.run(
+                ["git", "push", "origin", "main"],
+                capture_output=True,
+                text=True,
+                cwd=str(EMPIRE_ROOT),
+            )
             result["status"] = "success"
             result["output"] = r.stdout or r.stderr
         except Exception as e:
@@ -297,7 +395,7 @@ async def trigger_action(req: ActionRequest):
                     r = await c.post(
                         f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/actions/workflows/{workflow}/dispatches",
                         headers={"Authorization": f"token {GITHUB_TOKEN}"},
-                        json={"ref": "main"}
+                        json={"ref": "main"},
                     )
                     result["status"] = "triggered" if r.status_code == 204 else "error"
             except Exception as e:
@@ -312,9 +410,10 @@ async def trigger_action(req: ActionRequest):
         model = req.params.get("model", "qwen2.5-coder:7b")
         try:
             async with httpx.AsyncClient(timeout=60) as c:
-                r = await c.post("http://localhost:11434/api/generate", json={
-                    "model": model, "prompt": prompt, "stream": False
-                })
+                r = await c.post(
+                    "http://localhost:11434/api/generate",
+                    json={"model": model, "prompt": prompt, "stream": False},
+                )
                 result["response"] = r.json().get("response", "")
                 result["status"] = "success"
         except Exception as e:
@@ -331,7 +430,7 @@ async def trigger_action(req: ActionRequest):
                     r = await c.post(
                         f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/issues",
                         headers={"Authorization": f"token {GITHUB_TOKEN}"},
-                        json={"title": title, "body": body, "labels": labels}
+                        json={"title": title, "body": body, "labels": labels},
                     )
                     result["issue"] = r.json()
                     result["status"] = "created"
@@ -351,6 +450,7 @@ async def trigger_action(req: ActionRequest):
 
     return result
 
+
 # ══════════════════════════════════════
 # GITHUB ISSUES (as tasks)
 # ══════════════════════════════════════
@@ -363,17 +463,27 @@ async def get_issues(state: str = "open"):
         async with httpx.AsyncClient(timeout=10) as c:
             r = await c.get(
                 f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/issues?state={state}&per_page=30",
-                headers={"Authorization": f"token {GITHUB_TOKEN}"}
+                headers={"Authorization": f"token {GITHUB_TOKEN}"},
             )
             issues = r.json()
-            return {"count": len(issues), "issues": [
-                {"id": i["number"], "title": i["title"], "state": i["state"],
-                 "labels": [label["name"] for label in i.get("labels", [])],
-                 "created": i["created_at"], "updated": i["updated_at"]}
-                for i in issues if "pull_request" not in i
-            ]}
+            return {
+                "count": len(issues),
+                "issues": [
+                    {
+                        "id": i["number"],
+                        "title": i["title"],
+                        "state": i["state"],
+                        "labels": [label["name"] for label in i.get("labels", [])],
+                        "created": i["created_at"],
+                        "updated": i["updated_at"],
+                    }
+                    for i in issues
+                    if "pull_request" not in i
+                ],
+            }
     except Exception as e:
         return {"count": 0, "issues": [], "error": str(e)}
+
 
 # ══════════════════════════════════════
 # GITHUB WORKFLOWS
@@ -391,16 +501,18 @@ async def get_workflows():
         async with httpx.AsyncClient(timeout=10) as c:
             r = await c.get(
                 f"https://api.github.com/repos/{GITHUB_OWNER}/{GITHUB_REPO}/actions/workflows",
-                headers={"Authorization": f"token {GITHUB_TOKEN}"}
+                headers={"Authorization": f"token {GITHUB_TOKEN}"},
             )
             return r.json()
     except Exception as e:
         return {"error": str(e)}
 
+
 # ══════════════════════════════════════
 # REVENUE TRACKING
 # ══════════════════════════════════════
 REVENUE_FILE = EMPIRE_ROOT / "docs" / "revenue.json"
+
 
 @app.get("/api/revenue")
 async def get_revenue():
@@ -418,8 +530,9 @@ async def get_revenue():
             "openclaw_skills": {"revenue": 0, "skills": 0, "status": "dev"},
             "youtube": {"revenue": 0, "videos": 0, "status": "not_started"},
         },
-        "history": []
+        "history": [],
     }
+
 
 @app.post("/api/revenue")
 async def update_revenue(data: dict):
@@ -428,10 +541,12 @@ async def update_revenue(data: dict):
     REVENUE_FILE.write_text(json.dumps(data, indent=2))
     return {"status": "saved"}
 
+
 # ══════════════════════════════════════
 # NOTES & QUICK CAPTURE
 # ══════════════════════════════════════
 NOTES_FILE = EMPIRE_ROOT / "docs" / "mobile_notes.json"
+
 
 @app.get("/api/notes")
 async def get_notes():
@@ -439,19 +554,24 @@ async def get_notes():
         return json.loads(NOTES_FILE.read_text())
     return {"notes": []}
 
+
 @app.post("/api/notes")
 async def create_note(note: NoteCreate):
     notes = json.loads(NOTES_FILE.read_text()) if NOTES_FILE.exists() else {"notes": []}
-    notes["notes"].insert(0, {
-        "id": len(notes["notes"]) + 1,
-        "title": note.title,
-        "content": note.content,
-        "category": note.category,
-        "created": datetime.now().isoformat()
-    })
+    notes["notes"].insert(
+        0,
+        {
+            "id": len(notes["notes"]) + 1,
+            "title": note.title,
+            "content": note.content,
+            "category": note.category,
+            "created": datetime.now().isoformat(),
+        },
+    )
     NOTES_FILE.parent.mkdir(parents=True, exist_ok=True)
     NOTES_FILE.write_text(json.dumps(notes, indent=2))
     return {"status": "created", "note": notes["notes"][0]}
+
 
 # ══════════════════════════════════════
 # WEBSOCKET — real-time updates
@@ -472,6 +592,7 @@ async def websocket_endpoint(websocket: WebSocket):
     except WebSocketDisconnect:
         active_connections.remove(websocket)
 
+
 # ══════════════════════════════════════
 # SYSTEM INFO
 # ══════════════════════════════════════
@@ -486,9 +607,24 @@ async def system_info():
 
     # Git info
     try:
-        branch = subprocess.run(["git", "branch", "--show-current"], capture_output=True, text=True, cwd=str(EMPIRE_ROOT)).stdout.strip()
-        commits = subprocess.run(["git", "rev-list", "--count", "HEAD"], capture_output=True, text=True, cwd=str(EMPIRE_ROOT)).stdout.strip()
-        last_commit = subprocess.run(["git", "log", "-1", "--format=%s (%cr)"], capture_output=True, text=True, cwd=str(EMPIRE_ROOT)).stdout.strip()
+        branch = subprocess.run(
+            ["git", "branch", "--show-current"],
+            capture_output=True,
+            text=True,
+            cwd=str(EMPIRE_ROOT),
+        ).stdout.strip()
+        commits = subprocess.run(
+            ["git", "rev-list", "--count", "HEAD"],
+            capture_output=True,
+            text=True,
+            cwd=str(EMPIRE_ROOT),
+        ).stdout.strip()
+        last_commit = subprocess.run(
+            ["git", "log", "-1", "--format=%s (%cr)"],
+            capture_output=True,
+            text=True,
+            cwd=str(EMPIRE_ROOT),
+        ).stdout.strip()
     except Exception:
         branch, commits, last_commit = "unknown", "0", "unknown"
 
@@ -497,19 +633,37 @@ async def system_info():
         "branch": branch,
         "commits": int(commits) if commits.isdigit() else 0,
         "last_commit": last_commit,
-        "files": {"total": total_files, "python": total_py, "markdown": total_md, "javascript": total_js},
+        "files": {
+            "total": total_files,
+            "python": total_py,
+            "markdown": total_md,
+            "javascript": total_js,
+        },
         "subsystems": [
-            "brain-system", "workflow-system", "kimi-swarm", "x-lead-machine",
-            "crm", "atomic-reactor", "n8n-workflows", "openclaw-config",
-            "gold-nuggets", "BMA_ACADEMY", "mobile-command-center"
-        ]
+            "brain_system",
+            "workflow_system",
+            "kimi_swarm",
+            "x_lead_machine",
+            "crm",
+            "atomic_reactor",
+            "n8n-workflows",
+            "openclaw-config",
+            "gold-nuggets",
+            "BMA_ACADEMY",
+            "mobile-command-center",
+            "mirror-system",
+            "godmode",
+            "warroom",
+        ],
     }
+
 
 # ══════════════════════════════════════
 # STARTUP
 # ══════════════════════════════════════
 if __name__ == "__main__":
     import socket
+
     # Get local IP for iPhone access
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
@@ -526,7 +680,7 @@ if __name__ == "__main__":
 ╠══════════════════════════════════════════════╣
 ║                                              ║
 ║  🖥  Mac:    http://localhost:3333            ║
-║  📱 iPhone: http://{local_ip}:3333{' ' * (14 - len(local_ip))}║
+║  📱 iPhone: http://{local_ip}:3333{" " * (14 - len(local_ip))}║
 ║                                              ║
 ║  Öffne den iPhone-Link in Safari,            ║
 ║  dann: Teilen → Zum Home-Bildschirm         ║

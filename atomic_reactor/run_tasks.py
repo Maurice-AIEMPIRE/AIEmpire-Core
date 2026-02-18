@@ -5,21 +5,21 @@ Führt alle Tasks in /tasks/ aus
 """
 
 import asyncio
-import aiohttp
-import yaml
 import json
 import os
-import sys
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
-if not MOONSHOT_API_KEY:
-    print("ERROR: MOONSHOT_API_KEY not set. Export it first: export MOONSHOT_API_KEY=your-key")
-    sys.exit(1)
+import aiohttp
+import yaml
 
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 TASKS_DIR = Path(__file__).parent / "tasks"
 REPORTS_DIR = Path(__file__).parent / "reports"
+
+# Ensure directories exist
+TASKS_DIR.mkdir(parents=True, exist_ok=True)
+
 
 async def execute_task(task: dict) -> dict:
     """Execute a single task with Kimi."""
@@ -30,18 +30,21 @@ async def execute_task(task: dict) -> dict:
             "https://api.moonshot.ai/v1/chat/completions",
             headers={
                 "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             },
             json={
                 "model": "moonshot-v1-32k",  # Bigger context for complex tasks
                 "messages": [
-                    {"role": "system", "content": "You are a business analyst. Return structured JSON responses."},
-                    {"role": "user", "content": prompt}
+                    {
+                        "role": "system",
+                        "content": "You are a business analyst. Return structured JSON responses.",
+                    },
+                    {"role": "user", "content": prompt},
                 ],
                 "temperature": 0.7,
-                "max_tokens": 2000
+                "max_tokens": 2000,
             },
-            timeout=aiohttp.ClientTimeout(total=60)
+            timeout=aiohttp.ClientTimeout(total=60),
         ) as resp:
             if resp.status == 200:
                 data = await resp.json()
@@ -53,14 +56,15 @@ async def execute_task(task: dict) -> dict:
                     "status": "success",
                     "result": content,
                     "tokens": tokens,
-                    "cost_usd": (tokens / 1000) * 0.001
+                    "cost_usd": (tokens / 1000) * 0.001,
                 }
             else:
                 return {
                     "task_id": task.get("id"),
                     "status": "error",
-                    "error": f"HTTP {resp.status}"
+                    "error": f"HTTP {resp.status}",
                 }
+
 
 async def run_all_tasks():
     """Load and run all tasks from /tasks/."""
@@ -71,8 +75,18 @@ async def run_all_tasks():
 
     REPORTS_DIR.mkdir(exist_ok=True)
 
+    # Check API key
+    if not MOONSHOT_API_KEY:
+        print("ERROR: MOONSHOT_API_KEY not set. Export it or add to .env file.")
+        print("  export MOONSHOT_API_KEY=sk-your-key-here")
+        return []
+
     # Load all task files
     task_files = list(TASKS_DIR.glob("*.yaml"))
+    if not task_files:
+        print("No task files found in tasks/ directory.")
+        print("Create YAML task files in: " + str(TASKS_DIR))
+        return []
     print(f"Found {len(task_files)} tasks")
     print()
 
@@ -132,17 +146,22 @@ async def run_all_tasks():
     # Save summary
     summary_file = REPORTS_DIR / f"summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
     with open(summary_file, "w") as f:
-        json.dump({
-            "executed_at": datetime.now().isoformat(),
-            "tasks": len(results),
-            "successful": sum(1 for r in results if r["status"] == "success"),
-            "total_tokens": total_tokens,
-            "total_cost_usd": total_cost,
-            "results": results
-        }, f, indent=2)
+        json.dump(
+            {
+                "executed_at": datetime.now().isoformat(),
+                "tasks": len(results),
+                "successful": sum(1 for r in results if r["status"] == "success"),
+                "total_tokens": total_tokens,
+                "total_cost_usd": total_cost,
+                "results": results,
+            },
+            f,
+            indent=2,
+        )
 
     print(f"Summary saved: {summary_file}")
     return results
+
 
 if __name__ == "__main__":
     asyncio.run(run_all_tasks())

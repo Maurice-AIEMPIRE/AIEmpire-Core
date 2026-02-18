@@ -61,8 +61,12 @@ CONVERGENCE_THRESHOLD = 0.3
 TARGET_SCORE = 8.0
 
 
-def build_prompt(context: Dict, iteration: int = 1, previous_score: float = 0.0,
-                 previous_result: Dict = None) -> str:
+def build_prompt(
+    context: Dict,
+    iteration: int = 1,
+    previous_score: float = 0.0,
+    previous_result: Dict = None,
+) -> str:
     analyst = context.get("prior_steps", {}).get("analyst", {})
     architect = context.get("prior_steps", {}).get("architect", {})
 

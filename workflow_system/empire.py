@@ -12,10 +12,18 @@ Usage:
   python empire.py guard                # Resource Guard Status
   python empire.py cycle                # Neuen Wochen-Zyklus starten
   python empire.py full                 # Workflow + Cowork nacheinander
+  python empire.py mirror               # Mirror Lab Status + Sync
+  python empire.py mirror --export      # Export-Paket erstellen
+  python empire.py mirror --sync        # Voller Sync-Zyklus
+  python empire.py dip morning          # Daily Interrogation (Morgen)
+  python empire.py dip evening          # Daily Interrogation (Abend)
+  python empire.py product add "Idee"   # Produktidee hinzufügen
+  python empire.py product score        # Ideen bewerten
+  python empire.py product status       # Pipeline Status
 """
 
-import asyncio
 import argparse
+import asyncio
 import json
 import sys
 from datetime import datetime
@@ -28,7 +36,8 @@ sys.path.insert(0, str(WORKFLOW_DIR))
 
 
 def show_banner():
-    print("""
+    print(
+        """
 ╔══════════════════════════════════════════════════════════════╗
 ║                                                              ║
 ║     ██████╗ ██╗    ███████╗███╗   ███╗██████╗ ██╗██████╗    ║
@@ -41,7 +50,8 @@ def show_banner():
 ║    Control Center - Maurice Pfeifer                          ║
 ║    {date}                                        ║
 ╚══════════════════════════════════════════════════════════════╝
-    """.format(date=datetime.now().strftime("%Y-%m-%d %H:%M:%S")))
+    """.format(date=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+    )
 
 
 def show_full_status():
@@ -50,6 +60,7 @@ def show_full_status():
 
     # 1. Resource Guard
     from resource_guard import ResourceGuard
+
     guard = ResourceGuard()
     guard.get_status()
     print(f"  RESOURCES: {guard.format_status()}")
@@ -104,8 +115,8 @@ def show_full_status():
     output_dirs = {
         "Workflow outputs": WORKFLOW_DIR / "output",
         "Cowork outputs": WORKFLOW_DIR / "cowork_output",
-        "Swarm outputs": EMPIRE_ROOT / "kimi-swarm" / "output_500k",
-        "Reactor reports": EMPIRE_ROOT / "atomic-reactor" / "reports",
+        "Swarm outputs": EMPIRE_ROOT / "kimi_swarm" / "output_500k",
+        "Reactor reports": EMPIRE_ROOT / "atomic_reactor" / "reports",
     }
 
     print("  OUTPUT INVENTORY:")
@@ -113,21 +124,24 @@ def show_full_status():
         if path.exists():
             files = list(path.glob("*"))
             total_size = sum(f.stat().st_size for f in files if f.is_file())
-            print(f"    {name:20s}: {len(files):4d} files ({total_size/1024:.0f} KB)")
+            print(f"    {name:20s}: {len(files):4d} files ({total_size / 1024:.0f} KB)")
         else:
             print(f"    {name:20s}: (not created)")
     print()
 
     # 5. Git Status
     import subprocess
+
     try:
         branch = subprocess.check_output(
             ["git", "-C", str(EMPIRE_ROOT), "branch", "--show-current"],
-            text=True, timeout=5
+            text=True,
+            timeout=5,
         ).strip()
         uncommitted = subprocess.check_output(
             ["git", "-C", str(EMPIRE_ROOT), "status", "--porcelain"],
-            text=True, timeout=5
+            text=True,
+            timeout=5,
         ).strip()
         changes = len(uncommitted.split("\n")) if uncommitted else 0
         print(f"  GIT: {branch} | {changes} uncommitted changes")
@@ -135,18 +149,54 @@ def show_full_status():
         print("  GIT: (could not read)")
     print()
 
-    # 6. Quick Commands
+    # 6. Mirror System Status
+    mirror_dir = EMPIRE_ROOT / "mirror-system"
+    if mirror_dir.exists():
+        vision_file = mirror_dir / "dip" / "vision_state.json"
+        if vision_file.exists():
+            try:
+                vs = json.loads(vision_file.read_text())
+                sessions = vs.get("sessions_completed", 0)
+                streak = vs.get("meta", {}).get("streak_days", 0)
+                print("  MIRROR SYSTEM:")
+                print(f"    DIP Sessions:  {sessions}")
+                print(f"    Streak:        {streak} days")
+                focus = vs.get("vision", {}).get("daily_focus")
+                if focus:
+                    print(f"    Focus:         {focus}")
+            except json.JSONDecodeError:
+                print("  MIRROR SYSTEM: vision_state.json corrupted")
+        else:
+            print("  MIRROR SYSTEM: Not initialized (run: python empire.py dip morning)")
+
+        # Product Factory
+        inbox = mirror_dir / "product-factory" / "data" / "ideas" / "inbox.jsonl"
+        if inbox.exists():
+            idea_count = sum(1 for line in inbox.read_text().split("\n") if line.strip())
+            print(f"    Product Ideas: {idea_count}")
+
+        # Export count
+        exports = list((mirror_dir / "export" / "exports").glob("*.zip")) if (mirror_dir / "export" / "exports").exists() else []
+        print(f"    Exports:       {len(exports)}")
+    else:
+        print("  MIRROR SYSTEM: Not installed")
+    print()
+
+    # 7. Quick Commands
     print("  COMMANDS:")
     print("    python empire.py workflow          # Run 5-step loop")
     print("    python empire.py cowork --daemon   # Start background agent")
     print("    python empire.py cycle             # New weekly cycle")
     print("    python empire.py full              # Workflow + Cowork")
+    print("    python empire.py mirror            # Mirror Lab status")
+    print("    python empire.py dip morning       # Daily Vision Interview")
+    print("    python empire.py product status    # Product Factory")
     print()
 
 
 async def run_workflow(args):
     """Run the 5-step workflow orchestrator."""
-    from orchestrator import run_full_loop, run_step, run_refinery_loop
+    from orchestrator import run_full_loop, run_refinery_loop, run_step
     from state.context import advance_cycle
 
     if hasattr(args, "new_cycle") and args.new_cycle:
@@ -165,7 +215,8 @@ async def run_workflow(args):
 
 async def run_cowork(args):
     """Run the cowork engine."""
-    from cowork import run_cycle, run_daemon, show_status as cowork_status
+    from cowork import run_cycle, run_daemon
+    from cowork import show_status as cowork_status
 
     if hasattr(args, "status") and args.status:
         cowork_status()
@@ -181,8 +232,8 @@ async def run_cowork(args):
 
 async def run_full(args):
     """Run workflow loop followed by cowork cycle."""
-    from orchestrator import run_full_loop
     from cowork import run_cycle
+    from orchestrator import run_full_loop
 
     print("Phase 1: Workflow System (5-Step Loop)")
     await run_full_loop()
@@ -207,7 +258,7 @@ Examples:
   python empire.py cycle                     New weekly cycle
   python empire.py full                      Workflow + Cowork
   python empire.py guard                     Resource guard status
-        """
+        """,
     )
 
     sub = parser.add_subparsers(dest="command")
@@ -237,6 +288,23 @@ Examples:
     full_p = sub.add_parser("full", help="Run workflow + cowork")
     full_p.add_argument("--focus", choices=["revenue", "content", "automation", "product"])
 
+    # mirror
+    mir = sub.add_parser("mirror", help="Mirror Lab operations")
+    mir.add_argument("--export", action="store_true", help="Create export package")
+    mir.add_argument("--sync", action="store_true", help="Full sync cycle")
+    mir.add_argument("--gate", action="store_true", help="Check merge gate")
+
+    # dip
+    dip = sub.add_parser("dip", help="Daily Interrogation Protocol")
+    dip.add_argument("session", choices=["morning", "evening", "status", "history", "generate"],
+                     nargs="?", default="status")
+
+    # product
+    prod = sub.add_parser("product", help="Product Factory Pipeline")
+    prod.add_argument("action", choices=["add", "score", "rank", "design", "marketing", "status"],
+                      nargs="?", default="status")
+    prod.add_argument("product_args", nargs="*")
+
     args = parser.parse_args()
 
     if not args.command or args.command == "status":
@@ -247,13 +315,40 @@ Examples:
         asyncio.run(run_cowork(args))
     elif args.command == "cycle":
         from state.context import advance_cycle
+
         cycle = advance_cycle()
         print(f"New weekly cycle started: #{cycle}")
     elif args.command == "guard":
         from resource_guard import main as guard_main
+
         guard_main()
     elif args.command == "full":
         asyncio.run(run_full(args))
+    elif args.command == "mirror":
+        mirror_dir = EMPIRE_ROOT / "mirror-system"
+        if args.export:
+            import subprocess
+            subprocess.run([sys.executable, str(mirror_dir / "export" / "export_daily.py")])
+        elif args.sync:
+            import subprocess
+            subprocess.run([sys.executable, str(mirror_dir / "sync" / "sync_manager.py"), "daily"])
+        elif args.gate:
+            import subprocess
+            subprocess.run([sys.executable, str(mirror_dir / "import" / "merge_gate.py"), "check"])
+        else:
+            import subprocess
+            subprocess.run([sys.executable, str(mirror_dir / "sync" / "sync_manager.py"), "status"])
+    elif args.command == "dip":
+        import subprocess
+        mirror_dir = EMPIRE_ROOT / "mirror-system"
+        subprocess.run([sys.executable, str(mirror_dir / "dip" / "daily_interrogation.py"),
+                       args.session])
+    elif args.command == "product":
+        import subprocess
+        mirror_dir = EMPIRE_ROOT / "mirror-system"
+        cmd = [sys.executable, str(mirror_dir / "product-factory" / "product_pipeline.py"),
+               args.action] + (args.product_args or [])
+        subprocess.run(cmd)
 
 
 if __name__ == "__main__":

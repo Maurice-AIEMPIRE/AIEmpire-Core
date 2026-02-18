@@ -142,8 +142,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
             background: rgba(6, 6, 11, .7);
             border-bottom: 1px solid var(--border);
             transition: all .3s;
@@ -270,6 +270,7 @@
 
         .rev-stat {
             background: var(--card);
+            -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -372,6 +373,7 @@
             background: var(--card);
             border: 1px solid var(--border);
             white-space: nowrap;
+            min-width: -webkit-fill-available;
             min-width: fit-content;
             transition: all .3s
         }
@@ -421,6 +423,7 @@
             font-size: .85rem;
             font-weight: 600;
             transition: all .3s;
+            -webkit-user-select: none;
             user-select: none;
             position: relative;
             overflow: hidden
@@ -552,6 +555,7 @@
 
         .p-card {
             background: var(--card);
+            -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border: 1px solid var(--border);
             border-radius: var(--radius);
@@ -728,6 +732,7 @@
 
         .s-card {
             background: var(--card);
+            -webkit-backdrop-filter: blur(16px);
             backdrop-filter: blur(16px);
             border: 1px solid var(--border);
             border-radius: 14px;
@@ -1104,6 +1109,7 @@
             align-items: center;
             font-weight: 600;
             font-size: .9rem;
+            -webkit-user-select: none;
             user-select: none
         }
 
@@ -1132,6 +1138,69 @@
             font-size: .85rem;
             color: var(--muted);
             line-height: 1.7
+        }
+
+        /* ─── Utility Classes (from inline styles) ─── */
+        .border-orange {
+            border-color: var(--orange)
+        }
+
+        .border-yellow {
+            border-color: var(--yellow)
+        }
+
+        .border-cyan {
+            border-color: var(--cyan)
+        }
+
+        .border-green {
+            border-color: var(--green)
+        }
+
+        .border-accent {
+            border-color: var(--accent)
+        }
+
+        .text-muted-inline {
+            color: var(--muted)
+        }
+
+        .text-green {
+            color: var(--green)
+        }
+
+        .arch-title {
+            margin-bottom: 18px;
+            font-size: 1.3rem
+        }
+
+        .arch-h--control {
+            background: rgba(124, 58, 237, .12);
+            color: var(--accent2)
+        }
+
+        .arch-h--agent {
+            background: rgba(168, 85, 247, .12);
+            color: #a855f7
+        }
+
+        .arch-h--data {
+            background: rgba(59, 130, 246, .12);
+            color: var(--blue)
+        }
+
+        .arch-h--sales {
+            background: rgba(16, 185, 129, .12);
+            color: var(--green)
+        }
+
+        .arch-h--revenue {
+            background: rgba(249, 115, 22, .12);
+            color: var(--orange)
+        }
+
+        .arch-sub {
+            font-size: .72rem
         }
 
         /* Testimonials Carousel */
@@ -1229,6 +1298,7 @@
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, .8);
+            -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
             z-index: 10000;
             display: none;
@@ -1569,35 +1639,35 @@
         <!-- Revenue Stats -->
         <div class="rev-banner reveal">
             <div class="rev-stat">
-                <div class="val c-green">14</div>
+                <div class="val c-green" id="metric-stripe">14</div>
                 <div class="lbl">Stripe Produkte</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-accent">10</div>
+                <div class="val c-accent" id="metric-products">14</div>
                 <div class="lbl">Produkte 100%</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-cyan">9</div>
+                <div class="val c-cyan" id="metric-tiktok">9</div>
                 <div class="lbl">TikTok Scripts</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-yellow">17</div>
+                <div class="val c-yellow" id="metric-twitter">17</div>
                 <div class="lbl">X/Twitter Posts</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-orange">3</div>
+                <div class="val c-orange" id="metric-fiverr">3</div>
                 <div class="lbl">Fiverr Gigs</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-blue">3</div>
+                <div class="val c-blue" id="metric-gumroad">3</div>
                 <div class="lbl">Gumroad Produkte</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-green">5</div>
+                <div class="val c-green" id="metric-revenue-channels">5</div>
                 <div class="lbl">Revenue Kanäle</div>
             </div>
             <div class="rev-stat">
-                <div class="val c-pink">16+</div>
+                <div class="val c-pink" id="metric-systems">1+</div>
                 <div class="lbl">Systeme gebaut</div>
             </div>
         </div>
@@ -1825,8 +1895,7 @@
                 </div>
 
                 <!-- BMA+AI Consulting -->
-                <div class="p-card reveal" data-product="bma-ai-hybrid" data-category="consulting"
-                    style="border-color:var(--orange)">
+                <div class="p-card reveal border-orange" data-product="bma-ai-hybrid" data-category="consulting">
                     <div class="badge badge-consulting">TOP SELLER</div>
                     <div class="fertig-badge">✅ 100% Fertig</div>
                     <h3>👑 BMA + AI Hybrides Consulting</h3>
@@ -1842,8 +1911,7 @@
                 </div>
 
                 <!-- NEW: AI Gold Nuggets Collection -->
-                <div class="p-card reveal" data-product="ai-gold-nuggets" data-category="ai"
-                    style="border-color:var(--yellow)">
+                <div class="p-card reveal border-yellow" data-product="ai-gold-nuggets" data-category="ai">
                     <div class="badge badge-gumroad">NEU · €7</div>
                     <div class="fertig-badge">✅ 100% Fertig</div>
                     <h3>💎 AI Gold Nuggets Collection</h3>
@@ -1860,8 +1928,7 @@
                 </div>
 
                 <!-- NEW: KI Mega-Prompt Sammlung -->
-                <div class="p-card reveal" data-product="ai-prompt-sammlung" data-category="ai"
-                    style="border-color:var(--cyan)">
+                <div class="p-card reveal border-cyan" data-product="ai-prompt-sammlung" data-category="ai">
                     <div class="badge badge-gumroad">NEU · €9</div>
                     <div class="fertig-badge">✅ 100% Fertig</div>
                     <h3>⚡ KI Mega-Prompt Sammlung</h3>
@@ -1877,8 +1944,7 @@
                 </div>
 
                 <!-- NEW: AI Workflow Template Pack -->
-                <div class="p-card reveal" data-product="ai-workflow-templates" data-category="ai"
-                    style="border-color:var(--green)">
+                <div class="p-card reveal border-green" data-product="ai-workflow-templates" data-category="ai">
                     <div class="badge badge-gumroad">NEU · €12</div>
                     <div class="fertig-badge">✅ 100% Fertig</div>
                     <h3>🔄 AI Workflow Template Pack</h3>
@@ -1894,8 +1960,7 @@
                 </div>
 
                 <!-- NEW: AI Agent Architektur-Blaupause -->
-                <div class="p-card reveal" data-product="ai-agent-blaupause" data-category="ai"
-                    style="border-color:var(--accent)">
+                <div class="p-card reveal border-accent" data-product="ai-agent-blaupause" data-category="ai">
                     <div class="badge badge-consulting">NEU · €14</div>
                     <div class="fertig-badge">✅ 100% Fertig</div>
                     <h3>🏗️ AI Agent Architektur-Blaupause</h3>
@@ -1974,7 +2039,7 @@
         </div>
         <div class="usp reveal">
             <h2>DEIN UNFAIRER VORTEIL</h2>
-            <p style="color:var(--muted)">Du bist der EINZIGE Mensch weltweit mit dieser Kombination.</p>
+            <p class="text-muted-inline">Du bist der EINZIGE Mensch weltweit mit dieser Kombination.</p>
             <div class="usp-row">
                 <div class="usp-p">
                     <div class="em">🔥</div>
@@ -2129,7 +2194,7 @@
             </div>
             <div class="flow-note">⚠️ Fiverr Gigs müssen live geschaltet werden. Texte sind bereit.</div>
         </div>
-        <div class="flow-box reveal" style="border-color:var(--orange)">
+        <div class="flow-box reveal border-orange">
             <h3>🔥 Kanal 3: Consulting (Höchster Wert)</h3>
             <div class="flow-row">
                 <div class="f-node f-live">16 Jahre BMA-Netzwerk</div>
@@ -2142,7 +2207,7 @@
                 <div class="f-arr">→</div>
                 <div class="f-node f-live">€2.000-10.000 → PayPal</div>
             </div>
-            <div class="flow-note" style="color:var(--green)">✅ SCHNELLSTER WEG: Nur 5 Anrufe nötig. Direkt
+            <div class="flow-note text-green">✅ SCHNELLSTER WEG: Nur 5 Anrufe nötig. Direkt
                 verkaufen.</div>
         </div>
         <div class="flow-box reveal">
@@ -2163,10 +2228,10 @@
 
     <!-- PANEL: ARCHITECTURE -->
     <div class="panel" id="p-arch">
-        <h2 style="margin-bottom:18px;font-size:1.3rem" class="reveal">System-Architektur (5 Layer)</h2>
+        <h2 class="arch-title reveal">System-Architektur (5 Layer)</h2>
         <div class="arch reveal">
-            <div class="arch-h" style="background:rgba(124,58,237,.12);color:var(--accent2)"><span>CONTROL
-                    LAYER</span><span style="font-size:.72rem">Claude + GitHub</span></div>
+            <div class="arch-h arch-h--control"><span>CONTROL
+                    LAYER</span><span class="arch-sub">Claude + GitHub</span></div>
             <div class="arch-b">
                 <div class="chip">Empire CLI</div>
                 <div class="chip">Orchestrator</div>
@@ -2176,8 +2241,8 @@
             </div>
         </div>
         <div class="arch reveal">
-            <div class="arch-h" style="background:rgba(168,85,247,.12);color:#a855f7"><span>AGENT LAYER</span><span
-                    style="font-size:.72rem">95% Ollama → 4% Kimi → 1% Claude</span></div>
+            <div class="arch-h arch-h--agent"><span>AGENT LAYER</span><span class="arch-sub">95% Ollama → 4% Kimi → 1%
+                    Claude</span></div>
             <div class="arch-b">
                 <div class="chip">Ollama (11434)</div>
                 <div class="chip">Kimi Swarm (50-500K)</div>
@@ -2187,8 +2252,8 @@
             </div>
         </div>
         <div class="arch reveal">
-            <div class="arch-h" style="background:rgba(59,130,246,.12);color:var(--blue)"><span>DATA
-                    LAYER</span><span style="font-size:.72rem">Persistent + Vector + Cache</span></div>
+            <div class="arch-h arch-h--data"><span>DATA
+                    LAYER</span><span class="arch-sub">Persistent + Vector + Cache</span></div>
             <div class="arch-b">
                 <div class="chip">PostgreSQL (5432)</div>
                 <div class="chip">Redis (6379)</div>
@@ -2198,8 +2263,8 @@
             </div>
         </div>
         <div class="arch reveal">
-            <div class="arch-h" style="background:rgba(16,185,129,.12);color:var(--green)"><span>SALES
-                    LAYER</span><span style="font-size:.72rem">X + CRM + Fiverr + Consulting</span></div>
+            <div class="arch-h arch-h--sales"><span>SALES
+                    LAYER</span><span class="arch-sub">X + CRM + Fiverr + Consulting</span></div>
             <div class="arch-b">
                 <div class="chip">X Lead Machine</div>
                 <div class="chip">Viral Reply Gen</div>
@@ -2209,22 +2274,22 @@
             </div>
         </div>
         <div class="arch reveal">
-            <div class="arch-h" style="background:rgba(249,115,22,.12);color:var(--orange)"><span>REVENUE
-                    LAYER</span><span style="font-size:.72rem">5 Kanäle → PayPal mauricepfeifer@icloud.com</span>
+            <div class="arch-h arch-h--revenue"><span>REVENUE
+                    LAYER</span><span class="arch-sub">5 Kanäle → PayPal mauricepfeifer@icloud.com</span>
             </div>
             <div class="arch-b">
-                <div class="chip" style="border-color:var(--green)">PayPal (LIVE)</div>
-                <div class="chip" style="border-color:var(--green)">Stripe (14 Produkte)</div>
+                <div class="chip border-green">PayPal (LIVE)</div>
+                <div class="chip border-green">Stripe (14 Produkte)</div>
                 <div class="chip">Gumroad (€7-€79)</div>
                 <div class="chip">Fiverr (€30-€5K)</div>
-                <div class="chip" style="border-color:var(--orange)">BMA Consulting (€2-10K)</div>
+                <div class="chip border-orange">BMA Consulting (€2-10K)</div>
                 <div class="chip">Agent Builders Club (€29/Mo)</div>
             </div>
         </div>
     </div>
 
     <!-- TESTIMONIALS -->
-    <div class="testi-section reveal" style="margin-top:32px">
+    <div class="testi-section reveal">
         <h2>⭐ Was Kunden sagen</h2>
         <div class="testi-track">
             <div class="testi-card">
@@ -2317,7 +2382,7 @@
         Maurice Pfeifer | Stand: 10.02.2026 | Alle Zahlungen → mauricepfeifer@icloud.com<br>
         14 Stripe Produkte + PayPal Integration | 16+ Systeme verbunden | 5 Revenue-Kanäle<br>
         <a href="mailto:mauricepfeifer@icloud.com">📧 Kontakt</a> · <a
-            href="https://www.paypal.com/paypalme/mauricepfeifer" target="_blank">💳 PayPal</a>
+            href="https://www.paypal.com/paypalme/mauricepfeifer" target="_blank" rel="noopener">💳 PayPal</a>
     </footer>
 
     <!-- PRODUCT DETAIL MODAL -->
@@ -2453,8 +2518,9 @@
             function updateLive(live) {
                 let dot = document.getElementById('live-indicator');
                 if (!dot) {
-                    dot = document.createElement('div'); dot.id = 'live-indicator';
-                    dot.style.cssText = 'position:fixed;top:12px;right:12px;z-index:9999;display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.5px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08)';
+                    dot = document.createElement('div');
+                    dot.id = 'live-indicator';
+                    dot.style.cssText = 'position:fixed;top:12px;right:12px;z-index:9999;display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:0.5px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.08)';
                     document.body.appendChild(dot)
                 }
                 if (live) {

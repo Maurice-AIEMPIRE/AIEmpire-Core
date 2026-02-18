@@ -24,7 +24,7 @@ import subprocess
 import json
 from pathlib import Path
 from datetime import datetime
-from typing import List, Dict, Tuple
+from typing import List, Dict
 
 # ═══════════════════════════════════════════════════════════
 # 1. GIT AUTOPILOT — Automatische Commits & Pushs
@@ -464,20 +464,6 @@ class GoogleDriveExporter:
             # Erstelle Export-Verzeichnis
             self.export_path.mkdir(exist_ok=True)
 
-            # Kopiere wichtige Dateien
-            include_patterns = [
-                '*.py',
-                '*.json',
-                'antigravity/**/*.py',
-                'workflow_system/**/*.py',
-                'scripts/**/*.sh',
-                'scripts/**/*.py',
-                'products/**/*',
-                'docs/**/*.md',
-                'assets/**/*',
-                '.github/**/*'
-            ]
-
             # Erstelle Manifest
             manifest = {
                 "name": "AIEmpire-Core Complete",
@@ -718,7 +704,7 @@ EXAMPLES:
         """Zeige Status"""
         print(self.git.status_report())
         changes = self.git.analyze_changes()
-        print(f"\nFILES TO COMMIT:")
+        print("\nFILES TO COMMIT:")
         for change_type, files in changes.items():
             if files:
                 for f in files[:5]:

@@ -7,14 +7,14 @@ Email Archiver System
 - SHA256 Hashes fuer Beweismittel-Integritaet
 """
 
-import imaplib
 import email
 import hashlib
-import sqlite3
+import imaplib
 import os
+import sqlite3
 import sys
-from email.header import decode_header
 from datetime import datetime
+from email.header import decode_header
 
 # ============================================
 # CONFIGURATION (NICHT in Git committen!)
@@ -50,8 +50,8 @@ def load_config():
     with open(CONFIG_FILE) as f:
         for line in f:
             line = line.strip()
-            if line and not line.startswith('#') and '=' in line:
-                key, value = line.split('=', 1)
+            if line and not line.startswith("#") and "=" in line:
+                key, value = line.split("=", 1)
                 config[key.strip()] = value.strip()
     return config
 
@@ -61,7 +61,7 @@ def init_db():
     os.makedirs(os.path.dirname(DB_FILE), exist_ok=True)
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS emails (
+    c.execute("""CREATE TABLE IF NOT EXISTS emails (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         message_id TEXT UNIQUE,
         from_addr TEXT,
@@ -78,9 +78,9 @@ def init_db():
         has_attachments INTEGER DEFAULT 0,
         spam_score REAL DEFAULT 0.0,
         notes TEXT
-    )''')
+    )""")
 
-    c.execute('''CREATE TABLE IF NOT EXISTS chain_of_custody (
+    c.execute("""CREATE TABLE IF NOT EXISTS chain_of_custody (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         email_message_id TEXT,
         action TEXT,
@@ -89,29 +89,31 @@ def init_db():
         sha256_before TEXT,
         sha256_after TEXT,
         notes TEXT
-    )''')
+    )""")
 
-    c.execute('''CREATE TABLE IF NOT EXISTS categories (
+    c.execute("""CREATE TABLE IF NOT EXISTS categories (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT UNIQUE,
         description TEXT,
         color TEXT
-    )''')
+    )""")
 
     # Default categories
     categories = [
-        ('spam', 'Spam und Werbung', '#ff0000'),
-        ('business', 'Geschaeftliche Mails', '#0066ff'),
-        ('personal', 'Persoenliche Mails', '#00cc00'),
-        ('legal', 'Rechtsstreit / Beweismittel', '#ff6600'),
-        ('pfeifer-sicherheit', 'Mails von/an pfeifer-sicherheit.de', '#cc0066'),
-        ('newsletter', 'Newsletter und Abonnements', '#999999'),
-        ('finance', 'Rechnungen und Finanzen', '#ffcc00'),
-        ('ai-empire', 'AI Empire relevante Mails', '#9900ff'),
+        ("spam", "Spam und Werbung", "#ff0000"),
+        ("business", "Geschaeftliche Mails", "#0066ff"),
+        ("personal", "Persoenliche Mails", "#00cc00"),
+        ("legal", "Rechtsstreit / Beweismittel", "#ff6600"),
+        ("pfeifer-sicherheit", "Mails von/an pfeifer-sicherheit.de", "#cc0066"),
+        ("newsletter", "Newsletter und Abonnements", "#999999"),
+        ("finance", "Rechnungen und Finanzen", "#ffcc00"),
+        ("ai-empire", "AI Empire relevante Mails", "#9900ff"),
     ]
     for name, desc, color in categories:
-        c.execute('INSERT OR IGNORE INTO categories (name, description, color) VALUES (?, ?, ?)',
-                  (name, desc, color))
+        c.execute(
+            "INSERT OR IGNORE INTO categories (name, description, color) VALUES (?, ?, ?)",
+            (name, desc, color),
+        )
 
     conn.commit()
     return conn
@@ -130,10 +132,10 @@ def decode_header_value(value):
     result = []
     for part, charset in decoded_parts:
         if isinstance(part, bytes):
-            result.append(part.decode(charset or 'utf-8', errors='replace'))
+            result.append(part.decode(charset or "utf-8", errors="replace"))
         else:
             result.append(str(part))
-    return ' '.join(result)
+    return " ".join(result)
 
 
 def categorize_email(from_addr, to_addr, subject, body_preview=""):
@@ -142,50 +144,95 @@ def categorize_email(from_addr, to_addr, subject, body_preview=""):
     subject_lower = (subject or "").lower()
 
     # PRIORITAET 1: pfeifer-sicherheit.de (LEGAL)
-    if 'pfeifer-sicherheit.de' in from_lower or 'pfeifer-sicherheit.de' in (to_addr or "").lower():
-        return 'pfeifer-sicherheit', True  # is_legal_evidence = True
+    if "pfeifer-sicherheit.de" in from_lower or "pfeifer-sicherheit.de" in (to_addr or "").lower():
+        return "pfeifer-sicherheit", True  # is_legal_evidence = True
 
     # PRIORITAET 2: Rechtsstreit Keywords
-    legal_keywords = ['anwalt', 'rechtsanwalt', 'kanzlei', 'gericht', 'klage',
-                      'mahnung', 'abmahnung', 'frist', 'rechtlich', 'lawyer',
-                      'legal', 'court', 'lawsuit', 'streitigkeit']
+    legal_keywords = [
+        "anwalt",
+        "rechtsanwalt",
+        "kanzlei",
+        "gericht",
+        "klage",
+        "mahnung",
+        "abmahnung",
+        "frist",
+        "rechtlich",
+        "lawyer",
+        "legal",
+        "court",
+        "lawsuit",
+        "streitigkeit",
+    ]
     if any(kw in subject_lower or kw in from_lower for kw in legal_keywords):
-        return 'legal', True
+        return "legal", True
 
     # PRIORITAET 3: Spam Detection
-    spam_keywords = ['unsubscribe', 'abmelden', 'newsletter', 'promotion',
-                     'sale', 'discount', 'rabatt', 'gewinn', 'lottery',
-                     'viagra', 'crypto airdrop', 'nigerian prince']
-    spam_domains = ['noreply@', 'marketing@', 'promo@', 'newsletter@',
-                    'info@mailchimp', 'bounce@']
+    spam_keywords = [
+        "unsubscribe",
+        "abmelden",
+        "newsletter",
+        "promotion",
+        "sale",
+        "discount",
+        "rabatt",
+        "gewinn",
+        "lottery",
+        "viagra",
+        "crypto airdrop",
+        "nigerian prince",
+    ]
+    spam_domains = [
+        "noreply@",
+        "marketing@",
+        "promo@",
+        "newsletter@",
+        "info@mailchimp",
+        "bounce@",
+    ]
     spam_score = sum(1 for kw in spam_keywords if kw in subject_lower)
     spam_score += sum(1 for d in spam_domains if d in from_lower)
     if spam_score >= 2:
-        return 'spam', False
+        return "spam", False
 
     # PRIORITAET 4: Newsletter
-    if 'newsletter' in from_lower or 'digest' in subject_lower:
-        return 'newsletter', False
+    if "newsletter" in from_lower or "digest" in subject_lower:
+        return "newsletter", False
 
     # PRIORITAET 5: Finance
-    finance_keywords = ['rechnung', 'invoice', 'zahlung', 'payment',
-                        'konto', 'bank', 'ueberweisung']
+    finance_keywords = [
+        "rechnung",
+        "invoice",
+        "zahlung",
+        "payment",
+        "konto",
+        "bank",
+        "ueberweisung",
+    ]
     if any(kw in subject_lower for kw in finance_keywords):
-        return 'finance', False
+        return "finance", False
 
     # PRIORITAET 6: AI Empire
-    ai_keywords = ['ollama', 'openclaw', 'kimi', 'claude', 'gumroad',
-                   'fiverr', 'moonshot', 'api key']
+    ai_keywords = [
+        "ollama",
+        "openclaw",
+        "kimi",
+        "claude",
+        "gumroad",
+        "fiverr",
+        "moonshot",
+        "api key",
+    ]
     if any(kw in subject_lower or kw in from_lower for kw in ai_keywords):
-        return 'ai-empire', False
+        return "ai-empire", False
 
     # Default: Business
-    return 'business', False
+    return "business", False
 
 
 def save_email_file(raw_bytes, sha256, category, is_legal):
     """Save .eml file to appropriate directory"""
-    if is_legal or category == 'pfeifer-sicherheit':
+    if is_legal or category == "pfeifer-sicherheit":
         save_dir = LEGAL_DIR
     else:
         save_dir = os.path.join(ARCHIVE_DIR, category)
@@ -193,7 +240,7 @@ def save_email_file(raw_bytes, sha256, category, is_legal):
     os.makedirs(save_dir, exist_ok=True)
     file_path = os.path.join(save_dir, f"{sha256[:16]}.eml")
 
-    with open(file_path, 'wb') as f:
+    with open(file_path, "wb") as f:
         f.write(raw_bytes)
 
     return file_path
@@ -202,11 +249,20 @@ def save_email_file(raw_bytes, sha256, category, is_legal):
 def log_chain_of_custody(conn, message_id, action, sha256, notes=""):
     """Log Chain of Custody entry for legal evidence"""
     c = conn.cursor()
-    c.execute('''INSERT INTO chain_of_custody
+    c.execute(
+        """INSERT INTO chain_of_custody
         (email_message_id, action, timestamp, actor, sha256_before, sha256_after, notes)
-        VALUES (?, ?, ?, ?, ?, ?, ?)''',
-        (message_id, action, datetime.utcnow().isoformat(), 'email_archiver_v1',
-         sha256, sha256, notes))
+        VALUES (?, ?, ?, ?, ?, ?, ?)""",
+        (
+            message_id,
+            action,
+            datetime.utcnow().isoformat(),
+            "email_archiver_v1",
+            sha256,
+            sha256,
+            notes,
+        ),
+    )
     conn.commit()
 
 
@@ -215,8 +271,8 @@ def scan_mailbox(config, folder="INBOX", limit=None):
     conn = init_db()
 
     print(f"Verbinde mit {config['IMAP_SERVER']}...")
-    mail = imaplib.IMAP4_SSL(config['IMAP_SERVER'], int(config.get('IMAP_PORT', 993)))
-    mail.login(config['IMAP_USER'], config['IMAP_PASS'])
+    mail = imaplib.IMAP4_SSL(config["IMAP_SERVER"], int(config.get("IMAP_PORT", 993)))
+    mail.login(config["IMAP_USER"], config["IMAP_PASS"])
 
     # List all folders
     print("Verfuegbare Ordner:")
@@ -227,8 +283,8 @@ def scan_mailbox(config, folder="INBOX", limit=None):
     mail.select(folder, readonly=True)  # READONLY fuer forensische Integritaet
 
     # Search all emails
-    status, messages = mail.search(None, 'ALL')
-    if status != 'OK':
+    status, messages = mail.search(None, "ALL")
+    if status != "OK":
         print(f"FEHLER: Kann Ordner {folder} nicht durchsuchen")
         return
 
@@ -241,14 +297,18 @@ def scan_mailbox(config, folder="INBOX", limit=None):
         print(f"Verarbeite die letzten {limit} Emails")
 
     stats = {
-        'total': 0, 'new': 0, 'duplicate': 0,
-        'categories': {}, 'legal': 0, 'pfeifer': 0
+        "total": 0,
+        "new": 0,
+        "duplicate": 0,
+        "categories": {},
+        "legal": 0,
+        "pfeifer": 0,
     }
 
     for i, eid in enumerate(email_ids, 1):
         try:
-            status, msg_data = mail.fetch(eid, '(RFC822)')
-            if status != 'OK':
+            status, msg_data = mail.fetch(eid, "(RFC822)")
+            if status != "OK":
                 continue
 
             raw_bytes = msg_data[0][1]
@@ -256,24 +316,24 @@ def scan_mailbox(config, folder="INBOX", limit=None):
 
             # Check for duplicate
             c = conn.cursor()
-            c.execute('SELECT id FROM emails WHERE sha256_hash = ?', (sha256,))
+            c.execute("SELECT id FROM emails WHERE sha256_hash = ?", (sha256,))
             if c.fetchone():
-                stats['duplicate'] += 1
+                stats["duplicate"] += 1
                 continue
 
             msg = email.message_from_bytes(raw_bytes)
 
             # Extract headers
-            from_addr = decode_header_value(msg.get('From', ''))
-            to_addr = decode_header_value(msg.get('To', ''))
-            subject = decode_header_value(msg.get('Subject', ''))
-            date_sent = msg.get('Date', '')
-            message_id = msg.get('Message-ID', f'unknown-{sha256[:16]}')
+            from_addr = decode_header_value(msg.get("From", ""))
+            to_addr = decode_header_value(msg.get("To", ""))
+            subject = decode_header_value(msg.get("Subject", ""))
+            date_sent = msg.get("Date", "")
+            message_id = msg.get("Message-ID", f"unknown-{sha256[:16]}")
 
             # Check attachments
             has_attachments = 0
             for part in msg.walk():
-                if part.get_content_disposition() == 'attachment':
+                if part.get_content_disposition() == "attachment":
                     has_attachments = 1
                     break
 
@@ -284,27 +344,46 @@ def scan_mailbox(config, folder="INBOX", limit=None):
             file_path = save_email_file(raw_bytes, sha256, category, is_legal)
 
             # Insert into DB
-            c.execute('''INSERT OR IGNORE INTO emails
+            c.execute(
+                """INSERT OR IGNORE INTO emails
                 (message_id, from_addr, to_addr, subject, date_sent, date_archived,
                  category, is_legal_evidence, sha256_hash, file_path, folder,
                  size_bytes, has_attachments)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)''',
-                (message_id, from_addr, to_addr, subject, date_sent,
-                 datetime.utcnow().isoformat(), category, int(is_legal),
-                 sha256, file_path, folder, len(raw_bytes), has_attachments))
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    message_id,
+                    from_addr,
+                    to_addr,
+                    subject,
+                    date_sent,
+                    datetime.utcnow().isoformat(),
+                    category,
+                    int(is_legal),
+                    sha256,
+                    file_path,
+                    folder,
+                    len(raw_bytes),
+                    has_attachments,
+                ),
+            )
             conn.commit()
 
             # Chain of Custody for legal evidence
-            if is_legal or category == 'pfeifer-sicherheit':
-                log_chain_of_custody(conn, message_id, 'ARCHIVED',
-                    sha256, f'Archived from {folder} via IMAP (readonly)')
-                stats['legal'] += 1
-                if category == 'pfeifer-sicherheit':
-                    stats['pfeifer'] += 1
+            if is_legal or category == "pfeifer-sicherheit":
+                log_chain_of_custody(
+                    conn,
+                    message_id,
+                    "ARCHIVED",
+                    sha256,
+                    f"Archived from {folder} via IMAP (readonly)",
+                )
+                stats["legal"] += 1
+                if category == "pfeifer-sicherheit":
+                    stats["pfeifer"] += 1
 
-            stats['total'] += 1
-            stats['new'] += 1
-            stats['categories'][category] = stats['categories'].get(category, 0) + 1
+            stats["total"] += 1
+            stats["new"] += 1
+            stats["categories"][category] = stats["categories"].get(category, 0) + 1
 
             # Progress
             if i % 50 == 0 or i == len(email_ids):
@@ -317,16 +396,16 @@ def scan_mailbox(config, folder="INBOX", limit=None):
     mail.logout()
 
     # Print summary
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"SCAN ABGESCHLOSSEN: {folder}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
     print(f"Gesamt verarbeitet:  {stats['total']}")
     print(f"Neu archiviert:      {stats['new']}")
     print(f"Duplikate:           {stats['duplicate']}")
     print(f"Legal/Beweismittel:  {stats['legal']}")
     print(f"pfeifer-sicherheit:  {stats['pfeifer']}")
     print("\nKategorien:")
-    for cat, count in sorted(stats['categories'].items(), key=lambda x: -x[1]):
+    for cat, count in sorted(stats["categories"].items(), key=lambda x: -x[1]):
         print(f"  {cat}: {count}")
 
     return stats
@@ -337,21 +416,20 @@ def export_legal_report(output_file=None):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
 
-    c.execute('''SELECT * FROM emails
+    c.execute("""SELECT * FROM emails
         WHERE is_legal_evidence = 1 OR category = 'pfeifer-sicherheit'
-        ORDER BY date_sent''')
+        ORDER BY date_sent""")
     legal_emails = c.fetchall()
 
-    c.execute('SELECT * FROM chain_of_custody ORDER BY timestamp')
+    c.execute("SELECT * FROM chain_of_custody ORDER BY timestamp")
     custody_log = c.fetchall()
 
     if not output_file:
-        output_file = os.path.expanduser(
-            "~/.openclaw/email-archiver/legal/BEWEISMITTEL_REPORT.md")
+        output_file = os.path.expanduser("~/.openclaw/email-archiver/legal/BEWEISMITTEL_REPORT.md")
 
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
-    with open(output_file, 'w') as f:
+    with open(output_file, "w") as f:
         f.write("# BEWEISMITTEL-REPORT: E-Mail Archiv\n")
         f.write(f"Erstellt: {datetime.utcnow().isoformat()} UTC\n")
         f.write("System: Email Archiver v1.0\n")
@@ -399,13 +477,13 @@ def show_stats():
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
 
-    c.execute('SELECT COUNT(*) FROM emails')
+    c.execute("SELECT COUNT(*) FROM emails")
     total = c.fetchone()[0]
 
-    c.execute('SELECT category, COUNT(*) FROM emails GROUP BY category ORDER BY COUNT(*) DESC')
+    c.execute("SELECT category, COUNT(*) FROM emails GROUP BY category ORDER BY COUNT(*) DESC")
     categories = c.fetchall()
 
-    c.execute('SELECT COUNT(*) FROM emails WHERE is_legal_evidence = 1')
+    c.execute("SELECT COUNT(*) FROM emails WHERE is_legal_evidence = 1")
     legal = c.fetchone()[0]
 
     c.execute("SELECT COUNT(*) FROM emails WHERE category = 'pfeifer-sicherheit'")
@@ -414,9 +492,9 @@ def show_stats():
     c.execute("SELECT COUNT(*) FROM emails WHERE category = 'spam'")
     spam = c.fetchone()[0]
 
-    print(f"\n{'='*50}")
+    print(f"\n{'=' * 50}")
     print("EMAIL ARCHIVER STATISTIK")
-    print(f"{'='*50}")
+    print(f"{'=' * 50}")
     print(f"Gesamt archiviert:     {total}")
     print(f"Beweismittel (Legal):  {legal}")
     print(f"pfeifer-sicherheit.de: {pfeifer}")
@@ -427,16 +505,21 @@ def show_stats():
         print(f"  {cat:25s} {count:5d} ({pct}%)")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description='Email Archiver System')
-    parser.add_argument('--scan', action='store_true', help='Scan und archiviere alle Emails')
-    parser.add_argument('--folder', default='INBOX', help='IMAP Ordner (default: INBOX)')
-    parser.add_argument('--all-folders', action='store_true', help='Alle Ordner scannen')
-    parser.add_argument('--limit', type=int, help='Max Emails pro Ordner')
-    parser.add_argument('--stats', action='store_true', help='Zeige Statistiken')
-    parser.add_argument('--legal-report', action='store_true', help='Beweismittel-Report erstellen')
-    parser.add_argument('--export-pfeifer', action='store_true', help='Nur pfeifer-sicherheit.de exportieren')
+
+    parser = argparse.ArgumentParser(description="Email Archiver System")
+    parser.add_argument("--scan", action="store_true", help="Scan und archiviere alle Emails")
+    parser.add_argument("--folder", default="INBOX", help="IMAP Ordner (default: INBOX)")
+    parser.add_argument("--all-folders", action="store_true", help="Alle Ordner scannen")
+    parser.add_argument("--limit", type=int, help="Max Emails pro Ordner")
+    parser.add_argument("--stats", action="store_true", help="Zeige Statistiken")
+    parser.add_argument("--legal-report", action="store_true", help="Beweismittel-Report erstellen")
+    parser.add_argument(
+        "--export-pfeifer",
+        action="store_true",
+        help="Nur pfeifer-sicherheit.de exportieren",
+    )
 
     args = parser.parse_args()
 
@@ -447,12 +530,12 @@ if __name__ == '__main__':
     elif args.scan:
         config = load_config()
         if args.all_folders:
-            mail = imaplib.IMAP4_SSL(config['IMAP_SERVER'], int(config.get('IMAP_PORT', 993)))
-            mail.login(config['IMAP_USER'], config['IMAP_PASS'])
+            mail = imaplib.IMAP4_SSL(config["IMAP_SERVER"], int(config.get("IMAP_PORT", 993)))
+            mail.login(config["IMAP_USER"], config["IMAP_PASS"])
             status, folders = mail.list()
             mail.logout()
             for f in folders:
-                folder_name = f.decode().split('"')[-2] if '"' in f.decode() else 'INBOX'
+                folder_name = f.decode().split('"')[-2] if '"' in f.decode() else "INBOX"
                 print(f"\n--- Scanne Ordner: {folder_name} ---")
                 scan_mailbox(config, folder_name, args.limit)
         else:
