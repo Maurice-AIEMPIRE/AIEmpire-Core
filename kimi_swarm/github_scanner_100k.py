@@ -107,8 +107,8 @@ Return as JSON: {{problem, monetization, readiness, rating, action, reason}}"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data.get("items", [])
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"[github_scanner] GitHub API search failed for '{query}': {e}")
         return []
 
     async def scan_topics(self):

@@ -313,8 +313,8 @@ class MirrorCowork:
                     "cycles": main_data.get("total_cycles", 0),
                     "recent": main_data.get("actions_taken", [])[-3:],
                 }, ensure_ascii=False)[:500]
-            except json.JSONDecodeError:
-                pass
+            except json.JSONDecodeError as e:
+                print(f"[mirror_cowork] Failed to parse main cowork state: {e}")
 
         prompt = PLAN_PROMPT.format(
             observations=json.dumps(observations, ensure_ascii=False)[:2000],
@@ -505,8 +505,8 @@ class MirrorCowork:
                 summary = data.get("summary", {})
                 if summary:
                     return json.dumps(summary, ensure_ascii=False)
-            except json.JSONDecodeError:
-                pass
+            except json.JSONDecodeError as e:
+                print(f"[mirror_cowork] Failed to parse vision memory file: {e}")
         return "Vision noch nicht erfasst."
 
     @staticmethod

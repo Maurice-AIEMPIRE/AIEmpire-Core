@@ -331,8 +331,8 @@ def get_context_for_step(step_name: str) -> Dict:
     if main_pattern_file.exists():
         try:
             main_patterns = json.loads(main_pattern_file.read_text())
-        except json.JSONDecodeError:
-            pass
+        except json.JSONDecodeError as e:
+            print(f"[mirror_orchestrator] Failed to parse main pattern library: {e}")
 
     # Vision-Kontext laden
     vision_context = ""
@@ -342,8 +342,8 @@ def get_context_for_step(step_name: str) -> Dict:
             vision_data = json.loads(vision_file.read_text())
             recent_answers = vision_data.get("answers", [])[-10:]
             vision_context = json.dumps(recent_answers, ensure_ascii=False)[:1000]
-        except json.JSONDecodeError:
-            pass
+        except json.JSONDecodeError as e:
+            print(f"[mirror_orchestrator] Failed to parse vision state file: {e}")
 
     return {
         "cycle": state.get("cycle", 1),

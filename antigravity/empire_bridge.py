@@ -356,14 +356,18 @@ class _FallbackRouter:
                         "model": "qwen2.5-coder:7b (fallback)",
                         "cost": 0.0,
                     }
-        except Exception:
-            pass
-
-        return {
-            "response": "Kein AI-Provider verfuegbar. Starte Ollama: ollama serve",
-            "model": "none",
-            "cost": 0.0,
-        }
+                else:
+                    return {
+                        "response": f"Ollama Fehler (HTTP {r.status_code}). Pruefe ob Ollama laeuft: ollama serve",
+                        "model": "none",
+                        "cost": 0.0,
+                    }
+        except Exception as e:
+            return {
+                "response": f"Kein AI-Provider verfuegbar ({e}). Starte Ollama: ollama serve",
+                "model": "none",
+                "cost": 0.0,
+            }
 
 
 # ─── Convenience Functions ────────────────────────────────────────────────────

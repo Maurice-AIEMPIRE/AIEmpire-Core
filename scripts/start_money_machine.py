@@ -136,8 +136,8 @@ class SystemChecker:
             if project and project != "(unset)":
                 logger.debug(f"GCloud project: {project}")
                 return True
-        except Exception:
-            pass
+        except Exception as e:
+            logger.warning(f"[start_money_machine] gcloud check failed: {e}")
         logger.warning("GCloud not configured - run: gcloud auth login")
         return False
 

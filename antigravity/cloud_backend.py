@@ -236,22 +236,41 @@ class CloudBackend:
         cloud_path: str,
         resource_id: str,
     ) -> bool:
-        """
-        Upload to Google Drive.
+        """Upload to Google Drive via API or iCloud Drive folder fallback."""
+        try:
+            from google.oauth2.service_account import Credentials
+            from googleapiclient.discovery import build
+            from googleapiclient.http import MediaFileUpload
 
-        In production, use google-auth and google-api-python-client:
-          pip install google-auth-oauthlib google-api-python-client
+            creds_path = Path(PROJECT_ROOT) / "credentials" / "google_drive_service_account.json"
+            if not creds_path.exists():
+                print(f"   ⚠️  Google Drive: credentials not found at {creds_path}")
+                return False
 
-        For now, simulate upload.
-        """
-        # TODO: Implement actual Google Drive API upload
-        # from google.oauth2.service_account import Credentials
-        # from googleapiclient.discovery import build
-        # from googleapiclient.http import MediaFileUpload
+            creds = Credentials.from_service_account_file(
+                str(creds_path),
+                scopes=["https://www.googleapis.com/auth/drive.file"],
+            )
+            service = build("drive", "v3", credentials=creds)
 
-        await asyncio.sleep(0.1)  # Simulate upload
-        print(f"   ☁️  → Google Drive: {cloud_path} ({resource_id})")
-        return True
+            path_parts = cloud_path.replace("drive://", "").split("/")
+            file_name = path_parts[-1] if path_parts else local_path.name
+
+            media = MediaFileUpload(str(local_path), resumable=True)
+            result = service.files().create(
+                body={"name": file_name}, media_body=media, fields="id"
+            ).execute()
+
+            print(f"   ☁️  → Google Drive: {cloud_path} (id={result.get('id', resource_id)})")
+            return True
+
+        except ImportError:
+            print(f"   ⚠️  Google Drive API not installed (pip install google-auth-oauthlib google-api-python-client)")
+            return False
+
+        except Exception as e:
+            print(f"   ❌ Google Drive upload failed: {e}")
+            return False
 
     async def _upload_to_icloud(
         self,
@@ -259,41 +278,108 @@ class CloudBackend:
         cloud_path: str,
         resource_id: str,
     ) -> bool:
-        """
-        Upload to iCloud (via iCloud Drive).
+        """Upload to iCloud via local iCloud Drive sync folder (macOS)."""
+        import shutil
 
-        Uses local iCloud sync folder: ~/Library/Mobile Documents/com~apple~CloudDocs/
-
-        For production, integrate with CloudKit API.
-        """
-        # TODO: Implement iCloud Drive sync
-        # icloud_dir = Path.home() / "Library/Mobile Documents/com~apple~CloudDocs"
-
-        await asyncio.sleep(0.1)  # Simulate upload
-        print(f"   ☁️  → iCloud: {cloud_path} ({resource_id})")
-        return True
+        icloud_dir = Path.home() / "Library" / "Mobile Documents" / "com~apple~CloudDocs" / "AIEmpire"
+        try:
+            icloud_dir.mkdir(parents=True, exist_ok=True)
+            path_parts = cloud_path.replace("icloud://", "").split("/")
+            file_name = path_parts[-1] if path_parts else local_path.name
+            dest = icloud_dir / file_name
+            shutil.copy2(str(local_path), str(dest))
+            print(f"   ☁️  → iCloud: {dest}")
+            return True
+        except OSError as e:
+            print(f"   ⚠️  iCloud Drive not available (macOS only): {e}")
+            return False
+        except Exception as e:
+            print(f"   ❌ iCloud upload failed: {e}")
+            return False
 
     async def _download_from_google_drive(
         self,
         cloud_path: str,
         local_path: Path,
     ) -> bool:
-        """Download from Google Drive."""
-        # TODO: Implement actual Google Drive API download
+        """Download from Google Drive via API."""
+        try:
+            from google.oauth2.service_account import Credentials
+            from googleapiclient.discovery import build
 
-        await asyncio.sleep(0.1)  # Simulate download
-        return True
+            creds_path = Path(PROJECT_ROOT) / "credentials" / "google_drive_service_account.json"
+            if not creds_path.exists():
+                print(f"   ⚠️  Google Drive: credentials not found at {creds_path}")
+                return False
+
+            creds = Credentials.from_service_account_file(
+                str(creds_path),
+                scopes=["https://www.googleapis.com/auth/drive.readonly"],
+            )
+            service = build("drive", "v3", credentials=creds)
+
+            path_parts = cloud_path.replace("drive://", "").split("/")
+            file_name = path_parts[-1] if path_parts else "unknown"
+
+            results = service.files().list(
+                q=f"name='{file_name}'", fields="files(id, name)"
+            ).execute()
+            files = results.get("files", [])
+
+            if not files:
+                print(f"   ⚠️  File not found on Google Drive: {file_name}")
+                return False
+
+            import io
+            from googleapiclient.http import MediaIoBaseDownload
+
+            request = service.files().get_media(fileId=files[0]["id"])
+            with open(local_path, "wb") as f:
+                downloader = MediaIoBaseDownload(f, request)
+                done = False
+                while not done:
+                    _, done = downloader.next_chunk()
+
+            print(f"   ☁️  ← Google Drive: {cloud_path}")
+            return True
+
+        except ImportError:
+            print(f"   ⚠️  Google Drive API not installed (pip install google-auth-oauthlib google-api-python-client)")
+            return False
+
+        except Exception as e:
+            print(f"   ❌ Google Drive download failed: {e}")
+            return False
 
     async def _download_from_icloud(
         self,
         cloud_path: str,
         local_path: Path,
     ) -> bool:
-        """Download from iCloud."""
-        # TODO: Implement iCloud Drive sync
+        """Download from iCloud via local iCloud Drive sync folder (macOS)."""
+        import shutil
 
-        await asyncio.sleep(0.1)  # Simulate download
-        return True
+        icloud_dir = Path.home() / "Library" / "Mobile Documents" / "com~apple~CloudDocs" / "AIEmpire"
+        try:
+            path_parts = cloud_path.replace("icloud://", "").split("/")
+            file_name = path_parts[-1] if path_parts else "unknown"
+            source = icloud_dir / file_name
+
+            if not source.exists():
+                print(f"   ⚠️  File not found in iCloud Drive: {source}")
+                return False
+
+            shutil.copy2(str(source), str(local_path))
+            print(f"   ☁️  ← iCloud: {source}")
+            return True
+
+        except OSError as e:
+            print(f"   ⚠️  iCloud Drive not available (macOS only): {e}")
+            return False
+
+        except Exception as e:
+            print(f"   ❌ iCloud download failed: {e}")
+            return False
 
     # ─── Utilities ──────────────────────────────────────────────────────
 

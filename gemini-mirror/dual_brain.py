@@ -464,8 +464,8 @@ class DualBrain:
                     return json.dumps(summary, ensure_ascii=False)
                 entries = data.get("entries", [])[-5:]
                 return json.dumps(entries, ensure_ascii=False)
-            except json.JSONDecodeError:
-                pass
+            except json.JSONDecodeError as e:
+                print(f"[dual_brain] Failed to parse vision memory file: {e}")
         return "Vision noch nicht erfasst - Vision Interrogator starten!"
 
     def _gather_main_insights(self) -> List[Dict]:

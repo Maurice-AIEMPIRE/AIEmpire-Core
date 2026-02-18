@@ -269,8 +269,8 @@ def repair_pycache() -> list:
             import shutil
             shutil.rmtree(cache_dir)
             repairs.append(f"Cleared: {cache_dir.relative_to(PROJECT_ROOT)}")
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"[auto_repair] Failed to remove pycache dir {cache_dir}: {e}")
 
     if repairs:
         log(f"Cleared {len(repairs)} __pycache__ directories", "FIX")
@@ -424,8 +424,8 @@ def main():
         report_file = PROJECT_ROOT / "workflow_system" / "state" / "last_repair.json"
         report_file.parent.mkdir(parents=True, exist_ok=True)
         report_file.write_text(json.dumps(report, indent=2, ensure_ascii=False))
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"[auto_repair] Failed to save repair report: {e}")
 
     return 0 if not all_issues else 1
 

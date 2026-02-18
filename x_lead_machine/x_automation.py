@@ -101,8 +101,8 @@ Antworte als JSON:
                             return json.loads(content)
                         except Exception:
                             return {"score": 0, "action": "ignore"}
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"[XLeadMachine] analyze_tweet_for_lead error: {e}")
         return {"score": 0, "action": "ignore"}
 
     async def generate_content(self, topic: str, style: str = "value") -> str:
@@ -158,8 +158,8 @@ Schreibe jetzt den Post:"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data["choices"][0]["message"]["content"]
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"[XLeadMachine] generate_content error: {e}")
         return ""
 
     async def generate_reply(self, original_tweet: str, context: str = "") -> str:
@@ -199,8 +199,8 @@ Schreibe die Reply:"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data["choices"][0]["message"]["content"]
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"[XLeadMachine] generate_reply error: {e}")
         return ""
 
     async def generate_dm_sequence(self, lead_info: dict) -> list:
@@ -243,8 +243,8 @@ Antworte als JSON Array mit 3 DMs:
                             return json.loads(content)
                         except Exception:
                             return []
-            except Exception:
-                pass
+            except Exception as e:
+                print(f"[XLeadMachine] generate_dm_sequence error: {e}")
         return []
 
     def get_stats(self) -> dict:
