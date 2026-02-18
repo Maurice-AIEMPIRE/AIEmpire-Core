@@ -1,0 +1,34 @@
+{
+  "version": 1,
+
+  "compaction": {
+    "memoryFlush": {
+      "enabled": true,
+      "softThresholdTokens": 40000,
+      "prompt": "Distill this session to memory/YYYY-MM-DD.md. Focus on decisions, state changes, lessons, blockers, revenue updates, and system fixes. If nothing worth saving: NO_FLUSH",
+      "systemPrompt": "Extract only what is worth remembering. Prioritize: decisions made, bugs fixed, revenue actions, architecture changes, user preferences. No fluff."
+    }
+  },
+
+  "contextPruning": {
+    "mode": "cache-ttl",
+    "ttl": "6h",
+    "keepLastAssistants": 3
+  },
+
+  "memorySearch": {
+    "enabled": true,
+    "sources": ["memory", "sessions"],
+    "query": {
+      "hybrid": {
+        "enabled": true,
+        "vectorWeight": 0.7,
+        "textWeight": 0.3
+      }
+    }
+  },
+
+  "experimental": {
+    "sessionMemory": true
+  }
+}

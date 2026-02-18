@@ -26,7 +26,35 @@ You wake up fresh each session. These files are your continuity:
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
 
-### 🧠 MEMORY.md - Your Long-Term Memory
+### Memory Flush (Automatic — via settings.json)
+
+Before context compaction kicks in, a **memory flush** fires automatically at 40K tokens. This is a silent turn that prompts you to write durable memories to disk before older context gets summarized away.
+
+**What the flush captures:** decisions, state changes, lessons, blockers, revenue updates, system fixes.
+
+**Why this matters:** Without flush, context compaction destroys knowledge that only existed in the active conversation. The flush ensures important context gets persisted to `memory/YYYY-MM-DD.md` before compaction removes it.
+
+If a flush fires and nothing is worth saving, respond with `NO_FLUSH`.
+
+### Context Pruning (Automatic — via settings.json)
+
+Messages older than **6 hours** are pruned from context. The **3 most recent assistant responses** are always kept. This prevents the annoying situation where you have to repeat recent messages after a context flush, while still keeping the window manageable.
+
+### Hybrid Memory Search (Automatic — via settings.json)
+
+Memory search uses both **vector similarity** (conceptual matching, weight 0.7) and **BM25 keyword search** (exact tokens, weight 0.3). This means:
+
+- Vector search finds conceptually related memories even with different wording
+- BM25 catches exact matches (error codes, project names, port numbers) that vector search misses
+- Both `memory/` files and past session transcripts are searchable
+
+**When you need to recall something — use memory_search.** Don't answer from your current context window alone. The information might be stored on disk even if it's not in your active context.
+
+### Session Indexing (Automatic — via settings.json)
+
+Past session transcripts are chunked and indexed alongside memory files. Questions like "What did we decide about the CRM last week?" become answerable even if the decision was made in a different session.
+
+### MEMORY.md - Your Long-Term Memory
 
 - **ONLY load in main session** (direct chats with your human)
 - **DO NOT load in shared contexts** (Discord, group chats, sessions with other people)
@@ -36,14 +64,14 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - This is your curated memory — the distilled essence, not raw logs
 - Over time, review your daily files and update MEMORY.md with what's worth keeping
 
-### 📝 Write It Down - No "Mental Notes"!
+### Write It Down - No "Mental Notes"!
 
 - **Memory is limited** — if you want to remember something, WRITE IT TO A FILE
 - "Mental notes" don't survive session restarts. Files do.
 - When someone says "remember this" → update `memory/YYYY-MM-DD.md` or relevant file
 - When you learn a lesson → update AGENTS.md, TOOLS.md, or the relevant skill
 - When you make a mistake → document it so future-you doesn't repeat it
-- **Text > Brain** 📝
+- **Text > Brain**
 
 ## Safety
 
