@@ -17,6 +17,7 @@ Technology Stack:
 """
 
 import os
+import sys
 import asyncio
 import logging
 from datetime import datetime
@@ -26,18 +27,23 @@ from enum import Enum
 import aiohttp
 import hashlib
 
+# Ensure project root is on sys.path for antigravity imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+from antigravity.config import (
+    OLLAMA_BASE_URL, GEMINI_API_KEY, MOONSHOT_API_KEY,
+    YOUTUBE_API_KEY, TIKTOK_API_KEY, GOOGLE_ADS_API_KEY,
+)
+
 logger = logging.getLogger(__name__)
 
 # ============================================================================
 # CONFIG & CONSTANTS
 # ============================================================================
 
-OLLAMA_BASE = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-MOONSHOT_KEY = os.getenv("MOONSHOT_API_KEY", "")
-YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
-TIKTOK_ACCESS_TOKEN = os.getenv("TIKTOK_ACCESS_TOKEN", "")
-GOOGLE_ADS_CUSTOMER_ID = os.getenv("GOOGLE_ADS_CUSTOMER_ID", "")
+OLLAMA_BASE = OLLAMA_BASE_URL
+MOONSHOT_KEY = MOONSHOT_API_KEY
+TIKTOK_ACCESS_TOKEN = TIKTOK_API_KEY
+GOOGLE_ADS_CUSTOMER_ID = GOOGLE_ADS_API_KEY
 
 # Revenue Targets (in EUR)
 DAILY_TARGET = 1000  # 1000 EUR/day

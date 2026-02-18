@@ -6,9 +6,12 @@ Generiert Replies auf virale Posts um Leads zu gewinnen
 
 import asyncio
 import aiohttp
-import os
+import sys
+from pathlib import Path
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+# Add project root to path for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MOONSHOT_API_KEY
 
 # Virale Posts zum Replyen (von X gerade)
 VIRAL_POSTS = [

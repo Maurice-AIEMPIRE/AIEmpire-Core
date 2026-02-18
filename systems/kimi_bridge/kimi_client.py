@@ -1,8 +1,14 @@
 import os
+import sys
 import asyncio
 import aiohttp
 import logging
+from pathlib import Path
 from typing import Dict, Optional, Any
+
+# Add project root to path for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from antigravity.config import MOONSHOT_API_KEY as _MOONSHOT_API_KEY
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -16,7 +22,7 @@ class KimiClient:
 
     def __init__(self, ollama_url: str = "http://localhost:11434", api_key: Optional[str] = None):
         self.ollama_url = ollama_url
-        self.api_key = api_key or os.getenv("MOONSHOT_API_KEY")
+        self.api_key = api_key or _MOONSHOT_API_KEY
         # Preferred local model - adapt based on what's available
         self.local_model = "glm-4.7-flash:latest" 
         self.fallback_local_model = "qwen2.5-coder:7b"

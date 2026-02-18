@@ -6,10 +6,13 @@ Generiert virale Posts basierend auf Trends
 
 import asyncio
 import aiohttp
-import os
+import sys
 from datetime import datetime
+from pathlib import Path
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+# Add project root to path for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MOONSHOT_API_KEY
 
 # Aktuelle Trends Februar 2026
 TRENDS = [

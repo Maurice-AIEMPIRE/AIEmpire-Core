@@ -71,6 +71,24 @@ GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west4")
 VERTEX_AI_ENABLED = os.getenv("VERTEX_AI_ENABLED", "false").lower() == "true"
 OFFLINE_MODE = os.getenv("OFFLINE_MODE", "false").lower() in ("1", "true", "yes")
 
+# ─── API Keys (centralized — NIEMALS os.getenv direkt in anderen Modulen!) ─
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+GITHUB_REPO = os.getenv("GITHUB_REPO", "Maurice-AIEMPIRE/AIEmpire-Core")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY", "")
+TWITTER_API_KEY = os.getenv("TWITTER_API_KEY", "")
+TWITTER_API_SECRET = os.getenv("TWITTER_API_SECRET", "")
+TWITTER_ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN", "")
+TWITTER_ACCESS_SECRET = os.getenv("TWITTER_ACCESS_SECRET", "")
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
+N8N_API_KEY = os.getenv("N8N_API_KEY", "")
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
+TIKTOK_API_KEY = os.getenv("TIKTOK_API_KEY", "")
+GOOGLE_ADS_API_KEY = os.getenv("GOOGLE_ADS_API_KEY", "")
+
 # ─── Model Selection (optimized for 16GB RAM) ──────────────────────
 # Local models (Ollama)
 DEFAULT_MODEL_14B = "qwen2.5-coder:14b"

@@ -7,10 +7,13 @@ Scannt GitHub nach den besten AI-Repos und Gold Nuggets
 import asyncio
 import aiohttp
 import json
-import os
+import sys
 from datetime import datetime
+from pathlib import Path
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF")
+# Add project root for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MOONSHOT_API_KEY
 MAX_CONCURRENT = 100
 
 # GitHub Topics to scan

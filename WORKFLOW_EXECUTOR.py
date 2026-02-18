@@ -6,11 +6,11 @@ Runs all 6 revenue-generating workflows on schedule
 
 import json
 import subprocess
-import os
 from datetime import datetime
 from pathlib import Path
+from antigravity.config import N8N_API_KEY
 
-API_KEY = os.getenv("N8N_API_KEY", "NEEDS_SETUP")
+API_KEY = N8N_API_KEY or "NEEDS_SETUP"
 
 WORKFLOWS = {
     "content-engine": {

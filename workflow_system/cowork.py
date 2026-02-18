@@ -23,12 +23,18 @@ import asyncio
 import aiohttp
 import argparse
 import json
-import os
+import sys
 import time
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, Optional
 
+# Add project root for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+# Add workflow_system dir for local imports
+sys.path.insert(0, str(Path(__file__).parent))
+
+from antigravity.config import MOONSHOT_API_KEY
 from resource_guard import ResourceGuard
 
 # Project paths
@@ -38,9 +44,6 @@ COWORK_DIR = WORKFLOW_DIR / "cowork_output"
 COWORK_STATE_FILE = WORKFLOW_DIR / "state" / "cowork_state.json"
 
 COWORK_DIR.mkdir(parents=True, exist_ok=True)
-
-# API
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
 
 # Focus areas with their scan targets
 FOCUS_AREAS = {

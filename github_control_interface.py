@@ -5,16 +5,12 @@ Vollständige Steuerung des AI Empire über GitHub
 Maurice's AI Empire - 2026
 """
 
-import os
 import json
 import asyncio
 from pathlib import Path
 from datetime import datetime
 from chat_manager import ChatManager
-
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
-GITHUB_REPO = os.getenv("GITHUB_REPO", "mauricepfeifer-ctrl/AIEmpire-Core")
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+from antigravity.config import GITHUB_TOKEN, GITHUB_REPO, MOONSHOT_API_KEY
 
 class GitHubControlInterface:
     """Interface für vollständige GitHub-basierte Steuerung."""

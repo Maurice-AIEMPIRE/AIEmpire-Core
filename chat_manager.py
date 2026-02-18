@@ -5,19 +5,15 @@ Ermöglicht Chat-Upload und Fragen mit allen verfügbaren Modellen
 Maurice's AI Empire - 2026
 """
 
-import os
 import json
 import asyncio
 import aiohttp
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Optional
-
-# API Keys
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+from antigravity.config import (
+    MOONSHOT_API_KEY, ANTHROPIC_API_KEY, GEMINI_API_KEY, OLLAMA_BASE_URL,
+)
 
 # Gemini Config
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta"

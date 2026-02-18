@@ -18,15 +18,15 @@ import json
 import subprocess
 import time
 import asyncio
-import os
 from datetime import datetime
 from pathlib import Path
+from antigravity.config import N8N_API_KEY
 
 # Configuration
 CONFIG = {
     "n8n": {
         "url": "http://localhost:5678",
-        "api_key": os.getenv("N8N_API_KEY", "NEEDS_SETUP"),
+        "api_key": N8N_API_KEY or "NEEDS_SETUP",
         "workflows": [
             "content-engine",
             "ollama-brain",

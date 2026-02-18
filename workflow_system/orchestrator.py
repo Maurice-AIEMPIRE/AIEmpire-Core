@@ -21,7 +21,6 @@ import asyncio
 import aiohttp
 import argparse
 import json
-import os
 import sys
 import time
 from datetime import datetime
@@ -29,6 +28,10 @@ from pathlib import Path
 
 # Add parent to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
+# Add project root for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+
+from antigravity.config import MOONSHOT_API_KEY, ANTHROPIC_API_KEY
 
 from state.context import (
     load_state, append_step_result,
@@ -37,10 +40,6 @@ from state.context import (
 )
 from steps import step1_audit, step2_architect, step3_analyst, step4_refinery, step5_compounder
 from resource_guard import ResourceGuard
-
-# API Configuration - uses same keys as existing kimi-swarm
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 
 # Model selection: Kimi for bulk, Claude for critical steps
 MODEL_CONFIG = {

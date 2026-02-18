@@ -18,12 +18,18 @@ Strategie:
 Maurice's Kosten-Ziel: €0 wenn möglich, <€50/Monat maximum für Upgrades
 """
 
-import os
 import logging
 from typing import Optional, Dict
 from enum import Enum
 import asyncio
 import aiohttp
+from antigravity.config import (
+    OLLAMA_BASE_URL as _OLLAMA_BASE_URL,
+    OPENROUTER_API_KEY as _OPENROUTER_API_KEY,
+    TOGETHER_API_KEY as _TOGETHER_API_KEY,
+    ANTHROPIC_API_KEY as _CLAUDE_API_KEY,
+    GEMINI_API_KEY as _GEMINI_API_KEY,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -90,11 +96,11 @@ class FreeModelRouter:
     """Routes requests to cheapest/fastest available model"""
 
     def __init__(self):
-        self.ollama_base = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-        self.openrouter_key = os.getenv("OPENROUTER_API_KEY", "")
-        self.together_key = os.getenv("TOGETHER_API_KEY", "")
-        self.claude_key = os.getenv("CLAUDE_API_KEY", "")
-        self.gemini_key = os.getenv("GEMINI_API_KEY", "")
+        self.ollama_base = _OLLAMA_BASE_URL
+        self.openrouter_key = _OPENROUTER_API_KEY
+        self.together_key = _TOGETHER_API_KEY
+        self.claude_key = _CLAUDE_API_KEY
+        self.gemini_key = _GEMINI_API_KEY
 
         self.usage = {
             "ollama": 0,

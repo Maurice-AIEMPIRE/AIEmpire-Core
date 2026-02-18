@@ -27,6 +27,17 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Add project root to path for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import (
+    GOOGLE_CLOUD_PROJECT,
+    OLLAMA_BASE_URL,
+    GEMINI_API_KEY,
+    MOONSHOT_API_KEY,
+    YOUTUBE_API_KEY,
+    TIKTOK_API_KEY,
+)
+
 # Paths
 PROJECT_ROOT = Path(__file__).parent.parent
 SCRIPTS_DIR = PROJECT_ROOT / "scripts"
@@ -143,22 +154,23 @@ class SystemChecker:
 
     @staticmethod
     def _check_env() -> bool:
-        required_vars = [
-            "GOOGLE_CLOUD_PROJECT",
-            "OLLAMA_BASE_URL",
-        ]
-        optional_vars = [
-            "GEMINI_API_KEY",
-            "MOONSHOT_API_KEY",
-            "YOUTUBE_API_KEY",
-            "TIKTOK_ACCESS_TOKEN",
-        ]
+        # Check required config values (imported from antigravity.config)
+        required_config = {
+            "GOOGLE_CLOUD_PROJECT": GOOGLE_CLOUD_PROJECT,
+            "OLLAMA_BASE_URL": OLLAMA_BASE_URL,
+        }
+        optional_config = {
+            "GEMINI_API_KEY": GEMINI_API_KEY,
+            "MOONSHOT_API_KEY": MOONSHOT_API_KEY,
+            "YOUTUBE_API_KEY": YOUTUBE_API_KEY,
+            "TIKTOK_API_KEY": TIKTOK_API_KEY,
+        }
 
-        missing_required = [v for v in required_vars if not os.getenv(v)]
-        missing_optional = [v for v in optional_vars if not os.getenv(v)]
+        missing_required = [k for k, v in required_config.items() if not v]
+        missing_optional = [k for k, v in optional_config.items() if not v]
 
         if missing_required:
-            logger.warning(f"Missing required env vars: {missing_required}")
+            logger.warning(f"Missing required config vars: {missing_required}")
             return False
 
         if missing_optional:

@@ -5,13 +5,15 @@ Automatisierte Lead-Generation auf X/Twitter
 Maurice's AI Empire
 """
 
-import os
+import sys
 import json
 import aiohttp
 from datetime import datetime
+from pathlib import Path
 
-# Config
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+# Add project root to path for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MOONSHOT_API_KEY
 
 # Keywords die auf Kaufsignale hindeuten
 BUYER_KEYWORDS = [

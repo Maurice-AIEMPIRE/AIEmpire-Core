@@ -4,6 +4,7 @@ Central nervous system connecting all Empire subsystems.
 Runs on your Mac, accessible from iPhone over local network.
 """
 import os
+import sys
 import json
 import subprocess
 import httpx
@@ -16,6 +17,10 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import Optional
 import uvicorn
+
+# Add project root to path for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import GITHUB_TOKEN as _GITHUB_TOKEN
 
 app = FastAPI(title="AI Empire Control API", version="1.0.0")
 
@@ -39,7 +44,7 @@ MOBILE_DIR = EMPIRE_ROOT / "mobile-command-center"
 # ── GitHub Config ──
 GITHUB_OWNER = "mauricepfeifer-ctrl"
 GITHUB_REPO = "AIEmpire-Core"
-GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_TOKEN = _GITHUB_TOKEN
 
 # ── WebSocket connections ──
 active_connections: list[WebSocket] = []

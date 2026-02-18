@@ -8,13 +8,15 @@ Budget: $15 = ~30 Mio Tokens
 import asyncio
 import aiohttp
 import json
+import sys
 import time
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict
 
-import os
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+# Add project root for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MOONSHOT_API_KEY
 MAX_CONCURRENT = 50  # Reduced to avoid rate limits
 TOTAL_AGENTS = 100000
 BUDGET_USD = 15.0

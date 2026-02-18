@@ -5,21 +5,18 @@ Automated posting to X/Twitter with scheduling
 Maurice's AI Empire - 2026
 """
 
-import os
 import json
 import asyncio
 from datetime import datetime, timedelta
 from pathlib import Path
 
-# This would use Twitter API v2
-# For now, creates posts in a queue for manual posting
-# Future: Integrate with Twitter API when credentials available
-
-TWITTER_API_KEY = os.getenv("TWITTER_API_KEY", "")
-TWITTER_API_SECRET = os.getenv("TWITTER_API_SECRET", "")
-TWITTER_ACCESS_TOKEN = os.getenv("TWITTER_ACCESS_TOKEN", "")
-TWITTER_ACCESS_SECRET = os.getenv("TWITTER_ACCESS_SECRET", "")
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+from antigravity.config import (
+    TWITTER_API_KEY,
+    TWITTER_API_SECRET,
+    TWITTER_ACCESS_TOKEN,
+    TWITTER_ACCESS_SECRET,
+    MOONSHOT_API_KEY,
+)
 
 class XAutoPoster:
     """Automated X/Twitter posting system."""

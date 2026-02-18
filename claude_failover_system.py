@@ -5,18 +5,14 @@ Automatischer Umstieg auf GitHub-Steuerung bei API-Limits
 Maurice's AI Empire - 2026
 """
 
-import os
 import json
 import asyncio
 import aiohttp
 from datetime import datetime
 from pathlib import Path
-
-# Config
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
-GITHUB_REPO = os.getenv("GITHUB_REPO", "mauricepfeifer-ctrl/AIEmpire-Core")
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+from antigravity.config import (
+    GITHUB_TOKEN, GITHUB_REPO, MOONSHOT_API_KEY, ANTHROPIC_API_KEY,
+)
 
 class ClaudeFailoverSystem:
     """System das automatisch auf GitHub umschaltet wenn Claude Limits erreicht."""

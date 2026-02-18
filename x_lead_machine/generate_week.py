@@ -6,10 +6,13 @@ Generiert 7 Posts + 1 Thread für die ganze Woche
 
 import asyncio
 import aiohttp
-import os
+import sys
 from datetime import datetime, timedelta
+from pathlib import Path
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+# Add project root to path for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MOONSHOT_API_KEY
 
 WEEK_PLAN = [
     {"day": "Montag", "topic": "AI Agents automatisieren mein Business", "style": "result"},

@@ -10,18 +10,20 @@ import asyncio
 import aiohttp
 import json
 import os
+import sys
 import time
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict
 import random
 
-# API Keys - MUST be set as environment variables
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
+# Add project root for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MOONSHOT_API_KEY, ANTHROPIC_API_KEY
+
+# API Keys - loaded from antigravity.config (centralized)
 if not MOONSHOT_API_KEY:
     raise ValueError("MOONSHOT_API_KEY environment variable must be set")
-    
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")  # Optional: Falls back to rule-based orchestration
 
 # Configuration
 MAX_CONCURRENT = 500  # 10x increase for 500K scale
