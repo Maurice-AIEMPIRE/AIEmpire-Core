@@ -6,7 +6,7 @@ Routes tasks to 4 specialized roles via local Ollama models.
 Each role works in its own git branch. Merge only after QA pass.
 
 Usage:
-    python godmode/router.py "Fix the import errors in brain-system/"
+    python godmode/router.py "Fix the import errors in brain_system/"
     python godmode/router.py --file issues.txt
     python godmode/router.py --status
     python godmode/router.py --merge agent/fixer/fix-imports
@@ -718,7 +718,7 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python godmode/router.py "Fix import errors in brain-system/"
+  python godmode/router.py "Fix import errors in brain_system/"
   python godmode/router.py --role fixer "TypeError in orchestrator.py line 45"
   python godmode/router.py --role architect "Design new plugin system"
   python godmode/router.py --file tasks.txt

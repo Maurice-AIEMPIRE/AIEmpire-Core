@@ -7,17 +7,16 @@ Maurice's AI Empire - 2026
 
 import asyncio
 import json
-import os
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
 
 import aiohttp
-
-# API Keys
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+from antigravity.config import (
+    ANTHROPIC_API_KEY,
+    MOONSHOT_API_KEY,
+    OLLAMA_BASE_URL,
+)
 
 # Storage paths
 CHAT_HISTORY_DIR = Path(__file__).parent / "chat_history"

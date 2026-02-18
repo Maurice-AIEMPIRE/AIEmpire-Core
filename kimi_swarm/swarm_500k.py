@@ -16,13 +16,11 @@ from pathlib import Path
 from typing import Dict, List
 
 import aiohttp
+from antigravity.config import ANTHROPIC_API_KEY, MOONSHOT_API_KEY
 
 # API Keys - MUST be set as environment variables
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
 if not MOONSHOT_API_KEY:
     raise ValueError("MOONSHOT_API_KEY environment variable must be set")
-
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")  # Optional: Falls back to rule-based orchestration
 
 # Configuration
 MAX_CONCURRENT = 500  # 10x increase for 500K scale

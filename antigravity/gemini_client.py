@@ -13,16 +13,15 @@ Supports:
 """
 
 import json
-import os
-from antigravity.config import AgentConfig
+from antigravity.config import (
+    AgentConfig,
+    GEMINI_API_KEY,
+    GOOGLE_CLOUD_PROJECT,
+    GOOGLE_CLOUD_REGION,
+)
 from typing import Any, Optional
 
 import httpx
-
-# ─── Configuration ──────────────────────────────────────────────────
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT", "")
-GOOGLE_CLOUD_REGION = os.getenv("GOOGLE_CLOUD_REGION", "europe-west1")
 
 # Endpoints
 GEMINI_API_BASE = "https://generativelanguage.googleapis.com/v1beta"

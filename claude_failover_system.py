@@ -12,12 +12,11 @@ from datetime import datetime
 from pathlib import Path
 
 import aiohttp
+from antigravity.config import ANTHROPIC_API_KEY, MOONSHOT_API_KEY
 
 # Config
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 GITHUB_REPO = os.getenv("GITHUB_REPO", "mauricepfeifer-ctrl/AIEmpire-Core")
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
 
 
 class ClaudeFailoverSystem:

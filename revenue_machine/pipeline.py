@@ -17,14 +17,20 @@ Technology Stack:
 """
 
 import os
+import sys
 import asyncio
 import logging
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, List, Optional
 from dataclasses import dataclass
 from enum import Enum
 import aiohttp
 import hashlib
+
+# Ensure project root is in path for antigravity imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from antigravity.config import MOONSHOT_API_KEY, OLLAMA_BASE_URL
 
 logger = logging.getLogger(__name__)
 
@@ -32,9 +38,8 @@ logger = logging.getLogger(__name__)
 # CONFIG & CONSTANTS
 # ============================================================================
 
-OLLAMA_BASE = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
-MOONSHOT_KEY = os.getenv("MOONSHOT_API_KEY", "")
+OLLAMA_BASE = OLLAMA_BASE_URL
+MOONSHOT_KEY = MOONSHOT_API_KEY
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
 TIKTOK_ACCESS_TOKEN = os.getenv("TIKTOK_ACCESS_TOKEN", "")
 GOOGLE_ADS_CUSTOMER_ID = os.getenv("GOOGLE_ADS_CUSTOMER_ID", "")
