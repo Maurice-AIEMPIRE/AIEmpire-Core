@@ -5,10 +5,11 @@ Automatisierte Lead-Generation auf X/Twitter
 Maurice's AI Empire
 """
 
-import os
 import json
-import aiohttp
+import os
 from datetime import datetime
+
+import aiohttp
 
 # Config
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
@@ -49,6 +50,7 @@ TARGET_ACCOUNTS = [
     "alexalbert__",
 ]
 
+
 class XLeadMachine:
     """Automatisierte Lead-Generation auf X."""
 
@@ -65,9 +67,9 @@ class XLeadMachine:
 
         prompt = f"""Analysiere diesen Tweet auf Kaufsignale für AI-Automation-Services:
 
-Tweet: {tweet.get('text', '')}
-Author: {tweet.get('author', '')}
-Engagement: {tweet.get('likes', 0)} likes, {tweet.get('replies', 0)} replies
+Tweet: {tweet.get("text", "")}
+Author: {tweet.get("author", "")}
+Engagement: {tweet.get("likes", 0)} likes, {tweet.get("replies", 0)} replies
 
 Bewerte:
 1. Kaufsignal (0-10): Hat die Person ein Problem das wir lösen können?
@@ -86,13 +88,13 @@ Antworte als JSON:
                     "https://api.moonshot.ai/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     json={
                         "model": "moonshot-v1-8k",
                         "messages": [{"role": "user", "content": prompt}],
-                        "temperature": 0.3
-                    }
+                        "temperature": 0.3,
+                    },
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -118,7 +120,7 @@ Antworte als JSON:
 
         prompt = f"""Schreibe einen X/Twitter Post zum Thema: {topic}
 
-Stil: {styles.get(style, styles['value'])}
+Stil: {styles.get(style, styles["value"])}
 
 Regeln:
 - Max 280 Zeichen (oder Thread-Start)
@@ -147,13 +149,13 @@ Schreibe jetzt den Post:"""
                     "https://api.moonshot.ai/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     json={
                         "model": "moonshot-v1-8k",
                         "messages": [{"role": "user", "content": prompt}],
-                        "temperature": 0.7
-                    }
+                        "temperature": 0.7,
+                    },
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -188,13 +190,13 @@ Schreibe die Reply:"""
                     "https://api.moonshot.ai/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     json={
                         "model": "moonshot-v1-8k",
                         "messages": [{"role": "user", "content": prompt}],
-                        "temperature": 0.7
-                    }
+                        "temperature": 0.7,
+                    },
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -209,9 +211,9 @@ Schreibe die Reply:"""
         prompt = f"""Erstelle eine 3-DM Sequence für diesen Lead:
 
 Lead Info:
-- Name: {lead_info.get('name', 'Unknown')}
-- Interesse: {lead_info.get('interest', 'AI Automation')}
-- Original Tweet: {lead_info.get('tweet', '')}
+- Name: {lead_info.get("name", "Unknown")}
+- Interesse: {lead_info.get("interest", "AI Automation")}
+- Original Tweet: {lead_info.get("tweet", "")}
 
 Ziel: Termin für 15-Min Discovery Call
 
@@ -228,13 +230,13 @@ Antworte als JSON Array mit 3 DMs:
                     "https://api.moonshot.ai/v1/chat/completions",
                     headers={
                         "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                        "Content-Type": "application/json"
+                        "Content-Type": "application/json",
                     },
                     json={
                         "model": "moonshot-v1-8k",
                         "messages": [{"role": "user", "content": prompt}],
-                        "temperature": 0.6
-                    }
+                        "temperature": 0.6,
+                    },
                 ) as resp:
                     if resp.status == 200:
                         data = await resp.json()
@@ -252,7 +254,7 @@ Antworte als JSON Array mit 3 DMs:
         return {
             **self.stats,
             "leads": len(self.leads),
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
         }
 
 
@@ -265,7 +267,6 @@ Ohne [andere alte Methode].
 Nur [deine Methode].
 
 Wollt ihr wissen wie?""",
-
     "controversial": """Unpopular opinion:
 
 [Kontroverse Aussage]
@@ -273,7 +274,6 @@ Wollt ihr wissen wie?""",
 Hier ist warum:
 
 [3 Punkte als Beweis]""",
-
     "tutorial": """Wie du [Ergebnis] in [Zeitraum] erreichst 🧵
 
 Schritt 1: [Action]
@@ -283,7 +283,6 @@ Schritt 3: [Action]
 Ergebnis: [Outcome]
 
 Thread ↓""",
-
     "question": """Ehrliche Frage an alle [Zielgruppe]:
 
 [Problem-Frage]?
@@ -291,7 +290,6 @@ Thread ↓""",
 Ich baue gerade [Lösung] und will echte Probleme lösen.
 
 👇""",
-
     "behind_scenes": """Was ich heute gemacht habe:
 
 - [Task 1]

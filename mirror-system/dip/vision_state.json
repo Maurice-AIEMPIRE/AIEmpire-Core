@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "created": "2026-02-10T00:00:00",
+  "updated": null,
+  "sessions_completed": 0,
+  "vision": {
+    "one_sentence": "AWAITING_INPUT",
+    "daily_focus": null,
+    "daily_wins": [],
+    "daily_avoid": null
+  },
+  "priorities": {
+    "main_fronts": [],
+    "biggest_blocker": null,
+    "sixty_min_focus": null
+  },
+  "style": {
+    "risk_mode": "balanced",
+    "communication_style": "knapp",
+    "ignore_list": []
+  },
+  "context": {
+    "legal_deadline": "2026-04-03",
+    "kammertermin": "2026-05-13",
+    "revenue_current": 0,
+    "new_context": null
+  },
+  "review": {
+    "time_sinks": null,
+    "bad_decisions": null,
+    "prepare_tomorrow": null
+  },
+  "meta": {
+    "streak_days": 0,
+    "last_session_date": null,
+    "total_decisions_logged": 0
+  },
+  "product_focus": {
+    "signature_line": "AWAITING_INPUT",
+    "target_audience": "AWAITING_INPUT",
+    "first_product_type": null,
+    "price_tier": null
+  }
+}

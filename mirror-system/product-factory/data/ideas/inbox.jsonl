@@ -1,0 +1,10 @@
+{"id": "bma-ops1", "title": "BMA Projektabnahme Checkliste + AI Assistent", "tags": ["bma", "checkliste", "handwerk"], "source": "core-expertise", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "legal-wr", "title": "Legal Warroom Blueprint - Arbeitsrecht für Angestellte", "tags": ["legal", "blueprint", "warroom"], "source": "own-experience", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "ai-ops01", "title": "AI Ops Command Center - Vom Chaos zur Maschine (Blueprint)", "tags": ["ai-ops", "automation", "blueprint"], "source": "system-expertise", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "prmpt-pk", "title": "Projektleiter Prompt Pack - 50 Prompts für Bauleitung + Technik", "tags": ["prompts", "projektleiter", "handwerk"], "source": "core-expertise", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "cont-fac", "title": "30 Tage Content in 60 Minuten/Woche - Automation Blueprint", "tags": ["content", "automation", "solopreneur"], "source": "system-capability", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "bma-ai01", "title": "BMA + AI Consulting Paket (Brandmeldeanlagen-Digitalisierung)", "tags": ["bma", "consulting", "premium"], "source": "unique-niche", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "sop-pack", "title": "SOP Pack: Elektrotechnik-Projekt Setup bis Abnahme", "tags": ["sop", "elektrotechnik", "template"], "source": "core-expertise", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "n8n-auto", "title": "n8n Automation Starter Kit für Handwerker/KMU", "tags": ["n8n", "automation", "kmu"], "source": "system-capability", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "docker-g", "title": "Docker für Nicht-Entwickler - AI Stack in 30 Minuten", "tags": ["docker", "tutorial", "beginner"], "source": "existing-product", "created": "2026-02-10T00:00:00", "status": "new"}
+{"id": "agent-bp", "title": "Multi-Agent System Blueprint - 100 Agenten orchestrieren", "tags": ["agents", "warroom", "premium"], "source": "system-expertise", "created": "2026-02-10T00:00:00", "status": "new"}

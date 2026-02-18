@@ -6,14 +6,15 @@ Budget: $15 = ~30 Mio Tokens
 """
 
 import asyncio
-import aiohttp
 import json
+import os
 import time
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict
+from typing import Dict, List
 
-import os
+import aiohttp
+
 MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
 MAX_CONCURRENT = 50  # Reduced to avoid rate limits
 TOTAL_AGENTS = 100000
@@ -52,7 +53,7 @@ OUTPUT als JSON:
     "ai_opportunity": "Wie AI helfen kann",
     "outreach_hook": "Erster DM-Satz",
     "priority": "high/medium/low"
-}"""
+}""",
     },
     {
         "type": "content_idea",
@@ -69,7 +70,7 @@ OUTPUT als JSON:
     "cta": "Call to Action",
     "hashtags": ["#AI", "#Automation"],
     "viral_score": 1-10
-}"""
+}""",
     },
     {
         "type": "competitor_analysis",
@@ -85,7 +86,7 @@ OUTPUT als JSON:
     "strengths": ["Staerke 1"],
     "weaknesses": ["Schwaeche 1"],
     "opportunity": "Wie Maurice gewinnen kann"
-}"""
+}""",
     },
     {
         "type": "gold_nugget",
@@ -102,9 +103,10 @@ OUTPUT als JSON:
     "action": "Naechster Schritt",
     "value_eur": 1000,
     "priority": "high/medium/low"
-}"""
+}""",
     },
 ]
+
 
 class KimiSwarm:
     def __init__(self):
@@ -116,22 +118,27 @@ class KimiSwarm:
             "cost_usd": 0.0,
             "start_time": None,
             "results": [],
-            "by_type": {"lead_research": 0, "content_idea": 0, "competitor_analysis": 0, "gold_nugget": 0}
+            "by_type": {
+                "lead_research": 0,
+                "content_idea": 0,
+                "competitor_analysis": 0,
+                "gold_nugget": 0,
+            },
         }
         self.running = True
         self.max_concurrent = MAX_CONCURRENT  # Store for validation
         self.semaphore = asyncio.Semaphore(MAX_CONCURRENT)
         self.session = None
         self.task_counter = 0
-        
+
     def validate_max_agent_capacity(self) -> bool:
         """Validate that system is configured to spawn max agents."""
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("🔍 VALIDATING MAX AGENT CAPACITY")
-        print(f"{'='*60}")
-        
+        print(f"{'=' * 60}")
+
         validation_passed = True
-        
+
         # Check TOTAL_AGENTS configuration
         print(f"Total Agents Capacity: {TOTAL_AGENTS:,}")
         if TOTAL_AGENTS <= 0:
@@ -139,7 +146,7 @@ class KimiSwarm:
             validation_passed = False
         else:
             print("  ✅ Valid agent capacity configured")
-        
+
         # Check MAX_CONCURRENT configuration
         print(f"Max Concurrent Workers: {MAX_CONCURRENT}")
         if MAX_CONCURRENT <= 0:
@@ -149,42 +156,48 @@ class KimiSwarm:
             print("  ⚠️  Warning: MAX_CONCURRENT > 200 may cause rate limiting")
         else:
             print("  ✅ Valid concurrency level")
-        
+
         # Check API key is set
         if not MOONSHOT_API_KEY:
             print("  ❌ MOONSHOT_API_KEY not set")
             validation_passed = False
         else:
             print("  ✅ API key configured")
-        
+
         # Check semaphore capacity matches configuration
         if self.max_concurrent != MAX_CONCURRENT:
             print("  ❌ Semaphore capacity mismatch")
             validation_passed = False
         else:
             print("  ✅ Semaphore initialized correctly")
-        
+
         # Check output directories exist
-        for dir_path in [OUTPUT_DIR, LEADS_DIR, CONTENT_DIR, COMPETITORS_DIR, NUGGETS_DIR]:
+        for dir_path in [
+            OUTPUT_DIR,
+            LEADS_DIR,
+            CONTENT_DIR,
+            COMPETITORS_DIR,
+            NUGGETS_DIR,
+        ]:
             if not dir_path.exists():
                 print(f"  ❌ Output directory missing: {dir_path}")
                 validation_passed = False
         print("  ✅ All output directories exist")
-        
+
         # Capacity report
         estimated_time = (TOTAL_AGENTS / MAX_CONCURRENT) * ESTIMATED_SECONDS_PER_TASK
         print("\nCapacity Report:")
         print(f"  • Max Agents: {TOTAL_AGENTS:,}")
         print(f"  • Concurrent Workers: {MAX_CONCURRENT}")
-        print(f"  • Estimated Time for Full Run: {estimated_time/3600:.1f} hours")
+        print(f"  • Estimated Time for Full Run: {estimated_time / 3600:.1f} hours")
         print(f"  • Estimated Cost: ${BUDGET_USD:.2f}")
-        
+
         if validation_passed:
             print("\n✅ System validated - ready to spawn max agents!")
         else:
             print("\n❌ Validation failed - fix issues before spawning agents")
-        
-        print(f"{'='*60}\n")
+
+        print(f"{'=' * 60}\n")
         return validation_passed
 
     async def init_session(self):
@@ -210,9 +223,19 @@ class KimiSwarm:
             elif "```" in content:
                 content = content.split("```")[1].split("```")[0]
             parsed = json.loads(content.strip())
-            data = {"task_id": task_id, "type": task_type["type"], "timestamp": datetime.now().isoformat(), "data": parsed}
+            data = {
+                "task_id": task_id,
+                "type": task_type["type"],
+                "timestamp": datetime.now().isoformat(),
+                "data": parsed,
+            }
         except Exception:
-            data = {"task_id": task_id, "type": task_type["type"], "timestamp": datetime.now().isoformat(), "raw": content}
+            data = {
+                "task_id": task_id,
+                "type": task_type["type"],
+                "timestamp": datetime.now().isoformat(),
+                "raw": content,
+            }
 
         with open(filename, "w") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
@@ -226,17 +249,20 @@ class KimiSwarm:
                         "https://api.moonshot.ai/v1/chat/completions",
                         headers={
                             "Authorization": f"Bearer {MOONSHOT_API_KEY}",
-                            "Content-Type": "application/json"
+                            "Content-Type": "application/json",
                         },
                         json={
                             "model": "moonshot-v1-8k",
                             "messages": [
-                                {"role": "system", "content": "Du bist ein Research-Agent. Antworte NUR mit validem JSON."},
-                                {"role": "user", "content": task_type["prompt"]}
+                                {
+                                    "role": "system",
+                                    "content": "Du bist ein Research-Agent. Antworte NUR mit validem JSON.",
+                                },
+                                {"role": "user", "content": task_type["prompt"]},
                             ],
                             "temperature": 0.8,
-                            "max_tokens": 400
-                        }
+                            "max_tokens": 400,
+                        },
                     ) as resp:
                         if resp.status == 200:
                             data = await resp.json()
@@ -256,22 +282,30 @@ class KimiSwarm:
                                 "task_id": task_id,
                                 "type": task_type["type"],
                                 "status": "success",
-                                "tokens": tokens
+                                "tokens": tokens,
                             }
                         elif resp.status == 429:
                             # Rate limited - longer exponential backoff
-                            wait = (3 ** attempt) + 2
+                            wait = (3**attempt) + 2
                             await asyncio.sleep(wait)
                             continue
                         else:
                             text = await resp.text()
                             if attempt == retries - 1:
                                 self.stats["failed"] += 1
-                                return {"task_id": task_id, "status": "error", "error": f"HTTP {resp.status}: {text[:100]}"}
+                                return {
+                                    "task_id": task_id,
+                                    "status": "error",
+                                    "error": f"HTTP {resp.status}: {text[:100]}",
+                                }
                 except asyncio.TimeoutError:
                     if attempt == retries - 1:
                         self.stats["failed"] += 1
-                        return {"task_id": task_id, "status": "error", "error": "timeout"}
+                        return {
+                            "task_id": task_id,
+                            "status": "error",
+                            "error": "timeout",
+                        }
                     await asyncio.sleep(1)
                 except Exception as e:
                     if attempt == retries - 1:
@@ -300,9 +334,9 @@ class KimiSwarm:
         rate = self.stats["completed"] / elapsed if elapsed > 0 else 0
         eta = (self.stats["total_tasks"] - self.stats["completed"]) / rate if rate > 0 else 0
 
-        print(f"\n{'='*60}")
+        print(f"\n{'=' * 60}")
         print("KIMI SWARM STATS")
-        print(f"{'='*60}")
+        print(f"{'=' * 60}")
         print(f"Completed:      {self.stats['completed']:,} / {self.stats['total_tasks']:,}")
         print(f"Failed:         {self.stats['failed']:,}")
         print(f"Tokens Used:    {self.stats['tokens_used']:,}")
@@ -314,7 +348,7 @@ class KimiSwarm:
         print(f"Content:        {self.stats['by_type']['content_idea']:,}")
         print(f"Competitors:    {self.stats['by_type']['competitor_analysis']:,}")
         print(f"Gold Nuggets:   {self.stats['by_type']['gold_nugget']:,}")
-        print(f"{'='*60}\n")
+        print(f"{'=' * 60}\n")
 
     async def run_swarm(self, total_tasks: int = 1000):
         """Run the full swarm."""
@@ -322,20 +356,20 @@ class KimiSwarm:
         if not self.validate_max_agent_capacity():
             print("❌ Validation failed. Aborting swarm run.")
             return None
-        
+
         self.stats["start_time"] = time.time()
         await self.init_session()
 
         print(f"""
-{'='*60}
+{"=" * 60}
      KIMI 100K SWARM - MAURICE'S AI EMPIRE
-{'='*60}
+{"=" * 60}
    Total Tasks:  {total_tasks:,}
    Max Capacity: {TOTAL_AGENTS:,}
    Concurrent:   {MAX_CONCURRENT}
    Budget:       ${BUDGET_USD}
    Output:       {OUTPUT_DIR}
-{'='*60}
+{"=" * 60}
 """)
 
         batch_size = min(MAX_CONCURRENT, total_tasks)
@@ -370,14 +404,18 @@ class KimiSwarm:
         # Save final stats
         output_file = OUTPUT_DIR / f"stats_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
         with open(output_file, "w") as f:
-            json.dump({
-                "completed": self.stats["completed"],
-                "failed": self.stats["failed"],
-                "tokens_used": self.stats["tokens_used"],
-                "cost_usd": self.stats["cost_usd"],
-                "by_type": self.stats["by_type"],
-                "duration_sec": time.time() - self.stats["start_time"]
-            }, f, indent=2)
+            json.dump(
+                {
+                    "completed": self.stats["completed"],
+                    "failed": self.stats["failed"],
+                    "tokens_used": self.stats["tokens_used"],
+                    "cost_usd": self.stats["cost_usd"],
+                    "by_type": self.stats["by_type"],
+                    "duration_sec": time.time() - self.stats["start_time"],
+                },
+                f,
+                indent=2,
+            )
 
         print(f"Stats saved to: {output_file}")
         print("\nResults in:")
@@ -393,9 +431,19 @@ async def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="KIMI 100K Swarm")
-    parser.add_argument("-n", "--tasks", type=int, default=1000, help="Number of tasks (default: 1000, max: 100000)")
+    parser.add_argument(
+        "-n",
+        "--tasks",
+        type=int,
+        default=1000,
+        help="Number of tasks (default: 1000, max: 100000)",
+    )
     parser.add_argument("--test", action="store_true", help="Test mode (10 tasks)")
-    parser.add_argument("--max", action="store_true", help="Max mode - spawn all 100K agents (WARNING: expensive!)")
+    parser.add_argument(
+        "--max",
+        action="store_true",
+        help="Max mode - spawn all 100K agents (WARNING: expensive!)",
+    )
     args = parser.parse_args()
 
     if args.test:

@@ -1,0 +1,719 @@
+{
+  "timestamp": "2026-02-10T01:41:59",
+  "total_issues": 78,
+  "by_severity": {
+    "critical": 77,
+    "high": 1,
+    "medium": 0,
+    "low": 0
+  },
+  "by_cluster": {
+    "test_failure": 1,
+    "syntax": 75,
+    "missing_deps": 2
+  },
+  "issues": [
+    {
+      "type": "test_failure",
+      "file": "systems/kimi_bridge/test_bridge.py",
+      "line": 0,
+      "message": "FAILED systems/kimi_bridge/test_bridge.py::test_bridge - Failed: async def fu...",
+      "tool": "pytest",
+      "severity": "high",
+      "cluster": "test_failure"
+    },
+    {
+      "type": "import_error",
+      "file": "atomic-reactor/run_tasks.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "workflow-system/empire.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "workflow-system/resource_guard.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "workflow-system/orchestrator.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "workflow-system/cowork.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "empire-api/server.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "brain-system/orchestrator.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/demo_max_agents.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/USAGE_EXAMPLES.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/swarm_100k.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/swarm_500k.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/universal_swarm.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/test_swarm_500k.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/github_scanner_100k.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "x-lead-machine/generate_week.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "x-lead-machine/viral_reply_generator.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "x-lead-machine/post_generator.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "x-lead-machine/x_automation.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "n8n-workflows/n8n_connector.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "systems/kimi_bridge/server.py",
+      "line": 0,
+      "message": "ModuleNotFoundError: No module named 'fastapi'",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "missing_deps"
+    },
+    {
+      "type": "import_error",
+      "file": "systems/kimi_bridge/test_bridge.py",
+      "line": 0,
+      "message": "ModuleNotFoundError: No module named 'kimi_client'",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "missing_deps"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_ws.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_middlewares.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/worker.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/multipart.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_response.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_ws.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/test_utils.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/tracing.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_exceptions.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_middlewares.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http_exceptions.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_app.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/streams.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_protocol.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/log.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/compression_utils.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_urldispatcher.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_request.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http_websocket.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_proto.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/__init__.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_runner.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_server.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/base_protocol.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/payload.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_reqrep.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_log.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/resolver.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/formdata.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/payload_streamer.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_routedef.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/connector.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_exceptions.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/typedefs.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_middleware_digest_auth.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/hdrs.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_fileresponse.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_cookie_helpers.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http_writer.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/tcp_helpers.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/helpers.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http_parser.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/cookiejar.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/pytest_plugin.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/abc.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/setters.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/validators.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/__init__.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/exceptions.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/converters.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/filters.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/propcache/__init__.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    },
+    {
+      "type": "import_error",
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/propcache/api.py",
+      "line": 0,
+      "message": "SyntaxError: invalid syntax",
+      "tool": "import_check",
+      "severity": "critical",
+      "cluster": "syntax"
+    }
+  ]
+}

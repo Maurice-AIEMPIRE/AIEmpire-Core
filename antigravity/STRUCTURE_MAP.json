@@ -1,0 +1,3195 @@
+{
+  "generated_at": "2026-02-10T01:42:20",
+  "total_files": 556,
+  "total_lines": 183173,
+  "directories": {
+    "antigravity": {
+      "files": 13,
+      "lines": 2201
+    },
+    "atomic-reactor": {
+      "files": 1,
+      "lines": 144
+    },
+    "brain-system": {
+      "files": 1,
+      "lines": 375
+    },
+    "root": {
+      "files": 5,
+      "lines": 1687
+    },
+    "empire-api": {
+      "files": 1,
+      "lines": 538
+    },
+    "examples": {
+      "files": 1,
+      "lines": 171
+    },
+    "godmode": {
+      "files": 1,
+      "lines": 706
+    },
+    "kimi-swarm": {
+      "files": 7,
+      "lines": 1969
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs": {
+      "files": 5,
+      "lines": 599
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp": {
+      "files": 48,
+      "lines": 24670
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket": {
+      "files": 7,
+      "lines": 1488
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/aiosignal": {
+      "files": 1,
+      "lines": 60
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/attr": {
+      "files": 13,
+      "lines": 6185
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/attrs": {
+      "files": 6,
+      "lines": 93
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/frozenlist": {
+      "files": 1,
+      "lines": 87
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/idna": {
+      "files": 8,
+      "lines": 13835
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/multidict": {
+      "files": 4,
+      "lines": 1394
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip": {
+      "files": 3,
+      "lines": 90
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal": {
+      "files": 9,
+      "lines": 2687
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli": {
+      "files": 13,
+      "lines": 3032
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands": {
+      "files": 19,
+      "lines": 3747
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions": {
+      "files": 5,
+      "lines": 322
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index": {
+      "files": 4,
+      "lines": 1840
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations": {
+      "files": 4,
+      "lines": 915
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata": {
+      "files": 4,
+      "lines": 1243
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib": {
+      "files": 4,
+      "lines": 469
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models": {
+      "files": 13,
+      "lines": 1636
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network": {
+      "files": 8,
+      "lines": 1945
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations": {
+      "files": 4,
+      "lines": 1186
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build": {
+      "files": 6,
+      "lines": 310
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/install": {
+      "files": 2,
+      "lines": 749
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req": {
+      "files": 7,
+      "lines": 2918
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution": {
+      "files": 2,
+      "lines": 22
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/legacy": {
+      "files": 2,
+      "lines": 600
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib": {
+      "files": 9,
+      "lines": 2715
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils": {
+      "files": 25,
+      "lines": 3756
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs": {
+      "files": 6,
+      "lines": 1936
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor": {
+      "files": 1,
+      "lines": 118
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol": {
+      "files": 9,
+      "lines": 1327
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches": {
+      "files": 3,
+      "lines": 204
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/certifi": {
+      "files": 3,
+      "lines": 102
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups": {
+      "files": 6,
+      "lines": 423
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib": {
+      "files": 5,
+      "lines": 3964
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distro": {
+      "files": 3,
+      "lines": 1464
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna": {
+      "files": 8,
+      "lines": 13609
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack": {
+      "files": 4,
+      "lines": 1206
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging": {
+      "files": 14,
+      "lines": 4829
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/licenses": {
+      "files": 2,
+      "lines": 906
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pkg_resources": {
+      "files": 1,
+      "lines": 3677
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs": {
+      "files": 8,
+      "lines": 1966
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments": {
+      "files": 15,
+      "lines": 2797
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/filters": {
+      "files": 1,
+      "lines": 941
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/formatters": {
+      "files": 2,
+      "lines": 182
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/lexers": {
+      "files": 3,
+      "lines": 2168
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/styles": {
+      "files": 2,
+      "lines": 117
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks": {
+      "files": 2,
+      "lines": 443
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process": {
+      "files": 2,
+      "lines": 412
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests": {
+      "files": 18,
+      "lines": 5615
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib": {
+      "files": 4,
+      "lines": 491
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers": {
+      "files": 5,
+      "lines": 811
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich": {
+      "files": 77,
+      "lines": 25994
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli": {
+      "files": 4,
+      "lines": 914
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli_w": {
+      "files": 2,
+      "lines": 235
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore": {
+      "files": 6,
+      "lines": 1620
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3": {
+      "files": 11,
+      "lines": 4487
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib": {
+      "files": 7,
+      "lines": 2141
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport": {
+      "files": 3,
+      "lines": 919
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages": {
+      "files": 2,
+      "lines": 1078
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports": {
+      "files": 3,
+      "lines": 209
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util": {
+      "files": 13,
+      "lines": 2898
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/propcache": {
+      "files": 4,
+      "lines": 145
+    },
+    "kimi-swarm/venv/lib/python3.14/site-packages/yarl": {
+      "files": 8,
+      "lines": 2274
+    },
+    "n8n-workflows": {
+      "files": 1,
+      "lines": 205
+    },
+    "scripts/email-archiver": {
+      "files": 1,
+      "lines": 470
+    },
+    "systems/kimi_bridge": {
+      "files": 3,
+      "lines": 198
+    },
+    "systems/stripe_payments": {
+      "files": 2,
+      "lines": 225
+    },
+    "workflow-system": {
+      "files": 4,
+      "lines": 1539
+    },
+    "workflow-system/state": {
+      "files": 2,
+      "lines": 116
+    },
+    "workflow-system/steps": {
+      "files": 6,
+      "lines": 583
+    },
+    "x-lead-machine": {
+      "files": 4,
+      "lines": 831
+    }
+  },
+  "files": [
+    {
+      "path": "antigravity/__init__.py",
+      "lines": 10,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/agent_runner.py",
+      "lines": 226,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/cluster_issues.py",
+      "lines": 73,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/collect_reports.py",
+      "lines": 251,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/config.py",
+      "lines": 183,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/godmode_router.py",
+      "lines": 191,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/merge_gate.py",
+      "lines": 226,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/merge_queue.py",
+      "lines": 50,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/ollama_client.py",
+      "lines": 161,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/pr_bot.py",
+      "lines": 62,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/smoke_test.py",
+      "lines": 242,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/structure_builder.py",
+      "lines": 153,
+      "dir": "antigravity"
+    },
+    {
+      "path": "antigravity/swarm_run.py",
+      "lines": 373,
+      "dir": "antigravity"
+    },
+    {
+      "path": "atomic-reactor/run_tasks.py",
+      "lines": 144,
+      "dir": "atomic-reactor"
+    },
+    {
+      "path": "brain-system/orchestrator.py",
+      "lines": 375,
+      "dir": "brain-system"
+    },
+    {
+      "path": "chat_manager.py",
+      "lines": 449,
+      "dir": "."
+    },
+    {
+      "path": "claude_failover_system.py",
+      "lines": 323,
+      "dir": "."
+    },
+    {
+      "path": "empire-api/server.py",
+      "lines": 538,
+      "dir": "empire-api"
+    },
+    {
+      "path": "empire_launch.py",
+      "lines": 112,
+      "dir": "."
+    },
+    {
+      "path": "examples/chat_usage_examples.py",
+      "lines": 171,
+      "dir": "examples"
+    },
+    {
+      "path": "github_control_interface.py",
+      "lines": 602,
+      "dir": "."
+    },
+    {
+      "path": "godmode/router.py",
+      "lines": 706,
+      "dir": "godmode"
+    },
+    {
+      "path": "kimi-swarm/USAGE_EXAMPLES.py",
+      "lines": 250,
+      "dir": "kimi-swarm"
+    },
+    {
+      "path": "kimi-swarm/demo_max_agents.py",
+      "lines": 57,
+      "dir": "kimi-swarm"
+    },
+    {
+      "path": "kimi-swarm/github_scanner_100k.py",
+      "lines": 206,
+      "dir": "kimi-swarm"
+    },
+    {
+      "path": "kimi-swarm/swarm_100k.py",
+      "lines": 416,
+      "dir": "kimi-swarm"
+    },
+    {
+      "path": "kimi-swarm/swarm_500k.py",
+      "lines": 711,
+      "dir": "kimi-swarm"
+    },
+    {
+      "path": "kimi-swarm/test_swarm_500k.py",
+      "lines": 221,
+      "dir": "kimi-swarm"
+    },
+    {
+      "path": "kimi-swarm/universal_swarm.py",
+      "lines": 108,
+      "dir": "kimi-swarm"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs/__init__.py",
+      "lines": 15,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs/_staggered.py",
+      "lines": 208,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs/impl.py",
+      "lines": 260,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs/types.py",
+      "lines": 18,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs/utils.py",
+      "lines": 98,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohappyeyeballs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/__init__.py",
+      "lines": 279,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_cookie_helpers.py",
+      "lines": 339,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket/__init__.py",
+      "lines": 2,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket/helpers.py",
+      "lines": 148,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket/models.py",
+      "lines": 85,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket/reader.py",
+      "lines": 32,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket/reader_c.py",
+      "lines": 479,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket/reader_py.py",
+      "lines": 479,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket/writer.py",
+      "lines": 263,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/_websocket"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/abc.py",
+      "lines": 269,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/base_protocol.py",
+      "lines": 101,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client.py",
+      "lines": 1636,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_exceptions.py",
+      "lines": 422,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_middleware_digest_auth.py",
+      "lines": 481,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_middlewares.py",
+      "lines": 56,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_proto.py",
+      "lines": 360,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_reqrep.py",
+      "lines": 1537,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_ws.py",
+      "lines": 429,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/compression_utils.py",
+      "lines": 349,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/connector.py",
+      "lines": 1843,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/cookiejar.py",
+      "lines": 523,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/formdata.py",
+      "lines": 180,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/hdrs.py",
+      "lines": 122,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/helpers.py",
+      "lines": 987,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http.py",
+      "lines": 73,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http_exceptions.py",
+      "lines": 117,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http_parser.py",
+      "lines": 1087,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http_websocket.py",
+      "lines": 37,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/http_writer.py",
+      "lines": 379,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/log.py",
+      "lines": 9,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/multipart.py",
+      "lines": 1153,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/payload.py",
+      "lines": 1121,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/payload_streamer.py",
+      "lines": 79,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/pytest_plugin.py",
+      "lines": 445,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/resolver.py",
+      "lines": 275,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/streams.py",
+      "lines": 759,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/tcp_helpers.py",
+      "lines": 38,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/test_utils.py",
+      "lines": 775,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/tracing.py",
+      "lines": 456,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/typedefs.py",
+      "lines": 70,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web.py",
+      "lines": 593,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_app.py",
+      "lines": 621,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_exceptions.py",
+      "lines": 453,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_fileresponse.py",
+      "lines": 419,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_log.py",
+      "lines": 217,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_middlewares.py",
+      "lines": 122,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_protocol.py",
+      "lines": 793,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_request.py",
+      "lines": 915,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_response.py",
+      "lines": 857,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_routedef.py",
+      "lines": 215,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_runner.py",
+      "lines": 400,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_server.py",
+      "lines": 85,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_urldispatcher.py",
+      "lines": 1306,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_ws.py",
+      "lines": 632,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/worker.py",
+      "lines": 256,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/aiosignal/__init__.py",
+      "lines": 60,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/aiosignal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/__init__.py",
+      "lines": 105,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/_cmp.py",
+      "lines": 161,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/_compat.py",
+      "lines": 100,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/_config.py",
+      "lines": 32,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/_funcs.py",
+      "lines": 498,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/_make.py",
+      "lines": 3363,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/_next_gen.py",
+      "lines": 675,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/_version_info.py",
+      "lines": 90,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/converters.py",
+      "lines": 163,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/exceptions.py",
+      "lines": 96,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/filters.py",
+      "lines": 73,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/setters.py",
+      "lines": 80,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attr/validators.py",
+      "lines": 749,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attr"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/__init__.py",
+      "lines": 73,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attrs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/converters.py",
+      "lines": 4,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attrs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/exceptions.py",
+      "lines": 4,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attrs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/filters.py",
+      "lines": 4,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attrs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/setters.py",
+      "lines": 4,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attrs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/validators.py",
+      "lines": 4,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/attrs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/frozenlist/__init__.py",
+      "lines": 87,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/frozenlist"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/idna/__init__.py",
+      "lines": 46,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/idna/codec.py",
+      "lines": 123,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/idna/compat.py",
+      "lines": 16,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/idna/core.py",
+      "lines": 438,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/idna/idnadata.py",
+      "lines": 4310,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/idna/intranges.py",
+      "lines": 58,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/idna/package_data.py",
+      "lines": 2,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/idna/uts46data.py",
+      "lines": 8842,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/multidict/__init__.py",
+      "lines": 61,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/multidict"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/multidict/_abc.py",
+      "lines": 74,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/multidict"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/multidict/_compat.py",
+      "lines": 16,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/multidict"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/multidict/_multidict_py.py",
+      "lines": 1243,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/multidict"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/__init__.py",
+      "lines": 14,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/__main__.py",
+      "lines": 25,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/__pip-runner__.py",
+      "lines": 51,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/__init__.py",
+      "lines": 19,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/build_env.py",
+      "lines": 418,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cache.py",
+      "lines": 292,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/__init__.py",
+      "lines": 4,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/autocompletion.py",
+      "lines": 185,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/base_command.py",
+      "lines": 245,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/cmdoptions.py",
+      "lines": 1111,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/command_context.py",
+      "lines": 29,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/index_command.py",
+      "lines": 176,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/main.py",
+      "lines": 81,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/main_parser.py",
+      "lines": 135,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/parser.py",
+      "lines": 299,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/progress_bars.py",
+      "lines": 152,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/req_command.py",
+      "lines": 372,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/spinners.py",
+      "lines": 236,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli/status_codes.py",
+      "lines": 7,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/cli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/__init__.py",
+      "lines": 140,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/cache.py",
+      "lines": 232,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/check.py",
+      "lines": 67,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/completion.py",
+      "lines": 136,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/configuration.py",
+      "lines": 289,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/debug.py",
+      "lines": 204,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/download.py",
+      "lines": 143,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/freeze.py",
+      "lines": 108,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/hash.py",
+      "lines": 59,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/help.py",
+      "lines": 41,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/index.py",
+      "lines": 160,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/inspect.py",
+      "lines": 93,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/install.py",
+      "lines": 804,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/list.py",
+      "lines": 401,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/lock.py",
+      "lines": 168,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/search.py",
+      "lines": 179,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/show.py",
+      "lines": 232,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/uninstall.py",
+      "lines": 114,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands/wheel.py",
+      "lines": 177,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/commands"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/configuration.py",
+      "lines": 397,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions/__init__.py",
+      "lines": 22,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions/base.py",
+      "lines": 56,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions/installed.py",
+      "lines": 34,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions/sdist.py",
+      "lines": 165,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions/wheel.py",
+      "lines": 45,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/distributions"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/exceptions.py",
+      "lines": 899,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index/__init__.py",
+      "lines": 2,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index/collector.py",
+      "lines": 490,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index/package_finder.py",
+      "lines": 1060,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index/sources.py",
+      "lines": 288,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/index"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations/__init__.py",
+      "lines": 442,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations/_distutils.py",
+      "lines": 174,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations/_sysconfig.py",
+      "lines": 216,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations/base.py",
+      "lines": 83,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/locations"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/main.py",
+      "lines": 13,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/__init__.py",
+      "lines": 170,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/_json.py",
+      "lines": 88,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/base.py",
+      "lines": 686,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib/__init__.py",
+      "lines": 7,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib/_compat.py",
+      "lines": 88,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib/_dists.py",
+      "lines": 230,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib/_envs.py",
+      "lines": 144,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/importlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata/pkg_resources.py",
+      "lines": 299,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/metadata"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/__init__.py",
+      "lines": 2,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/candidate.py",
+      "lines": 26,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/direct_url.py",
+      "lines": 228,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/format_control.py",
+      "lines": 79,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/index.py",
+      "lines": 29,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/installation_report.py",
+      "lines": 58,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/link.py",
+      "lines": 614,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/pylock.py",
+      "lines": 189,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/scheme.py",
+      "lines": 26,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/search_scope.py",
+      "lines": 127,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/selection_prefs.py",
+      "lines": 54,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/target_python.py",
+      "lines": 123,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models/wheel.py",
+      "lines": 81,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/models"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network/__init__.py",
+      "lines": 2,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network/auth.py",
+      "lines": 565,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network/cache.py",
+      "lines": 129,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network/download.py",
+      "lines": 343,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network/lazy_wheel.py",
+      "lines": 216,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network/session.py",
+      "lines": 529,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network/utils.py",
+      "lines": 99,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network/xmlrpc.py",
+      "lines": 62,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/network"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build/build_tracker.py",
+      "lines": 141,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build/metadata.py",
+      "lines": 39,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build/metadata_editable.py",
+      "lines": 42,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build/wheel.py",
+      "lines": 39,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build/wheel_editable.py",
+      "lines": 48,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/build"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/check.py",
+      "lines": 176,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/freeze.py",
+      "lines": 260,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/install/__init__.py",
+      "lines": 2,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/install"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/install/wheel.py",
+      "lines": 747,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/install"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations/prepare.py",
+      "lines": 749,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/operations"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/pyproject.py",
+      "lines": 124,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req/__init__.py",
+      "lines": 104,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req/constructors.py",
+      "lines": 567,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req/req_dependency_group.py",
+      "lines": 76,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req/req_file.py",
+      "lines": 620,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req/req_install.py",
+      "lines": 829,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req/req_set.py",
+      "lines": 82,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req/req_uninstall.py",
+      "lines": 640,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/req"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/base.py",
+      "lines": 21,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/legacy/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/legacy"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/legacy/resolver.py",
+      "lines": 599,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/legacy"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/base.py",
+      "lines": 143,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/candidates.py",
+      "lines": 592,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/factory.py",
+      "lines": 846,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py",
+      "lines": 167,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/provider.py",
+      "lines": 286,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/reporter.py",
+      "lines": 99,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/requirements.py",
+      "lines": 248,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib/resolver.py",
+      "lines": 333,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/resolution/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/self_outdated_check.py",
+      "lines": 263,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/_jaraco_text.py",
+      "lines": 110,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/_log.py",
+      "lines": 39,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/appdirs.py",
+      "lines": 53,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/compat.py",
+      "lines": 86,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/compatibility_tags.py",
+      "lines": 202,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/datetime.py",
+      "lines": 11,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/deprecation.py",
+      "lines": 127,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/direct_url_helpers.py",
+      "lines": 88,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/egg_link.py",
+      "lines": 82,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/entrypoints.py",
+      "lines": 89,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/filesystem.py",
+      "lines": 165,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/filetypes.py",
+      "lines": 25,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/glibc.py",
+      "lines": 103,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/hashes.py",
+      "lines": 151,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/logging.py",
+      "lines": 365,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/misc.py",
+      "lines": 766,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/packaging.py",
+      "lines": 45,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/retry.py",
+      "lines": 46,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/subprocess.py",
+      "lines": 249,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/temp_dir.py",
+      "lines": 295,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/unpacking.py",
+      "lines": 363,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/urls.py",
+      "lines": 56,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/virtualenv.py",
+      "lines": 106,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils/wheel.py",
+      "lines": 133,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/utils"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs/__init__.py",
+      "lines": 16,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs/bazaar.py",
+      "lines": 131,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs/git.py",
+      "lines": 572,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs/mercurial.py",
+      "lines": 187,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs/subversion.py",
+      "lines": 336,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs/versioncontrol.py",
+      "lines": 694,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/vcs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal/wheel_builder.py",
+      "lines": 262,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_internal"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/__init__.py",
+      "lines": 118,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/__init__.py",
+      "lines": 30,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/_cmd.py",
+      "lines": 71,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/adapter.py",
+      "lines": 169,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/cache.py",
+      "lines": 76,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/__init__.py",
+      "lines": 9,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/file_cache.py",
+      "lines": 146,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches/redis_cache.py",
+      "lines": 49,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/caches"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/controller.py",
+      "lines": 512,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/filewrapper.py",
+      "lines": 120,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/heuristics.py",
+      "lines": 158,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/serialize.py",
+      "lines": 147,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol/wrapper.py",
+      "lines": 44,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/cachecontrol"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/certifi/__init__.py",
+      "lines": 5,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/certifi"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/certifi/__main__.py",
+      "lines": 13,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/certifi"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/certifi/core.py",
+      "lines": 84,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/certifi"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__init__.py",
+      "lines": 14,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups/__main__.py",
+      "lines": 66,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups/_implementation.py",
+      "lines": 210,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups/_lint_dependency_groups.py",
+      "lines": 60,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups/_pip_wrapper.py",
+      "lines": 63,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups/_toml_compat.py",
+      "lines": 10,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/dependency_groups"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib/__init__.py",
+      "lines": 34,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib/compat.py",
+      "lines": 1138,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib/resources.py",
+      "lines": 359,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib/scripts.py",
+      "lines": 448,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib/util.py",
+      "lines": 1985,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distlib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distro/__init__.py",
+      "lines": 55,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distro"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distro/__main__.py",
+      "lines": 5,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distro"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distro/distro.py",
+      "lines": 1404,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/distro"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna/__init__.py",
+      "lines": 46,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna/codec.py",
+      "lines": 123,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna/compat.py",
+      "lines": 16,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna/core.py",
+      "lines": 438,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna/idnadata.py",
+      "lines": 4244,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna/intranges.py",
+      "lines": 58,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna/package_data.py",
+      "lines": 2,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna/uts46data.py",
+      "lines": 8682,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/idna"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack/__init__.py",
+      "lines": 56,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack/exceptions.py",
+      "lines": 49,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack/ext.py",
+      "lines": 171,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack/fallback.py",
+      "lines": 930,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/msgpack"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/__init__.py",
+      "lines": 16,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/_elffile.py",
+      "lines": 110,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/_manylinux.py",
+      "lines": 263,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/_musllinux.py",
+      "lines": 86,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/_parser.py",
+      "lines": 354,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/_structures.py",
+      "lines": 62,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/_tokenizer.py",
+      "lines": 196,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/licenses/__init__.py",
+      "lines": 146,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/licenses"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/licenses/_spdx.py",
+      "lines": 760,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/licenses"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/markers.py",
+      "lines": 363,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/metadata.py",
+      "lines": 863,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/requirements.py",
+      "lines": 92,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/specifiers.py",
+      "lines": 1020,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/tags.py",
+      "lines": 657,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/utils.py",
+      "lines": 164,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging/version.py",
+      "lines": 583,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/packaging"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pkg_resources/__init__.py",
+      "lines": 3677,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pkg_resources"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs/__init__.py",
+      "lines": 632,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs/__main__.py",
+      "lines": 56,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs/android.py",
+      "lines": 250,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs/api.py",
+      "lines": 300,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs/macos.py",
+      "lines": 147,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs/unix.py",
+      "lines": 273,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs/version.py",
+      "lines": 35,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs/windows.py",
+      "lines": 273,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/platformdirs"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/__init__.py",
+      "lines": 83,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/__main__.py",
+      "lines": 18,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/console.py",
+      "lines": 71,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/filter.py",
+      "lines": 71,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/filters/__init__.py",
+      "lines": 941,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/filters"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/formatter.py",
+      "lines": 130,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/formatters/__init__.py",
+      "lines": 158,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/formatters"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/formatters/_mapping.py",
+      "lines": 24,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/formatters"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/lexer.py",
+      "lines": 964,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/__init__.py",
+      "lines": 363,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/lexers"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/_mapping.py",
+      "lines": 603,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/lexers"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/lexers/python.py",
+      "lines": 1202,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/lexers"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/modeline.py",
+      "lines": 44,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/plugin.py",
+      "lines": 73,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/regexopt.py",
+      "lines": 92,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/scanner.py",
+      "lines": 105,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/sphinxext.py",
+      "lines": 248,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/style.py",
+      "lines": 204,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/styles/__init__.py",
+      "lines": 62,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/styles"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/styles/_mapping.py",
+      "lines": 55,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/styles"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/token.py",
+      "lines": 215,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/unistring.py",
+      "lines": 154,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments/util.py",
+      "lines": 325,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pygments"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/__init__.py",
+      "lines": 32,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_impl.py",
+      "lines": 411,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process/__init__.py",
+      "lines": 22,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py",
+      "lines": 390,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/pyproject_hooks/_in_process"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/__init__.py",
+      "lines": 180,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/__version__.py",
+      "lines": 15,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/_internal_utils.py",
+      "lines": 51,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/adapters.py",
+      "lines": 697,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/api.py",
+      "lines": 158,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/auth.py",
+      "lines": 315,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/certs.py",
+      "lines": 18,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/compat.py",
+      "lines": 91,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/cookies.py",
+      "lines": 562,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/exceptions.py",
+      "lines": 152,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/help.py",
+      "lines": 128,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/hooks.py",
+      "lines": 34,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/models.py",
+      "lines": 1040,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/packages.py",
+      "lines": 26,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/sessions.py",
+      "lines": 832,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/status_codes.py",
+      "lines": 129,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/structures.py",
+      "lines": 100,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests/utils.py",
+      "lines": 1087,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/requests"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/__init__.py",
+      "lines": 28,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/providers.py",
+      "lines": 197,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/reporters.py",
+      "lines": 56,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/__init__.py",
+      "lines": 28,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/abstract.py",
+      "lines": 48,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/criterion.py",
+      "lines": 49,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/exceptions.py",
+      "lines": 58,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers/resolution.py",
+      "lines": 628,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/resolvers"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib/structs.py",
+      "lines": 210,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/resolvelib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/__init__.py",
+      "lines": 178,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/__main__.py",
+      "lines": 246,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_cell_widths.py",
+      "lines": 455,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_emoji_codes.py",
+      "lines": 3611,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_emoji_replace.py",
+      "lines": 33,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_export_format.py",
+      "lines": 77,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_extension.py",
+      "lines": 11,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_fileno.py",
+      "lines": 25,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_inspect.py",
+      "lines": 269,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_log_render.py",
+      "lines": 95,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_loop.py",
+      "lines": 44,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_null_file.py",
+      "lines": 70,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_palettes.py",
+      "lines": 310,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_pick.py",
+      "lines": 18,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_ratio.py",
+      "lines": 154,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_spinners.py",
+      "lines": 483,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_stack.py",
+      "lines": 17,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_timer.py",
+      "lines": 20,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_win32_console.py",
+      "lines": 662,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_windows.py",
+      "lines": 72,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_windows_renderer.py",
+      "lines": 57,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/_wrap.py",
+      "lines": 94,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/abc.py",
+      "lines": 34,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/align.py",
+      "lines": 307,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/ansi.py",
+      "lines": 242,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/bar.py",
+      "lines": 94,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/box.py",
+      "lines": 475,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/cells.py",
+      "lines": 175,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/color.py",
+      "lines": 622,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/color_triplet.py",
+      "lines": 39,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/columns.py",
+      "lines": 188,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/console.py",
+      "lines": 2681,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/constrain.py",
+      "lines": 38,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/containers.py",
+      "lines": 168,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/control.py",
+      "lines": 220,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/default_styles.py",
+      "lines": 194,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/diagnose.py",
+      "lines": 40,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/emoji.py",
+      "lines": 92,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/errors.py",
+      "lines": 35,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/file_proxy.py",
+      "lines": 58,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/filesize.py",
+      "lines": 89,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/highlighter.py",
+      "lines": 233,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/json.py",
+      "lines": 140,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/jupyter.py",
+      "lines": 102,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/layout.py",
+      "lines": 443,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/live.py",
+      "lines": 401,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/live_render.py",
+      "lines": 107,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/logging.py",
+      "lines": 298,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/markup.py",
+      "lines": 252,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/measure.py",
+      "lines": 152,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/padding.py",
+      "lines": 142,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/pager.py",
+      "lines": 35,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/palette.py",
+      "lines": 101,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/panel.py",
+      "lines": 318,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/pretty.py",
+      "lines": 1017,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/progress.py",
+      "lines": 1716,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/progress_bar.py",
+      "lines": 224,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/prompt.py",
+      "lines": 401,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/protocol.py",
+      "lines": 43,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/region.py",
+      "lines": 11,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/repr.py",
+      "lines": 150,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/rule.py",
+      "lines": 131,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/scope.py",
+      "lines": 87,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/screen.py",
+      "lines": 55,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/segment.py",
+      "lines": 753,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/spinner.py",
+      "lines": 133,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/status.py",
+      "lines": 132,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/style.py",
+      "lines": 793,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/styled.py",
+      "lines": 43,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/syntax.py",
+      "lines": 986,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/table.py",
+      "lines": 1007,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/terminal_theme.py",
+      "lines": 154,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/text.py",
+      "lines": 1362,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/theme.py",
+      "lines": 116,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/themes.py",
+      "lines": 6,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/traceback.py",
+      "lines": 900,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich/tree.py",
+      "lines": 258,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/rich"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli/__init__.py",
+      "lines": 9,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli/_parser.py",
+      "lines": 778,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli/_re.py",
+      "lines": 116,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli/_types.py",
+      "lines": 11,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli_w/__init__.py",
+      "lines": 5,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli_w"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli_w/_writer.py",
+      "lines": 230,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/tomli_w"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore/__init__.py",
+      "lines": 37,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore/_api.py",
+      "lines": 342,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore/_macos.py",
+      "lines": 572,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore/_openssl.py",
+      "lines": 69,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore/_ssl_constants.py",
+      "lines": 32,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore/_windows.py",
+      "lines": 568,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/truststore"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/__init__.py",
+      "lines": 103,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/_collections.py",
+      "lines": 356,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/_version.py",
+      "lines": 3,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/connection.py",
+      "lines": 573,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/connectionpool.py",
+      "lines": 1141,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_appengine_environ.py",
+      "lines": 37,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/bindings.py",
+      "lines": 520,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport/low_level.py",
+      "lines": 398,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/_securetransport"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/appengine.py",
+      "lines": 315,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/ntlmpool.py",
+      "lines": 131,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/pyopenssl.py",
+      "lines": 519,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/securetransport.py",
+      "lines": 921,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib/socks.py",
+      "lines": 217,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/contrib"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/exceptions.py",
+      "lines": 324,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/fields.py",
+      "lines": 275,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/filepost.py",
+      "lines": 99,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/__init__.py",
+      "lines": 1,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/makefile.py",
+      "lines": 52,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports/weakref_finalize.py",
+      "lines": 156,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/backports"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages/six.py",
+      "lines": 1077,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/packages"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/poolmanager.py",
+      "lines": 541,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/request.py",
+      "lines": 192,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/response.py",
+      "lines": 880,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/__init__.py",
+      "lines": 50,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/connection.py",
+      "lines": 150,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/proxy.py",
+      "lines": 58,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/queue.py",
+      "lines": 23,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/request.py",
+      "lines": 138,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/response.py",
+      "lines": 108,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/retry.py",
+      "lines": 623,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/ssl_.py",
+      "lines": 505,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/ssl_match_hostname.py",
+      "lines": 160,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/ssltransport.py",
+      "lines": 222,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/timeout.py",
+      "lines": 272,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/url.py",
+      "lines": 436,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util/wait.py",
+      "lines": 153,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/pip/_vendor/urllib3/util"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/propcache/__init__.py",
+      "lines": 33,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/propcache"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/propcache/_helpers.py",
+      "lines": 40,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/propcache"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/propcache/_helpers_py.py",
+      "lines": 63,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/propcache"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/propcache/api.py",
+      "lines": 9,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/propcache"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/yarl/__init__.py",
+      "lines": 15,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/yarl"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/yarl/_parse.py",
+      "lines": 204,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/yarl"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/yarl/_path.py",
+      "lines": 42,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/yarl"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/yarl/_query.py",
+      "lines": 122,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/yarl"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/yarl/_quoters.py",
+      "lines": 34,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/yarl"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/yarl/_quoting.py",
+      "lines": 20,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/yarl"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/yarl/_quoting_py.py",
+      "lines": 214,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/yarl"
+    },
+    {
+      "path": "kimi-swarm/venv/lib/python3.14/site-packages/yarl/_url.py",
+      "lines": 1623,
+      "dir": "kimi-swarm/venv/lib/python3.14/site-packages/yarl"
+    },
+    {
+      "path": "n8n-workflows/n8n_connector.py",
+      "lines": 205,
+      "dir": "n8n-workflows"
+    },
+    {
+      "path": "scripts/email-archiver/email_archiver.py",
+      "lines": 470,
+      "dir": "scripts/email-archiver"
+    },
+    {
+      "path": "systems/kimi_bridge/kimi_client.py",
+      "lines": 111,
+      "dir": "systems/kimi_bridge"
+    },
+    {
+      "path": "systems/kimi_bridge/server.py",
+      "lines": 52,
+      "dir": "systems/kimi_bridge"
+    },
+    {
+      "path": "systems/kimi_bridge/test_bridge.py",
+      "lines": 35,
+      "dir": "systems/kimi_bridge"
+    },
+    {
+      "path": "systems/stripe_payments/__init__.py",
+      "lines": 2,
+      "dir": "systems/stripe_payments"
+    },
+    {
+      "path": "systems/stripe_payments/stripe_products.py",
+      "lines": 223,
+      "dir": "systems/stripe_payments"
+    },
+    {
+      "path": "workflow-system/cowork.py",
+      "lines": 625,
+      "dir": "workflow-system"
+    },
+    {
+      "path": "workflow-system/empire.py",
+      "lines": 261,
+      "dir": "workflow-system"
+    },
+    {
+      "path": "workflow-system/orchestrator.py",
+      "lines": 335,
+      "dir": "workflow-system"
+    },
+    {
+      "path": "workflow-system/resource_guard.py",
+      "lines": 318,
+      "dir": "workflow-system"
+    },
+    {
+      "path": "workflow-system/state/__init__.py",
+      "lines": 1,
+      "dir": "workflow-system/state"
+    },
+    {
+      "path": "workflow-system/state/context.py",
+      "lines": 115,
+      "dir": "workflow-system/state"
+    },
+    {
+      "path": "workflow-system/steps/__init__.py",
+      "lines": 2,
+      "dir": "workflow-system/steps"
+    },
+    {
+      "path": "workflow-system/steps/step1_audit.py",
+      "lines": 101,
+      "dir": "workflow-system/steps"
+    },
+    {
+      "path": "workflow-system/steps/step2_architect.py",
+      "lines": 108,
+      "dir": "workflow-system/steps"
+    },
+    {
+      "path": "workflow-system/steps/step3_analyst.py",
+      "lines": 117,
+      "dir": "workflow-system/steps"
+    },
+    {
+      "path": "workflow-system/steps/step4_refinery.py",
+      "lines": 121,
+      "dir": "workflow-system/steps"
+    },
+    {
+      "path": "workflow-system/steps/step5_compounder.py",
+      "lines": 134,
+      "dir": "workflow-system/steps"
+    },
+    {
+      "path": "x-lead-machine/generate_week.py",
+      "lines": 186,
+      "dir": "x-lead-machine"
+    },
+    {
+      "path": "x-lead-machine/post_generator.py",
+      "lines": 206,
+      "dir": "x-lead-machine"
+    },
+    {
+      "path": "x-lead-machine/viral_reply_generator.py",
+      "lines": 112,
+      "dir": "x-lead-machine"
+    },
+    {
+      "path": "x-lead-machine/x_automation.py",
+      "lines": 327,
+      "dir": "x-lead-machine"
+    },
+    {
+      "path": "x_auto_poster.py",
+      "lines": 201,
+      "dir": "."
+    }
+  ],
+  "hotspots": [
+    {
+      "file": "kimi-swarm/test_swarm_500k.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_reqrep.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_middleware_digest_auth.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/filters.py",
+      "issue_count": 75
+    },
+    {
+      "file": "workflow-system/orchestrator.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_server.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_routedef.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/base_protocol.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/hdrs.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/streams.py",
+      "issue_count": 75
+    },
+    {
+      "file": "x-lead-machine/x_automation.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/helpers.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/USAGE_EXAMPLES.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_middlewares.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_exceptions.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/client_exceptions.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/attrs/converters.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_middlewares.py",
+      "issue_count": 75
+    },
+    {
+      "file": "kimi-swarm/venv/lib/python3.14/site-packages/aiohttp/web_request.py",
+      "issue_count": 75
+    }
+  ],
+  "issues_summary": {
+    "total": 78,
+    "tasks": 3
+  }
+}

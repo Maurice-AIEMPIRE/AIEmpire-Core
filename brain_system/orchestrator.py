@@ -83,7 +83,7 @@ def init_synapse_db():
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS synapses (
+    c.execute("""CREATE TABLE IF NOT EXISTS synapses (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         timestamp TEXT,
         from_brain TEXT,
@@ -93,28 +93,28 @@ def init_synapse_db():
         priority INTEGER DEFAULT 5,
         processed INTEGER DEFAULT 0,
         processed_at TEXT
-    )''')
-    c.execute('''CREATE TABLE IF NOT EXISTS achievements (
+    )""")
+    c.execute("""CREATE TABLE IF NOT EXISTS achievements (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         timestamp TEXT,
         name TEXT UNIQUE,
         description TEXT,
         xp_reward INTEGER
-    )''')
-    c.execute('''CREATE TABLE IF NOT EXISTS xp_log (
+    )""")
+    c.execute("""CREATE TABLE IF NOT EXISTS xp_log (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         timestamp TEXT,
         action TEXT,
         xp_earned INTEGER,
         total_xp INTEGER
-    )''')
-    c.execute('''CREATE TABLE IF NOT EXISTS streaks (
+    )""")
+    c.execute("""CREATE TABLE IF NOT EXISTS streaks (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name TEXT UNIQUE,
         current_count INTEGER DEFAULT 0,
         longest_count INTEGER DEFAULT 0,
         last_updated TEXT
-    )''')
+    )""")
     conn.commit()
     return conn
 
@@ -123,11 +123,19 @@ def send_synapse(from_brain, to_brain, msg_type, payload, priority=5):
     """Send a message between brains"""
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute('''INSERT INTO synapses
+    c.execute(
+        """INSERT INTO synapses
         (timestamp, from_brain, to_brain, message_type, payload, priority)
-        VALUES (?, ?, ?, ?, ?, ?)''',
-        (datetime.utcnow().isoformat(), from_brain, to_brain,
-         msg_type, json.dumps(payload), priority))
+        VALUES (?, ?, ?, ?, ?, ?)""",
+        (
+            datetime.utcnow().isoformat(),
+            from_brain,
+            to_brain,
+            msg_type,
+            json.dumps(payload),
+            priority,
+        ),
+    )
     conn.commit()
     conn.close()
 
@@ -136,26 +144,39 @@ def receive_synapses(brain_name, limit=10):
     """Receive pending messages for a brain"""
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute('''SELECT id, from_brain, message_type, payload, priority
+    c.execute(
+        """SELECT id, from_brain, message_type, payload, priority
         FROM synapses WHERE to_brain = ? AND processed = 0
-        ORDER BY priority ASC, timestamp ASC LIMIT ?''',
-        (brain_name, limit))
+        ORDER BY priority ASC, timestamp ASC LIMIT ?""",
+        (brain_name, limit),
+    )
     messages = c.fetchall()
 
     # Mark as processed
     for msg in messages:
-        c.execute('UPDATE synapses SET processed = 1, processed_at = ? WHERE id = ?',
-                  (datetime.utcnow().isoformat(), msg[0]))
+        c.execute(
+            "UPDATE synapses SET processed = 1, processed_at = ? WHERE id = ?",
+            (datetime.utcnow().isoformat(), msg[0]),
+        )
     conn.commit()
     conn.close()
 
-    return [{"id": m[0], "from": m[1], "type": m[2],
-             "payload": json.loads(m[3]), "priority": m[4]} for m in messages]
+    return [
+        {
+            "id": m[0],
+            "from": m[1],
+            "type": m[2],
+            "payload": json.loads(m[3]),
+            "priority": m[4],
+        }
+        for m in messages
+    ]
 
 
 # ============================================
 # BRAIN RUNNERS
 # ============================================
+
 
 def run_brainstem():
     """BRAINSTEM: Health checks (no LLM needed)"""
@@ -163,9 +184,20 @@ def run_brainstem():
 
     # Ollama check
     try:
-        r = subprocess.run(["curl", "-s", "-o", "/dev/null", "-w", "%{http_code}",
-                           "http://localhost:11434/api/tags"],
-                          capture_output=True, text=True, timeout=5)
+        r = subprocess.run(
+            [
+                "curl",
+                "-s",
+                "-o",
+                "/dev/null",
+                "-w",
+                "%{http_code}",
+                "http://localhost:11434/api/tags",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=5,
+        )
         results["ollama"] = "OK" if r.stdout.strip() == "200" else "DOWN"
     except Exception:
         results["ollama"] = "DOWN"
@@ -173,7 +205,7 @@ def run_brainstem():
     # Disk space
     try:
         r = subprocess.run(["df", "-h", "/"], capture_output=True, text=True)
-        lines = r.stdout.strip().split('\n')
+        lines = r.stdout.strip().split("\n")
         if len(lines) > 1:
             parts = lines[1].split()
             results["disk_free"] = parts[3] if len(parts) > 3 else "unknown"
@@ -197,8 +229,13 @@ def run_brainstem():
 
     # Alert if critical
     if any(v in ["DOWN", "CRITICAL"] for v in results.values()):
-        send_synapse("brainstem", "prefrontal", "ALERT",
-                    {"severity": "HIGH", "systems": results}, priority=0)
+        send_synapse(
+            "brainstem",
+            "prefrontal",
+            "ALERT",
+            {"severity": "HIGH", "systems": results},
+            priority=0,
+        )
 
     return report
 
@@ -209,13 +246,13 @@ def run_limbic_morning():
     c = conn.cursor()
 
     # Get XP
-    c.execute('SELECT total_xp FROM xp_log ORDER BY id DESC LIMIT 1')
+    c.execute("SELECT total_xp FROM xp_log ORDER BY id DESC LIMIT 1")
     xp_row = c.fetchone()
     total_xp = xp_row[0] if xp_row else 0
     level = total_xp // 100 + 1
 
     # Get streaks
-    c.execute('SELECT name, current_count FROM streaks')
+    c.execute("SELECT name, current_count FROM streaks")
     streaks = {row[0]: row[1] for row in c.fetchall()}
     conn.close()
 
@@ -246,13 +283,15 @@ def add_xp(action, xp_amount):
     """Add XP to the system"""
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
-    c.execute('SELECT total_xp FROM xp_log ORDER BY id DESC LIMIT 1')
+    c.execute("SELECT total_xp FROM xp_log ORDER BY id DESC LIMIT 1")
     row = c.fetchone()
     current = row[0] if row else 0
     new_total = current + xp_amount
 
-    c.execute('INSERT INTO xp_log (timestamp, action, xp_earned, total_xp) VALUES (?, ?, ?, ?)',
-              (datetime.utcnow().isoformat(), action, xp_amount, new_total))
+    c.execute(
+        "INSERT INTO xp_log (timestamp, action, xp_earned, total_xp) VALUES (?, ?, ?, ?)",
+        (datetime.utcnow().isoformat(), action, xp_amount, new_total),
+    )
     conn.commit()
     conn.close()
 
@@ -260,8 +299,13 @@ def add_xp(action, xp_amount):
     old_level = current // 100 + 1
     new_level = new_total // 100 + 1
     if new_level > old_level:
-        send_synapse("limbic", "prefrontal", "LEVEL_UP",
-                    {"old_level": old_level, "new_level": new_level}, priority=2)
+        send_synapse(
+            "limbic",
+            "prefrontal",
+            "LEVEL_UP",
+            {"old_level": old_level, "new_level": new_level},
+            priority=2,
+        )
 
     return new_total
 
@@ -271,8 +315,10 @@ def update_streak(streak_name):
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
 
-    c.execute('SELECT current_count, longest_count, last_updated FROM streaks WHERE name = ?',
-              (streak_name,))
+    c.execute(
+        "SELECT current_count, longest_count, last_updated FROM streaks WHERE name = ?",
+        (streak_name,),
+    )
     row = c.fetchone()
 
     today = datetime.now().strftime("%Y-%m-%d")
@@ -285,11 +331,15 @@ def update_streak(streak_name):
         else:
             new_count = 1  # Streak broken
         new_longest = max(longest, new_count)
-        c.execute('UPDATE streaks SET current_count = ?, longest_count = ?, last_updated = ? WHERE name = ?',
-                  (new_count, new_longest, today, streak_name))
+        c.execute(
+            "UPDATE streaks SET current_count = ?, longest_count = ?, last_updated = ? WHERE name = ?",
+            (new_count, new_longest, today, streak_name),
+        )
     else:
-        c.execute('INSERT INTO streaks (name, current_count, longest_count, last_updated) VALUES (?, 1, 1, ?)',
-                  (streak_name, today))
+        c.execute(
+            "INSERT INTO streaks (name, current_count, longest_count, last_updated) VALUES (?, 1, 1, ?)",
+            (streak_name, today),
+        )
 
     conn.commit()
     conn.close()
@@ -298,6 +348,7 @@ def update_streak(streak_name):
 # ============================================
 # MAIN ORCHESTRATOR
 # ============================================
+
 
 def run_daily_cycle():
     """Run the complete daily brain cycle"""
@@ -332,16 +383,17 @@ def run_daily_cycle():
     return reports
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description='Brain System Orchestrator')
-    parser.add_argument('--cycle', action='store_true', help='Run daily cycle')
-    parser.add_argument('--health', action='store_true', help='Run brainstem health check')
-    parser.add_argument('--morning', action='store_true', help='Run morning briefing')
-    parser.add_argument('--xp', type=int, help='Add XP (e.g. --xp 50 --action "Posted content")')
-    parser.add_argument('--action', type=str, default='manual', help='XP action description')
-    parser.add_argument('--streak', type=str, help='Update streak (e.g. --streak content)')
-    parser.add_argument('--status', action='store_true', help='Show brain status')
+
+    parser = argparse.ArgumentParser(description="Brain System Orchestrator")
+    parser.add_argument("--cycle", action="store_true", help="Run daily cycle")
+    parser.add_argument("--health", action="store_true", help="Run brainstem health check")
+    parser.add_argument("--morning", action="store_true", help="Run morning briefing")
+    parser.add_argument("--xp", type=int, help='Add XP (e.g. --xp 50 --action "Posted content")')
+    parser.add_argument("--action", type=str, default="manual", help="XP action description")
+    parser.add_argument("--streak", type=str, help="Update streak (e.g. --streak content)")
+    parser.add_argument("--status", action="store_true", help="Show brain status")
 
     args = parser.parse_args()
     init_synapse_db()
@@ -361,9 +413,9 @@ if __name__ == '__main__':
     elif args.status:
         conn = sqlite3.connect(DB_PATH)
         c = conn.cursor()
-        c.execute('SELECT COUNT(*) FROM synapses WHERE processed = 0')
+        c.execute("SELECT COUNT(*) FROM synapses WHERE processed = 0")
         pending = c.fetchone()[0]
-        c.execute('SELECT from_brain, COUNT(*) FROM synapses GROUP BY from_brain')
+        c.execute("SELECT from_brain, COUNT(*) FROM synapses GROUP BY from_brain")
         brain_msgs = c.fetchall()
         print(f"Pending synapses: {pending}")
         print("Messages by brain:")
