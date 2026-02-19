@@ -8,3 +8,17 @@ services:
       NODE_ENV: production
     ports:
       - 3000:3000
+
+  skybot:
+    image: skybot
+    build:
+      context: .
+      dockerfile: skybot/Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - skybot_workspace:/app/skybot_workspace
+    restart: unless-stopped
+
+volumes:
+  skybot_workspace:
