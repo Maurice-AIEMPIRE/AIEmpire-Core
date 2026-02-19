@@ -47,6 +47,7 @@ Usage:
   python3 empire_engine.py leads              # Process leads
   python3 empire_engine.py revenue            # Revenue report
   python3 empire_engine.py auto               # Full autonomous cycle
+  python3 empire_engine.py keys               # API Key Manager (interaktive Konsole)
   python3 empire_engine.py godmode [task]     # 4-Role AI Router (Fixer/Coder/QA)
   python3 empire_engine.py mirror             # Mirror System (Mac <-> Gemini)
   python3 empire_engine.py repair             # Auto-Repair (self-healing)
@@ -406,6 +407,7 @@ def show_dashboard():
         "revenue": "Revenue Report anzeigen",
         "auto": "Voller autonomer Zyklus",
         "godmode": "Godmode 4-Role Router starten",
+        "keys": "API Key Manager (interaktive Konsole)",
         "mirror": "Mirror System (Mac<->Gemini) starten",
         "setup": "Ersteinrichtung (Accounts + APIs)",
         "repair": "System reparieren (Auto-Heal)",
@@ -515,6 +517,10 @@ def main():
     elif command == "setup":
         print("  Running Setup...")
         os.system(f"bash {PROJECT_ROOT / 'scripts' / 'setup_optimal_dev.sh'}")
+
+    elif command == "keys":
+        subcmd = sys.argv[2] if len(sys.argv) > 2 else ""
+        os.system(f"python3 {PROJECT_ROOT / 'tools' / 'api_keys.py'} {subcmd}")
 
     elif command == "godmode":
         task = " ".join(sys.argv[2:]) if len(sys.argv) > 2 else "--status"

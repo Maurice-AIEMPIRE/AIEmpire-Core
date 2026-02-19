@@ -9,6 +9,8 @@ venv/
 env/
 node_modules/
 .env
+.env.server
+.api_keys.json
 venv
 test_venv
 __pycache__
