@@ -27,6 +27,7 @@ W='\033[1;37m'
 N='\033[0m'
 
 PROJECT_DIR="/opt/aiempire"
+VENV_DIR="${PROJECT_DIR}/venv"
 LOG_FILE="/var/log/aiempire/setup_$(date +%Y%m%d_%H%M%S).log"
 
 mkdir -p /var/log/aiempire
@@ -126,7 +127,7 @@ echo ""
 echo -e "${C}═══ PHASE 2: Python 3.12 ═══${N}"
 echo ""
 
-if python3 --version 2>/dev/null | grep -q "3.12"; then
+if python3 --version 2>/dev/null | grep -q "3.1[2-9]"; then
     log OK "Python $(python3 --version | cut -d' ' -f2)"
 else
     log INSTALL "Python 3.12 via deadsnakes PPA..."
@@ -139,18 +140,43 @@ else
     log OK "Python installiert"
 fi
 
-# Python packages
+# Ensure venv + pip are available (Ubuntu 24.04 needs explicit install)
+apt-get install -y -qq python3-venv python3-pip python3.12-venv 2>/dev/null || true
+
+# ─── Python Virtual Environment (Ubuntu 24.04 PEP 668 compliant) ─────────
+VENV_DIR="${PROJECT_DIR}/venv"
+
+if [ ! -d "$VENV_DIR" ]; then
+    log INSTALL "Python venv erstellen..."
+    python3 -m venv "$VENV_DIR"
+    log OK "venv erstellt: $VENV_DIR"
+else
+    log OK "venv existiert: $VENV_DIR"
+fi
+
+# Activate venv for package installation
+source "$VENV_DIR/bin/activate"
+
+# Upgrade pip inside venv
+log INSTALL "pip upgrade..."
+pip install --quiet --upgrade pip setuptools wheel 2>/dev/null
+log OK "pip aktuell"
+
+# Python packages (inside venv — no --break-system-packages needed)
 log INSTALL "Python Packages..."
-pip3 install --quiet --break-system-packages \
+pip install --quiet \
     httpx aiohttp fastapi uvicorn \
     pyyaml python-dotenv \
     ruff pytest redis \
-    2>/dev/null || pip3 install --quiet \
-    httpx aiohttp fastapi uvicorn \
-    pyyaml python-dotenv \
-    ruff pytest redis \
-    2>/dev/null
-log OK "Python Packages"
+    anthropic beautifulsoup4 \
+    2>/dev/null || {
+    log WARN "Einige Python-Packages konnten nicht installiert werden"
+}
+log OK "Python Packages (in venv)"
+
+# Create symlink for convenience
+ln -sf "$VENV_DIR/bin/python" /usr/local/bin/aiempire-python 2>/dev/null || true
+ln -sf "$VENV_DIR/bin/pip" /usr/local/bin/aiempire-pip 2>/dev/null || true
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # PHASE 3: NODE.JS 20
@@ -367,7 +393,7 @@ WantedBy=multi-user.target
 UNIT
 log OK "aiempire-crm.service"
 
-# SkyBot Service
+# SkyBot Service (uses venv Python)
 cat > /etc/systemd/system/aiempire-skybot.service << UNIT
 [Unit]
 Description=AIEmpire SkyBot (Telegram AI Agent)
@@ -377,7 +403,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=${PROJECT_DIR}
-ExecStart=$(which python3) -m skybot.bot
+ExecStart=${VENV_DIR}/bin/python -m skybot.bot
 Restart=on-failure
 RestartSec=30
 EnvironmentFile=${PROJECT_DIR}/.env
@@ -399,6 +425,7 @@ Type=oneshot
 User=root
 WorkingDirectory=${PROJECT_DIR}
 ExecStart=/bin/bash ${PROJECT_DIR}/scripts/bombproof_startup.sh
+Environment=PATH=${VENV_DIR}/bin:/usr/local/bin:/usr/bin:/bin
 RemainAfterExit=yes
 EnvironmentFile=${PROJECT_DIR}/.env
 
@@ -417,7 +444,7 @@ After=network.target ollama.service
 Type=oneshot
 User=root
 WorkingDirectory=${PROJECT_DIR}
-ExecStart=$(which python3) empire_engine.py auto
+ExecStart=${VENV_DIR}/bin/python empire_engine.py auto
 EnvironmentFile=${PROJECT_DIR}/.env
 UNIT
 
@@ -515,11 +542,12 @@ echo -e "${W}╚═════════════════════�
 echo ""
 echo -e "  ${W}Naechste Schritte:${N}"
 echo -e "  ${C}1.${N} API Keys eintragen: nano ${PROJECT_DIR}/.env"
-echo -e "  ${C}2.${N} CRM starten:        systemctl start aiempire-crm"
-echo -e "  ${C}3.${N} SkyBot starten:     systemctl start aiempire-skybot"
-echo -e "  ${C}4.${N} Runner setup:       bash ${PROJECT_DIR}/scripts/setup_github_runner.sh"
-echo -e "  ${C}5.${N} Docker Stack:       cd ${PROJECT_DIR}/systems && docker compose up -d"
-echo -e "  ${C}6.${N} Status pruefen:     bash ${PROJECT_DIR}/scripts/bombproof_startup.sh --status"
+echo -e "  ${C}2.${N} venv aktivieren:    source ${VENV_DIR}/bin/activate"
+echo -e "  ${C}3.${N} CRM starten:        systemctl start aiempire-crm"
+echo -e "  ${C}4.${N} SkyBot starten:     systemctl start aiempire-skybot"
+echo -e "  ${C}5.${N} Runner setup:       bash ${PROJECT_DIR}/scripts/setup_github_runner.sh"
+echo -e "  ${C}6.${N} Docker Stack:       cd ${PROJECT_DIR}/systems && docker compose up -d"
+echo -e "  ${C}7.${N} Status pruefen:     bash ${PROJECT_DIR}/scripts/bombproof_startup.sh --status"
 echo ""
 echo -e "  ${G}Setup-Log:${N} ${LOG_FILE}"
 echo ""
