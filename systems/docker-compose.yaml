@@ -20,7 +20,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: 8G
+          memory: 32G
     restart: unless-stopped
 
   # ═══════════════════════════════════════════
@@ -49,10 +49,27 @@ services:
       - redis_data:/data
     restart: unless-stopped
 
+  # ═══════════════════════════════════════════
+  # 4. POSTGRESQL - Hauptdatenbank
+  # ═══════════════════════════════════════════
+  postgresql:
+    image: postgres:16-alpine
+    container_name: postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aiempire}
+      POSTGRES_DB: aiempire
+      POSTGRES_USER: aiempire
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
 volumes:
   ollama_models:
   chroma_data:
   redis_data:
+  postgres_data:
 
 networks:
   default:

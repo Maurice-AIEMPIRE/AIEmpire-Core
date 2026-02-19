@@ -42,23 +42,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issueNumber,
-                body: `# 🤖 System Status
-                
-**Mode:** GitHub Control
-**Timestamp:** ${new Date().toISOString()}
-**Services:**
-- ✅ GitHub Actions Active
-- ✅ Content Generation Ready
-- ✅ Kimi API Available
-- ✅ X Lead Machine Ready
-- ✅ CRM System Standby
-                
-**Commands Available:**
-- \`@bot generate-content\` - Generate X/Twitter content
-- \`@bot status\` - Show this status
-- \`@bot run-task <task>\` - Run specific task
-- \`@bot revenue-report\` - Show revenue status
-                `
+                body: `# System Status\n\n**Mode:** GitHub Control\n**Timestamp:** ${new Date().toISOString()}\n**Services:**\n- GitHub Actions Active\n- Content Generation Ready\n- Kimi API Available\n- X Lead Machine Ready\n- CRM System Standby\n\n**Commands Available:**\n- \`@bot generate-content\` - Generate X/Twitter content\n- \`@bot status\` - Show this status\n- \`@bot run-task <task>\` - Run specific task\n- \`@bot revenue-report\` - Show revenue status`
               });
             }
             
@@ -84,22 +68,6 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issueNumber,
-                body: `# 💰 Revenue Report
-                
-**Current Status:** EUR 0
-**Target:** EUR 50-100 overnight
-                
-**Revenue Streams:**
-1. 🟡 Gumroad - 1 product live (EUR 27)
-2. ❌ Fiverr - No gigs yet
-3. 🟡 X/Twitter - Content ready, not posted
-4. ❌ Telegram - No bot yet
-                
-**Next Actions:**
-1. Post X content to generate leads
-2. Create Fiverr gigs
-3. Set up Telegram bot
-4. Launch additional Gumroad products
-                `
+                body: `# Revenue Report\n\n**Current Status:** EUR 0\n**Target:** EUR 50-100 overnight\n\n**Revenue Streams:**\n1. Gumroad - 1 product live (EUR 27)\n2. Fiverr - No gigs yet\n3. X/Twitter - Content ready, not posted\n4. Telegram - No bot yet\n\n**Next Actions:**\n1. Post X content to generate leads\n2. Create Fiverr gigs\n3. Set up Telegram bot\n4. Launch additional Gumroad products`
               });
             }

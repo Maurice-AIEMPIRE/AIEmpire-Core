@@ -52,26 +52,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               title: `📱 X/Twitter Content Ready - ${timestamp}`,
-              body: `${guide}
-              
----
-              
-## How to Post
-1. Copy each post at the scheduled time
-2. Go to X/Twitter
-3. Paste and post
-4. Engage with comments immediately
-5. Track engagement metrics
-              
-## Automation Next Steps
-To enable automatic posting:
-1. Get Twitter API credentials
-2. Add to GitHub Secrets:
-   - TWITTER_API_KEY
-   - TWITTER_API_SECRET
-   - TWITTER_ACCESS_TOKEN
-   - TWITTER_ACCESS_SECRET
-3. System will auto-post at scheduled times
-              `,
+              body: `${guide}\n\n---\n\n## How to Post\n1. Copy each post at the scheduled time\n2. Go to X/Twitter\n3. Paste and post\n4. Engage with comments immediately\n5. Track engagement metrics\n\n## Automation Next Steps\nTo enable automatic posting:\n1. Get Twitter API credentials\n2. Add to GitHub Secrets:\n   - TWITTER_API_KEY\n   - TWITTER_API_SECRET\n   - TWITTER_ACCESS_TOKEN\n   - TWITTER_ACCESS_SECRET\n3. System will auto-post at scheduled times`,
               labels: ['x-twitter', 'content', 'daily']
             });

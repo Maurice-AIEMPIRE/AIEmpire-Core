@@ -48,28 +48,7 @@ jobs:
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 title: '🔄 Claude API Limit Reached - GitHub Mode Active',
-                body: `# Claude API Failover Activated
-                
-**Time:** ${new Date().toISOString()}
-**Status:** Claude API unavailable or at limit
-**Mode:** GitHub Control Mode
-                
-## What This Means
-The system has automatically switched to GitHub-based control because Claude API is not available.
-                
-## Available Commands
-All operations now work through GitHub Issues:
-- \`@bot status\` - System status
-- \`@bot generate-content\` - Generate X content
-- \`@bot run-task <task>\` - Run tasks
-- \`@bot revenue-report\` - Revenue status
-                
-## Automatic Recovery
-The system checks Claude API every 30 minutes and will automatically switch back when available.
-                
-## Manual Actions
-You can manually trigger workflows from the Actions tab.
-                `,
+                body: `# Claude API Failover Activated\n\n**Time:** ${new Date().toISOString()}\n**Status:** Claude API unavailable or at limit\n**Mode:** GitHub Control Mode\n\n## What This Means\nThe system has automatically switched to GitHub-based control because Claude API is not available.\n\n## Available Commands\nAll operations now work through GitHub Issues:\n- \`@bot status\` - System status\n- \`@bot generate-content\` - Generate X content\n- \`@bot run-task <task>\` - Run tasks\n- \`@bot revenue-report\` - Revenue status\n\n## Automatic Recovery\nThe system checks Claude API every 30 minutes and will automatically switch back when available.\n\n## Manual Actions\nYou can manually trigger workflows from the Actions tab.`,
                 labels: ['claude-failover', 'system-control', 'automation']
               });
             }

@@ -3,7 +3,8 @@
 # BOMBPROOF STARTUP SYSTEM — AIEmpire-Core
 # ══════════════════════════════════════════════════════════════════════════════
 #
-# Runs on every boot via LaunchAgent. Guarantees the system comes up clean.
+# Runs on every boot via LaunchAgent (macOS) or systemd (Linux).
+# Guarantees the system comes up clean.
 #
 # Sequence:
 #   1. Self-Repair (auto_repair.py) — fix everything broken
@@ -20,6 +21,14 @@
 # ══════════════════════════════════════════════════════════════════════════════
 
 set -o pipefail  # Don't use set -e, we handle errors ourselves
+
+# ─── Platform Detection ─────────────────────────────────────────────────────
+OS_TYPE="$(uname -s)"
+case "$OS_TYPE" in
+    Linux*)  PLATFORM="linux";;
+    Darwin*) PLATFORM="macos";;
+    *)       PLATFORM="unknown";;
+esac
 
 # ─── Paths ────────────────────────────────────────────────────────────────────
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -160,6 +169,15 @@ echo ""
 echo -e "${C}═══ PHASE 3: Core Services ═══${N}"
 echo ""
 
+check_port() {
+    local port="$1"
+    # Try multiple methods: nc first (most portable), then lsof, then ss
+    nc -z 127.0.0.1 "$port" 2>/dev/null && return 0
+    lsof -i ":$port" &>/dev/null 2>&1 && return 0
+    ss -tlnp 2>/dev/null | grep -q ":$port " && return 0
+    return 1
+}
+
 start_or_check() {
     local name="$1"
     local port="$2"
@@ -167,7 +185,7 @@ start_or_check() {
     local wait_secs="${4:-5}"
 
     # Already running?
-    if lsof -i ":$port" &>/dev/null 2>&1 || nc -z 127.0.0.1 "$port" 2>/dev/null; then
+    if check_port "$port"; then
         log OK "$name already running (port $port)"
         return 0
     fi
@@ -178,7 +196,7 @@ start_or_check() {
         eval "$start_cmd" &>/dev/null &
         sleep "$wait_secs"
 
-        if lsof -i ":$port" &>/dev/null 2>&1 || nc -z 127.0.0.1 "$port" 2>/dev/null; then
+        if check_port "$port"; then
             log OK "$name started (port $port)"
             return 0
         else
@@ -193,7 +211,18 @@ start_or_check() {
 
 # Ollama (critical for AI)
 if command -v ollama &>/dev/null; then
-    start_or_check "Ollama" 11434 "ollama serve" 4
+    if [ "$PLATFORM" = "linux" ]; then
+        # On Linux, Ollama runs as a systemd service
+        systemctl start ollama 2>/dev/null || start_or_check "Ollama" 11434 "ollama serve" 4
+        sleep 2
+        if nc -z 127.0.0.1 11434 2>/dev/null; then
+            log OK "Ollama running (port 11434)"
+        else
+            start_or_check "Ollama" 11434 "ollama serve" 4
+        fi
+    else
+        start_or_check "Ollama" 11434 "ollama serve" 4
+    fi
 elif [ -d "/Applications/Ollama.app" ]; then
     start_or_check "Ollama" 11434 "open -a Ollama" 6
 else
@@ -202,7 +231,17 @@ fi
 
 # Redis (if available)
 if command -v redis-server &>/dev/null; then
-    start_or_check "Redis" 6379 "redis-server --daemonize yes" 2
+    if [ "$PLATFORM" = "linux" ]; then
+        systemctl start redis-server 2>/dev/null || start_or_check "Redis" 6379 "redis-server --daemonize yes" 2
+        sleep 1
+        if redis-cli ping 2>/dev/null | grep -q PONG; then
+            log OK "Redis running (port 6379)"
+        else
+            start_or_check "Redis" 6379 "redis-server --daemonize yes" 2
+        fi
+    else
+        start_or_check "Redis" 6379 "redis-server --daemonize yes" 2
+    fi
 elif command -v brew &>/dev/null && brew list redis &>/dev/null 2>&1; then
     start_or_check "Redis" 6379 "brew services start redis" 3
 else
@@ -213,6 +252,14 @@ fi
 if command -v pg_isready &>/dev/null; then
     if pg_isready -q 2>/dev/null; then
         log OK "PostgreSQL running"
+    elif [ "$PLATFORM" = "linux" ]; then
+        systemctl start postgresql 2>/dev/null
+        sleep 2
+        if pg_isready -q 2>/dev/null; then
+            log OK "PostgreSQL started"
+        else
+            log WARN "PostgreSQL failed to start"
+        fi
     elif command -v brew &>/dev/null; then
         start_or_check "PostgreSQL" 5432 "brew services start postgresql@16" 4
     fi

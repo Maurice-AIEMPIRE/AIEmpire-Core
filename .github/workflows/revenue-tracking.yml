@@ -33,36 +33,29 @@ jobs:
             };
             
             // Generate daily report
-            const report = `# Daily Revenue Report - ${timestamp}
-            
-## Current Status
-**Total Revenue:** EUR ${revenueData.total}
-**Target:** EUR 50-100 overnight → EUR 25K month 1
-            
-## Revenue Streams
-| Stream | Amount | Status |
-|--------|--------|--------|
-| Gumroad | EUR ${revenueData.streams.gumroad} | 🟡 1 product |
-| Fiverr | EUR ${revenueData.streams.fiverr} | ❌ No gigs |
-| X Leads | EUR ${revenueData.streams.x_leads} | 🟡 Ready |
-| Consulting | EUR ${revenueData.streams.consulting} | ❌ Not started |
-            
-## Action Items
-1. [ ] Post X content daily
-2. [ ] Create 3 Fiverr gigs
-3. [ ] Launch 2 more Gumroad products
-4. [ ] Set up lead capture
-5. [ ] Start consulting offers
-            
-## Growth Metrics
-- X Followers: Track manually
-- Email Subscribers: 0
-- Product Views: Track in Gumroad
-- Gig Impressions: Track in Fiverr
-            
----
-*Report generated automatically by GitHub Actions*
-`;
+            const report = `# Daily Revenue Report - ${timestamp}\n\n` +
+              `## Current Status\n` +
+              `**Total Revenue:** EUR ${revenueData.total}\n` +
+              `**Target:** EUR 50-100 overnight\n\n` +
+              `## Revenue Streams\n` +
+              `| Stream | Amount | Status |\n` +
+              `|--------|--------|--------|\n` +
+              `| Gumroad | EUR ${revenueData.streams.gumroad} | 1 product |\n` +
+              `| Fiverr | EUR ${revenueData.streams.fiverr} | No gigs |\n` +
+              `| X Leads | EUR ${revenueData.streams.x_leads} | Ready |\n` +
+              `| Consulting | EUR ${revenueData.streams.consulting} | Not started |\n\n` +
+              `## Action Items\n` +
+              `1. [ ] Post X content daily\n` +
+              `2. [ ] Create 3 Fiverr gigs\n` +
+              `3. [ ] Launch 2 more Gumroad products\n` +
+              `4. [ ] Set up lead capture\n` +
+              `5. [ ] Start consulting offers\n\n` +
+              `## Growth Metrics\n` +
+              `- X Followers: Track manually\n` +
+              `- Email Subscribers: 0\n` +
+              `- Product Views: Track in Gumroad\n` +
+              `- Gig Impressions: Track in Fiverr\n\n` +
+              `---\n*Report generated automatically by GitHub Actions*`;
             
             // Create issue with revenue report
             await github.rest.issues.create({
