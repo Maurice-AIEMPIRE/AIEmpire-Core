@@ -94,8 +94,8 @@ class SkyBotTelegram:
                 text=text[:4000],
                 parse_mode="HTML",
             )
-        except Exception:
-            pass
+        except Exception as e:
+            log.debug(f"Failed to edit message: {e}")
 
     async def send_typing(self, chat_id: str):
         await self.api("sendChatAction", chat_id=chat_id, action="typing")
@@ -112,18 +112,24 @@ class SkyBotTelegram:
 
     def _save_owner_id(self, uid: str):
         env_path = PROJECT_ROOT / ".env"
-        if env_path.exists():
-            content = env_path.read_text()
+        try:
+            content = env_path.read_text(encoding="utf-8") if env_path.exists() else ""
             if "TELEGRAM_OWNER_ID" not in content:
-                with open(env_path, "a") as f:
+                with open(env_path, "a", encoding="utf-8") as f:
                     f.write(f"\nTELEGRAM_OWNER_ID={uid}\n")
+        except Exception as e:
+            log.error(f"Failed to save TELEGRAM_OWNER_ID: {e}")
         os.environ["TELEGRAM_OWNER_ID"] = uid
         log.info(f"Owner ID set: {uid}")
 
     # ─── Message Handler ───────────────────────────────────────
 
     async def handle(self, message: dict):
-        chat_id = str(message["chat"]["id"])
+        chat = message.get("chat", {})
+        chat_id = str(chat.get("id", ""))
+        if not chat_id:
+            log.warning(f"Message missing chat.id, skipping")
+            return
         text = message.get("text", "").strip()
         if not text:
             return
@@ -350,8 +356,9 @@ Der Agent entscheidet selbst welche Tools er braucht!""")
                                 await self.handle(msg)
                             except Exception as e:
                                 log.error(f"Handler error: {e}", exc_info=True)
-                                chat_id = str(msg["chat"]["id"])
-                                await self.send(chat_id, f"Error: {html.escape(str(e))}")
+                                chat_id = msg.get("chat", {}).get("id")
+                                if chat_id:
+                                    await self.send(str(chat_id), f"Error: {html.escape(str(e))}")
                 except asyncio.CancelledError:
                     break
                 except Exception as e:

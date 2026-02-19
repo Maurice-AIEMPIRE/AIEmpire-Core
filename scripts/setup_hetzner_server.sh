@@ -340,7 +340,7 @@ TWITTER_ACCESS_SECRET=
 TELEGRAM_BOT_TOKEN=
 
 # --- Database ---
-POSTGRES_PASSWORD=aiempire
+POSTGRES_PASSWORD=$(openssl rand -base64 24)
 POSTGRES_DB=aiempire
 REDIS_URL=redis://localhost:6379
 

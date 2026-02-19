@@ -251,7 +251,12 @@ class SkyBotAgent:
                 ) as r:
                     if r.status == 200:
                         data = await r.json()
-                        answer = data["choices"][0]["message"]["content"]
+                        choices = data.get("choices", [])
+                        if not choices:
+                            return "Kimi API error: empty response"
+                        answer = choices[0].get("message", {}).get("content")
+                        if not answer:
+                            return "Kimi API error: no content in response"
                         return f"[Kimi Cloud]\n\n{answer}"
                     else:
                         return f"Kimi API error: HTTP {r.status}"
