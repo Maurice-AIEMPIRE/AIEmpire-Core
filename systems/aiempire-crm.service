@@ -1,0 +1,27 @@
+[Unit]
+Description=AIEmpire CRM Server (Express.js, Port 3500)
+After=network.target redis-server.service postgresql.service
+Wants=redis-server.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/aiempire/crm
+ExecStart=/usr/bin/node server.js
+Restart=on-failure
+RestartSec=5
+Environment="NODE_ENV=production"
+Environment="PORT=3500"
+EnvironmentFile=-/opt/aiempire/.env
+
+# Logging
+StandardOutput=append:/var/log/aiempire/crm.log
+StandardError=append:/var/log/aiempire/crm-error.log
+
+# Hardening
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/opt/aiempire /var/log/aiempire
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,18 @@
+[Unit]
+Description=AIEmpire Bombproof Startup (Self-Healing Boot)
+After=network.target ollama.service redis-server.service postgresql.service
+Wants=ollama.service redis-server.service postgresql.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=root
+WorkingDirectory=/opt/aiempire
+ExecStart=/bin/bash /opt/aiempire/scripts/bombproof_startup.sh
+
+# Logging
+StandardOutput=append:/var/log/aiempire/bombproof.log
+StandardError=append:/var/log/aiempire/bombproof-error.log
+
+[Install]
+WantedBy=multi-user.target

@@ -191,29 +191,62 @@ start_or_check() {
     fi
 }
 
+# Detect OS
+IS_LINUX=false
+IS_MACOS=false
+if [[ "$(uname -s)" == "Linux" ]]; then
+    IS_LINUX=true
+elif [[ "$(uname -s)" == "Darwin" ]]; then
+    IS_MACOS=true
+fi
+
 # Ollama (critical for AI)
 if command -v ollama &>/dev/null; then
-    start_or_check "Ollama" 11434 "ollama serve" 4
+    if $IS_LINUX && systemctl is-active --quiet ollama 2>/dev/null; then
+        log OK "Ollama running (systemd)"
+    elif $IS_LINUX; then
+        log INFO "Starting Ollama via systemd..."
+        systemctl start ollama 2>/dev/null || start_or_check "Ollama" 11434 "ollama serve" 4
+        sleep 2
+        log OK "Ollama started"
+    else
+        start_or_check "Ollama" 11434 "ollama serve" 4
+    fi
 elif [ -d "/Applications/Ollama.app" ]; then
     start_or_check "Ollama" 11434 "open -a Ollama" 6
 else
     log WARN "Ollama not installed"
 fi
 
-# Redis (if available)
-if command -v redis-server &>/dev/null; then
+# Redis
+if $IS_LINUX && systemctl is-active --quiet redis-server 2>/dev/null; then
+    log OK "Redis running (systemd)"
+elif $IS_LINUX && command -v redis-server &>/dev/null; then
+    systemctl start redis-server 2>/dev/null || start_or_check "Redis" 6379 "redis-server --daemonize yes" 2
+    log OK "Redis started"
+elif command -v redis-server &>/dev/null; then
     start_or_check "Redis" 6379 "redis-server --daemonize yes" 2
-elif command -v brew &>/dev/null && brew list redis &>/dev/null 2>&1; then
+elif $IS_MACOS && command -v brew &>/dev/null && brew list redis &>/dev/null 2>&1; then
     start_or_check "Redis" 6379 "brew services start redis" 3
 else
     log INFO "Redis not installed (optional)"
 fi
 
-# PostgreSQL (if available)
-if command -v pg_isready &>/dev/null; then
+# PostgreSQL
+if $IS_LINUX && systemctl is-active --quiet postgresql 2>/dev/null; then
+    log OK "PostgreSQL running (systemd)"
+elif $IS_LINUX && command -v pg_isready &>/dev/null; then
+    systemctl start postgresql 2>/dev/null
+    sleep 2
+    if pg_isready -q 2>/dev/null; then
+        log OK "PostgreSQL started"
+    else
+        log WARN "PostgreSQL failed to start"
+    fi
+elif command -v pg_isready &>/dev/null; then
     if pg_isready -q 2>/dev/null; then
         log OK "PostgreSQL running"
-    elif command -v brew &>/dev/null; then
+    elif $IS_MACOS && command -v brew &>/dev/null; then
         start_or_check "PostgreSQL" 5432 "brew services start postgresql@16" 4
     fi
 else
@@ -235,8 +268,33 @@ echo -e "${C}═══ PHASE 4: Application Services ═══${N}"
 echo ""
 
 # CRM (Express.js)
-if [ -d "$PROJECT_DIR/crm" ] && [ -f "$PROJECT_DIR/crm/package.json" ]; then
+if $IS_LINUX && systemctl list-unit-files aiempire-crm.service &>/dev/null 2>&1; then
+    systemctl start aiempire-crm 2>/dev/null
+    sleep 2
+    if nc -z 127.0.0.1 3500 2>/dev/null; then
+        log OK "CRM running (systemd, port 3500)"
+    else
+        log WARN "CRM service started but port 3500 not responding"
+    fi
+elif [ -d "$PROJECT_DIR/crm" ] && [ -f "$PROJECT_DIR/crm/package.json" ]; then
     start_or_check "CRM" 3500 "cd $PROJECT_DIR/crm && npm start" 4
+fi
+
+# Empire API (FastAPI control dashboard)
+if $IS_LINUX && systemctl list-unit-files aiempire-empire-api.service &>/dev/null 2>&1; then
+    systemctl start aiempire-empire-api 2>/dev/null
+    sleep 2
+    if nc -z 127.0.0.1 3333 2>/dev/null; then
+        log OK "Empire API running (systemd, port 3333)"
+    else
+        log WARN "Empire API service started but port 3333 not responding"
+    fi
+elif [ -f "$PROJECT_DIR/empire_api/server.py" ]; then
+    UVICORN_CMD="python3 -m uvicorn empire_api.server:app --host 0.0.0.0 --port 3333"
+    if [ -f "$PROJECT_DIR/venv/bin/uvicorn" ]; then
+        UVICORN_CMD="$PROJECT_DIR/venv/bin/uvicorn empire_api.server:app --host 0.0.0.0 --port 3333"
+    fi
+    start_or_check "Empire API" 3333 "cd $PROJECT_DIR && $UVICORN_CMD" 4
 fi
 
 # Atomic Reactor (FastAPI)

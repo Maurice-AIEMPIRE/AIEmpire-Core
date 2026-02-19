@@ -1,30 +1,10 @@
-# OPENCLAW PRODUCTION STACK
-# Maurice's AI Empire - Haiku/Sonnet/Opus Routing
-# Erstellt: 2026-02-08
-
-version: '3.8'
+# AIEMPIRE DOCKER STACK (Hetzner Server)
+# Only services that run INSIDE Docker.
+# Ollama, Redis, PostgreSQL run NATIVE (systemd) for better performance.
 
 services:
   # ═══════════════════════════════════════════
-  # 1. OLLAMA - Lokale LLMs (KOSTENLOS)
-  # ═══════════════════════════════════════════
-  ollama:
-    image: ollama/ollama:latest
-    container_name: ollama
-    ports:
-      - "11434:11434"
-    volumes:
-      - ollama_models:/root/.ollama
-    environment:
-      - OLLAMA_HOST=0.0.0.0
-    deploy:
-      resources:
-        limits:
-          memory: 8G
-    restart: unless-stopped
-
-  # ═══════════════════════════════════════════
-  # 2. CHROMA - Vector Database
+  # 1. CHROMA - Vector Database (Embeddings)
   # ═══════════════════════════════════════════
   chromadb:
     image: chromadb/chroma:latest
@@ -36,24 +16,60 @@ services:
     environment:
       - IS_PERSISTENT=TRUE
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2G
 
   # ═══════════════════════════════════════════
-  # 3. REDIS - Queue & Cache
+  # 2. n8n - Workflow Automation
   # ═══════════════════════════════════════════
-  redis:
-    image: redis:alpine
-    container_name: redis
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
     ports:
-      - "6379:6379"
+      - "5678:5678"
     volumes:
-      - redis_data:/data
+      - n8n_data:/home/node/.n8n
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD:-changeme}
+      - N8N_HOST=0.0.0.0
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://65.21.203.174:5678/
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+
+  # ═══════════════════════════════════════════
+  # 3. LiteLLM Proxy - Unified AI Gateway
+  # ═══════════════════════════════════════════
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: litellm
+    ports:
+      - "4000:4000"
+    volumes:
+      - /opt/aiempire/openclaw-config/litellm_config.yaml:/app/config.yaml
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+    env_file:
+      - /opt/aiempire/.env
+    depends_on:
+      - chromadb
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G
 
 volumes:
-  ollama_models:
   chroma_data:
-  redis_data:
+  n8n_data:
 
 networks:
   default:
-    name: openclaw-network
+    name: aiempire-network
