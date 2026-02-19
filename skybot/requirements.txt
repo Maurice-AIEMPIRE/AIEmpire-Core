@@ -1,0 +1,11 @@
+# SkyBot Dependencies
+# Install: pip3 install -r skybot/requirements.txt
+
+# Core
+aiohttp>=3.9.0          # Async HTTP (Telegram API, web requests)
+anthropic>=0.39.0        # Claude API with tool use
+beautifulsoup4>=4.12.0   # HTML parsing for web search
+
+# Optional (already in AIEmpire)
+# httpx>=0.27.0          # Sync HTTP client (for Ollama)
+# uvicorn>=0.30.0        # If running as web service
