@@ -180,8 +180,23 @@ Elektrotechnikmeister
 
 ## NEXT ACTIONS
 
-1. Maurice: iCloud ARAG-Ordner auf dem Mac mit Claude Code einlesen → alle [MISSING] fuellen
-2. Maurice: Gegenangebot-Betrag mit RA Seidel abstimmen (Anker vs. Ziel)
-3. RA Seidel: Entwurf pruefen, anpassen, als anwaltliches Schreiben formulieren
-4. RA Seidel: Gegenangebot an Gegenseite versenden (Ziel: bis 01.03.2026)
-5. Maurice: Stellungnahme-Vorbereitung parallel starten (Frist: 03.04.2026)
+| # | Aktion | Deadline | Verantwortlich | Status |
+|---|--------|----------|----------------|--------|
+| 1 | iCloud ARAG-Ordner auf Mac mit Claude Code einlesen → alle [MISSING] fuellen | **21.02.2026** | Maurice | [ ] |
+| 2 | Gegenangebot-Betrag mit RA Seidel abstimmen (Anker vs. Ziel) | **23.02.2026** | Maurice + RA Seidel | [ ] |
+| 3 | Entwurf pruefen, anpassen, als anwaltliches Schreiben formulieren | **25.02.2026** | RA Seidel | [ ] |
+| 4 | Gegenangebot an Gegenseite versenden | **01.03.2026** | RA Seidel | [ ] |
+| 5 | Stellungnahme-Vorbereitung parallel starten (Frist: 03.04.2026) | **15.03.2026** | Maurice + Claude | [ ] |
+| 6 | Email-Archiv pfeifer-sicherheit.de forensisch sichern | **01.03.2026** | Maurice (Email-Archiver) | [ ] |
+
+---
+
+## CHECKLISTE VOR VERSAND
+
+- [ ] Alle [MISSING]-Felder ausgefuellt
+- [ ] RA Seidel hat Entwurf geprueft und freigegeben
+- [ ] Betraege realistisch und begruendet (nicht zu hoch, nicht zu niedrig)
+- [ ] Alle Anlagen zusammengestellt und beigefuegt
+- [ ] Fristsetzung geprueft (14 Tage ab Zugang)
+- [ ] Abschnitt 5 (Verhandlungsposition) NICHT an Gegenseite weitergeben
+- [ ] Absender-Daten vollstaendig (Adresse, Telefon, Email)

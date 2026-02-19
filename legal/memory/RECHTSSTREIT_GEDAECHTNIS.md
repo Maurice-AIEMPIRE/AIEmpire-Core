@@ -25,8 +25,9 @@ confidence: medium
 | **Beklagte** | [MISSING: Firmenname — vermutlich GmbH hinter pfeifer-sicherheit.de] |
 | **Anwalt (Klaeger)** | RA Seidel |
 | **Anwalt (Gegenseite)** | [MISSING: Name des gegnerischen Anwalts] |
-| **Stellungnahme-Frist** | **03.04.2026** (43 Tage ab heute) |
-| **Kammertermin** | **13.05.2026** (83 Tage ab heute) |
+| **Stellungnahme-Frist** | **03.04.2026** (43 Tage ab 19.02.2026) |
+| **Kammertermin** | **13.05.2026** (83 Tage ab 19.02.2026) |
+| **Gegenangebot senden bis** | **01.03.2026** (10 Tage ab 19.02.2026) |
 | **Verfahrensart** | Arbeitsrechtlicher Rechtsstreit |
 
 ---
@@ -276,4 +277,19 @@ Zusammensetzung:
 
 ---
 
-*Erstellt: 2026-02-19 | Agent: Claude Opus 4.6 | Naechstes Update: Nach Dokumenten-Intake aus iCloud*
+*Erstellt: 2026-02-19 | Aktualisiert: 2026-02-19 | Agent: Claude Opus 4.6 | Naechstes Update: Nach Dokumenten-Intake aus iCloud*
+
+---
+
+## 12. DRINGLICHKEITS-MATRIX
+
+| Prioritaet | Aktion | Deadline | Verantwortlich |
+|------------|--------|----------|----------------|
+| **P0 SOFORT** | iCloud ARAG-Ordner einlesen, [MISSING]-Felder fuellen | 21.02.2026 | Maurice |
+| **P0 SOFORT** | Gegenangebot-Betrag mit RA Seidel abstimmen | 23.02.2026 | Maurice + RA Seidel |
+| **P1 DRINGEND** | Gegenangebot finalisieren und versenden | 01.03.2026 | RA Seidel |
+| **P1 DRINGEND** | Email-Archiv pfeifer-sicherheit.de sichern | 01.03.2026 | Maurice (Email-Archiver) |
+| **P2 WICHTIG** | Stellungnahme-Entwurf beginnen | 15.03.2026 | RA Seidel + Claude |
+| **P2 WICHTIG** | GmbH-Unternehmensbewertung vorbereiten | 15.03.2026 | RA Seidel |
+| **P3 GEPLANT** | Stellungnahme finalisieren | 01.04.2026 | RA Seidel |
+| **P3 GEPLANT** | Kammertermin-Vorbereitung (Dry-Run) | 06.05.2026 | Maurice + RA Seidel |
