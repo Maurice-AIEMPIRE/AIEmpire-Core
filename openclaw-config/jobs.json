@@ -3,12 +3,12 @@
   "jobs": [
     {
       "id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
-      "agentId": "research",
-      "name": "Daily trends scan (TikTok/YouTube/X)",
-      "description": "Scan trends and extract product content angles for TikTok, YouTube, X.",
+      "agentId": "architect",
+      "name": "Morning Intelligence Brief",
+      "description": "Daily strategic scan: trends, opportunities, priorities for the day.",
       "enabled": true,
       "createdAtMs": 1770301384454,
-      "updatedAtMs": 1770447600177,
+      "updatedAtMs": 1770534000000,
       "schedule": {
         "kind": "cron",
         "expr": "0 8 * * *"
@@ -17,12 +17,12 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Scan today’s trends on TikTok, YouTube, and X relevant to our product niche. Output: 10 trend bullets, 10 hooks, 5 product angles, and 3 content series ideas. Keep it concise and actionable."
+        "message": "You are the Architect. You see the whole board. Your job is strategy and priorities.\n\nMorning Intelligence Brief for Maurice:\n1. Scan today's trends on TikTok, YouTube, and X relevant to BMA (fire safety) + AI automation niche\n2. Identify the ONE trend Maurice can own today that nobody else combines (BMA + AI angle)\n3. List 3 revenue-generating actions for today ranked by expected EUR impact\n4. Flag any blockers from yesterday that need Maurice's decision\n\nFormat: Concise bullets. No fluff. Maurice reads this on his phone in 60 seconds."
       },
       "isolation": {
-        "postToMainPrefix": "[cron:trends] ",
+        "postToMainPrefix": "[ARCHITECT] ",
         "postToMainMode": "summary",
-        "postToMainMaxChars": 4000
+        "postToMainMaxChars": 3000
       },
       "state": {
         "nextRunAtMs": 1770534000000,
@@ -33,24 +33,24 @@
     },
     {
       "id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
-      "agentId": "content",
-      "name": "Daily short-form scripts",
-      "description": "Draft short-form scripts for TikTok/YouTube/X from trend inputs.",
+      "agentId": "moneymaker",
+      "name": "Daily Content + Revenue Pipeline",
+      "description": "All content creation and revenue activities in one focused session.",
       "enabled": true,
       "createdAtMs": 1770301399604,
-      "updatedAtMs": 1770451200017,
+      "updatedAtMs": 1770534000000,
       "schedule": {
         "kind": "cron",
-        "expr": "0 9 * * *"
+        "expr": "0 10 * * *"
       },
       "sessionTarget": "isolated",
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Create 3 short-form scripts (<=45s) and 5 tweet/X post drafts based on yesterday’s trend scan. Include: hook, body beats, CTA. Format as a ready-to-post checklist."
+        "message": "You are the Money Maker. Every output must move closer to EUR in the bank.\n\nDaily content + revenue pipeline:\n1. CONTENT: Create 3 short-form scripts (<=45s) with hook/body/CTA. Each MUST leverage the BMA + AI niche — no generic AI tips.\n2. X/TWITTER: Draft 5 posts. Mix: 2 expertise threads (DIN 14675, BMA tech), 2 AI automation insights, 1 engagement/reply bait.\n3. OFFER: Today's primary CTA + 3 headline variants for the current Gumroad product (BMA-Checklisten-Pack EUR 27).\n4. YOUTUBE: One 6-10 min video outline with title options, hook, 5 beats, CTA, thumbnail text.\n\nEvery piece must sound like it was written by someone with 16 years of fire safety expertise who also builds AI systems. Not by a language model."
       },
       "isolation": {
-        "postToMainPrefix": "[cron:scripts] ",
+        "postToMainPrefix": "[MONEY MAKER] ",
         "postToMainMode": "summary",
         "postToMainMaxChars": 4000
       },
@@ -62,130 +62,13 @@
       }
     },
     {
-      "id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
-      "agentId": "product",
-      "name": "Daily offer packaging",
-      "description": "Refine product offer, CTA, and landing copy snippets.",
-      "enabled": true,
-      "createdAtMs": 1770301401253,
-      "updatedAtMs": 1770455201535,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 10 * * *"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Refine product offer for today’s content. Output: 1 primary CTA, 2 alternate CTAs, 3 headline variants, 3 subhead variants, and 5 bullets focusing on value + proof."
-      },
-      "isolation": {
-        "postToMainPrefix": "[cron:offer] ",
-        "postToMainMode": "summary",
-        "postToMainMaxChars": 4000
-      },
-      "state": {
-        "nextRunAtMs": 1770541200000,
-        "lastRunAtMs": 1770455201535,
-        "lastStatus": "ok",
-        "lastDurationMs": 2100
-      }
-    },
-    {
-      "id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
-      "agentId": "finance",
-      "name": "Weekly revenue pipeline review",
-      "description": "Weekly revenue checklist and next actions.",
-      "enabled": true,
-      "createdAtMs": 1770301402829,
-      "updatedAtMs": 1770301402829,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 11 * * 1"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Weekly revenue review. Summarize: content output, engagement, funnel status, sales blockers, and top 5 actions for next week. Use concise bullets."
-      },
-      "isolation": {
-        "postToMainPrefix": "[cron:weekly] ",
-        "postToMainMode": "summary",
-        "postToMainMaxChars": 4000
-      },
-      "state": {
-        "nextRunAtMs": 1770631200000
-      }
-    },
-    {
-      "id": "d29640ec-a644-492d-a54c-0ff97c360984",
-      "agentId": "content",
-      "name": "Daily content calendar (TikTok/YouTube/X)",
-      "description": "Plan daily posting slots, topics, and CTAs for TikTok, YouTube, and X.",
-      "enabled": true,
-      "createdAtMs": 1770301906646,
-      "updatedAtMs": 1770462000018,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 12 * * *"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Build today’s content calendar for TikTok, YouTube, and X. Output: 3 posting slots with topic, hook, CTA, and target audience. Keep it concise."
-      },
-      "isolation": {
-        "postToMainPrefix": "[cron:calendar] ",
-        "postToMainMode": "summary",
-        "postToMainMaxChars": 4000
-      },
-      "state": {
-        "nextRunAtMs": 1770548400000,
-        "lastRunAtMs": 1770462000019,
-        "lastStatus": "ok",
-        "lastDurationMs": 1402
-      }
-    },
-    {
-      "id": "976b5f3a-9e7d-404e-ba4d-d66540ee635b",
-      "agentId": "content",
-      "name": "Daily YouTube long-form outline",
-      "description": "Create a long-form YouTube outline based on top trend/offer.",
-      "enabled": true,
-      "createdAtMs": 1770301908162,
-      "updatedAtMs": 1770469200023,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 14 * * *"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Draft a 6–10 minute YouTube video outline based on the top trend/offer. Include: title options, hook, 5–7 beats, CTA, and thumbnail text ideas."
-      },
-      "isolation": {
-        "postToMainPrefix": "[cron:yt] ",
-        "postToMainMode": "summary",
-        "postToMainMaxChars": 4000
-      },
-      "state": {
-        "nextRunAtMs": 1770555600000,
-        "lastRunAtMs": 1770469200024,
-        "lastStatus": "ok",
-        "lastDurationMs": 1443
-      }
-    },
-    {
       "id": "d2eece4d-693b-4747-a970-4fc74b40e403",
-      "agentId": "community",
-      "name": "Daily engagement playbook",
-      "description": "Generate engagement replies and community prompts for TikTok/YouTube/X.",
+      "agentId": "operator",
+      "name": "Daily Ops + KPI Snapshot",
+      "description": "Execution tracking, KPIs, engagement, and process optimization.",
       "enabled": true,
       "createdAtMs": 1770301909991,
-      "updatedAtMs": 1770480000039,
+      "updatedAtMs": 1770534000000,
       "schedule": {
         "kind": "cron",
         "expr": "0 17 * * *"
@@ -194,12 +77,12 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Create an engagement playbook for today: 10 reply templates, 5 community prompts, and 5 DMs ideas tailored to TikTok, YouTube, and X."
+        "message": "You are the Operator. You keep the machine running and measure what matters.\n\nEnd-of-day ops report:\n1. KPI SNAPSHOT: Views, CTR, conversions, revenue for today across all platforms. Use actual data if available, flag what needs manual checking.\n2. ENGAGEMENT: Generate 10 reply templates for today's top-performing content + 5 community prompts for the Agent Builders Club.\n3. PROCESS CHECK: What shipped today? What's stuck? Any system issues (Ollama down, API errors, cron failures)?\n4. TOMORROW PREP: Top 3 tasks queued for morning, sorted by revenue impact.\n\nFormat: Dashboard-style. Numbers first, narrative second."
       },
       "isolation": {
-        "postToMainPrefix": "[cron:engage] ",
+        "postToMainPrefix": "[OPERATOR] ",
         "postToMainMode": "summary",
-        "postToMainMaxChars": 4000
+        "postToMainMaxChars": 3000
       },
       "state": {
         "nextRunAtMs": 1770566400000,
@@ -209,60 +92,30 @@
       }
     },
     {
-      "id": "a114b9e7-92d0-4709-bc71-6e2d0280bd3b",
-      "agentId": "ops",
-      "name": "Weekly batch production plan",
-      "description": "Plan weekly batch filming/writing for TikTok/YouTube/X.",
+      "id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
+      "agentId": "architect",
+      "name": "Weekly Strategy Review",
+      "description": "Weekly revenue review, strategy adjustment, and next-week priorities.",
       "enabled": true,
-      "createdAtMs": 1770301911538,
-      "updatedAtMs": 1770301911538,
+      "createdAtMs": 1770301402829,
+      "updatedAtMs": 1770534000000,
       "schedule": {
         "kind": "cron",
-        "expr": "0 15 * * 1"
+        "expr": "0 11 * * 1"
       },
       "sessionTarget": "isolated",
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Weekly batch production plan: list 10 short-form video ideas, 3 long-form ideas, filming order, and a 2-hour production schedule."
+        "message": "You are the Architect. Weekly strategy review.\n\n1. REVENUE: Total EUR this week vs. last week. By channel (Gumroad, Fiverr, Consulting, Community). Gap to EUR 100K/month target.\n2. CONTENT PERFORMANCE: Top 3 performing pieces. What made them work? Bottom 3 — what went wrong?\n3. PIPELINE: Active leads, conversion stage, expected close dates.\n4. STRATEGY ADJUSTMENT: Based on this week's data, what should change? Be specific — not 'post more' but 'double down on DIN 14675 content because it got 3x engagement'.\n5. NEXT WEEK TOP 5: The five actions with highest expected EUR impact. Each with owner (Maurice vs. agent) and deadline.\n\nThis is Maurice's Monday morning read. Make it worth his time."
       },
       "isolation": {
-        "postToMainPrefix": "[cron:batch] ",
+        "postToMainPrefix": "[WEEKLY REVIEW] ",
         "postToMainMode": "summary",
         "postToMainMaxChars": 4000
       },
       "state": {
-        "nextRunAtMs": 1770645600000
-      }
-    },
-    {
-      "id": "db3808e0-aa51-4699-b5ad-2f640282421f",
-      "agentId": "analytics",
-      "name": "Daily KPI snapshot",
-      "description": "Create a daily KPI checklist to track views, CTR, and conversions.",
-      "enabled": true,
-      "createdAtMs": 1770301913015,
-      "updatedAtMs": 1770487200037,
-      "schedule": {
-        "kind": "cron",
-        "expr": "0 19 * * *"
-      },
-      "sessionTarget": "isolated",
-      "wakeMode": "now",
-      "payload": {
-        "kind": "agentTurn",
-        "message": "Daily KPI snapshot template for TikTok/YouTube/X: metrics to log, target ranges, and a 5-bullet daily optimization plan."
-      },
-      "isolation": {
-        "postToMainPrefix": "[cron:kpi] ",
-        "postToMainMode": "summary",
-        "postToMainMaxChars": 4000
-      },
-      "state": {
-        "nextRunAtMs": 1770573600000,
-        "lastRunAtMs": 1770487200037,
-        "lastStatus": "ok",
-        "lastDurationMs": 1483
+        "nextRunAtMs": 1770631200000
       }
     }
   ]
