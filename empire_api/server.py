@@ -118,11 +118,14 @@ async def health_check():
     except Exception:
         checks["postgresql"] = {"status": "offline"}
 
-    # OpenClaw
+    # OpenClaw (gateway has no /health endpoint, check dashboard root)
     try:
         async with httpx.AsyncClient(timeout=3) as c:
-            r = await c.get("http://localhost:18789/health")
-            checks["openclaw"] = {"status": "active"}
+            r = await c.get("http://localhost:18789/")
+            if r.status_code in (200, 101, 426):
+                checks["openclaw"] = {"status": "active"}
+            else:
+                checks["openclaw"] = {"status": "degraded", "http_code": r.status_code}
     except Exception:
         checks["openclaw"] = {"status": "offline"}
 
