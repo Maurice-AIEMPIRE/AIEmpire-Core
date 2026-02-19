@@ -341,6 +341,7 @@ def show_dashboard():
         "Ollama (AI Lokal)": _check_ollama(),
         ".env Config": (PROJECT_ROOT / ".env").exists(),
         "Git Repo": (PROJECT_ROOT / ".git").exists(),
+        "Soul Architecture": (PROJECT_ROOT / "souls" / "soul_spawner.py").exists(),
         "Workflow System": (PROJECT_ROOT / "workflow_system" / "orchestrator.py").exists(),
         "X Lead Machine": (PROJECT_ROOT / "x_lead_machine").exists(),
         "CRM System": (PROJECT_ROOT / "crm").exists(),
@@ -405,6 +406,7 @@ def show_dashboard():
         "leads": "Leads verarbeiten + CRM updaten",
         "revenue": "Revenue Report anzeigen",
         "auto": "Voller autonomer Zyklus",
+        "souls": "Soul Architecture Status (4 Core + 39 Specialists)",
         "godmode": "Godmode 4-Role Router starten",
         "mirror": "Mirror System (Mac<->Gemini) starten",
         "setup": "Ersteinrichtung (Accounts + APIs)",
@@ -412,6 +414,95 @@ def show_dashboard():
     }
     for cmd, desc in commands.items():
         print(f"    python3 empire_engine.py {cmd:12} — {desc}")
+
+    print()
+    print("=" * 62)
+    print()
+
+
+def show_soul_status():
+    """Show the Soul Architecture v2.0 status."""
+    print()
+    print("=" * 62)
+    print("         SOUL ARCHITECTURE v2.0")
+    print("         4 Core Agents + Specialist Library")
+    print("=" * 62)
+    print()
+
+    try:
+        from souls.soul_spawner import get_spawner
+        spawner = get_spawner()
+        stats = spawner.stats()
+
+        print(f"  Core Souls:       {stats['core_souls']}")
+        print(f"  Specialists:      {stats['total_specialists']}")
+        print(f"  Max Concurrent:   {stats['max_concurrent']} (DeepMind limit)")
+        print()
+
+        # Core agents
+        print("  CORE AGENTS (Deep Souls)")
+        print("  " + "-" * 56)
+        core_roles = {
+            "architect": "CEO — Strategy, priorities, kill decisions",
+            "builder": "CTO — Products, code, quality, shipping",
+            "money_maker": "Revenue — Content, leads, pricing, sales",
+            "operator": "COO — Infrastructure, processes, monitoring",
+        }
+        for role, desc in core_roles.items():
+            soul = spawner.get_core_soul(role)
+            size = len(soul) if soul else 0
+            status = "LOADED" if soul else "MISSING"
+            print(f"    [{status:>7}] {role:15} {desc}")
+            if soul:
+                print(f"             Soul size: {size:,} chars")
+        print()
+
+        # Specialist library
+        print("  SPECIALIST LIBRARY (Sub-Agent Templates)")
+        print("  " + "-" * 56)
+        catalog = spawner.get_spawn_catalog()
+        for category, specialists in catalog.items():
+            print(f"    [{category.upper()}] ({len(specialists)} specialists)")
+            for s in specialists:
+                print(f"      {s['key']:30} → {s['model']}")
+            print()
+
+        # Research basis
+        print("  RESEARCH BASIS")
+        print("  " + "-" * 56)
+        papers = [
+            '"Lost in the Middle" — Soul-first positioning (U-shaped attention)',
+            'NAACL 2024 Role-Play — Experiential > imperative (+10-60%)',
+            'EMNLP 2024 Multi-Expert — Debate boosts truthfulness +8.69%',
+            'DeepMind — Coordination tax past 4 agents',
+            '"Persona Double-edged Sword" — Calibrated persona +10%, miscalibrated degrades',
+        ]
+        for paper in papers:
+            print(f"    {paper}")
+
+        print()
+        print("  USAGE")
+        print("  " + "-" * 56)
+        print("    from antigravity.empire_bridge import get_bridge")
+        print("    bridge = get_bridge()")
+        print()
+        print("    # Soul-powered specialist execution:")
+        print('    result = await bridge.execute_with_soul(')
+        print('        "Review auth module for security",')
+        print('        specialist_key="code_reviewer",')
+        print('        spawned_by="builder"')
+        print("    )")
+        print()
+        print("    # Multi-expert debate:")
+        print('    result = await bridge.execute_multi_expert(')
+        print('        "Evaluate new pricing strategy",')
+        print('        specialist_keys=["pricing_strategist", "competitive_analyst", "market_researcher"],')
+        print('        spawned_by="money_maker"')
+        print("    )")
+
+    except Exception as e:
+        print(f"  FEHLER: Soul Spawner nicht geladen: {e}")
+        print("  Stelle sicher dass souls/ Verzeichnis existiert")
 
     print()
     print("=" * 62)
@@ -507,6 +598,9 @@ def main():
 
     elif command == "auto":
         run_autonomous_cycle()
+
+    elif command == "souls":
+        show_soul_status()
 
     elif command == "repair":
         print("  Running Auto-Repair...")

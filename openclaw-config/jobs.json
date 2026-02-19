@@ -1,14 +1,15 @@
 {
-  "version": 1,
+  "version": 2,
+  "_comment": "Soul Architecture v2.0 — Jobs mapped to 4 Core Agents. Each job's prompt references the specialist it should spawn. Previous version had 6+ different agentIds (research, content, product, finance, community, ops, analytics). Now all route through the 4 Core: architect, builder, money_maker, operator.",
   "jobs": [
     {
       "id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
-      "agentId": "research",
-      "name": "Daily trends scan (TikTok/YouTube/X)",
-      "description": "Scan trends and extract product content angles for TikTok, YouTube, X.",
+      "agentId": "money_maker",
+      "name": "Daily trends scan",
+      "description": "Spawn trend_scout specialist to scan TikTok/YouTube/X for BMA + AI opportunities.",
       "enabled": true,
       "createdAtMs": 1770301384454,
-      "updatedAtMs": 1770447600177,
+      "updatedAtMs": 1770534000000,
       "schedule": {
         "kind": "cron",
         "expr": "0 8 * * *"
@@ -17,7 +18,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Scan today’s trends on TikTok, YouTube, and X relevant to our product niche. Output: 10 trend bullets, 10 hooks, 5 product angles, and 3 content series ideas. Keep it concise and actionable."
+        "message": "[specialist:trend_scout] Scan today's trends on TikTok, YouTube, and X relevant to BMA (Brandmeldeanlagen), AI automation, and agent design. Apply the Money Filter: time to first euro, marginal cost, revenue compounding, and Maurice's BMA+AI moat. Output: 10 trend bullets with revenue potential, 10 hooks, 5 product angles, 3 content series ideas. JSON format."
       },
       "isolation": {
         "postToMainPrefix": "[cron:trends] ",
@@ -25,20 +26,17 @@
         "postToMainMaxChars": 4000
       },
       "state": {
-        "nextRunAtMs": 1770534000000,
-        "lastRunAtMs": 1770447600179,
-        "lastStatus": "ok",
-        "lastDurationMs": 1407
+        "nextRunAtMs": 1770534000000
       }
     },
     {
       "id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
-      "agentId": "content",
+      "agentId": "money_maker",
       "name": "Daily short-form scripts",
-      "description": "Draft short-form scripts for TikTok/YouTube/X from trend inputs.",
+      "description": "Spawn short_form_scriptwriter specialist to draft TikTok/YouTube/X scripts.",
       "enabled": true,
       "createdAtMs": 1770301399604,
-      "updatedAtMs": 1770451200017,
+      "updatedAtMs": 1770537600000,
       "schedule": {
         "kind": "cron",
         "expr": "0 9 * * *"
@@ -47,7 +45,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Create 3 short-form scripts (<=45s) and 5 tweet/X post drafts based on yesterday’s trend scan. Include: hook, body beats, CTA. Format as a ready-to-post checklist."
+        "message": "[specialist:short_form_scriptwriter] Create 3 short-form scripts (30-60s) and 5 X/Twitter post drafts. Context: Maurice Pfeifer, 37, Elektrotechnikmeister with 16 years BMA expertise building AI automation. Voice: experienced practitioner, direct, credible. Each script needs: hook (3s pattern interrupt), body with one insight + example, CTA. Each X post needs: scroll-stopping first line, value, CTA. Format as ready-to-publish."
       },
       "isolation": {
         "postToMainPrefix": "[cron:scripts] ",
@@ -55,20 +53,17 @@
         "postToMainMaxChars": 4000
       },
       "state": {
-        "nextRunAtMs": 1770537600000,
-        "lastRunAtMs": 1770451200017,
-        "lastStatus": "ok",
-        "lastDurationMs": 1142
+        "nextRunAtMs": 1770537600000
       }
     },
     {
       "id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
-      "agentId": "product",
-      "name": "Daily offer packaging",
-      "description": "Refine product offer, CTA, and landing copy snippets.",
+      "agentId": "money_maker",
+      "name": "Daily offer optimization",
+      "description": "Spawn copywriter + pricing_strategist to refine today's offer.",
       "enabled": true,
       "createdAtMs": 1770301401253,
-      "updatedAtMs": 1770455201535,
+      "updatedAtMs": 1770541200000,
       "schedule": {
         "kind": "cron",
         "expr": "0 10 * * *"
@@ -77,7 +72,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Refine product offer for today’s content. Output: 1 primary CTA, 2 alternate CTAs, 3 headline variants, 3 subhead variants, and 5 bullets focusing on value + proof."
+        "message": "[specialist:copywriter] Refine today's product offer. Products: BMA-Checklisten (27-149 EUR), AI Agent Starter Kit (49 EUR), BMA+AI Masterclass (149 EUR). For each: 1 primary CTA, 2 alternate CTAs, 3 headline variants, 3 subheads, 5 value bullets with proof. Price anchoring: value delivered vs price paid. Voice: authoritative, experienced, never salesy."
       },
       "isolation": {
         "postToMainPrefix": "[cron:offer] ",
@@ -85,20 +80,17 @@
         "postToMainMaxChars": 4000
       },
       "state": {
-        "nextRunAtMs": 1770541200000,
-        "lastRunAtMs": 1770455201535,
-        "lastStatus": "ok",
-        "lastDurationMs": 2100
+        "nextRunAtMs": 1770541200000
       }
     },
     {
       "id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
-      "agentId": "finance",
-      "name": "Weekly revenue pipeline review",
-      "description": "Weekly revenue checklist and next actions.",
+      "agentId": "architect",
+      "name": "Weekly revenue + strategy review",
+      "description": "Architect reviews revenue, validates strategic bets, sets weekly priorities.",
       "enabled": true,
       "createdAtMs": 1770301402829,
-      "updatedAtMs": 1770301402829,
+      "updatedAtMs": 1770631200000,
       "schedule": {
         "kind": "cron",
         "expr": "0 11 * * 1"
@@ -107,10 +99,10 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Weekly revenue review. Summarize: content output, engagement, funnel status, sales blockers, and top 5 actions for next week. Use concise bullets."
+        "message": "[core:architect] Weekly strategy review. Evaluate: 1) Revenue status across all channels (Gumroad, Fiverr, Consulting, Community). 2) Which strategic bets are compounding? Which are stalling? 3) Kill anything past its 30-day expiration without traction. 4) Set MAX 3 priorities for next week using Revenue-Impact x Machability / Time. 5) Delegate specific tasks to builder, money_maker, operator. Output as structured decision log."
       },
       "isolation": {
-        "postToMainPrefix": "[cron:weekly] ",
+        "postToMainPrefix": "[cron:strategy] ",
         "postToMainMode": "summary",
         "postToMainMaxChars": 4000
       },
@@ -120,12 +112,12 @@
     },
     {
       "id": "d29640ec-a644-492d-a54c-0ff97c360984",
-      "agentId": "content",
-      "name": "Daily content calendar (TikTok/YouTube/X)",
-      "description": "Plan daily posting slots, topics, and CTAs for TikTok, YouTube, and X.",
+      "agentId": "money_maker",
+      "name": "Daily content calendar",
+      "description": "Spawn social_media_strategist to plan posting schedule.",
       "enabled": true,
       "createdAtMs": 1770301906646,
-      "updatedAtMs": 1770462000018,
+      "updatedAtMs": 1770548400000,
       "schedule": {
         "kind": "cron",
         "expr": "0 12 * * *"
@@ -134,7 +126,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Build today’s content calendar for TikTok, YouTube, and X. Output: 3 posting slots with topic, hook, CTA, and target audience. Keep it concise."
+        "message": "[specialist:social_media_strategist] Build today's content calendar. 3 content pillars: BMA expertise, AI automation, behind-the-scenes journey. For each platform (X, TikTok, Instagram): 3 posting slots with topic, hook, CTA, target audience. Timing optimized for DACH region (CET). Every post serves ONE purpose: authority, engagement, or conversion. Never mix."
       },
       "isolation": {
         "postToMainPrefix": "[cron:calendar] ",
@@ -142,20 +134,17 @@
         "postToMainMaxChars": 4000
       },
       "state": {
-        "nextRunAtMs": 1770548400000,
-        "lastRunAtMs": 1770462000019,
-        "lastStatus": "ok",
-        "lastDurationMs": 1402
+        "nextRunAtMs": 1770548400000
       }
     },
     {
       "id": "976b5f3a-9e7d-404e-ba4d-d66540ee635b",
-      "agentId": "content",
+      "agentId": "money_maker",
       "name": "Daily YouTube long-form outline",
-      "description": "Create a long-form YouTube outline based on top trend/offer.",
+      "description": "Spawn long_form_writer specialist for YouTube video outline.",
       "enabled": true,
       "createdAtMs": 1770301908162,
-      "updatedAtMs": 1770469200023,
+      "updatedAtMs": 1770555600000,
       "schedule": {
         "kind": "cron",
         "expr": "0 14 * * *"
@@ -164,7 +153,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Draft a 6–10 minute YouTube video outline based on the top trend/offer. Include: title options, hook, 5–7 beats, CTA, and thumbnail text ideas."
+        "message": "[specialist:long_form_writer] Draft an 8-12 minute YouTube video outline on today's top BMA+AI topic. Structure: Hook (pattern interrupt, 15s), Problem (what the viewer struggles with), Solution (Maurice's approach), Proof (credentials: 16 years BMA, DIN 14675, Elektrotechnikmeister), Deep dive (5-7 beats with specific examples), CTA (product or community). Include: 3 title options, thumbnail text ideas, chapter timestamps."
       },
       "isolation": {
         "postToMainPrefix": "[cron:yt] ",
@@ -172,20 +161,17 @@
         "postToMainMaxChars": 4000
       },
       "state": {
-        "nextRunAtMs": 1770555600000,
-        "lastRunAtMs": 1770469200024,
-        "lastStatus": "ok",
-        "lastDurationMs": 1443
+        "nextRunAtMs": 1770555600000
       }
     },
     {
       "id": "d2eece4d-693b-4747-a970-4fc74b40e403",
-      "agentId": "community",
-      "name": "Daily engagement playbook",
-      "description": "Generate engagement replies and community prompts for TikTok/YouTube/X.",
+      "agentId": "money_maker",
+      "name": "Daily engagement + lead gen",
+      "description": "Spawn viral_reply_writer + lead_researcher for engagement and lead qualification.",
       "enabled": true,
       "createdAtMs": 1770301909991,
-      "updatedAtMs": 1770480000039,
+      "updatedAtMs": 1770566400000,
       "schedule": {
         "kind": "cron",
         "expr": "0 17 * * *"
@@ -194,7 +180,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Create an engagement playbook for today: 10 reply templates, 5 community prompts, and 5 DMs ideas tailored to TikTok, YouTube, and X."
+        "message": "[specialist:viral_reply_writer] Create engagement playbook: 10 reply templates for AI/tech/business accounts with 10K+ followers (add genuine insight, never generic agreement), 5 community discussion prompts for Agent Builders Club, 5 DM templates for qualified leads (BANT score >= 12). Voice: experienced practitioner with real BMA+AI credentials. Specificity over generic agreement. Restraint over volume."
       },
       "isolation": {
         "postToMainPrefix": "[cron:engage] ",
@@ -202,20 +188,17 @@
         "postToMainMaxChars": 4000
       },
       "state": {
-        "nextRunAtMs": 1770566400000,
-        "lastRunAtMs": 1770480000039,
-        "lastStatus": "ok",
-        "lastDurationMs": 1636
+        "nextRunAtMs": 1770566400000
       }
     },
     {
       "id": "a114b9e7-92d0-4709-bc71-6e2d0280bd3b",
-      "agentId": "ops",
+      "agentId": "operator",
       "name": "Weekly batch production plan",
-      "description": "Plan weekly batch filming/writing for TikTok/YouTube/X.",
+      "description": "Operator plans weekly content batch production with the content_pipeline_manager.",
       "enabled": true,
       "createdAtMs": 1770301911538,
-      "updatedAtMs": 1770301911538,
+      "updatedAtMs": 1770645600000,
       "schedule": {
         "kind": "cron",
         "expr": "0 15 * * 1"
@@ -224,7 +207,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Weekly batch production plan: list 10 short-form video ideas, 3 long-form ideas, filming order, and a 2-hour production schedule."
+        "message": "[specialist:content_pipeline_manager] Weekly batch production plan. Pipeline: DRAFT > REVIEW > FORMAT > SCHEDULE > PUBLISH > ANALYZE. Plan: 10 short-form video ideas (sorted by expected engagement), 3 long-form ideas (sorted by SEO value), optimal filming order (group by location/setup), 2-hour production schedule. Ensure content queue has minimum 3 days buffer. Output as structured checklist with deadlines."
       },
       "isolation": {
         "postToMainPrefix": "[cron:batch] ",
@@ -237,12 +220,12 @@
     },
     {
       "id": "db3808e0-aa51-4699-b5ad-2f640282421f",
-      "agentId": "analytics",
-      "name": "Daily KPI snapshot",
-      "description": "Create a daily KPI checklist to track views, CTR, and conversions.",
+      "agentId": "operator",
+      "name": "Daily KPI + system health",
+      "description": "Operator runs health_monitor + analytics for daily KPI snapshot.",
       "enabled": true,
       "createdAtMs": 1770301913015,
-      "updatedAtMs": 1770487200037,
+      "updatedAtMs": 1770573600000,
       "schedule": {
         "kind": "cron",
         "expr": "0 19 * * *"
@@ -251,7 +234,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Daily KPI snapshot template for TikTok/YouTube/X: metrics to log, target ranges, and a 5-bullet daily optimization plan."
+        "message": "[specialist:health_monitor] Daily KPI + system health snapshot. Track: 1) Revenue KPIs: total EUR, per-channel breakdown, conversion rates, new leads. 2) Content KPIs: posts published vs planned, engagement rate, follower growth. 3) System health: all services status, resource usage, API costs today. 4) Anomalies: anything unusual in last 24h. 5) Top 3 optimization actions for tomorrow. Output as structured dashboard with traffic light indicators (GREEN/YELLOW/RED)."
       },
       "isolation": {
         "postToMainPrefix": "[cron:kpi] ",
@@ -259,10 +242,7 @@
         "postToMainMaxChars": 4000
       },
       "state": {
-        "nextRunAtMs": 1770573600000,
-        "lastRunAtMs": 1770487200037,
-        "lastStatus": "ok",
-        "lastDurationMs": 1483
+        "nextRunAtMs": 1770573600000
       }
     }
   ]

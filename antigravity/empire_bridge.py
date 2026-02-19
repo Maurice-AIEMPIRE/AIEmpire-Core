@@ -57,6 +57,9 @@ class EmpireBridge:
     Principle: Critical outputs get cross-verified.
     Principle: Every learning gets stored in knowledge_store.
     Principle: All state changes are crash-safe (atomic writes).
+    Principle: Soul-first architecture — identity before operations.
+    Principle: Values inherit, identity does not — sub-agents get standards, not souls.
+    Principle: Max 4 concurrent agents — DeepMind coordination tax.
     """
 
     def __init__(self):
@@ -66,6 +69,7 @@ class EmpireBridge:
         self._sync = None
         self._planner = None
         self._guard = None
+        self._soul_spawner = None
 
     # ─── Lazy Initialization (only load what's needed) ────────────────────
 
@@ -134,6 +138,17 @@ class EmpireBridge:
             except ImportError:
                 self._guard = None
         return self._guard
+
+    @property
+    def souls(self):
+        """Soul Spawner — 4 Core Agents + 39 Specialist Library."""
+        if self._soul_spawner is None:
+            try:
+                from souls.soul_spawner import SoulSpawner
+                self._soul_spawner = SoulSpawner()
+            except ImportError:
+                self._soul_spawner = None
+        return self._soul_spawner
 
     # ─── Core Operations ──────────────────────────────────────────────────
 
@@ -244,6 +259,150 @@ class EmpireBridge:
                 source=source,
             )
 
+    async def execute_with_soul(
+        self,
+        prompt: str,
+        specialist_key: str,
+        business_context: str = "",
+        spawned_by: str = "architect",
+        require_json: bool = False,
+    ) -> dict:
+        """
+        Execute an AI task through a soul-powered specialist.
+
+        This is the SOUL-FIRST way to call AI — the specialist's identity
+        and values are injected at the top of the system prompt.
+
+        Based on research:
+        - "Lost in the Middle": Soul goes first (U-shaped attention)
+        - NAACL 2024: Experiential role > imperative instructions
+        - "Persona is a Double-edged Sword": Calibrated persona +10%
+
+        Args:
+            prompt: The task to execute
+            specialist_key: Which specialist from the library (e.g. "code_reviewer")
+            business_context: Business-specific context injected at spawn time
+            spawned_by: Which core agent is requesting (architect/builder/money_maker/operator)
+            require_json: Whether to parse response as JSON
+
+        Returns:
+            {"status": "ok"/"error", "response": str, "model": str, "cost": float, "specialist": str}
+        """
+        # Check resources first
+        if self.guard:
+            status = self.guard.check()
+            if status.get("level") == "emergency":
+                return {
+                    "status": "blocked",
+                    "response": "System im Emergency Mode",
+                    "model": "none",
+                    "cost": 0.0,
+                    "specialist": specialist_key,
+                }
+
+        # Spawn the specialist
+        if not self.souls:
+            return await self.execute(prompt, context=business_context)
+
+        agent = self.souls.spawn(
+            specialist_key=specialist_key,
+            task=prompt,
+            business_context=business_context,
+            spawned_by=spawned_by,
+        )
+
+        if not agent:
+            return {
+                "status": "error",
+                "response": f"Specialist '{specialist_key}' nicht gefunden",
+                "model": "none",
+                "cost": 0.0,
+                "specialist": specialist_key,
+            }
+
+        # Inject knowledge context
+        full_prompt = agent.system_prompt
+        if self.knowledge:
+            ki_context = self.knowledge.export_for_agent(prompt[:100])
+            if ki_context and "Keine relevanten" not in ki_context:
+                full_prompt = f"{agent.system_prompt}\n\n## Relevant Knowledge\n{ki_context}"
+
+        try:
+            result = await self.router.route_task(full_prompt, spawned_by)
+            return {
+                "status": "ok",
+                "response": result.get("response", result.get("content", str(result))),
+                "model": result.get("model", agent.specialist.model_preference),
+                "cost": result.get("cost", 0.0),
+                "specialist": specialist_key,
+            }
+        except Exception as e:
+            return {
+                "status": "error",
+                "response": f"Fehler: {str(e)}",
+                "model": "none",
+                "cost": 0.0,
+                "specialist": specialist_key,
+            }
+
+    async def execute_multi_expert(
+        self,
+        prompt: str,
+        specialist_keys: list,
+        business_context: str = "",
+        spawned_by: str = "architect",
+    ) -> dict:
+        """
+        Execute with multiple specialists for expert debate.
+
+        EMNLP 2024: Multi-expert debate boosted truthfulness by 8.69%.
+        Max 4 concurrent (DeepMind coordination tax).
+
+        Each specialist analyzes independently, then results are synthesized.
+        """
+        if not self.souls:
+            return await self.execute(prompt, context=business_context)
+
+        agents = self.souls.spawn_multi_expert(
+            specialist_keys=specialist_keys,
+            task=prompt,
+            business_context=business_context,
+            spawned_by=spawned_by,
+        )
+
+        if not agents:
+            return await self.execute(prompt, context=business_context)
+
+        # Execute each specialist
+        results = []
+        for agent in agents:
+            try:
+                result = await self.router.route_task(agent.system_prompt, spawned_by)
+                results.append({
+                    "specialist": agent.specialist.name,
+                    "response": result.get("response", str(result)),
+                    "model": result.get("model", "unknown"),
+                })
+            except Exception as e:
+                results.append({
+                    "specialist": agent.specialist.name,
+                    "response": f"Fehler: {str(e)}",
+                    "model": "none",
+                })
+
+        return {
+            "status": "ok",
+            "expert_count": len(results),
+            "results": results,
+            "cost": sum(r.get("cost", 0.0) for r in results if isinstance(r.get("cost"), (int, float))),
+        }
+
+    def soul_status(self) -> dict:
+        """Get status of the soul architecture."""
+        if not self.souls:
+            return {"status": "not_loaded", "core_souls": 0, "specialists": 0}
+        return self.souls.stats()
+
     def save_state(self, key: str, data: dict):
         """Crash-safe state persistence."""
         if self.sync:
@@ -273,10 +432,15 @@ class EmpireBridge:
             "sync_engine": self._check_sync(),
             "planning_mode": self._check_planner(),
             "resource_guard": self._check_guard(),
+            "soul_architecture": self.souls is not None,
             "ollama": self._check_ollama(),
             "env_file": (PROJECT_ROOT / ".env").exists(),
             "git_repo": (PROJECT_ROOT / ".git").exists(),
         }
+
+        # Add soul details if available
+        if self.souls:
+            status["soul_architecture"] = self.souls.stats()
 
         status["systems"] = checks
         healthy = sum(1 for v in checks.values() if v)
