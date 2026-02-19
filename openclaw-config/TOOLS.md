@@ -35,6 +35,15 @@ Things like:
 
 Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
 
+## My Setup
+
+### SSH - iPhone
+- Connection: Mac → iPhone (via USB oder WiFi)
+- Script: `./scripts/fix_ssh_iphone.sh` (Auto-Diagnose + Reparatur)
+- USB: `iproxy 2222 22 && ssh -p 2222 root@localhost`
+- WiFi: `ssh root@<IPHONE_IP>`
+- Config in .env: `IPHONE_SSH_USER`, `IPHONE_SSH_IP`, `IPHONE_SSH_PORT`, `IPHONE_USB_PORT`
+
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
