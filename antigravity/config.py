@@ -35,18 +35,47 @@ def _load_dotenv():
 
 _load_dotenv()
 
+# ─── Key DB Fallback ──────────────────────────────────────────────
+def _key_from_db(provider_id: str) -> str:
+    """Try to read a key from the API key database as fallback."""
+    import base64, json
+    db_path = Path(__file__).parent.parent / ".api_keys.json"
+    if not db_path.exists():
+        return ""
+    try:
+        data = json.loads(db_path.read_text())
+        entry = data.get("keys", {}).get(provider_id, {})
+        if entry and entry.get("enabled", True):
+            return base64.b64decode(entry["value"].encode()).decode()
+    except Exception:
+        pass
+    return ""
+
+def _get_key(env_var: str, db_provider: str, default: str = "") -> str:
+    """Get key from env var first, then key DB, then default."""
+    val = os.getenv(env_var, "")
+    if val and not val.startswith("your-") and not val.startswith("sk-your"):
+        return val
+    return _key_from_db(db_provider) or default
+
 # ─── Ollama Connection ──────────────────────────────────────────────
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_BASE_URL = _get_key("OLLAMA_BASE_URL", "ollama", "http://localhost:11434")
 OLLAMA_API_V1 = f"{OLLAMA_BASE_URL}/v1"  # OpenAI-compatible endpoint
 
 # ─── Google Gemini Connection ───────────────────────────────────────
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+GEMINI_API_KEY = _get_key("GEMINI_API_KEY", "google") or _get_key("GOOGLE_API_KEY", "google")
 
 # ─── Anthropic / Claude Connection ──────────────────────────────────
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+ANTHROPIC_API_KEY = _get_key("ANTHROPIC_API_KEY", "anthropic")
+
+# ─── OpenAI Connection ─────────────────────────────────────────────
+OPENAI_API_KEY = _get_key("OPENAI_API_KEY", "openai")
+
+# ─── Groq Connection ───────────────────────────────────────────────
+GROQ_API_KEY = _get_key("GROQ_API_KEY", "groq")
 
 # ─── Kimi / Moonshot Connection ──────────────────────────────────────
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "")
+MOONSHOT_API_KEY = _get_key("MOONSHOT_API_KEY", "moonshot")
 KIMI_API_KEY = MOONSHOT_API_KEY  # alias
 
 def _gcloud_project():

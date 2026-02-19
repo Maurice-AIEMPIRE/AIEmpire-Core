@@ -1,0 +1,14 @@
+[Unit]
+Description=AIEmpire Content Generation Cycle
+After=network.target ollama.service
+
+[Service]
+Type=oneshot
+User=root
+WorkingDirectory=/opt/aiempire
+ExecStart=/opt/aiempire/venv/bin/python3 empire_engine.py auto
+EnvironmentFile=-/opt/aiempire/.env
+
+# Logging
+StandardOutput=append:/var/log/aiempire/content.log
+StandardError=append:/var/log/aiempire/content-error.log
