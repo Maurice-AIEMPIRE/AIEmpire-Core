@@ -1,0 +1,7 @@
+# Default ownership
+* @mauricepfeifer-ctrl
+
+# Workflow and automation governance
+/.github/workflows/ @mauricepfeifer-ctrl
+/.github/PULL_REQUEST_TEMPLATE.md @mauricepfeifer-ctrl
+/.github/merge-rules.md @mauricepfeifer-ctrl
