@@ -165,7 +165,7 @@ All API calls use HTTPS:
 
 ```python
 # Hardcoded key in code
-MOONSHOT_API_KEY = "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF"
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
 
 # Bare exception handling
 try:

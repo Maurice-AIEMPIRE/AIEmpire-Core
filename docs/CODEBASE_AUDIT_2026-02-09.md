@@ -38,8 +38,8 @@ The AIEmpire-Core codebase demonstrates a sophisticated multi-system architectur
 
 # FOUND IN MULTIPLE FILES:
 
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-e57Q5aDfcpXpHkYfgeWCU3xjuqf2ZPoYxhuRH0kEZXGBeoMF")
-MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY", "sk-hMWtpmLkLxNsqTyVEiKimq5ypRDBjhJGNqngxqe6HvGP3o9Y")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
+MOONSHOT_API_KEY = os.getenv("MOONSHOT_API_KEY")
 
 ```
 
