@@ -3,7 +3,7 @@
   "jobs": [
     {
       "id": "2483ed9f-e723-4fc0-bece-36e59dab42c2",
-      "agentId": "research",
+      "agentId": "main",
       "name": "Daily trends scan (TikTok/YouTube/X)",
       "description": "Scan trends and extract product content angles for TikTok, YouTube, X.",
       "enabled": true,
@@ -17,7 +17,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Scan today’s trends on TikTok, YouTube, and X relevant to our product niche. Output: 10 trend bullets, 10 hooks, 5 product angles, and 3 content series ideas. Keep it concise and actionable."
+        "message": "Load skill: skills/x/SKILL.md\n\nRun the Scan-Routine from the X skill. Scan today's trends on TikTok, YouTube, and X relevant to our product niche (BMA, AI Automation, OpenClaw). Output: 10 trend bullets, 10 hooks, 5 product angles, 3 content series ideas, 3 reply opportunities. Save results to x_lead_machine/trending_now.md. Keep it concise and actionable."
       },
       "isolation": {
         "postToMainPrefix": "[cron:trends] ",
@@ -33,7 +33,7 @@
     },
     {
       "id": "c53b63c0-057c-45c2-980e-eed6949b0dd2",
-      "agentId": "content",
+      "agentId": "main",
       "name": "Daily short-form scripts",
       "description": "Draft short-form scripts for TikTok/YouTube/X from trend inputs.",
       "enabled": true,
@@ -47,7 +47,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Create 3 short-form scripts (<=45s) and 5 tweet/X post drafts based on yesterday’s trend scan. Include: hook, body beats, CTA. Format as a ready-to-post checklist."
+        "message": "Load skills: skills/x/SKILL.md + skills/writing/SKILL.md\n\nBased on yesterday's trend scan (x_lead_machine/trending_now.md), create:\n- 3 TikTok/Reel scripts (<=45s) using the Larry skill format\n- 9 X/Twitter posts using Maurice's posting rules (3 Insights, 2 Threads, 2 Replies, 1 Langform, 1 Zitat)\n- Apply writing voice rules (verbotene Wörter, Satz-Struktur)\nFormat as a ready-to-post checklist. Save to x_lead_machine/READY_TO_POST.md"
       },
       "isolation": {
         "postToMainPrefix": "[cron:scripts] ",
@@ -63,7 +63,7 @@
     },
     {
       "id": "7ed811bd-4e57-478e-aef2-0af93690b05f",
-      "agentId": "product",
+      "agentId": "main",
       "name": "Daily offer packaging",
       "description": "Refine product offer, CTA, and landing copy snippets.",
       "enabled": true,
@@ -77,7 +77,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Refine product offer for today’s content. Output: 1 primary CTA, 2 alternate CTAs, 3 headline variants, 3 subhead variants, and 5 bullets focusing on value + proof."
+        "message": "Load skills: skills/revenue/SKILL.md + skills/writing/SKILL.md\n\nRefine today's product offer from the revenue channel priority list. Output: 1 primary CTA, 2 alternate CTAs, 3 headline variants, 3 subhead variants, 5 value bullets. Apply Maurice's voice (direkt, konkret, keine verbotenen Wörter). Focus on BMA Checklisten Bundle (149 EUR) as primary offer today."
       },
       "isolation": {
         "postToMainPrefix": "[cron:offer] ",
@@ -93,7 +93,7 @@
     },
     {
       "id": "7a3a6144-40d2-44bc-9645-0d27517dceb3",
-      "agentId": "finance",
+      "agentId": "main",
       "name": "Weekly revenue pipeline review",
       "description": "Weekly revenue checklist and next actions.",
       "enabled": true,
@@ -107,7 +107,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Weekly revenue review. Summarize: content output, engagement, funnel status, sales blockers, and top 5 actions for next week. Use concise bullets."
+        "message": "Load skill: skills/revenue/SKILL.md\n\nWeekly revenue review using the Revenue Dashboard format. Summarize: content output, engagement, funnel status, sales blockers, CRM pipeline state, and top 5 actions for next week. Use BANT-scoring from the leads skill to prioritize. Output as concise bullets. Save to docs/reviews/weekly-$(date +%Y-%m-%d).md"
       },
       "isolation": {
         "postToMainPrefix": "[cron:weekly] ",
@@ -120,7 +120,7 @@
     },
     {
       "id": "d29640ec-a644-492d-a54c-0ff97c360984",
-      "agentId": "content",
+      "agentId": "main",
       "name": "Daily content calendar (TikTok/YouTube/X)",
       "description": "Plan daily posting slots, topics, and CTAs for TikTok, YouTube, and X.",
       "enabled": true,
@@ -134,7 +134,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Build today’s content calendar for TikTok, YouTube, and X. Output: 3 posting slots with topic, hook, CTA, and target audience. Keep it concise."
+        "message": "Load skill: skills/larry/SKILL.md\n\nBuild today's content calendar using the Larry skill. Create posting schedule: 4 X/Twitter slots (07:30, 12:00, 17:30, 21:00), 2 TikTok slots (08:00, 18:00), 2 LinkedIn slots (09:00, 14:00). For each: topic, hook, CTA, target audience, platform format. If Postiz API key is configured, schedule via API. Output calendar as structured list."
       },
       "isolation": {
         "postToMainPrefix": "[cron:calendar] ",
@@ -150,7 +150,7 @@
     },
     {
       "id": "976b5f3a-9e7d-404e-ba4d-d66540ee635b",
-      "agentId": "content",
+      "agentId": "main",
       "name": "Daily YouTube long-form outline",
       "description": "Create a long-form YouTube outline based on top trend/offer.",
       "enabled": true,
@@ -164,7 +164,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Draft a 6–10 minute YouTube video outline based on the top trend/offer. Include: title options, hook, 5–7 beats, CTA, and thumbnail text ideas."
+        "message": "Load skills: skills/writing/SKILL.md + skills/bma/SKILL.md\n\nDraft a 6-10 minute YouTube video outline based on today's top trend (from trending_now.md) or top BMA product angle. Apply Maurice's voice and writing rules. Include: 3 title options, hook (first 15 seconds), 5-7 content beats, CTA (Gumroad link), thumbnail text ideas. Choose topic from BMA or AI Automation niche."
       },
       "isolation": {
         "postToMainPrefix": "[cron:yt] ",
@@ -180,7 +180,7 @@
     },
     {
       "id": "d2eece4d-693b-4747-a970-4fc74b40e403",
-      "agentId": "community",
+      "agentId": "main",
       "name": "Daily engagement playbook",
       "description": "Generate engagement replies and community prompts for TikTok/YouTube/X.",
       "enabled": true,
@@ -194,7 +194,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Create an engagement playbook for today: 10 reply templates, 5 community prompts, and 5 DMs ideas tailored to TikTok, YouTube, and X."
+        "message": "Load skills: skills/x/SKILL.md + skills/leads/SKILL.md + skills/writing/SKILL.md\n\nCreate today's engagement playbook: 10 reply templates (in Maurice's voice, keine verbotenen Wörter), 5 community prompts for Agent Builders Club, 5 DM openers for hot leads (BANT Score 9+). Identify any reply opportunities from today's trending topics. Flag any inbound messages that look like Hot Leads (Score 9-12) for immediate action."
       },
       "isolation": {
         "postToMainPrefix": "[cron:engage] ",
@@ -210,7 +210,7 @@
     },
     {
       "id": "a114b9e7-92d0-4709-bc71-6e2d0280bd3b",
-      "agentId": "ops",
+      "agentId": "main",
       "name": "Weekly batch production plan",
       "description": "Plan weekly batch filming/writing for TikTok/YouTube/X.",
       "enabled": true,
@@ -224,7 +224,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Weekly batch production plan: list 10 short-form video ideas, 3 long-form ideas, filming order, and a 2-hour production schedule."
+        "message": "Load skills: skills/larry/SKILL.md + skills/bma/SKILL.md + skills/writing/SKILL.md\n\nWeekly batch production plan: 10 short-form video ideas (TikTok/Reel, 45s format), 3 long-form YouTube ideas, 5 BMA-specific content pieces for consulting leads, filming order and a 2-hour production schedule. Apply virality triggers from Larry skill. Prioritize content that can convert to Gumroad sales or consulting leads."
       },
       "isolation": {
         "postToMainPrefix": "[cron:batch] ",
@@ -237,7 +237,7 @@
     },
     {
       "id": "db3808e0-aa51-4699-b5ad-2f640282421f",
-      "agentId": "analytics",
+      "agentId": "main",
       "name": "Daily KPI snapshot",
       "description": "Create a daily KPI checklist to track views, CTR, and conversions.",
       "enabled": true,
@@ -251,7 +251,7 @@
       "wakeMode": "now",
       "payload": {
         "kind": "agentTurn",
-        "message": "Daily KPI snapshot template for TikTok/YouTube/X: metrics to log, target ranges, and a 5-bullet daily optimization plan."
+        "message": "Load skill: skills/revenue/SKILL.md\n\nDaily KPI snapshot using the Revenue Dashboard format. Log today's: Gumroad sales (EUR), Fiverr orders, consulting inquiries, community signups, X follower growth, TikTok views, LinkedIn reach, CRM pipeline changes, new hot leads. Compare against monthly targets. Output 5-bullet optimization plan for tomorrow. Save snapshot to docs/reviews/kpi-$(date +%Y-%m-%d).md"
       },
       "isolation": {
         "postToMainPrefix": "[cron:kpi] ",
