@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "description": "Ant Protocol integration with OpenClaw agents",
+
+  "agent_to_task_mapping": {
+    "research": {
+      "task_type": "research",
+      "default_model": "gemini-flash",
+      "skills": ["research", "analysis", "trends"],
+      "priority": 5
+    },
+    "content": {
+      "task_type": "content",
+      "default_model": "gemini-flash",
+      "skills": ["content", "writing", "creative"],
+      "priority": 5
+    },
+    "product": {
+      "task_type": "revenue",
+      "default_model": "gemini-flash",
+      "skills": ["revenue", "marketing", "sales"],
+      "priority": 6
+    },
+    "finance": {
+      "task_type": "revenue",
+      "default_model": "gemini-pro",
+      "skills": ["revenue", "finance", "analytics"],
+      "priority": 7
+    },
+    "community": {
+      "task_type": "content",
+      "default_model": "gemini-flash",
+      "skills": ["content", "community", "engagement"],
+      "priority": 4
+    },
+    "ops": {
+      "task_type": "general",
+      "default_model": "gemini-flash",
+      "skills": ["general", "planning", "ops"],
+      "priority": 5
+    },
+    "analytics": {
+      "task_type": "research",
+      "default_model": "gemini-flash",
+      "skills": ["research", "analytics", "data"],
+      "priority": 5
+    },
+    "code": {
+      "task_type": "code",
+      "default_model": "qwen-14b",
+      "skills": ["code", "devops", "testing"],
+      "priority": 6
+    }
+  },
+
+  "colony": {
+    "id": "empire-alpha",
+    "max_workers": 50,
+    "worker_pools": [
+      {
+        "name": "general",
+        "count": 3,
+        "skills": ["general", "content", "research"],
+        "model": "gemini-flash"
+      },
+      {
+        "name": "code",
+        "count": 2,
+        "skills": ["code", "devops", "testing"],
+        "model": "qwen-14b"
+      },
+      {
+        "name": "revenue",
+        "count": 2,
+        "skills": ["revenue", "leads", "sales", "marketing"],
+        "model": "gemini-flash"
+      }
+    ]
+  },
+
+  "pheromone_defaults": {
+    "revenue": 8.0,
+    "code": 5.0,
+    "content": 5.0,
+    "research": 3.0,
+    "general": 1.0
+  },
+
+  "endpoints": {
+    "ant_protocol_api": "http://localhost:8900",
+    "skybot_api": "http://localhost:8901",
+    "litellm_proxy": "http://localhost:4000"
+  }
+}

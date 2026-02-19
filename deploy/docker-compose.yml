@@ -1,0 +1,379 @@
+# ═══════════════════════════════════════════════════════════════
+# AI EMPIRE - Full VPS Deployment Stack
+# Target: Hetzner Auction Server (i7-6700, 64GB RAM, 2x512GB NVMe)
+# Services: OpenClaw + Ant Protocol + Skybot + LiteLLM + Monitoring
+# ═══════════════════════════════════════════════════════════════
+
+version: '3.8'
+
+services:
+  # ═══════════════════════════════════════════
+  # 1. OLLAMA - Local LLMs (FREE, 90% of traffic)
+  # ═══════════════════════════════════════════
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+      - OLLAMA_NUM_PARALLEL=4
+      - OLLAMA_MAX_LOADED_MODELS=3
+    deploy:
+      resources:
+        limits:
+          memory: 24G
+        reservations:
+          memory: 8G
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 2. LITELLM PROXY - Unified API Gateway
+  #    Routes: Ollama (90%) → Gemini (9%) → Claude (1%)
+  # ═══════════════════════════════════════════
+  litellm:
+    image: ghcr.io/berriai/litellm:main-latest
+    container_name: litellm-proxy
+    ports:
+      - "4000:4000"
+    volumes:
+      - ../openclaw-config/litellm_config.yaml:/app/config.yaml:ro
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - MOONSHOT_API_KEY=${MOONSHOT_API_KEY:-}
+      - LITELLM_MASTER_KEY=${LITELLM_MASTER_KEY:-sk-empire-master}
+    command: ["--config", "/app/config.yaml", "--port", "4000"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 3. REDIS - Queue, Cache & Colony State
+  # ═══════════════════════════════════════════
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes --maxmemory 2gb --maxmemory-policy allkeys-lru
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 256M
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 4. CHROMADB - Vector Database
+  # ═══════════════════════════════════════════
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/chroma/chroma
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ANONYMIZED_TELEMETRY=FALSE
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/v1/heartbeat"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 5. ANT PROTOCOL - Colony API (Queen + Workers)
+  # ═══════════════════════════════════════════
+  ant-protocol:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.antprotocol
+    container_name: ant-protocol
+    ports:
+      - "8900:8900"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ANT_REDIS_DB=2
+      - ANT_COLONY_ID=${ANT_COLONY_ID:-empire-alpha}
+      - ANT_MAX_WORKERS=${ANT_MAX_WORKERS:-50}
+      - ANT_API_HOST=0.0.0.0
+      - ANT_API_PORT=8900
+      - LITELLM_BASE_URL=http://litellm:4000
+      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-gemini-flash}
+      - ANT_QUEEN_MODEL=${ANT_QUEEN_MODEL:-gemini-pro}
+    depends_on:
+      redis:
+        condition: service_healthy
+      litellm:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8900/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 6. ANT WORKERS - Autonomous Task Agents
+  # ═══════════════════════════════════════════
+  ant-worker-general:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.antprotocol
+    container_name: ant-worker-general
+    command: ["python", "-m", "ant_protocol.worker", "--name", "worker-general", "--skills", "general,content,research", "--count", "3"]
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ANT_REDIS_DB=2
+      - ANT_COLONY_ID=${ANT_COLONY_ID:-empire-alpha}
+      - LITELLM_BASE_URL=http://litellm:4000
+      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-gemini-flash}
+    depends_on:
+      ant-protocol:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
+    networks:
+      - empire-net
+
+  ant-worker-code:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.antprotocol
+    container_name: ant-worker-code
+    command: ["python", "-m", "ant_protocol.worker", "--name", "worker-code", "--skills", "code,devops,testing", "--model", "qwen-14b", "--count", "2"]
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ANT_REDIS_DB=2
+      - ANT_COLONY_ID=${ANT_COLONY_ID:-empire-alpha}
+      - LITELLM_BASE_URL=http://litellm:4000
+      - ANT_WORKER_MODEL=qwen-14b
+    depends_on:
+      ant-protocol:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
+    networks:
+      - empire-net
+
+  ant-worker-revenue:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.antprotocol
+    container_name: ant-worker-revenue
+    command: ["python", "-m", "ant_protocol.worker", "--name", "worker-revenue", "--skills", "revenue,leads,sales,marketing", "--count", "2"]
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - ANT_REDIS_DB=2
+      - ANT_COLONY_ID=${ANT_COLONY_ID:-empire-alpha}
+      - LITELLM_BASE_URL=http://litellm:4000
+      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-gemini-flash}
+    depends_on:
+      ant-protocol:
+        condition: service_healthy
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 256M
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 7. SKYBOT - OpenClaw Agent 0 (Master Controller API)
+  # ═══════════════════════════════════════════
+  skybot:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.antprotocol
+    container_name: skybot
+    ports:
+      - "8901:8901"
+    command: ["uvicorn", "skybot.api:create_app", "--factory", "--host", "0.0.0.0", "--port", "8901"]
+    environment:
+      - ANT_API_URL=http://ant-protocol:8900
+      - REDIS_HOST=redis
+      - LITELLM_BASE_URL=http://litellm:4000
+    depends_on:
+      ant-protocol:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8901/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 128M
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 8. TRAEFIK - Reverse Proxy + TLS
+  # ═══════════════════════════════════════════
+  traefik:
+    image: traefik:v3.0-alpine
+    container_name: empire-traefik
+    command:
+      - "--api.dashboard=true"
+      - "--api.insecure=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.websecure.http.tls=true"
+      - "--entrypoints.websecure.http.tls.certResolver=letsencrypt"
+      - "--certificatesResolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      - "--certificatesResolvers.letsencrypt.acme.email=${LETSENCRYPT_EMAIL:-admin@example.com}"
+      - "--certificatesResolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedByDefault=false"
+      - "--log.level=WARN"
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - traefik_letsencrypt:/letsencrypt
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 128M
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 9. PROMETHEUS - Metrics
+  # ═══════════════════════════════════════════
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: empire-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=30d'
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 10. GRAFANA - Dashboards
+  # ═══════════════════════════════════════════
+  grafana:
+    image: grafana/grafana:latest
+    container_name: empire-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD:-changeme123}
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_USER:-admin}
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    networks:
+      - empire-net
+
+volumes:
+  ollama_models:
+  redis_data:
+  chroma_data:
+  traefik_letsencrypt:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  empire-net:
+    name: empire-network
+    driver: bridge
