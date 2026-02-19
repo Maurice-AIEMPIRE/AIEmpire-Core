@@ -1,0 +1,71 @@
+ETSY LISTING: Automated Cashflow System Guide
+
+TITLE: Automated Cashflow System - n8n Automation Guide | Sales Funnel Templates | Passive Income Blueprint | Digital Download
+
+PRICE: 29.00 EUR
+
+CATEGORY: Digital Downloads > Guides & How-Tos > Business & Marketing
+
+TAGS (13 max):
+automation guide, passive income blueprint, n8n automation, sales funnel template, stripe automation, online business guide, cashflow system, automated sales, DM automation, scaling business, solopreneur tools, side hustle guide, payment automation
+
+DESCRIPTION:
+
+Automated Cashflow System - Build Automated Revenue Streams with n8n + AI
+
+The complete guide to building automated sales and cashflow systems using free and low-cost tools. From setting up your first automation to scaling to 10K EUR/month.
+
+WHAT YOU GET:
+
+5 Comprehensive Chapters:
+
+Chapter 1: n8n Basics Masterclass
+- What n8n is and why it beats expensive alternatives
+- Installation and setup walkthrough
+- Your first automation workflow (step by step)
+- Connecting n8n to your business tools
+- Free tier vs self-hosted options
+
+Chapter 2: Connecting Stripe & PayPal
+- Payment processor setup for digital products
+- Automated payment notifications
+- Webhook configuration
+- Order fulfillment automation
+- Revenue tracking setup
+
+Chapter 3: The Perfect Sales Funnel
+- Funnel architecture for digital products
+- Landing page structure and copy framework
+- Lead magnet to paid product flow
+- Email capture and nurture automation
+- Conversion optimization basics
+
+Chapter 4: Automating DM Sales
+- Setting up automated DM sequences
+- Qualification workflows
+- Follow-up automation
+- CRM integration for tracking
+- Templates for high-converting messages
+
+Chapter 5: Scaling to 10K EUR/Month
+- Revenue stacking strategies
+- Multiple product funnels
+- Affiliate and referral systems
+- Content-to-commerce pipelines
+- Metrics dashboard for tracking progress
+
+WHO IS THIS FOR:
+- Side hustlers building their first automated income stream
+- Freelancers wanting passive revenue alongside client work
+- Solopreneurs tired of trading time for money
+- Digital product creators who want automated sales
+- Anyone who wants to build systems that sell while they sleep
+
+WHAT MAKES THIS DIFFERENT:
+Written by someone who built and operates a 100+ agent AI system. Every automation described is based on real workflows, not hypothetical scenarios. Includes actual n8n workflow templates you can import and use.
+
+BONUS: n8n workflow JSON template included - import directly into your n8n instance.
+
+FILE FORMAT: Markdown (.md) files - 5 chapters + bonus n8n workflow template (JSON)
+
+INSTANT DOWNLOAD after purchase.

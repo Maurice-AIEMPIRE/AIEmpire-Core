@@ -1,0 +1,73 @@
+{
+  "version": "1.0",
+  "created": "2026-02-19T11:02:05.908681+00:00",
+  "items": [
+    {
+      "id": "post-001",
+      "title": "Why AI Agents Will Replace 80% of Manual Tasks by 2027",
+      "body": "Most businesses still do things manually that AI agents handle in seconds. Here's what I learned building 100+ agents: The secret isn't the AI model - it's the SYSTEM around it. Router + Verification + Knowledge Store = unstoppable automation. Start with ONE agent. Automate ONE task. Then scale.",
+      "hashtags": [
+        "AIAgents",
+        "Automation",
+        "AI",
+        "Business",
+        "Productivity",
+        "Tech",
+        "Future",
+        "Entrepreneur"
+      ],
+      "category": "thought_leadership",
+      "platforms": [
+        "tiktok",
+        "instagram",
+        "x"
+      ],
+      "status": "queued",
+      "priority": 1
+    },
+    {
+      "id": "post-002",
+      "title": "Fire Alarm Systems + AI = The Future of Building Safety",
+      "body": "16 years in BMA (Brandmeldeanlagen) taught me one thing: documentation kills productivity. So I built AI agents to handle it. Now inspection reports that took 3 hours take 30 minutes. The checklists? Automated. The compliance tracking? Automated. This is what happens when domain expertise meets AI.",
+      "hashtags": [
+        "BMA",
+        "FireSafety",
+        "AI",
+        "Automation",
+        "FacilityManagement",
+        "Tech",
+        "Innovation"
+      ],
+      "category": "niche_expertise",
+      "platforms": [
+        "tiktok",
+        "instagram",
+        "x"
+      ],
+      "status": "queued",
+      "priority": 2
+    },
+    {
+      "id": "post-003",
+      "title": "Build Your First AI Agent in 15 Minutes",
+      "body": "You don't need a CS degree. You don't need expensive APIs. Here's how: 1) Install Ollama (free, local AI). 2) Pick a task you do daily. 3) Write a simple prompt. 4) Connect it to your workflow. 5) Let it run. That's it. Your first agent is live. Now repeat 99 more times.",
+      "hashtags": [
+        "AIAgents",
+        "Tutorial",
+        "Ollama",
+        "LocalAI",
+        "NoCode",
+        "Automation",
+        "StartupLife"
+      ],
+      "category": "tutorial",
+      "platforms": [
+        "tiktok",
+        "instagram",
+        "x"
+      ],
+      "status": "queued",
+      "priority": 1
+    }
+  ]
+}

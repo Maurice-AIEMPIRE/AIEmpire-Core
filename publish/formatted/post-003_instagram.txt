@@ -1,0 +1,18 @@
+Build Your First AI Agent in 15 Minutes
+
+You don't need a CS degree.
+You don't need expensive APIs.
+Here's how: 1) Install Ollama (free, local AI).
+2) Pick a task you do daily.
+3) Write a simple prompt.
+4) Connect it to your workflow.
+5) Let it run.
+That's it.
+Your first agent is live.
+Now repeat 99 more times.
+
+.
+.
+.
+
+#AIAgents #Tutorial #Ollama #LocalAI #NoCode #Automation #StartupLife

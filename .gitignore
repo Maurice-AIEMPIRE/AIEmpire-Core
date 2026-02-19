@@ -21,3 +21,9 @@ node_modules/
 chat_history/
 .claude/worktrees/
 n8n/
+
+# Empire Brain - sensitive files
+empire_brain/legacy/ACCESS.md
+empire_brain/legacy/CONTACTS.md
+empire_brain/memory/chats/*.json
+empire_brain/memory/chats/*.jsonl
