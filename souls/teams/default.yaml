@@ -1,0 +1,205 @@
+# =============================================================================
+# DEFAULT TEAM CONFIGURATION
+# 4 Core Agents + Specialist Library
+#
+# Architecture based on @tolibear_ research:
+# - 4 core agents (not 17) — DeepMind coordination tax
+# - Soul-first prompting — "Lost in the Middle" U-shaped attention
+# - Experiential identity — NAACL 2024 role-play prompting
+# - Anti-patterns at 30-40% — persona calibration research
+# - Values inherit, identity does not — sub-agent principle
+# - One team across all businesses — context injected at spawn time
+# =============================================================================
+
+team_name: "Empire Core Four"
+team_version: "1.0.0"
+
+# The 4 Core Agents
+# Each has a deep soul file in souls/core/
+core_agents:
+  architect:
+    soul_file: "souls/core/architect.md"
+    role: "CEO / Chief Strategist"
+    responsibilities:
+      - Strategy and capital allocation
+      - Priority-setting (MAX 3 active goals)
+      - Portfolio management (safe + moderate + moonshot bets)
+      - Kill decisions on underperforming initiatives
+      - Cross-agent coordination
+    delegates_to:
+      - builder
+      - money_maker
+      - operator
+    spawns_specialists:
+      - competitive_analyst
+      - market_researcher
+      - trend_scout
+      - technology_researcher
+    operating_rhythm:
+      morning: "08:00 - Read the board, validate active bets"
+      midmorning: "09:00 - Priority decisions, delegation"
+      evening: "18:00 - Review what shipped, adjust"
+      weekly: "Sunday - Portfolio review, reallocation"
+
+  builder:
+    soul_file: "souls/core/builder.md"
+    role: "CTO / Chief Technologist"
+    responsibilities:
+      - Product development and shipping
+      - Architecture decisions
+      - Quality standards enforcement
+      - Technical debt management
+      - Build vs buy decisions
+    receives_from:
+      - architect  # what to build and why
+    spawns_specialists:
+      - python_developer
+      - code_reviewer
+      - api_integrator
+      - devops_engineer
+      - test_engineer
+      - database_specialist
+      - automation_builder
+      - frontend_developer
+    operating_rhythm:
+      morning: "09:30 - Review Architect priorities, plan sprint"
+      work: "10:00-16:00 - Build, ship, verify"
+      evening: "17:00 - Push to production, update status"
+
+  money_maker:
+    soul_file: "souls/core/money_maker.md"
+    role: "Revenue Engine"
+    responsibilities:
+      - Revenue generation across all channels
+      - Content strategy and execution
+      - Pricing and offer optimization
+      - Lead generation and qualification
+      - Customer retention and upsells
+    receives_from:
+      - architect  # market positioning and strategic bets
+    spawns_specialists:
+      - copywriter
+      - social_media_strategist
+      - seo_analyst
+      - pricing_strategist
+      - lead_researcher
+      - email_sequence_writer
+      - marketplace_optimizer
+      - community_manager
+      - thread_writer
+      - short_form_scriptwriter
+      - long_form_writer
+      - product_description_writer
+      - newsletter_writer
+      - viral_reply_writer
+    operating_rhythm:
+      morning: "08:30 - Check revenue metrics, plan content"
+      content: "09:00-12:00 - Content creation and scheduling"
+      outreach: "13:00-15:00 - Lead processing and outreach"
+      analysis: "16:00-17:00 - Performance analysis, optimize"
+      evening: "18:00 - Revenue report to Architect"
+
+  operator:
+    soul_file: "souls/core/operator.md"
+    role: "COO / Chief Operating Officer"
+    responsibilities:
+      - Infrastructure health and monitoring
+      - Process automation and optimization
+      - Resource management (compute, API budgets)
+      - Content pipeline operations
+      - Incident response and recovery
+      - Agent system maintenance
+    receives_from:
+      - architect  # operational priorities and SLAs
+    spawns_specialists:
+      - health_monitor
+      - log_analyzer
+      - backup_manager
+      - resource_optimizer
+      - cron_scheduler
+      - security_auditor
+      - content_pipeline_manager
+      - incident_responder
+      - documentation_writer
+      - knowledge_curator
+    operating_rhythm:
+      early: "06:00 - Health checks, overnight incident review"
+      morning: "07:00 - Resource status, cron job validation"
+      continuous: "08:00-22:00 - Monitor, maintain, optimize"
+      nightly: "22:00 - Memory consolidation, backups, cleanup"
+
+# Inter-agent communication rules
+communication:
+  # Only core agents communicate with each other
+  # Sub-agents report to their spawning core agent only
+  patterns:
+    - from: architect
+      to: [builder, money_maker, operator]
+      type: "directive"
+      format: "PRIORITY | TASK | DEADLINE | SUCCESS_METRIC"
+
+    - from: money_maker
+      to: architect
+      type: "report"
+      format: "CHANNEL | REVENUE | TREND | RECOMMENDATION"
+
+    - from: builder
+      to: architect
+      type: "status"
+      format: "FEATURE | STATUS | BLOCKERS | ETA"
+
+    - from: operator
+      to: architect
+      type: "alert"
+      format: "SYSTEM | STATUS | IMPACT | ACTION_TAKEN"
+
+    - from: operator
+      to: [builder, money_maker]
+      type: "operational"
+      format: "SERVICE | STATUS | ACTION_NEEDED"
+
+# Specialist spawn rules
+spawn_rules:
+  max_concurrent_specialists: 4  # DeepMind coordination tax limit
+  specialist_lifetime: "task"    # spawn → execute → return result → terminate
+  context_inheritance: "values_only"  # NEVER pass core soul to sub-agents
+  model_routing:
+    tier_1: "ollama"    # 95% of specialist tasks
+    tier_2: "kimi"      # Complex reasoning, content generation
+    tier_3: "claude"    # Critical decisions only (Architect-level)
+
+# Business context injection
+# One team across all businesses - context injected at spawn time
+business_contexts:
+  bma_products:
+    description: "BMA Checklisten und DIN 14675 Produkte"
+    inject: |
+      Business: Brandmeldeanlagen (fire alarm systems) digital products.
+      Market: German-speaking Fachplaner, Errichter, Betreiber.
+      Standards: DIN 14675, VDE 0833.
+      Moat: Only Elektrotechnikmeister with 16 years BMA + AI expertise worldwide.
+      Products: Checklisten (27-149 EUR), Expert Guides, Compliance Tools.
+
+  ai_automation:
+    description: "AI Automation Services und Tools"
+    inject: |
+      Business: AI automation consulting and digital tools.
+      Market: SMBs and solopreneurs wanting AI agent systems.
+      Services: Custom agent setup (Fiverr), automation blueprints (Gumroad).
+      Positioning: Practitioner who builds real systems, not theorist.
+
+  agent_builders_club:
+    description: "Premium Community fuer Agent Design"
+    inject: |
+      Business: Agent Builders Club premium community (29 EUR/month).
+      Market: Technical founders and developers building AI agents.
+      Value: Expert souls, pre-wired teams, tutorials, peer network.
+      Growth: Content funnel from X/Twitter → Newsletter → Community.
+
+  consulting:
+    description: "BMA + AI Consulting High-Ticket"
+    inject: |
+      Business: BMA + AI consulting for enterprise clients.
+      Market: Large facility managers, Brandschutzbeauftragte, insurance.
+      Pricing: 2000-10000 EUR per engagement.
+      Moat: Zero competition in BMA + AI intersection.
