@@ -30,8 +30,10 @@ def _load_dotenv():
             # Only set if not already in environment (env vars take priority)
             if key and key not in os.environ:
                 os.environ[key] = value
-    except Exception:
-        pass
+    except (FileNotFoundError, UnicodeDecodeError) as e:
+        # Log but don't crash - .env issues are non-fatal
+        import warnings
+        warnings.warn(f"Failed to load .env file: {e}", stacklevel=2)
 
 _load_dotenv()
 
@@ -56,7 +58,13 @@ def _gcloud_project():
             stderr=subprocess.DEVNULL, text=True, timeout=5
         ).strip()
         return out if out and out != "(unset)" else ""
-    except Exception:
+    except (FileNotFoundError, subprocess.TimeoutExpired, subprocess.CalledProcessError):
+        # gcloud not installed or timed out - this is expected in offline mode
+        return ""
+    except Exception as e:
+        # Log unexpected errors but still return empty (graceful degradation)
+        import warnings
+        warnings.warn(f"Unexpected error querying gcloud project: {e}", stacklevel=2)
         return ""
 
 GOOGLE_CLOUD_PROJECT = (

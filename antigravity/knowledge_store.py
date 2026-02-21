@@ -131,8 +131,9 @@ class KnowledgeStore:
                     self._items.append(KnowledgeItem.from_dict(data))
                 except json.JSONDecodeError:
                     continue  # Skip corrupt lines
-        except Exception:
-            pass
+        except Exception as e:
+            import warnings
+            warnings.warn(f"Failed to load knowledge store: {e}", stacklevel=2)
 
     def add(
         self,
@@ -248,8 +249,9 @@ class KnowledgeStore:
             tmp = self.INDEX_FILE.with_suffix(".json.tmp")
             tmp.write_text(json.dumps(index, indent=2, ensure_ascii=False))
             tmp.rename(self.INDEX_FILE)
-        except Exception:
-            pass
+        except OSError as e:
+            import warnings
+            warnings.warn(f"Failed to export knowledge index: {e}", stacklevel=2)
 
 
 # ─── Pre-seed with crash knowledge ────────────────────────────────────────────
