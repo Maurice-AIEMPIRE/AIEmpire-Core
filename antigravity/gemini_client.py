@@ -279,7 +279,10 @@ class GeminiClient:
                                 text = part.get("text", "")
                                 if text:
                                     yield text
-                    except (json.JSONDecodeError, KeyError, IndexError):
+                    except (json.JSONDecodeError, KeyError, IndexError) as e:
+                        # Log stream parsing errors but continue (graceful degradation)
+                        import logging
+                        logging.debug(f"Stream parsing error (skipped): {type(e).__name__}")
                         continue
 
     def list_models(self) -> list[dict[str, Any]]:
