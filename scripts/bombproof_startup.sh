@@ -166,8 +166,17 @@ start_or_check() {
     local start_cmd="$3"
     local wait_secs="${4:-5}"
 
-    # Already running?
-    if lsof -i ":$port" &>/dev/null 2>&1 || nc -z 127.0.0.1 "$port" 2>/dev/null; then
+    # Check if port is already in use (cross-platform compatible)
+    local is_running=0
+    if command -v lsof &>/dev/null; then
+        lsof -i ":$port" &>/dev/null 2>&1 && is_running=1
+    elif command -v ss &>/dev/null; then
+        ss -tuln 2>/dev/null | grep -q ":$port " && is_running=1
+    elif command -v netstat &>/dev/null; then
+        netstat -tuln 2>/dev/null | grep -q ":$port " && is_running=1
+    fi
+
+    if [ "$is_running" -eq 1 ]; then
         log OK "$name already running (port $port)"
         return 0
     fi
@@ -178,7 +187,17 @@ start_or_check() {
         eval "$start_cmd" &>/dev/null &
         sleep "$wait_secs"
 
-        if lsof -i ":$port" &>/dev/null 2>&1 || nc -z 127.0.0.1 "$port" 2>/dev/null; then
+        # Check again if running
+        is_running=0
+        if command -v lsof &>/dev/null; then
+            lsof -i ":$port" &>/dev/null 2>&1 && is_running=1
+        elif command -v ss &>/dev/null; then
+            ss -tuln 2>/dev/null | grep -q ":$port " && is_running=1
+        elif command -v netstat &>/dev/null; then
+            netstat -tuln 2>/dev/null | grep -q ":$port " && is_running=1
+        fi
+
+        if [ "$is_running" -eq 1 ]; then
             log OK "$name started (port $port)"
             return 0
         else
@@ -275,7 +294,10 @@ check_health() {
     fi
 }
 
-check_health "Ollama API" "curl -s -o /dev/null -w '%{http_code}' http://localhost:11434/api/version | grep -q 200"
+# Check Ollama with curl if available, else skip
+if command -v curl &>/dev/null; then
+    check_health "Ollama API" "curl -s -o /dev/null -w '%{http_code}' http://localhost:11434/api/version 2>/dev/null | grep -q 200"
+fi
 check_health ".env File" "test -f $PROJECT_DIR/.env && test -s $PROJECT_DIR/.env"
 check_health "Git Repo" "cd $PROJECT_DIR && git status &>/dev/null"
 check_health "Python Imports" "cd $PROJECT_DIR && python3 -c 'from antigravity.config import GOOGLE_CLOUD_PROJECT'"
@@ -293,8 +315,8 @@ echo ""
 echo -e "${W}╔═══════════════════════════════════════════════════════════╗${N}"
 echo -e "${W}║                    STARTUP COMPLETE                       ║${N}"
 echo -e "${W}╠═══════════════════════════════════════════════════════════╣${N}"
-printf "${W}║${N}  Services Healthy:  ${G}%d${N} / ${W}%d${N}                               ${W}║${N}\n" "$UP" "$TOTAL"
-echo -e "${W}║${N}  Log: $LOG_FILE"
+printf "${W}║${N}  Services Healthy:  ${G}%d${N} / ${W}%d${N}                                ${W}║${N}\n" "$UP" "$TOTAL"
+echo -e "${W}║${N}  Log: $LOG_FILE                                          ${W}║${N}"
 echo -e "${W}╚═══════════════════════════════════════════════════════════╝${N}"
 echo ""
 

@@ -125,10 +125,9 @@ class EmpireBot:
         """Only Maurice can use this bot."""
         user_id = str(message.get("from", {}).get("id", ""))
         if not self.owner_id:
-            # First message sets the owner (one-time setup)
-            self.owner_id = user_id
-            self._save_owner_id(user_id)
-            return True
+            # SECURITY: owner_id MUST be configured in .env before bot can accept commands
+            log.warning(f"SECURITY: TELEGRAM_OWNER_ID not configured. Message from {user_id} rejected.")
+            return False
         return user_id == self.owner_id
 
     def _save_owner_id(self, user_id: str):

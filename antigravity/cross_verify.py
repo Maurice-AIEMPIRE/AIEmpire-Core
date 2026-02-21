@@ -101,19 +101,24 @@ class VerificationGate:
             result.attempts = attempt + 1
 
             # Step 1: Execute the task
-            exec_result = await self.router.execute(
-                prompt=prompt,
-                agent_key=agent_key,
-                context=context,
-            )
+            try:
+                exec_result = await self.router.route_task(
+                    prompt=prompt,
+                    agent_key=agent_key,
+                )
 
-            if not exec_result.get("success"):
-                result.errors.append(f"Execution failed: {exec_result.get('errors', [])}")
+                # Normalize response format
+                if isinstance(exec_result, dict):
+                    result.content = exec_result.get("response") or exec_result.get("content", "")
+                    result.model = exec_result.get("model", "")
+                    result.provider = exec_result.get("provider", "unknown")
+                else:
+                    result.content = str(exec_result)
+                    result.model = "unknown"
+                    result.provider = "unknown"
+            except Exception as e:
+                result.errors.append(f"Execution failed: {str(e)}")
                 continue
-
-            result.content = exec_result.get("content", "")
-            result.model = exec_result.get("model", "")
-            result.provider = exec_result.get("provider", "")
 
             # Step 2: Independent verification with FRESH context
             # The QA agent sees ONLY: the original requirements + the output
@@ -137,13 +142,14 @@ class VerificationGate:
 
             # Step 4: If rejected, try to fix with feedback
             if attempt < self.max_attempts - 1:
-                (
+                fix_prompt = (
                     f"The QA review found issues with your output.\n\n"
                     f"ORIGINAL TASK: {prompt}\n\n"
                     f"QA FEEDBACK: {result.qa_feedback}\n\n"
                     f"YOUR PREVIOUS OUTPUT:\n```\n{result.content[:2000]}\n```\n\n"
                     f"Please fix the issues and provide an improved version."
                 )
+                prompt = fix_prompt  # Use corrected prompt in next iteration
                 agent_key = "fixer"  # Switch to fixer for corrections
 
         result.total_time_ms = (time.time() - start) * 1000
@@ -193,12 +199,12 @@ RESPOND IN JSON:
   "feedback": "brief constructive feedback"
 }}"""
 
-        result = await self.router.execute(
+        result = await self.router.route_task(
             prompt=verification_prompt,
             agent_key="qa",  # Always QA agent for verification
         )
 
-        if not result.get("success"):
+        if not result:
             return {"score": 0.5, "feedback": "Verification unavailable", "model": "", "provider": ""}
 
         # Parse QA response
@@ -255,7 +261,7 @@ class ConsensusChecker:
 
         # Execute in parallel across different agents
         tasks = [
-            self.router.execute(prompt=prompt, agent_key=key)
+            self.router.route_task(prompt=prompt, agent_key=key)
             for key in agent_keys[:3]  # Max 3 for efficiency
         ]
         results = await asyncio.gather(*tasks, return_exceptions=True)

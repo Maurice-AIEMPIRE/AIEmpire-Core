@@ -173,6 +173,19 @@ class UnifiedRouter:
         else:
             return "coder"
 
+    async def route_task(
+        self,
+        prompt: str,
+        agent_key: str = "coder",
+        context: Optional[str] = None,
+        task_type: Optional[str] = None,
+    ) -> dict[str, Any]:
+        """
+        Alias for execute() — routes task through unified router.
+        This is the standard interface used by empire_bridge and other modules.
+        """
+        return await self.execute(prompt, agent_key, context, task_type)
+
     async def execute(
         self,
         prompt: str,
