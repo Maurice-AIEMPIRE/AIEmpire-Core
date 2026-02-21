@@ -21,3 +21,5 @@ node_modules/
 chat_history/
 .claude/worktrees/
 n8n/
+workflow_system/state/
+logs/
