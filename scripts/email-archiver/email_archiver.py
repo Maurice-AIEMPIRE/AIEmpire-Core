@@ -59,64 +59,66 @@ def load_config():
 def init_db():
     """Initialize SQLite database"""
     os.makedirs(os.path.dirname(DB_FILE), exist_ok=True)
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
-    c.execute("""CREATE TABLE IF NOT EXISTS emails (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        message_id TEXT UNIQUE,
-        from_addr TEXT,
-        to_addr TEXT,
-        subject TEXT,
-        date_sent TEXT,
-        date_archived TEXT,
-        category TEXT,
-        is_legal_evidence INTEGER DEFAULT 0,
-        sha256_hash TEXT,
-        file_path TEXT,
-        folder TEXT,
-        size_bytes INTEGER,
-        has_attachments INTEGER DEFAULT 0,
-        spam_score REAL DEFAULT 0.0,
-        notes TEXT
-    )""")
+    try:
+        with sqlite3.connect(DB_FILE) as conn:
+            c = conn.cursor()
+            c.execute("""CREATE TABLE IF NOT EXISTS emails (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                message_id TEXT UNIQUE,
+                from_addr TEXT,
+                to_addr TEXT,
+                subject TEXT,
+                date_sent TEXT,
+                date_archived TEXT,
+                category TEXT,
+                is_legal_evidence INTEGER DEFAULT 0,
+                sha256_hash TEXT,
+                file_path TEXT,
+                folder TEXT,
+                size_bytes INTEGER,
+                has_attachments INTEGER DEFAULT 0,
+                spam_score REAL DEFAULT 0.0,
+                notes TEXT
+            )""")
 
-    c.execute("""CREATE TABLE IF NOT EXISTS chain_of_custody (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        email_message_id TEXT,
-        action TEXT,
-        timestamp TEXT,
-        actor TEXT,
-        sha256_before TEXT,
-        sha256_after TEXT,
-        notes TEXT
-    )""")
+            c.execute("""CREATE TABLE IF NOT EXISTS chain_of_custody (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email_message_id TEXT,
+                action TEXT,
+                timestamp TEXT,
+                actor TEXT,
+                sha256_before TEXT,
+                sha256_after TEXT,
+                notes TEXT
+            )""")
 
-    c.execute("""CREATE TABLE IF NOT EXISTS categories (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT UNIQUE,
-        description TEXT,
-        color TEXT
-    )""")
+            c.execute("""CREATE TABLE IF NOT EXISTS categories (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT UNIQUE,
+                description TEXT,
+                color TEXT
+            )""")
 
-    # Default categories
-    categories = [
-        ("spam", "Spam und Werbung", "#ff0000"),
-        ("business", "Geschaeftliche Mails", "#0066ff"),
-        ("personal", "Persoenliche Mails", "#00cc00"),
-        ("legal", "Rechtsstreit / Beweismittel", "#ff6600"),
-        ("pfeifer-sicherheit", "Mails von/an pfeifer-sicherheit.de", "#cc0066"),
-        ("newsletter", "Newsletter und Abonnements", "#999999"),
-        ("finance", "Rechnungen und Finanzen", "#ffcc00"),
-        ("ai-empire", "AI Empire relevante Mails", "#9900ff"),
-    ]
-    for name, desc, color in categories:
-        c.execute(
-            "INSERT OR IGNORE INTO categories (name, description, color) VALUES (?, ?, ?)",
-            (name, desc, color),
-        )
+            # Default categories
+            categories = [
+                ("spam", "Spam und Werbung", "#ff0000"),
+                ("business", "Geschaeftliche Mails", "#0066ff"),
+                ("personal", "Persoenliche Mails", "#00cc00"),
+                ("legal", "Rechtsstreit / Beweismittel", "#ff6600"),
+                ("pfeifer-sicherheit", "Mails von/an pfeifer-sicherheit.de", "#cc0066"),
+                ("newsletter", "Newsletter und Abonnements", "#999999"),
+                ("finance", "Rechnungen und Finanzen", "#ffcc00"),
+                ("ai-empire", "AI Empire relevante Mails", "#9900ff"),
+            ]
+            for name, desc, color in categories:
+                c.execute(
+                    "INSERT OR IGNORE INTO categories (name, description, color) VALUES (?, ?, ?)",
+                    (name, desc, color),
+                )
 
-    conn.commit()
-    return conn
+            conn.commit()
+    except sqlite3.OperationalError as e:
+        raise RuntimeError(f"Failed to initialize email archiver database: {e}") from e
 
 
 def compute_hash(raw_email_bytes):
@@ -413,16 +415,20 @@ def scan_mailbox(config, folder="INBOX", limit=None):
 
 def export_legal_report(output_file=None):
     """Export forensischer Report fuer Anwalt"""
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
+    try:
+        with sqlite3.connect(DB_FILE) as conn:
+            c = conn.cursor()
 
-    c.execute("""SELECT * FROM emails
-        WHERE is_legal_evidence = 1 OR category = 'pfeifer-sicherheit'
-        ORDER BY date_sent""")
-    legal_emails = c.fetchall()
+            c.execute("""SELECT * FROM emails
+                WHERE is_legal_evidence = 1 OR category = 'pfeifer-sicherheit'
+                ORDER BY date_sent""")
+            legal_emails = c.fetchall()
 
-    c.execute("SELECT * FROM chain_of_custody ORDER BY timestamp")
-    custody_log = c.fetchall()
+            c.execute("SELECT * FROM chain_of_custody ORDER BY timestamp")
+            custody_log = c.fetchall()
+    except sqlite3.OperationalError as e:
+        print(f"Error fetching legal report data: {e}")
+        return None
 
     if not output_file:
         output_file = os.path.expanduser("~/.openclaw/email-archiver/legal/BEWEISMITTEL_REPORT.md")
@@ -474,23 +480,27 @@ def show_stats():
         print("Keine Datenbank gefunden. Fuehre zuerst --scan aus.")
         return
 
-    conn = sqlite3.connect(DB_FILE)
-    c = conn.cursor()
+    try:
+        with sqlite3.connect(DB_FILE) as conn:
+            c = conn.cursor()
 
-    c.execute("SELECT COUNT(*) FROM emails")
-    total = c.fetchone()[0]
+            c.execute("SELECT COUNT(*) FROM emails")
+            total = c.fetchone()[0]
 
-    c.execute("SELECT category, COUNT(*) FROM emails GROUP BY category ORDER BY COUNT(*) DESC")
-    categories = c.fetchall()
+            c.execute("SELECT category, COUNT(*) FROM emails GROUP BY category ORDER BY COUNT(*) DESC")
+            categories = c.fetchall()
 
-    c.execute("SELECT COUNT(*) FROM emails WHERE is_legal_evidence = 1")
-    legal = c.fetchone()[0]
+            c.execute("SELECT COUNT(*) FROM emails WHERE is_legal_evidence = 1")
+            legal = c.fetchone()[0]
 
-    c.execute("SELECT COUNT(*) FROM emails WHERE category = 'pfeifer-sicherheit'")
-    pfeifer = c.fetchone()[0]
+            c.execute("SELECT COUNT(*) FROM emails WHERE category = 'pfeifer-sicherheit'")
+            pfeifer = c.fetchone()[0]
 
-    c.execute("SELECT COUNT(*) FROM emails WHERE category = 'spam'")
-    spam = c.fetchone()[0]
+            c.execute("SELECT COUNT(*) FROM emails WHERE category = 'spam'")
+            spam = c.fetchone()[0]
+    except sqlite3.OperationalError as e:
+        print(f"Error querying statistics: {e}")
+        return
 
     print(f"\n{'=' * 50}")
     print("EMAIL ARCHIVER STATISTIK")

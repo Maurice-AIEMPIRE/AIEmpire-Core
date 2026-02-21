@@ -81,96 +81,102 @@ DB_PATH = os.path.expanduser("~/.openclaw/brain_system/synapses.db")
 def init_synapse_db():
     """Initialize synapse database for inter-brain communication"""
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute("""CREATE TABLE IF NOT EXISTS synapses (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        timestamp TEXT,
-        from_brain TEXT,
-        to_brain TEXT,
-        message_type TEXT,
-        payload TEXT,
-        priority INTEGER DEFAULT 5,
-        processed INTEGER DEFAULT 0,
-        processed_at TEXT
-    )""")
-    c.execute("""CREATE TABLE IF NOT EXISTS achievements (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        timestamp TEXT,
-        name TEXT UNIQUE,
-        description TEXT,
-        xp_reward INTEGER
-    )""")
-    c.execute("""CREATE TABLE IF NOT EXISTS xp_log (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        timestamp TEXT,
-        action TEXT,
-        xp_earned INTEGER,
-        total_xp INTEGER
-    )""")
-    c.execute("""CREATE TABLE IF NOT EXISTS streaks (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT UNIQUE,
-        current_count INTEGER DEFAULT 0,
-        longest_count INTEGER DEFAULT 0,
-        last_updated TEXT
-    )""")
-    conn.commit()
-    return conn
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
+            c.execute("""CREATE TABLE IF NOT EXISTS synapses (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                timestamp TEXT,
+                from_brain TEXT,
+                to_brain TEXT,
+                message_type TEXT,
+                payload TEXT,
+                priority INTEGER DEFAULT 5,
+                processed INTEGER DEFAULT 0,
+                processed_at TEXT
+            )""")
+            c.execute("""CREATE TABLE IF NOT EXISTS achievements (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                timestamp TEXT,
+                name TEXT UNIQUE,
+                description TEXT,
+                xp_reward INTEGER
+            )""")
+            c.execute("""CREATE TABLE IF NOT EXISTS xp_log (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                timestamp TEXT,
+                action TEXT,
+                xp_earned INTEGER,
+                total_xp INTEGER
+            )""")
+            c.execute("""CREATE TABLE IF NOT EXISTS streaks (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name TEXT UNIQUE,
+                current_count INTEGER DEFAULT 0,
+                longest_count INTEGER DEFAULT 0,
+                last_updated TEXT
+            )""")
+            conn.commit()
+    except sqlite3.OperationalError as e:
+        raise RuntimeError(f"Failed to initialize synapse database: {e}") from e
 
 
 def send_synapse(from_brain, to_brain, msg_type, payload, priority=5):
     """Send a message between brains"""
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute(
-        """INSERT INTO synapses
-        (timestamp, from_brain, to_brain, message_type, payload, priority)
-        VALUES (?, ?, ?, ?, ?, ?)""",
-        (
-            datetime.utcnow().isoformat(),
-            from_brain,
-            to_brain,
-            msg_type,
-            json.dumps(payload),
-            priority,
-        ),
-    )
-    conn.commit()
-    conn.close()
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
+            c.execute(
+                """INSERT INTO synapses
+                (timestamp, from_brain, to_brain, message_type, payload, priority)
+                VALUES (?, ?, ?, ?, ?, ?)""",
+                (
+                    datetime.utcnow().isoformat(),
+                    from_brain,
+                    to_brain,
+                    msg_type,
+                    json.dumps(payload),
+                    priority,
+                ),
+            )
+            conn.commit()
+    except sqlite3.OperationalError as e:
+        raise RuntimeError(f"Failed to send synapse: {e}") from e
 
 
 def receive_synapses(brain_name, limit=10):
     """Receive pending messages for a brain"""
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute(
-        """SELECT id, from_brain, message_type, payload, priority
-        FROM synapses WHERE to_brain = ? AND processed = 0
-        ORDER BY priority ASC, timestamp ASC LIMIT ?""",
-        (brain_name, limit),
-    )
-    messages = c.fetchall()
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
+            c.execute(
+                """SELECT id, from_brain, message_type, payload, priority
+                FROM synapses WHERE to_brain = ? AND processed = 0
+                ORDER BY priority ASC, timestamp ASC LIMIT ?""",
+                (brain_name, limit),
+            )
+            messages = c.fetchall()
 
-    # Mark as processed
-    for msg in messages:
-        c.execute(
-            "UPDATE synapses SET processed = 1, processed_at = ? WHERE id = ?",
-            (datetime.utcnow().isoformat(), msg[0]),
-        )
-    conn.commit()
-    conn.close()
+            # Mark as processed
+            for msg in messages:
+                c.execute(
+                    "UPDATE synapses SET processed = 1, processed_at = ? WHERE id = ?",
+                    (datetime.utcnow().isoformat(), msg[0]),
+                )
+            conn.commit()
 
-    return [
-        {
-            "id": m[0],
-            "from": m[1],
-            "type": m[2],
-            "payload": json.loads(m[3]),
-            "priority": m[4],
-        }
-        for m in messages
-    ]
+        return [
+            {
+                "id": m[0],
+                "from": m[1],
+                "type": m[2],
+                "payload": json.loads(m[3]) if isinstance(m[3], str) else m[3],
+                "priority": m[4],
+            }
+            for m in messages
+        ]
+    except (sqlite3.OperationalError, json.JSONDecodeError) as e:
+        raise RuntimeError(f"Failed to receive synapses: {e}") from e
 
 
 # ============================================
@@ -242,19 +248,21 @@ def run_brainstem():
 
 def run_limbic_morning():
     """LIMBIC: Morning briefing"""
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
 
-    # Get XP
-    c.execute("SELECT total_xp FROM xp_log ORDER BY id DESC LIMIT 1")
-    xp_row = c.fetchone()
-    total_xp = xp_row[0] if xp_row else 0
-    level = total_xp // 100 + 1
+            # Get XP
+            c.execute("SELECT total_xp FROM xp_log ORDER BY id DESC LIMIT 1")
+            xp_row = c.fetchone()
+            total_xp = xp_row[0] if xp_row else 0
+            level = total_xp // 100 + 1
 
-    # Get streaks
-    c.execute("SELECT name, current_count FROM streaks")
-    streaks = {row[0]: row[1] for row in c.fetchall()}
-    conn.close()
+            # Get streaks
+            c.execute("SELECT name, current_count FROM streaks")
+            streaks = {row[0]: row[1] for row in c.fetchall()}
+    except sqlite3.OperationalError as e:
+        raise RuntimeError(f"Failed to fetch morning briefing data: {e}") from e
 
     # Build briefing
     today = datetime.now().strftime("%Y-%m-%d")
@@ -281,19 +289,21 @@ def run_limbic_morning():
 
 def add_xp(action, xp_amount):
     """Add XP to the system"""
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
-    c.execute("SELECT total_xp FROM xp_log ORDER BY id DESC LIMIT 1")
-    row = c.fetchone()
-    current = row[0] if row else 0
-    new_total = current + xp_amount
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
+            c.execute("SELECT total_xp FROM xp_log ORDER BY id DESC LIMIT 1")
+            row = c.fetchone()
+            current = row[0] if row else 0
+            new_total = current + xp_amount
 
-    c.execute(
-        "INSERT INTO xp_log (timestamp, action, xp_earned, total_xp) VALUES (?, ?, ?, ?)",
-        (datetime.utcnow().isoformat(), action, xp_amount, new_total),
-    )
-    conn.commit()
-    conn.close()
+            c.execute(
+                "INSERT INTO xp_log (timestamp, action, xp_earned, total_xp) VALUES (?, ?, ?, ?)",
+                (datetime.utcnow().isoformat(), action, xp_amount, new_total),
+            )
+            conn.commit()
+    except sqlite3.OperationalError as e:
+        raise RuntimeError(f"Failed to add XP: {e}") from e
 
     # Check level up
     old_level = current // 100 + 1
@@ -312,37 +322,39 @@ def add_xp(action, xp_amount):
 
 def update_streak(streak_name):
     """Update a streak counter"""
-    conn = sqlite3.connect(DB_PATH)
-    c = conn.cursor()
+    try:
+        with sqlite3.connect(DB_PATH) as conn:
+            c = conn.cursor()
 
-    c.execute(
-        "SELECT current_count, longest_count, last_updated FROM streaks WHERE name = ?",
-        (streak_name,),
-    )
-    row = c.fetchone()
+            c.execute(
+                "SELECT current_count, longest_count, last_updated FROM streaks WHERE name = ?",
+                (streak_name,),
+            )
+            row = c.fetchone()
 
-    today = datetime.now().strftime("%Y-%m-%d")
+            today = datetime.now().strftime("%Y-%m-%d")
 
-    if row:
-        current, longest, last = row
-        yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
-        if last == yesterday or last == today:
-            new_count = current + 1 if last == yesterday else current
-        else:
-            new_count = 1  # Streak broken
-        new_longest = max(longest, new_count)
-        c.execute(
-            "UPDATE streaks SET current_count = ?, longest_count = ?, last_updated = ? WHERE name = ?",
-            (new_count, new_longest, today, streak_name),
-        )
-    else:
-        c.execute(
-            "INSERT INTO streaks (name, current_count, longest_count, last_updated) VALUES (?, 1, 1, ?)",
-            (streak_name, today),
-        )
+            if row:
+                current, longest, last = row
+                yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+                if last == yesterday or last == today:
+                    new_count = current + 1 if last == yesterday else current
+                else:
+                    new_count = 1  # Streak broken
+                new_longest = max(longest, new_count)
+                c.execute(
+                    "UPDATE streaks SET current_count = ?, longest_count = ?, last_updated = ? WHERE name = ?",
+                    (new_count, new_longest, today, streak_name),
+                )
+            else:
+                c.execute(
+                    "INSERT INTO streaks (name, current_count, longest_count, last_updated) VALUES (?, 1, 1, ?)",
+                    (streak_name, today),
+                )
 
-    conn.commit()
-    conn.close()
+            conn.commit()
+    except sqlite3.OperationalError as e:
+        raise RuntimeError(f"Failed to update streak: {e}") from e
 
 
 # ============================================
@@ -411,16 +423,18 @@ if __name__ == "__main__":
         update_streak(args.streak)
         print(f"Streak '{args.streak}' updated!")
     elif args.status:
-        conn = sqlite3.connect(DB_PATH)
-        c = conn.cursor()
-        c.execute("SELECT COUNT(*) FROM synapses WHERE processed = 0")
-        pending = c.fetchone()[0]
-        c.execute("SELECT from_brain, COUNT(*) FROM synapses GROUP BY from_brain")
-        brain_msgs = c.fetchall()
-        print(f"Pending synapses: {pending}")
-        print("Messages by brain:")
-        for brain, count in brain_msgs:
-            print(f"  {brain}: {count}")
-        conn.close()
+        try:
+            with sqlite3.connect(DB_PATH) as conn:
+                c = conn.cursor()
+                c.execute("SELECT COUNT(*) FROM synapses WHERE processed = 0")
+                pending = c.fetchone()[0]
+                c.execute("SELECT from_brain, COUNT(*) FROM synapses GROUP BY from_brain")
+                brain_msgs = c.fetchall()
+            print(f"Pending synapses: {pending}")
+            print("Messages by brain:")
+            for brain, count in brain_msgs:
+                print(f"  {brain}: {count}")
+        except sqlite3.OperationalError as e:
+            print(f"Error querying status: {e}")
     else:
         parser.print_help()

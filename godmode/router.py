@@ -37,8 +37,13 @@ REPO_ROOT = GODMODE_DIR.parent
 
 
 def load_config():
-    with open(CONFIG_PATH) as f:
-        return json.load(f)
+    try:
+        with open(CONFIG_PATH) as f:
+            return json.load(f)
+    except FileNotFoundError as e:
+        raise RuntimeError(f"Config file not found: {CONFIG_PATH}") from e
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"Invalid JSON in config file: {e}") from e
 
 
 CONFIG = load_config()
