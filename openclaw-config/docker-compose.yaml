@@ -41,6 +41,8 @@ services:
       - GOOGLE_CLOUD_PROJECT=${GOOGLE_CLOUD_PROJECT:-}
       - GOOGLE_CLOUD_REGION=${GOOGLE_CLOUD_REGION:-europe-west1}
       - MOONSHOT_API_KEY=${MOONSHOT_API_KEY:-}
+      # Ollama URL: Docker internal if Ollama in compose, host.docker.internal if native
+      - OLLAMA_API_URL=${OLLAMA_API_URL:-http://ollama:11434}
     command: ["--config", "/app/config.yaml", "--port", "4000"]
     depends_on:
       - ollama

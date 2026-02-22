@@ -216,6 +216,81 @@ The revenue systems are ready when you are.
 
 ---
 
+## Tip 12: Model Routing Troubleshooting
+
+**Status: IMPLEMENTED (v2 — resilient routing)**
+
+### Problem: "All models failed" / "all in cooldown"
+
+OpenClaw requests phantom model names (`qwen3.5:cloud`, `qwen3-nothinkin`, `qwen3:8b`)
+that don't exist in Ollama. LiteLLM aliases map them to real models.
+
+**Error cascade:**
+1. OpenClaw asks for `ollama/qwen3.5:cloud`
+2. If LiteLLM can't reach Ollama → HTTP 500 timeout
+3. Cooldown kicks in → all Ollama models blocked for cooldown period
+4. Remaining model attempts instantly fail with "all in cooldown"
+
+### Diagnostic (run this first!)
+
+```bash
+./scripts/test_models.sh
+```
+
+### Root Causes & Fixes
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| HTTP 500 timeout | Ollama not running | `ollama serve` |
+| HTTP 500 timeout | LiteLLM can't find Ollama (wrong URL) | Set `OLLAMA_API_URL` env var |
+| "all in cooldown" | Cooldown too aggressive | Fixed: 10s cooldown (was 60s) |
+| "rate_limit" | Too many failures, provider blocked | Fixed: 5 allowed fails (was 3) |
+| "No available auth profile" | Provider marked offline | Restart LiteLLM or wait 10s |
+
+### OLLAMA_API_URL Settings
+
+```bash
+# Scenario 1: Both Ollama + LiteLLM in Docker (docker-compose)
+export OLLAMA_API_URL=http://ollama:11434     # Docker internal (default)
+
+# Scenario 2: LiteLLM in Docker, Ollama runs natively on Mac
+export OLLAMA_API_URL=http://host.docker.internal:11434
+
+# Scenario 3: Both run natively (no Docker)
+export OLLAMA_API_URL=http://127.0.0.1:11434
+```
+
+### Config Changes (v2)
+
+- **Dual deployment per model**: Each Ollama model registered twice in LiteLLM
+  (env-var URL + localhost fallback) — if Docker routing fails, localhost catches it
+- **Cooldown**: 60s → 10s (fast recovery after transient failure)
+- **Retries**: 2 → 3 (4 total attempts)
+- **Allowed fails**: 3 → 5 (more tolerance before marking provider offline)
+- **Per-model timeouts**: 14B/R1 = 300s, 7B = 180s, Mistral = 120s (was 120s for all)
+
+### Recovery Steps
+
+```bash
+# 1. Check what's actually running
+./scripts/test_models.sh
+
+# 2. If Ollama is down
+ollama serve                  # Start Ollama
+ollama pull qwen2.5-coder:14b  # Pull primary model if missing
+
+# 3. If LiteLLM is down
+docker compose -f openclaw-config/docker-compose.yaml up -d litellm
+
+# 4. If cooldown is stuck (nuclear option)
+docker restart litellm-proxy
+
+# 5. Verify recovery
+./scripts/test_models.sh
+```
+
+---
+
 ## Quick Reference
 
 ```bash
