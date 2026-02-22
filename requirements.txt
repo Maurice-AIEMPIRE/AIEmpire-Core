@@ -27,3 +27,6 @@ google-cloud-aiplatform>=1.40.0
 
 # Anthropic Claude API
 anthropic>=0.25.0
+
+# Telegram Bot (iPhone -> AIEmpire Bridge)
+python-telegram-bot>=21.0

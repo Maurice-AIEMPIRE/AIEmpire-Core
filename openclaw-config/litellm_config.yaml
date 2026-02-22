@@ -1,68 +1,243 @@
 # ═══════════════════════════════════════════════════════════════
 # LiteLLM Proxy Configuration
-# Unified API gateway for all AI providers
+# MULTI-MUSCLE ROUTING: Different models for different tasks
+# Brain = Gemini Pro | Coding = Qwen 14B | Research = Kimi
+# Creative = Gemini Flash | Reasoning = DeepSeek R1
+#
+# OLLAMA URL: Set OLLAMA_API_URL env var to match your setup:
+#   Docker Ollama:  http://ollama:11434       (default in docker-compose)
+#   Native Ollama:  http://127.0.0.1:11434    (Mac mini native)
+#   Docker→Host:    http://host.docker.internal:11434  (LiteLLM in Docker, Ollama native)
 # ═══════════════════════════════════════════════════════════════
 
 model_list:
-  # ─── Google Gemini (Primary Cloud Provider) ─────────────────
-  - model_name: gemini-flash
-    litellm_params:
-      model: gemini/gemini-2.0-flash
-      api_key: os.environ/GEMINI_API_KEY
-
+  # ─── BRAIN: Gemini Pro (planning, architecture, decisions) ──
   - model_name: gemini-pro
     litellm_params:
       model: gemini/gemini-2.0-pro
       api_key: os.environ/GEMINI_API_KEY
 
+  # ─── CREATIVE: Gemini Flash (content, writing, quick tasks) ─
+  - model_name: gemini-flash
+    litellm_params:
+      model: gemini/gemini-2.0-flash
+      api_key: os.environ/GEMINI_API_KEY
+
+  # ─── REVIEW: Gemini Thinking (QA, code review, analysis) ────
   - model_name: gemini-thinking
     litellm_params:
       model: gemini/gemini-2.0-flash-thinking
       api_key: os.environ/GEMINI_API_KEY
 
-  # ─── Ollama (Local - Free, Offline) ─────────────────────────
+  # ─── CODING: Qwen 14B (local, free, coding muscle) ─────────
+  # Two deployments: Docker internal + localhost fallback
   - model_name: qwen-14b
     litellm_params:
       model: ollama/qwen2.5-coder:14b
-      api_base: http://ollama:11434
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 300
+  - model_name: qwen-14b
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://127.0.0.1:11434
+      timeout: 300
 
+  # ─── FAST: Qwen 7B (local, quick iterations) ───────────────
   - model_name: qwen-7b
     litellm_params:
       model: ollama/qwen2.5-coder:7b
-      api_base: http://ollama:11434
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 180
+  - model_name: qwen-7b
+    litellm_params:
+      model: ollama/qwen2.5-coder:7b
+      api_base: http://127.0.0.1:11434
+      timeout: 180
 
+  # ─── REASONING: DeepSeek R1 (local, deep thinking) ─────────
   - model_name: deepseek-r1
     litellm_params:
       model: ollama/deepseek-r1:7b
-      api_base: http://ollama:11434
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 300
+  - model_name: deepseek-r1
+    litellm_params:
+      model: ollama/deepseek-r1:7b
+      api_base: http://127.0.0.1:11434
+      timeout: 300
 
-  # ─── Moonshot/Kimi (Backup Cloud) ───────────────────────────
+  # ─── VIBE CODE: Code Llama (local, rapid prototyping) ──────
+  - model_name: codellama
+    litellm_params:
+      model: ollama/codellama:7b
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 180
+  - model_name: codellama
+    litellm_params:
+      model: ollama/codellama:7b
+      api_base: http://127.0.0.1:11434
+      timeout: 180
+
+  # ─── PROXY ALIASES: Match real LiteLLM proxy model IDs ─────
+  - model_name: ollama-qwen
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 300
+  - model_name: ollama-qwen
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://127.0.0.1:11434
+      timeout: 300
+
+  - model_name: ollama-mistral
+    litellm_params:
+      model: ollama/mistral:7b
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 120
+  - model_name: ollama-mistral
+    litellm_params:
+      model: ollama/mistral:7b
+      api_base: http://127.0.0.1:11434
+      timeout: 120
+
+  # ═══════════════════════════════════════════════════════════
+  # OPENCLAW MODEL ALIASES
+  # OpenClaw requests phantom models — route to real ones
+  # Each has Docker + localhost fallback for resilience
+  # ═══════════════════════════════════════════════════════════
+
+  # qwen3.5:cloud → qwen2.5-coder:14b
+  - model_name: ollama/qwen3.5:cloud
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 300
+  - model_name: ollama/qwen3.5:cloud
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://127.0.0.1:11434
+      timeout: 300
+
+  # qwen3-nothinkin → qwen2.5-coder:14b
+  - model_name: ollama/qwen3-nothinkin:latest
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 300
+  - model_name: ollama/qwen3-nothinkin:latest
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://127.0.0.1:11434
+      timeout: 300
+
+  - model_name: ollama/qwen3-nothinkin
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 300
+  - model_name: ollama/qwen3-nothinkin
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://127.0.0.1:11434
+      timeout: 300
+
+  # qwen3:8b → qwen2.5-coder:7b
+  - model_name: ollama/qwen3:8b
+    litellm_params:
+      model: ollama/qwen2.5-coder:7b
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 180
+  - model_name: ollama/qwen3:8b
+    litellm_params:
+      model: ollama/qwen2.5-coder:7b
+      api_base: http://127.0.0.1:11434
+      timeout: 180
+
+  # qwen3-coder → qwen2.5-coder:14b
+  - model_name: ollama/qwen3-coder:latest
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: os.environ/OLLAMA_API_URL
+      timeout: 300
+  - model_name: ollama/qwen3-coder:latest
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://127.0.0.1:11434
+      timeout: 300
+
+  # ─── RESEARCH: Kimi K2.5 (256K context, deep research) ─────
   - model_name: kimi
     litellm_params:
       model: openai/kimi-k2.5
       api_key: os.environ/MOONSHOT_API_KEY
       api_base: https://api.moonshot.ai/v1
+      timeout: 180
 
-# ─── Router Settings ─────────────────────────────────────────
+# ─── Router Settings (OPTIMIZED for resilience) ──────────────
 router_settings:
   routing_strategy: "least-busy"
-  num_retries: 2
-  timeout: 120
-  allowed_fails: 3
-  cooldown_time: 60
+  num_retries: 3                 # 4 total attempts (was 2)
+  timeout: 180                   # 3 minutes (was 2)
+  allowed_fails: 5               # More tolerance before marking offline (was 3)
+  cooldown_time: 10              # 10s cooldown, NOT 60s — fast recovery!
+  retry_after: 5                 # Wait 5s between retries
 
-# ─── Fallback Configuration ──────────────────────────────────
+# ─── Multi-Muscle Fallback Configuration ──────────────────────
 litellm_settings:
   fallbacks:
-    - gemini-flash:
-        - qwen-7b
-        - kimi
+    # Brain tasks: Pro → 14B → Kimi
     - gemini-pro:
         - qwen-14b
         - kimi
+    # Creative tasks: Flash → 7B → Kimi
+    - gemini-flash:
+        - qwen-7b
+        - kimi
+    # Review tasks: Thinking → DeepSeek → 14B
     - gemini-thinking:
         - deepseek-r1
         - qwen-14b
+    # Coding tasks: 14B → CodeLlama → 7B → Mistral
+    - qwen-14b:
+        - codellama
+        - qwen-7b
+        - ollama-mistral
+    # Proxy aliases fallback
+    - ollama-qwen:
+        - ollama-mistral
+        - qwen-7b
+    - ollama-mistral:
+        - qwen-7b
+        - ollama-qwen
+    # OpenClaw aliases → real model names as fallback
+    - ollama/qwen3.5:cloud:
+        - qwen-14b
+        - qwen-7b
+        - ollama-mistral
+    - ollama/qwen3-nothinkin:latest:
+        - qwen-14b
+        - qwen-7b
+        - ollama-mistral
+    - ollama/qwen3-nothinkin:
+        - qwen-14b
+        - qwen-7b
+        - ollama-mistral
+    - ollama/qwen3:8b:
+        - qwen-7b
+        - ollama-mistral
+        - qwen-14b
+    - ollama/qwen3-coder:latest:
+        - qwen-14b
+        - qwen-7b
+        - ollama-mistral
+    # Research tasks: Kimi → Pro → Flash
+    - kimi:
+        - gemini-pro
+        - gemini-flash
   set_verbose: false
   drop_params: true
-  request_timeout: 120
+  request_timeout: 180
+  # Prevent provider-level cooldown cascading
+  cooldown_time: 10
+  num_retries: 3

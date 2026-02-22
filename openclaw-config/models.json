@@ -1,4 +1,14 @@
 {
+  "_comment": "MULTI-MUSCLE MODEL ROUTING: Opus/Pro for brain, specialized models for each muscle",
+  "taskRouting": {
+    "brain": "gemini-pro",
+    "coding": "qwen-14b",
+    "research": "kimi",
+    "creative": "gemini-flash",
+    "reasoning": "deepseek-r1",
+    "review": "gemini-thinking",
+    "fast": "qwen-7b"
+  },
   "providers": {
     "gemini": {
       "baseUrl": "https://generativelanguage.googleapis.com/v1beta",
@@ -7,13 +17,9 @@
         {
           "id": "gemini-2.0-flash",
           "name": "Gemini 2.0 Flash",
+          "muscle": "creative",
           "reasoning": false,
-          "input": [
-            "text",
-            "image",
-            "video",
-            "audio"
-          ],
+          "input": ["text", "image", "video", "audio"],
           "cost": {
             "input": 0.075,
             "output": 0.3,
@@ -25,14 +31,10 @@
         },
         {
           "id": "gemini-2.0-pro",
-          "name": "Gemini 2.0 Pro",
+          "name": "Gemini 2.0 Pro (BRAIN)",
+          "muscle": "brain",
           "reasoning": false,
-          "input": [
-            "text",
-            "image",
-            "video",
-            "audio"
-          ],
+          "input": ["text", "image", "video", "audio"],
           "cost": {
             "input": 1.25,
             "output": 10.0,
@@ -44,12 +46,10 @@
         },
         {
           "id": "gemini-2.0-flash-thinking",
-          "name": "Gemini 2.0 Flash Thinking",
+          "name": "Gemini 2.0 Flash Thinking (REVIEW)",
+          "muscle": "review",
           "reasoning": true,
-          "input": [
-            "text",
-            "image"
-          ],
+          "input": ["text", "image"],
           "cost": {
             "input": 0.075,
             "output": 0.3,
@@ -68,11 +68,10 @@
       "models": [
         {
           "id": "kimi-k2.5",
-          "name": "Kimi K2.5",
+          "name": "Kimi K2.5 (RESEARCH)",
+          "muscle": "research",
           "reasoning": false,
-          "input": [
-            "text"
-          ],
+          "input": ["text"],
           "cost": {
             "input": 0,
             "output": 0,
@@ -85,56 +84,86 @@
       ],
       "apiKey": "MOONSHOT_API_KEY"
     },
+    "litellm-proxy": {
+      "baseUrl": "http://127.0.0.1:4000/v1",
+      "api": "openai-completions",
+      "comment": "Unified gateway — routes to Ollama/Gemini/Kimi with built-in fallbacks",
+      "models": [
+        {
+          "id": "ollama-qwen",
+          "name": "Qwen 14B via Proxy (CODING)",
+          "muscle": "coding",
+          "reasoning": false,
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+          "contextWindow": 32768,
+          "maxTokens": 8192
+        },
+        {
+          "id": "ollama-mistral",
+          "name": "Mistral 7B via Proxy (FAST)",
+          "muscle": "fast",
+          "reasoning": false,
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+          "contextWindow": 32768,
+          "maxTokens": 4096
+        }
+      ],
+      "apiKey": "ollama-local"
+    },
     "ollama": {
-      "baseUrl": "http://localhost:11434/v1",
+      "baseUrl": "http://127.0.0.1:11434/v1",
       "api": "openai-completions",
       "models": [
         {
           "id": "qwen2.5-coder:14b",
-          "name": "Qwen 2.5 Coder 14B (local)",
+          "name": "Qwen 2.5 Coder 14B (CODING)",
+          "muscle": "coding",
           "reasoning": false,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
           "contextWindow": 32768,
           "maxTokens": 8192
         },
         {
           "id": "qwen2.5-coder:7b",
-          "name": "Qwen 2.5 Coder 7B (local)",
+          "name": "Qwen 2.5 Coder 7B (FAST)",
+          "muscle": "fast",
           "reasoning": false,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+          "contextWindow": 32768,
+          "maxTokens": 4096
+        },
+        {
+          "id": "mistral:7b",
+          "name": "Mistral 7B (FALLBACK)",
+          "muscle": "fast",
+          "reasoning": false,
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
           "contextWindow": 32768,
           "maxTokens": 4096
         },
         {
           "id": "deepseek-r1:7b",
-          "name": "DeepSeek R1 7B (local, reasoning)",
+          "name": "DeepSeek R1 7B (REASONING)",
+          "muscle": "reasoning",
           "reasoning": true,
-          "input": [
-            "text"
-          ],
-          "cost": {
-            "input": 0,
-            "output": 0,
-            "cacheRead": 0,
-            "cacheWrite": 0
-          },
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
           "contextWindow": 32768,
+          "maxTokens": 4096
+        },
+        {
+          "id": "codellama:7b",
+          "name": "Code Llama 7B (VIBE CODE)",
+          "muscle": "vibe_code",
+          "reasoning": false,
+          "input": ["text"],
+          "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+          "contextWindow": 16384,
           "maxTokens": 4096
         }
       ],
@@ -147,13 +176,9 @@
         {
           "id": "gemini-2.0-flash",
           "name": "Gemini 2.0 Flash (Vertex AI)",
+          "muscle": "creative",
           "reasoning": false,
-          "input": [
-            "text",
-            "image",
-            "video",
-            "audio"
-          ],
+          "input": ["text", "image", "video", "audio"],
           "cost": {
             "input": 0.075,
             "output": 0.3,
@@ -165,14 +190,10 @@
         },
         {
           "id": "gemini-2.0-pro",
-          "name": "Gemini 2.0 Pro (Vertex AI)",
+          "name": "Gemini 2.0 Pro (Vertex AI, BRAIN)",
+          "muscle": "brain",
           "reasoning": false,
-          "input": [
-            "text",
-            "image",
-            "video",
-            "audio"
-          ],
+          "input": ["text", "image", "video", "audio"],
           "cost": {
             "input": 1.25,
             "output": 10.0,

@@ -264,6 +264,60 @@
         "lastStatus": "ok",
         "lastDurationMs": 1483
       }
+    },
+    {
+      "id": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+      "agentId": "strategy",
+      "name": "Reverse Prompt: Next Best Task (3x daily)",
+      "description": "REVERSE PROMPTING: Instead of waiting for instructions, proactively suggest the highest-impact next task based on current goals, recent activity, and blockers.",
+      "enabled": true,
+      "createdAtMs": 1770487200037,
+      "updatedAtMs": 1770487200037,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 7,13,20 * * *"
+      },
+      "sessionTarget": "main",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "REVERSE PROMPT MODE: Based on everything you know about me, my goals (100M EUR revenue target), my current systems (check memory/ for recent state), and what has happened recently:\n\n1. What is the single highest-impact task we should work on RIGHT NOW?\n2. What is blocked or stalled that needs attention?\n3. What quick win could we knock out in <15 minutes?\n4. Is there anything I should know that I probably don't?\n\nBe specific. Name files, systems, revenue channels. Don't be generic. If you think I'm wasting time on something, say so. If there's a better path to revenue, tell me.\n\nFormat: Bullet points, actionable, no fluff."
+      },
+      "isolation": {
+        "postToMainPrefix": "[reverse-prompt] ",
+        "postToMainMode": "full",
+        "postToMainMaxChars": 6000
+      },
+      "state": {
+        "nextRunAtMs": 1770534000000
+      }
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "agentId": "ops",
+      "name": "Daily system health + optimization check",
+      "description": "Run everything through OpenClaw: check all systems, find optimization opportunities, suggest workflow improvements.",
+      "enabled": true,
+      "createdAtMs": 1770487200037,
+      "updatedAtMs": 1770487200037,
+      "schedule": {
+        "kind": "cron",
+        "expr": "30 7 * * *"
+      },
+      "sessionTarget": "isolated",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "DAILY OPTIMIZATION CHECK:\n1. Check git status of AIEmpire-Core — any uncommitted changes? stale branches?\n2. Review recent memory/ files — what was worked on yesterday? What's pending?\n3. Check system inventory — which of the 14 systems could use attention?\n4. Identify 3 tasks that could be automated but aren't yet\n5. Suggest 1 workflow improvement based on patterns you've noticed\n\nOutput: concise bullets, prioritized by impact."
+      },
+      "isolation": {
+        "postToMainPrefix": "[cron:optimize] ",
+        "postToMainMode": "summary",
+        "postToMainMaxChars": 4000
+      },
+      "state": {
+        "nextRunAtMs": 1770535800000
+      }
     }
   ]
 }
