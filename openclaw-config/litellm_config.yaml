@@ -48,6 +48,18 @@ model_list:
       model: ollama/codellama:7b
       api_base: http://ollama:11434
 
+  # ─── PROXY ALIASES: Match real LiteLLM proxy model IDs ─────
+  # These are the model names the proxy exposes at :4000
+  - model_name: ollama-qwen
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://ollama:11434
+
+  - model_name: ollama-mistral
+    litellm_params:
+      model: ollama/mistral:7b
+      api_base: http://ollama:11434
+
   # ─── RESEARCH: Kimi K2.5 (256K context, deep research) ─────
   - model_name: kimi
     litellm_params:
@@ -79,10 +91,18 @@ litellm_settings:
     - gemini-thinking:
         - deepseek-r1
         - qwen-14b
-    # Coding tasks: 14B → CodeLlama → 7B
+    # Coding tasks: 14B → CodeLlama → 7B → Mistral
     - qwen-14b:
         - codellama
         - qwen-7b
+        - ollama-mistral
+    # Proxy aliases fallback: qwen → mistral
+    - ollama-qwen:
+        - ollama-mistral
+        - qwen-7b
+    - ollama-mistral:
+        - qwen-7b
+        - ollama-qwen
     # Research tasks: Kimi → Pro → Flash
     - kimi:
         - gemini-pro

@@ -22,7 +22,7 @@ import time
 from dataclasses import dataclass, field
 from typing import Any, Optional
 
-from antigravity.config import AGENTS, AgentConfig
+from antigravity.config import AGENTS, AgentConfig, LITELLM_PROXY_URL, LITELLM_API_KEY
 
 
 # ─── Multi-Muscle Task Categories ──────────────────────────────────
@@ -30,45 +30,62 @@ MUSCLE_MAP = {
     # Brain muscle: planning, architecture, complex decisions
     "brain": {
         "keywords": ["plan", "architect", "design", "strategy", "decision", "refactor"],
-        "provider_priority": ["gemini", "moonshot", "ollama"],
+        "provider_priority": ["litellm", "gemini", "moonshot", "ollama"],
         "gemini_model": "gemini-2.0-pro",
         "ollama_model": "qwen2.5-coder:14b",
+        "litellm_model": "gemini-pro",
     },
     # Coding muscle: implementation, features, bug fixes
     "coding": {
         "keywords": ["code", "implement", "feature", "function", "class", "module", "fix", "bug"],
-        "provider_priority": ["ollama", "gemini", "moonshot"],
+        "provider_priority": ["litellm", "ollama", "gemini", "moonshot"],
         "gemini_model": "gemini-2.0-flash",
         "ollama_model": "qwen2.5-coder:14b",
+        "litellm_model": "ollama-qwen",
     },
     # Research muscle: analysis, trends, deep investigation
     "research": {
         "keywords": ["research", "analyze", "scan", "trend", "investigate", "compare", "study"],
-        "provider_priority": ["moonshot", "gemini", "ollama"],
+        "provider_priority": ["litellm", "moonshot", "gemini", "ollama"],
         "gemini_model": "gemini-2.0-pro",
         "ollama_model": "qwen2.5-coder:14b",
+        "litellm_model": "kimi",
     },
     # Creative muscle: content, writing, marketing
     "creative": {
         "keywords": ["write", "content", "post", "tweet", "script", "copy", "headline", "story"],
-        "provider_priority": ["gemini", "moonshot", "ollama"],
+        "provider_priority": ["litellm", "gemini", "moonshot", "ollama"],
         "gemini_model": "gemini-2.0-flash",
         "ollama_model": "qwen2.5-coder:7b",
+        "litellm_model": "gemini-flash",
     },
     # Reasoning muscle: review, QA, verification
     "reasoning": {
         "keywords": ["review", "test", "qa", "verify", "check", "lint", "audit", "security"],
-        "provider_priority": ["ollama", "gemini", "moonshot"],
+        "provider_priority": ["litellm", "ollama", "gemini", "moonshot"],
         "gemini_model": "gemini-2.0-flash-thinking",
         "ollama_model": "deepseek-r1:7b",
+        "litellm_model": "deepseek-r1",
     },
     # Fast muscle: quick iterations, simple tasks
     "fast": {
         "keywords": ["quick", "simple", "translate", "format", "convert", "list"],
-        "provider_priority": ["ollama", "gemini", "moonshot"],
+        "provider_priority": ["litellm", "ollama", "gemini", "moonshot"],
         "gemini_model": "gemini-2.0-flash",
         "ollama_model": "qwen2.5-coder:7b",
+        "litellm_model": "ollama-mistral",
     },
+}
+
+# ─── LiteLLM Proxy Model Mapping ────────────────────────────────
+# Maps muscle types to the model aliases exposed by the LiteLLM proxy at :4000
+LITELLM_MUSCLE_MODELS = {
+    "brain": "gemini-pro",
+    "coding": "ollama-qwen",
+    "research": "kimi",
+    "creative": "gemini-flash",
+    "reasoning": "deepseek-r1",
+    "fast": "ollama-mistral",
 }
 
 
@@ -137,6 +154,7 @@ class UnifiedRouter:
     def __init__(self, config: Optional[RouterConfig] = None):
         self.config = config or RouterConfig()
         self.providers: dict[str, ProviderStatus] = {
+            "litellm": ProviderStatus(name="litellm"),
             "gemini": ProviderStatus(name="gemini"),
             "ollama": ProviderStatus(name="ollama"),
             "moonshot": ProviderStatus(name="moonshot"),
@@ -171,6 +189,20 @@ class UnifiedRouter:
     async def check_providers(self) -> dict[str, bool]:
         """Check health of all providers."""
         results: dict[str, bool] = {}
+
+        # Check LiteLLM Proxy (unified gateway at :4000)
+        if not self.config.offline_mode:
+            try:
+                import httpx
+                async with httpx.AsyncClient(timeout=5.0) as client:
+                    resp = await client.get(f"{LITELLM_PROXY_URL}/health")
+                    available = resp.status_code == 200
+                self.providers["litellm"].available = available
+                self.providers["litellm"].last_check = time.time()
+                results["litellm"] = available
+            except Exception:
+                self.providers["litellm"].available = False
+                results["litellm"] = False
 
         # Check Gemini
         if not self.config.offline_mode:
@@ -320,7 +352,9 @@ class UnifiedRouter:
             try:
                 start = time.time()
 
-                if provider == "gemini":
+                if provider == "litellm":
+                    result = await self._execute_litellm(agent, prompt, context, muscle=muscle)
+                elif provider == "gemini":
                     result = await self._execute_gemini(agent, prompt, context)
                 elif provider == "ollama":
                     result = await self._execute_ollama(agent, prompt, context)
@@ -470,6 +504,60 @@ class UnifiedRouter:
         return {
             "content": content,
             "model": "kimi-k2.5",
+            "usage": {
+                "prompt_tokens": usage.get("prompt_tokens", 0),
+                "completion_tokens": usage.get("completion_tokens", 0),
+                "total_tokens": usage.get("total_tokens", 0),
+            },
+            "raw_response": data,
+        }
+
+    async def _execute_litellm(
+        self, agent: AgentConfig, prompt: str, context: Optional[str],
+        muscle: str = "coding",
+    ) -> dict[str, Any]:
+        """Execute via LiteLLM Proxy (unified gateway at :4000).
+
+        The proxy handles all model routing, fallbacks, and load balancing.
+        We just pick the right model alias for the muscle type.
+        """
+        import httpx
+
+        # Pick the proxy model alias for this muscle
+        model = LITELLM_MUSCLE_MODELS.get(muscle, "ollama-qwen")
+
+        messages = [
+            {"role": "system", "content": agent.system_prompt},
+        ]
+        if context:
+            messages.append({"role": "user", "content": f"KONTEXT:\n```\n{context}\n```"})
+        messages.append({"role": "user", "content": prompt})
+
+        payload = {
+            "model": model,
+            "messages": messages,
+            "temperature": agent.temperature,
+            "max_tokens": agent.max_tokens,
+        }
+
+        async with httpx.AsyncClient(timeout=120.0) as client:
+            response = await client.post(
+                f"{LITELLM_PROXY_URL}/v1/chat/completions",
+                json=payload,
+                headers={
+                    "Authorization": f"Bearer {LITELLM_API_KEY}",
+                    "Content-Type": "application/json",
+                },
+            )
+            response.raise_for_status()
+            data = response.json()
+
+        content = data["choices"][0]["message"]["content"]
+        usage = data.get("usage", {})
+
+        return {
+            "content": content,
+            "model": data.get("model", model),
             "usage": {
                 "prompt_tokens": usage.get("prompt_tokens", 0),
                 "completion_tokens": usage.get("completion_tokens", 0),
