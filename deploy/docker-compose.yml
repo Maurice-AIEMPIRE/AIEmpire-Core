@@ -4,8 +4,6 @@
 # Services: OpenClaw + Ant Protocol + Skybot + LiteLLM + Monitoring
 # ═══════════════════════════════════════════════════════════════
 
-version: '3.8'
-
 services:
   # ═══════════════════════════════════════════
   # 1. OLLAMA - Local LLMs (FREE, 90% of traffic)
@@ -287,7 +285,7 @@ services:
   # 8. TRAEFIK - Reverse Proxy + TLS
   # ═══════════════════════════════════════════
   traefik:
-    image: traefik:v3.0-alpine
+    image: traefik:v3.3
     container_name: empire-traefik
     command:
       - "--api.dashboard=true"
