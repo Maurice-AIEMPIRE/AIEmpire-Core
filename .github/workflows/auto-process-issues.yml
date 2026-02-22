@@ -16,7 +16,7 @@ jobs:
   # ============================================
   process-with-copilot:
     if: contains(github.event.issue.labels.*.name, 'auto-generated')
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@v4
 
@@ -47,7 +47,7 @@ jobs:
   # ============================================
   cleanup-stale:
     if: github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - name: "Close stale auto-generated issues"
         uses: actions/github-script@v7

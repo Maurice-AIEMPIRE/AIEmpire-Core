@@ -31,7 +31,7 @@ jobs:
   # ============================================
   morning-content:
     if: github.event.schedule == '0 6 * * *' || github.event.inputs.task_block == 'ALL' || github.event.inputs.task_block == 'A3'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@v4
 
@@ -82,7 +82,7 @@ jobs:
   # ============================================
   midday-products:
     if: github.event.schedule == '0 10 * * *' || github.event.inputs.task_block == 'ALL' || github.event.inputs.task_block == 'A1'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@v4
 
@@ -118,7 +118,7 @@ jobs:
   # ============================================
   evening-engagement:
     if: github.event.schedule == '0 16 * * *' || github.event.inputs.task_block == 'ALL' || github.event.inputs.task_block == 'A3'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@v4
 
@@ -197,7 +197,7 @@ jobs:
   # ============================================
   night-research:
     if: github.event.schedule == '0 22 * * *' || github.event.inputs.task_block == 'ALL' || github.event.inputs.task_block == 'D1'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@v4
 
@@ -232,7 +232,7 @@ jobs:
   # ============================================
   weekly-skills:
     if: (github.event.schedule == '0 10 * * *' && github.event.schedule != '') || github.event.inputs.task_block == 'B1' || github.event.inputs.task_block == 'B2'
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@v4
 

@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   push-merge:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     if: contains(github.ref, 'empire-infrastructure-setup')
     steps:
       - name: Checkout full repo
