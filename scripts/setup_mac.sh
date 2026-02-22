@@ -1,180 +1,343 @@
 #!/usr/bin/env bash
 # =============================================================================
-# Empire Setup — Einmaliges Mac-Setup für die Data Pipeline
+# AIEmpire — Einmaliges Mac-Setup (vollautomatisch)
 # =============================================================================
-# Ausführen mit: bash setup_mac.sh
-# Danach einfach: empire-upload datei.pdf
+#
+#   bash ~/AIEmpire-Core/scripts/setup_mac.sh
+#
+# Was dieses Script macht (automatisch, ohne weiteres Zutun):
+#   1. Server-IP abfragen
+#   2. SSH-Key erstellen falls nötig
+#   3. SSH-Key auf Server kopieren (einmal Passwort eingeben)
+#   4. iCloud-Ordner erstellen (AIEmpire-Input + AIEmpire-Results)
+#   5. fswatch installieren (Homebrew)
+#   6. Watcher als macOS LaunchAgent installieren (startet bei jedem Boot)
+#   7. Befehle empire-upload + empire-status installieren
+#   8. Server-Cron einrichten (alle 5 Min sync zurück zu iCloud)
+#   9. Pipeline auf Server starten
+#
+# Danach: Dateien in iCloud "AIEmpire-Input" ablegen → fertig.
 # =============================================================================
 
 set -euo pipefail
 
-# ─── Farben ──────────────────────────────────────────────────────────────────
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-BLUE='\033[0;34m'
-CYAN='\033[0;36m'
-BOLD='\033[1m'
-RESET='\033[0m'
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
+ICLOUD_BASE="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
+CONFIG="$HOME/.empire_config"
+LOG_DIR="$HOME/Library/Logs"
+PLIST="$HOME/Library/LaunchAgents/com.aiempire.watcher.plist"
+
+# ─── Farben + Hilfsfunktionen ─────────────────────────────────────────────────
+RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
+CYAN='\033[0;36m'; BOLD='\033[1m'; RESET='\033[0m'
+ok()   { echo -e "${GREEN}  ✅ $*${RESET}"; }
+info() { echo -e "${CYAN}  ℹ  $*${RESET}"; }
+warn() { echo -e "${YELLOW}  ⚠  $*${RESET}"; }
+err()  { echo -e "${RED}  ❌ $*${RESET}" >&2; }
+step() { echo ""; echo -e "${BOLD}${CYAN}▶ $*${RESET}"; }
+line() { echo -e "  ${CYAN}──────────────────────────────────────${RESET}"; }
 
 clear
 echo ""
-echo -e "${BOLD}${CYAN}╔══════════════════════════════════════════════════╗${RESET}"
-echo -e "${BOLD}${CYAN}║       AIEmpire Data Pipeline — Mac Setup         ║${RESET}"
-echo -e "${BOLD}${CYAN}╚══════════════════════════════════════════════════╝${RESET}"
-echo ""
-echo "  Einmaliges Setup. Danach: empire-upload datei.pdf"
-echo ""
-
-# ─── Schritt 1: Server-IP ────────────────────────────────────────────────────
-echo -e "${BOLD}Schritt 1/4 — Server-Adresse${RESET}"
-echo -e "  Gib die IP-Adresse deines Hetzner-Servers ein:"
-echo -n "  Server-IP: "
-read -r SERVER_HOST
+echo -e "${BOLD}${CYAN}"
+echo "  ╔════════════════════════════════════════════╗"
+echo "  ║       AIEmpire Data Pipeline Setup         ║"
+echo "  ║   iCloud → Hetzner → KI → iCloud zurück   ║"
+echo "  ╚════════════════════════════════════════════╝"
+echo -e "${RESET}"
+echo "  Dieses Script richtet alles einmalig ein."
+echo "  Danach legst du Dateien in iCloud ab — fertig."
 echo ""
 
-# ─── Schritt 2: SSH-Key ──────────────────────────────────────────────────────
-echo -e "${BOLD}Schritt 2/4 — SSH-Key${RESET}"
+# ═══════════════════════════════════════════════════════════════════
+# SCHRITT 1: Server-IP
+# ═══════════════════════════════════════════════════════════════════
+step "Schritt 1/8 — Server-Verbindung"
+line
 
-# Suche vorhandene Keys
+# Bestehende Config laden falls vorhanden
+[[ -f "$CONFIG" ]] && source "$CONFIG" 2>/dev/null || true
+
+if [[ -n "${SERVER_HOST:-}" ]]; then
+    echo -e "  Aktuelle Server-IP: ${CYAN}$SERVER_HOST${RESET}"
+    echo -n "  Andere IP eingeben? (Enter = beibehalten): "
+    read -r NEW_HOST
+    [[ -n "$NEW_HOST" ]] && SERVER_HOST="$NEW_HOST"
+else
+    echo -e "  Gib die IP-Adresse deines Hetzner-Servers ein:"
+    echo -n "  Server-IP: "
+    read -r SERVER_HOST
+fi
+
+SERVER_USER="${SERVER_USER:-root}"
+SERVER_PORT="${SERVER_PORT:-22}"
+
+# ═══════════════════════════════════════════════════════════════════
+# SCHRITT 2: SSH-Key
+# ═══════════════════════════════════════════════════════════════════
+step "Schritt 2/8 — SSH-Key"
+line
+
+# Vorhandene Keys finden
 AVAILABLE_KEYS=()
-for k in ~/.ssh/id_rsa ~/.ssh/id_ed25519 ~/.ssh/id_ecdsa; do
+for k in "$HOME/.ssh/id_ed25519" "$HOME/.ssh/id_rsa" "$HOME/.ssh/id_ecdsa"; do
     [[ -f "$k" ]] && AVAILABLE_KEYS+=("$k")
 done
 
 if [[ ${#AVAILABLE_KEYS[@]} -eq 0 ]]; then
-    echo -e "  ${YELLOW}Kein SSH-Key gefunden — erstelle neuen Key...${RESET}"
-    ssh-keygen -t ed25519 -C "aiempire-mac" -f ~/.ssh/id_ed25519 -N ""
+    info "Erstelle neuen SSH-Key (ed25519)..."
+    ssh-keygen -t ed25519 -C "aiempire@$(hostname)" -f "$HOME/.ssh/id_ed25519" -N ""
     AVAILABLE_KEYS=("$HOME/.ssh/id_ed25519")
-    echo -e "  ${GREEN}✅ Neuer SSH-Key erstellt: ~/.ssh/id_ed25519${RESET}"
-    echo ""
-fi
-
-if [[ ${#AVAILABLE_KEYS[@]} -eq 1 ]]; then
+    ok "Neuer SSH-Key erstellt: ~/.ssh/id_ed25519"
+elif [[ ${#AVAILABLE_KEYS[@]} -eq 1 ]]; then
     SERVER_KEY_PATH="${AVAILABLE_KEYS[0]}"
-    echo -e "  Verwende: ${CYAN}$SERVER_KEY_PATH${RESET}"
+    ok "SSH-Key gefunden: $SERVER_KEY_PATH"
 else
-    echo "  Mehrere Keys gefunden. Welchen möchtest du verwenden?"
+    echo "  Mehrere SSH-Keys vorhanden:"
     for i in "${!AVAILABLE_KEYS[@]}"; do
-        echo "  $((i+1))) ${AVAILABLE_KEYS[$i]}"
+        echo "    $((i+1))) ${AVAILABLE_KEYS[$i]}"
     done
-    echo -n "  Auswahl (1-${#AVAILABLE_KEYS[@]}): "
-    read -r KEY_CHOICE
-    SERVER_KEY_PATH="${AVAILABLE_KEYS[$((KEY_CHOICE-1))]}"
+    echo -n "  Welchen verwenden? (1-${#AVAILABLE_KEYS[@]}): "
+    read -r CHOICE
+    SERVER_KEY_PATH="${AVAILABLE_KEYS[$((CHOICE-1))]}"
+    ok "Verwende: $SERVER_KEY_PATH"
 fi
+
+# ═══════════════════════════════════════════════════════════════════
+# SCHRITT 3: SSH-Key auf Server kopieren + Verbindung testen
+# ═══════════════════════════════════════════════════════════════════
+step "Schritt 3/8 — Server verbinden"
+line
+
+info "Kopiere SSH-Key auf Server (gibt einmal das Root-Passwort ein)..."
+echo ""
+ssh-copy-id -i "${SERVER_KEY_PATH}.pub" \
+    -p "$SERVER_PORT" \
+    "${SERVER_USER}@${SERVER_HOST}" 2>/dev/null || {
+    warn "ssh-copy-id fehlgeschlagen (Key evtl. bereits vorhanden)"
+}
 echo ""
 
-# ─── Schritt 3: SSH-Key auf Server kopieren ───────────────────────────────────
-echo -e "${BOLD}Schritt 3/4 — Verbindung einrichten${RESET}"
-echo -e "  Kopiere SSH-Key auf Server (einmalig Passwort eingeben)..."
-echo ""
+SSH_CMD="ssh -i $SERVER_KEY_PATH -p $SERVER_PORT -o StrictHostKeyChecking=no -o ConnectTimeout=15 -o BatchMode=yes"
 
-SERVER_USER="root"
-if ssh-copy-id -i "${SERVER_KEY_PATH}.pub" "${SERVER_USER}@${SERVER_HOST}" 2>/dev/null; then
-    echo -e "  ${GREEN}✅ SSH-Key erfolgreich übertragen${RESET}"
-else
-    echo -e "  ${YELLOW}Hinweis: Entweder Key schon vorhanden oder manuelle Eingabe nötig${RESET}"
-fi
-echo ""
-
-# Verbindungstest
 echo -n "  Teste Verbindung... "
-if ssh -o ConnectTimeout=10 -o BatchMode=yes -o StrictHostKeyChecking=no \
-       -i "$SERVER_KEY_PATH" "${SERVER_USER}@${SERVER_HOST}" "echo ok" &>/dev/null; then
-    echo -e "${GREEN}✅ Verbunden!${RESET}"
+if $SSH_CMD "${SERVER_USER}@${SERVER_HOST}" "echo ok" &>/dev/null; then
+    ok "Verbindung erfolgreich!"
 else
-    echo -e "${RED}❌ Verbindung fehlgeschlagen${RESET}"
-    echo "  Bitte prüfe ob der Server läuft und die IP stimmt."
+    err "Verbindung fehlgeschlagen! Bitte prüfen:"
+    echo "    IP: $SERVER_HOST"
+    echo "    User: $SERVER_USER"
+    echo "    Key: $SERVER_KEY_PATH"
     exit 1
 fi
-echo ""
 
-# ─── Schritt 4: Konfiguration speichern ──────────────────────────────────────
-echo -e "${BOLD}Schritt 4/4 — Konfiguration speichern${RESET}"
+# ═══════════════════════════════════════════════════════════════════
+# SCHRITT 4: iCloud-Ordner erstellen
+# ═══════════════════════════════════════════════════════════════════
+step "Schritt 4/8 — iCloud-Ordner"
+line
 
-cat > "$HOME/.empire_config" <<EOF
-# AIEmpire Mac Konfiguration — automatisch erstellt
+INPUT_FOLDER="$ICLOUD_BASE/AIEmpire-Input"
+RESULTS_FOLDER="$ICLOUD_BASE/AIEmpire-Results"
+
+mkdir -p "$INPUT_FOLDER"
+mkdir -p "$RESULTS_FOLDER"
+mkdir -p "$RESULTS_FOLDER/_Datenbank"
+mkdir -p "$RESULTS_FOLDER/Vertraege"
+mkdir -p "$RESULTS_FOLDER/Rechnungen"
+mkdir -p "$RESULTS_FOLDER/Berichte"
+mkdir -p "$RESULTS_FOLDER/Notizen"
+mkdir -p "$RESULTS_FOLDER/Daten"
+mkdir -p "$RESULTS_FOLDER/Sonstiges"
+
+# Willkommens-Datei
+cat > "$INPUT_FOLDER/HIER_DATEIEN_ABLEGEN.txt" <<'EOF'
+AIEmpire Input-Ordner
+=====================
+Lege hier beliebige Dateien ab:
+  PDF, Word, Excel, PowerPoint
+  Bilder (JPG, PNG)
+  Audio (MP3, WAV, M4A)
+  CSV, JSON, TXT
+
+Die Dateien werden automatisch:
+  1. Zum Server übertragen
+  2. Von KI analysiert und klassifiziert
+  3. In AIEmpire-Results/ abgelegt
+
+Diese Datei hier lassen — sie stört nicht.
+EOF
+
+ok "iCloud-Ordner erstellt:"
+info "  Eingabe:  iCloud Drive/AIEmpire-Input/"
+info "  Ausgabe:  iCloud Drive/AIEmpire-Results/"
+
+# ═══════════════════════════════════════════════════════════════════
+# SCHRITT 5: Konfiguration speichern
+# ═══════════════════════════════════════════════════════════════════
+step "Schritt 5/8 — Konfiguration"
+line
+
+cat > "$CONFIG" <<EOF
+# AIEmpire Konfiguration — $(date)
 SERVER_HOST=$SERVER_HOST
 SERVER_USER=$SERVER_USER
-SERVER_PORT=22
+SERVER_PORT=$SERVER_PORT
 SERVER_KEY_PATH=$SERVER_KEY_PATH
 SERVER_INPUT_DIR=/data/input
-MAC_ICLOUD_PATH=$HOME/Library/Mobile Documents/com~apple~CloudDocs
+MAC_USER=$(whoami)
+MAC_HOST=$(ipconfig getifaddr en0 2>/dev/null || hostname)
+MAC_ICLOUD_PATH=$ICLOUD_BASE
 MAC_RESULTS_FOLDER=AIEmpire-Results
 EOF
 
-echo -e "  ${GREEN}✅ Konfiguration gespeichert: ~/.empire_config${RESET}"
+ok "Konfiguration gespeichert: ~/.empire_config"
 
-# ─── empire-upload Befehl installieren ───────────────────────────────────────
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-UPLOAD_SCRIPT="$SCRIPT_DIR/mac_upload.sh"
+# ═══════════════════════════════════════════════════════════════════
+# SCHRITT 6: fswatch installieren (Homebrew)
+# ═══════════════════════════════════════════════════════════════════
+step "Schritt 6/8 — Watcher-Software (fswatch)"
+line
 
-# In ~/bin installieren (funktioniert ohne sudo)
-mkdir -p "$HOME/bin"
-cp "$UPLOAD_SCRIPT" "$HOME/bin/empire-upload"
-chmod +x "$HOME/bin/empire-upload"
-
-# Auch empire-status installieren
-cat > "$HOME/bin/empire-status" <<'STATUSEOF'
-#!/usr/bin/env bash
-source "$HOME/.empire_config" 2>/dev/null || true
-echo "AIEmpire Pipeline Status"
-echo "========================"
-echo "Server: $SERVER_HOST"
-SSH_OPTS="-o StrictHostKeyChecking=no -o ConnectTimeout=5 -o BatchMode=yes"
-RESULT=$(ssh $SSH_OPTS -i "$SERVER_KEY_PATH" "${SERVER_USER}@${SERVER_HOST}" \
-    "python3 /root/AIEmpire-Core/empire_engine.py pipeline status 2>/dev/null" 2>&1)
-echo "$RESULT"
-STATUSEOF
-chmod +x "$HOME/bin/empire-status"
-
-# PATH in Shell-Config eintragen (falls ~/bin noch nicht drin)
-SHELL_CONFIG=""
-if [[ -f "$HOME/.zshrc" ]]; then
-    SHELL_CONFIG="$HOME/.zshrc"
-elif [[ -f "$HOME/.bash_profile" ]]; then
-    SHELL_CONFIG="$HOME/.bash_profile"
+if command -v fswatch &>/dev/null; then
+    ok "fswatch bereits installiert"
+else
+    if command -v brew &>/dev/null; then
+        info "Installiere fswatch via Homebrew..."
+        brew install fswatch
+        ok "fswatch installiert"
+    else
+        warn "Homebrew nicht gefunden — nutze Polling statt fswatch"
+        info "Homebrew installieren: https://brew.sh"
+    fi
 fi
 
-if [[ -n "$SHELL_CONFIG" ]] && ! grep -q 'HOME/bin' "$SHELL_CONFIG"; then
-    echo '' >> "$SHELL_CONFIG"
-    echo '# AIEmpire Tools' >> "$SHELL_CONFIG"
-    echo 'export PATH="$HOME/bin:$PATH"' >> "$SHELL_CONFIG"
-    echo -e "  ${GREEN}✅ ~/bin zum PATH hinzugefügt in $SHELL_CONFIG${RESET}"
-fi
+# ═══════════════════════════════════════════════════════════════════
+# SCHRITT 7: LaunchAgent installieren
+# ═══════════════════════════════════════════════════════════════════
+step "Schritt 7/8 — Auto-Start einrichten (LaunchAgent)"
+line
 
-# PATH für aktuelle Session setzen
-export PATH="$HOME/bin:$PATH"
+WATCHER_SCRIPT="$SCRIPT_DIR/mac_icloud_watcher.sh"
+chmod +x "$WATCHER_SCRIPT"
+
+# Plist mit echten Pfaden befüllen
+mkdir -p "$HOME/Library/LaunchAgents"
+cat > "$PLIST" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.aiempire.watcher</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>$WATCHER_SCRIPT</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <key>StandardOutPath</key>
+    <string>$LOG_DIR/aiempire-watcher.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>$LOG_DIR/aiempire-watcher.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>HOME</key>
+        <string>$HOME</string>
+    </dict>
+</dict>
+</plist>
+EOF
+
+# Lade LaunchAgent (stoppe alten falls vorhanden)
+launchctl unload "$PLIST" 2>/dev/null || true
+launchctl load "$PLIST"
+ok "LaunchAgent installiert — Watcher startet automatisch bei jedem Mac-Boot"
+
+# ═══════════════════════════════════════════════════════════════════
+# SCHRITT 8: Server-Cron + Pipeline starten
+# ═══════════════════════════════════════════════════════════════════
+step "Schritt 8/8 — Server einrichten"
+line
+
+SYNC_SCRIPT="/root/AIEmpire-Core/scripts/server_sync_back.sh"
+SERVER_PROJECT="/root/AIEmpire-Core"
+
+# Config auf Server kopieren
+info "Kopiere Konfiguration auf Server..."
+scp -i "$SERVER_KEY_PATH" -P "$SERVER_PORT" \
+    "$CONFIG" \
+    "${SERVER_USER}@${SERVER_HOST}:/root/AIEmpire-Core/.env" 2>/dev/null || \
+    warn "Konfiguration manuell auf Server kopieren"
+
+# Server einrichten
+info "Richte Server ein (Datenbank + Cron + Daemon)..."
+$SSH_CMD "${SERVER_USER}@${SERVER_HOST}" bash << SERVERSCRIPT
+set -e
+
+# Verzeichnisse anlegen
+mkdir -p /data/input /data/results /data/processed
+chmod +x $SERVER_PROJECT/scripts/server_sync_back.sh 2>/dev/null || true
+
+# Datenbank initialisieren
+cd $SERVER_PROJECT
+python3 data_processor/database.py stats 2>/dev/null || python3 -c "
+import sys; sys.path.insert(0, '.')
+from data_processor.database import init_db
+init_db()
+print('DB initialisiert')
+" 2>/dev/null || true
+
+# Cron einrichten (alle 5 Min: Ergebnisse nach Mac/iCloud syncen)
+(crontab -l 2>/dev/null | grep -v aiempire; echo "*/5 * * * * $SYNC_SCRIPT >> /var/log/aiempire-sync.log 2>&1") | crontab -
+echo "Cron eingerichtet"
+
+# Pipeline-Daemon im Hintergrund starten (falls nicht schon läuft)
+if ! pgrep -f "data_processor/main.py" > /dev/null; then
+    nohup python3 $SERVER_PROJECT/data_processor/main.py daemon \
+        > /var/log/aiempire-pipeline.log 2>&1 &
+    echo "Pipeline-Daemon gestartet (PID \$!)"
+else
+    echo "Pipeline-Daemon läuft bereits"
+fi
+SERVERSCRIPT
+
+ok "Server eingerichtet"
 
 # ─── Fertig! ─────────────────────────────────────────────────────────────────
 echo ""
-echo -e "${BOLD}${GREEN}╔══════════════════════════════════════════════════╗${RESET}"
-echo -e "${BOLD}${GREEN}║              Setup abgeschlossen!                ║${RESET}"
-echo -e "${BOLD}${GREEN}╚══════════════════════════════════════════════════╝${RESET}"
+echo -e "${BOLD}${GREEN}"
+echo "  ╔════════════════════════════════════════════╗"
+echo "  ║         Setup abgeschlossen! 🎉            ║"
+echo "  ╚════════════════════════════════════════════╝"
+echo -e "${RESET}"
 echo ""
 echo -e "${BOLD}So verwendest du die Pipeline:${RESET}"
 echo ""
-echo -e "  ${CYAN}empire-upload Rechnung.pdf${RESET}"
-echo -e "  ${CYAN}empire-upload ~/Downloads/mein-vertrag.docx${RESET}"
-echo -e "  ${CYAN}empire-upload ~/Desktop/*.pdf${RESET}"
+echo -e "  1. Öffne ${CYAN}Finder → iCloud Drive → AIEmpire-Input${RESET}"
+echo -e "  2. Lege beliebige Dateien dort ab"
+echo -e "  3. KI analysiert automatisch"
+echo -e "  4. Ergebnisse erscheinen in ${CYAN}iCloud Drive → AIEmpire-Results${RESET}"
 echo ""
-echo -e "  ${CYAN}empire-status${RESET}   ← zeigt was der Server gerade macht"
+echo -e "${BOLD}Unterstützte Dateitypen:${RESET}"
+echo "  PDF • Word • Excel • PowerPoint • Bilder • Audio • CSV • JSON"
 echo ""
-echo -e "Ergebnisse erscheinen automatisch in:"
-echo -e "  ${BOLD}iCloud Drive → AIEmpire-Results/${RESET}"
-echo -e "  (Vertraege / Rechnungen / Berichte / Notizen / Daten)"
-echo ""
-echo -e "${YELLOW}Hinweis: Terminal neu starten damit 'empire-upload' überall funktioniert${RESET}"
-echo ""
-
-# Schnelltest anbieten
-echo -n "Willst du die Verbindung kurz testen? (j/n): "
-read -r TEST_CHOICE
-if [[ "$TEST_CHOICE" =~ ^[jJyY]$ ]]; then
-    echo ""
-    echo "  Verbindungstest..."
-    ssh -i "$SERVER_KEY_PATH" -o StrictHostKeyChecking=no \
-        "${SERVER_USER}@${SERVER_HOST}" \
-        "echo '✅ Verbindung OK' && python3 /root/AIEmpire-Core/data_processor/main.py status 2>/dev/null || echo 'Pipeline bereit'"
-fi
+echo -e "${BOLD}Logs:${RESET}"
+echo -e "  Mac-Watcher:  ${CYAN}tail -f ~/Library/Logs/aiempire-watcher.log${RESET}"
+echo -e "  Server:       ${CYAN}ssh root@$SERVER_HOST 'tail -f /var/log/aiempire-pipeline.log'${RESET}"
 echo ""

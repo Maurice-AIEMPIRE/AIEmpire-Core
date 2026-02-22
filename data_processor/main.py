@@ -43,6 +43,14 @@ from data_processor.sftp_bridge import (
     SERVER_OUTPUT_DIR,
     SERVER_PROCESSED_DIR,
 )
+from data_processor.database import (
+    init_db,
+    save_document,
+    already_processed,
+    run_exports,
+    get_stats,
+    DB_PATH,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -108,6 +116,9 @@ class EmpireDataProcessor:
         self.auto_push = auto_push
         self._processed_count = 0
 
+        # Datenbank initialisieren
+        init_db(DB_PATH)
+
     async def start(self):
         """Starte als Daemon (Watch-Modus)."""
         logger.info("=" * 60)
@@ -141,37 +152,50 @@ class EmpireDataProcessor:
         logger.info(f"\n{'─'*50}")
         logger.info(f"📥 Verarbeite: {fp.name}")
 
+        # Duplikat-Check (Hash-basiert)
+        if already_processed(str(fp)):
+            logger.info(f"  ⏭  Bereits in DB — überspringe: {fp.name}")
+            archive_path = self.processed_dir / fp.name
+            shutil.move(str(fp), str(archive_path))
+            return {"file": fp.name, "status": "duplicate_skipped"}
+
         try:
             # Phase 1: Extract
             processor = get_processor(fp)
             extracted = await processor.process()
             logger.info(f"  ✓ Extrahiert: {extracted.get('content_type', '?')}")
 
-            # Phase 2: Analyze (3 Layers)
+            # Phase 2: Analyze (3 Layers: Qwen → DeepSeek → Cross-Verify)
             analysis = await self.analyzer.analyze(extracted)
             icloud_folder = analysis.get("final", {}).get("icloud_folder", "Sonstiges")
             importance = analysis.get("final", {}).get("importance", "?")
             logger.info(f"  ✓ Analysiert: [{importance}] → {icloud_folder}/")
 
-            # Phase 3: Format & Save
+            # Phase 3: In Datenbank speichern
+            doc_id = save_document(str(fp), extracted, analysis)
+            logger.info(f"  ✓ Datenbank: ID #{doc_id}")
+
+            # Phase 4: Format & Save (Markdown + JSON in iCloud-Ordner)
             outputs = await self.formatter.format_and_save(extracted, analysis)
             logger.info(f"  ✓ Gespeichert: {outputs['markdown']}")
 
-            # Phase 4: Archive Original
+            # Phase 5: Archive Original
             archive_path = self.processed_dir / fp.name
             shutil.move(str(fp), str(archive_path))
             logger.info(f"  ✓ Archiviert: {archive_path}")
 
             self._processed_count += 1
 
-            # Phase 5: Auto-Push nach iCloud (optional)
+            # Phase 6: Auto-Push nach iCloud (optional)
             if self.auto_push:
+                run_exports()           # DB-Exports (JSON, CSV, Markdown)
                 generate_index(self.output_dir)
                 await push_results_to_mac(self.output_dir)
 
             logger.info(f"  ✅ FERTIG: {fp.name} ({analysis.get('total_analysis_time_s', '?')}s)")
             return {
                 "file": fp.name,
+                "db_id": doc_id,
                 "icloud_folder": icloud_folder,
                 "importance": importance,
                 "outputs": outputs,
@@ -198,12 +222,15 @@ class EmpireDataProcessor:
             if result:
                 results.append(result)
 
-        # Index + Push nach Batch
+        # DB-Exports + Index + Push nach Batch
+        run_exports()
         generate_index(self.output_dir)
+        stats = get_stats()
+        logger.info(f"\nBatch fertig: {len(results)}/{len(files)} erfolgreich")
+        logger.info(f"Datenbank: {stats['total_documents']} Dokumente gesamt")
         if self.auto_push:
             await push_results_to_mac(self.output_dir)
 
-        logger.info(f"\nBatch fertig: {len(results)}/{len(files)} erfolgreich")
         return results
 
 
@@ -214,7 +241,27 @@ async def main():
 
     if cmd == "status":
         import json
-        print(json.dumps(pipeline_status(), indent=2, ensure_ascii=False))
+        init_db()
+        status = pipeline_status()
+        status["database"] = get_stats()
+        print(json.dumps(status, indent=2, ensure_ascii=False))
+
+    elif cmd == "db":
+        import json
+        init_db()
+        sub = sys.argv[2] if len(sys.argv) > 2 else "stats"
+        if sub == "stats":
+            print(json.dumps(get_stats(), indent=2, ensure_ascii=False))
+        elif sub == "export":
+            paths = run_exports()
+            for fmt, path in paths.items():
+                print(f"{fmt}: {path}")
+        elif sub == "search":
+            from data_processor.database import search
+            q = " ".join(sys.argv[3:]) if len(sys.argv) > 3 else "*"
+            results = search(q)
+            for r in results:
+                print(f"[{r['importance']}] {r['file_name']} → {r['icloud_folder']} — {(r['summary'] or '')[:80]}")
 
     elif cmd == "push":
         generate_index()

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  AIEmpire iCloud Watcher — macOS LaunchAgent
+  Installiert mit: launchctl load ~/Library/LaunchAgents/com.aiempire.watcher.plist
+  Startet automatisch bei jedem Mac-Start und nach Abstürzen neu.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.aiempire.watcher</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>WATCHER_PATH_PLACEHOLDER</string>
+    </array>
+
+    <!-- Automatisch starten wenn Mac hochfährt -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Neustart bei Absturz (nach 10 Sekunden) -->
+    <key>KeepAlive</key>
+    <true/>
+
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <!-- Log-Dateien -->
+    <key>StandardOutPath</key>
+    <string>LOG_PATH_PLACEHOLDER</string>
+
+    <key>StandardErrorPath</key>
+    <string>LOG_PATH_PLACEHOLDER</string>
+
+    <!-- Umgebungsvariablen für SSH -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+        <key>HOME</key>
+        <string>HOME_PATH_PLACEHOLDER</string>
+    </dict>
+</dict>
+</plist>
