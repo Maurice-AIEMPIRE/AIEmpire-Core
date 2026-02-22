@@ -1,42 +1,67 @@
 # ═══════════════════════════════════════════════════════════════
-# LiteLLM Proxy Configuration
-# Unified API gateway for all AI providers
+# LiteLLM Proxy Configuration - Ollama-First Mode
+# Unified API gateway: Ollama (95%) → Gemini (4%) → Kimi (1%)
+# System runs fully offline with Ollama - cloud APIs optional
 # ═══════════════════════════════════════════════════════════════
 
 model_list:
-  # ─── Google Gemini (Primary Cloud Provider) ─────────────────
-  - model_name: gemini-flash
-    litellm_params:
-      model: gemini/gemini-2.0-flash
-      api_key: os.environ/GEMINI_API_KEY
-
-  - model_name: gemini-pro
-    litellm_params:
-      model: gemini/gemini-2.0-pro
-      api_key: os.environ/GEMINI_API_KEY
-
-  - model_name: gemini-thinking
-    litellm_params:
-      model: gemini/gemini-2.0-flash-thinking
-      api_key: os.environ/GEMINI_API_KEY
-
-  # ─── Ollama (Local - Free, Offline) ─────────────────────────
+  # ─── Ollama (PRIMARY - Free, Local, Offline) ────────────────
   - model_name: qwen-14b
     litellm_params:
       model: ollama/qwen2.5-coder:14b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
+      timeout: 180
+      stream: true
 
   - model_name: qwen-7b
     litellm_params:
       model: ollama/qwen2.5-coder:7b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
+      timeout: 120
+      stream: true
 
   - model_name: deepseek-r1
     litellm_params:
       model: ollama/deepseek-r1:7b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
+      timeout: 180
+      stream: true
 
-  # ─── Moonshot/Kimi (Backup Cloud) ───────────────────────────
+  # ─── Ollama aliases for compatibility ───────────────────────
+  # Workers/configs that reference gemini-flash/pro get Ollama instead
+  - model_name: gemini-flash
+    litellm_params:
+      model: ollama/qwen2.5-coder:7b
+      api_base: http://host.docker.internal:11434
+      timeout: 120
+      stream: true
+
+  - model_name: gemini-pro
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://host.docker.internal:11434
+      timeout: 180
+      stream: true
+
+  - model_name: gemini-thinking
+    litellm_params:
+      model: ollama/deepseek-r1:7b
+      api_base: http://host.docker.internal:11434
+      timeout: 180
+      stream: true
+
+  # ─── Google Gemini (Optional Cloud - add API key to enable) ─
+  - model_name: gemini-cloud-flash
+    litellm_params:
+      model: gemini/gemini-2.0-flash
+      api_key: os.environ/GEMINI_API_KEY
+
+  - model_name: gemini-cloud-pro
+    litellm_params:
+      model: gemini/gemini-2.0-pro
+      api_key: os.environ/GEMINI_API_KEY
+
+  # ─── Moonshot/Kimi (Optional Cloud Backup) ─────────────────
   - model_name: kimi
     litellm_params:
       model: openai/kimi-k2.5
@@ -46,23 +71,32 @@ model_list:
 # ─── Router Settings ─────────────────────────────────────────
 router_settings:
   routing_strategy: "least-busy"
-  num_retries: 2
-  timeout: 120
+  num_retries: 3
+  timeout: 180
   allowed_fails: 3
-  cooldown_time: 60
+  cooldown_time: 30
 
 # ─── Fallback Configuration ──────────────────────────────────
 litellm_settings:
   fallbacks:
+    - qwen-7b:
+        - qwen-14b
+        - deepseek-r1
+    - qwen-14b:
+        - qwen-7b
+        - deepseek-r1
+    - deepseek-r1:
+        - qwen-14b
+        - qwen-7b
     - gemini-flash:
         - qwen-7b
-        - kimi
+        - qwen-14b
     - gemini-pro:
         - qwen-14b
-        - kimi
+        - deepseek-r1
     - gemini-thinking:
         - deepseek-r1
         - qwen-14b
   set_verbose: false
   drop_params: true
-  request_timeout: 120
+  request_timeout: 180
