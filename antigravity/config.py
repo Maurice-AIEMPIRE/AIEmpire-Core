@@ -98,6 +98,15 @@ GEMINI_FLASH = "gemini-2.0-flash"
 GEMINI_PRO = "gemini-2.0-pro"
 GEMINI_FLASH_THINKING = "gemini-2.0-flash-thinking"
 
+# ─── HTTP Timeout Constants (seconds) ─────────────────────────────
+# Standardized across all HTTP clients to prevent timeout chaos
+TIMEOUT_HEALTH_CHECK = 3       # Quick alive/dead checks
+TIMEOUT_QUICK_OP = 10          # Model listing, status queries
+TIMEOUT_STANDARD = 60          # Normal API requests
+TIMEOUT_GENERATION = 120       # LLM text generation (Gemini, Kimi)
+TIMEOUT_OLLAMA_GENERATE = 300  # Ollama local generation (slow on CPU)
+TIMEOUT_STREAMING = 300        # Streaming responses (long-running)
+
 # ─── Project Paths ──────────────────────────────────────────────────
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ANTIGRAVITY_DIR = os.path.join(PROJECT_ROOT, "antigravity")
