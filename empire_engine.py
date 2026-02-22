@@ -525,6 +525,30 @@ def main():
         print("  Mirror System (Mac <-> Gemini Dual-Brain)...")
         os.system(f"python3 {PROJECT_ROOT / 'mirror-system' / 'sync' / 'sync_manager.py'}")
 
+    # ─── DATA PIPELINE ────────────────────────────────────────────────────────
+    elif command == "pipeline":
+        sub = sys.argv[2] if len(sys.argv) > 2 else "status"
+        os.system(f"python3 {PROJECT_ROOT / 'data_processor' / 'main.py'} {sub} {' '.join(sys.argv[3:])}")
+
+    elif command == "pipeline-watch":
+        # Daemon-Modus: Watch Input-Ordner + automatisch verarbeiten
+        auto_push = "--push" in sys.argv
+        push_flag = "--push" if auto_push else ""
+        print("  Data Pipeline Daemon — überwacht /data/input/ auf neue Dateien")
+        print(f"  Auto-Push nach iCloud: {'JA' if auto_push else 'NEIN (--push hinzufügen)'}")
+        os.system(f"python3 {PROJECT_ROOT / 'data_processor' / 'main.py'} daemon {push_flag}")
+
+    elif command == "pipeline-batch":
+        # Alle Dateien in /data/input/ sofort verarbeiten
+        push_flag = "--push" if "--push" in sys.argv else ""
+        print("  Data Pipeline Batch — verarbeite alle Dateien in /data/input/")
+        os.system(f"python3 {PROJECT_ROOT / 'data_processor' / 'main.py'} batch {push_flag}")
+
+    elif command == "pipeline-push":
+        # Ergebnisse manuell nach iCloud pushen
+        print("  Pushe Ergebnisse nach Mac/iCloud...")
+        os.system(f"python3 {PROJECT_ROOT / 'data_processor' / 'main.py'} push")
+
     else:
         show_dashboard()
 

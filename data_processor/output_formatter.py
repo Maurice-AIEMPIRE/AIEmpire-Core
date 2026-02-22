@@ -1,156 +1,234 @@
 """
-Output Formatter - Strukturiert Ergebnisse in Folder + Excel + Markdown + JSON
+Output Formatter — Strukturiert Analyse-Ergebnisse in iCloud-Ordner
+====================================================================
+Ausgabe pro Datei:
+  /data/results/<icloud_folder>/
+    <dateiname>_report.md      ← Lesbarer Bericht
+    <dateiname>_analysis.json  ← Vollständige Daten
+
+iCloud-Ordner werden automatisch durch Layer 3 (Cross-Verify) zugewiesen:
+  Vertraege | Rechnungen | Berichte | Notizen | Daten | Bilder | Sonstiges
 """
 
 import json
-import asyncio
-from pathlib import Path
-from typing import Dict, Any, List
-from datetime import datetime
 import logging
+from datetime import datetime
+from pathlib import Path
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
+# Standard iCloud-Ordner (darf durch AI erweitert werden)
+ICLOUD_FOLDERS = {
+    "Vertraege", "Rechnungen", "Berichte", "Notizen",
+    "Daten", "Bilder", "Audio", "Code", "Sonstiges",
+}
+
 
 class OutputFormatter:
-    """Erstellt strukturierte Output in verschiedenen Formaten"""
+    """Erstellt strukturierten Output für iCloud-Sync."""
 
-    def __init__(self, output_dir="/data/results"):
+    def __init__(self, output_dir: str = "/data/results"):
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
     async def format_and_save(
-        self, extracted: Dict[str, Any], analysis: Dict[str, Any]
-    ) -> Dict[str, Any]:
-        """Formatiere Daten und speichere in alle Formate"""
+        self, extracted: dict[str, Any], analysis: dict[str, Any]
+    ) -> dict[str, Any]:
+        """
+        Erstelle strukturierten Output.
+
+        Args:
+            extracted: Output des File-Prozessors (Rohdaten)
+            analysis:  Output des EmpireAnalyzers (AI-Analyse)
+
+        Returns:
+            Pfade der erstellten Dateien
+        """
         file_name = extracted.get("file_name", "unknown")
-        category = self._determine_category(analysis)
+        stem = Path(file_name).stem
 
-        # Erstelle Kategorie-Ordner
-        category_dir = self.output_dir / category
-        category_dir.mkdir(parents=True, exist_ok=True)
+        # iCloud-Ordner aus Layer 3 (Cross-Verify)
+        final = analysis.get("final", {})
+        icloud_folder = self._safe_folder(final.get("icloud_folder", "Sonstiges"))
 
-        # Speichere in verschiedenen Formaten
-        results = {
-            "json": await self._save_as_json(
-                file_name, extracted, analysis, category_dir
-            ),
-            "markdown": await self._save_as_markdown(
-                file_name, extracted, analysis, category_dir
-            ),
+        # Erstelle Ziel-Ordner
+        dest_dir = self.output_dir / icloud_folder
+        dest_dir.mkdir(parents=True, exist_ok=True)
+
+        # Speichere beide Formate parallel
+        json_path = await self._save_json(stem, extracted, analysis, dest_dir)
+        md_path = await self._save_markdown(stem, file_name, extracted, analysis, dest_dir)
+
+        logger.info(f"📁 Gespeichert in [{icloud_folder}]: {stem}")
+        return {
+            "json": json_path,
+            "markdown": md_path,
+            "folder": icloud_folder,
+            "dest_dir": str(dest_dir),
         }
 
-        return results
+    def _safe_folder(self, folder: str) -> str:
+        """Stelle sicher dass Ordner-Name sicher ist (kein Path Traversal)."""
+        clean = "".join(c for c in folder if c.isalnum() or c in "-_")
+        return clean if clean else "Sonstiges"
 
-    def _determine_category(self, analysis: Dict[str, Any]) -> str:
-        """Bestimme Kategorie basierend auf Analyse"""
-        ollama = analysis.get("ollama_analysis", {})
-        categories = ollama.get("categories", ["Sonstiges"])
-        return categories[0] if categories else "Sonstiges"
-
-    async def _save_as_json(
+    async def _save_json(
         self,
-        file_name: str,
-        extracted: Dict[str, Any],
-        analysis: Dict[str, Any],
-        output_dir: Path,
+        stem: str,
+        extracted: dict,
+        analysis: dict,
+        dest_dir: Path,
     ) -> str:
-        """Speichere als JSON mit voller Struktur"""
-        json_file = output_dir / f"{Path(file_name).stem}_analysis.json"
-
+        """Speichere vollständige Analyse als JSON."""
+        path = dest_dir / f"{stem}_analysis.json"
         output = {
             "metadata": {
-                "original_file": file_name,
+                "original_file": extracted.get("file_name"),
                 "processed_date": datetime.now().isoformat(),
                 "file_type": extracted.get("file_type"),
+                "pipeline": analysis.get("pipeline"),
+                "total_analysis_time_s": analysis.get("total_analysis_time_s"),
             },
-            "extraction": self._clean_for_json(extracted),
-            "analysis": self._clean_for_json(analysis),
+            "final": analysis.get("final", {}),
+            "extraction_summary": self._extraction_summary(extracted),
+            "full_analysis": {
+                "layer1_qwen": analysis.get("layer1_qwen", {}),
+                "layer2_deepseek": analysis.get("layer2_deepseek", {}),
+                "layer3_verified": analysis.get("layer3_verified", {}),
+            },
         }
-
         try:
-            with open(json_file, "w", encoding="utf-8") as f:
-                json.dump(output, f, indent=2, ensure_ascii=False)
-            logger.info(f"✅ JSON gespeichert: {json_file}")
-            return str(json_file)
+            path.write_text(
+                json.dumps(output, indent=2, ensure_ascii=False), encoding="utf-8"
+            )
         except Exception as e:
-            logger.error(f"JSON-Fehler: {str(e)}")
-            return ""
+            logger.error(f"JSON-Fehler: {e}")
+        return str(path)
 
-    async def _save_as_markdown(
+    async def _save_markdown(
         self,
+        stem: str,
         file_name: str,
-        extracted: Dict[str, Any],
-        analysis: Dict[str, Any],
-        output_dir: Path,
+        extracted: dict,
+        analysis: dict,
+        dest_dir: Path,
     ) -> str:
-        """Speichere als strukturiertes Markdown"""
-        md_file = output_dir / f"{Path(file_name).stem}_report.md"
+        """Speichere lesbaren Markdown-Bericht."""
+        path = dest_dir / f"{stem}_report.md"
+        final = analysis.get("final", {})
+        qwen = analysis.get("layer1_qwen", {})
+        deepseek = analysis.get("layer2_deepseek", {})
+        verified = analysis.get("layer3_verified", {})
+        now = datetime.now().strftime("%d.%m.%Y %H:%M")
 
-        ollama = analysis.get("ollama_analysis", {})
-        claude = analysis.get("claude_analysis", {})
+        # Badges
+        importance = final.get("importance", "mittel")
+        importance_badge = {"hoch": "🔴 HOCH", "mittel": "🟡 MITTEL", "niedrig": "🟢 NIEDRIG"}.get(
+            importance, importance
+        )
+        follow_up = "⚠️ JA" if final.get("follow_up_needed") else "✅ NEIN"
+        personal = "🔒 JA" if final.get("has_personal_data") else "✅ NEIN"
 
-        md_content = f"""# Analyse-Bericht: {file_name}
+        md = f"""# {file_name}
 
-**Verarbeitungsdatum:** {datetime.now().strftime('%d.%m.%Y %H:%M')}
-**Dateityp:** {extracted.get('file_type', 'unknown')}
+| Feld | Wert |
+|------|------|
+| **Verarbeitungsdatum** | {now} |
+| **Dateityp** | `{extracted.get("file_type", "?")}` |
+| **Dokument-Typ** | {final.get("document_type", "?")} |
+| **iCloud-Ordner** | 📂 {final.get("icloud_folder", "Sonstiges")} |
+| **Wichtigkeit** | {importance_badge} |
+| **Follow-up nötig** | {follow_up} |
+| **Personenbezogene Daten** | {personal} |
+| **Analyse-Zeit** | {analysis.get("total_analysis_time_s", "?")}s |
+| **Pipeline** | `{analysis.get("pipeline", "?")}` |
 
-## Schnellanalyse (Ollama)
+---
 
-**Zusammenfassung:**
-{ollama.get('summary', 'Keine Zusammenfassung')}
+## Zusammenfassung
 
-**Kategorien:** {', '.join(ollama.get('categories', []))}
+{final.get("summary", "Keine Zusammenfassung verfügbar")}
 
-**Stichworte:** {', '.join(ollama.get('keywords', []))}
+**Keywords:** {", ".join(f"`{k}`" for k in final.get("keywords", []))}
 
-**Stimmung:** {ollama.get('sentiment', 'neutral')}
+**Tags:** {", ".join(f"#{t}" for t in final.get("tags", []))}
 
 ---
 
-"""
+## Erkenntnisse (DeepSeek R1)
 
-        if claude:
-            md_content += f"""## Tiefenanalyse (Claude)
+{self._md_list(final.get("insights", []))}
 
-**Detaillierte Zusammenfassung:**
-{claude.get('detailed_summary', 'N/A')}
+## Empfohlene Aktionen
 
-### Erkenntnisse
-{self._format_list(claude.get('main_insights', []))}
+{self._md_list(final.get("actions", []))}
 
-### Handlungsempfehlungen
-{self._format_list(claude.get('actionable_items', []))}
+## Risiken & Probleme
 
-### Risiken
-{self._format_list(claude.get('risks', []))}
-
-### Empfehlungen
-{self._format_list(claude.get('recommendations', []))}
+{self._md_list(deepseek.get("risks_and_issues", []))}
 
 ---
+
+## Layer 1: Qwen Schnellanalyse
+
+- **Thema:** {qwen.get("main_topic", "?")}
+- **Kategorie:** {", ".join(qwen.get("categories", []))}
+- **Stimmung:** {qwen.get("sentiment", "?")}
+- **Sprache:** {qwen.get("language", "?")}
+- **Konfidenz:** {qwen.get("confidence", "?")}
+- **Modell:** `{qwen.get("_model", "?")}` ({qwen.get("_latency_s", "?")}s)
+
+## Layer 3: Cross-Verification
+
+- **Konsens-Score:** {verified.get("consensus_score", "?")}
+- **Konflikte:** {"JA — " + verified.get("conflict_details", "") if verified.get("conflicts_found") else "Keine"}
+- **Verifier-Modell:** `{verified.get("_model", "?")}`
+
+---
+*Generiert von AIEmpire Data Pipeline*
 """
+
+        # Entitäten falls vorhanden
+        entities = deepseek.get("entities", {})
+        entity_lines = []
+        for etype, items in entities.items():
+            if items:
+                entity_lines.append(f"- **{etype.capitalize()}:** {', '.join(str(i) for i in items)}")
+        if entity_lines:
+            md += "\n## Erkannte Entitäten\n\n" + "\n".join(entity_lines) + "\n"
 
         try:
-            with open(md_file, "w", encoding="utf-8") as f:
-                f.write(md_content)
-            logger.info(f"✅ Markdown gespeichert: {md_file}")
-            return str(md_file)
+            path.write_text(md, encoding="utf-8")
         except Exception as e:
-            logger.error(f"Markdown-Fehler: {str(e)}")
-            return ""
+            logger.error(f"Markdown-Fehler: {e}")
+        return str(path)
 
-    def _format_list(self, items: List[str]) -> str:
-        """Formatiere Liste als Markdown"""
-        return "\n".join([f"- {item}" for item in items]) if items else "Keine Items"
+    def _md_list(self, items: list) -> str:
+        """Formatiere als Markdown-Liste."""
+        if not items:
+            return "_Keine Einträge_"
+        return "\n".join(f"- {item}" for item in items)
 
-    def _clean_for_json(self, obj: Any) -> Any:
-        """Entferne nicht-serialisierbare Objekte"""
-        if isinstance(obj, dict):
-            return {k: self._clean_for_json(v) for k, v in obj.items()}
-        elif isinstance(obj, list):
-            return [self._clean_for_json(item) for item in obj]
-        elif isinstance(obj, (str, int, float, bool, type(None))):
-            return obj
-        else:
-            return str(obj)
+    def _extraction_summary(self, extracted: dict) -> dict:
+        """Kompakte Zusammenfassung der Extraktion (ohne riesige Rohdaten)."""
+        ct = extracted.get("content_type", "")
+        summary = {
+            "content_type": ct,
+            "processing_status": extracted.get("processing_status"),
+        }
+        if ct == "pdf":
+            pages = extracted.get("text", [])
+            summary["page_count"] = len(pages)
+            summary["total_chars"] = sum(len(p.get("content", "")) for p in pages)
+        elif ct == "csv":
+            summary["row_count"] = extracted.get("row_count", 0)
+            summary["column_count"] = extracted.get("column_count", 0)
+            summary["columns"] = extracted.get("columns", [])
+        elif ct == "image":
+            summary["dimensions"] = extracted.get("dimensions")
+            summary["has_ocr"] = bool(extracted.get("ocr_text"))
+        elif ct == "audio":
+            summary["duration_s"] = extracted.get("duration_s")
+            summary["has_transcription"] = bool(extracted.get("transcription"))
+        return summary

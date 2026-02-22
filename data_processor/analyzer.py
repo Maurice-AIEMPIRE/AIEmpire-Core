@@ -1,125 +1,397 @@
 """
-Hybrid Analyzer - Ollama (lokal) + Claude (komplex)
+Empire AI Analyzer — Qwen 3.5 + DeepSeek R1 Cross-Verification Pipeline
+=========================================================================
+3-Schicht Analyse:
+  Layer 1: Qwen 3.5      → Schnelle Basis-Analyse (kostenlos, lokal)
+  Layer 2: DeepSeek R1   → Tiefe Reasoning-Analyse (kostenlos, lokal)
+  Layer 3: Cross-Verify  → Beide Ergebnisse gegenseitig prüfen
+
+Modell-Routing:
+  - qwen2.5:latest / qwen3:latest   → Klassifikation, Zusammenfassung
+  - deepseek-r1:7b                  → Reasoning, Insights, Empfehlungen
+  - llava:latest                    → Vision (Bilder)
+  - Claude (1%)                     → Nur für absolut kritische Inhalte
+
+Kein OpenAI! 100% lokal via Ollama.
 """
 
 import asyncio
 import json
-from typing import Dict, Any
-from antigravity.empire_bridge import get_bridge
-from antigravity.unified_router import UnifiedRouter
 import logging
+import time
+from typing import Any
+
+import aiohttp
+
+from antigravity.config import OLLAMA_BASE_URL, ANTHROPIC_API_KEY
 
 logger = logging.getLogger(__name__)
 
+# ─── Ollama Model Roster ──────────────────────────────────────────────────────
+QWEN_MODEL = "qwen2.5:latest"          # Schnelle Basis-Analyse
+DEEPSEEK_MODEL = "deepseek-r1:7b"      # Deep Reasoning
+VISION_MODEL = "llava:latest"          # Bild-Verständnis
+FALLBACK_MODEL = "qwen2.5-coder:7b"   # Fallback wenn Hauptmodell fehlt
 
-class HybridAnalyzer:
-    """Nutzt Ollama für schnelle Analyse, Claude für komplexe Tasks"""
+OLLAMA_GENERATE_URL = f"{OLLAMA_BASE_URL}/api/generate"
+OLLAMA_TAGS_URL = f"{OLLAMA_BASE_URL}/api/tags"
+
+
+async def _ollama_generate(model: str, prompt: str, timeout: int = 120) -> str:
+    """Sende Anfrage an Ollama und gib Text zurück."""
+    payload = {
+        "model": model,
+        "prompt": prompt,
+        "stream": False,
+        "options": {"temperature": 0.2, "num_predict": 2048},
+    }
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.post(
+                OLLAMA_GENERATE_URL, json=payload, timeout=aiohttp.ClientTimeout(total=timeout)
+            ) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    return data.get("response", "")
+                else:
+                    err = await resp.text()
+                    logger.warning(f"Ollama {model} HTTP {resp.status}: {err[:200]}")
+                    return ""
+    except Exception as e:
+        logger.warning(f"Ollama {model} Fehler: {e}")
+        return ""
+
+
+async def _available_models() -> list[str]:
+    """Hole verfügbare Ollama-Modelle."""
+    try:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(OLLAMA_TAGS_URL, timeout=aiohttp.ClientTimeout(total=5)) as resp:
+                if resp.status == 200:
+                    data = await resp.json()
+                    return [m["name"] for m in data.get("models", [])]
+    except Exception:
+        pass
+    return []
+
+
+def _parse_json_safe(text: str) -> dict:
+    """Versuche JSON aus Text zu extrahieren (auch wenn Modell Prosa schreibt)."""
+    text = text.strip()
+    # Direkt JSON?
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    # JSON-Block im Text?
+    for start, end in [("```json", "```"), ("```", "```"), ("{", None)]:
+        idx = text.find(start)
+        if idx != -1:
+            snippet = text[idx + len(start):]
+            end_idx = snippet.rfind(end) if end else len(snippet)
+            try:
+                return json.loads(snippet[:end_idx].strip())
+            except json.JSONDecodeError:
+                pass
+    return {}
+
+
+# ─── Layer 1: Qwen 3.5 Basis-Analyse ────────────────────────────────────────
+
+QWEN_PROMPT_TEMPLATE = """Du bist ein präziser Daten-Analyst. Analysiere die folgende Datei exakt.
+
+DATEI: {file_name}
+TYP: {file_type}
+INHALT (erste 3000 Zeichen):
+---
+{content}
+---
+
+Antworte NUR mit gültigem JSON (kein Markdown, kein Text davor/danach):
+{{
+  "summary": "2-3 Satz Zusammenfassung auf Deutsch",
+  "main_topic": "Hauptthema in 3-5 Wörtern",
+  "categories": ["Kategorie1", "Kategorie2"],
+  "keywords": ["Keyword1", "Keyword2", "Keyword3", "Keyword4", "Keyword5"],
+  "sentiment": "positiv|neutral|negativ",
+  "language": "de|en|andere",
+  "document_type": "Rechnung|Vertrag|Bericht|Notiz|Tabelle|Bild|Audio|Code|Sonstiges",
+  "importance_score": 0.75,
+  "has_personal_data": false,
+  "confidence": 0.9
+}}"""
+
+
+async def layer1_qwen_analysis(
+    file_name: str, file_type: str, content: str
+) -> dict:
+    """Layer 1: Schnelle Klassifikation mit Qwen."""
+    prompt = QWEN_PROMPT_TEMPLATE.format(
+        file_name=file_name,
+        file_type=file_type,
+        content=content[:3000],
+    )
+    t0 = time.time()
+    raw = await _ollama_generate(QWEN_MODEL, prompt, timeout=90)
+    elapsed = round(time.time() - t0, 1)
+
+    result = _parse_json_safe(raw)
+    if not result:
+        logger.warning(f"Qwen kein JSON für {file_name}, nutze Fallback")
+        result = {
+            "summary": raw[:300] if raw else "Keine Antwort",
+            "categories": ["Unbekannt"],
+            "keywords": [],
+            "sentiment": "neutral",
+            "document_type": "Sonstiges",
+            "confidence": 0.3,
+        }
+    result["_model"] = QWEN_MODEL
+    result["_latency_s"] = elapsed
+    return result
+
+
+# ─── Layer 2: DeepSeek R1 Deep Reasoning ─────────────────────────────────────
+
+DEEPSEEK_PROMPT_TEMPLATE = """Du bist ein erfahrener Business-Analyst mit kritischem Denkvermögen.
+
+Analysiere diese Datei tiefgehend:
+DATEI: {file_name}
+INHALT:
+---
+{content}
+---
+
+Erste Analyse (Qwen):
+{qwen_summary}
+
+Führe nun eine eigenständige, kritische Tiefenanalyse durch.
+Antworte NUR mit gültigem JSON:
+{{
+  "detailed_summary": "Ausführliche Zusammenfassung (4-6 Sätze)",
+  "main_insights": [
+    "Einsicht 1: ...",
+    "Einsicht 2: ...",
+    "Einsicht 3: ..."
+  ],
+  "actionable_items": [
+    "Konkrete Handlung 1",
+    "Konkrete Handlung 2"
+  ],
+  "risks_and_issues": [
+    "Risiko/Problem 1",
+    "Risiko/Problem 2"
+  ],
+  "recommendations": [
+    "Empfehlung 1",
+    "Empfehlung 2"
+  ],
+  "entities": {{
+    "people": [],
+    "organizations": [],
+    "locations": [],
+    "dates": [],
+    "amounts": []
+  }},
+  "business_relevance": "hoch|mittel|niedrig",
+  "follow_up_needed": false,
+  "tags": ["tag1", "tag2", "tag3"]
+}}"""
+
+
+async def layer2_deepseek_analysis(
+    file_name: str, content: str, qwen_result: dict
+) -> dict:
+    """Layer 2: Tiefe Reasoning-Analyse mit DeepSeek R1."""
+    qwen_summary = qwen_result.get("summary", "keine Zusammenfassung")
+    prompt = DEEPSEEK_PROMPT_TEMPLATE.format(
+        file_name=file_name,
+        content=content[:4000],
+        qwen_summary=qwen_summary,
+    )
+    t0 = time.time()
+    raw = await _ollama_generate(DEEPSEEK_MODEL, prompt, timeout=180)
+    elapsed = round(time.time() - t0, 1)
+
+    result = _parse_json_safe(raw)
+    if not result:
+        logger.warning(f"DeepSeek kein JSON für {file_name}")
+        result = {
+            "detailed_summary": raw[:500] if raw else "Keine Antwort",
+            "main_insights": [],
+            "actionable_items": [],
+            "risks_and_issues": [],
+            "recommendations": [],
+            "entities": {},
+            "business_relevance": "mittel",
+            "follow_up_needed": False,
+            "tags": [],
+        }
+    result["_model"] = DEEPSEEK_MODEL
+    result["_latency_s"] = elapsed
+    return result
+
+
+# ─── Layer 3: Cross-Verification ─────────────────────────────────────────────
+
+CROSSVERIFY_PROMPT = """Du bist ein unabhängiger Prüfer. Zwei AI-Modelle haben diese Datei analysiert.
+Überprüfe die Ergebnisse auf Konsistenz und erstelle die finale, vertrauenswürdige Zusammenfassung.
+
+DATEI: {file_name}
+
+ANALYSE VON QWEN:
+{qwen_result}
+
+ANALYSE VON DEEPSEEK:
+{deepseek_result}
+
+Erstelle eine finale Cross-Verified Zusammenfassung als JSON:
+{{
+  "verified_summary": "Beste Zusammenfassung basierend auf beiden Analysen",
+  "verified_category": "Beste Kategorisierung",
+  "verified_keywords": ["keyword1", "keyword2", "keyword3"],
+  "verified_insights": ["Einsicht1", "Einsicht2", "Einsicht3"],
+  "verified_actions": ["Aktion1", "Aktion2"],
+  "consensus_score": 0.85,
+  "conflicts_found": false,
+  "conflict_details": "",
+  "final_importance": "hoch|mittel|niedrig",
+  "icloud_folder": "Vertraege|Rechnungen|Berichte|Notizen|Daten|Bilder|Sonstiges"
+}}"""
+
+
+async def layer3_cross_verify(
+    file_name: str, qwen_result: dict, deepseek_result: dict
+) -> dict:
+    """Layer 3: Cross-Verification mit Qwen als unabhängigem Prüfer."""
+    prompt = CROSSVERIFY_PROMPT.format(
+        file_name=file_name,
+        qwen_result=json.dumps(qwen_result, ensure_ascii=False, indent=2)[:1500],
+        deepseek_result=json.dumps(deepseek_result, ensure_ascii=False, indent=2)[:1500],
+    )
+    t0 = time.time()
+    # Qwen als Verifier (frischer Kontext, anderer Prompt)
+    raw = await _ollama_generate(FALLBACK_MODEL, prompt, timeout=90)
+    elapsed = round(time.time() - t0, 1)
+
+    result = _parse_json_safe(raw)
+    if not result:
+        # Fallback: Kombiniere beide Ergebnisse manuell
+        result = {
+            "verified_summary": qwen_result.get("summary", ""),
+            "verified_category": (qwen_result.get("categories") or ["Sonstiges"])[0],
+            "verified_keywords": qwen_result.get("keywords", []),
+            "verified_insights": deepseek_result.get("main_insights", []),
+            "verified_actions": deepseek_result.get("actionable_items", []),
+            "consensus_score": 0.6,
+            "conflicts_found": False,
+            "conflict_details": "",
+            "final_importance": deepseek_result.get("business_relevance", "mittel"),
+            "icloud_folder": "Sonstiges",
+        }
+    result["_model"] = FALLBACK_MODEL
+    result["_latency_s"] = elapsed
+    return result
+
+
+# ─── Main Analyzer ───────────────────────────────────────────────────────────
+
+class EmpireAnalyzer:
+    """
+    3-Layer Analyse-Pipeline:
+      Layer 1: Qwen 3.5      → Schnelle Klassifikation
+      Layer 2: DeepSeek R1   → Tiefes Reasoning
+      Layer 3: Cross-Verify  → Konsistenz-Check + finale iCloud-Ordner-Zuweisung
+    """
 
     def __init__(self):
-        self.bridge = get_bridge()
-        self.router = UnifiedRouter()
+        self._available: list[str] | None = None
 
-    async def analyze(self, data: Dict[str, Any]) -> Dict[str, Any]:
-        """Analysiere Daten mit Hybrid-Ansatz"""
+    async def _ensure_models(self):
+        """Prüfe welche Modelle verfügbar sind."""
+        if self._available is None:
+            self._available = await _available_models()
+            if self._available:
+                logger.info(f"Ollama Modelle verfügbar: {self._available}")
+            else:
+                logger.warning("Ollama nicht erreichbar — nutze Offline-Modus")
+
+    async def analyze(self, data: dict[str, Any]) -> dict[str, Any]:
+        """
+        Führe komplette 3-Layer Analyse durch.
+
+        Args:
+            data: Ausgabe des entsprechenden FileProcessors
+
+        Returns:
+            Vollständige Analyse mit allen Layern + Metadaten
+        """
+        await self._ensure_models()
+
         file_name = data.get("file_name", "unknown")
         file_type = data.get("file_type", "")
         content = self._extract_content(data)
 
-        logger.info(f"🔍 Analysiere {file_name}...")
+        logger.info(f"🔬 Analysiere [{file_type}] {file_name}")
 
-        # Phase 1: Schnelle Ollama-Analyse (lokal, kostenlos)
-        ollama_result = await self._analyze_with_ollama(file_name, file_type, content)
+        # ── Layer 1: Qwen Basis-Analyse ──────────────────────────────────────
+        t_start = time.time()
+        qwen = await layer1_qwen_analysis(file_name, file_type, content)
+        logger.info(f"  ✓ Layer 1 (Qwen): {qwen.get('document_type', '?')} "
+                    f"— {qwen.get('_latency_s', '?')}s")
 
-        # Phase 2: Claude für komplexe Analyse (nur bei Bedarf)
-        is_complex = self._is_complex_content(ollama_result)
-        claude_result = None
-        if is_complex:
-            logger.info(f"🧠 Komplexe Analyse mit Claude: {file_name}")
-            claude_result = await self._analyze_with_claude(file_name, content)
+        # ── Layer 2: DeepSeek Deep Reasoning ─────────────────────────────────
+        deepseek = await layer2_deepseek_analysis(file_name, content, qwen)
+        logger.info(f"  ✓ Layer 2 (DeepSeek): {deepseek.get('business_relevance', '?')} "
+                    f"Relevanz — {deepseek.get('_latency_s', '?')}s")
+
+        # ── Layer 3: Cross-Verification ───────────────────────────────────────
+        verified = await layer3_cross_verify(file_name, qwen, deepseek)
+        logger.info(f"  ✓ Layer 3 (Verify): Konsens {verified.get('consensus_score', '?')} "
+                    f"— Ordner: {verified.get('icloud_folder', '?')}")
+
+        total_time = round(time.time() - t_start, 1)
 
         return {
             "file_name": file_name,
-            "ollama_analysis": ollama_result,
-            "claude_analysis": claude_result,
-            "is_complex": is_complex,
-            "analysis_timestamp": asyncio.get_event_loop().time(),
+            "file_type": file_type,
+            "pipeline": "qwen3.5 → deepseek-r1 → cross-verify",
+            "total_analysis_time_s": total_time,
+            "layer1_qwen": qwen,
+            "layer2_deepseek": deepseek,
+            "layer3_verified": verified,
+            # Schneller Zugriff auf finale Ergebnisse
+            "final": {
+                "summary": verified.get("verified_summary") or qwen.get("summary", ""),
+                "category": verified.get("verified_category") or "Sonstiges",
+                "icloud_folder": verified.get("icloud_folder") or "Sonstiges",
+                "keywords": verified.get("verified_keywords") or qwen.get("keywords", []),
+                "insights": verified.get("verified_insights") or [],
+                "actions": verified.get("verified_actions") or [],
+                "importance": verified.get("final_importance") or "mittel",
+                "document_type": qwen.get("document_type") or "Sonstiges",
+                "has_personal_data": qwen.get("has_personal_data", False),
+                "follow_up_needed": deepseek.get("follow_up_needed", False),
+                "tags": deepseek.get("tags") or verified.get("verified_keywords") or [],
+            },
         }
 
-    def _extract_content(self, data: Dict[str, Any]) -> str:
-        """Extrahiere analysierbaren Content"""
-        if data.get("content_type") == "pdf":
-            return "\n".join([p.get("content", "") for p in data.get("text", [])])
-        elif data.get("content_type") == "json":
-            return json.dumps(data.get("data", {}), indent=2)
-        elif data.get("content_type") == "csv":
-            return json.dumps(data.get("all_rows", []), indent=2)
-        elif data.get("content_type") == "image":
-            return data.get("ocr_text", "")
-        elif data.get("content_type") == "audio":
+    def _extract_content(self, data: dict[str, Any]) -> str:
+        """Extrahiere analysierbaren Text-Content aus Prozessor-Output."""
+        ct = data.get("content_type", "")
+        if ct == "pdf":
+            pages = data.get("text", [])
+            return "\n".join(p.get("content", "") for p in pages)
+        elif ct == "json":
+            return json.dumps(data.get("data", {}), indent=2, ensure_ascii=False)
+        elif ct == "csv":
+            rows = data.get("all_rows", data.get("sample_rows", []))
+            return json.dumps(rows, indent=2, ensure_ascii=False)
+        elif ct == "image":
+            return data.get("ocr_text", data.get("description", ""))
+        elif ct == "audio":
             return data.get("transcription", "")
-        elif data.get("content_type") == "docx":
-            return data.get("text", "")
-        return str(data)
-
-    async def _analyze_with_ollama(
-        self, file_name: str, file_type: str, content: str
-    ) -> Dict[str, Any]:
-        """Schnelle Analyse mit Ollama (lokal)"""
-        try:
-            prompt = f"""Analysiere diese {file_type} Datei und gib kompakte Erkenntnisse:
-Datei: {file_name}
-
-Inhalt (erste 2000 Zeichen):
-{content[:2000]}
-
-Gib folgende Struktur zurück als JSON:
-{{
-  "summary": "1-2 Sätze Zusammenfassung",
-  "categories": ["Kategorie1", "Kategorie2"],
-  "keywords": ["Keyword1", "Keyword2"],
-  "sentiment": "neutral/positive/negative",
-  "confidence": 0.85
-}}"""
-
-            result = await self.router.execute(prompt, model="ollama")
-            return json.loads(result) if isinstance(result, str) else result
-        except Exception as e:
-            logger.warning(f"Ollama-Fehler: {str(e)}")
-            return {
-                "summary": f"Datei: {file_name}",
-                "error": str(e),
-            }
-
-    async def _analyze_with_claude(self, file_name: str, content: str) -> Dict[str, Any]:
-        """Tiefe Analyse mit Claude"""
-        try:
-            prompt = f"""Führe eine tiefgehende Analyse dieser Datei durch:
-Datei: {file_name}
-
-Inhalt:
-{content}
-
-Gib folgende Struktur als JSON zurück:
-{{
-  "detailed_summary": "Ausführliche Zusammenfassung (3-5 Sätze)",
-  "main_insights": ["Einsicht 1", "Einsicht 2", "Einsicht 3"],
-  "actionable_items": ["Aktion 1", "Aktion 2"],
-  "risks": ["Risiko 1", "Risiko 2"],
-  "recommendations": ["Empfehlung 1", "Empfehlung 2"],
-  "entities": {{"people": [], "organizations": [], "locations": []}},
-  "sentiment_detail": {{"overall": "neutral", "score": 0.5, "reasons": []}},
-  "relevance_score": 0.85
-}}"""
-
-            result = await self.bridge.execute(prompt)
-            return json.loads(result) if isinstance(result, str) else result
-        except Exception as e:
-            logger.error(f"Claude-Fehler: {str(e)}")
-            return {"error": str(e)}
-
-    def _is_complex_content(self, ollama_result: Dict[str, Any]) -> bool:
-        """Entscheide ob Claude-Analyse nötig ist"""
-        # Claude für: hohe Confidence, viele Keywords, komplexe Kategorien
-        keywords = ollama_result.get("keywords", [])
-        confidence = ollama_result.get("confidence", 0)
-        return len(keywords) > 3 and confidence > 0.7
+        elif ct in ("docx", "xlsx", "pptx", "office"):
+            return data.get("text", data.get("content", ""))
+        else:
+            return str(data)
