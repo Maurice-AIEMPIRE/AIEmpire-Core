@@ -12,6 +12,9 @@
 CONFIG="$HOME/.empire_config"
 [[ -f "$CONFIG" ]] && source "$CONFIG" 2>/dev/null || true
 
+# Tailscale IP (Hetzner Dedicated Server) — öffentliche IP ist SSH-gesperrt
+TAILSCALE_IP="100.124.239.46"
+
 # ─── Farben ───────────────────────────────────────────────────────────────────
 GREEN='\033[0;32m'; CYAN='\033[0;36m'; BOLD='\033[1m'; RESET='\033[0m'
 ok()   { echo -e "${GREEN}  ✅ $*${RESET}"; }
@@ -24,8 +27,7 @@ echo ""
 
 # ─── IP ermitteln ────────────────────────────────────────────────────────────
 if [[ -z "${SERVER_HOST:-}" ]]; then
-    echo -n "  Server-IP: "
-    read -r SERVER_HOST
+    SERVER_HOST="$TAILSCALE_IP"   # Tailscale-IP verwenden (öffentliche IP ist SSH-gesperrt)
 fi
 SERVER_USER="${SERVER_USER:-root}"
 SERVER_KEY="${SERVER_KEY_PATH:-$HOME/.ssh/id_ed25519}"
