@@ -2,7 +2,7 @@
 # ═══════════════════════════════════════════════════════════════
 # AI EMPIRE - Server Fix & Deploy Script
 # Run this ON THE HETZNER SERVER via SSH
-# Usage: ssh root@65.21.203.174 'bash -s' < deploy/server_fix.sh
+# Usage: ssh root@100.124.239.46 'bash -s' < deploy/server_fix.sh
 # ═══════════════════════════════════════════════════════════════
 
 set -euo pipefail
