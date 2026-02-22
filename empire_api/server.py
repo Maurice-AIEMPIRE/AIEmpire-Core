@@ -442,11 +442,14 @@ async def trigger_action(req: ActionRequest):
         result["status"] = "unknown_action"
 
     # Notify all WebSocket clients
+    disconnected = []
     for ws in active_connections:
         try:
             await ws.send_json({"type": "action_result", "data": result})
         except Exception:
-            pass
+            disconnected.append(ws)
+    for ws in disconnected:
+        active_connections.discard(ws)
 
     return result
 
@@ -584,11 +587,14 @@ async def websocket_endpoint(websocket: WebSocket):
         while True:
             data = await websocket.receive_text()
             # Echo back + broadcast
+            disconnected = []
             for ws in active_connections:
                 try:
                     await ws.send_text(data)
                 except Exception:
-                    pass
+                    disconnected.append(ws)
+            for ws in disconnected:
+                active_connections.discard(ws)
     except WebSocketDisconnect:
         active_connections.remove(websocket)
 

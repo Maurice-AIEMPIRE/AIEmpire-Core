@@ -68,15 +68,15 @@ def load_reports() -> str:
                         context_parts.append(json.dumps(item, indent=2))
                 else:
                     context_parts.append(json.dumps(data, indent=2)[:2000])
-            except Exception:
-                pass
+            except (json.JSONDecodeError, OSError) as e:
+                console.print(f"[yellow]Warning: Failed to load report {report_file.name}: {e}[/yellow]")
 
         for report_file in sorted(reports_path.glob("*.txt")):
             try:
                 content = report_file.read_text()[:3000]
                 context_parts.append(f"--- Report: {report_file.name} ---\n{content}")
-            except Exception:
-                pass
+            except (OSError, UnicodeDecodeError) as e:
+                console.print(f"[yellow]Warning: Failed to read report {report_file.name}: {e}[/yellow]")
 
     return "\n".join(context_parts) if context_parts else ""
 

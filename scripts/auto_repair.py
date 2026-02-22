@@ -74,8 +74,8 @@ def log(msg: str, level: str = "INFO"):
         REPAIR_LOG.parent.mkdir(parents=True, exist_ok=True)
         with open(REPAIR_LOG, "a") as f:
             f.write(json.dumps({"ts": ts, "level": level, "msg": msg}) + "\n")
-    except Exception:
-        pass
+    except OSError:
+        pass  # Can't log to file - already printed to stdout
 
 
 def run(cmd: str, timeout: int = 15) -> tuple:
@@ -269,8 +269,8 @@ def repair_pycache() -> list:
             import shutil
             shutil.rmtree(cache_dir)
             repairs.append(f"Cleared: {cache_dir.relative_to(PROJECT_ROOT)}")
-        except Exception:
-            pass
+        except OSError:
+            pass  # Skip cache dirs that can't be removed (in use)
 
     if repairs:
         log(f"Cleared {len(repairs)} __pycache__ directories", "FIX")
@@ -424,8 +424,8 @@ def main():
         report_file = PROJECT_ROOT / "workflow_system" / "state" / "last_repair.json"
         report_file.parent.mkdir(parents=True, exist_ok=True)
         report_file.write_text(json.dumps(report, indent=2, ensure_ascii=False))
-    except Exception:
-        pass
+    except OSError as e:
+        log(f"Failed to save repair report: {e}", "WARN")
 
     return 0 if not all_issues else 1
 

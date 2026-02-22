@@ -101,10 +101,11 @@ Antworte als JSON:
                         content = data["choices"][0]["message"]["content"]
                         try:
                             return json.loads(content)
-                        except Exception:
+                        except json.JSONDecodeError:
                             return {"score": 0, "action": "ignore"}
-            except Exception:
-                pass
+            except Exception as e:
+                import logging
+                logging.warning(f"Lead scoring API call failed: {e}")
         return {"score": 0, "action": "ignore"}
 
     async def generate_content(self, topic: str, style: str = "value") -> str:
@@ -160,8 +161,9 @@ Schreibe jetzt den Post:"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data["choices"][0]["message"]["content"]
-            except Exception:
-                pass
+            except Exception as e:
+                import logging
+                logging.warning(f"Content generation API call failed: {e}")
         return ""
 
     async def generate_reply(self, original_tweet: str, context: str = "") -> str:
@@ -201,8 +203,9 @@ Schreibe die Reply:"""
                     if resp.status == 200:
                         data = await resp.json()
                         return data["choices"][0]["message"]["content"]
-            except Exception:
-                pass
+            except Exception as e:
+                import logging
+                logging.warning(f"Reply generation API call failed: {e}")
         return ""
 
     async def generate_dm_sequence(self, lead_info: dict) -> list:
@@ -243,10 +246,11 @@ Antworte als JSON Array mit 3 DMs:
                         content = data["choices"][0]["message"]["content"]
                         try:
                             return json.loads(content)
-                        except Exception:
+                        except json.JSONDecodeError:
                             return []
-            except Exception:
-                pass
+            except Exception as e:
+                import logging
+                logging.warning(f"DM sequence API call failed: {e}")
         return []
 
     def get_stats(self) -> dict:

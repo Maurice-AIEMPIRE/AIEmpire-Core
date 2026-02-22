@@ -139,8 +139,9 @@ class SelfImprovingContentEngine:
             try:
                 with open(self.LEARNING_MODEL_FILE) as f:
                     return json.load(f)
-            except Exception:
-                pass
+            except (json.JSONDecodeError, OSError) as e:
+                import warnings
+                warnings.warn(f"Failed to load learning model: {e}", stacklevel=2)
 
         # Default learning model
         return {
@@ -165,10 +166,14 @@ class SelfImprovingContentEngine:
             try:
                 with open(self.ANALYTICS_FILE) as f:
                     for line in f:
-                        data = json.loads(line)
-                        self.engagement_history.append(data)
-            except Exception:
-                pass
+                        try:
+                            data = json.loads(line)
+                            self.engagement_history.append(data)
+                        except json.JSONDecodeError:
+                            continue  # skip corrupt lines
+            except OSError as e:
+                import warnings
+                warnings.warn(f"Failed to load analytics: {e}", stacklevel=2)
 
     def _save_learning_model(self) -> None:
         """Save updated learning model."""

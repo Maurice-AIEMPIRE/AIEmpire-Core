@@ -320,8 +320,8 @@ def gather_context(role, task_description):
                 try:
                     content = f.read_text()[:1000]
                     context_parts.append(f"=== Error Report: {f.name} ===\n{content}")
-                except Exception:
-                    pass
+                except (OSError, UnicodeDecodeError):
+                    pass  # Skip unreadable report files
 
     elif role == "architect":
         # Include CLAUDE.md for architecture context
@@ -532,8 +532,8 @@ def show_status():
                 data = json.loads(resp.read().decode())
                 models = [m["name"] for m in data.get("models", [])]
                 print(f"   Models available: {', '.join(models)}")
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"   (could not list models: {e})")
     else:
         print("❌ Ollama: NOT RUNNING")
 
@@ -624,8 +624,8 @@ def collect_issues():
                     "owner": "fixer",
                 }
             )
-    except (json.JSONDecodeError, TypeError):
-        pass
+    except (json.JSONDecodeError, TypeError) as e:
+        print(f"   Warning: Could not parse lint results: {e}")
 
     # 3. Check for missing imports
     result = subprocess.run(

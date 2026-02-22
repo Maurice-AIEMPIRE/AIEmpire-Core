@@ -114,8 +114,8 @@ def get_used_ram_gb() -> float:
                     return float(val[:-1])
                 elif val.endswith("M"):
                     return float(val[:-1]) / 1024
-    except Exception:
-        pass
+    except (ValueError, IndexError) as e:
+        log(f"Failed to parse RAM usage from top: {e}", "WARNING")
     return 0.0
 
 
@@ -254,8 +254,8 @@ def check_and_protect() -> dict:
     try:
         ensure_dirs()
         STATE_FILE.write_text(json.dumps(status, indent=2))
-    except Exception:
-        pass
+    except OSError as e:
+        log(f"Failed to save guardian state: {e}", "WARNING")
 
     return status
 

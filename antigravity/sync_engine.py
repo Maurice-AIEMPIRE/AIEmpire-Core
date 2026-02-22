@@ -87,15 +87,17 @@ class SyncEngine:
                 "timestamp": datetime.now().isoformat(),
                 "status": "running",
             }))
-        except Exception:
-            pass
+        except OSError as e:
+            import warnings
+            warnings.warn(f"Failed to set crash marker: {e}", stacklevel=2)
 
     def clear_crash_marker(self):
         """Call on clean shutdown to indicate no crash."""
         try:
             CRASH_MARKER.unlink(missing_ok=True)
-        except Exception:
-            pass
+        except OSError as e:
+            import warnings
+            warnings.warn(f"Failed to clear crash marker: {e}", stacklevel=2)
 
     def was_crash(self) -> bool:
         """Check if the previous session crashed (marker still present)."""
@@ -118,16 +120,16 @@ class SyncEngine:
                 marker_data = json.loads(CRASH_MARKER.read_text())
                 result["previous_pid"] = marker_data.get("pid")
                 result["crash_time"] = marker_data.get("timestamp")
-            except Exception:
-                pass
+            except (json.JSONDecodeError, OSError) as e:
+                result["marker_read_error"] = str(e)
 
             # Clean up temp files from interrupted writes
             for tmp_file in STATE_DIR.glob(".sync_*.tmp"):
                 try:
                     tmp_file.unlink()
                     result["repairs"].append(f"Removed temp file: {tmp_file.name}")
-                except Exception:
-                    pass
+                except OSError as e:
+                    result["repairs"].append(f"Failed to remove {tmp_file.name}: {e}")
 
             # Validate JSON state files
             for state_file in STATE_DIR.glob("*.json"):
@@ -191,8 +193,9 @@ class SyncEngine:
             if JOURNAL_FILE.stat().st_size > 500_000:
                 lines = JOURNAL_FILE.read_text().splitlines()
                 JOURNAL_FILE.write_text("\n".join(lines[-500:]) + "\n")
-        except Exception:
-            pass
+        except OSError as e:
+            import warnings
+            warnings.warn(f"Failed to write journal: {e}", stacklevel=2)
 
     def get_journal(self, last_n: int = 50) -> list[dict]:
         """Read recent journal entries."""

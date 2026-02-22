@@ -520,8 +520,9 @@ class _FallbackRouter:
                         "model": "qwen2.5-coder:7b (fallback)",
                         "cost": 0.0,
                     }
-        except Exception:
-            pass
+        except Exception as e:
+            import logging
+            logging.warning(f"Direct Ollama fallback failed: {e}")
 
         return {
             "response": "Kein AI-Provider verfuegbar. Starte Ollama: ollama serve",

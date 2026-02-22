@@ -135,8 +135,8 @@ class StateCheckpoint:
             try:
                 if 'tmp_path' in locals():
                     os.remove(tmp_path)
-            except Exception:
-                pass
+            except OSError:
+                pass  # Best-effort cleanup of temp file
             return False
 
     def load(self) -> Optional[dict]:
