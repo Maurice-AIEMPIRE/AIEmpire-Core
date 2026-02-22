@@ -36,8 +36,17 @@ def _load_dotenv():
 _load_dotenv()
 
 # ─── Ollama Connection ──────────────────────────────────────────────
-OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
 OLLAMA_API_V1 = f"{OLLAMA_BASE_URL}/v1"  # OpenAI-compatible endpoint
+OLLAMA_API_KEY = os.getenv("OLLAMA_API_KEY", "ollama-local")
+
+# ─── LiteLLM Proxy (OpenAI-compatible, routes to Ollama/Kimi/etc.) ──
+LITELLM_BASE_URL = os.getenv("OPENAI_API_BASE", "http://127.0.0.1:4000")
+LITELLM_API_KEY = os.getenv("LITELLM_API_KEY", "ollama-local")
+
+# ─── OpenClaw Gateway ───────────────────────────────────────────────
+OPENCLAW_BASE_URL = os.getenv("OPENCLAW_BASE_URL", "http://127.0.0.1:18789")
+OPENCLAW_SESSION_ID = os.getenv("OPENCLAW_SESSION_ID", "")
 
 # ─── Google Gemini Connection ───────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
@@ -79,11 +88,15 @@ VERTEX_AI_ENABLED = os.getenv("VERTEX_AI_ENABLED", "false").lower() == "true"
 OFFLINE_MODE = os.getenv("OFFLINE_MODE", "false").lower() in ("1", "true", "yes")
 
 # ─── Model Selection (optimized for 16GB RAM) ──────────────────────
-# Local models (Ollama)
+# Local models (Ollama direct)
 DEFAULT_MODEL_14B = "qwen2.5-coder:14b"
 DEFAULT_MODEL_7B = "qwen2.5-coder:7b"
 REASONING_MODEL = "deepseek-r1:7b"
 CODE_MODEL = "codellama:7b"
+
+# LiteLLM Proxy models (served via http://127.0.0.1:4000)
+LITELLM_MODEL_QWEN = "ollama-qwen"      # Qwen via LiteLLM proxy
+LITELLM_MODEL_MISTRAL = "ollama-mistral"  # Mistral via LiteLLM proxy (fallback)
 
 # Cloud models (Gemini)
 GEMINI_FLASH = "gemini-2.0-flash"

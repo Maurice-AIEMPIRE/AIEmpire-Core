@@ -2,12 +2,13 @@
 Unified AI Router
 ==================
 Routes tasks to the best available provider:
-  1. Gemini (cloud, fast, smart) — primary for complex tasks
-  2. Ollama (local, free, offline) — fallback & coding tasks
-  3. Moonshot/Kimi (cloud, free tier) — backup
+  1. LiteLLM Proxy (http://127.0.0.1:4000, OpenAI-compatible) — local hub
+  2. Gemini (cloud, fast, smart) — primary for complex tasks
+  3. Ollama (local, free, offline) — fallback & coding tasks
+  4. Moonshot/Kimi (cloud, free tier) — backup
 
-Implements automatic failover: if Gemini is down or rate-limited,
-falls back to Ollama. If Ollama is offline, tries Moonshot.
+Implements automatic failover: LiteLLM first (serves ollama-qwen/mistral),
+then Gemini, then direct Ollama, then Moonshot.
 """
 
 import asyncio
@@ -18,7 +19,14 @@ import time
 from dataclasses import dataclass, field
 from typing import Any, Optional
 
-from antigravity.config import AGENTS, AgentConfig
+from antigravity.config import (
+    AGENTS,
+    AgentConfig,
+    LITELLM_BASE_URL,
+    LITELLM_API_KEY,
+    LITELLM_MODEL_QWEN,
+    LITELLM_MODEL_MISTRAL,
+)
 
 
 # ─── Provider Status ────────────────────────────────────────────────
@@ -39,23 +47,23 @@ class RouterConfig:
     """Configuration for the unified router."""
     # Provider priority (first available wins)
     provider_priority: list[str] = field(
-        default_factory=lambda: ["gemini", "ollama", "moonshot"]
+        default_factory=lambda: ["litellm", "gemini", "ollama", "moonshot"]
     )
     # Task-specific overrides
     task_routing: dict[str, str] = field(
         default_factory=lambda: {
+            # Fast local coding → LiteLLM proxy (ollama-qwen)
+            "code": "litellm",
+            "fix": "litellm",
             # Complex reasoning → Gemini Pro
             "architecture": "gemini",
             "review": "gemini",
-            # Fast coding → Gemini Flash or Ollama
-            "code": "gemini",
-            "fix": "gemini",
             # QA with thinking → Gemini Thinking
             "qa": "gemini",
             # Offline mode → everything local
         }
     )
-    # Force offline (only Ollama)
+    # Force offline (only LiteLLM + Ollama)
     offline_mode: bool = False
     # Max retries per provider
     max_retries: int = 2
@@ -76,6 +84,7 @@ class UnifiedRouter:
     def __init__(self, config: Optional[RouterConfig] = None):
         self.config = config or RouterConfig()
         self.providers: dict[str, ProviderStatus] = {
+            "litellm": ProviderStatus(name="litellm"),
             "gemini": ProviderStatus(name="gemini"),
             "ollama": ProviderStatus(name="ollama"),
             "moonshot": ProviderStatus(name="moonshot"),
@@ -86,7 +95,7 @@ class UnifiedRouter:
         # Check for offline mode env var
         if os.getenv("OFFLINE_MODE", "").lower() in ("1", "true", "yes"):
             self.config.offline_mode = True
-            self.config.provider_priority = ["ollama"]
+            self.config.provider_priority = ["litellm", "ollama"]
 
     def _get_gemini_client(self):
         """Lazy-load Gemini client."""
@@ -105,6 +114,19 @@ class UnifiedRouter:
     async def check_providers(self) -> dict[str, bool]:
         """Check health of all providers."""
         results: dict[str, bool] = {}
+
+        # Check LiteLLM Proxy (http://127.0.0.1:4000/health)
+        try:
+            import httpx
+            async with httpx.AsyncClient(timeout=5.0) as client:
+                resp = await client.get(f"{LITELLM_BASE_URL}/health")
+                available = resp.status_code == 200
+            self.providers["litellm"].available = available
+            self.providers["litellm"].last_check = time.time()
+            results["litellm"] = available
+        except Exception:
+            self.providers["litellm"].available = False
+            results["litellm"] = False
 
         # Check Gemini
         if not self.config.offline_mode:
@@ -220,7 +242,9 @@ class UnifiedRouter:
             try:
                 start = time.time()
 
-                if provider == "gemini":
+                if provider == "litellm":
+                    result = await self._execute_litellm(agent, prompt, context)
+                elif provider == "gemini":
                     result = await self._execute_gemini(agent, prompt, context)
                 elif provider == "ollama":
                     result = await self._execute_ollama(agent, prompt, context)
@@ -264,6 +288,72 @@ class UnifiedRouter:
             "usage": {},
             "success": False,
             "errors": errors,
+        }
+
+    async def _execute_litellm(
+        self, agent: AgentConfig, prompt: str, context: Optional[str]
+    ) -> dict[str, Any]:
+        """Execute via LiteLLM Proxy (OpenAI-compatible, http://127.0.0.1:4000).
+
+        Uses ollama-qwen as primary model, falls back to ollama-mistral.
+        """
+        import httpx
+
+        messages = [
+            {"role": "system", "content": agent.system_prompt},
+        ]
+        if context:
+            messages.append({"role": "user", "content": f"KONTEXT:\n```\n{context}\n```"})
+        messages.append({"role": "user", "content": prompt})
+
+        model = LITELLM_MODEL_QWEN  # primary: ollama-qwen
+
+        payload = {
+            "model": model,
+            "messages": messages,
+            "temperature": agent.temperature,
+            "max_tokens": agent.max_tokens,
+        }
+
+        async with httpx.AsyncClient(timeout=120.0) as client:
+            try:
+                response = await client.post(
+                    f"{LITELLM_BASE_URL}/v1/chat/completions",
+                    json=payload,
+                    headers={
+                        "Authorization": f"Bearer {LITELLM_API_KEY}",
+                        "Content-Type": "application/json",
+                    },
+                )
+                response.raise_for_status()
+            except httpx.HTTPStatusError:
+                # Fallback to mistral if qwen fails
+                payload["model"] = LITELLM_MODEL_MISTRAL
+                model = LITELLM_MODEL_MISTRAL
+                response = await client.post(
+                    f"{LITELLM_BASE_URL}/v1/chat/completions",
+                    json=payload,
+                    headers={
+                        "Authorization": f"Bearer {LITELLM_API_KEY}",
+                        "Content-Type": "application/json",
+                    },
+                )
+                response.raise_for_status()
+
+            data = response.json()
+
+        content = data["choices"][0]["message"]["content"]
+        usage = data.get("usage", {})
+
+        return {
+            "content": content,
+            "model": model,
+            "usage": {
+                "prompt_tokens": usage.get("prompt_tokens", 0),
+                "completion_tokens": usage.get("completion_tokens", 0),
+                "total_tokens": usage.get("total_tokens", 0),
+            },
+            "raw_response": data,
         }
 
     async def _execute_gemini(
@@ -405,11 +495,14 @@ Examples:
   python unified_router.py test
 
 Environment:
+  OPENAI_API_BASE      → LiteLLM proxy URL (default: http://127.0.0.1:4000)
+  LITELLM_API_KEY      → LiteLLM API key (default: ollama-local)
   GEMINI_API_KEY       → Google Gemini API key
   GOOGLE_CLOUD_PROJECT → Vertex AI project ID
   MOONSHOT_API_KEY     → Moonshot/Kimi API key
-  OLLAMA_BASE_URL      → Ollama server (default: localhost:11434)
-  OFFLINE_MODE=true    → Force local Ollama only
+  OLLAMA_BASE_URL      → Ollama direct (default: http://127.0.0.1:11434)
+  OLLAMA_API_KEY       → Ollama API key (default: ollama-local)
+  OFFLINE_MODE=true    → Force local (LiteLLM + Ollama) only
 """)
         sys.exit(1)
 
