@@ -6,7 +6,7 @@
     "ollama_host": "http://127.0.0.1:11434",
     "default_model": "qwen2.5-coder:14b",
     "fast_model": "llama3.1:8b",
-    "heavy_model": "qwen3-coder:latest",
+    "heavy_model": "qwen2.5-coder:14b",
     "offline_mode": true
   },
   "mirror_lab": {

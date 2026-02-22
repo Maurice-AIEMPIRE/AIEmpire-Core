@@ -47,6 +47,11 @@ LITELLM_API_KEY = os.getenv("OLLAMA_API_KEY", "ollama-local")
 # ─── OpenClaw Gateway ──────────────────────────────────────────────
 OPENCLAW_URL = os.getenv("OPENCLAW_URL", "http://127.0.0.1:18789")
 
+# ─── Telegram Bot ─────────────────────────────────────────────────
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_ADMIN_CHAT_ID = os.getenv("TELEGRAM_ADMIN_CHAT_ID", "")
+TELEGRAM_DEFAULT_MODEL = os.getenv("TELEGRAM_DEFAULT_MODEL", "ollama-qwen")
+
 # ─── Google Gemini Connection ───────────────────────────────────────
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 

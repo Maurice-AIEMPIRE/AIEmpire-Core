@@ -60,6 +60,37 @@ model_list:
       model: ollama/mistral:7b
       api_base: http://ollama:11434
 
+  # ─── OPENCLAW MODEL ALIASES ──────────────────────────────────
+  # OpenClaw requests these models — route to what's installed
+  # qwen3.5:cloud → qwen2.5-coder:14b (best available coding model)
+  - model_name: ollama/qwen3.5:cloud
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://ollama:11434
+
+  # qwen3-nothinkin → qwen2.5-coder:14b (thinking-disabled alias)
+  - model_name: ollama/qwen3-nothinkin:latest
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://ollama:11434
+
+  - model_name: ollama/qwen3-nothinkin
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://ollama:11434
+
+  # qwen3:8b → qwen2.5-coder:7b (smaller model fallback)
+  - model_name: ollama/qwen3:8b
+    litellm_params:
+      model: ollama/qwen2.5-coder:7b
+      api_base: http://ollama:11434
+
+  # qwen3-coder → qwen2.5-coder:14b (mirror-system heavy model)
+  - model_name: ollama/qwen3-coder:latest
+    litellm_params:
+      model: ollama/qwen2.5-coder:14b
+      api_base: http://ollama:11434
+
   # ─── RESEARCH: Kimi K2.5 (256K context, deep research) ─────
   - model_name: kimi
     litellm_params:
@@ -103,6 +134,22 @@ litellm_settings:
     - ollama-mistral:
         - qwen-7b
         - ollama-qwen
+    # OpenClaw aliases: route to installed models
+    - ollama/qwen3.5:cloud:
+        - ollama-qwen
+        - ollama-mistral
+    - ollama/qwen3-nothinkin:latest:
+        - ollama-qwen
+        - ollama-mistral
+    - ollama/qwen3-nothinkin:
+        - ollama-qwen
+        - ollama-mistral
+    - ollama/qwen3:8b:
+        - qwen-7b
+        - ollama-mistral
+    - ollama/qwen3-coder:latest:
+        - ollama-qwen
+        - qwen-14b
     # Research tasks: Kimi → Pro → Flash
     - kimi:
         - gemini-pro

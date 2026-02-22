@@ -1,0 +1,17 @@
+[Unit]
+Description=AIEmpire Telegram Bridge
+After=network.target ollama.service
+
+[Service]
+Type=simple
+User=maurice
+WorkingDirectory=/home/maurice/AIEmpire-Core
+EnvironmentFile=/home/maurice/AIEmpire-Core/.env
+ExecStart=/usr/bin/python3 /home/maurice/AIEmpire-Core/telegram_bridge.py
+Restart=always
+RestartSec=5
+StandardOutput=append:/home/maurice/AIEmpire-Core/logs/telegram_bridge.log
+StandardError=append:/home/maurice/AIEmpire-Core/logs/telegram_bridge_error.log
+
+[Install]
+WantedBy=multi-user.target
