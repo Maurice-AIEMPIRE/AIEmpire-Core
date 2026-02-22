@@ -30,8 +30,8 @@ PHEROMONE_MIN_STRENGTH = float(os.getenv("ANT_PHEROMONE_MIN", "0.1"))
 
 # LiteLLM / Model routing
 LITELLM_BASE_URL = os.getenv("LITELLM_BASE_URL", "http://localhost:4000")
-DEFAULT_WORKER_MODEL = os.getenv("ANT_WORKER_MODEL", "gemini-flash")
-QUEEN_MODEL = os.getenv("ANT_QUEEN_MODEL", "gemini-pro")
+DEFAULT_WORKER_MODEL = os.getenv("ANT_WORKER_MODEL", "qwen-7b")
+QUEEN_MODEL = os.getenv("ANT_QUEEN_MODEL", "qwen-14b")
 
 # API
 ANT_API_HOST = os.getenv("ANT_API_HOST", "0.0.0.0")

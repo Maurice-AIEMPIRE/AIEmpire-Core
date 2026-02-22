@@ -247,9 +247,16 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Start Ant Worker(s)")
     parser.add_argument("--name", default="", help="Worker name")
-    parser.add_argument("--skills", nargs="+", default=["general"], help="Worker skills")
+    parser.add_argument("--skills", nargs="+", default=["general"], help="Worker skills (space or comma separated)")
     parser.add_argument("--model", default=DEFAULT_WORKER_MODEL, help="LLM model")
     parser.add_argument("--count", type=int, default=1, help="Number of workers to spawn")
     args = parser.parse_args()
 
-    asyncio.run(run_worker(args.name, args.skills, args.model, args.count))
+    # Support both "general,content,research" and "general content research"
+    skills = []
+    for s in args.skills:
+        skills.extend(s.split(","))
+    skills = [s.strip() for s in skills if s.strip()]
+
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(name)s] %(message)s")
+    asyncio.run(run_worker(args.name, skills, args.model, args.count))

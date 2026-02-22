@@ -1,47 +1,47 @@
 {
-  "version": 1,
-  "description": "Ant Protocol integration with OpenClaw agents",
+  "version": 2,
+  "description": "Ant Protocol + OpenClaw - Ollama-First Mode (zero cloud cost)",
 
   "agent_to_task_mapping": {
     "research": {
       "task_type": "research",
-      "default_model": "gemini-flash",
+      "default_model": "qwen-7b",
       "skills": ["research", "analysis", "trends"],
       "priority": 5
     },
     "content": {
       "task_type": "content",
-      "default_model": "gemini-flash",
+      "default_model": "qwen-7b",
       "skills": ["content", "writing", "creative"],
       "priority": 5
     },
     "product": {
       "task_type": "revenue",
-      "default_model": "gemini-flash",
+      "default_model": "qwen-7b",
       "skills": ["revenue", "marketing", "sales"],
       "priority": 6
     },
     "finance": {
       "task_type": "revenue",
-      "default_model": "gemini-pro",
+      "default_model": "qwen-14b",
       "skills": ["revenue", "finance", "analytics"],
       "priority": 7
     },
     "community": {
       "task_type": "content",
-      "default_model": "gemini-flash",
+      "default_model": "qwen-7b",
       "skills": ["content", "community", "engagement"],
       "priority": 4
     },
     "ops": {
       "task_type": "general",
-      "default_model": "gemini-flash",
+      "default_model": "qwen-7b",
       "skills": ["general", "planning", "ops"],
       "priority": 5
     },
     "analytics": {
       "task_type": "research",
-      "default_model": "gemini-flash",
+      "default_model": "deepseek-r1",
       "skills": ["research", "analytics", "data"],
       "priority": 5
     },
@@ -61,7 +61,7 @@
         "name": "general",
         "count": 3,
         "skills": ["general", "content", "research"],
-        "model": "gemini-flash"
+        "model": "qwen-7b"
       },
       {
         "name": "code",
@@ -73,9 +73,24 @@
         "name": "revenue",
         "count": 2,
         "skills": ["revenue", "leads", "sales", "marketing"],
-        "model": "gemini-flash"
+        "model": "qwen-7b"
       }
     ]
+  },
+
+  "model_routing": {
+    "primary": "ollama",
+    "fallback_order": ["ollama", "gemini", "kimi"],
+    "ollama_models": {
+      "fast": "qwen-7b",
+      "smart": "qwen-14b",
+      "reasoning": "deepseek-r1"
+    },
+    "cloud_models": {
+      "gemini_flash": "gemini-cloud-flash",
+      "gemini_pro": "gemini-cloud-pro",
+      "kimi": "kimi"
+    }
   },
 
   "pheromone_defaults": {

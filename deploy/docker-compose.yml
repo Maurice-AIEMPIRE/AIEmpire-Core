@@ -145,8 +145,8 @@ services:
       - ANT_API_HOST=0.0.0.0
       - ANT_API_PORT=8900
       - LITELLM_BASE_URL=http://litellm:4000
-      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-gemini-flash}
-      - ANT_QUEEN_MODEL=${ANT_QUEEN_MODEL:-gemini-pro}
+      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-qwen-7b}
+      - ANT_QUEEN_MODEL=${ANT_QUEEN_MODEL:-qwen-14b}
     depends_on:
       redis:
         condition: service_healthy
@@ -183,7 +183,7 @@ services:
       - ANT_REDIS_DB=2
       - ANT_COLONY_ID=${ANT_COLONY_ID:-empire-alpha}
       - LITELLM_BASE_URL=http://litellm:4000
-      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-gemini-flash}
+      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-qwen-7b}
     depends_on:
       ant-protocol:
         condition: service_healthy
@@ -235,7 +235,7 @@ services:
       - ANT_REDIS_DB=2
       - ANT_COLONY_ID=${ANT_COLONY_ID:-empire-alpha}
       - LITELLM_BASE_URL=http://litellm:4000
-      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-gemini-flash}
+      - ANT_WORKER_MODEL=${ANT_WORKER_MODEL:-qwen-7b}
     depends_on:
       ant-protocol:
         condition: service_healthy

@@ -211,16 +211,134 @@ cmd_backup() {
     find /mnt/backup/empire -name "*.tar.gz" -mtime +30 -delete 2>/dev/null || true
 }
 
+# ─── Full Deploy (one command does everything) ────────────
+cmd_full_deploy() {
+    log "FULL DEPLOY - Ollama-First Mode (zero cloud cost)"
+    echo ""
+
+    # 1. Create .env if missing
+    if [ ! -f "$ENV_FILE" ]; then
+        cp "$SCRIPT_DIR/.env.template" "$ENV_FILE"
+        log "Created .env from template (Ollama-first defaults)"
+    else
+        log ".env exists, keeping current config"
+    fi
+
+    # 2. Start the stack
+    log "Starting Docker stack..."
+    docker compose -f "$COMPOSE_FILE" --env-file "$ENV_FILE" up -d --build
+    log "Stack starting..."
+
+    # 3. Wait for Ollama to be healthy
+    log "Waiting for Ollama to be ready..."
+    local retries=0
+    while ! curl -sf http://localhost:11434/api/tags >/dev/null 2>&1; do
+        retries=$((retries + 1))
+        if [ $retries -gt 30 ]; then
+            warn "Ollama not ready after 60s, continuing anyway..."
+            break
+        fi
+        sleep 2
+    done
+    [ $retries -le 30 ] && log "Ollama is ready!"
+
+    # 4. Pull Ollama models
+    log "Pulling AI models (this may take a few minutes on first run)..."
+    cmd_ollama_pull
+
+    # 5. Wait for all services
+    log "Waiting for services to stabilize..."
+    sleep 10
+
+    # 6. Status report
+    cmd_status
+
+    echo -e "${GREEN}══════════════════════════════════════════════════════${NC}"
+    echo -e "${GREEN}  FULL DEPLOY COMPLETE - Ollama-First Mode            ${NC}"
+    echo -e "${GREEN}  All services running on LOCAL Ollama models (FREE)  ${NC}"
+    echo -e "${GREEN}  Add GEMINI_API_KEY to .env for cloud fallback       ${NC}"
+    echo -e "${GREEN}══════════════════════════════════════════════════════${NC}"
+}
+
+# ─── Validate deployment ─────────────────────────────────
+cmd_validate() {
+    echo -e "\n${CYAN}=== DEPLOYMENT VALIDATION ===${NC}\n"
+    local errors=0
+
+    # Check .env
+    if [ -f "$ENV_FILE" ]; then
+        echo -e "  ${GREEN}OK${NC}  .env file exists"
+    else
+        echo -e "  ${RED}FAIL${NC}  .env file missing"
+        errors=$((errors + 1))
+    fi
+
+    # Check Docker
+    if docker compose version >/dev/null 2>&1; then
+        echo -e "  ${GREEN}OK${NC}  Docker Compose available"
+    else
+        echo -e "  ${RED}FAIL${NC}  Docker Compose not found"
+        errors=$((errors + 1))
+    fi
+
+    # Check containers running
+    local running
+    running=$(docker compose -f "$COMPOSE_FILE" ps --status running -q 2>/dev/null | wc -l)
+    echo -e "  ${CYAN}INFO${NC}  $running containers running"
+
+    # Check Ollama models
+    if curl -sf http://localhost:11434/api/tags >/dev/null 2>&1; then
+        echo -e "  ${GREEN}OK${NC}  Ollama responding"
+        local models
+        models=$(docker exec ollama ollama list 2>/dev/null | tail -n +2 | wc -l)
+        echo -e "  ${CYAN}INFO${NC}  $models Ollama models installed"
+    else
+        echo -e "  ${RED}FAIL${NC}  Ollama not responding"
+        errors=$((errors + 1))
+    fi
+
+    # Check LiteLLM
+    if curl -sf http://localhost:4000/health >/dev/null 2>&1; then
+        echo -e "  ${GREEN}OK${NC}  LiteLLM proxy healthy"
+    else
+        echo -e "  ${YELLOW}WARN${NC}  LiteLLM not responding"
+    fi
+
+    # Check Redis
+    if docker exec redis redis-cli ping >/dev/null 2>&1; then
+        echo -e "  ${GREEN}OK${NC}  Redis responding"
+    else
+        echo -e "  ${YELLOW}WARN${NC}  Redis not responding"
+    fi
+
+    # Check Ant Protocol
+    if curl -sf http://localhost:8900/health >/dev/null 2>&1; then
+        echo -e "  ${GREEN}OK${NC}  Ant Protocol API healthy"
+    else
+        echo -e "  ${YELLOW}WARN${NC}  Ant Protocol not responding"
+    fi
+
+    echo ""
+    if [ $errors -eq 0 ]; then
+        echo -e "  ${GREEN}RESULT: All critical checks passed${NC}"
+    else
+        echo -e "  ${RED}RESULT: $errors critical issues found${NC}"
+    fi
+    echo ""
+}
+
 # ─── Main ────────────────────────────────────────────────
 case "${1:-help}" in
-    setup)      cmd_setup ;;
-    start)      cmd_start ;;
-    stop)       cmd_stop ;;
-    update)     cmd_update ;;
-    status)     cmd_status ;;
-    logs)       cmd_logs "${2:-}" ;;
+    setup)       cmd_setup ;;
+    start)       cmd_start ;;
+    stop)        cmd_stop ;;
+    update)      cmd_update ;;
+    status)      cmd_status ;;
+    logs)        cmd_logs "${2:-}" ;;
     ollama-pull) cmd_ollama_pull ;;
-    backup)     cmd_backup ;;
+    backup)      cmd_backup ;;
+    full-deploy) cmd_full_deploy ;;
+    validate)    cmd_validate ;;
     restart)
         cmd_stop
         cmd_start
@@ -231,12 +349,14 @@ case "${1:-help}" in
         echo "Usage: $0 <command>"
         echo ""
         echo "Commands:"
+        echo "  full-deploy  One-command: start + pull models + validate (recommended)"
         echo "  setup        First-time server setup (Docker, firewall, sysctl)"
         echo "  start        Start all services"
         echo "  stop         Stop all services"
         echo "  restart      Stop + Start"
         echo "  update       Git pull + rebuild containers"
         echo "  status       Show service health + system resources"
+        echo "  validate     Run deployment validation checks"
         echo "  logs [svc]   Tail logs (all or specific service)"
         echo "  ollama-pull  Download Ollama models (qwen, deepseek)"
         echo "  backup       Backup Redis + ChromaDB + configs"
