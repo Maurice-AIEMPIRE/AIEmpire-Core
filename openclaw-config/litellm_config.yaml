@@ -1,49 +1,61 @@
 # ═══════════════════════════════════════════════════════════════
 # LiteLLM Proxy Configuration
-# Unified API gateway for all AI providers
+# MULTI-MUSCLE ROUTING: Different models for different tasks
+# Brain = Gemini Pro | Coding = Qwen 14B | Research = Kimi
+# Creative = Gemini Flash | Reasoning = DeepSeek R1
 # ═══════════════════════════════════════════════════════════════
 
 model_list:
-  # ─── Google Gemini (Primary Cloud Provider) ─────────────────
-  - model_name: gemini-flash
-    litellm_params:
-      model: gemini/gemini-2.0-flash
-      api_key: os.environ/GEMINI_API_KEY
-
+  # ─── BRAIN: Gemini Pro (planning, architecture, decisions) ──
   - model_name: gemini-pro
     litellm_params:
       model: gemini/gemini-2.0-pro
       api_key: os.environ/GEMINI_API_KEY
 
+  # ─── CREATIVE: Gemini Flash (content, writing, quick tasks) ─
+  - model_name: gemini-flash
+    litellm_params:
+      model: gemini/gemini-2.0-flash
+      api_key: os.environ/GEMINI_API_KEY
+
+  # ─── REVIEW: Gemini Thinking (QA, code review, analysis) ────
   - model_name: gemini-thinking
     litellm_params:
       model: gemini/gemini-2.0-flash-thinking
       api_key: os.environ/GEMINI_API_KEY
 
-  # ─── Ollama (Local - Free, Offline) ─────────────────────────
+  # ─── CODING: Qwen 14B (local, free, coding muscle) ─────────
   - model_name: qwen-14b
     litellm_params:
       model: ollama/qwen2.5-coder:14b
       api_base: http://ollama:11434
 
+  # ─── FAST: Qwen 7B (local, quick iterations) ───────────────
   - model_name: qwen-7b
     litellm_params:
       model: ollama/qwen2.5-coder:7b
       api_base: http://ollama:11434
 
+  # ─── REASONING: DeepSeek R1 (local, deep thinking) ─────────
   - model_name: deepseek-r1
     litellm_params:
       model: ollama/deepseek-r1:7b
       api_base: http://ollama:11434
 
-  # ─── Moonshot/Kimi (Backup Cloud) ───────────────────────────
+  # ─── VIBE CODE: Code Llama (local, rapid prototyping) ──────
+  - model_name: codellama
+    litellm_params:
+      model: ollama/codellama:7b
+      api_base: http://ollama:11434
+
+  # ─── RESEARCH: Kimi K2.5 (256K context, deep research) ─────
   - model_name: kimi
     litellm_params:
       model: openai/kimi-k2.5
       api_key: os.environ/MOONSHOT_API_KEY
       api_base: https://api.moonshot.ai/v1
 
-# ─── Router Settings ─────────────────────────────────────────
+# ─── Task-Based Router Settings ─────────────────────────────
 router_settings:
   routing_strategy: "least-busy"
   num_retries: 2
@@ -51,18 +63,30 @@ router_settings:
   allowed_fails: 3
   cooldown_time: 60
 
-# ─── Fallback Configuration ──────────────────────────────────
+# ─── Multi-Muscle Fallback Configuration ────────────────────
+# Each muscle has its own fallback chain
 litellm_settings:
   fallbacks:
-    - gemini-flash:
-        - qwen-7b
-        - kimi
+    # Brain tasks: Pro → 14B → Kimi
     - gemini-pro:
         - qwen-14b
         - kimi
+    # Creative tasks: Flash → 7B → Kimi
+    - gemini-flash:
+        - qwen-7b
+        - kimi
+    # Review tasks: Thinking → DeepSeek → 14B
     - gemini-thinking:
         - deepseek-r1
         - qwen-14b
+    # Coding tasks: 14B → CodeLlama → 7B
+    - qwen-14b:
+        - codellama
+        - qwen-7b
+    # Research tasks: Kimi → Pro → Flash
+    - kimi:
+        - gemini-pro
+        - gemini-flash
   set_verbose: false
   drop_params: true
   request_timeout: 120
