@@ -282,7 +282,77 @@ services:
       - empire-net
 
   # ═══════════════════════════════════════════
-  # 8. TRAEFIK - Reverse Proxy + TLS
+  # 8. OPENCLAW GATEWAY - Web Chat + Agent Runtime
+  #    Access: http://SERVER_IP:18789/?token=YOUR_TOKEN
+  #    Secure: Use SSH tunnel for production access
+  # ═══════════════════════════════════════════
+  openclaw-gateway:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-gateway
+    ports:
+      - "18789:18789"
+      - "18790:18790"
+    volumes:
+      - openclaw_data:/home/node/.openclaw
+      - ../openclaw-config/models.json:/home/node/.openclaw/agents/main/models.json:ro
+      - ../openclaw-config/settings.json:/home/node/.openclaw/agents/main/settings.json:ro
+      - ../openclaw-config/jobs.json:/home/node/.openclaw/agents/main/jobs.json:ro
+      - ../openclaw-config/AGENTS.md:/home/node/.openclaw/agents/main/AGENTS.md:ro
+      - ../openclaw-config/SOUL.md:/home/node/.openclaw/agents/main/SOUL.md:ro
+      - ../openclaw-config/USER.md:/home/node/.openclaw/agents/main/USER.md:ro
+      - ../openclaw-config/IDENTITY.md:/home/node/.openclaw/agents/main/IDENTITY.md:ro
+      - ../openclaw-config/TOOLS.md:/home/node/.openclaw/agents/main/TOOLS.md:ro
+      - ../openclaw-config/HEARTBEAT.md:/home/node/.openclaw/agents/main/HEARTBEAT.md:ro
+      - ../openclaw-config/LEAD_AGENT_PROMPT.md:/home/node/.openclaw/agents/main/LEAD_AGENT_PROMPT.md:ro
+      - ../openclaw-config/memory:/home/node/.openclaw/agents/main/memory
+      - openclaw_workspace:/home/node/workspace
+    environment:
+      - NODE_ENV=production
+      - OPENCLAW_SKIP_SERVICE_CHECK=true
+      - OPENAI_API_BASE=http://litellm:4000
+      - OLLAMA_API_KEY=ollama-local
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - MOONSHOT_API_KEY=${MOONSHOT_API_KEY:-}
+    command: ["gateway"]
+    depends_on:
+      ollama:
+        condition: service_healthy
+      litellm:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:18789/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 512M
+    networks:
+      - empire-net
+
+  # OpenClaw CLI (on-demand, for onboarding and admin)
+  openclaw-cli:
+    image: ghcr.io/openclaw/openclaw:latest
+    container_name: openclaw-cli
+    volumes:
+      - openclaw_data:/home/node/.openclaw
+      - openclaw_workspace:/home/node/workspace
+    environment:
+      - NODE_ENV=production
+      - OPENAI_API_BASE=http://litellm:4000
+      - OLLAMA_API_KEY=ollama-local
+    profiles:
+      - cli
+    networks:
+      - empire-net
+
+  # ═══════════════════════════════════════════
+  # 9. TRAEFIK - Reverse Proxy + TLS
   # ═══════════════════════════════════════════
   traefik:
     image: traefik:v3.3
@@ -367,6 +437,8 @@ volumes:
   ollama_models:
   redis_data:
   chroma_data:
+  openclaw_data:
+  openclaw_workspace:
   traefik_letsencrypt:
   prometheus_data:
   grafana_data:
