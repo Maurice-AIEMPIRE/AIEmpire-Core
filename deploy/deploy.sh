@@ -163,9 +163,14 @@ cmd_logs() {
     fi
 }
 
-# ─── Pull Ollama Models ──────────────────────────────────
+# ─── Pull Ollama Models (uses native Ollama, not Docker) ─
 cmd_ollama_pull() {
-    log "Pulling Ollama models for 64GB RAM server..."
+    log "Pulling Ollama models (native Ollama on host)..."
+
+    if ! command -v ollama &>/dev/null; then
+        err "ollama not found. Install from: curl -fsSL https://ollama.com/install.sh | sh"
+        return 1
+    fi
 
     local models=(
         "qwen2.5-coder:14b"
@@ -175,11 +180,11 @@ cmd_ollama_pull() {
 
     for model in "${models[@]}"; do
         log "Pulling $model..."
-        docker exec ollama ollama pull "$model" || warn "Failed to pull $model"
+        ollama pull "$model" || warn "Failed to pull $model"
     done
 
     log "Models installed:"
-    docker exec ollama ollama list
+    ollama list
 }
 
 # ─── Backup ──────────────────────────────────────────────
@@ -229,21 +234,18 @@ cmd_full_deploy() {
     docker compose -f "$COMPOSE_FILE" --env-file "$ENV_FILE" up -d --build
     log "Stack starting..."
 
-    # 3. Wait for Ollama to be healthy
-    log "Waiting for Ollama to be ready..."
-    local retries=0
-    while ! curl -sf http://localhost:11434/api/tags >/dev/null 2>&1; do
-        retries=$((retries + 1))
-        if [ $retries -gt 30 ]; then
-            warn "Ollama not ready after 60s, continuing anyway..."
-            break
-        fi
-        sleep 2
-    done
-    [ $retries -le 30 ] && log "Ollama is ready!"
+    # 3. Check native Ollama is running
+    log "Checking native Ollama (must be running on host)..."
+    if curl -sf http://localhost:11434/api/tags >/dev/null 2>&1; then
+        log "Native Ollama is ready!"
+    else
+        warn "Ollama not detected on port 11434."
+        warn "Start it with: ollama serve &"
+        warn "Install from: curl -fsSL https://ollama.com/install.sh | sh"
+    fi
 
     # 4. Pull Ollama models
-    log "Pulling AI models (this may take a few minutes on first run)..."
+    log "Pulling AI models via native Ollama..."
     cmd_ollama_pull
 
     # 5. Wait for all services
@@ -286,15 +288,23 @@ cmd_validate() {
     running=$(docker compose -f "$COMPOSE_FILE" ps --status running -q 2>/dev/null | wc -l)
     echo -e "  ${CYAN}INFO${NC}  $running containers running"
 
-    # Check Ollama models
+    # Check native Ollama
     if curl -sf http://localhost:11434/api/tags >/dev/null 2>&1; then
-        echo -e "  ${GREEN}OK${NC}  Ollama responding"
-        local models
-        models=$(docker exec ollama ollama list 2>/dev/null | tail -n +2 | wc -l)
-        echo -e "  ${CYAN}INFO${NC}  $models Ollama models installed"
+        echo -e "  ${GREEN}OK${NC}  Native Ollama responding (port 11434)"
+        if command -v ollama &>/dev/null; then
+            local models
+            models=$(ollama list 2>/dev/null | tail -n +2 | wc -l)
+            echo -e "  ${CYAN}INFO${NC}  $models Ollama models installed"
+        fi
     else
-        echo -e "  ${RED}FAIL${NC}  Ollama not responding"
-        errors=$((errors + 1))
+        echo -e "  ${YELLOW}WARN${NC}  Ollama not responding (start with: ollama serve)"
+    fi
+
+    # Check native OpenClaw
+    if curl -sf http://127.0.0.1:18789/health >/dev/null 2>&1; then
+        echo -e "  ${GREEN}OK${NC}  OpenClaw gateway healthy (port 18789)"
+    else
+        echo -e "  ${YELLOW}WARN${NC}  OpenClaw not responding (run: openclaw gateway &)"
     fi
 
     # Check LiteLLM
@@ -327,18 +337,25 @@ cmd_validate() {
     echo ""
 }
 
+# ─── Configure OpenClaw for Tailscale/iPhone access ──────
+cmd_configure_access() {
+    log "Configuring OpenClaw for Tailscale access (Mac + iPhone)..."
+    bash "$SCRIPT_DIR/configure_openclaw_access.sh"
+}
+
 # ─── Main ────────────────────────────────────────────────
 case "${1:-help}" in
-    setup)       cmd_setup ;;
-    start)       cmd_start ;;
-    stop)        cmd_stop ;;
-    update)      cmd_update ;;
-    status)      cmd_status ;;
-    logs)        cmd_logs "${2:-}" ;;
-    ollama-pull) cmd_ollama_pull ;;
-    backup)      cmd_backup ;;
-    full-deploy) cmd_full_deploy ;;
-    validate)    cmd_validate ;;
+    setup)            cmd_setup ;;
+    start)            cmd_start ;;
+    stop)             cmd_stop ;;
+    update)           cmd_update ;;
+    status)           cmd_status ;;
+    logs)             cmd_logs "${2:-}" ;;
+    ollama-pull)      cmd_ollama_pull ;;
+    backup)           cmd_backup ;;
+    full-deploy)      cmd_full_deploy ;;
+    validate)         cmd_validate ;;
+    configure-access) cmd_configure_access ;;
     restart)
         cmd_stop
         cmd_start
@@ -349,16 +366,17 @@ case "${1:-help}" in
         echo "Usage: $0 <command>"
         echo ""
         echo "Commands:"
-        echo "  full-deploy  One-command: start + pull models + validate (recommended)"
-        echo "  setup        First-time server setup (Docker, firewall, sysctl)"
-        echo "  start        Start all services"
-        echo "  stop         Stop all services"
-        echo "  restart      Stop + Start"
-        echo "  update       Git pull + rebuild containers"
-        echo "  status       Show service health + system resources"
-        echo "  validate     Run deployment validation checks"
-        echo "  logs [svc]   Tail logs (all or specific service)"
-        echo "  ollama-pull  Download Ollama models (qwen, deepseek)"
-        echo "  backup       Backup Redis + ChromaDB + configs"
+        echo "  full-deploy       One-command: start + pull models + validate (recommended)"
+        echo "  configure-access  Configure OpenClaw for Tailscale (Mac + iPhone access)"
+        echo "  setup             First-time server setup (Docker, firewall, sysctl)"
+        echo "  start             Start Docker services"
+        echo "  stop              Stop Docker services"
+        echo "  restart           Stop + Start"
+        echo "  update            Git pull + rebuild containers"
+        echo "  status            Show service health + system resources"
+        echo "  validate          Run deployment validation checks"
+        echo "  logs [svc]        Tail logs (all or specific service)"
+        echo "  ollama-pull       Download Ollama models (qwen, deepseek)"
+        echo "  backup            Backup Redis + ChromaDB + configs"
         ;;
 esac

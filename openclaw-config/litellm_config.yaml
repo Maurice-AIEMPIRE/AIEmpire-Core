@@ -9,21 +9,21 @@ model_list:
   - model_name: qwen-14b
     litellm_params:
       model: ollama/qwen2.5-coder:14b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
       timeout: 180
       stream: true
 
   - model_name: qwen-7b
     litellm_params:
       model: ollama/qwen2.5-coder:7b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
       timeout: 120
       stream: true
 
   - model_name: deepseek-r1
     litellm_params:
       model: ollama/deepseek-r1:7b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
       timeout: 180
       stream: true
 
@@ -32,21 +32,21 @@ model_list:
   - model_name: gemini-flash
     litellm_params:
       model: ollama/qwen2.5-coder:7b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
       timeout: 120
       stream: true
 
   - model_name: gemini-pro
     litellm_params:
       model: ollama/qwen2.5-coder:14b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
       timeout: 180
       stream: true
 
   - model_name: gemini-thinking
     litellm_params:
       model: ollama/deepseek-r1:7b
-      api_base: http://ollama:11434
+      api_base: http://host.docker.internal:11434
       timeout: 180
       stream: true
 
