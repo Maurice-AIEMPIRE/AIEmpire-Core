@@ -24,6 +24,7 @@ from typing import Optional
 MOONSHOT_API_URL = "https://api.moonshot.ai/v1/chat/completions"
 ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
 OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+LIBRA_API_URL = os.getenv("LIBRA_BASE_URL", "https://api.libratech.ai/v1")
 
 # ── All Known Environment Variables ────────────────────────────────────────
 _ENV_REGISTRY = {
@@ -64,6 +65,54 @@ _ENV_REGISTRY = {
     "TWITTER_ACCESS_SECRET": {"description": "Twitter/X access secret", "required": False},
     # Telegram
     "TELEGRAM_BOT_TOKEN": {"description": "Telegram bot token", "required": False},
+    # Hetzner Server
+    "HETZNER_HOST": {
+        "description": "Hetzner server hostname or IP",
+        "required": False,
+    },
+    "HETZNER_PORT": {
+        "description": "Hetzner SSH/SFTP port (default: 22)",
+        "required": False,
+        "default": "22",
+    },
+    "HETZNER_USER": {
+        "description": "Hetzner server username",
+        "required": False,
+    },
+    "HETZNER_PASSWORD": {
+        "description": "Hetzner server password (or use SSH key)",
+        "required": False,
+    },
+    "HETZNER_SSH_KEY_PATH": {
+        "description": "Path to SSH key for Hetzner (alternative to password)",
+        "required": False,
+    },
+    "HETZNER_REMOTE_PATH": {
+        "description": "Base path on Hetzner for legal documents (default: /legal)",
+        "required": False,
+        "default": "/legal",
+    },
+    # Libra Legal AI
+    "LIBRA_API_KEY": {
+        "description": "Libra Legal AI API key (libratech.ai)",
+        "required": False,
+    },
+    "LIBRA_BASE_URL": {
+        "description": "Libra API base URL (default: https://api.libratech.ai/v1)",
+        "required": False,
+        "default": "https://api.libratech.ai/v1",
+    },
+    "LIBRA_MODEL": {
+        "description": "Libra model to use (default: libra-legal)",
+        "required": False,
+        "default": "libra-legal",
+    },
+    # Ollama Legal Model
+    "OLLAMA_LEGAL_MODEL": {
+        "description": "Ollama model for legal analysis (default: gemma3:27b)",
+        "required": False,
+        "default": "gemma3:27b",
+    },
 }
 
 

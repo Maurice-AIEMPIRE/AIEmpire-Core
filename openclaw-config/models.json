@@ -136,9 +136,84 @@
           },
           "contextWindow": 32768,
           "maxTokens": 4096
+        },
+        {
+          "id": "gemma3:27b",
+          "name": "Gemma 3 27B (local, legal analysis)",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "maxTokens": 8192,
+          "_note": "Best free model for German legal analysis"
+        },
+        {
+          "id": "llama3.1:70b",
+          "name": "Llama 3.1 70B (local, legal reasoning)",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "maxTokens": 8192,
+          "_note": "Premium legal analysis, requires 40GB+ VRAM"
+        },
+        {
+          "id": "qwen2.5:32b",
+          "name": "Qwen 2.5 32B (local, multilingual legal)",
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 131072,
+          "maxTokens": 8192,
+          "_note": "Strong German language support for legal docs"
         }
       ],
       "apiKey": null
+    },
+    "libra": {
+      "baseUrl": "https://api.libratech.ai/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "libra-legal",
+          "name": "Libra Legal AI (EEA, GDPR compliant)",
+          "reasoning": true,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "contextWindow": 128000,
+          "maxTokens": 8192,
+          "_note": "Free trial - Wolters Kluwer legal AI with Noxtua model"
+        }
+      ],
+      "apiKey": "LIBRA_API_KEY"
     },
     "vertex-ai": {
       "baseUrl": "https://${GOOGLE_CLOUD_REGION}-aiplatform.googleapis.com/v1",

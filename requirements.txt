@@ -27,3 +27,21 @@ google-cloud-aiplatform>=1.40.0
 
 # Anthropic Claude API
 anthropic>=0.25.0
+
+# --- Legal Document Processing Pipeline ---
+# PDF text extraction (native)
+PyMuPDF>=1.24.0
+
+# PDF text extraction (fallback)
+pdfplumber>=0.11.0
+
+# Office documents (DOCX, XLSX)
+python-docx>=1.1.0
+openpyxl>=3.1.0
+
+# OCR for scanned documents
+pytesseract>=0.3.10
+Pillow>=10.0.0
+
+# SFTP/SSH for Hetzner NAS sync
+paramiko>=3.4.0
