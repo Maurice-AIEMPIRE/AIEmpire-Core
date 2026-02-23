@@ -36,6 +36,22 @@ model_list:
       model: ollama/deepseek-r1:7b
       api_base: http://ollama:11434
 
+  # ─── Anthropic / Claude (Cost-Effective Cloud) ──────────────
+  - model_name: claude-sonnet
+    litellm_params:
+      model: anthropic/claude-sonnet-4-6-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+  - model_name: claude-opus
+    litellm_params:
+      model: anthropic/claude-opus-4-6-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY
+
+  - model_name: claude-haiku
+    litellm_params:
+      model: anthropic/claude-haiku-4-5-20250514
+      api_key: os.environ/ANTHROPIC_API_KEY
+
   # ─── Moonshot/Kimi (Backup Cloud) ───────────────────────────
   - model_name: kimi
     litellm_params:
@@ -55,14 +71,27 @@ router_settings:
 litellm_settings:
   fallbacks:
     - gemini-flash:
+        - claude-sonnet
         - qwen-7b
         - kimi
     - gemini-pro:
+        - claude-sonnet
         - qwen-14b
         - kimi
     - gemini-thinking:
+        - claude-sonnet
         - deepseek-r1
         - qwen-14b
+    - claude-sonnet:
+        - gemini-flash
+        - qwen-14b
+        - kimi
+    - claude-opus:
+        - claude-sonnet
+        - gemini-pro
+    - claude-haiku:
+        - qwen-7b
+        - kimi
   set_verbose: false
   drop_params: true
   request_timeout: 120

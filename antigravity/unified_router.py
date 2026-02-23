@@ -4,10 +4,13 @@ Unified AI Router
 Routes tasks to the best available provider:
   1. Gemini (cloud, fast, smart) — primary for complex tasks
   2. Ollama (local, free, offline) — fallback & coding tasks
-  3. Moonshot/Kimi (cloud, free tier) — backup
+  3. Anthropic/Claude (cloud, Sonnet for daily automation, Opus for critical) — cost-effective
+  4. Moonshot/Kimi (cloud, free tier) — backup
 
-Implements automatic failover: if Gemini is down or rate-limited,
-falls back to Ollama. If Ollama is offline, tries Moonshot.
+Implements automatic failover: if primary is down or rate-limited,
+falls through the priority chain. Claude Sonnet 4.6 provides strong
+multi-step reasoning at lower cost than premium models — ideal for
+OpenClaw agent workflows.
 """
 
 import asyncio
@@ -18,7 +21,14 @@ import time
 from dataclasses import dataclass, field
 from typing import Any, Optional
 
-from antigravity.config import AGENTS, AgentConfig
+from antigravity.config import (
+    AGENTS,
+    AgentConfig,
+    ANTHROPIC_API_KEY,
+    CLAUDE_SONNET,
+    CLAUDE_OPUS,
+    CLAUDE_HAIKU,
+)
 
 
 # ─── Provider Status ────────────────────────────────────────────────
@@ -39,7 +49,7 @@ class RouterConfig:
     """Configuration for the unified router."""
     # Provider priority (first available wins)
     provider_priority: list[str] = field(
-        default_factory=lambda: ["gemini", "ollama", "moonshot"]
+        default_factory=lambda: ["gemini", "ollama", "anthropic", "moonshot"]
     )
     # Task-specific overrides
     task_routing: dict[str, str] = field(
@@ -52,6 +62,10 @@ class RouterConfig:
             "fix": "gemini",
             # QA with thinking → Gemini Thinking
             "qa": "gemini",
+            # Critical decisions → Claude Sonnet 4.6 (cost-effective multi-step)
+            "critical": "anthropic",
+            # Strategic planning → Claude Sonnet 4.6
+            "planning": "anthropic",
             # Offline mode → everything local
         }
     )
@@ -78,6 +92,7 @@ class UnifiedRouter:
         self.providers: dict[str, ProviderStatus] = {
             "gemini": ProviderStatus(name="gemini"),
             "ollama": ProviderStatus(name="ollama"),
+            "anthropic": ProviderStatus(name="anthropic"),
             "moonshot": ProviderStatus(name="moonshot"),
         }
         self._gemini_client = None
@@ -128,6 +143,13 @@ class UnifiedRouter:
         except Exception:
             self.providers["ollama"].available = False
             results["ollama"] = False
+
+        # Check Anthropic/Claude (API key check)
+        if not self.config.offline_mode:
+            anthropic_key = ANTHROPIC_API_KEY
+            self.providers["anthropic"].available = bool(anthropic_key)
+            self.providers["anthropic"].last_check = time.time()
+            results["anthropic"] = bool(anthropic_key)
 
         # Check Moonshot (simple HTTP check)
         if not self.config.offline_mode:
@@ -224,6 +246,8 @@ class UnifiedRouter:
                     result = await self._execute_gemini(agent, prompt, context)
                 elif provider == "ollama":
                     result = await self._execute_ollama(agent, prompt, context)
+                elif provider == "anthropic":
+                    result = await self._execute_anthropic(agent, prompt, context)
                 elif provider == "moonshot":
                     result = await self._execute_moonshot(agent, prompt, context)
                 else:
@@ -279,6 +303,68 @@ class UnifiedRouter:
         """Execute via local Ollama."""
         client = self._get_ollama_client()
         return await asyncio.to_thread(client.chat, agent, prompt, context)
+
+    async def _execute_anthropic(
+        self, agent: AgentConfig, prompt: str, context: Optional[str]
+    ) -> dict[str, Any]:
+        """Execute via Anthropic Claude API (Sonnet 4.6 default, Opus for critical)."""
+        import httpx
+
+        api_key = ANTHROPIC_API_KEY
+        if not api_key:
+            raise ConnectionError("ANTHROPIC_API_KEY not set")
+
+        # Select model: Sonnet 4.6 for daily tasks, Opus for critical
+        model = CLAUDE_SONNET
+        if agent.role in ("architect",) and agent.temperature <= 0.1:
+            model = CLAUDE_SONNET  # Still Sonnet — Opus only via explicit escalation
+
+        messages = []
+        if context:
+            messages.append({"role": "user", "content": f"KONTEXT:\n```\n{context}\n```"})
+        messages.append({"role": "user", "content": prompt})
+
+        payload = {
+            "model": model,
+            "max_tokens": agent.max_tokens,
+            "system": agent.system_prompt,
+            "messages": messages,
+        }
+        # Anthropic API does not use a temperature of 0.0 the same way;
+        # only include if non-default
+        if agent.temperature > 0.0:
+            payload["temperature"] = agent.temperature
+
+        async with httpx.AsyncClient(timeout=120.0) as client:
+            response = await client.post(
+                "https://api.anthropic.com/v1/messages",
+                json=payload,
+                headers={
+                    "x-api-key": api_key,
+                    "anthropic-version": "2023-06-01",
+                    "Content-Type": "application/json",
+                },
+            )
+            response.raise_for_status()
+            data = response.json()
+
+        # Extract text from content blocks
+        content_blocks = data.get("content", [])
+        content = "".join(
+            block.get("text", "") for block in content_blocks if block.get("type") == "text"
+        )
+        usage = data.get("usage", {})
+
+        return {
+            "content": content,
+            "model": model,
+            "usage": {
+                "prompt_tokens": usage.get("input_tokens", 0),
+                "completion_tokens": usage.get("output_tokens", 0),
+                "total_tokens": usage.get("input_tokens", 0) + usage.get("output_tokens", 0),
+            },
+            "raw_response": data,
+        }
 
     async def _execute_moonshot(
         self, agent: AgentConfig, prompt: str, context: Optional[str]
@@ -404,8 +490,12 @@ Examples:
   python unified_router.py run code "Add retry logic to API client"
   python unified_router.py test
 
+Task Types:
+  architecture, fix, code, qa, critical, planning
+
 Environment:
   GEMINI_API_KEY       → Google Gemini API key
+  ANTHROPIC_API_KEY    → Anthropic Claude API key (Sonnet 4.6 / Opus)
   GOOGLE_CLOUD_PROJECT → Vertex AI project ID
   MOONSHOT_API_KEY     → Moonshot/Kimi API key
   OLLAMA_BASE_URL      → Ollama server (default: localhost:11434)

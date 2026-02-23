@@ -90,6 +90,11 @@ GEMINI_FLASH = "gemini-2.0-flash"
 GEMINI_PRO = "gemini-2.0-pro"
 GEMINI_FLASH_THINKING = "gemini-2.0-flash-thinking"
 
+# Cloud models (Anthropic / Claude)
+CLAUDE_SONNET = "claude-sonnet-4-6-20250514"
+CLAUDE_OPUS = "claude-opus-4-6-20250514"
+CLAUDE_HAIKU = "claude-haiku-4-5-20250514"
+
 # ─── Project Paths ──────────────────────────────────────────────────
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ANTIGRAVITY_DIR = os.path.join(PROJECT_ROOT, "antigravity")
