@@ -23,12 +23,7 @@ chat_history/
 n8n/
 
 # Sensible Legal-Daten — NIEMALS committen/pushen!
-legal/timeline/
-legal/evidence/
-legal/claims/
-legal/strategy/
-legal/memos/
-legal/drafts/
+legal/
 data/inbox/
 data/processed/
 data/exports/
