@@ -525,8 +525,6 @@ if __name__ == "__main__":
 
     if args.stats:
         show_stats()
-    elif args.legal_report:
-        export_legal_report()
     elif args.scan:
         config = load_config()
         if args.all_folders:
