@@ -1,0 +1,33 @@
+[Unit]
+Description=Galaxia OS System Watchdog - Health Monitor & Auto-Restart
+After=network-online.target redis.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/galaxia/watchdog
+EnvironmentFile=/opt/galaxia/watchdog/.env
+Environment="PYTHONUNBUFFERED=1"
+
+ExecStart=/usr/bin/python3 /opt/galaxia/watchdog/watchdog.py
+
+# Auto-restart on failure
+Restart=always
+RestartSec=5
+StartLimitInterval=60
+StartLimitBurst=3
+
+# Resource limits (monitor only, needs more CPU for restarts)
+MemoryLimit=512M
+CPUQuota=20%
+
+# Security
+NoNewPrivileges=true
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=galaxia-watchdog
+
+[Install]
+WantedBy=multi-user.target

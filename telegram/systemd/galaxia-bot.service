@@ -1,0 +1,38 @@
+[Unit]
+Description=Galaxia OS Telegram Bot Control System
+Documentation=https://github.com/Maurice-AIEMPIRE/AIEmpire-Core
+After=network-online.target redis.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/galaxia/bot
+EnvironmentFile=/opt/galaxia/bot/.env
+Environment="PYTHONUNBUFFERED=1"
+
+ExecStart=/usr/bin/python3 /opt/galaxia/bot/bot.py
+
+# Auto-restart on failure
+Restart=always
+RestartSec=5
+StartLimitInterval=60
+StartLimitBurst=5
+
+# Resource limits
+MemoryLimit=1G
+CPUQuota=50%
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/log/galaxia-bot /var/lib/galaxia-bot
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=galaxia-bot
+
+[Install]
+WantedBy=multi-user.target
