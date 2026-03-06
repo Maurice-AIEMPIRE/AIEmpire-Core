@@ -1,7 +1,6 @@
-python-telegram-bot==21.0
-asyncio-contextmanager==1.0.0
-httpx==0.25.0
-redis==5.0.0
-python-dotenv==1.0.0
-aioredis==2.0.1
-pydantic==2.5.0
+python-telegram-bot>=21.0
+httpx>=0.24.0
+redis>=5.0.0
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+psutil>=5.9.0
