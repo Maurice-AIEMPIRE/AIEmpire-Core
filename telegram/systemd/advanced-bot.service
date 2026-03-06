@@ -1,0 +1,27 @@
+[Unit]
+Description=Advanced Telegram Bot with NLU + Agent Routing
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/user/AIEmpire-Core/telegram
+ExecStart=/usr/bin/python3 /home/user/AIEmpire-Core/telegram/advanced_bot.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=advanced-bot
+Environment="PYTHONUNBUFFERED=1"
+
+# Resource limits
+MemoryMax=512M
+CPUQuota=50%
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
