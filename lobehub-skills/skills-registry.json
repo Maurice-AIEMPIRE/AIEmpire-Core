@@ -1,0 +1,280 @@
+{
+  "$schema": "https://registry.lobe.ai/v1/skills/schema",
+  "version": "1.0.0",
+  "registry": {
+    "namespace": "aiempire",
+    "name": "AIEmpire Skills Registry",
+    "description": "Official registry for AIEmpire distributed skills",
+    "url": "https://github.com/Maurice-AIEMPIRE/AIEmpire-Core",
+    "maintainer": "Maurice Pfeifer"
+  },
+  "skills": {
+    "nucleus": {
+      "id": "aiempire/nucleus",
+      "name": "NUCLEUS",
+      "type": "orchestrator",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Empire Orchestrator - Routes tasks to correct teams with quality gates",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/nucleus/SKILL.md",
+      "category": "operations",
+      "tags": ["orchestration", "routing", "quality-gates", "state-management"],
+      "inputs": {
+        "task": {
+          "type": "string",
+          "description": "Natural language task description or structured command"
+        },
+        "context": {
+          "type": "object",
+          "description": "Pipeline state and agent registry"
+        }
+      },
+      "outputs": {
+        "routing": {
+          "type": "object",
+          "description": "Task routing decisions and team assignments"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["ROUTED", "QUEUED", "ESCALATED"]
+        }
+      },
+      "triggers": ["[STATUS]", "[SPAWN]", "[EXPORT]", "multi-team"],
+      "dependencies": [],
+      "performance": {
+        "concurrency": 10,
+        "timeout_ms": 30000,
+        "cache": true
+      }
+    },
+    "legal-timeline": {
+      "id": "aiempire/legal-timeline",
+      "name": "Legal Timeline Builder",
+      "type": "analyzer",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Build chronological case timelines with facts and critical dates",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-timeline/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "timeline", "chronology", "evidence"],
+      "team": "legal",
+      "triggers": ["timeline", "chronology", "dates", "case-history"]
+    },
+    "legal-evidence": {
+      "id": "aiempire/legal-evidence",
+      "name": "Legal Evidence Librarian",
+      "type": "analyzer",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Organize, categorize, and retrieve legal evidence",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-evidence/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "evidence", "document-management", "organization"],
+      "team": "legal",
+      "triggers": ["evidence", "document", "proof", "exhibit"]
+    },
+    "legal-claims": {
+      "id": "aiempire/legal-claims",
+      "name": "Legal Claims/Defense Matrix Analyst",
+      "type": "analyzer",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Analyze and defend against legal claims with matrix analysis",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-claims/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "claims", "defense", "analysis"],
+      "team": "legal",
+      "triggers": ["claim", "defense", "allegation", "lawsuit"]
+    },
+    "legal-opponent": {
+      "id": "aiempire/legal-opponent",
+      "name": "Legal Opponent Behavior Analyst",
+      "type": "analyzer",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Analyze opponent behavior patterns and predict strategies",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-opponent/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "opponent", "behavior-analysis", "prediction"],
+      "team": "legal",
+      "triggers": ["opponent", "adversary", "behavior", "strategy"]
+    },
+    "legal-caselaw": {
+      "id": "aiempire/legal-caselaw",
+      "name": "Legal Case Law Scout",
+      "type": "researcher",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Find relevant precedent and case law",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-caselaw/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "caselaw", "precedent", "research"],
+      "team": "legal",
+      "triggers": ["caselaw", "precedent", "similar-cases"]
+    },
+    "legal-risk": {
+      "id": "aiempire/legal-risk",
+      "name": "Legal Risk Officer",
+      "type": "analyzer",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Assess and mitigate legal risks",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-risk/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "risk", "mitigation", "compliance"],
+      "team": "legal",
+      "triggers": ["risk", "threat", "mitigation", "exposure"]
+    },
+    "legal-settlement": {
+      "id": "aiempire/legal-settlement",
+      "name": "Legal Settlement/Negotiation Strategist",
+      "type": "strategist",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Develop settlement and negotiation strategies",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-settlement/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "settlement", "negotiation", "strategy"],
+      "team": "legal",
+      "triggers": ["settlement", "negotiation", "mediation", "agreement"]
+    },
+    "legal-summary": {
+      "id": "aiempire/legal-summary",
+      "name": "Legal Executive Summary",
+      "type": "summarizer",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Create executive summaries of legal cases and findings",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-summary/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "summary", "executive", "reporting"],
+      "team": "legal",
+      "triggers": ["summary", "executive", "report", "overview"]
+    },
+    "legal-consistency": {
+      "id": "aiempire/legal-consistency",
+      "name": "Legal Consistency Checker",
+      "type": "validator",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Verify consistency and coherence of legal arguments",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-consistency/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "consistency", "validation", "quality-assurance"],
+      "team": "legal",
+      "triggers": ["consistency", "validate", "check", "verify"]
+    },
+    "legal-drafting": {
+      "id": "aiempire/legal-drafting",
+      "name": "Legal Drafting Specialist",
+      "type": "generator",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Draft legal documents with precision and compliance",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/legal-drafting/SKILL.md",
+      "category": "legal",
+      "tags": ["legal", "drafting", "documents", "generation"],
+      "team": "legal",
+      "triggers": ["draft", "document", "letter", "brief"]
+    },
+    "sales-leadgen": {
+      "id": "aiempire/sales-leadgen",
+      "name": "Sales Lead Generation",
+      "type": "generator",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Generate and qualify leads from multiple sources",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/sales-leadgen/SKILL.md",
+      "category": "sales",
+      "tags": ["sales", "leads", "generation", "qualification"],
+      "team": "sales",
+      "triggers": ["lead", "prospect", "outreach", "acquisition"]
+    },
+    "marketing-offers": {
+      "id": "aiempire/marketing-offers",
+      "name": "Marketing Offers Specialist",
+      "type": "strategist",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Design and optimize offers and campaigns",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/marketing-offers/SKILL.md",
+      "category": "marketing",
+      "tags": ["marketing", "offers", "campaigns", "funnel"],
+      "team": "marketing",
+      "triggers": ["offer", "campaign", "marketing", "promotion"]
+    },
+    "data-ops": {
+      "id": "aiempire/data-ops",
+      "name": "Data Ops Team Coordinator",
+      "type": "orchestrator",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Coordinate data pipeline and operations",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/data-ops/SKILL.md",
+      "category": "operations",
+      "tags": ["data", "operations", "pipeline", "coordination"],
+      "team": "data",
+      "triggers": ["data", "import", "export", "pipeline"]
+    },
+    "research-tools": {
+      "id": "aiempire/research-tools",
+      "name": "Research Team Coordinator",
+      "type": "researcher",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Coordinate research activities and tool evaluation",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/research-tools/SKILL.md",
+      "category": "research",
+      "tags": ["research", "tools", "analysis", "evaluation"],
+      "team": "research",
+      "triggers": ["research", "competitor", "benchmark", "tool"]
+    },
+    "ops-router": {
+      "id": "aiempire/ops-router",
+      "name": "Operations Engineering Router",
+      "type": "orchestrator",
+      "version": "1.0.0",
+      "enabled": true,
+      "description": "Route operational tasks to specialists",
+      "author": "AIEmpire-Core",
+      "manifest": ".claude/skills/ops-router/SKILL.md",
+      "category": "operations",
+      "tags": ["operations", "routing", "engineering", "deployment"],
+      "team": "ops",
+      "triggers": ["ops", "deploy", "health", "monitor"]
+    }
+  },
+  "distribution": {
+    "channels": {
+      "github": {
+        "enabled": true,
+        "url": "https://github.com/Maurice-AIEMPIRE/AIEmpire-Core/releases",
+        "format": "tar.gz"
+      },
+      "npm": {
+        "enabled": false,
+        "package": "@aiempire/skills"
+      },
+      "docker": {
+        "enabled": true,
+        "registry": "ghcr.io",
+        "image": "ghcr.io/maurice-aiempire/aiempire-skills"
+      }
+    }
+  }
+}

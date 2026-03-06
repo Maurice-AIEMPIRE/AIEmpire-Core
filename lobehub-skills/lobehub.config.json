@@ -1,0 +1,132 @@
+{
+  "version": "1.0.0",
+  "lobehub": {
+    "registry": "https://registry.lobe.ai",
+    "namespace": "aiempire",
+    "name": "AIEmpire-Core",
+    "version": "1.0.0",
+    "author": "Maurice Pfeifer",
+    "license": "MIT",
+    "repository": "https://github.com/Maurice-AIEMPIRE/AIEmpire-Core",
+    "homepage": "https://aiempire.dev"
+  },
+  "distribution": {
+    "enabled": true,
+    "channels": [
+      {
+        "name": "stable",
+        "type": "github-releases",
+        "url": "https://api.github.com/repos/Maurice-AIEMPIRE/AIEmpire-Core/releases"
+      },
+      {
+        "name": "docker",
+        "type": "docker-registry",
+        "url": "ghcr.io/maurice-aiempire/aiempire-skills",
+        "tags": ["latest", "stable", "dev"]
+      },
+      {
+        "name": "npm",
+        "type": "npm-registry",
+        "enabled": false,
+        "scope": "@aiempire"
+      }
+    ],
+    "auto_publish": {
+      "enabled": true,
+      "on_release": true,
+      "on_tag": true,
+      "pattern": "v*.*.*"
+    }
+  },
+  "skills": {
+    "auto_discovery": true,
+    "path": ".claude/skills",
+    "manifest_file": "SKILL.md",
+    "validation": {
+      "enabled": true,
+      "check_manifest": true,
+      "check_readme": false
+    }
+  },
+  "integrations": {
+    "telegram": {
+      "enabled": true,
+      "path": "telegram_bot",
+      "features": [
+        "skill-invocation",
+        "result-delivery",
+        "file-handling",
+        "multi-user"
+      ]
+    },
+    "github_actions": {
+      "enabled": true,
+      "workflows_path": ".github/workflows",
+      "auto_ci": true
+    },
+    "api": {
+      "enabled": true,
+      "port": 8080,
+      "base_path": "/api/v1"
+    }
+  },
+  "quality": {
+    "validation": {
+      "schema_check": true,
+      "manifest_check": true,
+      "trigger_validation": true
+    },
+    "testing": {
+      "enabled": true,
+      "run_before_publish": true
+    },
+    "documentation": {
+      "required": true,
+      "min_chars": 100
+    }
+  },
+  "deployment": {
+    "container": {
+      "enabled": true,
+      "base_image": "python:3.12-slim",
+      "registry": "ghcr.io",
+      "auto_build": true
+    },
+    "kubernetes": {
+      "enabled": false,
+      "helm_chart": false
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "metrics": [
+      "skill_invocations",
+      "execution_time",
+      "error_rate",
+      "user_satisfaction"
+    ],
+    "alerts": {
+      "error_threshold": 0.05,
+      "timeout_threshold": 30000
+    }
+  },
+  "security": {
+    "api_keys": {
+      "required": true,
+      "rotation": "90d"
+    },
+    "secret_scanning": {
+      "enabled": true,
+      "patterns": [
+        "TELEGRAM_BOT_TOKEN",
+        "API_KEY",
+        "SECRET",
+        "PASSWORD"
+      ]
+    },
+    "audit": {
+      "enabled": true,
+      "log_all_invocations": true
+    }
+  }
+}
