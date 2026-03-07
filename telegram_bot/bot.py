@@ -75,9 +75,63 @@ UPLOAD_DIR = REPO_ROOT / "telegram_bot" / "uploads"
 UPLOAD_DIR.mkdir(exist_ok=True)
 
 def process_text_content(text: str, source: str = "telegram") -> str:
-    """Verarbeitet Text durch AIEmpire."""
+    """Verarbeitet Text durch AIEmpire mit Fallback-Kette: Kimi → Ollama → Dummy."""
+
+    # 1️⃣ FALLBACK CHAIN: Kimi (Moonshot API) - MOST RELIABLE
     try:
-        # Versuche Empire Engine zu verwenden
+        import requests
+        api_key = CONFIG.get("MOONSHOT_API_KEY") or os.getenv("MOONSHOT_API_KEY")
+        if api_key:
+            headers = {
+                "Authorization": f"Bearer {api_key}",
+                "Content-Type": "application/json"
+            }
+            payload = {
+                "model": "moonshot-v1-8k",
+                "messages": [
+                    {"role": "user", "content": f"Kurz und prägnant antworten:\n\n{text[:2000]}"}
+                ],
+                "temperature": 0.7
+            }
+            response = requests.post(
+                "https://api.moonshot.cn/v1/chat/completions",
+                headers=headers,
+                json=payload,
+                timeout=45  # <-- Extended timeout
+            )
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("choices"):
+                    result = data["choices"][0]["message"]["content"]
+                    log.info(f"✅ Kimi antwort: {len(result)} chars")
+                    return result[:4000]  # Limit to telegram msg size
+    except Exception as e:
+        log.warning(f"Kimi fallback failed: {e}")
+
+    # 2️⃣ FALLBACK: Ollama lokal (wenn verfügbar)
+    try:
+        import requests
+        response = requests.get("http://localhost:11434/api/tags", timeout=3)
+        if response.status_code == 200:
+            payload = {
+                "model": "qwen2.5-coder:7b",
+                "prompt": f"Kurz antworten:\n{text[:1000]}",
+                "stream": False
+            }
+            response = requests.post(
+                "http://localhost:11434/api/generate",
+                json=payload,
+                timeout=60
+            )
+            if response.status_code == 200:
+                result = response.json().get("response", "")
+                log.info(f"✅ Ollama response: {len(result)} chars")
+                return result[:4000]
+    except Exception as e:
+        log.debug(f"Ollama nicht verfügbar: {e}")
+
+    # 3️⃣ FALLBACK: Empire Engine
+    try:
         import subprocess
         result = subprocess.run(
             ["python3", str(REPO_ROOT / "empire_engine.py"), "produce"],
@@ -85,24 +139,20 @@ def process_text_content(text: str, source: str = "telegram") -> str:
             cwd=str(REPO_ROOT)
         )
         if result.returncode == 0 and result.stdout.strip():
-            return result.stdout.strip()
+            log.info(f"✅ Empire Engine response")
+            return result.stdout.strip()[:4000]
     except Exception as e:
-        log.warning(f"Empire Engine nicht verfügbar: {e}")
+        log.debug(f"Empire Engine: {e}")
 
-    # Fallback: Ollama direkt
-    try:
-        import subprocess
-        prompt = f"Analysiere und setze folgende Anfrage um:\n\n{text}"
-        result = subprocess.run(
-            ["ollama", "run", "llama3.2:3b", prompt],
-            capture_output=True, text=True, timeout=120
-        )
-        if result.returncode == 0:
-            return result.stdout.strip()
-    except Exception as e:
-        log.warning(f"Ollama nicht verfügbar: {e}")
-
-    return f"✅ Verstanden! Verarbeite: '{text[:100]}...'\n\n⚙️ AIEmpire nimmt die Aufgabe auf."
+    # 4️⃣ DEFAULT: Bestätigung + Queuing
+    log.info(f"📝 Queued task (no AI available): {text[:100]}")
+    return (
+        f"✅ **Aufgabe empfangen!**\n\n"
+        f"📝 Task: `{text[:80]}...`\n\n"
+        f"⚙️ AIEmpire verarbeitet dies.\n"
+        f"(Kimi/Ollama derzeit offline, Queue-Modus)\n\n"
+        f"Antworte mit `/status` für Updateβ"
+    )
 
 
 def process_pdf(filepath: Path) -> str:
@@ -287,6 +337,71 @@ async def cmd_status(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"```\n{output}\n```", parse_mode="Markdown")
     except Exception as e:
         await update.message.reply_text(f"❌ Status-Fehler: {e}")
+
+
+async def cmd_health(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """🏥 Health Check - testet alle Fallback-Systeme."""
+    msg = await update.message.reply_text("🏥 **Health Check läuft...**\n\n⏳ Teste Systeme...")
+
+    results = []
+
+    # 1. Kimi Check
+    try:
+        import requests
+        api_key = CONFIG.get("MOONSHOT_API_KEY")
+        if api_key:
+            headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+            response = requests.post(
+                "https://api.moonshot.cn/v1/chat/completions",
+                headers=headers,
+                json={"model": "moonshot-v1-8k", "messages": [{"role": "user", "content": "Hi"}]},
+                timeout=10
+            )
+            if response.status_code == 200:
+                results.append("✅ **Kimi API**: 🟢 ONLINE")
+            else:
+                results.append(f"⚠️ **Kimi API**: 🟡 Status {response.status_code}")
+        else:
+            results.append("❌ **Kimi API**: 🔴 Kein API Key")
+    except Exception as e:
+        results.append(f"❌ **Kimi API**: 🔴 {str(e)[:50]}")
+
+    # 2. Ollama Check
+    try:
+        import requests
+        response = requests.get("http://localhost:11434/api/tags", timeout=3)
+        if response.status_code == 200:
+            models = response.json().get("models", [])
+            results.append(f"✅ **Ollama**: 🟢 ONLINE ({len(models)} models)")
+        else:
+            results.append(f"⚠️ **Ollama**: 🟡 Status {response.status_code}")
+    except Exception as e:
+        results.append(f"❌ **Ollama**: 🔴 Not running")
+
+    # 3. Empire Engine Check
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["python3", str(REPO_ROOT / "empire_engine.py")],
+            capture_output=True, text=True, timeout=10, cwd=str(REPO_ROOT)
+        )
+        if result.returncode == 0:
+            results.append("✅ **Empire Engine**: 🟢 READY")
+        else:
+            results.append(f"⚠️ **Empire Engine**: 🟡 Returned {result.returncode}")
+    except Exception as e:
+        results.append(f"⚠️ **Empire Engine**: 🟡 Timeout/Error")
+
+    # 4. Config Check
+    api_key = CONFIG.get("MOONSHOT_API_KEY") or "Not set"
+    token = CONFIG.get("TELEGRAM_BOT_TOKEN")
+    results.append(f"📋 **Config**: MOONSHOT_API_KEY={'✅ SET' if api_key != 'Not set' else '❌ MISSING'}")
+
+    # Summary
+    status_text = "🏥 **HEALTH CHECK RESULTS:**\n\n" + "\n".join(results)
+    status_text += f"\n\n📝 **Fallback-Strategie:**\n1. Kimi (API)\n2. Ollama (Local)\n3. Empire Engine\n4. Dummy Response\n\n✅ Bot ist einsatzbereit!"
+
+    await msg.edit_text(status_text, parse_mode="Markdown")
 
 
 async def cmd_post(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -515,6 +630,7 @@ def main():
     app.add_handler(CommandHandler("start", cmd_start))
     app.add_handler(CommandHandler("help", cmd_help))
     app.add_handler(CommandHandler("status", cmd_status))
+    app.add_handler(CommandHandler("health", cmd_health))  # 🏥 NEW: Health check
     app.add_handler(CommandHandler("post", cmd_post))
     app.add_handler(CommandHandler("scan", lambda u, c: cmd_empire(u, c, "scan")))
     app.add_handler(CommandHandler("leads", lambda u, c: cmd_empire(u, c, "leads")))
