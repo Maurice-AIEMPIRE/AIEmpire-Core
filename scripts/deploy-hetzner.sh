@@ -22,10 +22,16 @@ fi
 
 echo "✅ SSH Key found"
 
+# Handle IPv6 addresses (wrap in brackets for SSH)
+SSH_HOST="$VM_HOST"
+if [[ "$VM_HOST" =~ : ]]; then
+    SSH_HOST="[$VM_HOST]"
+fi
+
 # Test SSH Connection
 echo ""
 echo "Testing SSH connection..."
-if ! ssh -i "$SSH_KEY" -o ConnectTimeout=5 "$DEPLOY_USER@$VM_HOST" "echo 'SSH OK'" 2>/dev/null; then
+if ! ssh -i "$SSH_KEY" -o ConnectTimeout=5 "$DEPLOY_USER@$SSH_HOST" "echo 'SSH OK'" 2>/dev/null; then
     echo "❌ Cannot connect to $VM_HOST"
     exit 1
 fi
@@ -36,7 +42,7 @@ echo ""
 echo "Starting deployment..."
 echo ""
 
-ssh -i "$SSH_KEY" "$DEPLOY_USER@$VM_HOST" << 'REMOTE_COMMANDS'
+ssh -i "$SSH_KEY" "$DEPLOY_USER@$SSH_HOST" << 'REMOTE_COMMANDS'
 set -e
 
 echo "📦 Updating system..."
