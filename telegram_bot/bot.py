@@ -66,8 +66,10 @@ def load_config():
     return config
 
 CONFIG = load_config()
-TOKEN = CONFIG.get("TELEGRAM_BOT_TOKEN", "8659143190:AAHKV3b0s-j-Uuppol0tx_ET9aHPHAE3urw")
-ALLOWED_USERS = CONFIG.get("TELEGRAM_ALLOWED_USERS", "").split(",")  # Optional: User IDs einschränken
+TOKEN = CONFIG.get("TELEGRAM_BOT_TOKEN")
+if not TOKEN:
+    raise ValueError("❌ TELEGRAM_BOT_TOKEN muss in .env oder als Umgebungsvariable gesetzt sein!")
+ALLOWED_USERS = CONFIG.get("TELEGRAM_ALLOWED_USERS", "").split(",") if CONFIG.get("TELEGRAM_ALLOWED_USERS") else []
 
 # ─── File Handler ─────────────────────────────────────────────────────────────
 
