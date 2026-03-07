@@ -541,4 +541,12 @@ def main():
 
 
 if __name__ == "__main__":
+    # Fix Proxy für Telegram API
+    import os
+    current_no_proxy = os.environ.get("no_proxy", "")
+    telegram_domains = "api.telegram.org,api.telegram.bot"
+    if telegram_domains not in current_no_proxy:
+        os.environ["no_proxy"] = f"{current_no_proxy},{telegram_domains}".lstrip(",")
+        os.environ["NO_PROXY"] = os.environ["no_proxy"]
+
     main()
