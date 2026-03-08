@@ -1,0 +1,235 @@
+{
+  "version": "1.0.0",
+  "namespace": "aiempire",
+  "name": "AIEmpire Skills Suite",
+  "description": "Complete skill set for AIEmpire including Legal, Sales, Marketing, Data Ops, and Research teams",
+  "author": "Maurice Pfeifer / AIEmpire-Core",
+  "homepage": "https://github.com/Maurice-AIEMPIRE/AIEmpire-Core",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maurice-AIEMPIRE/AIEmpire-Core.git",
+    "branch": "claude/setup-lobehub-skills-3xEMa"
+  },
+  "keywords": [
+    "legal",
+    "sales",
+    "marketing",
+    "data-ops",
+    "research",
+    "ai-agents",
+    "orchestration",
+    "empire"
+  ],
+  "license": "MIT",
+  "teams": {
+    "legal": {
+      "name": "Legal Team",
+      "description": "Legal analysis, evidence management, settlement negotiations",
+      "skills": [
+        "legal-timeline",
+        "legal-evidence",
+        "legal-claims",
+        "legal-opponent",
+        "legal-caselaw",
+        "legal-risk",
+        "legal-settlement",
+        "legal-summary",
+        "legal-consistency",
+        "legal-drafting"
+      ]
+    },
+    "sales": {
+      "name": "Sales Team",
+      "description": "Lead generation, outreach, CRM, pipeline management",
+      "skills": ["sales-leadgen"]
+    },
+    "marketing": {
+      "name": "Marketing Team",
+      "description": "Offers, campaigns, content, funnel optimization",
+      "skills": ["marketing-offers"]
+    },
+    "data": {
+      "name": "Data Ops Team",
+      "description": "Data pipeline, import/export, indexing, deduplication",
+      "skills": ["data-ops"]
+    },
+    "research": {
+      "name": "Research Team",
+      "description": "Competitive analysis, trends, tool evaluation, benchmarks",
+      "skills": ["research-tools"]
+    },
+    "ops": {
+      "name": "Operations Team",
+      "description": "System orchestration, deployment, monitoring, health checks",
+      "skills": ["ops-router", "nucleus"]
+    }
+  },
+  "skills": [
+    {
+      "id": "nucleus",
+      "name": "NUCLEUS — Empire Orchestrator",
+      "description": "Central orchestrator routing tasks to correct teams with quality gates",
+      "path": ".claude/skills/nucleus",
+      "team": "ops",
+      "triggers": [
+        "[STATUS]",
+        "[SPAWN]",
+        "[EXPORT]",
+        "multi-team tasks"
+      ]
+    },
+    {
+      "id": "legal-timeline",
+      "name": "Legal Timeline Builder",
+      "description": "Build chronological case timelines with facts and dates",
+      "path": ".claude/skills/legal-timeline",
+      "team": "legal",
+      "triggers": ["timeline", "chronology", "dates"]
+    },
+    {
+      "id": "legal-evidence",
+      "name": "Legal Evidence Librarian",
+      "description": "Organize, categorize, and retrieve legal evidence",
+      "path": ".claude/skills/legal-evidence",
+      "team": "legal",
+      "triggers": ["evidence", "document", "proof"]
+    },
+    {
+      "id": "legal-claims",
+      "name": "Legal Claims/Defense Matrix",
+      "description": "Analyze and defend against legal claims",
+      "path": ".claude/skills/legal-claims",
+      "team": "legal",
+      "triggers": ["claim", "defense", "allegation"]
+    },
+    {
+      "id": "sales-leadgen",
+      "name": "Sales Lead Generation",
+      "description": "Generate and qualify sales leads from multiple sources",
+      "path": ".claude/skills/sales-leadgen",
+      "team": "sales",
+      "triggers": ["lead", "prospect", "outreach"]
+    },
+    {
+      "id": "marketing-offers",
+      "name": "Marketing Offers Specialist",
+      "description": "Design and optimize marketing offers and campaigns",
+      "path": ".claude/skills/marketing-offers",
+      "team": "marketing",
+      "triggers": ["offer", "campaign", "funnel"]
+    },
+    {
+      "id": "data-ops",
+      "name": "Data Ops Team Coordinator",
+      "description": "Data pipeline orchestration and management",
+      "path": ".claude/skills/data-ops",
+      "team": "data",
+      "triggers": ["data", "import", "export", "pipeline"]
+    },
+    {
+      "id": "research-tools",
+      "name": "Research Team Coordinator",
+      "description": "Competitive analysis and tool evaluation",
+      "path": ".claude/skills/research-tools",
+      "team": "research",
+      "triggers": ["research", "competitor", "benchmark", "tool"]
+    },
+    {
+      "id": "ops-router",
+      "name": "Operations Engineering Router",
+      "description": "Route operational tasks to correct specialists",
+      "path": ".claude/skills/ops-router",
+      "team": "ops",
+      "triggers": ["ops", "deploy", "health", "monitor"]
+    },
+    {
+      "id": "legal-caselaw",
+      "name": "Legal Case Law Scout",
+      "description": "Research precedents and relevant case law",
+      "path": ".claude/skills/legal-caselaw",
+      "team": "legal",
+      "triggers": ["caselaw", "precedent", "jurisprudence"]
+    },
+    {
+      "id": "legal-opponent",
+      "name": "Legal Opponent Behavior Analyst",
+      "description": "Analyze opponent behavior patterns and strategies",
+      "path": ".claude/skills/legal-opponent",
+      "team": "legal",
+      "triggers": ["opponent", "adversary", "behavior", "strategy"]
+    },
+    {
+      "id": "legal-risk",
+      "name": "Legal Risk Officer",
+      "description": "Assess legal risks and liability exposure",
+      "path": ".claude/skills/legal-risk",
+      "team": "legal",
+      "triggers": ["risk", "liability", "exposure", "assessment"]
+    },
+    {
+      "id": "legal-settlement",
+      "name": "Legal Settlement/Negotiation Strategist",
+      "description": "Develop settlement and negotiation strategies",
+      "path": ".claude/skills/legal-settlement",
+      "team": "legal",
+      "triggers": ["settlement", "negotiation", "mediation", "terms"]
+    },
+    {
+      "id": "legal-summary",
+      "name": "Legal Executive Summary",
+      "description": "Create concise legal case summaries and briefs",
+      "path": ".claude/skills/legal-summary",
+      "team": "legal",
+      "triggers": ["summary", "brief", "executive", "overview"]
+    },
+    {
+      "id": "legal-consistency",
+      "name": "Legal Consistency Checker",
+      "description": "Validate argument consistency and logical coherence",
+      "path": ".claude/skills/legal-consistency",
+      "team": "legal",
+      "triggers": ["consistency", "coherence", "contradiction", "logic"]
+    },
+    {
+      "id": "legal-drafting",
+      "name": "Legal Drafting Specialist",
+      "description": "Draft legal documents and contracts",
+      "path": ".claude/skills/legal-drafting",
+      "team": "legal",
+      "triggers": ["draft", "document", "contract", "clause"]
+    },
+    {
+      "id": "legal-warroom",
+      "name": "Legal Warroom",
+      "description": "Coordinate legal team for critical cases",
+      "path": ".claude/skills/legal-warroom",
+      "team": "legal",
+      "triggers": ["warroom", "crisis", "critical", "emergency"]
+    }
+  ],
+  "integrations": {
+    "telegram": {
+      "enabled": true,
+      "name": "Telegram Bot Integration",
+      "description": "Integration with Telegram for bot-based skill execution",
+      "config_path": "telegram_bot/config.json"
+    },
+    "slack": {
+      "enabled": false,
+      "name": "Slack Integration",
+      "description": "Future Slack integration for team collaboration"
+    },
+    "github": {
+      "enabled": true,
+      "name": "GitHub Integration",
+      "description": "GitHub Actions for skill CI/CD pipeline"
+    }
+  },
+  "metadata": {
+    "created": "2026-03-06",
+    "lastModified": "2026-03-07",
+    "totalSkills": 17,
+    "teams": 6,
+    "status": "production"
+  }
+}

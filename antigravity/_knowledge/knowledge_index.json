@@ -1,19 +1,23 @@
 {
-  "total_items": 7,
+  "total_items": 14,
   "by_type": {
-    "fix": 1,
-    "pattern": 2,
-    "architecture": 2,
-    "learning": 1,
-    "test": 1
+    "fix": 3,
+    "pattern": 3,
+    "architecture": 3,
+    "learning": 2,
+    "test": 1,
+    "decision": 2
   },
   "top_tags": {
-    "architecture": 2,
+    "architecture": 4,
+    "critical": 3,
+    "config": 2,
+    "routing": 2,
+    "models": 2,
+    "operational": 2,
     "bugfix": 1,
-    "config": 1,
     "gemini": 1,
     "crash": 1,
-    "critical": 1,
     "pattern": 1,
     "crash-safety": 1,
     "atomic-write": 1,
@@ -23,18 +27,17 @@
     "resource-management": 1,
     "crash-prevention": 1,
     "cost": 1,
-    "routing": 1,
-    "models": 1,
     "optimization": 1,
-    "workflow": 1,
-    "planning": 1
+    "workflow": 1
   },
   "by_source": {
     "crash-repair-2025": 3,
     "twitter-ryan-carson": 1,
     "system-design": 1,
     "google-antigravity": 1,
-    "pytest": 1
+    "pytest": 1,
+    "Claude Code - March 7 2026": 2,
+    "Claude Code": 5
   },
-  "last_updated": "2026-02-11T01:16:33.495188"
+  "last_updated": "2026-03-07T14:19:37.002571"
 }

@@ -1,0 +1,254 @@
+# LobeHub Skills Server Integration Configuration
+# Integrates all 17 AIEmpire Skills with the server runtime
+
+version: "1.0.0"
+integration_date: "2026-03-07"
+status: "active"
+
+# Server Settings
+server:
+  name: "AIEmpire LobeHub Server"
+  port: 8080
+  base_path: "/api/v1/skills"
+  environment: "production"
+  tls_enabled: true
+  cors_enabled: true
+
+# Skills Management
+skills:
+  discovery:
+    enabled: true
+    auto_register: true
+    path: ".claude/skills"
+    manifest_pattern: "SKILL.md"
+
+  registry:
+    file: "skills-registry.json"
+    validate_on_startup: true
+    sync_interval_seconds: 300
+
+  execution:
+    timeout_ms: 30000
+    max_concurrent: 10
+    queue_enabled: true
+    circuit_breaker: true
+
+# Orchestration (3 skills)
+orchestration:
+  - id: "nucleus"
+    enabled: true
+    priority: 1
+    role: "primary_orchestrator"
+    dependencies: []
+
+  - id: "data-ops"
+    enabled: true
+    priority: 2
+    role: "data_coordinator"
+    dependencies: []
+
+  - id: "ops-router"
+    enabled: true
+    priority: 2
+    role: "operations_router"
+    dependencies: ["nucleus"]
+
+# Legal Team (10 skills)
+legal_team:
+  enabled: true
+  coordinator: "legal-warroom"
+  skills:
+    - id: "legal-timeline"
+      enabled: true
+      tier: "core"
+      dependencies: ["legal-evidence"]
+
+    - id: "legal-evidence"
+      enabled: true
+      tier: "core"
+      dependencies: []
+
+    - id: "legal-claims"
+      enabled: true
+      tier: "core"
+      dependencies: ["legal-evidence", "legal-caselaw"]
+
+    - id: "legal-opponent"
+      enabled: true
+      tier: "core"
+      dependencies: ["legal-claims"]
+
+    - id: "legal-caselaw"
+      enabled: true
+      tier: "core"
+      dependencies: []
+
+    - id: "legal-risk"
+      enabled: true
+      tier: "core"
+      dependencies: ["legal-claims", "legal-caselaw"]
+
+    - id: "legal-settlement"
+      enabled: true
+      tier: "core"
+      dependencies: ["legal-claims", "legal-opponent"]
+
+    - id: "legal-summary"
+      enabled: true
+      tier: "core"
+      dependencies: ["legal-timeline", "legal-evidence"]
+
+    - id: "legal-consistency"
+      enabled: true
+      tier: "quality_gate"
+      dependencies: ["legal-drafting"]
+
+    - id: "legal-drafting"
+      enabled: true
+      tier: "core"
+      dependencies: ["legal-claims"]
+
+    - id: "legal-warroom"
+      enabled: true
+      tier: "coordinator"
+      dependencies: []
+
+# Sales & Marketing (2 skills)
+business_teams:
+  sales:
+    enabled: true
+    skills:
+      - id: "sales-leadgen"
+        enabled: true
+        tier: "core"
+        dependencies: []
+
+  marketing:
+    enabled: true
+    skills:
+      - id: "marketing-offers"
+        enabled: true
+        tier: "core"
+        dependencies: ["sales-leadgen"]
+
+# Research Team (1 skill)
+research_team:
+  enabled: true
+  skills:
+    - id: "research-tools"
+      enabled: true
+      tier: "core"
+      dependencies: []
+
+# Integration with Empire Systems
+integrations:
+  empire_engine:
+    enabled: true
+    endpoint: "http://localhost:8888"
+    sync_enabled: true
+    heartbeat_interval: 10
+
+  antigravity_router:
+    enabled: true
+    endpoint: "http://localhost:9000"
+    skill_routing: true
+    fallback_enabled: true
+
+  openclaw_agents:
+    enabled: true
+    endpoint: "http://localhost:18789"
+    agent_spawning: true
+    max_agents: 100
+
+  claude_api:
+    enabled: true
+    model: "claude-opus-4-6"
+    cost_tracking: true
+    rate_limiting: true
+
+# Monitoring & Logging
+monitoring:
+  enabled: true
+  metrics:
+    - skill_invocations
+    - execution_time
+    - error_rate
+    - queue_depth
+    - team_utilization
+
+  logging:
+    level: "INFO"
+    format: "json"
+    retention_days: 30
+    destinations:
+      - console
+      - file
+      - cloudwatch
+
+  alerts:
+    error_threshold: 0.05
+    timeout_threshold: 30000
+    queue_threshold: 100
+    channels:
+      - slack
+      - email
+
+# Security Configuration
+security:
+  api_keys:
+    required: true
+    rotation_days: 90
+    validation_enabled: true
+
+  rbac:
+    enabled: true
+    default_role: "user"
+    admin_role: "admin"
+
+  audit:
+    enabled: true
+    log_all_invocations: true
+    log_args: false
+    log_results: true
+
+# Performance Tuning
+performance:
+  caching:
+    enabled: true
+    ttl_seconds: 300
+    max_size_mb: 500
+
+  connection_pooling:
+    enabled: true
+    max_connections: 50
+    timeout_ms: 5000
+
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 1000
+    burst_size: 100
+
+# Deployment Configuration
+deployment:
+  container:
+    enabled: true
+    image: "ghcr.io/maurice-aiempire/aiempire-skills:latest"
+    registry: "ghcr.io"
+
+  orchestration:
+    platform: "docker-compose"
+    auto_restart: true
+    health_check_interval: 30
+
+  auto_scaling:
+    enabled: false
+    min_replicas: 1
+    max_replicas: 3
+
+# Feature Flags
+features:
+  experimental_skills: false
+  skill_versioning: true
+  dynamic_loading: true
+  skill_sandboxing: true
+  cross_team_collaboration: true

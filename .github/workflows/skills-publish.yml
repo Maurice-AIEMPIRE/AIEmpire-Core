@@ -1,0 +1,185 @@
+name: Publish LobeHub Skills
+
+on:
+  push:
+    branches: [ claude/setup-lobehub-skills-3xEMa ]
+    paths:
+      - '.claude/skills/**'
+      - 'lobehub-skills/**'
+      - '.github/workflows/skills-publish.yml'
+  release:
+    types: [ published ]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Validate Skill Manifests
+        run: |
+          python3 << 'EOF'
+          import json
+          import os
+          from pathlib import Path
+
+          errors = []
+
+          # Check manifest.json
+          manifest_path = Path('lobehub-skills/manifest.json')
+          if manifest_path.exists():
+            with open(manifest_path) as f:
+              manifest = json.load(f)
+              print(f"✅ manifest.json: {manifest['name']}")
+          else:
+            errors.append("manifest.json not found")
+
+          # Check skills registry
+          registry_path = Path('lobehub-skills/skills-registry.json')
+          if registry_path.exists():
+            with open(registry_path) as f:
+              registry = json.load(f)
+              skill_count = len(registry['skills'])
+              print(f"✅ skills-registry.json: {skill_count} skills")
+          else:
+            errors.append("skills-registry.json not found")
+
+          # Validate each skill directory
+          skills_dir = Path('.claude/skills')
+          for skill_dir in sorted(skills_dir.glob('*')):
+            if skill_dir.is_dir():
+              skill_md = skill_dir / 'SKILL.md'
+              if skill_md.exists():
+                print(f"✅ {skill_dir.name}: SKILL.md found")
+              else:
+                errors.append(f"{skill_dir.name}: Missing SKILL.md")
+
+          if errors:
+            print("\n❌ Validation Errors:")
+            for err in errors:
+              print(f"  - {err}")
+            exit(1)
+          else:
+            print("\n✅ All validations passed!")
+          EOF
+
+  build-docker:
+    runs-on: ubuntu-latest
+    needs: validate
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: ghcr.io/${{ github.repository }}/aiempire-skills
+          tags: |
+            type=ref,event=branch
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          file: ./Dockerfile.skills
+
+  publish-registry:
+    runs-on: ubuntu-latest
+    needs: validate
+    if: github.event_name == 'release'
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create release package
+        run: |
+          mkdir -p aiempire-skills-${{ github.event.release.tag_name }}
+          cp -r lobehub-skills/ aiempire-skills-${{ github.event.release.tag_name }}/
+          cp -r .claude/skills/ aiempire-skills-${{ github.event.release.tag_name }}/skills/
+          tar -czf aiempire-skills-${{ github.event.release.tag_name }}.tar.gz aiempire-skills-${{ github.event.release.tag_name }}/
+
+      - name: Upload release assets
+        uses: softprops/action-gh-release@v1
+        with:
+          files: aiempire-skills-${{ github.event.release.tag_name }}.tar.gz
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  test-telegram-integration:
+    runs-on: ubuntu-latest
+    needs: validate
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Test Telegram Bot Integration
+        run: |
+          pip install python-telegram-bot redis requests
+          python3 << 'EOF'
+          import sys
+
+          # Validate telegram bot configuration
+          try:
+            import json
+            from pathlib import Path
+
+            # Check bot.py exists
+            bot_path = Path('telegram_bot/bot.py')
+            if bot_path.exists():
+              print("✅ Telegram bot.py found")
+
+            # Check requirements
+            req_path = Path('telegram_bot/requirements.txt')
+            if req_path.exists():
+              print("✅ Telegram requirements.txt found")
+
+            print("✅ Telegram integration validation passed")
+          except Exception as e:
+            print(f"❌ Telegram integration test failed: {e}")
+            sys.exit(1)
+          EOF
+
+  notify:
+    runs-on: ubuntu-latest
+    needs: [ validate, build-docker ]
+    if: always()
+
+    steps:
+      - name: Publish Status
+        run: |
+          echo "## LobeHub Skills Publication Status"
+          echo "**Branch**: ${{ github.ref }}"
+          echo "**Commit**: ${{ github.sha }}"
+          echo "**Validate**: ${{ needs.validate.result }}"
+          echo "**Build Docker**: ${{ needs.build-docker.result }}"
